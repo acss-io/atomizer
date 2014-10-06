@@ -1,0 +1,31 @@
+{
+  "name": "atomic.css",
+  "version": "0.1.0",
+  "description": "A collection of single purpose styling units for maximum reuse.",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "~0.6.0",
+    "grunt-contrib-sass": "~0.8.1",
+    "grunt-newer": "~0.7.0",
+    "grunt-scss-lint": "~0.3.3",
+    "grunt-shell": "~1.1.1",
+    "load-grunt-tasks": "~0.6.0",
+    "time-grunt": "~1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yahoo/atomic.css.git"
+  },
+  "keywords": [
+    "atomic",
+    "css"
+  ],
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/yahoo/atomic.css/issues"
+  },
+  "homepage": "https://github.com/yahoo/atomic.css",
+  "scripts": {
+    "preinstall": "npm install -g bower"
+  }
+}

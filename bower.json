@@ -1,0 +1,26 @@
+{
+  "name": "atomic.css",
+  "version": "0.1.0",
+  "homepage": "https://github.com/yahoo/atomic.css",
+  "authors": [
+    "Renato Iwashima <renatoi@yahoo-inc.com>",
+    "Steve Carlson <yasteve@yahoo-inc.com>",
+    "Thierry Koblentz <thierryk@yahoo-inc.com>"
+  ],
+  "description": "A collection of single purpose styling units for maximum reuse.",
+  "main": "dist/atomic.css",
+  "keywords": [
+    "atomic",
+    "css",
+    "reuse",
+    "helpers"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
