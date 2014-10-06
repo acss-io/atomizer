@@ -83,12 +83,6 @@ module.exports = function(grunt) {
         'sass'
     ]);
 
-    // publish src to github page
-    grunt.registerTask('publish', [
-        'gh-pages'
-    ]);
-
-    // publish src to github page
     grunt.registerTask('lint', [
         'scsslint'
     ]);
