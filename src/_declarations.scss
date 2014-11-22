@@ -1,0 +1,1484 @@
+@import "config";
+
+/**
+ ==================================================================
+ BORDER
+ ==================================================================
+ */
+/**
+ * global reset declarations (i.e. ".Bd-0") - unlike specific ones (i.e. ".Bdb-0") - should come before any other declaration
+ */
+.Bd-0 {
+    border: 0;
+}
+
+.Bd-1 {
+    border-width: 1px;
+}
+
+.Bdx-1 {
+    border-left-width: 1px;
+    border-right-width: 1px;
+}
+
+.Bdy-1 {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.Bd-t {
+    border-top-width: 1px;
+}
+
+.Bd-end {
+    border-#{$end}-width: 1px;
+}
+
+.Bd-b {
+    border-bottom-width: 1px;
+}
+
+.Bd-start {
+    border-#{$start}-width: 1px;
+}
+
+.Bdt-0 {
+    border-top: 0;
+}
+
+.Bdend-0 {
+    border-#{$end}: 0;
+}
+
+.Bdb-0 {
+    border-bottom: 0;
+}
+
+.Bdstart-0 {
+    border-#{$start}: 0;
+}
+
+/**
+ ==================================================================
+ BORDER RADIUS
+ ==================================================================
+ */
+/**
+ * reset declarations (i.e. ".Bdrs-0") should come before any other declaration
+ */
+.Bdrs-0 {
+    border-radius: 0;
+}
+
+.Bdtrrs-0 {
+    border-top-#{$end}-radius: 0;
+}
+
+.Bdtlrs-0 {
+    border-top-#{$start}-radius: 0;
+}
+
+.Bdbrrs-0 {
+    border-bottom-#{$end}-radius: 0;
+}
+
+.Bdblrs-0 {
+    border-bottom-#{$start}-radius: 0;
+}
+
+/**
+ * very large radius (i.e. to create a 'pill box')
+ */
+.Bdrs-500 {
+    border-radius: 500px; /* 1 */
+}
+
+.Bdtrrs-500 {
+    border-top-#{$end}-radius: 500px;
+}
+
+.Bdtlrs-500 {
+    border-top-#{$start}-radius: 500px;
+}
+
+.Bdbrrs-500 {
+    border-bottom-#{$end}-radius: 500px;
+}
+
+.Bdblrs-500 {
+    border-bottom-#{$start}-radius: 500px;
+}
+
+/**
+ * border radius: 50%
+ */
+.Bdrs-50 {
+    border-radius: 50%;
+}
+
+.Bdtrrs-50 {
+    border-top-#{$end}-radius: 50%;
+}
+
+.Bdtlrs-50 {
+    border-top-#{$start}-radius: 50%;
+}
+
+.Bdbrrs-50 {
+    border-bottom-#{$end}-radius: 50%;
+}
+
+.Bdblrs-50 {
+    border-bottom-#{$start}-radius: 50%;
+}
+
+/**
+ * default border radius
+ */
+.Bdrs {
+    border-radius: $default-radius-value;
+}
+
+.Bdtrrs {
+    border-top-#{$end}-radius: $default-radius-value;
+}
+
+.Bdtlrs {
+    border-top-#{$start}-radius: $default-radius-value;
+}
+
+.Bdbrrs {
+    border-bottom-#{$end}-radius: $default-radius-value;
+}
+
+.Bdblrs {
+    border-bottom-#{$start}-radius: $default-radius-value;
+}
+
+/**
+ ==================================================================
+ FONT FAMILY (checked) suffix matches generic font-family
+ ==================================================================
+ */
+$Ff-suffix-values: (
+    s: (Georgia, "Times New Roman", serif),
+   ss: (Helvetica, Arial, sans-serif),
+    c: ("Monotype Corsiva", "Comic Sans MS", cursive),
+    f: (Capitals, Impact, fantasy),
+    m: (Monaco, "Courier New", monospace)
+);
+@each $Ff-suffix, $value in $Ff-suffix-values {
+    .Ff-#{$Ff-suffix} {
+        font-family: $value;
+    }
+}
+
+/**
+ * ============================================================================
+ * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+ *      http://docs.emmet.io/cheat-sheet/
+ * ============================================================================
+ */
+
+/**
+ *  NOTES:
+ *
+ *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
+ *  - look for top/right/bottom/left rules in the "offset" section
+ *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
+ *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
+ *  - TODO: bring consistency in the use of !important
+ */
+
+/**
+ ==================================================================
+ BACKGROUNDS
+ ==================================================================
+ */
+
+/* background-color/image "resets" */
+.Bg-n {
+    background: none;
+}
+
+.Bgc-t {
+    background-color: transparent;
+}
+
+.Bgi-n {
+    background-image: none;
+}
+
+/* background-color TODO: make this more clever than that */
+$Bgc-suffix-values: (
+    r: red,
+    g: green,
+    b: blue,
+   bl: black,
+   wh: white
+);
+@each $Bgc-suffix, $value in $Bgc-suffix-values {
+    .Bgc-#{$Bgc-suffix} {
+        background-color: $value;
+    }
+}
+
+/* background-clip */
+$Bgclip-suffix-values: (
+   bb: border-box,
+   pb: padding-box,
+   cb: content-box
+);
+@each $Bgclip-suffix, $value in $Bgclip-suffix-values {
+    .Bgclip-#{$Bgclip-suffix} {
+        background-clip: $value;
+    }
+}
+
+/* background-origin */
+$Bgo-suffix-values: (
+   bb: border-box,
+   pb: padding-box,
+   cb: content-box
+);
+@each $Bgo-suffix, $value in $Bgo-suffix-values {
+    .Bgo-#{$Bgo-suffix} {
+        background-origin: $value;
+    }
+}
+
+/* background-size (length would be customized) */
+$Bgs-suffix-values: (
+   a: auto,
+  ct: contain,
+  cv: cover
+);
+@each $Bgs-suffix, $value in $Bgs-suffix-values {
+    .Bgs-#{$Bgs-suffix} {
+        background-size: $value;
+    }
+}
+
+/* background-attachment */
+$Bga-suffix-values: (
+   f: fixed,
+   l: local,
+   s: scroll
+);
+@each $Bga-suffix, $value in $Bga-suffix-values {
+    .Bga-#{$Bga-suffix} {
+        background-attachment: $value;
+    }
+}
+
+/* background-position (s=start and e=end) */
+$Bgp-suffix-values: (
+   st: $start 0,
+   et: $end 0,
+   bs: $start 100%,
+   be: $end 100%
+);
+@each $Bgp-suffix, $value in $Bgp-suffix-values {
+    .Bgp-#{$Bgp-suffix} {
+        background-position: $value;
+    }
+}
+
+/* background-repeat */
+$Bgr-suffix-values: (
+   n: no-repeat,
+   x: repeat-x,
+   y: repeat-y,
+   r: repeat,
+   s: space,
+  ro: round
+);
+@each $Bgr-suffix, $value in $Bgr-suffix-values {
+    .Bgr-#{$Bgr-suffix} {
+        background-repeat: $value;
+    }
+}
+
+/**
+ ==================================================================
+ BORDER-COLLAPSE (checked)
+ ==================================================================
+ */
+
+$Bdcl-map-values:
+    (c: collapse,
+     s: separate,
+   inh: inherit);
+$Bdcl-valid-values: collapse, separate, inherit;
+$Bdcl-units: none;
+@include set-rules-for-map(Bdcl, border-collapse, $Bdcl-map-values, $Bdcl-valid-values, $Bdcl-units);
+
+/**
+ ==================================================================
+ BOX-SIZING (checked)
+ ==================================================================
+ */
+
+$Bxz-map-values:
+    (cb: content-box,
+     pb: padding-box,
+     bb: border-box,
+    inh: inherit);
+$Bxz-valid-values: content-box, padding-box, border-box, inherit;
+$Bxz-units: none;
+@include set-rules-for-map(Bxz, box-sizing, $Bxz-map-values, $Bxz-valid-values, $Bxz-units);
+
+/**
+ ==================================================================
+ BOX-SHADOW
+ ==================================================================
+ */
+
+.Bxsh-n {
+    box-shadow: none;
+}
+
+/**
+ ==================================================================
+ CLEAR (checked)
+ ==================================================================
+ */
+
+$Cl-map-values:
+    (n: none,
+     b: both,
+ start: $start,
+   end: $end,
+   inh: inherit);
+$Cl-valid-values: none, $start, $end, both, inherit;
+$Cl-units: none;
+@include set-rules-for-map(Cl, clear, $Cl-map-values, $Cl-valid-values, $Cl-units);
+
+
+/**
+ ==================================================================
+ CURSOR (checked)
+ TODO: how to deal with URIs?
+ ==================================================================
+ */
+
+$Cur-map-values:
+    (a: auto,
+     c: crosshair,
+     d: default,
+     p: pointer,
+     m: move,
+    er: e-resize,
+   ner: ne-resize,
+   nwr:  nw-resize,
+    nr: n-resize,
+   ser: se-resize,
+   swr:  sw-resize,
+    sr: s-resize,
+    wr:  w-resize,
+     t: text,
+     w: wait,
+     h: help,
+     pr: progress,
+   inh: inherit);
+$Cur-valid-values: uri, auto, crosshair, default, pointer, move, e-resize, ne-resize, nw-resize, n-resize, se-resize, sw-resize, s-resize, w-resize, text, wait, help, progress, inherit;
+$Cur-units: none;
+@include set-rules-for-map(Cur, cursor, $Cur-map-values, $Cur-valid-values, $Cur-units);
+
+/**
+ ==================================================================
+ DISPLAY (checked)
+ ==================================================================
+ */
+
+$D-map-values:
+    (n: none,
+    b: block,
+    f: flex,
+    i: inline,
+    ib: inline-block,
+    inh: inherit,
+    tb: table,
+    tbr: table-row,
+    tbc: table-cell,
+    li: list-item,
+    ri: run-in,
+    cp: compact,
+    itb: inline-table,
+    tbcl: table-column,
+    tbclg: table-column-group,
+    tbhg: table-header-group,
+    tbfg: table-footer-group,
+    tbrg: table-row-group
+);
+$D-valid-values: none, block, flex, inline, inline-block, inherit, table, table-row, table-cell, list-item, run-in,compact, inline-table, table-column, table-column-group, table-header-group, table-footer-group, table-row-group;
+$D-units: none;
+@include set-rules-for-map(D, display, $D-map-values, $D-valid-values, $D-units);
+
+/**
+ ==================================================================
+ FLEX
+ ==================================================================
+ */
+/* FLEX (checked)
+ * width values (i.e. 350px) cannot really be set here (as a generic value)
+ */
+$Fl-list-values: auto, none, 1, 2, 3, 4, 5, 6;
+$Fl-valid-values: number, auto, none;
+$Fl-units: none;
+@include set-rules-for-list(Fl, flex, $Fl-list-values, $Fl-valid-values, $Fl-units);
+
+/* FLEX-ALIGN (checked)  */
+$Fla-map-values: (s: start, e: end, c: center, b: baseline, st: stretch);
+$Fla-valid-values: start, end, center, baseline, stretch;
+$Fla-units: none;
+@include set-rules-for-map(Fla, flex-align, $Fla-map-values, $Fla-valid-values, $Fla-units);
+
+/* FLEX-DIRECTION (checked)  */
+$Fld-map-values: (r: row, rr: row-reverse, c: column, cr: column-reverse);
+$Fld-valid-values: row, row-reverse, column, column-reverse;
+$Fld-units: none;
+@include set-rules-for-map(Fld, flex-direction, $Fld-map-values, $Fld-valid-values, $Fld-units);
+
+/* FLEX-FLOW (checked)  */
+$Flf-map-values: (r: row, rr: row-reverse, c: column, cr: column-reverse, nw: nowrap, w: wrap, wr: wrap-reverse);
+$Flf-valid-values: row, row-reverse, column, column-reverse, nowrap, wrap, wrap-reverse;
+$Flf-units: none;
+@include set-rules-for-map(Flf, flex-flow, $Flf-map-values, $Flf-valid-values, $Flf-units);
+
+/* FLEX-ITEM-ALIGN (checked)  */
+$Flia-map-values: (a: auto, s: start, e: end, c: center, b: baseline, st: stretch);
+$Flia-valid-values: auto, start, end, center, baseline, stretch;
+$Flia-units: none;
+@include set-rules-for-map(Flia, flex-item-align, $Flia-map-values, $Flia-valid-values, $Flia-units);
+
+/* FLEX-LINE-PACK (checked)  */
+$Fllp-map-values: (s: start, e: end, c: center, j: justify, d: distribute, st: stretch);
+$Fllp-valid-values: start, end, center, justify, distribute, stretch;
+$Fllp-units: none;
+@include set-rules-for-map(Fllp, flex-line-pack, $Fllp-map-values, $Fllp-valid-values, $Fllp-units);
+
+/* FLEX-ORDER (checked)  */
+$Flo-list-values: 1, 2, 3, 4, 5, 6;
+$Flo-valid-values: number;
+$Flo-units: none;
+@include set-rules-for-list(Flo, flex-order, $Flo-list-values, $Flo-valid-values, $Flo-units);
+
+/* FLEX-PACK (checked)  */
+$Flp-map-values: (s: start, e: end, c: center, j: justify, d: distribute);
+$Flp-valid-values: start, end, center, justify, distribute;
+$Flp-units: none;
+@include set-rules-for-map(Flp, flex-pack, $Flp-map-values, $Flp-valid-values, $Flp-units);
+
+
+/* FLEX-WRAP (checked)  */
+$Flw-map-values: (nw: nowrap, w: wrap, wr: wrap-reverse);
+$Flw-valid-values: nowrap, wrap, wrap-reverse;
+$Flw-units: none;
+@include set-rules-for-map(Flw, flex-wrap, $Flw-map-values, $Flw-valid-values, $Flw-units);
+
+/**
+ ==================================================================
+ FLOAT (checked)
+ ==================================================================
+ */
+
+$Fl-map-values: ( n: none, start: $start, end: $end, inh: inherit);
+$Fl-valid-values: none, $start, $end, inherit;
+$Fl-units: none;
+@include set-rules-for-map(Fl, float, $Fl-map-values, $Fl-valid-values, $Fl-units);
+
+/**
+ ==================================================================
+ FONT-WEIGHT (checked)
+ ==================================================================
+ */
+
+$Fw-map-values: (n: normal, b: bold, br: bolder, lr: lighter, 100: 100, 200: 200, 300: 300, 400: 400, 500: 500, 600: 600, 700: 700, 800: 800, 900: 900, inh: inherit);
+$Fw-valid-values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit;
+$Fw-units: none;
+@include set-rules-for-map(Fw, font-weight, $Fw-map-values, $Fw-valid-values, $Fw-units);
+
+/**
+ ==================================================================
+ FONT-SIZE (checked but not using mm/cm/and other like that)
+ ==================================================================
+ */
+
+$Fz-list-values: 0, 11px, 12px, 13px, 14px, 15px, 16px, 17px, 18px, 19px, 20px, 21px, 22px;
+$Fz-valid-values: inherit, xx-small, x-small, small, smaller, medium, large, larger, x-large, xx-large, number;
+$Fz-units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
+
+@each $value in $Fz-list-values {
+    // we check if this is 0 or a keyword
+    @if index($Fz-valid-values, $value) or $value == 0 {
+        @if $value == 0 {
+            .Fz-0 {
+                font-size: 0;
+            }
+        }
+        @if $value == inherit {
+            .Fz-inh {
+                font-size: inherit;
+            }
+        }
+        @if $value == xx-small {
+            .Fz-xxs {
+                font-size: xx-small;
+            }
+        }
+        @if $value == x-small {
+            .Fz-xs {
+                font-size: x-small;
+            }
+        }
+        @if $value == small {
+            .Fz-s {
+                font-size: small;
+            }
+        }
+        @if $value == smaller {
+            .Fz-sr {
+                font-size: smaller;
+            }
+        }
+        @if $value == medium {
+            .Fz-m {
+                font-size: medium;
+            }
+        }
+        @if $value == large {
+            .Fz-l {
+                font-size: large;
+            }
+        }
+        @if $value == larger {
+            .Fz-lr {
+                font-size: larger;
+            }
+        }
+        @if $value == x-large {
+            .Fz-xl {
+                font-size: x-large;
+            }
+        }
+        @if $value == xx-large {
+            .Fz-xx-l {
+                font-size: xx-large;
+            }
+        }
+    } @else if type-of($value) == number {
+        // checking for absence of unit
+        @if unit($value) == ""  {
+            @error "Unit is missing.";
+        }
+        // checking if unit is valid
+        @if index($Fz-units, unquote(unit($value))) == null {
+            @error "Unit should be: " + $Fz-units;
+        }
+        .Fz-#{$index} {
+            font-size: #{$value};
+        }
+        $index: $index + 1;
+    } @else {
+        @error $value + " is not a valid value for Font-size. Valid values are: " + $Fz-valid-values;
+    }
+}
+
+/**
+ ==================================================================
+ FONT-STYLE
+ ==================================================================
+ */
+
+$Fs-map-values: (n: normal, i: italic);
+$Fs-valid-values: normal, italic;
+$Fs-units: none;
+@include set-rules-for-map(Fs, font-style, $Fs-map-values, $Fs-valid-values, $Fs-units);
+
+/**
+ ==================================================================
+ FONT-VARIANT
+ ==================================================================
+ */
+
+$Fv-map-values: (sc: small-caps, n: normal);
+$Fv-valid-values: small-caps, normal;
+$Fv-units: none;
+@include set-rules-for-map(Fv, font-variant, $Fv-map-values, $Fv-valid-values, $Fv-units);
+
+/**
+ ==================================================================
+ HEIGHT
+ ==================================================================
+ */
+
+$H-list-values: auto, inherit, 0, 20%, 50%, 75%, 100%;
+$H-valid-values: auto, inherit, number;
+$H-units: px, em, rem, "%";
+@each $H-list-value in $H-list-values {
+    @if type-of($H-list-value) == number and index($H-valid-values, number) {
+        @if unit($H-list-value) == '%' {
+            $suffix: strip-units($H-list-value);
+            .H-#{$suffix}\% {
+                height: $H-list-value;
+            }
+        } @else {
+            .H-#{$H-list-value} {
+                height: $H-list-value;
+            }
+        }
+    } @else if (index($H-valid-values, $H-list-value)) {
+        .H-#{$H-list-value} {
+            height: $H-list-value;
+        }
+    } @else {
+        @error "Authorized values are: " + $H-valid-values;
+    }
+}
+
+/**
+ ==================================================================
+ HYPHENS
+ ==================================================================
+ */
+
+$Hy-map-values: (n: none);
+$Hy-valid-values: none;
+$Hy-units: none;
+@include set-rules-for-map(Hy, hyphens, $Hy-map-values, $Hy-valid-values, $Hy-units);
+
+/**
+ ==================================================================
+ LIST-STYLE-TYPE (checked)
+ ==================================================================
+ */
+
+$List-map-values: (
+       n: none,
+     inh: inherit,
+       d: disc,
+       c: circle,
+       s: square,
+      dc: decimal,
+    dclz: decimal-leading-zero,
+      lr: lower-roman,
+      lg: lower-greek,
+      ll: lower-latin,
+      ur: upper-roman,
+      ul: upper-latin,
+       a: armenian,
+       g: georgian,
+      la: lower-alpha,
+      ua: upper-alpha
+);
+$List-valid-values: none, inherit, disc, circle, square, decimal, decimal-leading-zero, lower-roman, lower-greek, lower-latin, upper-roman, upper-latin, armenian, georgian, lower-alpha, upper-alpha;
+$List-units: none;
+@include set-rules-for-map(List, list-style-type, $List-map-values, $List-valid-values, $List-units);
+
+/**
+ ==================================================================
+ LIST-STYLE-IMAGE (checked) could we validate the URL?
+ ==================================================================
+ */
+
+$Lisi-suffix-value: (
+    n: none,
+    inh: inherit,
+    uri: "http://example.com/bullet.gif"
+);
+@each $Lisi-suffix, $value in $Lisi-suffix-value {
+  // if string starts with "http";
+  @if (str-index(#{$value}, "http")) {
+    .Lisi-#{$Lisi-suffix} {
+        list-style-image: url(#{$value}); /* */
+    }
+  } @else if ($value == none) or ($value == inherit) {
+    .Lisi-#{$Lisi-suffix} {
+        list-style-image: #{$value};
+    }
+  } @else {
+      @error "Value should be none, inherit, or a URI";
+  }
+}
+
+/**
+ ==================================================================
+ LINE-HEIGHT
+ ==================================================================
+ */
+
+$Lh-values: (normal, inherit, 0, .2, .4, .6, .8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3);
+
+@each $Lh-value in $Lh-values {
+    @if (type-of($Lh-value) == number or $Lh-value == normal or $Lh-value == inherit) {
+        $suffix: str-slice(#{$Lh-value}, 0, 1) + \. + str-slice(#{$Lh-value}, 3, 3);
+        @if (str-index(#{$Lh-value}, ".")) {
+            .Lh-#{$suffix} {
+                line-height: $Lh-value;
+            }
+        } @else if ($Lh-value == normal) {
+            .Lh-n {
+                line-height: $Lh-value;
+            }
+        } @else if ($Lh-value == inherit) {
+            .Lh-inh {
+                line-height: $Lh-value;
+            }
+        } @else {
+            .Lh-#{$Lh-value} {
+                line-height: $Lh-value;
+            }
+        }
+    } @else {
+        @error "The only possible values here are either a number, 'normal', or 'inherit'";
+    }
+}
+
+/**
+ ==================================================================
+ MARGINS
+ ==================================================================
+ */
+
+/**
+ * ALL EDGES (checked)
+ */
+
+$M-list-values: (inherit, auto, 0, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px);
+$M-valid-values: number, auto, inherit;
+$M-units: "%", px, rem, em;
+@include set-rules-for-list(M, margin, $M-list-values, $M-valid-values, $M-units);
+
+/**
+ * 'X' AXYS
+ */
+
+$Mx-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Mx-valid-values: auto, number;
+$Mx-units: px, em, rem;
+
+@each $Mx-list-value in $Mx-list-values {
+    @if index($Mx-valid-values, $Mx-list-value) or type-of($Mx-list-value) == number {
+        @if ($Mx-list-value == auto) {
+            .Mx-a {
+            margin-right: $Mx-list-value;
+            margin-left: $Mx-list-value;
+            }
+        } @else if ($Mx-list-value == 0) {
+            .Mx-#{$Mx-list-value} {
+            margin-right: $Mx-list-value;
+            margin-left: $Mx-list-value;
+            }
+        } @else {
+            // checking for proper unit
+            @if ($Mx-units != none) {
+                @if not (index($Mx-units, unit($Mx-list-value))) {
+                    @error "Value should be in: " + $Mx-units;
+                }
+            }
+            .Mx-#{$Mx-list-value} {
+            margin-right: $Mx-list-value;
+            margin-left: $Mx-list-value;
+            }
+        }
+    } @else {
+        @error "Valid values are: " + $Mx-valid-values;
+    }
+}
+
+/**
+ * 'Y' AXYS
+ */
+
+$My-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$My-valid-values: auto, number;
+$My-units: px, em, rem;
+
+@each $My-list-value in $My-list-values {
+    @if index($My-valid-values, $My-list-value) or type-of($My-list-value) == number {
+        @if ($My-list-value == auto) {
+            .My-a {
+            margin-top: $My-list-value;
+            margin-bottom: $My-list-value;
+            }
+        } @else if ($My-list-value == 0) {
+            .My-#{$My-list-value} {
+            margin-top: $My-list-value;
+            margin-bottom: $My-list-value;
+            }
+        } @else {
+            // checking for proper unit
+            @if ($My-units != none) {
+                @if not (index($My-units, unit($My-list-value))) {
+                    @error "Value should be in: " + $My-units;
+                }
+            }
+            .My-#{$My-list-value} {
+            margin-top: $My-list-value;
+            margin-bottom: $My-list-value;
+            }
+        }
+    } @else {
+        @error "Valid values are: " + $My-valid-values;
+    }
+}
+
+/**
+ * TOP
+ */
+
+$Mt-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+$Mt-valid-values: auto, number;
+$Mt-units: "%", px, rem, em;
+@include set-rules-for-list(Mt, margin-top, $Mt-list-values, $Mt-valid-values, $Mt-units);
+
+/* negative values */
+
+$Mt-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+$Mt-neg-valid-values: number;
+$Mt-neg-units: "%", px, rem, em;
+@include set-rules-for-list(Mt-neg, margin-top, $Mt-neg-list-values, $Mt-neg-valid-values, $Mt-neg-units);
+
+/**
+ * END (Right in LTR, Left in RTL)
+ */
+
+$Mend-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+$Mend-valid-values: auto, number;
+$Mend-units: "%", px, rem, em;
+@include set-rules-for-list(Mend, margin-#{$end}, $Mend-list-values, $Mend-valid-values, $Mend-units);
+
+/* negative values */
+
+$Mend-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+$Mend-neg-valid-values: number;
+$Mend-neg-units: "%", px, rem, em;
+@include set-rules-for-list(Mend-neg, margin-#{$end}, $Mend-neg-list-values, $Mend-neg-valid-values, $Mend-neg-units);
+
+/**
+ * BOTTOM
+ */
+
+$Mb-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+$Mb-valid-values: auto, number;
+$Mb-units: "%", px, rem, em;
+@include set-rules-for-list(Mb, margin-bottom, $Mb-list-values, $Mb-valid-values, $Mb-units);
+
+/* negative values */
+
+$Mb-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+$Mb-neg-valid-values: number;
+$Mb-neg-units: "%", px, rem, em;
+@include set-rules-for-list(Mb-neg, margin-bottom, $Mb-neg-list-values, $Mb-neg-valid-values, $Mb-neg-units);
+
+/**
+ * START (Left in LTR, Right in RTL)
+ */
+
+$Mstart-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+$Mstart-valid-values: auto, number;
+$Mstart-units: "%", px, rem, em;
+@include set-rules-for-list(Mstart, margin-#{$start}, $Mstart-list-values, $Mstart-valid-values, $Mstart-units);
+
+/* negative values */
+
+$Mstart-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+$Mstart-neg-valid-values: number;
+$Mstart-neg-units: "%", px, rem, em;
+@include set-rules-for-list(Mstart-neg, margin-#{$start}, $Mstart-neg-list-values, $Mstart-neg-valid-values, $Mstart-neg-units);
+
+/**
+ ==================================================================
+ MAX-HEIGHT (checked)
+ ==================================================================
+ */
+
+$Mah-list-values: none, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+$Mah-valid-values: none, inherit, number;
+$Mah-units: "%", px, rem, em;
+@include set-rules-for-list(Mah, max-height, $Mah-list-values, $Mah-valid-values, $Mah-units);
+
+/**
+ ==================================================================
+ MAX-WIDTH (checked)
+ ==================================================================
+ */
+
+$Maw-list-values: none, inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+$Maw-valid-values: none, inherit, number;
+$Maw-units: "%", px, rem, em;
+@include set-rules-for-list(Maw, max-width, $Maw-list-values, $Maw-valid-values, $Maw-units);
+
+/**
+ ==================================================================
+ MIN-HEIGHT (checked)
+ ==================================================================
+ */
+
+$Mih-list-values: inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+$Mih-valid-values: inherit, number;
+$Mih-units: "%", px, rem, em;
+@include set-rules-for-list(Mih, min-height, $Mih-list-values, $Mih-valid-values, $Mih-units);
+
+/**
+ ==================================================================
+ MIN-WIDTH (checked)
+ ==================================================================
+ */
+
+$Miw-list-values: inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+$Miw-valid-values: inherit, number;
+$Miw-units: "%", px, rem, em;
+@include set-rules-for-list(Miw, min-width, $Miw-list-values, $Miw-valid-values, $Miw-units);
+
+/**
+ ==================================================================
+ OUTLINE (reset mostly, no custom styling)
+ ==================================================================
+ */
+
+$O-list-values: 0, none, inherit;
+$O-valid-values: 0, none, inherit;
+$O-units: none;
+@include set-rules-for-list(O, outline, $O-list-values, $O-valid-values, $O-units);
+
+/**
+ ==================================================================
+ OFFSETS (checked)
+ ==================================================================
+ */
+
+/* TOP */
+$T-list-values: auto, inherit, 0, 50%, 100%;
+$T-valid-values: auto, inherit, number;
+$T-units: "%", px, rem, em;
+@include set-rules-for-list(T, top, $T-list-values, $T-valid-values, $T-units);
+
+/* END (right) */
+$End-list-values: auto, inherit, 0, 50%, 100%;
+$End-valid-values: auto, inherit, number;
+$End-units: "%", px, rem, em;
+@include set-rules-for-list(End, #{$end}, $End-list-values, $End-valid-values, $End-units);
+
+/* BOTTOM */
+$B-list-values: auto, inherit, 0, 50%, 100%;
+$B-valid-values: auto, inherit, number;
+$B-units: "%", px, rem, em;
+@include set-rules-for-list(B, bottom, $B-list-values, $B-valid-values, $B-units);
+
+/* START (left) */
+$Start-list-values: auto, inherit, 0, 50%, 100%;
+$Start-valid-values: auto, inherit, number;
+$Start-units: "%", px, rem, em;
+@include set-rules-for-list(Start, #{$start}, $Start-list-values, $Start-valid-values, $Start-units);
+
+/**
+ ==================================================================
+ OPACITY (checked) (class always contain 2 digits after "0." - i.e. Op-0.50)
+ ==================================================================
+ */
+
+$Op-list-values: inherit, 0, .33, .50, .66, 1;
+$Op-valid-values: inherit, number;
+
+@each $Op-list-value in $Op-list-values {
+    @if ($Op-list-value != inherit)  and (type-of($Op-list-value) != number) {
+        @error "Value should be a number.";
+    }  @if ($Op-list-value == inherit) {
+        .Op-inh {
+        opacity: inherit;
+        }
+    } @else if ($Op-list-value == 0) {
+        .Op-0 {
+            opacity: 0;
+            filter: alpha(opacity= 0);
+        }
+    } @else if ($Op-list-value == 1) {
+        .Op-1 {
+            opacity: 1;
+            filter: alpha(opacity= 100);
+        }
+    } @else if ($Op-list-value > 0) and ($Op-list-value < 1)  {
+        // Make sure we have 2 decimal after the "." (i.e. ".50" and not ".5")
+        $suffix: $Op-list-value * 100;
+        $suffix: str-slice(#{$suffix}, 0, 3);
+        .Op-0#{$escape}.#{$suffix} {
+            opacity: #{$Op-list-value};
+            filter: alpha(opacity= $Op-list-value * 100);
+        }
+    } @else {
+        @error "Numbers between 0 and 1 only";
+    }
+}
+
+/**
+ ==================================================================
+ OVERFLOW (checked)
+ ==================================================================
+ */
+
+$Ov-map-values: (v: visible, h: hidden, s: scroll, a: auto, inh: inherit);
+$Ov-valid-values: visible, hidden, scroll, auto, inherit;
+$Ov-units: none;
+@include set-rules-for-map(Ov, overflow, $Ov-map-values, $Ov-valid-values, $Ov-units);
+
+/**
+ ==================================================================
+ OVERFLOW-X (checked)
+ ==================================================================
+ */
+
+$Ovx-map-values: (v: visible, h: hidden, s: scroll, a: auto, inh: inherit);
+$Ovx-valid-values: visible, hidden, scroll, auto, inherit;
+$Ovx-units: none;
+@include set-rules-for-map(Ovx, overflow-x, $Ovx-map-values, $Ovx-valid-values, $Ovx-units);
+
+/**
+ ==================================================================
+ OVERFLOW-Y (checked)
+ ==================================================================
+ */
+
+$Ovy-map-values: (v: visible, h: hidden, s: scroll, a: auto, inh: inherit);
+$Ovy-valid-values: visible, hidden, scroll, auto, inherit;
+$Ovy-units: none;
+@include set-rules-for-map(Ovy, overflow-y, $Ovy-map-values, $Ovy-valid-values, $Ovy-units);
+
+/**
+ ==================================================================
+ OVERFLOW-SCROLLING (-webkit-)
+ ==================================================================
+ */
+
+$Ovs-map-values: (t: touch);
+$Ovs-valid-values: touch;
+$Ovs-units: none;
+@include set-rules-for-map(Ovs, -webkit-overflow-scrolling, $Ovs-map-values, $Ovs-valid-values, $Ovs-units);
+
+/**
+ ==================================================================
+ PADDING
+ ==================================================================
+ */
+
+/**
+ * ALL EDGES
+ */
+
+$P-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$P-valid-values: number;
+$P-units: px;
+@include set-rules-for-list(P, padding, $P-list-values, $P-valid-values, $P-units);
+
+/**
+ * 'X' AXYS
+ */
+
+$Px-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Px-valid-values: number;
+$Px-units: px, em, rem;
+
+@each $Px-list-value in $Px-list-values {
+    @if index($Px-valid-values, $Px-list-value) or type-of($Px-list-value) == number {
+        @if ($Px-list-value == auto) {
+            .Px-a {
+            padding-right: $Px-list-value;
+            padding-left: $Px-list-value;
+            }
+        } @else if ($Px-list-value == 0) {
+            .Px-#{$Px-list-value} {
+            padding-right: $Px-list-value;
+            padding-left: $Px-list-value;
+            }
+        } @else {
+            // checking for proper unit
+            @if ($Px-units != none) {
+                @if not (index($Px-units, unit($Px-list-value))) {
+                    @error "Value should be in: " + $Px-units;
+                }
+            }
+            .Px-#{$Px-list-value} {
+            padding-right: $Px-list-value;
+            padding-left: $Px-list-value;
+            }
+        }
+    } @else {
+        @error "Valid values are: " + $Px-valid-values;
+    }
+}
+
+/**
+ * 'Y' AXYS
+ */
+
+$Py-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Py-valid-values: number;
+$Py-units: px, em, rem;
+
+@each $Py-list-value in $Py-list-values {
+    @if index($Py-valid-values, $Py-list-value) or type-of($Py-list-value) == number {
+        @if ($Py-list-value == auto) {
+            .Py-a {
+            padding-top: $Py-list-value;
+            padding-bottom: $Py-list-value;
+            }
+        } @else if ($Py-list-value == 0) {
+            .Py-#{$Py-list-value} {
+            padding-top: $Py-list-value;
+            padding-bottom: $Py-list-value;
+            }
+        } @else {
+            // checking for proper unit
+            @if ($Py-units != none) {
+                @if not (index($Py-units, unit($Py-list-value))) {
+                    @error "Value should be in: " + $Py-units;
+                }
+            }
+            .Py-#{$Py-list-value} {
+            padding-top: $Py-list-value;
+            padding-bottom: $Py-list-value;
+            }
+        }
+    } @else {
+        @error "Valid values are: " + $Py-valid-values;
+    }
+}
+
+/**
+ * TOP
+ */
+
+$Pt-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Pt-valid-values: number;
+$Pt-units: px;
+@include set-rules-for-list(Pt, padding-top, $Pt-list-values, $Pt-valid-values, $Pt-units);
+
+/**
+ * END (Right in LTR, Left in RTL)
+ */
+
+$Pend-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Pend-valid-values: number;
+$Pend-units: px;
+@include set-rules-for-list(Pend, padding-#{$end}, $Pend-list-values, $Pend-valid-values, $Pend-units);
+
+/**
+ * BOTTOM
+ */
+
+$Pb-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Pb-valid-values: number;
+$Pb-units: px;
+@include set-rules-for-list(Pb, padding-bottom, $Pb-list-values, $Pb-valid-values, $Pb-units);
+
+/**
+ * START (Left in LTR, Right in RTL)
+ */
+
+$Pstart-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Pstart-valid-values: number;
+$Pstart-units: px;
+@include set-rules-for-list(Pstart, padding-#{$start}, $Pstart-list-values, $Pstart-valid-values, $Pstart-units);
+
+/**
+ ==================================================================
+ POINTER-EVENTS
+ ==================================================================
+ */
+
+$Pe-map-values: (n: none, a: auto);
+$Pe-valid-values: none, auto;
+$Pe-units: none;
+@include set-rules-for-map(Pe, pointer-events, $Pe-map-values, $Pe-valid-values, $Pe-units);
+
+/**
+ ==================================================================
+ POSITION (checked)
+ ==================================================================
+ */
+
+$Pos-map-values: (s: static, a: absolute, r: relative, f: fixed, inh: inherit);
+$Pos-valid-values: static, absolute, relative, fixed, inherit;
+$Pos-units: none;
+@include set-rules-for-map(Pos, position, $Pos-map-values, $Pos-valid-values, $Pos-units);
+
+/**
+ ==================================================================
+ TABLE-LAYOUT (checked)
+ ==================================================================
+ */
+
+$Tbl-map-values: (f: fixed, a: auto, inh: inherit);
+$Tbl-valid-values: fixed, auto, inherit;
+$Tbl-units: none;
+@include set-rules-for-map(Tbl, table-layout, $Tbl-map-values, $Tbl-valid-values, $Tbl-units);
+
+/**
+ ==================================================================
+ TEXT-ALIGN (checked)
+ ==================================================================
+ */
+
+$Ta-map-values: (start:  #{$start}, end:  #{$end}, c: center, j: justify, m: match-parent);
+$Ta-valid-values: left, right, center, justify, match-parent;
+$Ta-units: none;
+@include set-rules-for-map(Ta, text-align, $Ta-map-values, $Ta-valid-values, $Ta-units);
+
+/**
+ ==================================================================
+ TEXT-ALIGN-LAST (checked)
+ ==================================================================
+ */
+
+$Tal-map-values: (a: auto, start:  #{$start}, end:  #{$end}, c: center, j: justify);
+$Tal-valid-values: auto, left, right, center, justify;
+$Tal-units: none;
+@include set-rules-for-map(Tal, text-align-last, $Tal-map-values, $Tal-valid-values, $Tal-units);
+
+$Ta-suffix-value: (
+    c: center,
+    j: justify,
+    start: #{$start},
+    end: #{$end}
+);
+@each $Ta-suffix, $value in $Ta-suffix-value {
+  @if (type-of($value) == number) {
+      @error "Strings Only";
+    }
+    .Ta-#{$Ta-suffix} {
+        text-align: $value;
+    }
+}
+
+/**
+ ==================================================================
+ TEXT-DECORATION (checked)
+ ==================================================================
+ */
+
+$Td-map-values: (n: none, u: underline, o: overline, l: line-through);
+$Td-valid-values: none, underline, overline, line-through;
+$Td-units: none;
+@include set-rules-for-map(Td, text-decoration, $Td-map-values, $Td-valid-values, $Td-units);
+
+/**
+ ==================================================================
+ TEXT-RENDERING (checked)
+ ==================================================================
+ */
+
+$Tren-map-values: (a: auto, os: optimizeSpeed, ol: optimizeLegibility, gp: geometricPrecision, inh: inherit);
+$Tren-valid-values: auto, optimizeSpeed, optimizeLegibility, geometricPrecision, inherit;
+$Tren-units: none;
+@include set-rules-for-map(Tren, text-rendering, $Tren-map-values, $Tren-valid-values, $Tren-units);
+
+/**
+ ==================================================================
+ TEXT-REPLACE (checked)
+ http://www.w3.org/TR/2007/WD-css3-gcpm-20070504/
+ ==================================================================
+ */
+
+$Tr-map-values: (n: none);
+$Tr-valid-values: none;
+$Tr-units: none;
+@include set-rules-for-map(Tr, text-replace, $Tr-map-values, $Tr-valid-values, $Tr-units);
+
+
+/**
+ ==================================================================
+ TEXT-TRANSFORM (checked)
+ ==================================================================
+ */
+
+$Tt-map-values: (n: none, c: capitalize, u: uppercase, l: lowercase);
+$Tt-valid-values: none, capitalize, uppercase, lowercase;
+$Tt-units: none;
+@include set-rules-for-map(Tt, text-transform, $Tt-map-values, $Tt-valid-values, $Tt-units);
+
+/**
+ ==================================================================
+ TEXT-SHADOW
+ custom values would be: hoff voff blur #000;
+ ==================================================================
+ */
+
+$Tsh-map-values: (n: none);
+$Tsh-valid-values: none;
+$Tsh-units: none;
+@include set-rules-for-map(Tsh, text-shadow, $Tsh-map-values, $Tsh-valid-values, $Tsh-units);
+
+/**
+ ==================================================================
+ USER-SELECT (checked)
+ ==================================================================
+ */
+
+$Us-list-values: none, text, toggle, element, elements, all, inherit;
+$Us-valid-values: none, text, toggle, element, elements, all, inherit;
+$Us-units: none;
+@include set-rules-for-list(Us, user-select, $Us-list-values, $Us-valid-values, $Us-units);
+
+/**
+ ==================================================================
+ VERTICAL-ALIGN (checked)
+ ==================================================================
+ */
+
+$Va-map-values: (sup: super, t: top, tt: text-top, m: middle, bl: baseline, b: bottom, tb: text-bottom, sub: sub);
+$Va-valid-values: sup, super, top, text-top, middle, baseline, bottom, text-bottom, sub;
+$Va-units: none;
+@include set-rules-for-map(Va, vertical-align, $Va-map-values, $Va-valid-values, $Va-units);
+
+/**
+ ==================================================================
+ VISIBILITY (checked)
+ ==================================================================
+ */
+
+$V-map-values: (v: visible, h: hidden, c: collapse);
+$V-valid-values: visible, hidden, collapse;
+$V-units: none;
+@include set-rules-for-map(V, visibility, $V-map-values, $V-valid-values, $V-units);
+
+/**
+ ==================================================================
+ WHITE-SPACE (checked)
+ ==================================================================
+ */
+
+$Whs-map-values: (n: normal, p: pre, nw:  nowrap, pw: pre-wrap, pl: pre-line);
+$Whs-valid-values: normal, pre, nowrap, pre-wrap, pre-line;
+$Whs-units: none;
+@include set-rules-for-map(Whs, white-space, $Whs-map-values, $Whs-valid-values, $Whs-units);
+
+/**
+ ==================================================================
+ WHITE-SPACE-COLLAPSE (checked)
+ ==================================================================
+ */
+
+$Whsc-map-values: (n: normal, k: keep-all, l: loose, bs: break-strict, ba: break-all);
+$Whsc-valid-values: normal, keep-all, loose, break-strict, break-all;
+$Whsc-units: none;
+@include set-rules-for-map(Whsc, white-space-collapse, $Whsc-map-values, $Whsc-valid-values, $Whsc-units);
+
+
+/**
+ ==================================================================
+ WIDTH
+ ==================================================================
+ */
+
+/**
+ * Generic (auto, inherit, 0) + Percentage values or else
+ */
+
+$W-list-values: auto, inherit, 0, 20%, 50%, 75%, 100%;
+$W-valid-values: auto, inherit, number;
+$W-units: px, em, rem, "%";
+@each $W-list-value in $W-list-values {
+    @if type-of($W-list-value) == number and index($W-valid-values, number) {
+        @if unit($W-list-value) == '%' {
+            $suffix: strip-units($W-list-value);
+            .W-#{$suffix}\% {
+                width: $W-list-value;
+            }
+        } @else {
+            .W-#{$W-list-value} {
+                width: $W-list-value;
+            }
+        }
+    } @else if (index($W-valid-values, $W-list-value)) {
+        .W-#{$W-list-value} {
+            width: $W-list-value;
+        }
+    } @else {
+        @error "Authorized values are: " + $W-valid-values;
+    }
+}
+
+/**
+ * Pixel values (checked)
+ */
+
+$Wpx-list-values: 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+$Wpx-valid-values: number;
+$Wpx-units: px;
+@include set-rules-for-list(Wpx, width, $Wpx-list-values, $Wpx-valid-values, $Wpx-units);
+
+/**
+ * Fraction values (for grid)
+ */
+
+$base-unit-for-grid: 12;
+
+@media #{inspect(map-get($breakpoints, "xs"))} {
+    @while $base-unit-for-grid >= $index  {
+        .W-xs-#{$index}\/#{$base-unit-for-grid} {
+            width: unquote(($index / $base-unit-for-grid * 100) + "%");
+        }
+        $index: $index + 1;
+    }
+}
+
+@media #{inspect(map-get($breakpoints, "sm"))} {
+    @while $base-unit-for-grid >= $index  {
+        .W-sm-#{$index}\/#{$base-unit-for-grid} {
+            width: unquote(($index / $base-unit-for-grid * 100) + "%");
+        }
+        $index: $index + 1;
+    }
+}
+
+@media #{inspect(map-get($breakpoints, "md"))} {
+    @while $base-unit-for-grid >= $index  {
+        .W-md-#{$index}\/#{$base-unit-for-grid} {
+            width: unquote(($index / $base-unit-for-grid * 100) + "%");
+        }
+        $index: $index + 1;
+    }
+}
+
+@media #{inspect(map-get($breakpoints, "lg"))} {
+    @while $base-unit-for-grid >= $index  {
+        .W-lg-#{$index}\/#{$base-unit-for-grid} {
+            width: unquote(($index / $base-unit-for-grid * 100) + "%");
+        }
+        $index: $index + 1;
+    }
+}
+
+/**
+ ==================================================================
+ WORD_BREAK (checked)
+ ==================================================================
+ */
+
+$Wob-map-values: (n: normal, ba: break-all, k: keep-all);
+$Wob-valid-values: normal, break-all, keep-all;
+$Wob-units: none;
+@include set-rules-for-map(Wob, word-break, $Wob-map-values, $Wob-valid-values, $Wob-units);
+
+/**
+ ==================================================================
+ WORD_WRAP (not part of the spec)
+ ==================================================================
+ */
+
+$Wow-map-values: (bw: break-word, n: normal);
+$Wow-valid-values: break-word, normal ;
+$Wow-units: none;
+@include set-rules-for-map(Wow, word-warp, $Wow-map-values, $Wow-valid-values, $Wow-units);
+
+/**
+ ==================================================================
+ Z-INDEX (checked)
+ ==================================================================
+ */
+
+$Z-list-values: auto, inherit, 0, 1, 3, 5, 7, 10;
+$Z-valid-values: number, auto, inherit;
+$Z-units: none;
+@include set-rules-for-list(Z, z-index, $Z-list-values, $Z-valid-values, $Z-units);
