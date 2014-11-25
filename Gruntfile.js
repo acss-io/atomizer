@@ -79,11 +79,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'clean',
-        'lint',
+//        'lint',
         'sass'
     ]);
 
-    grunt.registerTask('lint', [
-        'scsslint'
-    ]);
+//    grunt.registerTask('lint', [
+//        'scsslint'
+//    ]);
 };

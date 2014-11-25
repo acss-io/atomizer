@@ -1,0 +1,152 @@
+$namespace: #atomic;
+$desktop: true;
+$legacy: false;
+$start: left;
+$end: right;
+$default-radius-value: 3px;
+
+// to use in loops
+$index: 1;
+
+// to escape ".", "%", etc.
+$escape: '\\';
+
+
+/*! http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+ *
+ * use this like this: @include respond-to(xs) { color: teal; }
+ */
+
+$breakpoints: (
+  'xs' : ( min-width:  320px ),
+  'sm' : ( min-width:  767px ),
+  'md' : ( min-width:  992px ),
+  'lg' : ( min-width: 1200px )
+);
+
+@mixin respond-to($name) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+/**
+ * rule maker via maps
+ * example for display property:
+ * $D-map-values: (n: none, b: block, etc.)
+ * $D-valid-values: block, inline, etc;
+ * $D-units: none; (% must be inside quotes as in "%")
+ * @include set-rules-for-list(D, display, $D-map-values, $D-valid-values, $D-units);
+ */
+@mixin set-rules-for-map($prefix, $property, $map, $valid-values, $units) {
+    // we loop through all the values
+    @each $suffix, $value in $map {
+        // we check if the value is legit
+        @if( index($valid-values, $value) ) {
+            // we construct the class (this is not a number)
+            .#{$prefix}-#{$suffix} {
+                // we write the declaration
+                #{$property}: #{$value};
+            }
+        } @else if (index($valid-values, number) and type-of($value) == number) {
+            // checking for proper unit
+            @if ($units != none) {
+                @if $value != 0 and not (index($units, unit($value))) {
+                    @error "Value should be in: " + $units;
+                }
+            }
+            // checking for absence of unit
+            @if ($units == none) {
+                @if (unit($value) != "") {
+                    @error "No unit allowed.";
+                }
+            }
+            // we construct the class for number values (without minus sign if any)
+            $suffix: if(str-slice(#{$value}, 0, 1) == "-" , strip-minus($value), $value);
+            $suffix: strip-units($suffix);
+            .#{$prefix}-#{$suffix} {
+                // we write the declaration
+                #{$property}: #{$value};
+            }
+        } @else {
+        // we catch the out-of-range value and display an error
+        @error $value + " is not a valid value for " + $property +
+        ". Valid values are: " + $valid-values;
+        }
+    }
+}
+
+/**
+ * rule maker via lists
+ * example for display property:
+ * $Wpx-list-values: 10px, 20px, 30px, etc.;
+ * $Wpx-valid-values: number;
+ * $Wpx-units: px; (% must be inside quotes as in "%")
+ * @include set-rules-for-list(Wpx, width, $Wpx-list-values, $Wpx-valid-values, $Wpx-units);
+ */
+@mixin set-rules-for-list($prefix, $property, $list, $valid-values, $units) {
+    // we loop through all the values
+    @each $value in $list {
+        // we check if the value is legit
+        @if (index($valid-values, $value)) {
+            // by default $suffix = $value
+            $suffix: $value;
+            // we construct the class (this is not a number)
+            @if($value == auto) {$suffix: a;};
+            @if($value == none) {$suffix: n;};
+            @if($value == inherit) {$suffix: inh;};
+            .#{$prefix}-#{$suffix} {
+                // we write the declaration
+                #{$property}: #{$value};
+            }
+        } @else if (index($valid-values, number) and type-of($value) == number) {
+            // checking for proper unit
+            @if ($units != none) {
+                @if $value != 0 and not (index($units, unit($value))) {
+                    @error "Value should be in: " + $units;
+                }
+            }
+            // checking for absence of unit
+            @if ($units == none) {
+                @if (unit($value) != "") {
+                    @error "No unit allowed.";
+                }
+            }
+            // we construct the class for number values (without minus sign if any)
+            $suffix: if(str-slice(#{$value}, 0, 1) == "-" , strip-minus($value), $value);
+            $suffix: strip-units($suffix);
+            .#{$prefix}-#{$suffix} {
+                // we write the declaration
+                #{$property}: #{$value};
+            }
+        } @else {
+        // we catch the out-of-range value and display an error
+        @error $value + " is not a valid value for " + $property +
+        ". Valid values are: " + $valid-values;
+        }
+    }
+}
+
+/**
+ * from mezig
+ */
+@function strip-minus($value) {
+  @return $value * -1;
+}
+
+/*! http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+ * to get rid of units
+ */
+@function strip-units($value) {
+    @return $value / ($value * 0 + 1);
+}
