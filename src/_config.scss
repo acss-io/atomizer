@@ -88,11 +88,11 @@ $breakpoints: (
 
 /**
  * rule maker via lists
- * example for display property:
- * $Wpx-list-values: 10px, 20px, 30px, etc.;
- * $Wpx-valid-values: number;
- * $Wpx-units: px; (% must be inside quotes as in "%")
- * @include set-rules-for-list(Wpx, width, $Wpx-list-values, $Wpx-valid-values, $Wpx-units);
+ * example for width property:
+ * $W-list-values: 10px, 20px, 30px, etc.;
+ * $W-valid-values: number;
+ * $W-units: px, em, rem, "%";
+ * @include set-rules-for-list(W, width, $W-list-values, $W-valid-values, $W-units);
  */
 @mixin set-rules-for-list($prefix, $property, $list, $valid-values, $units) {
     // we loop through all the values
@@ -133,6 +133,24 @@ $breakpoints: (
         // we catch the out-of-range value and display an error
         @error $value + " is not a valid value for " + $property +
         ". Valid values are: " + $valid-values;
+        }
+    }
+}
+
+/**
+ * rule maker via static map
+ * example for display property:
+ * $display_values: none, block, flex, inline, inline-block;
+ * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
+ */
+@mixin set-rules-for-static-map($prop, $property, $property_values, $property_map){
+    // we go through the list of valid values
+    @each $suffix, $legit_value in $property_map {
+        // we output the rule if we have a match
+        @if index($property_values, $legit_value) != null {
+            .#{$prop}-#{$suffix} {
+                #{$property}: $legit_value;
+            }
         }
     }
 }

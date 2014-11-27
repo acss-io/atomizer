@@ -222,80 +222,58 @@ $Bgc-suffix-values: (
 }
 
 /* background-clip */
-$Bgclip-suffix-values: (
-   bb: border-box,
-   pb: padding-box,
-   cb: content-box
+$background-clip_values: border-box, padding-box, content-box;
+@include set-rules-for-static-map(
+    Bgclip,
+    background-clip,
+    $background-clip_values,
+    (bb: border-box, pb: padding-box, cb: content-box)
 );
-@each $Bgclip-suffix, $value in $Bgclip-suffix-values {
-    .Bgclip-#{$Bgclip-suffix} {
-        background-clip: $value;
-    }
-}
 
 /* background-origin */
-$Bgo-suffix-values: (
-   bb: border-box,
-   pb: padding-box,
-   cb: content-box
+$background-origin_values: border-box, padding-box, content-box;
+@include set-rules-for-static-map(
+        Bgo,
+    background-origin,
+    $background-origin_values,
+    (bb: border-box, pb: padding-box, cb: content-box)
 );
-@each $Bgo-suffix, $value in $Bgo-suffix-values {
-    .Bgo-#{$Bgo-suffix} {
-        background-origin: $value;
-    }
-}
 
 /* background-size (length would be customized) */
-$Bgs-suffix-values: (
-   a: auto,
-  ct: contain,
-  cv: cover
+$background-size_values: auto, contain, cover;
+@include set-rules-for-static-map(
+    Bgs,
+    background-size,
+    $background-size_values,
+    (a: auto, ct: contain, cv: cover)
 );
-@each $Bgs-suffix, $value in $Bgs-suffix-values {
-    .Bgs-#{$Bgs-suffix} {
-        background-size: $value;
-    }
-}
 
 /* background-attachment */
-$Bga-suffix-values: (
-   f: fixed,
-   l: local,
-   s: scroll
+$background-attachment_values: fixed, local, scroll;
+@include set-rules-for-static-map(
+    Bga,
+    background-attachment,
+    $background-attachment_values,
+    (f: fixed, l: local, s: scroll)
 );
-@each $Bga-suffix, $value in $Bga-suffix-values {
-    .Bga-#{$Bga-suffix} {
-        background-attachment: $value;
-    }
-}
 
-/* background-position (s=start and e=end) */
-$Bgp-suffix-values: (
-   st: $start 0,
-   et: $end 0,
-   bs: $start 100%,
-   be: $end 100%
+/* background-position *4 corners only* (s=start and e=end) */
+$background-position_values: $start 0, $end 0, $start 100%,$end 100%;
+@include set-rules-for-static-map(
+    Bgp,
+    background-position,
+    $background-position_values,
+    (st: $start 0, et: $end 0, bs: $start 100%, be: $end 100%)
 );
-@each $Bgp-suffix, $value in $Bgp-suffix-values {
-    .Bgp-#{$Bgp-suffix} {
-        background-position: $value;
-    }
-}
 
 /* background-repeat */
-$Bgr-suffix-values: (
-   n: no-repeat,
-   x: repeat-x,
-   y: repeat-y,
-   r: repeat,
-   s: space,
-  ro: round
+$background-repeat_values: no-repeat, repeat-x, repeat-y, repeat, space, round;
+@include set-rules-for-static-map(
+    Bgr,
+    background-repeat,
+    $background-repeat_values,
+    (n: no-repeat, x: repeat-x, y: repeat-y, r: repeat, s: space, ro: round)
 );
-@each $Bgr-suffix, $value in $Bgr-suffix-values {
-    .Bgr-#{$Bgr-suffix} {
-        background-repeat: $value;
-    }
-}
 
 /**
  ==================================================================
@@ -303,13 +281,13 @@ $Bgr-suffix-values: (
  ==================================================================
  */
 
-$Bdcl-map-values:
-    (c: collapse,
-     s: separate,
-   inh: inherit);
-$Bdcl-valid-values: collapse, separate, inherit;
-$Bdcl-units: none;
-@include set-rules-for-map(Bdcl, border-collapse, $Bdcl-map-values, $Bdcl-valid-values, $Bdcl-units);
+$border-collapse_values: collapse, separate, inherit;
+@include set-rules-for-static-map(
+    Bdcl,
+    border-collapse,
+    $border-collapse_values,
+    (c: collapse, s: separate, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -317,14 +295,13 @@ $Bdcl-units: none;
  ==================================================================
  */
 
-$Bxz-map-values:
-    (cb: content-box,
-     pb: padding-box,
-     bb: border-box,
-    inh: inherit);
-$Bxz-valid-values: content-box, padding-box, border-box, inherit;
-$Bxz-units: none;
-@include set-rules-for-map(Bxz, box-sizing, $Bxz-map-values, $Bxz-valid-values, $Bxz-units);
+$box-sizing_values: content-box, padding-box, border-box, inherit;
+@include set-rules-for-static-map(
+    Bxz,
+    box-sizing,
+    $box-sizing_values,
+    (cb: content-box, pb: padding-box, bb: border-box, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -342,16 +319,13 @@ $Bxz-units: none;
  ==================================================================
  */
 
-$Cl-map-values:
-    (n: none,
-     b: both,
- start: $start,
-   end: $end,
-   inh: inherit);
-$Cl-valid-values: none, $start, $end, both, inherit;
-$Cl-units: none;
-@include set-rules-for-map(Cl, clear, $Cl-map-values, $Cl-valid-values, $Cl-units);
-
+$clear_values: none, $start, $end, both, inherit;
+@include set-rules-for-static-map(
+    Cl,
+    clear,
+    $clear_values,
+    (n: none, b: both, start: $start, end: $end, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -360,28 +334,13 @@ $Cl-units: none;
  ==================================================================
  */
 
-$Cur-map-values:
-    (a: auto,
-     c: crosshair,
-     d: default,
-     p: pointer,
-     m: move,
-    er: e-resize,
-   ner: ne-resize,
-   nwr:  nw-resize,
-    nr: n-resize,
-   ser: se-resize,
-   swr:  sw-resize,
-    sr: s-resize,
-    wr:  w-resize,
-     t: text,
-     w: wait,
-     h: help,
-     pr: progress,
-   inh: inherit);
-$Cur-valid-values: uri, auto, crosshair, default, pointer, move, e-resize, ne-resize, nw-resize, n-resize, se-resize, sw-resize, s-resize, w-resize, text, wait, help, progress, inherit;
-$Cur-units: none;
-@include set-rules-for-map(Cur, cursor, $Cur-map-values, $Cur-valid-values, $Cur-units);
+$cursor_values: auto, crosshair, default, pointer, move, e-resize, ne-resize, nw-resize, n-resize, se-resize, sw-resize, s-resize, w-resize, text, wait, help, progress, inherit;
+@include set-rules-for-static-map(
+    Cur,
+    cursor,
+    $cursor_values,
+    (a: auto, c: crosshair, d: default, p: pointer, m: move, er: e-resize, ner: ne-resize, nwr:  nw-resize, nr: n-resize, ser: se-resize, swr: sw-resize, sr: s-resize, wr: w-resize, t: text, w: wait, h: help, pr: progress, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -389,29 +348,13 @@ $Cur-units: none;
  ==================================================================
  */
 
-$D-map-values:
-    (n: none,
-    b: block,
-    f: flex,
-    i: inline,
-    ib: inline-block,
-    inh: inherit,
-    tb: table,
-    tbr: table-row,
-    tbc: table-cell,
-    li: list-item,
-    ri: run-in,
-    cp: compact,
-    itb: inline-table,
-    tbcl: table-column,
-    tbclg: table-column-group,
-    tbhg: table-header-group,
-    tbfg: table-footer-group,
-    tbrg: table-row-group
+$display_values: none, block, flex, inline, inline-block, inherit, table, table-row, table-cell, list-item, run-in,compact, inline-table, table-column, table-column-group, table-header-group, table-footer-group, table-row-group;
+@include set-rules-for-static-map(
+    D,
+    display,
+    $display_values,
+    (n: none, b: block, f: flex, i: inline, ib: inline-block, inh: inherit, tb: table, tbr: table-row, tbc: table-cell, li: list-item, ri: run-in, cp: compact, itb: inline-table, tbcl: table-column, tbclg: table-column-group, tbhg: table-header-group, tbfg: table-footer-group, tbrg: table-row-group)
 );
-$D-valid-values: none, block, flex, inline, inline-block, inherit, table, table-row, table-cell, list-item, run-in,compact, inline-table, table-column, table-column-group, table-header-group, table-footer-group, table-row-group;
-$D-units: none;
-@include set-rules-for-map(D, display, $D-map-values, $D-valid-values, $D-units);
 
 /**
  ==================================================================
@@ -468,7 +411,6 @@ $Flp-valid-values: start, end, center, justify, distribute;
 $Flp-units: none;
 @include set-rules-for-map(Flp, flex-pack, $Flp-map-values, $Flp-valid-values, $Flp-units);
 
-
 /* FLEX-WRAP (checked)  */
 $Flw-map-values: (nw: nowrap, w: wrap, wr: wrap-reverse);
 $Flw-valid-values: nowrap, wrap, wrap-reverse;
@@ -481,10 +423,13 @@ $Flw-units: none;
  ==================================================================
  */
 
-$Fl-map-values: ( n: none, start: $start, end: $end, inh: inherit);
-$Fl-valid-values: none, $start, $end, inherit;
-$Fl-units: none;
-@include set-rules-for-map(Fl, float, $Fl-map-values, $Fl-valid-values, $Fl-units);
+$float_values: none, $start, $end, inherit;
+@include set-rules-for-static-map(
+    Fl,
+    float,
+    $float_values,
+    (n: none, start: $start, end: $end, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -492,10 +437,13 @@ $Fl-units: none;
  ==================================================================
  */
 
-$Fw-map-values: (n: normal, b: bold, br: bolder, lr: lighter, 100: 100, 200: 200, 300: 300, 400: 400, 500: 500, 600: 600, 700: 700, 800: 800, 900: 900, inh: inherit);
-$Fw-valid-values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit;
-$Fw-units: none;
-@include set-rules-for-map(Fw, font-weight, $Fw-map-values, $Fw-valid-values, $Fw-units);
+$font-weight_values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit;
+@include set-rules-for-static-map(
+    Fw,
+    font-weight,
+    $font-weight_values,
+    (n: normal, b: bold, br: bolder, lr: lighter, 100: 100, 200: 200, 300: 300, 400: 400, 500: 500, 600: 600, 700: 700, 800: 800, 900: 900, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -589,10 +537,13 @@ $Fz-units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
  ==================================================================
  */
 
-$Fs-map-values: (n: normal, i: italic);
-$Fs-valid-values: normal, italic;
-$Fs-units: none;
-@include set-rules-for-map(Fs, font-style, $Fs-map-values, $Fs-valid-values, $Fs-units);
+$font-style_values: normal, italic;
+@include set-rules-for-static-map(
+    Fs,
+    font-style,
+    $font-style_values,
+    (n: normal, i: italic)
+);
 
 /**
  ==================================================================
@@ -600,10 +551,13 @@ $Fs-units: none;
  ==================================================================
  */
 
-$Fv-map-values: (sc: small-caps, n: normal);
-$Fv-valid-values: small-caps, normal;
-$Fv-units: none;
-@include set-rules-for-map(Fv, font-variant, $Fv-map-values, $Fv-valid-values, $Fv-units);
+$font-variant_values: small-caps, normal;
+@include set-rules-for-static-map(
+    Fv,
+    font-variant,
+    $font-variant_values,
+    (n: normal, sc: small-caps)
+);
 
 /**
  ==================================================================
@@ -637,14 +591,17 @@ $H-units: px, em, rem, "%";
 
 /**
  ==================================================================
- HYPHENS
+ HYPHENS (checked)
  ==================================================================
  */
 
-$Hy-map-values: (n: none);
-$Hy-valid-values: none;
-$Hy-units: none;
-@include set-rules-for-map(Hy, hyphens, $Hy-map-values, $Hy-valid-values, $Hy-units);
+$hyphens_values: none, manual, auto, inherit;
+@include set-rules-for-static-map(
+    Hy,
+    hyphens,
+    $hyphens_values,
+    (n: none, m: manual, a: auto, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -652,27 +609,13 @@ $Hy-units: none;
  ==================================================================
  */
 
-$List-map-values: (
-       n: none,
-     inh: inherit,
-       d: disc,
-       c: circle,
-       s: square,
-      dc: decimal,
-    dclz: decimal-leading-zero,
-      lr: lower-roman,
-      lg: lower-greek,
-      ll: lower-latin,
-      ur: upper-roman,
-      ul: upper-latin,
-       a: armenian,
-       g: georgian,
-      la: lower-alpha,
-      ua: upper-alpha
+$list-style-type_values: none, inherit, disc, circle, square, decimal, decimal-leading-zero, lower-roman, lower-greek, lower-latin, upper-roman, upper-latin, armenian, georgian, lower-alpha, upper-alpha;
+@include set-rules-for-static-map(
+    List,
+    list-style-type,
+    $list-style-type_values,
+    (n: none, inh: inherit, d: disc, c: circle, s: square, dc: decimal, dclz: decimal-leading-zero, lr: lower-roman, lg: lower-greek, ll: lower-latin, ur: upper-roman, ul: upper-latin, a: armenian, g: georgian, la: lower-alpha, ua: upper-alpha)
 );
-$List-valid-values: none, inherit, disc, circle, square, decimal, decimal-leading-zero, lower-roman, lower-greek, lower-latin, upper-roman, upper-latin, armenian, georgian, lower-alpha, upper-alpha;
-$List-units: none;
-@include set-rules-for-map(List, list-style-type, $List-map-values, $List-valid-values, $List-units);
 
 /**
  ==================================================================
@@ -1016,10 +959,13 @@ $Op-valid-values: inherit, number;
  ==================================================================
  */
 
-$Ov-map-values: (v: visible, h: hidden, s: scroll, a: auto, inh: inherit);
-$Ov-valid-values: visible, hidden, scroll, auto, inherit;
-$Ov-units: none;
-@include set-rules-for-map(Ov, overflow, $Ov-map-values, $Ov-valid-values, $Ov-units);
+$overflow_values: visible, hidden, scroll, auto, inherit;
+@include set-rules-for-static-map(
+    Ov,
+    overflow,
+    $overflow_values,
+    (v: visible, h: hidden, s: scroll, a: auto, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -1027,10 +973,13 @@ $Ov-units: none;
  ==================================================================
  */
 
-$Ovx-map-values: (v: visible, h: hidden, s: scroll, a: auto, inh: inherit);
-$Ovx-valid-values: visible, hidden, scroll, auto, inherit;
-$Ovx-units: none;
-@include set-rules-for-map(Ovx, overflow-x, $Ovx-map-values, $Ovx-valid-values, $Ovx-units);
+$overflow-x_values: visible, hidden, scroll, auto, inherit;
+@include set-rules-for-static-map(
+    Ovx,
+    overflow-x,
+    $overflow-x_values,
+    (v: visible, h: hidden, s: scroll, a: auto, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -1038,10 +987,13 @@ $Ovx-units: none;
  ==================================================================
  */
 
-$Ovy-map-values: (v: visible, h: hidden, s: scroll, a: auto, inh: inherit);
-$Ovy-valid-values: visible, hidden, scroll, auto, inherit;
-$Ovy-units: none;
-@include set-rules-for-map(Ovy, overflow-y, $Ovy-map-values, $Ovy-valid-values, $Ovy-units);
+$overflow-y_values: visible, hidden, scroll, auto, inherit;
+@include set-rules-for-static-map(
+    Ovy,
+    overflow-y,
+    $overflow-y_values,
+    (v: visible, h: hidden, s: scroll, a: auto, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -1049,10 +1001,13 @@ $Ovy-units: none;
  ==================================================================
  */
 
-$Ovs-map-values: (t: touch);
-$Ovs-valid-values: touch;
-$Ovs-units: none;
-@include set-rules-for-map(Ovs, -webkit-overflow-scrolling, $Ovs-map-values, $Ovs-valid-values, $Ovs-units);
+$-webkit-overflow-scrolling_values: touch;
+@include set-rules-for-static-map(
+    Ovs,
+    -webkit-overflow-scrolling,
+    $-webkit-overflow-scrolling_values,
+    (t: touch)
+);
 
 /**
  ==================================================================
@@ -1185,10 +1140,13 @@ $Pstart-units: px;
  ==================================================================
  */
 
-$Pe-map-values: (n: none, a: auto);
-$Pe-valid-values: none, auto;
-$Pe-units: none;
-@include set-rules-for-map(Pe, pointer-events, $Pe-map-values, $Pe-valid-values, $Pe-units);
+$pointer-events_values: none, auto;
+@include set-rules-for-static-map(
+    Pe,
+    pointer-events,
+    $pointer-events_values,
+    (n: none, a: auto)
+);
 
 /**
  ==================================================================
@@ -1196,10 +1154,13 @@ $Pe-units: none;
  ==================================================================
  */
 
-$Pos-map-values: (s: static, a: absolute, r: relative, f: fixed, inh: inherit);
-$Pos-valid-values: static, absolute, relative, fixed, inherit;
-$Pos-units: none;
-@include set-rules-for-map(Pos, position, $Pos-map-values, $Pos-valid-values, $Pos-units);
+$position_values: static, absolute, relative, fixed, inherit;
+@include set-rules-for-static-map(
+    Pos,
+    position,
+    $position_values,
+    (s: static, a: absolute, r: relative, f: fixed, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -1207,21 +1168,27 @@ $Pos-units: none;
  ==================================================================
  */
 
-$Tbl-map-values: (f: fixed, a: auto, inh: inherit);
-$Tbl-valid-values: fixed, auto, inherit;
-$Tbl-units: none;
-@include set-rules-for-map(Tbl, table-layout, $Tbl-map-values, $Tbl-valid-values, $Tbl-units);
+$table-layout_values: fixed, auto, inherit;
+@include set-rules-for-static-map(
+    Tbl,
+    table-layout,
+    $table-layout_values,
+    (f: fixed, a: auto, inh: inherit)
+);
 
 /**
  ==================================================================
- TEXT-ALIGN (checked)
+ TEXT-ALIGN (checked) TODO: inherit?
  ==================================================================
  */
 
-$Ta-map-values: (start:  #{$start}, end:  #{$end}, c: center, j: justify, m: match-parent);
-$Ta-valid-values: left, right, center, justify, match-parent;
-$Ta-units: none;
-@include set-rules-for-map(Ta, text-align, $Ta-map-values, $Ta-valid-values, $Ta-units);
+$text-align_values: left, right, center, justify, match-parent;
+@include set-rules-for-static-map(
+    Ta,
+    text-align,
+    $text-align_values,
+    (start: #{$start}, end: #{$end}, c: center, j: justify, m: match-parent)
+);
 
 /**
  ==================================================================
@@ -1229,25 +1196,13 @@ $Ta-units: none;
  ==================================================================
  */
 
-$Tal-map-values: (a: auto, start:  #{$start}, end:  #{$end}, c: center, j: justify);
-$Tal-valid-values: auto, left, right, center, justify;
-$Tal-units: none;
-@include set-rules-for-map(Tal, text-align-last, $Tal-map-values, $Tal-valid-values, $Tal-units);
-
-$Ta-suffix-value: (
-    c: center,
-    j: justify,
-    start: #{$start},
-    end: #{$end}
+$text-align-last_values: auto, left, right, center, justify;
+@include set-rules-for-static-map(
+    Tal,
+    text-align-last,
+    $text-align-last_values,
+    (a: auto, start: #{$start}, end: #{$end}, c: center, j: justify)
 );
-@each $Ta-suffix, $value in $Ta-suffix-value {
-  @if (type-of($value) == number) {
-      @error "Strings Only";
-    }
-    .Ta-#{$Ta-suffix} {
-        text-align: $value;
-    }
-}
 
 /**
  ==================================================================
@@ -1255,10 +1210,13 @@ $Ta-suffix-value: (
  ==================================================================
  */
 
-$Td-map-values: (n: none, u: underline, o: overline, l: line-through);
-$Td-valid-values: none, underline, overline, line-through;
-$Td-units: none;
-@include set-rules-for-map(Td, text-decoration, $Td-map-values, $Td-valid-values, $Td-units);
+$text-decoration_values: none, underline, overline, line-through;
+@include set-rules-for-static-map(
+    Td,
+    text-decoration,
+    $text-decoration_values,
+    (n: none, u: underline, o: overline, l: line-through)
+);
 
 /**
  ==================================================================
@@ -1266,10 +1224,13 @@ $Td-units: none;
  ==================================================================
  */
 
-$Tren-map-values: (a: auto, os: optimizeSpeed, ol: optimizeLegibility, gp: geometricPrecision, inh: inherit);
-$Tren-valid-values: auto, optimizeSpeed, optimizeLegibility, geometricPrecision, inherit;
-$Tren-units: none;
-@include set-rules-for-map(Tren, text-rendering, $Tren-map-values, $Tren-valid-values, $Tren-units);
+$text-rendering_values: auto, optimizeSpeed, optimizeLegibility, geometricPrecision, inherit;
+@include set-rules-for-static-map(
+    Tren,
+    text-rendering,
+    $text-rendering_values,
+    (a: auto, os: optimizeSpeed, ol: optimizeLegibility, gp: geometricPrecision, inh: inherit)
+);
 
 /**
  ==================================================================
@@ -1278,11 +1239,13 @@ $Tren-units: none;
  ==================================================================
  */
 
-$Tr-map-values: (n: none);
-$Tr-valid-values: none;
-$Tr-units: none;
-@include set-rules-for-map(Tr, text-replace, $Tr-map-values, $Tr-valid-values, $Tr-units);
-
+$text-replace_values: none;
+@include set-rules-for-static-map(
+    Tr,
+    text-replace,
+    $text-replace_values,
+    (n: none)
+);
 
 /**
  ==================================================================
@@ -1290,14 +1253,17 @@ $Tr-units: none;
  ==================================================================
  */
 
-$Tt-map-values: (n: none, c: capitalize, u: uppercase, l: lowercase);
-$Tt-valid-values: none, capitalize, uppercase, lowercase;
-$Tt-units: none;
-@include set-rules-for-map(Tt, text-transform, $Tt-map-values, $Tt-valid-values, $Tt-units);
+$text-transform_values: none, capitalize, uppercase, lowercase;
+@include set-rules-for-static-map(
+    Tt,
+    text-transform,
+    $text-transform_values,
+    (n: none, c: capitalize, u: uppercase, l: lowercase)
+);
 
 /**
  ==================================================================
- TEXT-SHADOW
+ TEXT-SHADOW TODO:
  custom values would be: hoff voff blur #000;
  ==================================================================
  */
@@ -1313,10 +1279,14 @@ $Tsh-units: none;
  ==================================================================
  */
 
-$Us-list-values: none, text, toggle, element, elements, all, inherit;
-$Us-valid-values: none, text, toggle, element, elements, all, inherit;
-$Us-units: none;
-@include set-rules-for-list(Us, user-select, $Us-list-values, $Us-valid-values, $Us-units);
+$user-select_values: none, text, toggle, element, elements, all, inherit;
+@include set-rules-for-static-map(
+    Us,
+    user-select,
+    $user-select_values,
+    (n: none, t: text, to: toggle, el: element, els: elements, a: all, inh: inherit)
+);
+
 
 /**
  ==================================================================
@@ -1324,10 +1294,13 @@ $Us-units: none;
  ==================================================================
  */
 
-$Va-map-values: (sup: super, t: top, tt: text-top, m: middle, bl: baseline, b: bottom, tb: text-bottom, sub: sub);
-$Va-valid-values: sup, super, top, text-top, middle, baseline, bottom, text-bottom, sub;
-$Va-units: none;
-@include set-rules-for-map(Va, vertical-align, $Va-map-values, $Va-valid-values, $Va-units);
+$vertical-align_values: sup, super, top, text-top, middle, baseline, bottom, text-bottom, sub;
+@include set-rules-for-static-map(
+    Va,
+    vertical-align,
+    $vertical-align_values,
+    (sup: super, t: top, tt: text-top, m: middle, bl: baseline, b: bottom, tb: text-bottom, sub: sub)
+);
 
 /**
  ==================================================================
@@ -1335,10 +1308,13 @@ $Va-units: none;
  ==================================================================
  */
 
-$V-map-values: (v: visible, h: hidden, c: collapse);
-$V-valid-values: visible, hidden, collapse;
-$V-units: none;
-@include set-rules-for-map(V, visibility, $V-map-values, $V-valid-values, $V-units);
+$visibility_values: visible, hidden, collapse;
+@include set-rules-for-static-map(
+    V,
+    visibility,
+    $visibility_values,
+    (v: visible, h: hidden, c: collapse)
+);
 
 /**
  ==================================================================
@@ -1346,10 +1322,13 @@ $V-units: none;
  ==================================================================
  */
 
-$Whs-map-values: (n: normal, p: pre, nw:  nowrap, pw: pre-wrap, pl: pre-line);
-$Whs-valid-values: normal, pre, nowrap, pre-wrap, pre-line;
-$Whs-units: none;
-@include set-rules-for-map(Whs, white-space, $Whs-map-values, $Whs-valid-values, $Whs-units);
+$white-space_values: normal, pre, nowrap, pre-wrap, pre-line;
+@include set-rules-for-static-map(
+    Whs,
+    white-space,
+    $white-space_values,
+    (n: normal, p: pre, nw:  nowrap, pw: pre-wrap, pl: pre-line)
+);
 
 /**
  ==================================================================
@@ -1357,11 +1336,13 @@ $Whs-units: none;
  ==================================================================
  */
 
-$Whsc-map-values: (n: normal, k: keep-all, l: loose, bs: break-strict, ba: break-all);
-$Whsc-valid-values: normal, keep-all, loose, break-strict, break-all;
-$Whsc-units: none;
-@include set-rules-for-map(Whsc, white-space-collapse, $Whsc-map-values, $Whsc-valid-values, $Whsc-units);
-
+$white-space-collapse_values: normal, keep-all, loose, break-strict, break-all;
+@include set-rules-for-static-map(
+    Whsc,
+    white-space-collapse,
+    $white-space-collapse_values,
+    (n: normal, k: keep-all, l: loose, bs: break-strict, ba: break-all)
+);
 
 /**
  ==================================================================
@@ -1454,10 +1435,13 @@ $base-unit-for-grid: 12;
  ==================================================================
  */
 
-$Wob-map-values: (n: normal, ba: break-all, k: keep-all);
-$Wob-valid-values: normal, break-all, keep-all;
-$Wob-units: none;
-@include set-rules-for-map(Wob, word-break, $Wob-map-values, $Wob-valid-values, $Wob-units);
+$word-break_values: normal, break-all, keep-all;
+@include set-rules-for-static-map(
+    Wob,
+    word-break,
+    $word-break_values,
+    (n: normal, ba: break-all, k: keep-all)
+);
 
 /**
  ==================================================================
@@ -1465,10 +1449,13 @@ $Wob-units: none;
  ==================================================================
  */
 
-$Wow-map-values: (bw: break-word, n: normal);
-$Wow-valid-values: break-word, normal ;
-$Wow-units: none;
-@include set-rules-for-map(Wow, word-warp, $Wow-map-values, $Wow-valid-values, $Wow-units);
+$word-warp_values: break-word, normal;
+@include set-rules-for-static-map(
+    Wow,
+    word-warp,
+    $word-warp_values,
+    (bw: break-word, n: normal)
+);
 
 /**
  ==================================================================
