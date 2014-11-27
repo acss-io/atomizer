@@ -19,11 +19,17 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
  */
 /**
  * rule maker via lists
+ * example for width property:
+ * $W-list-values: 10px, 20px, 30px, etc.;
+ * $W-valid-values: number;
+ * $W-units: px, em, rem, "%";
+ * @include set-rules-for-list(W, width, $W-list-values, $W-valid-values, $W-units);
+ */
+/**
+ * rule maker via static map
  * example for display property:
- * $Wpx-list-values: 10px, 20px, 30px, etc.;
- * $Wpx-valid-values: number;
- * $Wpx-units: px; (% must be inside quotes as in "%")
- * @include set-rules-for-list(Wpx, width, $Wpx-list-values, $Wpx-valid-values, $Wpx-units);
+ * $display_values: none, block, flex, inline, inline-block;
+ * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
  */
 /**
  * from mezig
@@ -91,7 +97,7 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   /* background-origin */
   /* background-size (length would be customized) */
   /* background-attachment */
-  /* background-position (s=start and e=end) */
+  /* background-position *4 corners only* (s=start and e=end) */
   /* background-repeat */
   /**
    ==================================================================
@@ -172,7 +178,7 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
    */
   /**
    ==================================================================
-   HYPHENS
+   HYPHENS (checked)
    ==================================================================
    */
   /**
@@ -322,7 +328,7 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
    */
   /**
    ==================================================================
-   TEXT-ALIGN (checked)
+   TEXT-ALIGN (checked) TODO: inherit?
    ==================================================================
    */
   /**
@@ -353,7 +359,7 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
    */
   /**
    ==================================================================
-   TEXT-SHADOW
+   TEXT-SHADOW TODO:
    custom values would be: hoff voff blur #000;
    ==================================================================
    */
@@ -1012,11 +1018,11 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Fs-i {
   font-style: italic;
 }
-#atomic .Fv-sc {
-  font-variant: small-caps;
-}
 #atomic .Fv-n {
   font-variant: normal;
+}
+#atomic .Fv-sc {
+  font-variant: small-caps;
 }
 #atomic .H-auto {
   height: auto;
@@ -1041,6 +1047,15 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 }
 #atomic .Hy-n {
   hyphens: none;
+}
+#atomic .Hy-m {
+  hyphens: manual;
+}
+#atomic .Hy-a {
+  hyphens: auto;
+}
+#atomic .Hy-inh {
+  hyphens: inherit;
 }
 #atomic .List-n {
   list-style-type: none;
@@ -2471,18 +2486,6 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Tal-j {
   text-align-last: justify;
 }
-#atomic .Ta-c {
-  text-align: center;
-}
-#atomic .Ta-j {
-  text-align: justify;
-}
-#atomic .Ta-start {
-  text-align: left;
-}
-#atomic .Ta-end {
-  text-align: right;
-}
 #atomic .Td-n {
   text-decoration: none;
 }
@@ -2531,19 +2534,19 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Us-n {
   user-select: none;
 }
-#atomic .Us-text {
+#atomic .Us-t {
   user-select: text;
 }
-#atomic .Us-toggle {
+#atomic .Us-to {
   user-select: toggle;
 }
-#atomic .Us-element {
+#atomic .Us-el {
   user-select: element;
 }
-#atomic .Us-elements {
+#atomic .Us-els {
   user-select: elements;
 }
-#atomic .Us-all {
+#atomic .Us-a {
   user-select: all;
 }
 #atomic .Us-inh {
