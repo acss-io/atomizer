@@ -144,12 +144,15 @@ $breakpoints: (
  * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
  */
 @mixin set-rules-for-static-map($prop, $property, $property_values, $property_map){
-    // we go through the list of valid values
-    @each $suffix, $legit_value in $property_map {
-        // we output the rule if we have a match
-        @if index($property_values, $legit_value) != null {
-            .#{$prop}-#{$suffix} {
-                #{$property}: $legit_value;
+    // first, we check if the list is not empty "()"
+    @if length($property_values) != 0 {
+        // we go through the list of valid values
+        @each $suffix, $legit_value in $property_map {
+            // we output the rule if we have a match
+            @if index($property_values, $legit_value) != null {
+                .#{$prop}-#{$suffix} {
+                    #{$property}: $legit_value;
+                }
             }
         }
     }
