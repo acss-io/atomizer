@@ -138,22 +138,46 @@ $breakpoints: (
 }
 
 /**
- * rule maker via static map
+ * rule maker for static map
  * example for display property:
  * $display_values: none, block, flex, inline, inline-block;
  * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
  */
-@mixin set-rules-for-static-map($prop, $property, $property_values, $property_map){
-    // first, we check if the list is not empty "()"
+@mixin set-rules-for-static-map($prop, $property, $property_values, $property_map) {
+    // will store input values that are not valid
+    $not_valid_values: ();
+    // list of valid values (ignoring the keys in $property_map)
+    $map_values: ();
+    @each $value in $property_map {
+        $map_values: append($map_values, nth(nth($property_map, $index),2));
+        $index: $index + 1;
+    }
+    // first, we check if there is any value to check against
     @if length($property_values) != 0 {
-        // we go through the list of valid values
-        @each $suffix, $legit_value in $property_map {
-            // we output the rule if we have a match
-            @if index($property_values, $legit_value) != null {
-                .#{$prop}-#{$suffix} {
-                    #{$property}: $legit_value;
+        // we go through each input values
+        @each $property_value in $property_values {
+            // we check if the value is legit (if it belongs to the map)
+            @if index($map_values, $property_value) {
+                // we go through all legit values
+                @each $suffix, $value in $property_map {
+                    // we write the rule if we have a match
+                    @if $property_value == $value {
+                        .#{$prop}-#{$suffix} {
+                           #{$property}: $value;
+                        }
+                    }
                 }
             }
+            @else {
+                // values that are not valid are stored into $not_valid_values
+                $not_valid_values: append($not_valid_values, $property_value, comma);
+            }
+        }
+        $length: length($not_valid_values);
+        @if $length == 1 {
+            @warning #{$not_valid_values} is not a valid value for #{$property};
+        } @else if $length > 0 {
+            @error #{$not_valid_values} are not valid values for #{$property};
         }
     }
 }
