@@ -4,6 +4,8 @@ $legacy: false;
 $start: left;
 $end: right;
 $default-radius-value: 3px;
+$default-border-color: #555;
+$default-font-size: 16px; /* used to reset font-size on inline-blocks (to kill white-space) */
 
 // to use in loops
 $index: 1;
@@ -180,6 +182,47 @@ $breakpoints: (
             @error #{$not_valid_values} are not valid values for #{$property};
         }
     }
+}
+
+/**
+ * rule maker for line-clamp
+ * example for 2, 3 and 4 lines:
+ * $line-clamp_values: (2, 1.2em, 1.25),(3, 1.8em, 1.5),(4, 20px, 2);
+ * @include line-clamp($line-clamp_values);
+ */
+@mixin line-clamp($params) {
+  @if length($params) != 0 {
+    @if length($params) == 1 {
+      .LC-#{nth($params,1)} {
+        -webkit-line-clamp: nth($params,1);
+        font-size: nth($params,2);
+        line-height: nth($params,3);
+        max-height: nth($params,2) * nth($params,3);
+      }
+    } @else {
+      @each $param in $params {
+        .LC-#{nth($param,1)} {
+          -webkit-line-clamp: nth($param,1);
+          font-size: nth($param,2);
+          line-height: nth($param,3);
+          max-height: nth($param,2) * nth($param,3);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * To vertically center text in a container via line-height + height
+ * class example: .Lhh-20px
+ */
+@mixin lineHeightAndHeight($list) {
+  @each $value in $list {
+    .Lhh-#{$value} {
+      line-height: $value;
+      height: $value;
+    }
+  }
 }
 
 /**
