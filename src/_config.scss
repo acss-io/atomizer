@@ -1,0 +1,14 @@
+$namespace: #atomic;
+$desktop: true;
+$legacy: false;
+$start: left;
+$end: right;
+$default-radius-value: 3px;
+$default-border-color: #555;
+$default-font-size: 16px; /* used to reset font-size on inline-blocks (to kill white-space) */
+
+// to use in loops
+$index: 1;
+
+// to escape ".", "%", etc.
+$escape: '\\';

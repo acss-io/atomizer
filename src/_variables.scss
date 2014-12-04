@@ -1,0 +1,604 @@
+/**
+ ==================================================================
+ FONT FAMILY (checked) suffix matches generic font-family
+ ==================================================================
+ */
+$font-family_values: (
+    s: (Georgia, "Times New Roman", serif),
+   ss: (Helvetica, Arial, sans-serif),
+    c: ("Monotype Corsiva", "Comic Sans MS", cursive),
+    f: (Capitals, Impact, fantasy),
+    m: (Monaco, "Courier New", monospace)
+);
+
+/**
+ * ============================================================================
+ * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+ *      http://docs.emmet.io/cheat-sheet/
+ * ============================================================================
+ */
+
+/**
+ *  NOTES:
+ *
+ *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
+ *  - look for top/right/bottom/left rules in the "offset" section
+ *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
+ *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
+ *  - TODO: bring consistency in the use of !important
+ */
+
+/**
+ ==================================================================
+ BACKGROUNDS
+ ==================================================================
+ */
+
+/* background-color TODO: make this more clever than that */
+$background-color_values: (
+    r: red,
+    g: green,
+    b: blue,
+   bl: black,
+   wh: white
+);
+
+/* background-clip */
+$background-clip_values: border-box, padding-box, content-box;
+
+/* background-origin */
+$background-origin_values: border-box, padding-box, content-box;
+
+/* background-size (length would be customized) */
+$background-size_values: auto, contain, cover;
+
+/* background-attachment */
+$background-attachment_values: fixed, local, scroll;
+
+/* background-position *4 corners only* (s=start and e=end) */
+$background-position_values: $start 0, $end 0, $start 100%,$end 100%;
+
+/* background-repeat */
+$background-repeat_values: no-repeat, repeat-x, repeat-y, repeat, space, round;
+
+/**
+ ==================================================================
+ BORDER-COLLAPSE (checked)
+ ==================================================================
+ */
+
+$border-collapse_values: collapse, separate, inherit;
+
+/**
+ ==================================================================
+ BOX-SIZING (checked)
+ ==================================================================
+ */
+
+$box-sizing_values: content-box, padding-box, border-box, inherit;
+
+/**
+ ==================================================================
+ BOX-SHADOW
+ ==================================================================
+ */
+
+
+/**
+ ==================================================================
+ CLEAR (checked)
+ ==================================================================
+ */
+
+$clear_values: none, $start, $end, both, inherit;
+
+/**
+ ==================================================================
+ CURSOR (checked)
+ TODO: how to deal with URIs?
+ ==================================================================
+ */
+
+$cursor_values: auto, crosshair, default, pointer, move, e-resize, ne-resize, nw-resize, n-resize,
+se-resize, sw-resize, s-resize, w-resize, text, wait, help, progress, inherit;
+
+/**
+ ==================================================================
+ DISPLAY (checked)
+ ==================================================================
+ */
+
+$display_values: none, block, flex, inline, inline-block, inherit, table, table-row, table-cell, list-item, run-in, compact, inline-table, table-column, table-column-group, table-header-group, table-footer-group, table-row-group;
+
+/**
+ ==================================================================
+ FLEX
+ ==================================================================
+ */
+/* FLEX (checked)
+ * width values (i.e. 350px) cannot really be set here (as a generic value)
+ */
+$flex_values: auto, none, 1, 2, 3, 4, 5, 6;
+
+/* FLEX-ALIGN (checked)  */
+$flex-align_values: (s: start, e: end, c: center, b: baseline, st: stretch);
+
+/* FLEX-DIRECTION (checked)  */
+$flex-direction_values: (r: row, rr: row-reverse, c: column, cr: column-reverse);
+
+/* FLEX-FLOW (checked)  */
+$flex-flow_values: (r: row, rr: row-reverse, c: column, cr: column-reverse, nw: nowrap, w: wrap, wr: wrap-reverse);
+
+/* FLEX-ITEM-ALIGN (checked)  */
+$flex-item-align_values: (a: auto, s: start, e: end, c: center, b: baseline, st: stretch);
+
+/* FLEX-LINE-PACK (checked)  */
+$flex-line-pack_values: (s: start, e: end, c: center, j: justify, d: distribute, st: stretch);
+
+/* FLEX-ORDER (checked)  */
+$flex-order_values: 1, 2, 3, 4, 5, 6;
+
+/* FLEX-PACK (checked)  */
+$flex-pack_values: (s: start, e: end, c: center, j: justify, d: distribute);
+
+/* FLEX-WRAP (checked)  */
+$flex-wrap_values: (nw: nowrap, w: wrap, wr: wrap-reverse);
+
+/**
+ ==================================================================
+ FLOAT (checked)
+ ==================================================================
+ */
+
+$float_values: none, $start, $end, inherit;
+
+/**
+ ==================================================================
+ FONT-WEIGHT (checked)
+ ==================================================================
+ */
+
+$font-weight_values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit;
+
+/**
+ ==================================================================
+ FONT-SIZE (checked but not using mm/cm/and other like that)
+ ==================================================================
+ */
+
+$font-size_values: 0, 11px, 12px, 13px, 14px, 15px, 16px, 17px, 18px, 19px, 20px, 21px, 22px;
+
+/**
+ ==================================================================
+ FONT-STYLE
+ ==================================================================
+ */
+
+$font-style_values: normal, italic;
+
+/**
+ ==================================================================
+ FONT-VARIANT
+ ==================================================================
+ */
+
+$font-variant_values: small-caps, normal;
+
+/**
+ ==================================================================
+ HEIGHT
+ ==================================================================
+ */
+
+$height_values: auto, inherit, 0, 20%, 50%, 75%, 100%;
+
+/**
+ ==================================================================
+ HYPHENS (checked)
+ ==================================================================
+ */
+
+$hyphens_values: none, manual, auto, inherit;
+
+/**
+ ==================================================================
+ LIST-STYLE-TYPE (checked)
+ ==================================================================
+ */
+
+$list-style-type_values: none, inherit, disc, circle, square, decimal, decimal-leading-zero, lower-roman, lower-greek, lower-latin, upper-roman, upper-latin, armenian, georgian, lower-alpha, upper-alpha;
+
+/**
+ ==================================================================
+ LIST-STYLE-IMAGE (checked) could we validate the URL?
+ ==================================================================
+ */
+
+$list-style-image_values: (
+    n: none,
+    inh: inherit,
+    uri: "http://example.com/bullet.gif"
+);
+
+/**
+ ==================================================================
+ LINE-HEIGHT
+ ==================================================================
+ */
+
+$line-height_values: (normal, inherit, 0, .2, .4, .6, .8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3);
+
+/**
+ ==================================================================
+ MARGINS
+ ==================================================================
+ */
+
+/**
+ * ALL EDGES (checked)
+ */
+
+$margin_values: (inherit, auto, 0, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px);
+
+/**
+ * 'X' AXYS
+ */
+
+$margin-x_values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * 'Y' AXYS
+ */
+
+$margin-y_values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * TOP
+ */
+
+$margin-top_values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+
+/* negative values */
+
+$margin-top_negative_values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+
+/**
+ * END (Right in LTR, Left in RTL)
+ */
+
+$margin-end_values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+
+/* negative values */
+
+$margin-end_negative_values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+
+/**
+ * BOTTOM
+ */
+
+$margin-bottom_values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+
+/* negative values */
+
+$margin-bottom_negative_values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+
+/**
+ * START (Left in LTR, Right in RTL)
+ */
+
+$margin-start_values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
+
+/* negative values */
+
+$margin-start_negative_values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
+
+/**
+ ==================================================================
+ MAX-HEIGHT (checked)
+ ==================================================================
+ */
+
+$max-height_values: none, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+
+/**
+ ==================================================================
+ MAX-WIDTH (checked)
+ ==================================================================
+ */
+
+$max-width_values: none, inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+
+/**
+ ==================================================================
+ MIN-HEIGHT (checked)
+ ==================================================================
+ */
+
+$min-height_values: inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+
+/**
+ ==================================================================
+ MIN-WIDTH (checked)
+ ==================================================================
+ */
+
+$min-width_values: inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
+
+/**
+ ==================================================================
+ OUTLINE (reset mostly, no custom styling)
+ ==================================================================
+ */
+
+$outline_values: 0, none, inherit;
+
+/**
+ ==================================================================
+ OFFSETS (checked)
+ ==================================================================
+ */
+
+/* TOP */
+$top_values: auto, inherit, 0, 50%, 100%;
+
+/* END (right) */
+$end_values: auto, inherit, 0, 50%, 100%;
+
+/* BOTTOM */
+$bottom_values: auto, inherit, 0, 50%, 100%;
+
+/* START (left) */
+$start_values: auto, inherit, 0, 50%, 100%;
+
+/**
+ ==================================================================
+ OPACITY (checked) (class always contain 2 digits after "0." - i.e. Op-0.50)
+ TODO: change the function so the suffix can be .Op-0.5 instead of .Op-0.50
+ ==================================================================
+ */
+
+$opacity_values: inherit, 0, .33, .50, .66, 1;
+
+/**
+ ==================================================================
+ OVERFLOW (checked)
+ ==================================================================
+ */
+
+$overflow_values: visible, hidden, scroll, auto, inherit;
+
+/**
+ ==================================================================
+ OVERFLOW-X (checked)
+ ==================================================================
+ */
+
+$overflow-x_values: visible, hidden, scroll, auto, inherit;
+
+/**
+ ==================================================================
+ OVERFLOW-Y (checked)
+ ==================================================================
+ */
+
+$overflow-y_values: visible, hidden, scroll, auto, inherit;
+
+/**
+ ==================================================================
+ OVERFLOW-SCROLLING (-webkit-)
+ ==================================================================
+ */
+
+$-webkit-overflow-scrolling_values: touch;
+
+/**
+ ==================================================================
+ PADDING
+ ==================================================================
+ */
+
+/**
+ * ALL EDGES
+ */
+
+$padding_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * 'X' AXYS
+ */
+
+$padding-x_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * 'Y' AXYS
+ */
+
+$padding-y_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * TOP
+ */
+
+$padding-top_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * END (Right in LTR, Left in RTL)
+ */
+
+$padding-end_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * BOTTOM
+ */
+
+$padding-bottom_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ * START (Left in LTR, Right in RTL)
+ */
+
+$padding-start_values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
+
+/**
+ ==================================================================
+ POINTER-EVENTS
+ ==================================================================
+ */
+
+$pointer-events_values: none, auto;
+
+/**
+ ==================================================================
+ POSITION (checked)
+ ==================================================================
+ */
+
+$position_values: static, absolute, relative, fixed, inherit;
+
+/**
+ ==================================================================
+ TABLE-LAYOUT (checked)
+ ==================================================================
+ */
+
+$table-layout_values: fixed, auto, inherit;
+
+/**
+ ==================================================================
+ TEXT-ALIGN (checked) TODO: inherit?
+ ==================================================================
+ */
+
+$text-align_values: left, right, center, justify, match-parent;
+
+/**
+ ==================================================================
+ TEXT-ALIGN-LAST (checked)
+ ==================================================================
+ */
+
+$text-align-last_values: auto, left, right, center, justify;
+
+/**
+ ==================================================================
+ TEXT-DECORATION (checked)
+ ==================================================================
+ */
+
+$text-decoration_values: none, underline, overline, line-through;
+
+/**
+ ==================================================================
+ TEXT-RENDERING (checked)
+ ==================================================================
+ */
+
+$text-rendering_values: auto, optimizeSpeed, optimizeLegibility, geometricPrecision, inherit;
+
+/**
+ ==================================================================
+ TEXT-REPLACE (checked)
+ http://www.w3.org/TR/2007/WD-css3-gcpm-20070504/
+ ==================================================================
+ */
+
+$text-replace_values: none;
+
+/**
+ ==================================================================
+ TEXT-TRANSFORM (checked)
+ ==================================================================
+ */
+
+$text-transform_values: none, capitalize, uppercase, lowercase;
+
+/**
+ ==================================================================
+ TEXT-SHADOW TODO:
+ custom values would be: hoff voff blur #000;
+ ==================================================================
+ */
+
+$text-shadow_values: (n: none);
+
+/**
+ ==================================================================
+ USER-SELECT (checked)
+ ==================================================================
+ */
+
+$user-select_values: none, text, toggle, element, elements, all, inherit;
+
+/**
+ ==================================================================
+ VERTICAL-ALIGN (checked)
+ ==================================================================
+ */
+
+$vertical-align_values: sup, super, top, text-top, middle, baseline, bottom, text-bottom, sub;
+
+/**
+ ==================================================================
+ VISIBILITY (checked)
+ ==================================================================
+ */
+
+$visibility_values: visible, hidden, collapse;
+
+/**
+ ==================================================================
+ WHITE-SPACE (checked)
+ ==================================================================
+ */
+
+$white-space_values: normal, pre, nowrap, pre-wrap, pre-line;
+
+/**
+ ==================================================================
+ WHITE-SPACE-COLLAPSE (checked)
+ ==================================================================
+ */
+
+$white-space-collapse_values: normal, keep-all, loose, break-strict, break-all;
+
+/**
+ ==================================================================
+ WIDTH
+ ==================================================================
+ */
+
+/**
+ * Generic (auto, inherit, 0) + Percentage values or else
+ */
+
+$width_values: auto, inherit, 0, 20%, 50%, 75%, 100%;
+
+/**
+ * Fraction values (for grid)
+ */
+
+$base-unit-for-grid: 12;
+
+/**
+ ==================================================================
+ WORD_BREAK (checked)
+ ==================================================================
+ */
+
+$word-break_values: normal, break-all, keep-all;
+
+/**
+ ==================================================================
+ WORD_WRAP (not part of the spec)
+ ==================================================================
+ */
+
+$word-warp_values: break-word, normal;
+
+/**
+ ==================================================================
+ Z-INDEX (checked)
+ ==================================================================
+ */
+
+$z-index_values: auto, inherit, 0, 1, 3, 5, 7, 10;
