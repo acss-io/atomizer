@@ -158,15 +158,9 @@
  FONT FAMILY (checked) suffix matches generic font-family
  ==================================================================
  */
-$Ff-suffix-values: (
-    s: (Georgia, "Times New Roman", serif),
-   ss: (Helvetica, Arial, sans-serif),
-    c: ("Monotype Corsiva", "Comic Sans MS", cursive),
-    f: (Capitals, Impact, fantasy),
-    m: (Monaco, "Courier New", monospace)
-);
-@each $Ff-suffix, $value in $Ff-suffix-values {
-    .Ff-#{$Ff-suffix} {
+
+@each $font-family_suffix, $value in $font-family_values {
+    .Ff-#{$font-family_suffix} {
         font-family: $value;
     }
 }
@@ -208,21 +202,13 @@ $Ff-suffix-values: (
 }
 
 /* background-color TODO: make this more clever than that */
-$Bgc-suffix-values: (
-    r: red,
-    g: green,
-    b: blue,
-   bl: black,
-   wh: white
-);
-@each $Bgc-suffix, $value in $Bgc-suffix-values {
-    .Bgc-#{$Bgc-suffix} {
+@each $background-color_suffix, $value in $background-color_values {
+    .Bgc-#{$background-color_suffix} {
         background-color: $value;
     }
 }
 
 /* background-clip */
-$background-clip_values: border-box, padding-box, content-box;
 @include set-rules-for-static-map(
     Bgclip,
     background-clip,
@@ -231,7 +217,6 @@ $background-clip_values: border-box, padding-box, content-box;
 );
 
 /* background-origin */
-$background-origin_values: border-box, padding-box, content-box;
 @include set-rules-for-static-map(
         Bgo,
     background-origin,
@@ -240,7 +225,6 @@ $background-origin_values: border-box, padding-box, content-box;
 );
 
 /* background-size (length would be customized) */
-$background-size_values: auto, contain, cover;
 @include set-rules-for-static-map(
     Bgs,
     background-size,
@@ -249,7 +233,6 @@ $background-size_values: auto, contain, cover;
 );
 
 /* background-attachment */
-$background-attachment_values: fixed, local, scroll;
 @include set-rules-for-static-map(
     Bga,
     background-attachment,
@@ -258,7 +241,6 @@ $background-attachment_values: fixed, local, scroll;
 );
 
 /* background-position *4 corners only* (s=start and e=end) */
-$background-position_values: $start 0, $end 0, $start 100%,$end 100%;
 @include set-rules-for-static-map(
     Bgp,
     background-position,
@@ -267,7 +249,6 @@ $background-position_values: $start 0, $end 0, $start 100%,$end 100%;
 );
 
 /* background-repeat */
-$background-repeat_values: no-repeat, repeat-x, repeat-y, repeat, space, round;
 @include set-rules-for-static-map(
     Bgr,
     background-repeat,
@@ -281,7 +262,6 @@ $background-repeat_values: no-repeat, repeat-x, repeat-y, repeat, space, round;
  ==================================================================
  */
 
-$border-collapse_values: collapse, separate, inherit;
 @include set-rules-for-static-map(
     Bdcl,
     border-collapse,
@@ -295,7 +275,6 @@ $border-collapse_values: collapse, separate, inherit;
  ==================================================================
  */
 
-$box-sizing_values: content-box, padding-box, border-box, inherit;
 @include set-rules-for-static-map(
     Bxz,
     box-sizing,
@@ -319,7 +298,6 @@ $box-sizing_values: content-box, padding-box, border-box, inherit;
  ==================================================================
  */
 
-$clear_values: none, $start, $end, both, inherit;
 @include set-rules-for-static-map(
     Cl,
     clear,
@@ -334,7 +312,6 @@ $clear_values: none, $start, $end, both, inherit;
  ==================================================================
  */
 
-$cursor_values: auto, crosshair, default, pointer, move, e-resize, ne-resize, nw-resize, n-resize, se-resize, sw-resize, s-resize, w-resize, text, wait, help, progress, inherit;
 @include set-rules-for-static-map(
     Cur,
     cursor,
@@ -348,7 +325,6 @@ $cursor_values: auto, crosshair, default, pointer, move, e-resize, ne-resize, nw
  ==================================================================
  */
 
-$display_values: none, block, flex, inline, inline-block, inherit, table, table-row, table-cell, list-item, run-in,compact, inline-table, table-column, table-column-group, table-header-group, table-footer-group, table-row-group;
 @include set-rules-for-static-map(
     D,
     display,
@@ -364,58 +340,49 @@ $display_values: none, block, flex, inline, inline-block, inherit, table, table-
 /* FLEX (checked)
  * width values (i.e. 350px) cannot really be set here (as a generic value)
  */
-$Fl-list-values: auto, none, 1, 2, 3, 4, 5, 6;
-$Fl-valid-values: number, auto, none;
-$Fl-units: none;
-@include set-rules-for-list(Fl, flex, $Fl-list-values, $Fl-valid-values, $Fl-units);
+$flex_valid-values: number, auto, none;
+$flex_units: none;
+@include set-rules-for-list(Flx, flex, $flex_values, $flex_valid-values, $flex_units);
 
 /* FLEX-ALIGN (checked)  */
-$Fla-map-values: (s: start, e: end, c: center, b: baseline, st: stretch);
-$Fla-valid-values: start, end, center, baseline, stretch;
+$flex-align_valid_values: start, end, center, baseline, stretch;
 $Fla-units: none;
-@include set-rules-for-map(Fla, flex-align, $Fla-map-values, $Fla-valid-values, $Fla-units);
+@include set-rules-for-map(Fla, flex-align, $flex-align_values, $flex-align_valid_values, $Fla-units);
 
 /* FLEX-DIRECTION (checked)  */
-$Fld-map-values: (r: row, rr: row-reverse, c: column, cr: column-reverse);
-$Fld-valid-values: row, row-reverse, column, column-reverse;
-$Fld-units: none;
-@include set-rules-for-map(Fld, flex-direction, $Fld-map-values, $Fld-valid-values, $Fld-units);
+$flex-direction_valid_values: row, row-reverse, column, column-reverse;
+$flex-direction_units: none;
+@include set-rules-for-map(Fld, flex-direction, $flex-direction_values, $flex-direction_valid_values, $flex-direction_units);
 
 /* FLEX-FLOW (checked)  */
-$Flf-map-values: (r: row, rr: row-reverse, c: column, cr: column-reverse, nw: nowrap, w: wrap, wr: wrap-reverse);
-$Flf-valid-values: row, row-reverse, column, column-reverse, nowrap, wrap, wrap-reverse;
-$Flf-units: none;
-@include set-rules-for-map(Flf, flex-flow, $Flf-map-values, $Flf-valid-values, $Flf-units);
+$flex-flow_valid_values: row, row-reverse, column, column-reverse, nowrap, wrap, wrap-reverse;
+$flex-flow_units: none;
+@include set-rules-for-map(Flf, flex-flow, $flex-flow_values, $flex-flow_valid_values, $flex-flow_units);
 
 /* FLEX-ITEM-ALIGN (checked)  */
-$Flia-map-values: (a: auto, s: start, e: end, c: center, b: baseline, st: stretch);
-$Flia-valid-values: auto, start, end, center, baseline, stretch;
-$Flia-units: none;
-@include set-rules-for-map(Flia, flex-item-align, $Flia-map-values, $Flia-valid-values, $Flia-units);
+$flex-item-align_valid_values: auto, start, end, center, baseline, stretch;
+$flex-item-align_units: none;
+@include set-rules-for-map(Flia, flex-item-align, $flex-item-align_values, $flex-item-align_valid_values, $flex-item-align_units);
 
 /* FLEX-LINE-PACK (checked)  */
-$Fllp-map-values: (s: start, e: end, c: center, j: justify, d: distribute, st: stretch);
-$Fllp-valid-values: start, end, center, justify, distribute, stretch;
-$Fllp-units: none;
-@include set-rules-for-map(Fllp, flex-line-pack, $Fllp-map-values, $Fllp-valid-values, $Fllp-units);
+$flex-line-pack_valid_values: start, end, center, justify, distribute, stretch;
+$flex-line-pack_units: none;
+@include set-rules-for-map(Fllp, flex-line-pack, $flex-line-pack_values, $flex-line-pack_valid_values, $flex-line-pack_units);
 
 /* FLEX-ORDER (checked)  */
-$Flo-list-values: 1, 2, 3, 4, 5, 6;
-$Flo-valid-values: number;
-$Flo-units: none;
-@include set-rules-for-list(Flo, flex-order, $Flo-list-values, $Flo-valid-values, $Flo-units);
+$flex-order_valid_values: number;
+$flex-order_units: none;
+@include set-rules-for-list(Flo, flex-order, $flex-order_values, $flex-order_valid_values, $flex-order_units);
 
 /* FLEX-PACK (checked)  */
-$Flp-map-values: (s: start, e: end, c: center, j: justify, d: distribute);
-$Flp-valid-values: start, end, center, justify, distribute;
-$Flp-units: none;
-@include set-rules-for-map(Flp, flex-pack, $Flp-map-values, $Flp-valid-values, $Flp-units);
+$flex-pack_valid_values: start, end, center, justify, distribute;
+$flex-pack_units: none;
+@include set-rules-for-map(Flp, flex-pack, $flex-pack_values, $flex-pack_valid_values, $flex-pack_units);
 
 /* FLEX-WRAP (checked)  */
-$Flw-map-values: (nw: nowrap, w: wrap, wr: wrap-reverse);
-$Flw-valid-values: nowrap, wrap, wrap-reverse;
-$Flw-units: none;
-@include set-rules-for-map(Flw, flex-wrap, $Flw-map-values, $Flw-valid-values, $Flw-units);
+$flex-wrap_valid_values: nowrap, wrap, wrap-reverse;
+$flex-wrap_units: none;
+@include set-rules-for-map(Flw, flex-wrap, $flex-wrap_values, $flex-wrap_valid_values, $flex-wrap_units);
 
 /**
  ==================================================================
@@ -423,7 +390,6 @@ $Flw-units: none;
  ==================================================================
  */
 
-$float_values: none, $start, $end, inherit;
 @include set-rules-for-static-map(
     Fl,
     float,
@@ -437,7 +403,6 @@ $float_values: none, $start, $end, inherit;
  ==================================================================
  */
 
-$font-weight_values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600, 700, 800, 900, inherit;
 @include set-rules-for-static-map(
     Fw,
     font-weight,
@@ -451,13 +416,12 @@ $font-weight_values: normal, bold, bolder, lighter, 100, 200, 300, 400, 500, 600
  ==================================================================
  */
 
-$Fz-list-values: 0, 11px, 12px, 13px, 14px, 15px, 16px, 17px, 18px, 19px, 20px, 21px, 22px;
-$Fz-valid-values: inherit, xx-small, x-small, small, smaller, medium, large, larger, x-large, xx-large, number;
-$Fz-units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
+$font-size_valid_values: inherit, xx-small, x-small, small, smaller, medium, large, larger, x-large, xx-large, number;
+$font-size_units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
 
-@each $value in $Fz-list-values {
+@each $value in $font-size_values {
     // we check if this is 0 or a keyword
-    @if index($Fz-valid-values, $value) or $value == 0 {
+    @if index($font-size_valid_values, $value) or $value == 0 {
         @if $value == 0 {
             .Fz-0 {
                 font-size: 0;
@@ -519,15 +483,15 @@ $Fz-units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
             @error "Unit is missing.";
         }
         // checking if unit is valid
-        @if index($Fz-units, unquote(unit($value))) == null {
-            @error "Unit should be: " + $Fz-units;
+        @if index($font-size_units, unquote(unit($value))) == null {
+            @error "Unit should be: " + $font-size_units;
         }
         .Fz-#{$index} {
             font-size: #{$value};
         }
         $index: $index + 1;
     } @else {
-        @error $value + " is not a valid value for Font-size. Valid values are: " + $Fz-valid-values;
+        @error $value + " is not a valid value for Font-size. Valid values are: " + $font-size_valid_values;
     }
 }
 
@@ -537,7 +501,6 @@ $Fz-units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
  ==================================================================
  */
 
-$font-style_values: normal, italic;
 @include set-rules-for-static-map(
     Fs,
     font-style,
@@ -551,7 +514,6 @@ $font-style_values: normal, italic;
  ==================================================================
  */
 
-$font-variant_values: small-caps, normal;
 @include set-rules-for-static-map(
     Fv,
     font-variant,
@@ -565,27 +527,26 @@ $font-variant_values: small-caps, normal;
  ==================================================================
  */
 
-$H-list-values: auto, inherit, 0, 20%, 50%, 75%, 100%;
-$H-valid-values: auto, inherit, number;
-$H-units: px, em, rem, "%";
-@each $H-list-value in $H-list-values {
-    @if type-of($H-list-value) == number and index($H-valid-values, number) {
-        @if unit($H-list-value) == '%' {
-            $suffix: strip-units($H-list-value);
+$height_valid_values: auto, inherit, number;
+$height_units: px, em, rem, "%";
+@each $height_value in $height_values {
+    @if type-of($height_value) == number and index($height_valid_values, number) {
+        @if unit($height_value) == '%' {
+            $suffix: strip-units($height_value);
             .H-#{$suffix}\% {
-                height: $H-list-value;
+                height: $height_value;
             }
         } @else {
-            .H-#{$H-list-value} {
-                height: $H-list-value;
+            .H-#{$height_value} {
+                height: $height_value;
             }
         }
-    } @else if (index($H-valid-values, $H-list-value)) {
-        .H-#{$H-list-value} {
-            height: $H-list-value;
+    } @else if (index($height_valid_values, $height_value)) {
+        .H-#{$height_value} {
+            height: $height_value;
         }
     } @else {
-        @error "Authorized values are: " + $H-valid-values;
+        @error "Authorized values are: " + $height_valid_values;
     }
 }
 
@@ -595,7 +556,6 @@ $H-units: px, em, rem, "%";
  ==================================================================
  */
 
-$hyphens_values: none, manual, auto, inherit;
 @include set-rules-for-static-map(
     Hy,
     hyphens,
@@ -609,7 +569,6 @@ $hyphens_values: none, manual, auto, inherit;
  ==================================================================
  */
 
-$list-style-type_values: none, inherit, disc, circle, square, decimal, decimal-leading-zero, lower-roman, lower-greek, lower-latin, upper-roman, upper-latin, armenian, georgian, lower-alpha, upper-alpha;
 @include set-rules-for-static-map(
     List,
     list-style-type,
@@ -623,19 +582,14 @@ $list-style-type_values: none, inherit, disc, circle, square, decimal, decimal-l
  ==================================================================
  */
 
-$Lisi-suffix-value: (
-    n: none,
-    inh: inherit,
-    uri: "http://example.com/bullet.gif"
-);
-@each $Lisi-suffix, $value in $Lisi-suffix-value {
+@each $list-style-image_suffix, $value in $list-style-image_values {
   // if string starts with "http";
   @if (str-index(#{$value}, "http")) {
-    .Lisi-#{$Lisi-suffix} {
+    .Lisi-#{$list-style-image_suffix} {
         list-style-image: url(#{$value}); /* */
     }
   } @else if ($value == none) or ($value == inherit) {
-    .Lisi-#{$Lisi-suffix} {
+    .Lisi-#{$list-style-image_suffix} {
         list-style-image: #{$value};
     }
   } @else {
@@ -649,26 +603,24 @@ $Lisi-suffix-value: (
  ==================================================================
  */
 
-$Lh-values: (normal, inherit, 0, .2, .4, .6, .8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3);
-
-@each $Lh-value in $Lh-values {
-    @if (type-of($Lh-value) == number or $Lh-value == normal or $Lh-value == inherit) {
-        $suffix: str-slice(#{$Lh-value}, 0, 1) + \. + str-slice(#{$Lh-value}, 3, 3);
-        @if (str-index(#{$Lh-value}, ".")) {
+@each $line-height_value in $line-height_values {
+    @if (type-of($line-height_value) == number or $line-height_value == normal or $line-height_value == inherit) {
+        $suffix: str-slice(#{$line-height_value}, 0, 1) + \. + str-slice(#{$line-height_value}, 3, 3);
+        @if (str-index(#{$line-height_value}, ".")) {
             .Lh-#{$suffix} {
-                line-height: $Lh-value;
+                line-height: $line-height_value;
             }
-        } @else if ($Lh-value == normal) {
+        } @else if ($line-height_value == normal) {
             .Lh-n {
-                line-height: $Lh-value;
+                line-height: $line-height_value;
             }
-        } @else if ($Lh-value == inherit) {
+        } @else if ($line-height_value == inherit) {
             .Lh-inh {
-                line-height: $Lh-value;
+                line-height: $line-height_value;
             }
         } @else {
-            .Lh-#{$Lh-value} {
-                line-height: $Lh-value;
+            .Lh-#{$line-height_value} {
+                line-height: $line-height_value;
             }
         }
     } @else {
@@ -686,45 +638,42 @@ $Lh-values: (normal, inherit, 0, .2, .4, .6, .8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 
  * ALL EDGES (checked)
  */
 
-$M-list-values: (inherit, auto, 0, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px);
-$M-valid-values: number, auto, inherit;
-$M-units: "%", px, rem, em;
-@include set-rules-for-list(M, margin, $M-list-values, $M-valid-values, $M-units);
+$margin_valid_values: number, auto, inherit;
+$margin_units: "%", px, rem, em;
+@include set-rules-for-list(M, margin, $margin_values, $margin_valid_values, $margin_units);
 
 /**
  * 'X' AXYS
  */
 
-$Mx-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Mx-valid-values: auto, number;
-$Mx-units: px, em, rem;
-
-@each $Mx-list-value in $Mx-list-values {
-    @if index($Mx-valid-values, $Mx-list-value) or type-of($Mx-list-value) == number {
-        @if ($Mx-list-value == auto) {
+$margin-x_valid_values: auto, number;
+$margin-x_units: px, em, rem;
+@each $margin-x_value in $margin-x_values {
+    @if index($margin-x_valid_values, $margin-x_value) or type-of($margin-x_value) == number {
+        @if ($margin-x_value == auto) {
             .Mx-a {
-            margin-right: $Mx-list-value;
-            margin-left: $Mx-list-value;
+                margin-right: $margin-x_value;
+                margin-left: $margin-x_value;
             }
-        } @else if ($Mx-list-value == 0) {
-            .Mx-#{$Mx-list-value} {
-            margin-right: $Mx-list-value;
-            margin-left: $Mx-list-value;
+        } @else if ($margin-x_value == 0) {
+            .Mx-#{$margin-x_value} {
+                margin-right: $margin-x_value;
+                margin-left: $margin-x_value;
             }
         } @else {
             // checking for proper unit
-            @if ($Mx-units != none) {
-                @if not (index($Mx-units, unit($Mx-list-value))) {
-                    @error "Value should be in: " + $Mx-units;
+            @if ($margin-x_units != none) {
+                @if not (index($margin-x_units, unit($margin-x_value))) {
+                    @error "Value should be in: " + $margin-x_units;
                 }
             }
-            .Mx-#{$Mx-list-value} {
-            margin-right: $Mx-list-value;
-            margin-left: $Mx-list-value;
+            .Mx-#{$margin-x_value} {
+                margin-right: $margin-x_value;
+                margin-left: $margin-x_value;
             }
         }
     } @else {
-        @error "Valid values are: " + $Mx-valid-values;
+        @error "Valid values for left/right margins are: " + $margin-x_valid_values;
     }
 }
 
@@ -732,36 +681,34 @@ $Mx-units: px, em, rem;
  * 'Y' AXYS
  */
 
-$My-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$My-valid-values: auto, number;
-$My-units: px, em, rem;
-
-@each $My-list-value in $My-list-values {
-    @if index($My-valid-values, $My-list-value) or type-of($My-list-value) == number {
-        @if ($My-list-value == auto) {
+$margin-y_valid_values: auto, number;
+$margin-y_units: px, em, rem;
+@each $margin-y_value in $margin-y_values {
+    @if index($margin-y_valid_values, $margin-y_value) or type-of($margin-y_value) == number {
+        @if ($margin-y_value == auto) {
             .My-a {
-            margin-top: $My-list-value;
-            margin-bottom: $My-list-value;
+            margin-top: $margin-y_value;
+            margin-bottom: $margin-y_value;
             }
-        } @else if ($My-list-value == 0) {
-            .My-#{$My-list-value} {
-            margin-top: $My-list-value;
-            margin-bottom: $My-list-value;
+        } @else if ($margin-y_value == 0) {
+            .My-#{$margin-y_value} {
+            margin-top: $margin-y_value;
+            margin-bottom: $margin-y_value;
             }
         } @else {
             // checking for proper unit
-            @if ($My-units != none) {
-                @if not (index($My-units, unit($My-list-value))) {
-                    @error "Value should be in: " + $My-units;
+            @if ($margin-y_units != none) {
+                @if not (index($margin-y_units, unit($margin-y_value))) {
+                    @error "Value should be in: " + $margin-y_units;
                 }
             }
-            .My-#{$My-list-value} {
-            margin-top: $My-list-value;
-            margin-bottom: $My-list-value;
+            .My-#{$margin-y_value} {
+            margin-top: $margin-y_value;
+            margin-bottom: $margin-y_value;
             }
         }
     } @else {
-        @error "Valid values are: " + $My-valid-values;
+        @error "Valid values are: " + $margin-y_valid_values;
     }
 }
 
@@ -769,65 +716,57 @@ $My-units: px, em, rem;
  * TOP
  */
 
-$Mt-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
-$Mt-valid-values: auto, number;
-$Mt-units: "%", px, rem, em;
-@include set-rules-for-list(Mt, margin-top, $Mt-list-values, $Mt-valid-values, $Mt-units);
+$margin-top_valid_values: auto, number;
+$margin-top_units: "%", px, rem, em;
+@include set-rules-for-list(Mt, margin-top, $margin-top_values, $margin-top_valid_values, $margin-top_units);
 
 /* negative values */
 
-$Mt-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
-$Mt-neg-valid-values: number;
-$Mt-neg-units: "%", px, rem, em;
-@include set-rules-for-list(Mt-neg, margin-top, $Mt-neg-list-values, $Mt-neg-valid-values, $Mt-neg-units);
+$margin-top_negative_valid_values: number;
+$margin-top_negative_units: "%", px, rem, em;
+@include set-rules-for-list(Mt-neg, margin-top, $margin-top_negative_values, $margin-top_negative_valid_values, $margin-top_negative_units);
 
 /**
  * END (Right in LTR, Left in RTL)
  */
 
-$Mend-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
-$Mend-valid-values: auto, number;
-$Mend-units: "%", px, rem, em;
-@include set-rules-for-list(Mend, margin-#{$end}, $Mend-list-values, $Mend-valid-values, $Mend-units);
+$margin-end_valid_values: auto, number;
+$margin-end_units: "%", px, rem, em;
+@include set-rules-for-list(Mend, margin-#{$end}, $margin-end_values, $margin-end_valid_values, $margin-end_units);
 
 /* negative values */
 
-$Mend-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
-$Mend-neg-valid-values: number;
-$Mend-neg-units: "%", px, rem, em;
-@include set-rules-for-list(Mend-neg, margin-#{$end}, $Mend-neg-list-values, $Mend-neg-valid-values, $Mend-neg-units);
+$margin-end_negative_valid_values: number;
+$margin-end_negative_units: "%", px, rem, em;
+@include set-rules-for-list(Mend-neg, margin-#{$end}, $margin-end_negative_values, $margin-end_negative_valid_values, $margin-end_negative_units);
 
 /**
  * BOTTOM
  */
 
-$Mb-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
-$Mb-valid-values: auto, number;
-$Mb-units: "%", px, rem, em;
-@include set-rules-for-list(Mb, margin-bottom, $Mb-list-values, $Mb-valid-values, $Mb-units);
+$margin-bottom_valid_values: auto, number;
+$margin-bottom_units: "%", px, rem, em;
+@include set-rules-for-list(Mb, margin-bottom, $margin-bottom_values, $margin-bottom_valid_values, $margin-bottom_units);
 
 /* negative values */
 
-$Mb-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
-$Mb-neg-valid-values: number;
-$Mb-neg-units: "%", px, rem, em;
-@include set-rules-for-list(Mb-neg, margin-bottom, $Mb-neg-list-values, $Mb-neg-valid-values, $Mb-neg-units);
+$margin-bottom_negative_valid_values: number;
+$margin-bottom_negative_units: "%", px, rem, em;
+@include set-rules-for-list(Mb-neg, margin-bottom, $margin-bottom_negative_values, $margin-bottom_negative_valid_values, $margin-bottom_negative_units);
 
 /**
  * START (Left in LTR, Right in RTL)
  */
 
-$Mstart-list-values: auto, 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 30px, 40px, 50px, 60px, 70px;
-$Mstart-valid-values: auto, number;
-$Mstart-units: "%", px, rem, em;
-@include set-rules-for-list(Mstart, margin-#{$start}, $Mstart-list-values, $Mstart-valid-values, $Mstart-units);
+$margin-start_valid_values: auto, number;
+$margin-start_units: "%", px, rem, em;
+@include set-rules-for-list(Mstart, margin-#{$start}, $margin-start_values, $margin-start_valid_values, $margin-start_units);
 
 /* negative values */
 
-$Mstart-neg-list-values: -1px, -2px, -4px, -6px, -8px, -10px, -12px, -14px, -16px, -18px, -20px, -30px, -40px, -50px, -60px, -70px;
-$Mstart-neg-valid-values: number;
-$Mstart-neg-units: "%", px, rem, em;
-@include set-rules-for-list(Mstart-neg, margin-#{$start}, $Mstart-neg-list-values, $Mstart-neg-valid-values, $Mstart-neg-units);
+$margin-start_negative_valid_values: number;
+$margin-start_negative_units: "%", px, rem, em;
+@include set-rules-for-list(Mstart-neg, margin-#{$start}, $margin-start_negative_values, $margin-start_negative_valid_values, $margin-start_negative_units);
 
 /**
  ==================================================================
@@ -835,10 +774,9 @@ $Mstart-neg-units: "%", px, rem, em;
  ==================================================================
  */
 
-$Mah-list-values: none, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
-$Mah-valid-values: none, inherit, number;
-$Mah-units: "%", px, rem, em;
-@include set-rules-for-list(Mah, max-height, $Mah-list-values, $Mah-valid-values, $Mah-units);
+$max-height_valid_values: none, inherit, number;
+$max-height_units: "%", px, rem, em;
+@include set-rules-for-list(Mah, max-height, $max-height_values, $max-height_valid_values, $max-height_units);
 
 /**
  ==================================================================
@@ -846,10 +784,9 @@ $Mah-units: "%", px, rem, em;
  ==================================================================
  */
 
-$Maw-list-values: none, inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
-$Maw-valid-values: none, inherit, number;
-$Maw-units: "%", px, rem, em;
-@include set-rules-for-list(Maw, max-width, $Maw-list-values, $Maw-valid-values, $Maw-units);
+$max-width_valid_values: none, inherit, number;
+$max-width_units: "%", px, rem, em;
+@include set-rules-for-list(Maw, max-width, $max-width_values, $max-width_valid_values, $max-width_units);
 
 /**
  ==================================================================
@@ -857,10 +794,9 @@ $Maw-units: "%", px, rem, em;
  ==================================================================
  */
 
-$Mih-list-values: inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
-$Mih-valid-values: inherit, number;
-$Mih-units: "%", px, rem, em;
-@include set-rules-for-list(Mih, min-height, $Mih-list-values, $Mih-valid-values, $Mih-units);
+$min-height_valid_values: inherit, number;
+$min-height_units: "%", px, rem, em;
+@include set-rules-for-list(Mih, min-height, $min-height_values, $min-height_valid_values, $min-height_units);
 
 /**
  ==================================================================
@@ -868,10 +804,9 @@ $Mih-units: "%", px, rem, em;
  ==================================================================
  */
 
-$Miw-list-values: inherit, 0, 20px, 30px, 40px, 50px, 60px, 70px, 80px, 90px, 100px;
-$Miw-valid-values: inherit, number;
-$Miw-units: "%", px, rem, em;
-@include set-rules-for-list(Miw, min-width, $Miw-list-values, $Miw-valid-values, $Miw-units);
+$min-width_valid_values: inherit, number;
+$min-width_units: "%", px, rem, em;
+@include set-rules-for-list(Miw, min-width, $min-width_values, $min-width_valid_values, $min-width_units);
 
 /**
  ==================================================================
@@ -879,10 +814,9 @@ $Miw-units: "%", px, rem, em;
  ==================================================================
  */
 
-$O-list-values: 0, none, inherit;
-$O-valid-values: 0, none, inherit;
-$O-units: none;
-@include set-rules-for-list(O, outline, $O-list-values, $O-valid-values, $O-units);
+$outline_valid_values: 0, none, inherit;
+$outline_units: none;
+@include set-rules-for-list(O, outline, $outline_values, $outline_valid_values, $outline_units);
 
 /**
  ==================================================================
@@ -891,62 +825,57 @@ $O-units: none;
  */
 
 /* TOP */
-$T-list-values: auto, inherit, 0, 50%, 100%;
-$T-valid-values: auto, inherit, number;
-$T-units: "%", px, rem, em;
-@include set-rules-for-list(T, top, $T-list-values, $T-valid-values, $T-units);
+$top_valid_values: auto, inherit, number;
+$top_units: "%", px, rem, em;
+@include set-rules-for-list(T, top, $top_values, $top_valid_values, $top_units);
 
 /* END (right) */
-$End-list-values: auto, inherit, 0, 50%, 100%;
-$End-valid-values: auto, inherit, number;
-$End-units: "%", px, rem, em;
-@include set-rules-for-list(End, #{$end}, $End-list-values, $End-valid-values, $End-units);
+$end_valid_values: auto, inherit, number;
+$end_units: "%", px, rem, em;
+@include set-rules-for-list(End, #{$end}, $end_values, $end_valid_values, $end_units);
 
 /* BOTTOM */
-$B-list-values: auto, inherit, 0, 50%, 100%;
-$B-valid-values: auto, inherit, number;
-$B-units: "%", px, rem, em;
-@include set-rules-for-list(B, bottom, $B-list-values, $B-valid-values, $B-units);
+$bottom_valid_values: auto, inherit, number;
+$bottom_units: "%", px, rem, em;
+@include set-rules-for-list(B, bottom, $bottom_values, $bottom_valid_values, $bottom_units);
 
 /* START (left) */
-$Start-list-values: auto, inherit, 0, 50%, 100%;
-$Start-valid-values: auto, inherit, number;
-$Start-units: "%", px, rem, em;
-@include set-rules-for-list(Start, #{$start}, $Start-list-values, $Start-valid-values, $Start-units);
+$start_valid_values: auto, inherit, number;
+$start_units: "%", px, rem, em;
+@include set-rules-for-list(Start, #{$start}, $start_values, $start_valid_values, $start_units);
 
 /**
  ==================================================================
  OPACITY (checked) (class always contain 2 digits after "0." - i.e. Op-0.50)
+ TODO: change the function so the suffix can be .Op-0.5 instead of .Op-0.50
  ==================================================================
  */
 
-$Op-list-values: inherit, 0, .33, .50, .66, 1;
-$Op-valid-values: inherit, number;
-
-@each $Op-list-value in $Op-list-values {
-    @if ($Op-list-value != inherit)  and (type-of($Op-list-value) != number) {
-        @error "Value should be a number.";
-    }  @if ($Op-list-value == inherit) {
+$opacity_valid_values: inherit, number;
+@each $opacity_value in $opacity_values {
+    @if ($opacity_value != inherit)  and (type-of($opacity_value) != number) {
+        @error "Opacity values should be either 'inherit' or a number.";
+    }  @if ($opacity_value == inherit) {
         .Op-inh {
         opacity: inherit;
         }
-    } @else if ($Op-list-value == 0) {
+    } @else if ($opacity_value == 0) {
         .Op-0 {
             opacity: 0;
             filter: alpha(opacity= 0);
         }
-    } @else if ($Op-list-value == 1) {
+    } @else if ($opacity_value == 1) {
         .Op-1 {
             opacity: 1;
             filter: alpha(opacity= 100);
         }
-    } @else if ($Op-list-value > 0) and ($Op-list-value < 1)  {
+    } @else if ($opacity_value > 0) and ($opacity_value < 1)  {
         // Make sure we have 2 decimal after the "." (i.e. ".50" and not ".5")
-        $suffix: $Op-list-value * 100;
+        $suffix: $opacity_value * 100;
         $suffix: str-slice(#{$suffix}, 0, 3);
         .Op-0#{$escape}.#{$suffix} {
-            opacity: #{$Op-list-value};
-            filter: alpha(opacity= $Op-list-value * 100);
+            opacity: #{$opacity_value};
+            filter: alpha(opacity= $opacity_value * 100);
         }
     } @else {
         @error "Numbers between 0 and 1 only";
@@ -959,7 +888,6 @@ $Op-valid-values: inherit, number;
  ==================================================================
  */
 
-$overflow_values: visible, hidden, scroll, auto, inherit;
 @include set-rules-for-static-map(
     Ov,
     overflow,
@@ -973,7 +901,6 @@ $overflow_values: visible, hidden, scroll, auto, inherit;
  ==================================================================
  */
 
-$overflow-x_values: visible, hidden, scroll, auto, inherit;
 @include set-rules-for-static-map(
     Ovx,
     overflow-x,
@@ -987,7 +914,6 @@ $overflow-x_values: visible, hidden, scroll, auto, inherit;
  ==================================================================
  */
 
-$overflow-y_values: visible, hidden, scroll, auto, inherit;
 @include set-rules-for-static-map(
     Ovy,
     overflow-y,
@@ -1001,7 +927,6 @@ $overflow-y_values: visible, hidden, scroll, auto, inherit;
  ==================================================================
  */
 
-$-webkit-overflow-scrolling_values: touch;
 @include set-rules-for-static-map(
     Ovs,
     -webkit-overflow-scrolling,
@@ -1019,45 +944,43 @@ $-webkit-overflow-scrolling_values: touch;
  * ALL EDGES
  */
 
-$P-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$P-valid-values: number;
-$P-units: px;
-@include set-rules-for-list(P, padding, $P-list-values, $P-valid-values, $P-units);
+$padding_valid_values: number;
+$padding_units: px, em, rem, "%";
+@include set-rules-for-list(P, padding, $padding_values, $padding_valid_values, $padding_units);
 
 /**
  * 'X' AXYS
  */
 
-$Px-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Px-valid-values: number;
-$Px-units: px, em, rem;
+$padding-x_valid_values: number;
+$padding-x_units: px, em, rem, "%";
 
-@each $Px-list-value in $Px-list-values {
-    @if index($Px-valid-values, $Px-list-value) or type-of($Px-list-value) == number {
-        @if ($Px-list-value == auto) {
+@each $padding-x_value in $padding-x_values {
+    @if index($padding-x_valid_values, $padding-x_value) or type-of($padding-x_value) == number {
+        @if ($padding-x_value == auto) {
             .Px-a {
-            padding-right: $Px-list-value;
-            padding-left: $Px-list-value;
+            padding-right: $padding-x_value;
+            padding-left: $padding-x_value;
             }
-        } @else if ($Px-list-value == 0) {
-            .Px-#{$Px-list-value} {
-            padding-right: $Px-list-value;
-            padding-left: $Px-list-value;
+        } @else if ($padding-x_value == 0) {
+            .Px-#{$padding-x_value} {
+            padding-right: $padding-x_value;
+            padding-left: $padding-x_value;
             }
         } @else {
             // checking for proper unit
-            @if ($Px-units != none) {
-                @if not (index($Px-units, unit($Px-list-value))) {
-                    @error "Value should be in: " + $Px-units;
+            @if ($padding-x_units != none) {
+                @if not (index($padding-x_units, unit($padding-x_value))) {
+                    @error "Value should be in: " + $padding-x_units;
                 }
             }
-            .Px-#{$Px-list-value} {
-            padding-right: $Px-list-value;
-            padding-left: $Px-list-value;
+            .Px-#{$padding-x_value} {
+            padding-right: $padding-x_value;
+            padding-left: $padding-x_value;
             }
         }
     } @else {
-        @error "Valid values are: " + $Px-valid-values;
+        @error "Valid values are: " + $padding-x_valid_values;
     }
 }
 
@@ -1065,36 +988,34 @@ $Px-units: px, em, rem;
  * 'Y' AXYS
  */
 
-$Py-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Py-valid-values: number;
-$Py-units: px, em, rem;
-
-@each $Py-list-value in $Py-list-values {
-    @if index($Py-valid-values, $Py-list-value) or type-of($Py-list-value) == number {
-        @if ($Py-list-value == auto) {
+$padding-y_valid_values: number;
+$padding-y_units: px, em, rem, "%";
+@each $padding-y_value in $padding-y_values {
+    @if index($padding-y_valid_values, $padding-y_value) or type-of($padding-y_value) == number {
+        @if ($padding-y_value == auto) {
             .Py-a {
-            padding-top: $Py-list-value;
-            padding-bottom: $Py-list-value;
+            padding-top: $padding-y_value;
+            padding-bottom: $padding-y_value;
             }
-        } @else if ($Py-list-value == 0) {
-            .Py-#{$Py-list-value} {
-            padding-top: $Py-list-value;
-            padding-bottom: $Py-list-value;
+        } @else if ($padding-y_value == 0) {
+            .Py-#{$padding-y_value} {
+            padding-top: $padding-y_value;
+            padding-bottom: $padding-y_value;
             }
         } @else {
             // checking for proper unit
-            @if ($Py-units != none) {
-                @if not (index($Py-units, unit($Py-list-value))) {
-                    @error "Value should be in: " + $Py-units;
+            @if ($padding-y_units != none) {
+                @if not (index($padding-y_units, unit($padding-y_value))) {
+                    @error "Value should be in: " + $padding-y_units;
                 }
             }
-            .Py-#{$Py-list-value} {
-            padding-top: $Py-list-value;
-            padding-bottom: $Py-list-value;
+            .Py-#{$padding-y_value} {
+            padding-top: $padding-y_value;
+            padding-bottom: $padding-y_value;
             }
         }
     } @else {
-        @error "Valid values are: " + $Py-valid-values;
+        @error "Valid values are: " + $padding-y_values;
     }
 }
 
@@ -1102,37 +1023,33 @@ $Py-units: px, em, rem;
  * TOP
  */
 
-$Pt-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Pt-valid-values: number;
-$Pt-units: px;
-@include set-rules-for-list(Pt, padding-top, $Pt-list-values, $Pt-valid-values, $Pt-units);
+$padding-top_valid_values: number;
+$padding-top_units: px, em, rem, "%";
+@include set-rules-for-list(Pt, padding-top, $padding-top_values, $padding-top_valid_values, $padding-top_units);
 
 /**
  * END (Right in LTR, Left in RTL)
  */
 
-$Pend-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Pend-valid-values: number;
-$Pend-units: px;
-@include set-rules-for-list(Pend, padding-#{$end}, $Pend-list-values, $Pend-valid-values, $Pend-units);
+$padding-end_valid_values: number;
+$padding-end_units: px, em, rem, "%";
+@include set-rules-for-list(Pend, padding-#{$end}, $padding-end_values, $padding-end_valid_values, $padding-end_units);
 
 /**
  * BOTTOM
  */
 
-$Pb-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Pb-valid-values: number;
-$Pb-units: px;
-@include set-rules-for-list(Pb, padding-bottom, $Pb-list-values, $Pb-valid-values, $Pb-units);
+$padding-bottom_valid_values: number;
+$padding-bottom_units: px, em, rem, "%";
+@include set-rules-for-list(Pb, padding-bottom, $padding-bottom_values, $padding-bottom_valid_values, $padding-bottom_units);
 
 /**
  * START (Left in LTR, Right in RTL)
  */
 
-$Pstart-list-values: 0, 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Pstart-valid-values: number;
-$Pstart-units: px;
-@include set-rules-for-list(Pstart, padding-#{$start}, $Pstart-list-values, $Pstart-valid-values, $Pstart-units);
+$padding-start_valid_values: number;
+$padding-start_units: px, em, rem, "%";
+@include set-rules-for-list(Pstart, padding-#{$start}, $padding-start_values, $padding-start_valid_values, $padding-start_units);
 
 /**
  ==================================================================
@@ -1140,7 +1057,6 @@ $Pstart-units: px;
  ==================================================================
  */
 
-$pointer-events_values: none, auto;
 @include set-rules-for-static-map(
     Pe,
     pointer-events,
@@ -1154,7 +1070,6 @@ $pointer-events_values: none, auto;
  ==================================================================
  */
 
-$position_values: static, absolute, relative, fixed, inherit;
 @include set-rules-for-static-map(
     Pos,
     position,
@@ -1168,7 +1083,6 @@ $position_values: static, absolute, relative, fixed, inherit;
  ==================================================================
  */
 
-$table-layout_values: fixed, auto, inherit;
 @include set-rules-for-static-map(
     Tbl,
     table-layout,
@@ -1182,7 +1096,6 @@ $table-layout_values: fixed, auto, inherit;
  ==================================================================
  */
 
-$text-align_values: left, right, center, justify, match-parent;
 @include set-rules-for-static-map(
     Ta,
     text-align,
@@ -1196,7 +1109,6 @@ $text-align_values: left, right, center, justify, match-parent;
  ==================================================================
  */
 
-$text-align-last_values: auto, left, right, center, justify;
 @include set-rules-for-static-map(
     Tal,
     text-align-last,
@@ -1210,7 +1122,6 @@ $text-align-last_values: auto, left, right, center, justify;
  ==================================================================
  */
 
-$text-decoration_values: none, underline, overline, line-through;
 @include set-rules-for-static-map(
     Td,
     text-decoration,
@@ -1224,7 +1135,6 @@ $text-decoration_values: none, underline, overline, line-through;
  ==================================================================
  */
 
-$text-rendering_values: auto, optimizeSpeed, optimizeLegibility, geometricPrecision, inherit;
 @include set-rules-for-static-map(
     Tren,
     text-rendering,
@@ -1239,7 +1149,6 @@ $text-rendering_values: auto, optimizeSpeed, optimizeLegibility, geometricPrecis
  ==================================================================
  */
 
-$text-replace_values: none;
 @include set-rules-for-static-map(
     Tr,
     text-replace,
@@ -1253,7 +1162,6 @@ $text-replace_values: none;
  ==================================================================
  */
 
-$text-transform_values: none, capitalize, uppercase, lowercase;
 @include set-rules-for-static-map(
     Tt,
     text-transform,
@@ -1268,10 +1176,9 @@ $text-transform_values: none, capitalize, uppercase, lowercase;
  ==================================================================
  */
 
-$Tsh-map-values: (n: none);
-$Tsh-valid-values: none;
-$Tsh-units: none;
-@include set-rules-for-map(Tsh, text-shadow, $Tsh-map-values, $Tsh-valid-values, $Tsh-units);
+$text-shadow_valid_values: none;
+$text-shadow_units: none;
+@include set-rules-for-map(Tsh, text-shadow, $text-shadow_values, $text-shadow_valid_values, $text-shadow_units);
 
 /**
  ==================================================================
@@ -1279,7 +1186,6 @@ $Tsh-units: none;
  ==================================================================
  */
 
-$user-select_values: none, text, toggle, element, elements, all, inherit;
 @include set-rules-for-static-map(
     Us,
     user-select,
@@ -1294,7 +1200,6 @@ $user-select_values: none, text, toggle, element, elements, all, inherit;
  ==================================================================
  */
 
-$vertical-align_values: sup, super, top, text-top, middle, baseline, bottom, text-bottom, sub;
 @include set-rules-for-static-map(
     Va,
     vertical-align,
@@ -1308,7 +1213,6 @@ $vertical-align_values: sup, super, top, text-top, middle, baseline, bottom, tex
  ==================================================================
  */
 
-$visibility_values: visible, hidden, collapse;
 @include set-rules-for-static-map(
     V,
     visibility,
@@ -1322,7 +1226,6 @@ $visibility_values: visible, hidden, collapse;
  ==================================================================
  */
 
-$white-space_values: normal, pre, nowrap, pre-wrap, pre-line;
 @include set-rules-for-static-map(
     Whs,
     white-space,
@@ -1336,7 +1239,6 @@ $white-space_values: normal, pre, nowrap, pre-wrap, pre-line;
  ==================================================================
  */
 
-$white-space-collapse_values: normal, keep-all, loose, break-strict, break-all;
 @include set-rules-for-static-map(
     Whsc,
     white-space-collapse,
@@ -1354,44 +1256,13 @@ $white-space-collapse_values: normal, keep-all, loose, break-strict, break-all;
  * Generic (auto, inherit, 0) + Percentage values or else
  */
 
-$W-list-values: auto, inherit, 0, 20%, 50%, 75%, 100%;
-$W-valid-values: auto, inherit, number;
-$W-units: px, em, rem, "%";
-@each $W-list-value in $W-list-values {
-    @if type-of($W-list-value) == number and index($W-valid-values, number) {
-        @if unit($W-list-value) == '%' {
-            $suffix: strip-units($W-list-value);
-            .W-#{$suffix}\% {
-                width: $W-list-value;
-            }
-        } @else {
-            .W-#{$W-list-value} {
-                width: $W-list-value;
-            }
-        }
-    } @else if (index($W-valid-values, $W-list-value)) {
-        .W-#{$W-list-value} {
-            width: $W-list-value;
-        }
-    } @else {
-        @error "Authorized values are: " + $W-valid-values;
-    }
-}
-
-/**
- * Pixel values (checked)
- */
-
-$Wpx-list-values: 1px, 2px, 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 36px, 40px;
-$Wpx-valid-values: number;
-$Wpx-units: px;
-@include set-rules-for-list(Wpx, width, $Wpx-list-values, $Wpx-valid-values, $Wpx-units);
+$width_valid_values: auto, inherit, number;
+$width_units: px, em, rem, "%";
+@include set-rules-for-list(W, width, $width_values, $width_valid_values, $width_units);
 
 /**
  * Fraction values (for grid)
  */
-
-$base-unit-for-grid: 12;
 
 @media #{inspect(map-get($breakpoints, "xs"))} {
     @while $base-unit-for-grid >= $index  {
@@ -1435,7 +1306,6 @@ $base-unit-for-grid: 12;
  ==================================================================
  */
 
-$word-break_values: normal, break-all, keep-all;
 @include set-rules-for-static-map(
     Wob,
     word-break,
@@ -1449,7 +1319,6 @@ $word-break_values: normal, break-all, keep-all;
  ==================================================================
  */
 
-$word-warp_values: break-word, normal;
 @include set-rules-for-static-map(
     Wow,
     word-warp,
@@ -1463,7 +1332,6 @@ $word-warp_values: break-word, normal;
  ==================================================================
  */
 
-$Z-list-values: auto, inherit, 0, 1, 3, 5, 7, 10;
-$Z-valid-values: number, auto, inherit;
-$Z-units: none;
-@include set-rules-for-list(Z, z-index, $Z-list-values, $Z-valid-values, $Z-units);
+$z-index_valid_values: number, auto, inherit;
+$z-index_units: none;
+@include set-rules-for-list(Z, z-index, $z-index_values, $z-index_valid_values, $z-index_units);
