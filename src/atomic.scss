@@ -1,7 +1,10 @@
 @import "config";
+@import "mixins";
+@import "variables";
 /**
  * NAMESPACE: $namespace
  **/
 #{$namespace} {
     @import "declarations";
 }
+@import "helpers";

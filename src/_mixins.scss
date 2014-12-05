@@ -1,0 +1,242 @@
+/*! http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+ *
+ * use this like this: @include respond-to(xs) { color: teal; }
+ */
+
+$breakpoints: (
+  'xs' : ( min-width:  320px ),
+  'sm' : ( min-width:  767px ),
+  'md' : ( min-width:  992px ),
+  'lg' : ( min-width: 1200px )
+);
+
+@mixin respond-to($name) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+/**
+ * rule maker via maps
+ * example for display property:
+ * $D-map-values: (n: none, b: block, etc.)
+ * $D-valid-values: block, inline, etc;
+ * $D-units: none; (% must be inside quotes as in "%")
+ * @include set-rules-for-list(D, display, $D-map-values, $D-valid-values, $D-units);
+ */
+@mixin set-rules-for-map($prefix, $property, $map, $valid-values, $units) {
+    // we loop through all the values
+    @each $suffix, $value in $map {
+        // we check if the value is legit
+        @if( index($valid-values, $value) ) {
+            // we construct the class (this is not a number)
+            .#{$prefix}-#{$suffix} {
+                // we write the declaration
+                #{$property}: #{$value};
+            }
+        } @else if (index($valid-values, number) and type-of($value) == number) {
+            // checking for proper unit
+            @if ($units != none) {
+                @if $value != 0 and not (index($units, unit($value))) {
+                    @error "Value should be in: " + $units;
+                }
+            }
+            // checking for absence of unit
+            @if ($units == none) {
+                @if (unit($value) != "") {
+                    @error "No unit allowed.";
+                }
+            }
+            // we construct the class for number values (without minus sign if any)
+            $suffix: if(str-slice(#{$value}, 0, 1) == "-", strip-minus($value), $value);
+            // we escape percentage values
+            @if unit($value) == "%" {
+                $suffix: strip-units($suffix);
+                .#{$prefix}-#{$suffix}\% {
+                    // we write the declaration
+                    #{$property}: #{$value};
+                }
+            } @else {
+                //$suffix: strip-units($suffix);
+                .#{$prefix}-#{$suffix} {
+                    // we write the declaration
+                    #{$property}: #{$value};
+                }
+            }
+        } @else {
+        // we catch the out-of-range value and display an error
+        @error $value + " is not a valid value for " + $property +
+        ". Valid values are: " + $valid-values;
+        }
+    }
+}
+
+/**
+ * rule maker via lists
+ * example for width property:
+ * $W-list-values: 10px, 20px, 30px, etc.;
+ * $W-valid-values: number;
+ * $W-units: px, em, rem, "%";
+ * @include set-rules-for-list(W, width, $W-list-values, $W-valid-values, $W-units);
+ */
+@mixin set-rules-for-list($prefix, $property, $list, $valid-values, $units) {
+    // we loop through all the values
+    @each $value in $list {
+        // we check if the value is legit
+        @if (index($valid-values, $value)) {
+            // by default $suffix = $value
+            $suffix: $value;
+            // we construct the class (this is not a number)
+            @if($value == auto) {$suffix: a;};
+            @if($value == none) {$suffix: n;};
+            @if($value == inherit) {$suffix: inh;};
+            .#{$prefix}-#{$suffix} {
+                // we write the declaration
+                #{$property}: #{$value};
+            }
+        } @else if (index($valid-values, number) and type-of($value) == number) {
+            // checking for proper unit
+            @if ($units != none) {
+                @if $value != 0 and not (index($units, unit($value))) {
+                    @error "Value should be in: " + $units;
+                }
+            }
+            // checking for absence of unit
+            @if ($units == none) {
+                @if (unit($value) != "") {
+                    @error "No unit allowed.";
+                }
+            }
+            // we construct the class for number values (without minus sign if any)
+            $suffix: if(str-slice(#{$value}, 0, 1) == "-", strip-minus($value), $value);
+            // we escape percentage values
+            @if unit($value) == "%" {
+                $suffix: strip-units($suffix);
+                .#{$prefix}-#{$suffix}\% {
+                    // we write the declaration
+                    #{$property}: #{$value};
+                }
+            } @else {
+                //$suffix: strip-units($suffix);
+                .#{$prefix}-#{$suffix} {
+                    // we write the declaration
+                    #{$property}: #{$value};
+                }
+            }
+        } @else {
+        // we catch the out-of-range value and display an error
+        @error $value + " is not a valid value for " + $property +
+        ". Valid values are: " + $valid-values;
+        }
+    }
+}
+
+/**
+ * rule maker for static map
+ * example for display property:
+ * $display_values: none, block, flex, inline, inline-block;
+ * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
+ */
+@mixin set-rules-for-static-map($prop, $property, $property_values, $property_map) {
+    // will store input values that are not valid
+    $not_valid_values: ();
+    // list of valid values (ignoring the keys in $property_map)
+    $map_values: ();
+    @each $value in $property_map {
+        $map_values: append($map_values, nth(nth($property_map, $index),2));
+        $index: $index + 1;
+    }
+    // first, we check if there is any value to check against
+    @if length($property_values) != 0 {
+        // we go through each input values
+        @each $property_value in $property_values {
+            // we check if the value is legit (if it belongs to the map)
+            @if index($map_values, $property_value) {
+                // we go through all legit values
+                @each $suffix, $value in $property_map {
+                    // we write the rule if we have a match
+                    @if $property_value == $value {
+                        .#{$prop}-#{$suffix} {
+                           #{$property}: $value;
+                        }
+                    }
+                }
+            }
+            @else {
+                // values that are not valid are stored into $not_valid_values
+                $not_valid_values: append($not_valid_values, $property_value, comma);
+            }
+        }
+        $length: length($not_valid_values);
+        @if $length == 1 {
+            @warning #{$not_valid_values} is not a valid value for #{$property};
+        } @else if $length > 0 {
+            @error #{$not_valid_values} are not valid values for #{$property};
+        }
+    }
+}
+
+/**
+ * rule maker for line-clamp
+ * example for 2, 3 and 4 lines:
+ * $line-clamp_values: (2, 1.2em, 1.25),(3, 1.8em, 1.5),(4, 20px, 2);
+ * @include line-clamp($line-clamp_values);
+ */
+@mixin line-clamp($params) {
+  @if length($params) != 0 {
+    @if length($params) == 1 {
+      .LC-#{nth($params,1)} {
+        -webkit-line-clamp: nth($params,1);
+        font-size: nth($params,2);
+        line-height: nth($params,3);
+        max-height: nth($params,2) * nth($params,3);
+      }
+    } @else {
+      @each $param in $params {
+        .LC-#{nth($param,1)} {
+          -webkit-line-clamp: nth($param,1);
+          font-size: nth($param,2);
+          line-height: nth($param,3);
+          max-height: nth($param,2) * nth($param,3);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * To vertically center text in a container via line-height + height
+ * class example: .Lhh-20px
+ */
+@mixin lineHeightAndHeight($list) {
+  @each $value in $list {
+    .Lhh-#{$value} {
+      line-height: $value;
+      height: $value;
+    }
+  }
+}
+
+/**
+ * from mezig
+ */
+@function strip-minus($value) {
+  @return $value * -1;
+}
+
+/*! http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+ * to get rid of units
+ */
+@function strip-units($value) {
+    @return $value / ($value * 0 + 1);
+}
