@@ -35,13 +35,7 @@ $font-family_values: (
  */
 
 /* background-color TODO: make this more clever than that */
-$background-color_values: (
-    r: red,
-    g: green,
-    b: blue,
-   bl: black,
-   wh: white
-);
+$background-color_values: red, green, blue, black, white;
 
 /* background-clip */
 $background-clip_values: border-box, padding-box, content-box;
@@ -63,11 +57,27 @@ $background-repeat_values: no-repeat, repeat-x, repeat-y, repeat, space, round;
 
 /**
  ==================================================================
+ BORDER
+ ==================================================================
+ */
+
+$border_values: (1px solid #555), (2px dotted #333);
+
+/**
+ ==================================================================
  BORDER-COLLAPSE (checked)
  ==================================================================
  */
 
 $border-collapse_values: collapse, separate, inherit;
+
+/**
+ ==================================================================
+ BORDER RADIUS
+ ==================================================================
+ */
+
+$border-radius_values: 0, 3px, 5px, 500px, 50%;
 
 /**
  ==================================================================
@@ -83,6 +93,7 @@ $box-sizing_values: content-box, padding-box, border-box, inherit;
  ==================================================================
  */
 
+$box-shadow_values: (1px 1px 4px #555), (0 0 5px #333);
 
 /**
  ==================================================================

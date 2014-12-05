@@ -143,9 +143,9 @@ $breakpoints: (
 
 /**
  * rule maker for static map
- * example for display property:
- * $display_values: none, block, flex, inline, inline-block;
- * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
+ * example for font-style property:
+ * $font-style_values: normal, italic;
+ * @include set-rules-for-static-map(Fs, font-style, $font-style_values, (n: normal, i: italic));
  */
 @mixin set-rules-for-static-map($prop, $property, $property_values, $property_map) {
     // will store input values that are not valid
@@ -182,6 +182,29 @@ $breakpoints: (
             @warning #{$not_valid_values} is not a valid value for #{$property};
         } @else if $length > 0 {
             @error #{$not_valid_values} are not valid values for #{$property};
+        }
+    }
+}
+
+/**
+ * TODO: validate user input?
+ * rule maker for custom values made of lists (box-shadow, etc.)
+ * example for box-shadow property:
+ * $box-shadow_values: (1px 1px 4px #555), (0 0 5px #333);
+ * @include set-rules-for-custom-values(Bxsh, box-shadow, $box-shadow_values);
+ */
+@mixin set-rules-for-custom-values($prop, $property, $property_values) {
+    // first, we check if there is any value to check against
+    @if length($property_values) != 0 {
+        // we go through each input values
+        @each $value in $property_values {
+            // we create the rule
+            // the suffix is a letter of the alphabet used to differentiate variations
+            $suffix: nth($alphabet, $index);
+            .#{$prop}-#{$suffix} {
+               #{$property}: $value;
+            }
+            $index: $index + 1;
         }
     }
 }
