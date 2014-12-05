@@ -13,8 +13,8 @@
  * Left right margin values must be same values as left/right padding set on the container of that box
  */
 .Bleed {
-    margin-right: -10px;
-    margin-left: -10px;
+    margin-right: $bleed-value;
+    margin-left: $bleed-value;
 }
 
 /**
@@ -591,3 +591,25 @@ a.LineClamp:after {
  */
 $line-clamp_values: (2, 1.2em, 1.25),(3, 1.8em, 1.5),(4, 20px, 2);
 @include line-clamp($line-clamp_values);
+
+/**
+ * :hover rules (common mouseover effects)
+ * $namespace is used to add weight
+ * it is paired with :focus so it can be used to reveal hidden focusable elements to keyboard users
+ */
+
+#{$namespace} .Td-n-\:h:hover,
+#{$namespace} .Td-n-\:h:focus {
+    text-decoration: none;
+}
+
+#{$namespace} .Td-u-\:h:hover,
+#{$namespace} .Td-u-\:h:focus {
+    text-decoration: underline;
+}
+
+#{$namespace} .Op-1-\:h:hover,
+#{$namespace} .Op-1-\:h:focus {
+    opacity: 1;
+    filter: alpha(opacity = 100);
+}
