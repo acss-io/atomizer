@@ -3,61 +3,63 @@
  BORDER
  ==================================================================
  */
+
 /**
  *
  * We expect a width, a style, and a color
  */
+
+@if length($border_values) != 0 {
+    // we go through each input values
+    @each $value in $border_values {
+        // we create all the rules related to border edges
+        // the suffix is a letter of the alphabet used to differentiate variations
+        $suffix: nth($alphabet, $index);
+        .Bd-x-#{$suffix} {
+            border-left: $value;
+            border-right: $value;
+        }
+        .Bd-y-#{$suffix} {
+            border-top: $value;
+            border-bottom: $value;
+        }
+        .Bd-t-#{$suffix} {
+            border-top: $value;
+        }
+        .Bd-end-#{$suffix} {
+            border-#{$end}: $value;
+        }
+        .Bd-b-#{$suffix} {
+            border-bottom: $value;
+        }
+        .Bd-start-#{$suffix} {
+            border-#{$start}: $value;
+        }
+        $index: $index + 1;
+    }
+}
+
+/**
+ * Resets
+ */
+
 .Bd-0 {
     border: 0;
 }
 
-.Bd-1 {
-    border-width: 1px;
-}
-
-.Bdx-1 {
-    border-left-width: 1px;
-    border-right-width: 1px;
-}
-
-.Bdy-1 {
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-}
-
-.Bd-t {
-    border-top-width: 1px;
-}
-
-.Bd-end {
-    border-#{$end}-width: 1px;
-}
-
-.Bd-b {
-    border-bottom-width: 1px;
-}
-
-.Bd-start {
-    border-#{$start}-width: 1px;
-}
-
-/**
- * Reset
- */
-
-.Bdt-0 {
+.Bd-t-0 {
     border-top: 0;
 }
 
-.Bdend-0 {
+.Bd-end-0 {
     border-#{$end}: 0;
 }
 
-.Bdb-0 {
+.Bd-b-0 {
     border-bottom: 0;
 }
 
-.Bdstart-0 {
+.Bd-start-0 {
     border-#{$start}: 0;
 }
 
@@ -119,12 +121,8 @@ $border-radius_units: px, em, rem, "%";
     background-image: none;
 }
 
-/* background-color TODO: make this more clever than that */
-@each $background-color_suffix, $value in $background-color_values {
-    .Bgc-#{$background-color_suffix} {
-        background-color: $value;
-    }
-}
+/* background-color */
+@include set-rules-for-custom-values(Bgc, background-color, $background-color_values);
 
 /* background-clip */
 @include set-rules-for-static-map(
@@ -203,12 +201,15 @@ $border-radius_units: px, em, rem, "%";
 /**
  ==================================================================
  BOX-SHADOW
+ TODO: should we edit the function to accept 'none' with a 'n' suffix?
+ or should we group all reset rules together and use boolean? (border and what not)
  ==================================================================
  */
 
 .Bxsh-n {
     box-shadow: none;
 }
+@include set-rules-for-custom-values(Bxsh, box-shadow, $box-shadow_values);
 
 /**
  ==================================================================
@@ -399,15 +400,15 @@ $font-size_units: px, "%", em, ex, ch, rem, vw, vh, vmin, vmax;
         // checking for absence of unit
         @if unit($value) == ""  {
             @error "Unit is missing.";
-        }
-        // checking if unit is valid
-        @if index($font-size_units, unquote(unit($value))) == null {
+        } @else if index($font-size_units, unquote(unit($value))) == null {
+            // unit is not valid
             @error "Unit should be: " + $font-size_units;
+        } @else {
+            .Fz-#{$index} {
+                font-size: #{$value};
+            }
+            $index: $index + 1;
         }
-        .Fz-#{$index} {
-            font-size: #{$value};
-        }
-        $index: $index + 1;
     } @else {
         @error $value + " is not a valid value for Font-size. Valid values are: " + $font-size_valid_values;
     }
@@ -780,12 +781,12 @@ $opacity_valid_values: inherit, number;
     } @else if ($opacity_value == 0) {
         .Op-0 {
             opacity: 0;
-            filter: alpha(opacity= 0);
+            filter: alpha(opacity = 0);
         }
     } @else if ($opacity_value == 1) {
         .Op-1 {
             opacity: 1;
-            filter: alpha(opacity= 100);
+            filter: alpha(opacity = 100);
         }
     } @else if ($opacity_value > 0) and ($opacity_value < 1)  {
         // Make sure we have 2 decimal after the "." (i.e. ".50" and not ".5")
