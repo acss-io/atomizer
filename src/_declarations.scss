@@ -4,7 +4,8 @@
  ==================================================================
  */
 /**
- * global reset declarations (i.e. ".Bd-0") - unlike specific ones (i.e. ".Bdb-0") - should come before any other declaration
+ *
+ * We expect a width, a style, and a color
  */
 .Bd-0 {
     border: 0;
@@ -40,6 +41,10 @@
     border-#{$start}-width: 1px;
 }
 
+/**
+ * Reset
+ */
+
 .Bdt-0 {
     border-top: 0;
 }
@@ -61,97 +66,10 @@
  BORDER RADIUS
  ==================================================================
  */
-/**
- * reset declarations (i.e. ".Bdrs-0") should come before any other declaration
- */
-.Bdrs-0 {
-    border-radius: 0;
-}
 
-.Bdtrrs-0 {
-    border-top-#{$end}-radius: 0;
-}
-
-.Bdtlrs-0 {
-    border-top-#{$start}-radius: 0;
-}
-
-.Bdbrrs-0 {
-    border-bottom-#{$end}-radius: 0;
-}
-
-.Bdblrs-0 {
-    border-bottom-#{$start}-radius: 0;
-}
-
-/**
- * very large radius (i.e. to create a 'pill box')
- */
-.Bdrs-500 {
-    border-radius: 500px; /* 1 */
-}
-
-.Bdtrrs-500 {
-    border-top-#{$end}-radius: 500px;
-}
-
-.Bdtlrs-500 {
-    border-top-#{$start}-radius: 500px;
-}
-
-.Bdbrrs-500 {
-    border-bottom-#{$end}-radius: 500px;
-}
-
-.Bdblrs-500 {
-    border-bottom-#{$start}-radius: 500px;
-}
-
-/**
- * border radius: 50%
- */
-.Bdrs-50 {
-    border-radius: 50%;
-}
-
-.Bdtrrs-50 {
-    border-top-#{$end}-radius: 50%;
-}
-
-.Bdtlrs-50 {
-    border-top-#{$start}-radius: 50%;
-}
-
-.Bdbrrs-50 {
-    border-bottom-#{$end}-radius: 50%;
-}
-
-.Bdblrs-50 {
-    border-bottom-#{$start}-radius: 50%;
-}
-
-/**
- * default border radius
- */
-.Bdrs {
-    border-radius: $default-radius-value;
-}
-
-.Bdtrrs {
-    border-top-#{$end}-radius: $default-radius-value;
-}
-
-.Bdtlrs {
-    border-top-#{$start}-radius: $default-radius-value;
-}
-
-.Bdbrrs {
-    border-bottom-#{$end}-radius: $default-radius-value;
-}
-
-.Bdblrs {
-    border-bottom-#{$start}-radius: $default-radius-value;
-}
+$border-radius_valid_values: inherit, number;
+$border-radius_units: px, em, rem, "%";
+@include set-rules-for-list(Bdrs, border-radius, $border-radius_values, $border-radius_valid_values, $border-radius_units);
 
 /**
  ==================================================================
