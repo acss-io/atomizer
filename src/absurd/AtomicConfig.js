@@ -33,5 +33,12 @@ module.exports = {
             {suffix: '20', values: ['20px']}
         ]
     },
+    'text-align': {
+        start: true,
+        end: true,
+        c: true,
+        j: true,
+        m: true
+    },
     'bfc': true
 };

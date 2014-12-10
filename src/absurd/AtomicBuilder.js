@@ -201,7 +201,16 @@ AtomicBuilder.prototype.addRule = function (rule, id) {
  * @return {Object} The build object
  */
 AtomicBuilder.prototype.getBuild = function () {
-    return this.build;
+    var build = {},
+        namespace = this.configObj.config.namespace;
+
+    if (namespace) {
+        build[namespace] = this.build;
+    } else {
+        build = this.build;
+    }
+
+    return build;
 };
 
 module.exports = AtomicBuilder;

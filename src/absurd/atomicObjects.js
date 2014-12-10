@@ -1,3 +1,7 @@
+var atomicConfig = require('./atomicConfig');
+var START = atomicConfig.config.start;
+var END = atomicConfig.config.end;
+
 module.exports = [
     {
         type: 'pattern',
@@ -30,6 +34,20 @@ module.exports = [
         properties: ['padding-left', 'padding-right'],
         rules: [
             {suffix: 'a', values: ['auto', 'auto']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'text-align',
+        name: 'Text align',
+        prefix: '.Ta-',
+        properties: ['text-align'],
+        rules: [
+            {suffix: 'start', values: [START]},
+            {suffix: 'end', values: [END]},
+            {suffix: 'c', values: ['center']},
+            {suffix: 'j', values: ['justify']},
+            {suffix: 'm', values: ['match-parent']}
         ]
     },
     {
