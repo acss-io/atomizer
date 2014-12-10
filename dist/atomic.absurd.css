@@ -41,7 +41,11 @@
   padding-left: auto;
   padding-right: auto;
 }
-.Bfc {
-  overflow: hidden;
-  *zoom: 1;
+.Px-10 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Px-20 {
+  padding-left: 20px;
+  padding-right: 20px;
 }

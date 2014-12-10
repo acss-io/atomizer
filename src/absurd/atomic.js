@@ -8,34 +8,35 @@
  * 
  * The generation process involves 2 main parts:
  * 
- *     1. Atomic rules
+ *     1. Atomic objects
  *     2. Config object
  * 
- * 1. Atomic rules
+ * 1. Atomic objects
  * 
- * It is the actual list of rules available in atomic.css, and it is used as a
- * reference for the config object which tells which rules it wants from this
- * list.
+ * An array of atomic objects describing atomic.css. It is the reference to 
+ * the config object that tells which rules it wants from this list.
  * 
- * The atomic rules is an array of objects containing 2 types of object format:
+ * The atomic objects can follow 2 types of format:
  * 
- * 1.1. Pattern objects
+ * 1.1. Pattern format
  * 
- * Used to generate classes that shares the same syntax by using a prefix and
+ * Used to generate classes that shares the same syntax by using a prefix and 
  * suffix, all declaring the same properties but with different values.
  *                   
- * This object must contain the following keys:
+ * This object may contain the following keys:
  * 
- * `type`: {String} For pattern objects 'pattern' must be declared here.
- * `id`: {String} A unique identifier for this pattern. Used by the config.
- * `name`: {String} The name of the pattern. Used by the web tool.
- * `properties`: {Array} An array of properties that will be inside each rule.
- * `rules`: {Array} An array of objects where each should have the keys:
+ * `type`        {String}  (Required) For pattern objects 'pattern' must be declared here.
+ * `id`          {String}  (Required) A unique identifier for this pattern. Used by the config.
+ * `name`        {String}  (Required) The name of the pattern. Used by the web tool.
+ * `prefix`      {String}  (Required) An array of properties that will be inside each rule.
+ * `allowCustom` {Boolean} (Optional) Wether or not this pattern allow custom values from config.
+ * `properties`  {Array}   (Required) An array of properties that will be inside each rule.
+ * `rules`       {Array}   (Required) An array of objects where each should have the keys:
  *
- *     `suffix`: {String} The suffix that will be appended to the prefix.
- *     `values`: {Array} An array of values. The index of each value
- *               corresponds to the index of each property declared in
- *               `properties`.
+ *     `suffix`  {String} (Required) The suffix that will be appended to the prefix.
+ *     `values`  {Array}  (Required) An array of values. The index of each value
+ *                                   corresponds to the index of each property declared in
+ *                                   `properties`.
  *
  * Examples:
  * {
@@ -56,13 +57,14 @@
  *     id: 'padding-x',
  *     name: 'Padding X',
  *     prefix: '.Px-',
+ *     allowCustom: true,
  *     properties: ['padding-left', 'padding-right'],
  *     rules: [
  *         {suffix: 'a', values: ['auto', 'auto']}
  *     ]
  * }
  * 
- * 1.2. Rule objects:
+ * 1.2. Rule format
  * 
  * Used to generate unique classes that can contain one or more declarations.
  *                            
@@ -105,11 +107,10 @@
  */
 
 var _ = require('lodash');
-var CONFIG = require('./atomic.config.js');
-var START = CONFIG.config.start;
-var END = CONFIG.config.end;
 
-var atomicRules = [
+var AtomicBuilder = require('./AtomicBuilder.js');
+var atomicConfig = require('./AtomicConfig.js');
+var atomicObjs = [
     {
         type: 'pattern',
         id: 'font-weight',
@@ -137,6 +138,7 @@ var atomicRules = [
         id: 'padding-x',
         name: 'Horizontal padding',
         prefix: '.Px-',
+        allowCustom: true,
         properties: ['padding-left', 'padding-right'],
         rules: [
             {suffix: 'a', values: ['auto', 'auto']}
@@ -155,70 +157,14 @@ var atomicRules = [
     }
 ];
 
-
-
 module.exports = function(api) {
-    var build = {};
 
-    var configKeys = Object.keys(CONFIG),
-        currentConfigKey,
-        currentConfigObj;
+    var atomicBuilder = new AtomicBuilder(atomicObjs, atomicConfig);
+    var build = atomicBuilder && atomicBuilder.getBuild() || {};
 
-    // iterate config object
-    for (var i = 0, l = configKeys.length; i < l; i++) {
-        currentConfigKey = configKeys[i];
-        currentConfigObj = CONFIG[currentConfigKey];
-        // iterate atomic rules
-        atomicRules.forEach(function (atomicRule) {
-            // we have a match
-            if (currentConfigKey === atomicRule.id) {
-
-                // if the atomic rule is a pattern
-                if (atomicRule.type === 'pattern') {
-                    // check if rules is present
-                    if (!atomicRule.rules) {
-                        throw 'ERROR: Missing rules for pattern ' + atomicRule.id + '.';
-                        return;
-                    }
-                    // iterate rules
-                    atomicRule.rules.forEach(function (rule) {
-
-                        // check if this rule is wanted by the config
-                        if (!currentConfigObj.hasOwnProperty(rule.suffix) || !currentConfigObj[rule.suffix]) {
-                            return;
-                        }
-
-                        var className = atomicRule.prefix + rule.suffix;
-                        build[className] = {};
-
-                        // iterate properties
-                        atomicRule.properties.forEach(function (property) {
-                            // iterate values
-                            rule.values.forEach(function (value) {
-                                // finally, assign
-                                build[className][property] = value;
-                            });
-                        });
-                    });
-                }
-                // if the atomic rule is a rule
-                else if (atomicRule.type === 'rule') {
-                    // check if rule is present
-                    if (!atomicRule.rule) {
-                        throw 'ERROR: Missing rule for pattern ' + atomicRule.id + '.';
-                        return;
-                    }
-                    // check if this rule is wanted by the config
-                    if (!CONFIG.hasOwnProperty(atomicRule.id) || !CONFIG[atomicRule.id]) {
-                        return;
-                    }
-                    _.merge(build, atomicRule.rule);
-                }
-
-            }
-        });
+    if (!_.size(build)) {
+        throw 'Failed to generate CSS. The `build` object is empty.';
     }
 
-    // fin
     api.add(build);
 }
