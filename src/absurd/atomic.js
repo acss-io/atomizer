@@ -28,7 +28,7 @@
  * `type`        {String}  (Required) For pattern objects 'pattern' must be declared here.
  * `id`          {String}  (Required) A unique identifier for this pattern. Used by the config.
  * `name`        {String}  (Required) The name of the pattern. Used by the web tool.
- * `prefix`      {String}  (Required) An array of properties that will be inside each rule.
+ * `prefix`      {String}  (Required) The prefix to be prepended in the class name of each class.
  * `allowCustom` {Boolean} (Optional) Wether or not this pattern allow custom values from config.
  * `properties`  {Array}   (Required) An array of properties that will be inside each rule.
  * `rules`       {Array}   (Required) An array of objects where each should have the keys:
