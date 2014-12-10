@@ -10,8 +10,10 @@ module.exports = {
         }
     },
     'font-weight': {
+        'n': true,
         'b': true,
         'br': true,
+        'lr': true,
         'lh': true,
         'inh': true,
         '100': true,

@@ -182,8 +182,15 @@ module.exports = function(api) {
                     }
                     // iterate rules
                     atomicRule.rules.forEach(function (rule) {
+
+                        // check if this rule is wanted by the config
+                        if (!currentConfigObj.hasOwnProperty(rule.suffix) || !currentConfigObj[rule.suffix]) {
+                            return;
+                        }
+
                         var className = atomicRule.prefix + rule.suffix;
                         build[className] = {};
+
                         // iterate properties
                         atomicRule.properties.forEach(function (property) {
                             // iterate values
@@ -199,6 +206,10 @@ module.exports = function(api) {
                     // check if rule is present
                     if (!atomicRule.rule) {
                         throw 'ERROR: Missing rule for pattern ' + atomicRule.id + '.';
+                        return;
+                    }
+                    // check if this rule is wanted by the config
+                    if (!CONFIG.hasOwnProperty(atomicRule.id) || !CONFIG[atomicRule.id]) {
                         return;
                     }
                     _.merge(build, atomicRule.rule);
