@@ -22,30 +22,40 @@ module.exports = function(grunt) {
         // -- Project Config -------------------------------------------------------
         project: appConfig,
 
-        // -- SASS Config -------------------------------------------------------
-        sass: {
-            options: {
-                sourcemap: 'none',
-                style: 'expanded',
-                banner: [
-                    '/*!',
-                    'Atomic.css v<%= project.pkg.version %>',
-                    'Copyright 2014 Yahoo! Inc. All rights reserved.',
-                    'Licensed under the BSD License.',
-                    'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
-                    '*/\n'
-                ].join('\n')
-            },
-            atomic: {
-                files: [{
-                    expand: true,
-                    cwd: '<%=project.src %>',
-                    src: ['**/*.scss'],
-                    dest: './dist',
-                    ext: '.css'
-                }]
+        absurd: {
+            buildCss: {
+                src: 'src/absurd/atomic.js',
+                dest: 'dist/atomic.absurd.css',
+                options: {
+                    minify: false
+                }
             }
         },
+
+        // -- SASS Config -------------------------------------------------------
+        // sass: {
+        //     options: {
+        //         sourcemap: 'none',
+        //         style: 'expanded',
+        //         banner: [
+        //             '/*!',
+        //             'Atomic.css v<%= project.pkg.version %>',
+        //             'Copyright 2014 Yahoo! Inc. All rights reserved.',
+        //             'Licensed under the BSD License.',
+        //             'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
+        //             '*/\n'
+        //         ].join('\n')
+        //     },
+        //     atomic: {
+        //         files: [{
+        //             expand: true,
+        //             cwd: '<%=project.src %>',
+        //             src: ['**/*.scss'],
+        //             dest: './dist',
+        //             ext: '.css'
+        //         }]
+        //     }
+        // },
 
         // -- SCSS Lint Config -------------------------------------------------------
         scsslint: {
@@ -80,7 +90,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
 //        'lint',
-        'sass'
+        'absurd'
     ]);
 
 //    grunt.registerTask('lint', [

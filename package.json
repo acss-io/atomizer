@@ -10,7 +10,9 @@
     "grunt-scss-lint": "~0.3.3",
     "grunt-shell": "~1.1.1",
     "load-grunt-tasks": "~0.6.0",
-    "time-grunt": "~1.0.0"
+    "time-grunt": "~1.0.0",
+    "grunt-absurd": "~0.1.0",
+    "lodash": "~2.4.1"
   },
   "repository": {
     "type": "git",

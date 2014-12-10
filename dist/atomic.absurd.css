@@ -1,0 +1,47 @@
+.Fw-n {
+  font-weight: normal;
+}
+.Fw-b {
+  font-weight: bold;
+}
+.Fw-br {
+  font-weight: bolder;
+}
+.Fw-lr {
+  font-weight: lighter;
+}
+.Fw-100 {
+  font-weight: 100;
+}
+.Fw-200 {
+  font-weight: 200;
+}
+.Fw-300 {
+  font-weight: 300;
+}
+.Fw-400 {
+  font-weight: 400;
+}
+.Fw-500 {
+  font-weight: 500;
+}
+.Fw-600 {
+  font-weight: 600;
+}
+.Fw-700 {
+  font-weight: 700;
+}
+.Fw-800 {
+  font-weight: 800;
+}
+.Fw-900 {
+  font-weight: 900;
+}
+.Px-a {
+  padding-left: auto;
+  padding-right: auto;
+}
+.Bfc {
+  overflow: hidden;
+  *zoom: 1;
+}
