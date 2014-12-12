@@ -12,7 +12,10 @@
     "load-grunt-tasks": "~0.6.0",
     "time-grunt": "~1.0.0",
     "grunt-absurd": "~0.1.0",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "css-validator": "~0.5.1",
+    "absurd": "~0.3.33",
+    "chalk": "~0.5.1"
   },
   "repository": {
     "type": "git",

@@ -27,7 +27,6 @@ module.exports = {
         '900': true
     },
     'padding-x': {
-        'a': true,
         'custom': [
             {suffix: '10', values: ['10px']},
             {suffix: '20', values: ['20px']}
@@ -40,5 +39,12 @@ module.exports = {
         j: true,
         m: true
     },
-    'bfc': true
+    'bfc': true,
+    'height': {
+        a: true,
+        'custom': [
+            { suffix: '100px', values: ['100px'] },
+            { suffix: '100\\%', values: ['100%'] },
+        ]
+    }
 };

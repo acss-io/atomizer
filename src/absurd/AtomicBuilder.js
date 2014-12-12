@@ -1,7 +1,8 @@
-
 'use strict';
 
 var _ = require('lodash');
+var utils = require('./utils');
+var chalk = require('chalk');
 
 // perf of approaches used:
 // object has key: http://jsperf.com/hasownproperty-vs-in-vs-undefined/72
@@ -69,12 +70,11 @@ function AtomicBuilder (atomicObjs, configObj) {
 
             // if the atomic object is a pattern
             if (atomicObj.type === 'pattern') {
-                // check if `rules` is present
-                if (!atomicObj.rules) {
-                    throw new Error('Missing rules for pattern ' + atomicObj.id + '.');
+                // if `rules` has been passed
+                if (atomicObj.rules) {
+                    self.addPatternRules(atomicObj.rules, atomicObj.id, atomicObj.properties, atomicObj.prefix, atomicObj.formatClassName);
                 }
-                self.addPatternRules(atomicObj.rules, atomicObj.id, atomicObj.properties, atomicObj.prefix);
-                // if custom has been passed
+                // if `custom` has been passed
                 if (currentConfigObj.custom) {
                     if (!atomicObj.allowCustom) {
                         throw new Error('Custom has been passed but it is not allowed for this rule. Config key: ' + currentConfigKey + '.');
@@ -82,7 +82,7 @@ function AtomicBuilder (atomicObjs, configObj) {
                     if (currentConfigObj.custom.constructor !== Array) {
                         throw new TypeError('Custom in config must be an Array. Config key: ' + currentConfigKey + '.');
                     }
-                    self.addPatternRules(currentConfigObj.custom, atomicObj.id, atomicObj.properties, atomicObj.prefix, true);
+                    self.addPatternRules(currentConfigObj.custom, atomicObj.id, atomicObj.properties, atomicObj.prefix, atomicObj.formatClassName, true);
                 }
                 // if the atomic object is a rule
                 else if (atomicObj.type === 'rule') {
@@ -107,14 +107,15 @@ function AtomicBuilder (atomicObjs, configObj) {
 
 /**
  * Add rules that are written in pattern format to the build obj.
- * @param {Array}   rules       (Required) The array of rule objects containing a suffix and values.
- * @param {String}  id          (Required) The 'id' of the pattern.
- * @param {Array}   properties  (Required) The array of properties of the pattern.
- * @param {String}  prefix      (Required) The prefix sring of the class name.
- * @param {Boolean} isCustom    (Optional) Wether or not this rule is a custom rule.
+ * @param {Array}    rules             (Required) The array of rule objects containing a suffix and values.
+ * @param {String}   id                (Required) The 'id' of the pattern.
+ * @param {Array}    properties        (Required) The array of properties of the pattern.
+ * @param {String}   prefix            (Required) The prefix sring of the class name.
+ * @param {Function} formatClassNameFn (Optional) A custom function to format the class name.
+ * @param {Boolean}  isCustom          (Optional) Wether or not this rule is a custom rule.
  * @return {Boolean} True if the rules have been added, false otherwise.
  */
-AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefix, isCustom) {
+AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefix, formatClassNameFn, isCustom) {
     var build = this.build;
     var configObj = this.configObj;
 
@@ -153,6 +154,11 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
         }
 
         var className = prefix + rule.suffix;
+
+        if (formatClassNameFn && formatClassNameFn.constructor === Function) {
+            className = formatClassNameFn(prefix, rule.suffix, rule.values);
+        }
+
         build[className] = {};
 
         // iterate properties

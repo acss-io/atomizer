@@ -8,6 +8,8 @@ module.exports = function(grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    require('./grunt-tasks/grunt-atomic-absurd')(grunt);
+
     // Configurable paths for the application
     var appConfig = {
         src: 'src',
@@ -22,7 +24,7 @@ module.exports = function(grunt) {
         // -- Project Config -------------------------------------------------------
         project: appConfig,
 
-        absurd: {
+        'atomic-absurd': {
             buildCss: {
                 src: 'src/absurd/atomic.js',
                 dest: 'dist/atomic.absurd.css',
@@ -89,11 +91,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'clean',
-//        'lint',
-        'absurd'
+        'atomic-absurd'
     ]);
-
-//    grunt.registerTask('lint', [
-//        'scsslint'
-//    ]);
 };

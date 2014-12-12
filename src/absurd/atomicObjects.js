@@ -1,4 +1,5 @@
 var atomicConfig = require('./atomicConfig');
+var utils = require('./utils.js');
 var START = atomicConfig.config.start;
 var END = atomicConfig.config.end;
 
@@ -31,10 +32,7 @@ module.exports = [
         name: 'Horizontal padding',
         prefix: '.Px-',
         allowCustom: true,
-        properties: ['padding-left', 'padding-right'],
-        rules: [
-            {suffix: 'a', values: ['auto', 'auto']}
-        ]
+        properties: ['padding-left', 'padding-right']
     },
     {
         type: 'pattern',
@@ -49,6 +47,14 @@ module.exports = [
             {suffix: 'j', values: ['justify']},
             {suffix: 'm', values: ['match-parent']}
         ]
+    },
+    {
+        type: 'pattern',
+        id: 'height',
+        name: 'Height',
+        prefix: '.H-',
+        properties: ['height'],
+        allowCustom: true
     },
     {
         type: 'rule',

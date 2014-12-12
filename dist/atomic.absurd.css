@@ -37,10 +37,6 @@
 #atomic .Fw-900 {
   font-weight: 900;
 }
-#atomic .Px-a {
-  padding-left: auto;
-  padding-right: auto;
-}
 #atomic .Px-10 {
   padding-left: 10px;
   padding-right: 10px;
@@ -63,4 +59,10 @@
 }
 #atomic .Ta-m {
   text-align: match-parent;
+}
+#atomic .H-100px {
+  height: 100px;
+}
+#atomic .H-100\% {
+  height: 100%;
 }
