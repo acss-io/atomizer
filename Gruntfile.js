@@ -26,48 +26,19 @@ module.exports = function(grunt) {
 
         'atomic-absurd': {
             buildCss: {
-                src: 'src/absurd/atomic.js',
-                dest: 'dist/atomic.absurd.css',
+                src: '<%= project.src %>/atomic.js',
+                dest: '<%= project.dist %>/atomic.css',
                 options: {
-                    minify: false
+                    minify: false,
+                    banner: [
+                        '/*!',
+                        'Atomic.css v<%= project.pkg.version %>',
+                        'Copyright 2014 Yahoo! Inc. All rights reserved.',
+                        'Licensed under the BSD License.',
+                        'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
+                        '*/\n'
+                    ].join('\n')
                 }
-            }
-        },
-
-        // -- SASS Config -------------------------------------------------------
-        // sass: {
-        //     options: {
-        //         sourcemap: 'none',
-        //         style: 'expanded',
-        //         banner: [
-        //             '/*!',
-        //             'Atomic.css v<%= project.pkg.version %>',
-        //             'Copyright 2014 Yahoo! Inc. All rights reserved.',
-        //             'Licensed under the BSD License.',
-        //             'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
-        //             '*/\n'
-        //         ].join('\n')
-        //     },
-        //     atomic: {
-        //         files: [{
-        //             expand: true,
-        //             cwd: '<%=project.src %>',
-        //             src: ['**/*.scss'],
-        //             dest: './dist',
-        //             ext: '.css'
-        //         }]
-        //     }
-        // },
-
-        // -- SCSS Lint Config -------------------------------------------------------
-        scsslint: {
-            all: [
-                '<%= project.src %>/**/*.scss'
-            ],
-            options: {
-                config: '.scss-lint.yml',
-                reporterOutput: 'scss-lint-report.xml',
-                colorizeOutput: true
             }
         },
 
@@ -78,13 +49,6 @@ module.exports = function(grunt) {
                     src: '<%=project.dist%>',
                     dot: true
                 }]
-            }
-        },
-
-        // -- Shell Config -------------------------------------------------------
-        shell: {
-            bower: {
-                command: 'bower install'
             }
         }
     });

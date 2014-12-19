@@ -17,29 +17,44 @@ var chalk = require('chalk');
  *                            of atomic.css.
  */
 function AtomicBuilder (atomicObjs, configObj) {
-
-    if (atomicObjs.constructor !== Array) {
-        throw new Error('Argument of the `atomicObjs` param must be an Array.');
-    }
-
-    if (configObj.constructor !== Object) {
-        throw new Error('Argument of the `configObj` param must be an Object.');
-    }
-
-    var configKeys = Object.keys(configObj),
-        currentConfigKey,
-        currentConfigObj,
-        self = this;
+    this.loadObjects(atomicObjs);
+    this.loadConfig(configObj);
 
     // create our build obj
     this.build = {};
 
-    // assign these so we can retrieve later
-    this.atomicObjs = atomicObjs;
-    this.configObj = configObj;
+    // populate build
+    this.run();
+}
 
-    // function to handle atomicObjs.forEach()
-    
+AtomicBuilder.prototype.loadObjects = function (objs) {
+    if (!objs) {
+        throw new Error('`objs` param is required');
+    }
+    if (objs.constructor !== Array) {
+        throw new TypeError('Argument of the `objs` param must be an Array.');
+    }
+    this.atomicObjs = objs;
+};
+
+AtomicBuilder.prototype.loadConfig = function (config) {
+    if (!config) {
+        throw new Error('`config` param is required');
+    }
+    if (config.constructor !== Object) {
+        throw new TypeError('Argument of the `config` param must be an Object.');
+    }
+    this.configObj = config;
+};
+
+AtomicBuilder.prototype.run = function () {
+
+    var atomicObjs = this.atomicObjs,
+        configObj = this.configObj,
+        configKeys = Object.keys(configObj),
+        currentConfigKey,
+        currentConfigObj,
+        self = this;
 
     // iterate config object
     for (var i = 0, l = configKeys.length; i < l; i++) {
@@ -99,10 +114,6 @@ function AtomicBuilder (atomicObjs, configObj) {
             }
         });
     }
-    if (!this.build.length) {
-        return false;
-    }
-    return true;
 }
 
 /**
@@ -200,6 +211,10 @@ AtomicBuilder.prototype.addRule = function (rule, id) {
 
     _.merge(this.build, rule);
     return true;
+};
+
+AtomicBuilder.prototype.flush = function () {
+    this.build = {};
 };
 
 /**

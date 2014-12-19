@@ -108,7 +108,7 @@
 
 var _ = require('lodash');
 
-var AtomicBuilder = require('./AtomicBuilder.js');
+var AtomicBuilder = require('./lib/AtomicBuilder.js');
 var atomicConfig = require('./atomicConfig.js');
 var atomicObjs = require('./atomicObjects.js');
 

@@ -15,7 +15,8 @@ module.exports = function(grunt) {
             combineSelectors: true,
             minify: false,
             keepCamelCase: false,
-            extCSS: '.css'
+            extCSS: '.css',
+            banner: ''
         });
         var done = this.async();
 
@@ -80,7 +81,7 @@ module.exports = function(grunt) {
                         done(false);
                     }
                     else {
-                        grunt.file.write(path.resolve(f.dest), result);
+                        grunt.file.write(path.resolve(f.dest), options.banner + result);
                         grunt.verbose.writeln('File ' + chalk.cyan(f.dest) + ' created.');
                         done();
                     }
