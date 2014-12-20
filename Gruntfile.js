@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    require('./grunt-tasks/grunt-atomic-absurd')(grunt);
+    require('./grunt-tasks/grunt-acss')(grunt);
 
     // Configurable paths for the application
     var appConfig = {
@@ -24,10 +24,9 @@ module.exports = function(grunt) {
         // -- Project Config -------------------------------------------------------
         project: appConfig,
 
-        'atomic-absurd': {
-            buildCss: {
-                src: '<%= project.src %>/atomic.js',
-                dest: '<%= project.dist %>/atomic.css',
+        // -- Atomic.css -----------------------------------------------------------
+        acss: {
+            dist: {
                 options: {
                     minify: false,
                     banner: [
@@ -38,11 +37,13 @@ module.exports = function(grunt) {
                         'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
                         '*/\n'
                     ].join('\n')
-                }
+                },
+                src: '<%= project.src %>/atomic.js',
+                dest: '<%= project.dist %>/atomic.css'
             }
         },
 
-        // -- SCSS Lint Config -------------------------------------------------------
+        // -- Clean ----------------------------------------------------------------
         clean: {
             dist: {
                 files: [{
@@ -50,11 +51,28 @@ module.exports = function(grunt) {
                     dot: true
                 }]
             }
+        },
+
+        // -- Minify ---------------------------------------------------------------
+        cssmin: {
+            dist: {
+                options: {
+                    report: 'gzip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist/',
+                    src: ['**/*.css', '!**/*.min.css'],
+                    dest: 'dist/',
+                    ext: '.min.css'
+                }]
+            }
         }
     });
 
     grunt.registerTask('default', [
         'clean',
-        'atomic-absurd'
+        'acss:dist',
+        'cssmin:dist'
     ]);
 };

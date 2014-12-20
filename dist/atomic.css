@@ -66,6 +66,10 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Ta-m {
   text-align: match-parent;
 }
+#atomic .Bfc {
+  overflow: hidden;
+  *zoom: 1;
+}
 #atomic .H-100px {
   height: 100px;
 }

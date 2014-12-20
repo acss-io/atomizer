@@ -66,28 +66,24 @@ AtomicBuilder.prototype.run = function () {
             if (currentConfigKey !== atomicObj.id) {
                 return;
             }
-
-            if (!atomicObj.id) {
-                throw new Error('Missing key `id` for the atomic object: ' + atomicObj + '.');
-            }
-
             if (atomicObj.id.constructor !== String) {
                 throw new TypeError('Key `id` of atomic object must be a String. Object: ' + atomicObj);
             }
-
-            if (!atomicObj.type) {
-                throw new Error('Missing key `type` for the atomic object: ' + atomicObj.id + '.');
-            }
-
             if (atomicObj.type.constructor !== String) {
                 throw new TypeError('Key `type` of atomic object must be a String. Object: ' + atomicObj.id);
             }
 
             // if the atomic object is a pattern
             if (atomicObj.type === 'pattern') {
+                if (atomicObj.properties.constructor !== Array) {
+                    throw new TypeError('Key `properties` of atomic object must be an Array. Object: ' + atomicObj.id);
+                }
+                if (atomicObj.prefix.constructor !== String) {
+                    throw new TypeError('Key `prefix` of atomic object must be a String. Object: ' + atomicObj.id);
+                }
                 // if `rules` has been passed
                 if (atomicObj.rules) {
-                    self.addPatternRules(atomicObj.rules, atomicObj.id, atomicObj.properties, atomicObj.prefix, atomicObj.formatClassName);
+                    self.addPatternRules(atomicObj.rules, atomicObj.id, atomicObj.properties, atomicObj.prefix);
                 }
                 // if `custom` has been passed
                 if (currentConfigObj.custom) {
@@ -97,20 +93,16 @@ AtomicBuilder.prototype.run = function () {
                     if (currentConfigObj.custom.constructor !== Array) {
                         throw new TypeError('Custom in config must be an Array. Config key: ' + currentConfigKey + '.');
                     }
-                    self.addPatternRules(currentConfigObj.custom, atomicObj.id, atomicObj.properties, atomicObj.prefix, atomicObj.formatClassName, true);
+                    self.addPatternRules(currentConfigObj.custom, atomicObj.id, atomicObj.properties, atomicObj.prefix, true);
                 }
-                // if the atomic object is a rule
-                else if (atomicObj.type === 'rule') {
-                    // check if `rule` is present
-                    if (!atomicObj.rule) {
-                        throw new Error('Missing key `rule` for pattern ' + atomicObj.id + '.');
-                    }
-                    // check if `id` is present
-                    if (!atomicObj.rule) {
-                        throw new Error('Missing key `rule` for pattern ' + atomicObj.id + '.');
-                    }
-                   self.addRule(atomicObj.rule, atomicObj.id);
+            }
+            // if the atomic object is a rule
+            else if (atomicObj.type === 'rule') {
+                // check if `rule` is present
+                if (atomicObj.rule.constructor !== Object) {
+                    throw new TypeError('Key `rule` of atomic object must be an Object. Object: ' + atomicObj.id);
                 }
+               self.addRule(atomicObj.rule, atomicObj.id);
             }
         });
     }
@@ -126,8 +118,8 @@ AtomicBuilder.prototype.run = function () {
  * @param {Boolean}  isCustom          (Optional) Wether or not this rule is a custom rule.
  * @return {Boolean} True if the rules have been added, false otherwise.
  */
-AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefix, formatClassNameFn, isCustom) {
-    var build = this.build;
+AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefix, isCustom) {
+    var build = {};
     var configObj = this.configObj;
 
     if (rules.constructor !== Array) {
@@ -136,17 +128,17 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
     if (!rules.length) {
         return false;
     }
-    if (!properties) {
-        throw new Error('The `properties` argument is required to add a rule.');
+    if (id.constructor !== String) {
+        throw new TypeError('Argument of the `id` param must be a String.');
     }
     if (properties.constructor !== Array) {
         throw new TypeError('Argument of the `properties` param must be an Array.');
     }
-    if (!prefix) {
-        throw new Error('A `prefix` is required to add a rule.');
-    }
     if (prefix.constructor !== String) {
         throw new TypeError('Argument of the `prefix` param must be a String.');
+    }
+    if (!configObj || configObj.constructor !== Object) {
+        throw new TypeError('Expecting config object to be set in this instance.');
     }
 
     rules.forEach(function (rule) {
@@ -160,15 +152,11 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
             throw new TypeError('rule.values must be an Array.');
         }
         // check if this rule is wanted by the config
-        if (!isCustom && !configObj[id][rule.suffix]) {
-            return false;
+        if (!isCustom && (configObj[id] && !configObj[id][rule.suffix])) {
+            return;
         }
 
         var className = prefix + rule.suffix;
-
-        if (formatClassNameFn && formatClassNameFn.constructor === Function) {
-            className = formatClassNameFn(prefix, rule.suffix, rule.values);
-        }
 
         build[className] = {};
 
@@ -181,6 +169,12 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
             });
         });
     });
+
+    if (!_.size(build)) {
+        return false;
+    }
+
+    _.merge(this.build, build);
     return true;
 };
 
@@ -191,21 +185,20 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
  * @return {Boolean} True if the rule has been added, false otherwise.
  */
 AtomicBuilder.prototype.addRule = function (rule, id) {
-    if (!rule) {
-        throw new Error('Expecting argument: `rule`');
-    }
+    var configObj = this.configObj;
+
     if (rule.constructor !== Object) {
         throw new TypeError('Argument of the `rule` param must be an Object.');
-    }
-    if (!id) {
-        throw new Error('Expecting argument: `id`');
     }
     if (id.constructor !== String) {
         throw new TypeError('Argument of the `id` param must be a String.');
     }
+    if (!configObj || configObj.constructor !== Object) {
+        throw new TypeError('Expecting config object to be set in this instance.');
+    }
 
     // check if this rule is wanted by the config
-    if (!this.configObj[id]) {
+    if (!configObj[id]) {
         return false;
     }
 
@@ -223,7 +216,14 @@ AtomicBuilder.prototype.flush = function () {
  */
 AtomicBuilder.prototype.getBuild = function () {
     var build = {},
-        namespace = this.configObj.config.namespace;
+        configObj = this.configObj,
+        namespace;
+
+    if (!configObj || configObj.constructor !== Object) {
+        throw new TypeError('Expecting config object to be set in this instance.');
+    }
+
+    namespace = configObj.config && configObj.config.namespace;
 
     if (namespace) {
         build[namespace] = this.build;

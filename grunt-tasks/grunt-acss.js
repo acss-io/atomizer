@@ -4,10 +4,9 @@ module.exports = function(grunt) {
     var path = require('path'),
         chalk = require('chalk'),
         Absurd = require('absurd'),
-        validateCss = require('css-validator'),
         api;
 
-    grunt.registerMultiTask('atomic-absurd', 'Grunt plugin to compile Atomic.css using Absurdjs', function() {
+    grunt.registerMultiTask('acss', 'Grunt plugin to compile atomic.css.', function() {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
             require: [],
@@ -19,16 +18,6 @@ module.exports = function(grunt) {
             banner: ''
         });
         var done = this.async();
-
-        function formatMessage (message) {
-            return message.replace(/\n+/g,'').
-                   trim().
-                   replace(/\(.+\)/g,'').
-                   replace(/\s*:\s*$/,'').
-                   replace(/\s*:\s*/,': ').
-                   replace(/\s{2,}/g,' ').
-                   replace(/\s{4,}/g,'\n');
-        }
 
         // Iterate over all src-dest file pairs
         this.files.forEach(function(f) {
@@ -64,28 +53,12 @@ module.exports = function(grunt) {
             api.compile(function(err, result) {
                 if (err) {
                     grunt.log.error('Absurd:' + err);
-                    return;
+                    done(false);
                 }
 
-                validateCss(result, function (err, data) {
-                    if (err) {
-                        grunt.log.error(err);
-                        done(false);
-                    }
-                    else if (!data.validity) {
-                        grunt.log.error(chalk.red('CSS file has NOT been created.'));
-                        grunt.log.error(chalk.yellow('Please check the errors below:'));
-                        data.errors.forEach(function (error) {
-                            grunt.log.writeln(chalk.yellow('Line ' + error.line) + ' ' + chalk.cyan(formatMessage(error.message)));
-                        });
-                        done(false);
-                    }
-                    else {
-                        grunt.file.write(path.resolve(f.dest), options.banner + result);
-                        grunt.verbose.writeln('File ' + chalk.cyan(f.dest) + ' created.');
-                        done();
-                    }
-                });
+                grunt.file.write(path.resolve(f.dest), options.banner + result);
+                grunt.verbose.writeln('File ' + chalk.cyan(f.dest) + ' created.');
+                done();
             }, options);
         });
     });
