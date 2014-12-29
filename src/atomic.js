@@ -104,9 +104,7 @@
  * `rules`       {Array}   (Required) An array of objects where each should have the keys:
  *
  *     `suffix`  {String} (Required) The suffix that will be appended to the prefix.
- *     `values`  {Array}  (Required) An array of values. The index of each value
- *                                   corresponds to the index of each property declared in
- *                                   `properties`.
+ *     `values`  {Array}  (Required) An array of properties.
  *
  * Example:
  *
