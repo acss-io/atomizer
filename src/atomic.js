@@ -88,6 +88,47 @@
  *         }
  *     }
  * }
+ *
+ * 1.3. Custom properties format
+ * 
+ * Used to generate a set of classes (with alphabetical suffixes) with custom properties.
+ *                            
+ * This object must contain the following keys:
+ * 
+ * `type`        {String}  (Required) For custom properties objects 'custom-properties' must be declared here.
+ * `id`          {String}  (Required) A unique identifier for these classes. Used by the config.
+ * `name`        {String}  (Required) The name of the classes. Used by the web tool.
+ * `prefix`      {String}  (Required) The prefix to be prepended in the class name of each class.
+ * `suffixType`  {String}  (Required) The type of suffix. It can only be 'alphabet'.
+ * `format`      {Array}   (Required) An array of functions to test each word passed in the config object.
+ * `rules`       {Array}   (Required) An array of objects where each should have the keys:
+ *
+ *     `suffix`  {String} (Required) The suffix that will be appended to the prefix.
+ *     `values`  {Array}  (Required) An array of values. The index of each value
+ *                                   corresponds to the index of each property declared in
+ *                                   `properties`.
+ *
+ * Example:
+ *
+ * {
+ *     type: 'custom-properties',
+ *     id: 'border',
+ *     name: 'Border',
+ *     prefix: '.Bd-',
+ *     suffixType: 'alphabet',
+ *     format: [
+ *         utils.isLength,
+ *         utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
+ *         utils.isHex
+ *     ],
+ *     rules: [
+ *         {suffix: 'x', values: ['border-left', 'border-right']},
+ *         {suffix: 'y', values: ['border-top', 'border-bottom']},
+ *         {suffix: 't', values: ['border-top']},
+ *         {suffix: 'end', values: ['border-' + END]},
+ *         {suffix: 'start', values: ['border-' + START]}
+ *     ]
+ * }
  * 
  * 2. Config Object
  * 

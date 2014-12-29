@@ -9,6 +9,7 @@ module.exports = {
             'bleed-value': '-10px'
         }
     },
+    'border': ['1px solid #000', '2px solid #fff'],
     'font-weight': {
         'n': true,
         'b': true,

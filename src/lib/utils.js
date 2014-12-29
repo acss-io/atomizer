@@ -29,4 +29,16 @@ utils.isInteger = function (value) {
 
 utils.isFloat = function (value) {
     return (!isNaN(value) && value.toString().indexOf('.') != -1);
-}
+};
+
+utils.isHex = function (value) {
+    return /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(value);
+};
+
+utils.indexOf = function (listOfValidItems) {
+    if (listOfValidItems.constructor === Array) {
+        return function (value) {
+            return listOfValidItems.indexOf(value) >= 0 ? true : false;
+        }
+    }
+};

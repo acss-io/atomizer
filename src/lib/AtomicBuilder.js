@@ -1,8 +1,7 @@
+/*jshint loopfunc:true */
 'use strict';
 
 var _ = require('lodash');
-var utils = require('./utils');
-var chalk = require('chalk');
 
 // perf of approaches used:
 // object has key: http://jsperf.com/hasownproperty-vs-in-vs-undefined/72
@@ -96,6 +95,10 @@ AtomicBuilder.prototype.run = function () {
                     self.addPatternRules(currentConfigObj.custom, atomicObj.id, atomicObj.properties, atomicObj.prefix, true);
                 }
             }
+            // if the atomic object is a custom properties and we have rules and currentConfigObj has been passed
+            else if (atomicObj.type === 'custom-properties' && atomicObj.rules && currentConfigObj) {
+                self.addCustomPropertiesRules(currentConfigObj, atomicObj.rules, atomicObj.id, atomicObj.prefix, atomicObj.suffixType, atomicObj.format);
+            }
             // if the atomic object is a rule
             else if (atomicObj.type === 'rule') {
                 // check if `rule` is present
@@ -106,7 +109,7 @@ AtomicBuilder.prototype.run = function () {
             }
         });
     }
-}
+};
 
 /**
  * Add rules that are written in pattern format to the build obj.
@@ -114,7 +117,6 @@ AtomicBuilder.prototype.run = function () {
  * @param {String}   id                (Required) The 'id' of the pattern.
  * @param {Array}    properties        (Required) The array of properties of the pattern.
  * @param {String}   prefix            (Required) The prefix sring of the class name.
- * @param {Function} formatClassNameFn (Optional) A custom function to format the class name.
  * @param {Boolean}  isCustom          (Optional) Wether or not this rule is a custom rule.
  * @return {Boolean} True if the rules have been added, false otherwise.
  */
@@ -166,6 +168,102 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
             rule.values.forEach(function (value) {
                 // finally, assign
                 build[className][property] = value;
+            });
+        });
+    });
+
+    if (!_.size(build)) {
+        return false;
+    }
+
+    _.merge(this.build, build);
+    return true;
+};
+
+/**
+ * Add rules that are written in 'custom-properties' format.
+ * @param {Array}    classValues (Required) An array containing one more more value to create a class pattern.
+ * @param {Array}    rules       (Required) The array of rule objects containing a suffix and values.
+ * @param {String}   id          (Required) The 'id' of the pattern.
+ * @param {String}   prefix      (Required) The prefix sring of the class name.
+ * @param {String}   suffixType  (Required) The type of the suffix to be appended to the custom class pattern.
+ * @param {Array}    format      (Required) An array containing a function that tests each word passed on each item of class values.
+ * @return {Boolean} True if the rules have been added, false otherwise.
+ */
+AtomicBuilder.prototype.addCustomPropertiesRules = function (classValues, rules, id, prefix, suffixType, format) {
+    var build = {};
+
+    if (!classValues || classValues.constructor !== Array) {
+        throw new TypeError('Argument of the `classValues` param must be an Array.');
+    }
+    if (!rules || rules.constructor !== Array) {
+        throw new TypeError('Argument of the `rules` param must be an Array.');
+    }
+    if (!classValues.length || !rules.length) {
+        return false;
+    }
+    if (classValues.length > 26) {
+        throw new RangeError('The limit for total custom pattern rules is 26.');
+    }
+    if (!id || id.constructor !== String) {
+        throw new TypeError('Argument of the `id` param must be a String.');
+    }
+    if (!prefix || prefix.constructor !== String) {
+        throw new TypeError('Argument of the `prefix` param must be a String.');
+    }
+    if (suffixType !== 'alphabet') {
+        throw new TypeError('Argument of the `suffixType` param must be an \'alphabet\'.');
+    }
+    if (!format || format.constructor !== Array) {
+        throw new TypeError('Argument of the `format` param must be an Array.');
+    }
+
+    if (format.some(function (formatFragment) {
+        return formatFragment.constructor !== Function;
+    })) {
+        throw new TypeError('The `format` array must be an array of Functions.');
+    }
+
+    // iterate class values
+    classValues.forEach(function (classValue, index) {
+        var invalid, patternSuffix = '';
+
+        // validate format
+        classValue = classValue.split(' ');
+        invalid = classValue.length !== format.length || classValue.some(function (classValueWord, indexWord) {
+            return !format[indexWord].call('undefined', classValueWord);
+        });
+        if (invalid) {
+            throw new Error('Invalid value format in `' + id + '`.');
+        }
+        classValue = classValue.join(' ');
+
+        // determine pattern suffix
+        if (suffixType === 'alphabet') {
+            patternSuffix = '-' + String.fromCharCode(97 + index);
+        }
+
+        // iterate rules
+        rules.forEach(function (rule, index) {
+            var className;
+
+            if (!rule.suffix || !rule.values) {
+                throw new Error('Rule should have keys `suffix` and `values`.');
+            }
+            if (rule.suffix.constructor !== String) {
+                throw new TypeError('rule.suffix must be a String.');
+            }
+            if (rule.values.constructor !== Array) {
+                throw new TypeError('rule.values must be an Array.');
+            }
+
+            className = prefix + rule.suffix + patternSuffix;
+
+            build[className] = {};
+
+            // iterate values
+            rule.values.forEach(function (value) {
+                build[className][value] = classValue;
             });
         });
     });

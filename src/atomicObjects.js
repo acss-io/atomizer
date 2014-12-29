@@ -5,6 +5,25 @@ var END = atomicConfig.config.end;
 
 module.exports = [
     {
+        type: 'custom-properties',
+        id: 'border',
+        name: 'Border',
+        prefix: '.Bd-',
+        suffixType: 'alphabet',
+        format: [
+            utils.isLength,
+            utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
+            utils.isHex
+        ],
+        rules: [
+            {suffix: 'x', values: ['border-left', 'border-right']},
+            {suffix: 'y', values: ['border-top', 'border-bottom']},
+            {suffix: 't', values: ['border-top']},
+            {suffix: 'end', values: ['border-' + END]},
+            {suffix: 'start', values: ['border-' + START]}
+        ]
+    },
+    {
         type: 'pattern',
         id: 'font-weight',
         name: 'Font weight',
