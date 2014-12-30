@@ -16,7 +16,7 @@ utils.getUnit = function (value) {
 };
 
 utils.isLength = function (value) {
-    return /^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value);
+    return /^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value) && ['em', 'ex', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax', 'px', 'mm', 'cm', 'in', 'pt', 'pc'].indexOf(this.getUnit(value)) >= 0;
 };
 
 utils.isPercentage = function (value) {
@@ -24,7 +24,7 @@ utils.isPercentage = function (value) {
 };
 
 utils.isInteger = function (value) {
-    return typeof value ==='number' && (value % 1) === 0;
+    return typeof value === 'number' && (value % 1) === 0;
 };
 
 utils.isFloat = function (value) {
