@@ -84,6 +84,16 @@ AtomicBuilder.prototype.run = function () {
                 if (atomicObj.rules) {
                     self.addPatternRules(atomicObj.rules, atomicObj.id, atomicObj.properties, atomicObj.prefix);
                 }
+                // if `grid` has been passed
+                if (currentConfigObj.grid) {
+                    if (!atomicObj.allowGrid) {
+                        throw new Error('Grid has been passed but it is not allowed for this rule. Config key: ' + currentConfigKey + '.');
+                    }
+                    if (currentConfigObj.grid.constructor !== Object) {
+                        throw new TypeError('Grid in config must be an Object. Config key: ' + currentConfigKey + '.');
+                    }
+                    self.addPatternGridRules(currentConfigObj.grid, atomicObj.id, atomicObj.properties, atomicObj.prefix);
+                }
                 // if `custom` has been passed
                 if (currentConfigObj.custom) {
                     if (!atomicObj.allowCustom) {
@@ -112,11 +122,94 @@ AtomicBuilder.prototype.run = function () {
 };
 
 /**
+ * Add rules that are written in grid pattern format to the build obj.
+ * @param {Object}   grid              (Required) The grid object containing 'units' and 'breakpoints'.
+ * @param {String}   id                (Required) The 'id' of the pattern.
+ * @param {Array}    properties        (Required) The array of properties of the pattern.
+ * @param {String}   prefix            (Required) The prefix string of the class name.
+ * @return {Boolean} True if the rules have been added, false otherwise.
+ */
+AtomicBuilder.prototype.addPatternRules = function (grid, id, properties, prefix) {
+    var build = {};
+    var configObj = this.configObj;
+    var className;
+
+    if (!grid || grid.constructor !== Object) {
+        throw new TypeError('Argument of the `grid` param must be an Object.');
+    }
+    if (!grid.units || !utils.isInteger(grid.units)) {
+        throw new TypeError('grid.units must be an Integer.');
+    }
+    if (!grid.breakpoints || grid.breakpoints.constructor !== Array) {
+        throw new TypeError('grid.breakpoints must be an Array.');
+    }
+    if (id.constructor !== String) {
+        throw new TypeError('Argument of the `id` param must be a String.');
+    }
+    if (properties.constructor !== Array) {
+        throw new TypeError('Argument of the `properties` param must be an Array.');
+    }
+    if (prefix.constructor !== String) {
+        throw new TypeError('Argument of the `prefix` param must be a String.');
+    }
+    if (!configObj || configObj.constructor !== Object) {
+        throw new TypeError('Expecting config object to be set in this instance.');
+    }
+
+    
+    for (var i = 0, l = grid.units; i < l; i += 1) {
+        className = prefix + '\\%';
+        build[className] = {};
+
+        // iterate properties
+        properties.forEach(function (property) {
+            build[className][property] = value;
+        });
+    }
+
+    rules.forEach(function (rule) {
+        if (!rule.suffix || !rule.values) {
+            throw new Error('Rule should have keys `suffix` and `values`.');
+        }
+        if (rule.suffix.constructor !== String) {
+            throw new TypeError('rule.suffix must be a String.');
+        }
+        if (rule.values.constructor !== Array) {
+            throw new TypeError('rule.values must be an Array.');
+        }
+        // check if this rule is wanted by the config
+        if (!isCustom && (configObj[id] && !configObj[id][rule.suffix])) {
+            return;
+        }
+
+        var className = prefix + rule.suffix;
+
+        build[className] = {};
+
+        // iterate properties
+        properties.forEach(function (property) {
+            // iterate values
+            rule.values.forEach(function (value) {
+                // finally, assign
+                build[className][property] = value;
+            });
+        });
+    });
+
+    if (!_.size(build)) {
+        return false;
+    }
+
+    _.merge(this.build, build);
+    return true;
+};
+
+/**
  * Add rules that are written in pattern format to the build obj.
  * @param {Array}    rules             (Required) The array of rule objects containing a suffix and values.
  * @param {String}   id                (Required) The 'id' of the pattern.
  * @param {Array}    properties        (Required) The array of properties of the pattern.
- * @param {String}   prefix            (Required) The prefix sring of the class name.
+ * @param {String}   prefix            (Required) The prefix string of the class name.
  * @param {Boolean}  isCustom          (Optional) Wether or not this rule is a custom rule.
  * @return {Boolean} True if the rules have been added, false otherwise.
  */

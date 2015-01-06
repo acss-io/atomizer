@@ -13,12 +13,13 @@ module.exports = [
         format: [
             utils.isLength,
             utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
-            utils.isHex
+            utils.isColor
         ],
         rules: [
             {suffix: 'x', values: ['border-left', 'border-right']},
             {suffix: 'y', values: ['border-top', 'border-bottom']},
             {suffix: 't', values: ['border-top']},
+            {suffix: 'b', values: ['border-bottom']},
             {suffix: 'end', values: ['border-' + END]},
             {suffix: 'start', values: ['border-' + START]}
         ]
