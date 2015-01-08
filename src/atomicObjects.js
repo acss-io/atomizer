@@ -5,7 +5,7 @@ var END = atomicConfig.config.end;
 
 module.exports = [
     {
-        type: 'custom-properties',
+        type: 'custom-pattern',
         id: 'border',
         name: 'Border',
         prefix: '.Bd-',

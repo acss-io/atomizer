@@ -89,7 +89,7 @@
  *     }
  * }
  *
- * 1.3. Custom properties format
+ * 1.3. Custom pattern format
  * 
  * Used to generate a set of classes (with alphabetical suffixes) with custom properties.
  *                            

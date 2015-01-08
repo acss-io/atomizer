@@ -16,7 +16,7 @@ utils.getUnit = function(value) {
 };
 
 utils.isLength = function(value) {
-    return /^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value) && ['em', 'ex', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax', 'px', 'mm', 'cm', 'in', 'pt', 'pc'].indexOf(this.getUnit(value)) >= 0;
+    return /^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value) && ['em', 'ex', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax', 'px', 'mm', 'cm', 'in', 'pt', 'pc'].indexOf(utils.getUnit(value)) >= 0;
 };
 
 utils.isPercentage = function(value) {
@@ -208,7 +208,7 @@ utils.isColorKeyword = function(value) {
 };
 
 utils.isColor = function(value) {
-    return this.isHex(value) || this.isColorKeyword(value) || this.isRgb(value) || this.isRgba(value) || this.isHsl(value) || this.isHsla(value);
+    return utils.isHex(value) || utils.isColorKeyword(value) || utils.isRgb(value) || utils.isRgba(value) || utils.isHsl(value) || this.isHsla(value);
 };
 
 utils.indexOf = function(listOfValidItems) {

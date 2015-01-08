@@ -4,29 +4,21 @@ Copyright 2014 Yahoo! Inc. All rights reserved.
 Licensed under the BSD License.
 https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 */
-#atomic .Bd-x-a, #atomic .Bd-start-a {
-  border-left: 1px solid #000;
+#atomic .Bd-x--a {
+  border-left: 1px solid #f00;
+  border-right: 3px solid #000;
 }
-#atomic .Bd-x-a, #atomic .Bd-end-a {
-  border-right: 1px solid #000;
-}
-#atomic .Bd-y-a, #atomic .Bd-t-a {
+#atomic .Bd-t--a {
   border-top: 1px solid #000;
 }
-#atomic .Bd-y-a {
-  border-bottom: 1px solid #000;
+#atomic .Bd-t--b {
+  border-top: 1px solid #fff;
 }
-#atomic .Bd-x-b, #atomic .Bd-start-b {
-  border-left: 2px solid #fff;
+#atomic .Bd-b--a {
+  border-bottom: 3px solid #f00;
 }
-#atomic .Bd-x-b, #atomic .Bd-end-b {
-  border-right: 2px solid #fff;
-}
-#atomic .Bd-y-b, #atomic .Bd-t-b {
-  border-top: 2px solid #fff;
-}
-#atomic .Bd-y-b {
-  border-bottom: 2px solid #fff;
+#atomic .Bd-b--b {
+  border-bottom: 3px solid transparent;
 }
 #atomic .Fw-n {
   font-weight: normal;
@@ -90,13 +82,13 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Ta-m {
   text-align: match-parent;
 }
-#atomic .Bfc {
-  overflow: hidden;
-  *zoom: 1;
-}
 #atomic .H-100px {
   height: 100px;
 }
 #atomic .H-100\% {
   height: 100%;
+}
+#atomic .Bfc {
+  overflow: hidden;
+  *zoom: 1;
 }

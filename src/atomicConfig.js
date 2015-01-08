@@ -16,20 +16,19 @@ module.exports = {
     },
 
     // custom-properties
-    // @TODO: Change to this
-    // 'border': [
-    //     // a
-    //     {
-    //         t: '1px solid #000',
-    //         b: '3px solid #f00'
-    //     },
-    //     // b
-    //     {
-    //         t: '1px solid #000',
-    //         b: '3px solid #f00'
-    //     }
-    // ],
-    'border': ['1px solid #000', '2px solid #fff'],
+    'border': [
+        // a
+        {
+            t: ['1px solid #000'],
+            b: ['3px solid #f00'],
+            x: ['1px solid #f00', '3px solid #000']
+        },
+        // b
+        {
+            t: ['1px solid #fff'],
+            b: ['3px solid transparent']
+        }
+    ],
 
     // pattern
     'font-weight': {
