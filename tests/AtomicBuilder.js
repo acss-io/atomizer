@@ -97,6 +97,34 @@ describe('AtomicBuilder', function () {
                 AtomicBuilder.prototype.loadConfig('foo');
             }).to.throw(TypeError);
         });
+        it('throws if config does not have a config key', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadConfig({});
+            }).to.throw(TypeError);
+        });
+        it('throws if config has breakPoints key but it\'s not an object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadConfig({
+                    config: {
+                        breakPoints: []
+                    }
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if config has a breakPoints object but does not have `sm`, `md` nor `lg` keys', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadConfig({
+                    config: {
+                        breakPoints: {
+                            foo: 'bar'
+                        }
+                    }
+                });
+            }).to.throw(Error);
+        });
         it('should store the config', function () {
             var config = {
                 'config': {
@@ -125,6 +153,32 @@ describe('AtomicBuilder', function () {
             // assert
             expect(atomicBuilder.configObj).to.deep.equal(config);
         });
+        it('should store the breakPoints as mediaQueries', function () {
+            var config = {
+                config: {
+                    breakPoints: {
+                        sm: '200px',
+                        md: '300px',
+                        lg: '500px'
+                    }
+                }
+            };
+            var expected = {
+                sm: '@media(min-width:200px)',
+                md: '@media(min-width:300px)',
+                lg: '@media(min-width:500px)'
+            };
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            atomicBuilder = new AtomicBuilder({}, config);
+
+            // assert
+            expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
+        });
     });
 
     // -------------------------------------------------------
@@ -132,7 +186,7 @@ describe('AtomicBuilder', function () {
     // -------------------------------------------------------
     describe('flush()', function () {
         it('should clean build object', function () {
-            var atomicBuilder = new AtomicBuilder([], {});
+            var atomicBuilder = new AtomicBuilder([], {config: {}});
             // set something in the build
             atomicBuilder.build = {
                 '.foo': {
@@ -234,42 +288,57 @@ describe('AtomicBuilder', function () {
                 atomicBuilder.addPatternRules(rules, id, properties, prefix);
             }).to.throw(TypeError);
         });
-        it('should return false if rule is not custom and it\'s not wanted by the config', function () {
+        it('should not call addCssRule() if rule is not wanted by the config', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // execute
+            // instantiation & setup
             var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set config and atomicObjs before running
             atomicBuilder.configObj = {
                 'foo': {
                     'foo': false
                 }
             };
-            var result = atomicBuilder.addPatternRules(rules, id, properties, prefix);
+
+            // set expectations
+            mock.expects('addCssRule').never();
+
+            // execute
+            atomicBuilder.addPatternRules(rules, id, properties, prefix);
 
             // assert
-            expect(result).to.be.false();
+            mock.verify();
         });
-        it('should add pattern rule to the build object', function () {
+        it('should call addCssRule() to add pattern to the build object', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // execute
+            // instantiation & setup
             var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set config and atomicObjs before running
             atomicBuilder.configObj = {
                 'foo': {
                     'foo': true
                 }
             };
-            var result = atomicBuilder.addPatternRules(rules, id, properties, prefix, isCustom);
+
+            // set expectations
+            mock.expects('addCssRule').once();
+
+            // execute
+            atomicBuilder.addPatternRules(rules, id, properties, prefix);
 
             // assert
-            expect(atomicBuilder.build).to.deep.equal(expected);
-            expect(result).to.be.true();
+            mock.verify();
         });
     });
 
@@ -283,14 +352,14 @@ describe('AtomicBuilder', function () {
 
         // default params to send in tests
         var configGroup = [
-            {
-                bar: ['1px solid #000001', '1px solid #000002'],
-                baz: ['1px solid #000003']
-            },
-            {
-                bar: ['1px solid #000004', '1px solid #000005'],
-                baz: ['1px solid #000006']
-            }
+            [
+                {suffix: 'bar', values: ['1px solid #000001', '1px solid #000002']},
+                {suffix: 'baz', values: ['1px solid #000003']}
+            ],
+            [
+                {suffix: 'bar', values: ['1px solid #000004', '1px solid #000005']},
+                {suffix: 'baz', values: ['1px solid #000006']}
+            ]
         ];
         var rules = [
             {suffix: 'bar', values: ['border-left', 'border-right']},
@@ -401,11 +470,27 @@ describe('AtomicBuilder', function () {
                 AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
             }).to.throw(TypeError);
         });
-        it('throws if configGroup is not an Array of Objects', function () {
+        it('throws if configGroup is not an Array of Arrays', function () {
             // execute and assert
             expect(function () {
                 AtomicBuilder.prototype.addCustomPatternRules([0,1,2], rules, id, prefix, suffixType, format);
             }).to.throw(TypeError);
+        });
+        it('throws if configGroup\'s customPatterns does not have a `suffix` key', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCustomPatternRules([[
+                    {values: ['a', 'b']}
+                ]], rules, id, prefix, suffixType, format);
+            }).to.throw(Error);
+        });
+        it('throws if configGroup\'s customPatterns does not have a `values` key', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCustomPatternRules([[
+                    {suffix: 'abc'}
+                ]], rules, id, prefix, suffixType, format);
+            }).to.throw(Error);
         });
         it('throws if configGroup\'s property value does not have a valid format by length', function () {
             // execute and assert
@@ -419,19 +504,50 @@ describe('AtomicBuilder', function () {
                 AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, [ returnsTrue, returnsTrue, returnsFalse ]);
             }).to.throw(Error);
         });
-        it('should add custom properties rule to the build object', function () {
+        it('should not call addCssRule() is rule is not wanted by the config', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // execute
+            // instantiation & setup
             var atomicBuilder = new AtomicBuilder();
-            var result = atomicBuilder.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+            var mock = sinon.mock(atomicBuilder);
+
+            // set config and atomicObjs before running
+            var configGroup = [
+                [
+                    {suffix: 'notPresentInRules', values: ['1px solid #000001', '1px solid #000002']},
+                ]
+            ];
+
+            // set expectations
+            mock.expects('addCssRule').never();
+
+            // execute
+            atomicBuilder.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
 
             // assert
-            expect(atomicBuilder.build).to.deep.equal(expected);
-            expect(result).to.be.true();
+            mock.verify();
+        });
+        it('should call addCssRule() to add custom pattern to the build object 6 times (1 for each property-value)', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // instantiation & setup
+            var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set expectations
+            mock.expects('addCssRule').exactly(6);
+
+            // execute
+            atomicBuilder.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+
+            // assert
+            mock.verify();
         });
     });
 
@@ -472,23 +588,112 @@ describe('AtomicBuilder', function () {
                 atomicBuilder.addRule(rule, id);
             }).to.throw(TypeError);
         });
-        it('should return false rule is not wanted by the config', function () {
+        it('should not call addCssrule() if rule is not wanted by the config', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // execute
+            // instantiation & setup
             var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set config
             atomicBuilder.configObj = {
                 'foo': false
             };
-            var result = atomicBuilder.addRule(rule, id);
+
+            // set expectations
+            mock.expects('addCssRule').never();
+
+            // execute
+            atomicBuilder.addRule(rule, id);
 
             // assert
-            expect(result).to.be.false();
+            mock.verify();
         });
-        it('should add rule to the build object', function () {
+        it('should call addCssrule() if rule is wanted by the config', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // instantiation & setup
+            var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set config
+            atomicBuilder.configObj = {
+                'foo': true
+            };
+
+            // set expectations
+            mock.expects('addCssRule').atLeast(1);
+
+            // execute
+            atomicBuilder.addRule(rule, id);
+
+            // assert
+            mock.verify();
+        });
+    });
+
+    // -------------------------------------------------------
+    // addCssRule()
+    // -------------------------------------------------------
+    describe('addCssRule()', function () {
+        var className = '.Foo';
+        var property = 'font-weight';
+        var value = 'bold';
+        var breakPoints = ['sm', 'md', 'lg'];
+
+        it('throws if className has not been passed or is invalid', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCssrule();
+            }).to.throw(TypeError);
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCssrule({});
+            }).to.throw(TypeError);
+        });
+        it('throws if property has not been passed or is invalid', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCssrule(className);
+            }).to.throw(TypeError);
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCssrule(className, {});
+            }).to.throw(TypeError);
+        });
+        it('throws if value has not been passed', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCssrule(className, property);
+            }).to.throw(TypeError);
+        });
+        it('adds breakPoint rules if breakPoints have been passed', function () {
+            var expected = {
+                '.Foo': {
+                    'font-weight': 'bold'
+                },
+                '.Foo--sm': {
+                    '@media(min-width:100px)': {
+                        'font-weight': 'bold'
+                    }
+                },
+                '.Foo--md': {
+                    '@media(min-width:200px)': {
+                        'font-weight': 'bold'
+                    }
+                },
+                '.Foo--lg': {
+                    '@media(min-width:300px)': {
+                        'font-weight': 'bold'
+                    }
+                }
+            };
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
@@ -496,13 +701,33 @@ describe('AtomicBuilder', function () {
 
             // execute
             var atomicBuilder = new AtomicBuilder();
-            atomicBuilder.configObj = {
-                'foo': true
-            };
-            var result = atomicBuilder.addRule(rule, id);
 
-            // assert
-            expect(result).to.be.true();
+            // add mediaQueries
+            atomicBuilder.mediaQueries = {
+                sm: '@media(min-width:100px)',
+                md: '@media(min-width:200px)',
+                lg: '@media(min-width:300px)'
+            };
+
+            expect(atomicBuilder.addCssRule(className, property, value, breakPoints)).to.be.true;
+            expect(atomicBuilder.build).to.deep.equal(expected);
+        });
+        it('adds rule if all params are valid and `breakPoints` has not been passed', function () {
+            var expected = {
+                '.Foo': {
+                    'font-weight': 'bold'
+                }
+            };
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            var atomicBuilder = new AtomicBuilder();
+
+            expect(atomicBuilder.addCssRule(className, property, value)).to.be.true;
+            expect(atomicBuilder.build).to.deep.equal(expected);
         });
     });
 

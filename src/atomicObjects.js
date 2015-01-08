@@ -86,5 +86,15 @@ module.exports = [
                 '*zoom': 1
             }
         }
+    },
+    {
+        type: 'rule',
+        id: 'dn',
+        name: 'Display None Helper',
+        rule: {
+            '.Dn': {
+                'display': 'none'
+            }
+        }
     }
 ];

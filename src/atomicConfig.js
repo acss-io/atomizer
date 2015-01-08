@@ -18,21 +18,23 @@ module.exports = {
     // custom-properties
     'border': [
         // a
-        {
-            t: ['1px solid #000'],
-            b: ['3px solid #f00'],
-            x: ['1px solid #f00', '3px solid #000']
-        },
+        [
+            {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
+            {suffix: 'b', values: ['3px solid #f00']},
+            {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
+        ],
         // b
-        {
-            t: ['1px solid #fff'],
-            b: ['3px solid transparent']
-        }
+        [
+            {suffix: 't', values: ['1px solid #fff']},
+            {suffix: 'b', values: ['3px solid transparent']}
+        ]
     ],
 
     // pattern
     'font-weight': {
-        'n': true,
+        'n': {
+            breakPoints: ['sm', 'md', 'lg']
+        },
         'b': true,
         'br': true,
         'lr': true,
@@ -52,7 +54,7 @@ module.exports = {
     // pattern
     'padding-x': {
         'custom': [
-            {suffix: '10', values: ['10px']},
+            {suffix: '10', values: ['10px'], breakPoints: ['sm', 'md', 'lg']},
             {suffix: '20', values: ['20px']}
         ]
     },
@@ -75,12 +77,17 @@ module.exports = {
     // rule
     'bfc': true,
 
+    // rule
+    'dn': {
+        breakPoints: ['sm', 'md', 'lg']
+    },
+
     // pattern
     'height': {
         a: true,
         'custom': [
-            { suffix: '100px', values: ['100px'] },
-            { suffix: '100\\%', values: ['100%'] },
+            {suffix: '100px', values: ['100px']},
+            {suffix: '100\\%', values: ['100%']},
         ]
     }
 };

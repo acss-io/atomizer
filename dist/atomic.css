@@ -92,3 +92,51 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   overflow: hidden;
   *zoom: 1;
 }
+#atomic .Dn {
+  display: none;
+}
+@media(min-width:767px) {
+  #atomic .Bd-t--a--sm {
+    border-top: 1px solid #000;
+  }
+  #atomic .Fw-n--sm {
+    font-weight: normal;
+  }
+  #atomic .Px-10--sm {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #atomic .Dn--sm {
+    display: none;
+  }
+}
+@media(min-width:992px) {
+  #atomic .Bd-t--a--md {
+    border-top: 1px solid #000;
+  }
+  #atomic .Fw-n--md {
+    font-weight: normal;
+  }
+  #atomic .Px-10--md {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #atomic .Dn--md {
+    display: none;
+  }
+}
+@media(min-width:1200px) {
+  #atomic .Bd-t--a--lg {
+    border-top: 1px solid #000;
+  }
+  #atomic .Fw-n--lg {
+    font-weight: normal;
+  }
+  #atomic .Px-10--lg {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  #atomic .Dn--lg {
+    display: none;
+  }
+}
