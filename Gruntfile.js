@@ -8,6 +8,8 @@ module.exports = function(grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
+    require('./grunt-tasks/grunt-acss')(grunt);
+
     // Configurable paths for the application
     var appConfig = {
         src: 'src',
@@ -22,44 +24,26 @@ module.exports = function(grunt) {
         // -- Project Config -------------------------------------------------------
         project: appConfig,
 
-        // -- SASS Config -------------------------------------------------------
-        sass: {
-            options: {
-                sourcemap: 'none',
-                style: 'expanded',
-                banner: [
-                    '/*!',
-                    'Atomic.css v<%= project.pkg.version %>',
-                    'Copyright 2014 Yahoo! Inc. All rights reserved.',
-                    'Licensed under the BSD License.',
-                    'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
-                    '*/\n'
-                ].join('\n')
-            },
-            atomic: {
-                files: [{
-                    expand: true,
-                    cwd: '<%=project.src %>',
-                    src: ['**/*.scss'],
-                    dest: './dist',
-                    ext: '.css'
-                }]
+        // -- Atomic.css -----------------------------------------------------------
+        acss: {
+            dist: {
+                options: {
+                    minify: false,
+                    banner: [
+                        '/*!',
+                        'Atomic.css v<%= project.pkg.version %>',
+                        'Copyright 2014 Yahoo! Inc. All rights reserved.',
+                        'Licensed under the BSD License.',
+                        'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
+                        '*/\n'
+                    ].join('\n')
+                },
+                src: '<%= project.src %>/atomic.js',
+                dest: '<%= project.dist %>/atomic.css'
             }
         },
 
-        // -- SCSS Lint Config -------------------------------------------------------
-        scsslint: {
-            all: [
-                '<%= project.src %>/**/*.scss'
-            ],
-            options: {
-                config: '.scss-lint.yml',
-                reporterOutput: 'scss-lint-report.xml',
-                colorizeOutput: true
-            }
-        },
-
-        // -- SCSS Lint Config -------------------------------------------------------
+        // -- Clean ----------------------------------------------------------------
         clean: {
             dist: {
                 files: [{
@@ -69,21 +53,26 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- Shell Config -------------------------------------------------------
-        shell: {
-            bower: {
-                command: 'bower install'
+        // -- Minify ---------------------------------------------------------------
+        cssmin: {
+            dist: {
+                options: {
+                    report: 'gzip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'dist/',
+                    src: ['**/*.css', '!**/*.min.css'],
+                    dest: 'dist/',
+                    ext: '.min.css'
+                }]
             }
         }
     });
 
     grunt.registerTask('default', [
         'clean',
-//        'lint',
-        'sass'
+        'acss:dist',
+        'cssmin:dist'
     ]);
-
-//    grunt.registerTask('lint', [
-//        'scsslint'
-//    ]);
 };

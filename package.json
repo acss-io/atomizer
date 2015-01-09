@@ -2,15 +2,26 @@
   "name": "atomic.css",
   "version": "0.1.0",
   "description": "A collection of single purpose styling units for maximum reuse.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
+    "cover": "istanbul cover --dir artifacts -- ./node_modules/.bin/_mocha tests/ --recursive --reporter spec",
+    "lint": "jshint"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-sass": "~0.8.1",
+    "grunt-contrib-cssmin": "~0.10.0",
     "grunt-newer": "~0.7.0",
-    "grunt-scss-lint": "~0.3.3",
-    "grunt-shell": "~1.1.1",
     "load-grunt-tasks": "~0.6.0",
-    "time-grunt": "~1.0.0"
+    "time-grunt": "~1.0.0",
+    "lodash": "~2.4.1",
+    "absurd": "~0.3.33",
+    "chalk": "~0.5.1",
+    "mocha": "~2.0.1",
+    "chai": "~1.10.0",
+    "sinon": "~1.12.2",
+    "sinon-chai": "~2.6.0"
   },
   "repository": {
     "type": "git",
@@ -24,8 +35,5 @@
   "bugs": {
     "url": "https://github.com/yahoo/atomic.css/issues"
   },
-  "homepage": "https://github.com/yahoo/atomic.css",
-  "scripts": {
-    "preinstall": "npm install -g bower"
-  }
+  "homepage": "https://github.com/yahoo/atomic.css"
 }
