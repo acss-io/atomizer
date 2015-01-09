@@ -32,6 +32,21 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Bd-start-0 {
   border-left: 0;
 }
+#atomic .Bdrs-0 {
+  border-radius: 0;
+}
+#atomic .Bdrs-3px {
+  border-radius: 3px;
+}
+#atomic .Bdrs-5px {
+  border-radius: 5px;
+}
+#atomic .Bdrs-500px {
+  border-radius: 500px;
+}
+#atomic .Bdrs-50\% {
+  border-radius: 50%;
+}
 #atomic .Fw-n {
   font-weight: normal;
 }

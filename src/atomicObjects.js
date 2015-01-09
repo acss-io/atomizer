@@ -76,6 +76,16 @@ module.exports = [
             }
         }
     },
+    // border-radius
+    {
+        type: 'pattern',
+        id: 'border-radius',
+        name: 'Border radius',
+        prefix: '.Bdrs-',
+        properties: ['border-radius'],
+        allowCustom: true
+    },
+    // font-weight
     {
         type: 'pattern',
         id: 'font-weight',

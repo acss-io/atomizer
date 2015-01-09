@@ -37,6 +37,17 @@ module.exports = {
     'border-reset-start': true,
 
     // pattern
+    'border-radius': {
+        'custom': [
+            {suffix: '0', values: ['0']},
+            {suffix: '3px', values: ['3px']},
+            {suffix: '5px', values: ['5px']},
+            {suffix: '500px', values: ['500px']},
+            {suffix: '50\\%', values: ['50%']},
+        ]
+    },
+
+    // pattern
     'font-weight': {
         'n': {
             breakPoints: ['sm', 'md', 'lg']
