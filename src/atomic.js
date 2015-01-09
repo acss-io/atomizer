@@ -25,18 +25,16 @@
  *                   
  * This object may contain the following keys:
  * 
- * `type`        {String}  (Required) For pattern objects 'pattern' must be declared here.
- * `id`          {String}  (Required) A unique identifier for this pattern. Used by the config.
- * `name`        {String}  (Required) The name of the pattern. Used by the web tool.
- * `prefix`      {String}  (Required) The prefix to be prepended in the class name of each class.
- * `allowCustom` {Boolean} (Optional) Wether or not this pattern allow custom values from config.
- * `properties`  {Array}   (Required) An array of properties that will be inside each rule.
- * `rules`       {Array}   (Required) An array of objects where each should have the keys:
- *
- *     `suffix`  {String} (Required) The suffix that will be appended to the prefix.
- *     `values`  {Array}  (Required) An array of values. The index of each value
- *                                   corresponds to the index of each property declared in
- *                                   `properties`.
+ * `type`           {String}  (Required) For pattern objects 'pattern' must be declared here.
+ * `id`             {String}  (Required) A unique identifier for this pattern. Used by the config.
+ * `name`           {String}  (Required) The name of the pattern. Used by the web tool.
+ * `prefix`         {String}  (Required) The prefix to be prepended in the class name of each class.
+ * `allowFraction`  {Boolean} (Optional) Wether or not this pattern allow fraction objects to be declared in the config.
+ * `allowCustom`    {Boolean} (Optional) Wether or not this pattern allow custom values from config.
+ * `properties`     {Array}   (Required) An array of properties that will be inside each rule.
+ * `rules`          {Array}   (Required) An array of objects where each should have the keys:
+ * `rules.suffix`   {String}  (Required) The suffix that will be appended to the prefix.
+ * `rules.values`   {Array}   (Required) An array of values. The index of each value corresponds to the index of each property declared in `properties`.
  *
  * Examples:
  * {
@@ -61,6 +59,19 @@
  *     properties: ['padding-left', 'padding-right'],
  *     rules: [
  *         {suffix: 'a', values: ['auto', 'auto']}
+ *     ]
+ * },
+ * {
+ *     type: 'pattern',
+ *     id: 'width',
+ *     name: 'Width',
+ *     prefix: '.W-',
+ *     allowFraction: true,
+ *     allowCustom: true,
+ *     properties: ['width'],
+ *     rules: [
+ *         {suffix: 'a', values: ['auto']},
+ *         {suffix: 'inh', values: ['inherited']}
  *     ]
  * }
  * 
@@ -95,16 +106,15 @@
  *                            
  * This object must contain the following keys:
  * 
- * `type`        {String}  (Required) For custom properties objects 'custom-properties' must be declared here.
- * `id`          {String}  (Required) A unique identifier for these classes. Used by the config.
- * `name`        {String}  (Required) The name of the classes. Used by the web tool.
- * `prefix`      {String}  (Required) The prefix to be prepended in the class name of each class.
- * `suffixType`  {String}  (Required) The type of suffix. It can only be 'alphabet'.
- * `format`      {Array}   (Required) An array of functions to test each word passed in the config object.
- * `rules`       {Array}   (Required) An array of objects where each should have the keys:
- *
- *     `suffix`  {String} (Required) The suffix that will be appended to the prefix.
- *     `values`  {Array}  (Required) An array of properties.
+ * `type`           {String}    (Required) For custom properties objects 'custom-properties' must be declared here.
+ * `id`             {String}    (Required) A unique identifier for these classes. Used by the config.
+ * `name`           {String}    (Required) The name of the classes. Used by the web tool.
+ * `prefix`         {String}    (Required) The prefix to be prepended in the class name of each class.
+ * `suffixType`     {String}    (Required) The type of suffix. It can only be 'alphabet'.
+ * `format`         {Array}     (Required) An array of functions to test each word passed in the config object.
+ * `rules`          {Array}     (Required) An array of objects where each should have the keys:
+ * `rules.suffix`   {String}    (Required) The suffix that will be appended to the prefix.
+ * `rules.values`   {Array}     (Required) An array of properties.
  *
  * Example:
  *
