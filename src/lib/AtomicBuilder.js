@@ -211,8 +211,18 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
 
         // iterate properties
         properties.forEach(function (property) {
+            var values = rule.values;
+
+            // values could be specified in the config as well
+            if (configObj[id] &&
+                configObj[id][rule.suffix] &&
+                configObj[id][rule.suffix].constructor === Object &&
+                configObj[id][rule.suffix].values &&
+                configObj[id][rule.suffix].values.constructor === Array) {
+                values = configObj[id][rule.suffix].values;
+            }
             // iterate values
-            rule.values.forEach(function (value) {
+            values.forEach(function (value) {
                 var breakPoints;
 
                 // breakPoints is declared differently if the rule is custom within this pattern

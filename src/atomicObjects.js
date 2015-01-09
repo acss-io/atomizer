@@ -4,7 +4,11 @@ var START = atomicConfig.config.start;
 var END = atomicConfig.config.end;
 
 module.exports = [
-    // custom borders
+    /**
+     ==================================================================
+     CUSTOM BORDERS
+     ==================================================================
+     */
     {
         type: 'custom-pattern',
         id: 'border-custom',
@@ -25,7 +29,11 @@ module.exports = [
             {suffix: 'start', values: ['border-' + START]}
         ]
     },
-    // border resets
+    /**
+     ==================================================================
+     BORDER RESETS
+     ==================================================================
+     */
     {
         type: 'rule',
         id: 'border-reset',
@@ -76,7 +84,11 @@ module.exports = [
             }
         }
     },
-    // border-radius
+    /**
+     ==================================================================
+     BORDER RADIUS
+     ==================================================================
+     */
     {
         type: 'pattern',
         id: 'border-radius',
@@ -85,7 +97,30 @@ module.exports = [
         properties: ['border-radius'],
         allowCustom: true
     },
-    // font-weight
+    /**
+     ==================================================================
+     FONT FAMILY suffix matches generic font-family
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'font-family',
+        name: 'Font family',
+        prefix: '.Ff-',
+        properties: ['font-family'],
+        rules: [
+            {suffix: 's', values: ['Georgia, "Times New Roman", serif']},
+            {suffix: 'ss', values: ['Helvetica, Arial, sans-serif']},
+            {suffix: 'c', values: ['"Monotype Corsiva", "Comic Sans MS", cursive']},
+            {suffix: 'f', values: ['Capitals, Impact, fantasy']},
+            {suffix: 'm', values: ['Monaco, "Courier New", monospace']}
+        ]
+    },
+    /**
+     ==================================================================
+     FONT-WEIGHT
+     ==================================================================
+     */
     {
         type: 'pattern',
         id: 'font-weight',
@@ -108,6 +143,12 @@ module.exports = [
             {suffix: '900', values: ['900']}
         ]
     },
+    /**
+     * ============================================================================
+     * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+     *      http://docs.emmet.io/cheat-sheet/
+     * ============================================================================
+     */
     {
         type: 'pattern',
         id: 'padding-x',

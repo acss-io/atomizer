@@ -48,6 +48,15 @@ module.exports = {
     },
 
     // pattern
+    'font-family': {
+        s: true,
+        ss: true,
+        c: true,
+        f: true,
+        m: true
+    },
+
+    // pattern
     'font-weight': {
         'n': {
             breakPoints: ['sm', 'md', 'lg']

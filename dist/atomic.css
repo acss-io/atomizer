@@ -47,6 +47,21 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Bdrs-50\% {
   border-radius: 50%;
 }
+#atomic .Ff-s {
+  font-family: Georgia, "Times New Roman", serif;
+}
+#atomic .Ff-ss {
+  font-family: Arial, sans-serif;
+}
+#atomic .Ff-c {
+  font-family: "Monotype Corsiva", "Comic Sans MS", cursive;
+}
+#atomic .Ff-f {
+  font-family: Capitals, Impact, fantasy;
+}
+#atomic .Ff-m {
+  font-family: Monaco, "Courier New", monospace;
+}
 #atomic .Fw-n {
   font-weight: normal;
 }

@@ -288,6 +288,31 @@ describe('AtomicBuilder', function () {
                 atomicBuilder.addPatternRules(rules, id, properties, prefix);
             }).to.throw(TypeError);
         });
+        it('should use config values if passed by the config', function (done) {
+            var expected = 'custom-value';
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+            sinon.stub(AtomicBuilder.prototype, 'addCssRule', function (className, property, value, breakPoints) {
+                expect(value).to.equal(expected);
+                done();
+            });
+
+            // instantiation & setup
+            var atomicBuilder = new AtomicBuilder();
+
+            // set config and atomicObjs before running
+            atomicBuilder.configObj = {
+                'foo': {
+                    'foo': {values: [expected]}
+                }
+            };
+
+            // execute
+            atomicBuilder.addPatternRules(rules, id, properties, prefix);
+        });
         it('should not call addCssRule() if rule is not wanted by the config', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
