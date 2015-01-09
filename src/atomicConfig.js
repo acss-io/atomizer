@@ -62,7 +62,11 @@ module.exports = {
     // pattern
     'width': {
         a: true,
-        inh: true
+        inh: true,
+        fraction: {
+            denominator: 12,
+            breakPoints: ['sm', 'md', 'lg']
+        }
     },
 
     // pattern

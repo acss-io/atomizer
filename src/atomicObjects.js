@@ -70,6 +70,15 @@ module.exports = [
     },
     {
         type: 'pattern',
+        id: 'width',
+        name: 'Width',
+        prefix: '.W-',
+        properties: ['width'],
+        allowCustom: true,
+        allowFraction: true
+    },
+    {
+        type: 'pattern',
         id: 'height',
         name: 'Height',
         prefix: '.H-',

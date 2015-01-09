@@ -343,6 +343,78 @@ describe('AtomicBuilder', function () {
     });
 
     // -------------------------------------------------------
+    // addFractionRules()
+    // -------------------------------------------------------
+    describe('addFractionRules()', function () {
+        // function (fractionObj, id, properties, prefix) {
+
+        // default params to send in tests
+        var fractionObj = {
+            denominator: 3
+        };
+        var id = 'width';
+        var properties = ['width'];
+        var prefix = '.W-';
+
+        // tests
+        it('throws if `fractionObj` is not an object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules('foo', id, properties, prefix);
+            }).to.throw(TypeError);
+        });
+        it('throws if `fractionObj.denominator` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(undefined, id, properties, prefix);
+            }).to.throw(TypeError);
+        });
+        it('throws if `fractionObj.denominator` is not an integer', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(1.2, id, properties, prefix);
+            }).to.throw(TypeError);
+        });
+        it('throws if `id` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(fractionObj);
+            }).to.throw(TypeError);
+        });
+        it('throws if `properties` is not an array', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(fractionObj, id);
+            }).to.throw(TypeError);
+        });
+        it('throws if `prefix` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(fractionObj, id, properties);
+            }).to.throw(TypeError);
+        });
+        it('should call addCssRule() to add pattern to the build object', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // instantiation & setup
+            var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set expectations
+            mock.expects('addCssRule').thrice();
+
+            // execute
+            atomicBuilder.addFractionRules(fractionObj, id, properties, prefix);
+
+            // assert
+            mock.verify();
+        });
+    });
+
+    // -------------------------------------------------------
     // addCustomPatternRules()
     // -------------------------------------------------------
     describe('addCustomPatternRules()', function () {

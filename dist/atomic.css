@@ -82,6 +82,42 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Ta-m {
   text-align: match-parent;
 }
+#atomic .W-1\/12 {
+  width: 8.3333%;
+}
+#atomic .W-2\/12 {
+  width: 16.6667%;
+}
+#atomic .W-3\/12 {
+  width: 25%;
+}
+#atomic .W-4\/12 {
+  width: 33.3333%;
+}
+#atomic .W-5\/12 {
+  width: 41.6667%;
+}
+#atomic .W-6\/12 {
+  width: 50%;
+}
+#atomic .W-7\/12 {
+  width: 58.3333%;
+}
+#atomic .W-8\/12 {
+  width: 66.6667%;
+}
+#atomic .W-9\/12 {
+  width: 75%;
+}
+#atomic .W-10\/12 {
+  width: 83.3333%;
+}
+#atomic .W-11\/12 {
+  width: 91.6667%;
+}
+#atomic .W-12\/12 {
+  width: 100%;
+}
 #atomic .H-100px {
   height: 100px;
 }
@@ -106,6 +142,42 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
     padding-left: 10px;
     padding-right: 10px;
   }
+  #atomic .W-1\/12--sm {
+    width: 8.3333%;
+  }
+  #atomic .W-2\/12--sm {
+    width: 16.6667%;
+  }
+  #atomic .W-3\/12--sm {
+    width: 25%;
+  }
+  #atomic .W-4\/12--sm {
+    width: 33.3333%;
+  }
+  #atomic .W-5\/12--sm {
+    width: 41.6667%;
+  }
+  #atomic .W-6\/12--sm {
+    width: 50%;
+  }
+  #atomic .W-7\/12--sm {
+    width: 58.3333%;
+  }
+  #atomic .W-8\/12--sm {
+    width: 66.6667%;
+  }
+  #atomic .W-9\/12--sm {
+    width: 75%;
+  }
+  #atomic .W-10\/12--sm {
+    width: 83.3333%;
+  }
+  #atomic .W-11\/12--sm {
+    width: 91.6667%;
+  }
+  #atomic .W-12\/12--sm {
+    width: 100%;
+  }
   #atomic .Dn--sm {
     display: none;
   }
@@ -121,6 +193,42 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
     padding-left: 10px;
     padding-right: 10px;
   }
+  #atomic .W-1\/12--md {
+    width: 8.3333%;
+  }
+  #atomic .W-2\/12--md {
+    width: 16.6667%;
+  }
+  #atomic .W-3\/12--md {
+    width: 25%;
+  }
+  #atomic .W-4\/12--md {
+    width: 33.3333%;
+  }
+  #atomic .W-5\/12--md {
+    width: 41.6667%;
+  }
+  #atomic .W-6\/12--md {
+    width: 50%;
+  }
+  #atomic .W-7\/12--md {
+    width: 58.3333%;
+  }
+  #atomic .W-8\/12--md {
+    width: 66.6667%;
+  }
+  #atomic .W-9\/12--md {
+    width: 75%;
+  }
+  #atomic .W-10\/12--md {
+    width: 83.3333%;
+  }
+  #atomic .W-11\/12--md {
+    width: 91.6667%;
+  }
+  #atomic .W-12\/12--md {
+    width: 100%;
+  }
   #atomic .Dn--md {
     display: none;
   }
@@ -135,6 +243,42 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   #atomic .Px-10--lg {
     padding-left: 10px;
     padding-right: 10px;
+  }
+  #atomic .W-1\/12--lg {
+    width: 8.3333%;
+  }
+  #atomic .W-2\/12--lg {
+    width: 16.6667%;
+  }
+  #atomic .W-3\/12--lg {
+    width: 25%;
+  }
+  #atomic .W-4\/12--lg {
+    width: 33.3333%;
+  }
+  #atomic .W-5\/12--lg {
+    width: 41.6667%;
+  }
+  #atomic .W-6\/12--lg {
+    width: 50%;
+  }
+  #atomic .W-7\/12--lg {
+    width: 58.3333%;
+  }
+  #atomic .W-8\/12--lg {
+    width: 66.6667%;
+  }
+  #atomic .W-9\/12--lg {
+    width: 75%;
+  }
+  #atomic .W-10\/12--lg {
+    width: 83.3333%;
+  }
+  #atomic .W-11\/12--lg {
+    width: 91.6667%;
+  }
+  #atomic .W-12\/12--lg {
+    width: 100%;
   }
   #atomic .Dn--lg {
     display: none;

@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var utils = require('./utils');
 
 // perf of approaches used:
 // object has key: http://jsperf.com/hasownproperty-vs-in-vs-undefined/72
@@ -37,7 +38,7 @@ AtomicBuilder.prototype.loadObjects = function (objs) {
         throw new Error('`objs` param is required');
     }
     if (objs.constructor !== Array) {
-        throw new TypeError('Argument of the `objs` param must be an Array.');
+        throw new TypeError('The `objs` param must be an Array.');
     }
     this.atomicObjs = objs;
 };
@@ -53,7 +54,7 @@ AtomicBuilder.prototype.loadConfig = function (config) {
         throw new Error('`config` param is required');
     }
     if (config.constructor !== Object) {
-        throw new TypeError('Argument of the `config` param must be an Object.');
+        throw new TypeError('The `config` param must be an Object.');
     }
     if (!config.config || config.config.constructor !== Object) {
         throw new TypeError('`config` must have a `config` key');
@@ -121,16 +122,13 @@ AtomicBuilder.prototype.run = function () {
             if (atomicObj.rules) {
                 self.addPatternRules(atomicObj.rules, atomicObj.id, atomicObj.properties, atomicObj.prefix);
             }
-            // if `grid` has been passed
-            // if (currentConfigObj.grid) {
-            //     if (!atomicObj.allowGrid) {
-            //         throw new Error('Grid has been passed but it is not allowed for this rule. Config key: ' + atomicObj.id + '.');
-            //     }
-            //     if (currentConfigObj.grid.constructor !== Object) {
-            //         throw new TypeError('Grid in config must be an Object. Config key: ' + atomicObj.id + '.');
-            //     }
-            //     self.addPatternGridRules(currentConfigObj.grid, atomicObj.id, atomicObj.properties, atomicObj.prefix);
-            // }
+            // if `fraction` has been passed
+            if (currentConfigObj.fraction) {
+                if (!atomicObj.allowFraction) {
+                    throw new Error('Fraciton has been passed but it is not allowed for this rule. Config key: ' + atomicObj.id + '.');
+                }
+                self.addFractionRules(currentConfigObj.fraction, atomicObj.id, atomicObj.properties, atomicObj.prefix);
+            }
             // if `custom` has been passed
             if (currentConfigObj.custom) {
                 if (!atomicObj.allowCustom) {
@@ -161,7 +159,9 @@ AtomicBuilder.prototype.run = function () {
  * Add rules that are written in pattern format to the build obj.
  * 
  * @method addPatternRules
- * @param {Array}    rules             (Required) The array of rule objects containing a suffix and values.
+ * @param {Array}    rules             (Required) The array of rule objects containing the following keys: suffix and values.
+ * @param {String}   rules.suffix      (Required) The suffix of the rule.
+ * @param {Array}    rules.values      (Required) An array of values that will be mapped to the properties array.
  * @param {String}   id                (Required) The 'id' of the pattern.
  * @param {Array}    properties        (Required) The array of properties of the pattern.
  * @param {String}   prefix            (Required) The prefix string of the class name.
@@ -173,19 +173,19 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
     var self = this;
 
     if (rules.constructor !== Array) {
-        throw new TypeError('Argument of the `rules` param must be an Array.');
+        throw new TypeError('The `rules` param must be an Array.');
     }
     if (!rules.length) {
         return false;
     }
     if (id.constructor !== String) {
-        throw new TypeError('Argument of the `id` param must be a String.');
+        throw new TypeError('The `id` param must be a String.');
     }
     if (properties.constructor !== Array) {
-        throw new TypeError('Argument of the `properties` param must be an Array.');
+        throw new TypeError('The `properties` param must be an Array.');
     }
     if (prefix.constructor !== String) {
-        throw new TypeError('Argument of the `prefix` param must be a String.');
+        throw new TypeError('The `prefix` param must be a String.');
     }
     if (!configObj || configObj.constructor !== Object) {
         throw new TypeError('Expecting config object to be set in this instance.');
@@ -268,7 +268,7 @@ AtomicBuilder.prototype.addCustomPatternRules = function (configGroup, rules, id
         throw new TypeError('Argument of the `configGroup` param must be an Array.');
     }
     if (!rules || rules.constructor !== Array) {
-        throw new TypeError('Argument of the `rules` param must be an Array.');
+        throw new TypeError('The `rules` param must be an Array.');
     }
     if (!configGroup.length || !rules.length) {
         return false;
@@ -279,16 +279,16 @@ AtomicBuilder.prototype.addCustomPatternRules = function (configGroup, rules, id
         throw new RangeError('The limit for total custom pattern rules is 26.');
     }
     if (!id || id.constructor !== String) {
-        throw new TypeError('Argument of the `id` param must be a String.');
+        throw new TypeError('The `id` param must be a String.');
     }
     if (!prefix || prefix.constructor !== String) {
-        throw new TypeError('Argument of the `prefix` param must be a String.');
+        throw new TypeError('The `prefix` param must be a String.');
     }
     if (suffixType !== 'alphabet') {
         throw new TypeError('Argument of the `suffixType` param must be an \'alphabet\'.');
     }
     if (!format || format.constructor !== Array) {
-        throw new TypeError('Argument of the `format` param must be an Array.');
+        throw new TypeError('The `format` param must be an Array.');
     }
 
     if (format.some(function (formatFragment) {
@@ -362,14 +362,13 @@ AtomicBuilder.prototype.addCustomPatternRules = function (configGroup, rules, id
  */
 AtomicBuilder.prototype.addRule = function (rule, id) {
     var configObj = this.configObj,
-        breakPoints,
-        self = this;
+        breakPoints;
 
     if (rule.constructor !== Object) {
-        throw new TypeError('Argument of the `rule` param must be an Object.');
+        throw new TypeError('The `rule` param must be an Object.');
     }
     if (id.constructor !== String) {
-        throw new TypeError('Argument of the `id` param must be a String.');
+        throw new TypeError('The `id` param must be a String.');
     }
     if (!configObj || configObj.constructor !== Object) {
         throw new TypeError('Expecting config object to be set in this instance.');
@@ -392,6 +391,54 @@ AtomicBuilder.prototype.addRule = function (rule, id) {
                 }
             }
         }
+    }
+};
+
+/**
+ * Adds fraction rules (in percentage values) that are written in pattern format to the build obj.
+ *
+ * @method  addFractionRules
+ * @param {Object}  fractionObj             (Required) An object containing information about the fraction rules to be added.
+ * @param {Integer} fractionObj.denominator (Required) The denominator of the fraction (how many equal parts it will be divided).
+ * @param {Array}   fractionObj.breakPoints (Optional) An array containing the media queries that will be added to each rule.
+ * @param {String}  id                      (Required) The 'id' of the pattern.
+ * @param {Array}   properties              (Required) The array of properties of the pattern.
+ * @param {String}  prefix                  (Required) The prefix string of the class name.
+ */
+AtomicBuilder.prototype.addFractionRules = function (fractionObj, id, properties, prefix) {
+    var denominator,
+        className = '',
+        value = '',
+        self = this;
+
+    if (!fractionObj || fractionObj.constructor !== Object) {
+        throw new TypeError('fractionObj in config must be an Object. Config key: ' + id + '.');
+    }
+    denominator = fractionObj.denominator;
+    if (!denominator || !utils.isInteger(denominator)) {
+        throw new TypeError('fractionObj.denominator in config must be a Number. Config key: ' + id + '.');
+    }
+    if (id.constructor !== String) {
+        throw new TypeError('The `id` param must be a String.');
+    }
+    if (properties.constructor !== Array) {
+        throw new TypeError('The `properties` param must be an Array.');
+    }
+    if (prefix.constructor !== String) {
+        throw new TypeError('The `prefix` param must be a String.');
+    }
+
+    function add(property) {
+        self.addCssRule(className, property, value, fractionObj.breakPoints);
+    }
+
+    for (var i = 1; i <= denominator; i += 1) {
+        className = prefix + i + '\\/' + denominator;
+        // multiplying by 100 then by 10000 on purpose to show more clearly that we want:
+        // percentage: (i / denominator * 100)
+        // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
+        value = Math.round(i / denominator * 100 * 10000) / 10000 + '%';
+        properties.forEach(add);
     }
 };
 
