@@ -20,6 +20,18 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 #atomic .Bd-b--b {
   border-bottom: 3px solid transparent;
 }
+#atomic .Bd-t-0 {
+  border-top: 0;
+}
+#atomic .Bd-end-0 {
+  border-right: 0;
+}
+#atomic .Bd-bottom-0 {
+  border-bottom: 0;
+}
+#atomic .Bd-start-0 {
+  border-left: 0;
+}
 #atomic .Fw-n {
   font-weight: normal;
 }

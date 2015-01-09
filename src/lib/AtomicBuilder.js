@@ -462,9 +462,13 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
     if (!property || property.constructor !== String) {
         throw new TypeError('addCssRule(): property param is required and must be a String.');
     }
-    if (!value) {
+    if (!value && value !== 0) {
         throw new TypeError('addCssRule(): `value` param is required.');
     }
+
+    className = this.placeConstants(className);
+    property = this.placeConstants(property);
+    value = this.placeConstants(value);
 
     build[className] = {};
     build[className][property] = value;
@@ -490,6 +494,32 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
 
     _.merge(this.build, build);
     return true;
+};
+
+/**
+ * Replace symbols such as $START and $END with the constants set in the config.
+ * e.g. border-$START => "border-left"
+ * 
+ * @param  {String} str The string to be processed.
+ * @return {String} The processed string.
+ */
+AtomicBuilder.prototype.placeConstants = function (str) {
+    var configObj = this.configObj;
+    if (!str && str !== 0) {
+        throw new TypeError('str must be present');
+    }
+
+    if (str.constructor !== String) {
+        return str;
+    }
+
+    if (configObj.config.start) {
+        str = str.replace(/\$START/g, configObj.config.start);
+    }
+    if (configObj.config.start) {
+        str = str.replace(/\$END/g, configObj.config.end);
+    }
+    return str;
 };
 
 /**

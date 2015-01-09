@@ -4,9 +4,10 @@ var START = atomicConfig.config.start;
 var END = atomicConfig.config.end;
 
 module.exports = [
+    // custom borders
     {
         type: 'custom-pattern',
-        id: 'border',
+        id: 'border-custom',
         name: 'Border',
         prefix: '.Bd-',
         suffixType: 'alphabet',
@@ -23,6 +24,57 @@ module.exports = [
             {suffix: 'end', values: ['border-' + END]},
             {suffix: 'start', values: ['border-' + START]}
         ]
+    },
+    // border resets
+    {
+        type: 'rule',
+        id: 'border-reset',
+        name: 'Border reset',
+        rule: {
+            '.Bd-0': {
+                border: 0
+            }
+        }
+    },
+    {
+        type: 'rule',
+        id: 'border-reset-top',
+        name: 'Border top reset',
+        rule: {
+            '.Bd-t-0': {
+                'border-top': 0
+            }
+        }
+    },
+    {
+        type: 'rule',
+        id: 'border-reset-end',
+        name: 'Border end reset',
+        rule: {
+            '.Bd-end-0': {
+                'border-$END': 0
+            }
+        }
+    },
+    {
+        type: 'rule',
+        id: 'border-reset-bottom',
+        name: 'Border bottom reset',
+        rule: {
+            '.Bd-bottom-0': {
+                'border-bottom': 0
+            }
+        }
+    },
+    {
+        type: 'rule',
+        id: 'border-reset-start',
+        name: 'Border start reset',
+        rule: {
+            '.Bd-start-0': {
+                'border-$START': 0
+            }
+        }
     },
     {
         type: 'pattern',

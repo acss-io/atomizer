@@ -16,7 +16,7 @@ module.exports = {
     },
 
     // custom-properties
-    'border': [
+    'border-custom': [
         // a
         [
             {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
@@ -29,6 +29,12 @@ module.exports = {
             {suffix: 'b', values: ['3px solid transparent']}
         ]
     ],
+
+    // rule
+    'border-reset-top': true,
+    'border-reset-end': true,
+    'border-reset-bottom': true,
+    'border-reset-start': true,
 
     // pattern
     'font-weight': {

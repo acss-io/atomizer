@@ -770,6 +770,9 @@ describe('AtomicBuilder', function () {
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
+            sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
+                return str;
+            });
 
             // execute
             var atomicBuilder = new AtomicBuilder();
@@ -794,12 +797,51 @@ describe('AtomicBuilder', function () {
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
+            sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
+                return str;
+            });
 
             // execute
             var atomicBuilder = new AtomicBuilder();
 
             expect(atomicBuilder.addCssRule(className, property, value)).to.be.true;
             expect(atomicBuilder.build).to.deep.equal(expected);
+        });
+    });
+
+    // -------------------------------------------------------
+    // placeConstants()
+    // -------------------------------------------------------
+    describe('placeConstants()', function () {
+        it('throws if str has not been passed', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.placeConstants();
+            }).to.throw(TypeError);
+        });
+        it('returns the original string if the param is not a string', function () {
+            // execute and assert
+            expect(AtomicBuilder.prototype.placeConstants(123)).to.equal(123);
+        });
+        it('returns the processed string if passed', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            var atomicBuilder = new AtomicBuilder();
+            atomicBuilder.configObj = {
+                config: {
+                    start: 'foo',
+                    end: 'bar'
+                }
+            };
+
+            // assert
+            expect(atomicBuilder.placeConstants('test-$START')).equal('test-foo');
+            expect(atomicBuilder.placeConstants('test-$END')).equal('test-bar');
+            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-foo-bar');
         });
     });
 
