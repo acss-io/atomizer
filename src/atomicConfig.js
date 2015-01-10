@@ -56,6 +56,20 @@ module.exports = {
         m: true
     },
 
+    // rule
+    'background-none': true,
+    'background-color-transparent': true,
+    'background-image-none': true,
+
+    // custom-properties
+    'background-color': [
+        // a
+        {values: ['#000'], breakPoints: ['sm', 'md', 'lg']},
+
+        // b
+        {values: ['#fff']}
+    ],
+
     // pattern
     'font-weight': {
         'n': {
