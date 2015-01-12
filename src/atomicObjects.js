@@ -21,12 +21,12 @@ module.exports = [
             utils.isColor
         ],
         rules: [
-            {suffix: 'x', values: ['border-left', 'border-right']},
-            {suffix: 'y', values: ['border-top', 'border-bottom']},
-            {suffix: 't', values: ['border-top']},
-            {suffix: 'b', values: ['border-bottom']},
-            {suffix: 'end', values: ['border-' + END]},
-            {suffix: 'start', values: ['border-' + START]}
+            {suffix: 'x', properties: ['border-left', 'border-right']},
+            {suffix: 'y', properties: ['border-top', 'border-bottom']},
+            {suffix: 't', properties: ['border-top']},
+            {suffix: 'b', properties: ['border-bottom']},
+            {suffix: 'end', properties: ['border-' + END]},
+            {suffix: 'start', properties: ['border-' + START]}
         ]
     },
     /**
@@ -46,7 +46,7 @@ module.exports = [
     },
     {
         type: 'rule',
-        id: 'border-reset-top',
+        id: 'border-top-reset',
         name: 'Border top reset',
         rule: {
             '.Bd-t-0': {
@@ -56,7 +56,7 @@ module.exports = [
     },
     {
         type: 'rule',
-        id: 'border-reset-end',
+        id: 'border-end-reset',
         name: 'Border end reset',
         rule: {
             '.Bd-end-0': {
@@ -66,7 +66,7 @@ module.exports = [
     },
     {
         type: 'rule',
-        id: 'border-reset-bottom',
+        id: 'border-bottom-reset',
         name: 'Border bottom reset',
         rule: {
             '.Bd-bottom-0': {
@@ -76,7 +76,7 @@ module.exports = [
     },
     {
         type: 'rule',
-        id: 'border-reset-start',
+        id: 'border-start-reset',
         name: 'Border start reset',
         rule: {
             '.Bd-start-0': {
@@ -148,7 +148,67 @@ module.exports = [
      * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
      *      http://docs.emmet.io/cheat-sheet/
      * ============================================================================
+     *
+     *  NOTES:
+     *
+     *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
+     *  - look for top/right/bottom/left rules in the "offset" section
+     *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
+     *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
+     *  
+     **/
+
+     /**
+     ==================================================================
+     BACKGROUNDS
+     ==================================================================
      */
+
+    /* background-color/image "resets" */
+    {
+        type: 'rule',
+        id: 'background-none',
+        name: 'Background none',
+        rule: {
+            '.Bg-n': {
+                'background': 'none'
+            }
+        }
+    },
+    {
+        type: 'rule',
+        id: 'background-color-transparent',
+        name: 'Background color transparent',
+        rule: {
+            '.Bgc-t': {
+                'background-color': 'transparent'
+            }
+        }
+    },
+    {
+        type: 'rule',
+        id: 'background-image-none',
+        name: 'Background image none',
+        rule: {
+            '.Bgi-n': {
+                'background-image': 'none'
+            }
+        }
+    },
+
+    /* background-color */
+    {
+        type: 'custom-pattern',
+        id: 'background-color',
+        name: 'Background color',
+        prefix: '.Bgc-',
+        properties: ['background-color'],
+        suffixType: 'alphabet',
+        format: [
+            utils.isColor
+        ]
+    },
+
     {
         type: 'pattern',
         id: 'padding-x',

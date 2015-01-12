@@ -140,9 +140,9 @@ AtomicBuilder.prototype.run = function () {
                 self.addPatternRules(currentConfigObj.custom, atomicObj.id, atomicObj.properties, atomicObj.prefix, true);
             }
         }
-        // if the atomic object is custom-properties and we have rules
-        else if (atomicObj.type === 'custom-pattern' && atomicObj.rules) {
-            self.addCustomPatternRules(currentConfigObj, atomicObj.rules, atomicObj.id, atomicObj.prefix, atomicObj.suffixType, atomicObj.format);
+        // if the atomic object is custom-properties and we have rules or properties
+        else if (atomicObj.type === 'custom-pattern' && (atomicObj.rules || atomicObj.properties)) {
+            self.addCustomPatternRules(currentConfigObj, atomicObj.rules, atomicObj.properties, atomicObj.id, atomicObj.prefix, atomicObj.suffixType, atomicObj.format);
         }
         // if the atomic object is a rule
         else if (atomicObj.type === 'rule') {
@@ -245,42 +245,48 @@ AtomicBuilder.prototype.addPatternRules = function (rules, id, properties, prefi
  * Add rules that are written in 'custom-pattern' format.
  * 
  * @method  addCustomPatternRules
- * @param {Array}    configGroup (Required) An array of an array of objects with keys that match suffixes of the passed rules.
- *                               Each key should have an array of values that will be added to each suffix property.
- * @param {Array}    rules       (Required) The array of rule objects containing a suffix and a value key.
- * @param {String}   id          (Required) The 'id' of the pattern.
- * @param {String}   prefix      (Required) The prefix sring of the class name.
- * @param {String}   suffixType  (Required) The type of the suffix to be appended to the custom class pattern.
- * @param {Array}    format      (Required) An array containing a function that tests each word passed on each item of class values.
- * @return {Boolean} True if the rules have been added, false otherwise.
+ * @param {Array}    configGroup        (Required) An array of an array of objects with keys that match suffixes of the passed rules.
+ *                                      Each key should have an array of values that will be added to each suffix property.
+ * @param {Array}    rules              (Optional) The array of rule objects containing a suffix and a value key. If not passed, `properties` param must be passed instead.
+ * @param {Array}    rules.suffix       (Optional) Suffix of the rule.
+ * @param {Array}    rules.properties   (Optional) Properties to assign the values from the config.
+ * @param {Array}    properties         (Optional) Properties to assign the values from the config. If not passed, `rules` param must be passed instead.
+ * @param {String}   id                 (Required) The 'id' of the pattern.
+ * @param {String}   prefix             (Required) The prefix sring of the class name.
+ * @param {String}   suffixType         (Required) The type of the suffix to be appended to the custom class pattern.
+ * @param {Array}    format             (Required) An array containing a function that tests each word passed on each item of class values.
  *
  * e.g.
  * 'border': [
-*      // a
-*      [
-*          {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
-*          {suffix: 'b', values: ['3px solid #f00']},
-*          {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
-*      ],
-*      // b
-*      [
-*          {suffix: 't', values: ['1px solid #fff']},
-*          {suffix: 'b', values: ['3px solid transparent']}
-*      ]
-*  ]
+ *      // a
+ *      [
+ *          {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
+ *          {suffix: 'b', values: ['3px solid #f00']},
+ *          {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
+ *      ],
+ *      // b
+ *      [
+ *          {suffix: 't', values: ['1px solid #fff']},
+ *          {suffix: 'b', values: ['3px solid transparent']}
+ *      ]
+ *  ]
  */
-AtomicBuilder.prototype.addCustomPatternRules = function (configGroup, rules, id, prefix, suffixType, format) {
-    var patternSuffix = '',
-        className = '',
-        self = this;
+AtomicBuilder.prototype.addCustomPatternRules = function (configGroup, rules, properties, id, prefix, suffixType, format) {
+    var self = this;
 
     if (!configGroup || configGroup.constructor !== Array) {
         throw new TypeError('Argument of the `configGroup` param must be an Array.');
     }
-    if (!rules || rules.constructor !== Array) {
+    if (!rules && !properties) {
+        throw new Error('Either one of the following params is required: `rules` or `properties`.');
+    }
+    if (rules && rules.constructor !== Array) {
         throw new TypeError('The `rules` param must be an Array.');
     }
-    if (!configGroup.length || !rules.length) {
+    if (properties && properties.constructor !== Array) {
+        throw new TypeError('The `properties` param must be an Array.');
+    }
+    if (!configGroup.length || (rules && !rules.length) || (properties && !properties.length)) {
         return false;
     }
     // opinionated limit. this should not even go as far as 26.
@@ -307,59 +313,95 @@ AtomicBuilder.prototype.addCustomPatternRules = function (configGroup, rules, id
         throw new TypeError('The `format` array must be an array of Functions.');
     }
 
+    // make rules as properties if `rules` has not been passed but `properties` has
+    if (!rules && properties) {
+        rules = properties;
+    }
+
     // iterate rules first, since it needs to go in order
     rules.forEach(function (rule) {
-        if (!rule.suffix || !rule.values) {
-            throw new Error('Rule should have keys `suffix` and `values`.');
-        }
-        if (rule.suffix.constructor !== String) {
-            throw new TypeError('rule.suffix must be a String.');
-        }
-        if (rule.values.constructor !== Array) {
-            throw new TypeError('rule.values must be an Array.');
+
+        // validate rule if it's not a property
+        if (!properties) {
+            if (!rule.suffix || !rule.properties) {
+                throw new Error('Atomic object rule should have keys `suffix` and `properties`.');
+            }
+            if (rule.suffix.constructor !== String) {
+                throw new TypeError('rule.suffix must be a String.');
+            }
+            if (rule.properties.constructor !== Array) {
+                throw new TypeError('rule.properties must be an Array.');
+            }
         }
 
         // iterate configGroup so we can produce the class if wanted by the config
         configGroup.forEach(function (customPatterns, index) {
-            if (customPatterns.constructor !== Array) {
-                throw TypeError('Config group of `' + id + '` should be an array of array. Found an index that is not an array.');
+            // at this point, customPatterns can either be an Array (if properties has not been passed) or an object (if properties has been passed)
+            if (customPatterns.constructor === Object) {
+                self.addCustomPatternObject(id, rule, index, prefix, suffixType, format, false, customPatterns);
             }
-            // customPatterns is an array of objects
-            customPatterns.forEach(function (customPatternObject) {
-                if (!customPatternObject.suffix || !customPatternObject.values) {
-                    throw new Error('custom pattern object of `' + id + '` should contain at least the following keys: `suffix`, `values`');
-                }
-                // return if it's not wanted by the config
-                if(customPatternObject.suffix !== rule.suffix) {
-                    return;
-                }
-
-                // 1. build the class name
-                if (suffixType === 'alphabet') {
-                    patternSuffix = '--' + String.fromCharCode(97 + index);
-                }
-                className = prefix + rule.suffix + patternSuffix;
-
-                // 2. add the properties by iterating the rule values (which are the property names)
-                rule.values.forEach(function (ruleProperty, rulePropertyIndex) {
-                    // validate format of propertyValue passed in the config
-                    var invalid,
-                        propertyValue = customPatternObject.values[rulePropertyIndex] || '',
-                        propertyValueParts = propertyValue.split(' ');
-
-                    invalid = propertyValueParts.length !== format.length || propertyValueParts.some(function (propertyValuePart, wordIndex) {
-                        return !format[wordIndex].call('undefined', propertyValuePart);
-                    });
-
-                    if (invalid) {
-                        throw new Error('Invalid value format in `' + id + '`.');
-                    }
-                    self.addCssRule(className, ruleProperty, propertyValue, customPatternObject.breakPoints);
-                });
-            });
+            else if (customPatterns.constructor === Array) {
+                customPatterns.forEach(self.addCustomPatternObject.bind(self, id, rule, index, prefix, suffixType, format, true));
+            }
+            else {
+                throw TypeError('Config group of `' + id + '` should be an array of arrays or an array of objects.');
+            }
         });
     });
 };
+
+/**
+ * Used by addCustomPatternRules() to addCssRule().
+ * 
+ * @method  addCustomPatternRules
+ * @private
+ */
+AtomicBuilder.prototype.addCustomPatternObject = function (id, rule, index, prefix, suffixType, format, isMultiple, customPatternObject) {
+    var className = '',
+        ruleSuffix = '',
+        patternSuffix = '',
+        separator = '-',
+        properties = [],
+        self = this;
+
+    if (isMultiple) {
+        if (!customPatternObject.suffix || !customPatternObject.values) {
+            throw new Error('custom pattern object of `' + id + '` should contain at least the following keys: `suffix`, `values`');
+        }
+        // return if it's not wanted by the config
+        if(customPatternObject.suffix !== rule.suffix) {
+            return;
+        }
+        ruleSuffix = rule.suffix;
+        properties = rule.properties;
+        separator += separator; // --
+    } else {
+        properties = [rule];
+    }
+
+    // 1. build the class name
+    if (suffixType === 'alphabet') {
+        patternSuffix = separator + String.fromCharCode(97 + index);
+    }
+    className = prefix + ruleSuffix + patternSuffix;
+
+    // 2. add the properties by iterating the rule values (which are the property names)
+    properties.forEach(function (ruleProperty, rulePropertyIndex) {
+        // validate format of propertyValue passed in the config
+        var invalid,
+            propertyValue = customPatternObject.values[rulePropertyIndex] || '',
+            propertyValueParts = propertyValue.split(' ');
+
+        invalid = propertyValueParts.length !== format.length || propertyValueParts.some(function (propertyValuePart, wordIndex) {
+            return !format[wordIndex].call('undefined', propertyValuePart);
+        });
+
+        if (invalid) {
+            throw new Error('Invalid value format in `' + id + '`.');
+        }
+        self.addCssRule(className, ruleProperty, propertyValue, customPatternObject.breakPoints);
+    });
+}
 
 /**
  * Parses an object of type "rule"

@@ -459,8 +459,8 @@ describe('AtomicBuilder', function () {
             ]
         ];
         var rules = [
-            {suffix: 'bar', values: ['border-left', 'border-right']},
-            {suffix: 'baz', values: ['border-top']}
+            {suffix: 'bar', properties: ['border-left', 'border-right']},
+            {suffix: 'baz', properties: ['border-top']}
         ];
         var id = 'foo';
         var prefix = '.Foo-';
@@ -519,32 +519,32 @@ describe('AtomicBuilder', function () {
         it('throws if `prefix` is not a string', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id);
             }).to.throw(TypeError);
         });
         it('throws if `suffixType` is not a String', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix);
             }).to.throw(TypeError);
         });
         it('throws if `format` is not an Array', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType);
             }).to.throw(TypeError);
         });
         it('throws if `format` is not an Array of Functions', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, ['foo']);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, ['foo']);
             }).to.throw(TypeError);
         });
         it('throws if `suffix` and `values` are not keys of `rules`', function () {
             // execute and assert
             expect(function () {
                 var rules = [{}];
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, format);
             }).to.throw(Error);
         });
         it('throws if `rule.suffix` is not a string', function () {
@@ -552,9 +552,9 @@ describe('AtomicBuilder', function () {
             expect(function () {
                 var rules = [{
                     suffix: [],
-                    values: []
+                    properties: []
                 }];
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, format);
             }).to.throw(TypeError);
         });
         it('throws if `rule.values` is not an array', function () {
@@ -562,15 +562,15 @@ describe('AtomicBuilder', function () {
             expect(function () {
                 var rules = [{
                     suffix: 'foo',
-                    values: 'foo'
+                    properties: 'foo'
                 }];
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, format);
             }).to.throw(TypeError);
         });
         it('throws if configGroup is not an Array of Arrays', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules([0,1,2], rules, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomPatternRules([0,1,2], rules, undefined, id, prefix, suffixType, format);
             }).to.throw(TypeError);
         });
         it('throws if configGroup\'s customPatterns does not have a `suffix` key', function () {
@@ -578,7 +578,7 @@ describe('AtomicBuilder', function () {
             expect(function () {
                 AtomicBuilder.prototype.addCustomPatternRules([[
                     {values: ['a', 'b']}
-                ]], rules, id, prefix, suffixType, format);
+                ]], rules, undefined, id, prefix, suffixType, format);
             }).to.throw(Error);
         });
         it('throws if configGroup\'s customPatterns does not have a `values` key', function () {
@@ -586,19 +586,19 @@ describe('AtomicBuilder', function () {
             expect(function () {
                 AtomicBuilder.prototype.addCustomPatternRules([[
                     {suffix: 'abc'}
-                ]], rules, id, prefix, suffixType, format);
+                ]], rules, undefined, id, prefix, suffixType, format);
             }).to.throw(Error);
         });
         it('throws if configGroup\'s property value does not have a valid format by length', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, [ returnsTrue ]);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, [ returnsTrue ]);
             }).to.throw(Error);
         });
         it('throws if configGroup\'s property value does not have a valid format by validation', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, [ returnsTrue, returnsTrue, returnsFalse ]);
+                AtomicBuilder.prototype.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, [ returnsTrue, returnsTrue, returnsFalse ]);
             }).to.throw(Error);
         });
         it('should not call addCssRule() is rule is not wanted by the config', function () {
@@ -622,7 +622,7 @@ describe('AtomicBuilder', function () {
             mock.expects('addCssRule').never();
 
             // execute
-            atomicBuilder.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+            atomicBuilder.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, format);
 
             // assert
             mock.verify();
@@ -641,7 +641,7 @@ describe('AtomicBuilder', function () {
             mock.expects('addCssRule').exactly(6);
 
             // execute
-            atomicBuilder.addCustomPatternRules(configGroup, rules, id, prefix, suffixType, format);
+            atomicBuilder.addCustomPatternRules(configGroup, rules, undefined, id, prefix, suffixType, format);
 
             // assert
             mock.verify();
