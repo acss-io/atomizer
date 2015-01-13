@@ -15,20 +15,22 @@ module.exports = {
         }
     },
 
-    // custom-properties
-    'border-custom': [
-        // a
-        [
-            {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
-            {suffix: 'b', values: ['3px solid #f00']},
-            {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
-        ],
-        // b
-        [
-            {suffix: 't', values: ['1px solid #fff']},
-            {suffix: 'b', values: ['3px solid transparent']}
+    // pattern
+    'border-custom': {
+        'custom-sequenced-suffix': [
+            // a
+            [
+                {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
+                {suffix: 'b', values: ['3px solid #f00']},
+                {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
+            ],
+            // b
+            [
+                {suffix: 't', values: ['1px solid #fff']},
+                {suffix: 'b', values: ['3px solid transparent']}
+            ]
         ]
-    ],
+    },
 
     // rule
     'border-reset-top': true,
@@ -50,7 +52,7 @@ module.exports = {
     // pattern
     'font-family': {
         s: true,
-        ss: true,
+        ss: {values: ['Arial, sans-serif'], breakPoints: ['sm', 'md', 'lg']},
         c: true,
         f: true,
         m: true
@@ -61,14 +63,91 @@ module.exports = {
     'background-color-transparent': true,
     'background-image-none': true,
 
-    // custom-properties
-    'background-color': [
-        // a
-        {values: ['#000'], breakPoints: ['sm', 'md', 'lg']},
+    // pattern
+    'background-color': {
+        'custom-sequenced-suffix': [
+            // a
+            {values: ['#000'], breakPoints: ['sm', 'md', 'lg']},
 
-        // b
-        {values: ['#fff']}
-    ],
+            // b
+            {values: ['#fff']}
+        ],
+    },
+
+    // pattern
+    'background-clip': {
+        'bb': true,
+        'pb': true,
+        'cb': true
+    },
+
+    // pattern
+    'background-origin': {
+        'bb': true,
+        'pb': true,
+        'cb': true
+    },
+
+    // pattern
+    'background-size': {
+        'a': true,
+        'ct': true,
+        'cv': true,
+        'custom': [
+            {suffix: '50\\%-auto', values: ['50% auto']}
+        ]
+    },
+
+    // pattern
+    'background-attachment': {
+        'f': true,
+        'l': true,
+        's': true
+    },
+
+    // pattern
+    'background-position': {
+        'ts': true,
+        'te': true,
+        'bs': true,
+        'be': true
+    },
+
+    // pattern
+    'background-repeat': {
+        'n': true,
+        'x': true,
+        'y': true,
+        'r': true,
+        's': true,
+        'ro': true
+    },
+
+    // pattern
+    'border-collapse': {
+        'c': true,
+        's': true,
+        'inh': true
+    },
+
+    // pattern
+    'box-sizing': {
+        'cb': true,
+        'pb': true,
+        'bb': true,
+        'inh': true,
+    },
+
+    // pattern
+    'box-shadow': {
+        'n': true,
+        'custom-sequenced-suffix': [
+            // a
+            {values: ['1px 1px 4px #555']},
+            // b
+            {values: ['0 0 5px #333']}
+        ]
+    },
 
     // pattern
     'font-weight': {

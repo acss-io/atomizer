@@ -39,7 +39,7 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   font-family: Georgia, "Times New Roman", serif;
 }
 #atomic .Ff-ss {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 #atomic .Ff-c {
   font-family: "Monotype Corsiva", "Comic Sans MS", cursive;
@@ -103,6 +103,93 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 }
 #atomic .Bgc--b {
   background-color: #fff;
+}
+#atomic .Bgclip-bb {
+  background-clip: border-box;
+}
+#atomic .Bgclip-pb {
+  background-clip: padding-box;
+}
+#atomic .Bgclip-cb {
+  background-clip: content-box;
+}
+#atomic .Bgo-bb {
+  background-origin: border-box;
+}
+#atomic .Bgo-pb {
+  background-origin: padding-box;
+}
+#atomic .Bgo-cb {
+  background-origin: content-box;
+}
+#atomic .Bgz-a {
+  background-size: auto;
+}
+#atomic .Bgz-ct {
+  background-size: contain;
+}
+#atomic .Bgz-cv {
+  background-size: cover;
+}
+#atomic .Bgz-50\%-auto {
+  background-size: 50% auto;
+}
+#atomic .Bga-f {
+  background-attachment: fixed;
+}
+#atomic .Bga-l {
+  background-attachment: local;
+}
+#atomic .Bga-s {
+  background-attachment: scroll;
+}
+#atomic .Bgp-ts {
+  background-position: left 0;
+}
+#atomic .Bgp-te {
+  background-position: right 0;
+}
+#atomic .Bgp-bs {
+  background-position: left 100%;
+}
+#atomic .Bgp-be {
+  background-position: right 100%;
+}
+#atomic .Bgr-n {
+  background-repeat: no-repeat;
+}
+#atomic .Bgr-x {
+  background-repeat: repeat-x;
+}
+#atomic .Bgr-y {
+  background-repeat: repeat-y;
+}
+#atomic .Bgr-r {
+  background-repeat: repeat;
+}
+#atomic .Bgr-s {
+  background-repeat: space;
+}
+#atomic .Bgr-ro {
+  background-repeat: round;
+}
+#atomic .Bdcl-c {
+  border-collapse: collapse;
+}
+#atomic .Bdcl-s {
+  border-collapse: separate;
+}
+#atomic .Bdcl-inh {
+  border-collapse: inherit;
+}
+#atomic .Bxsh-n {
+  box-shadow: none;
+}
+#atomic .Bxsh--a {
+  box-shadow: 1px 1px 4px #555;
+}
+#atomic .Bxsh--b {
+  box-shadow: 0 0 5px #333;
 }
 #atomic .Px-10 {
   padding-left: 10px;
@@ -180,6 +267,9 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   #atomic .Bd-t--a--sm {
     border-top: 1px solid #000;
   }
+  #atomic .Ff-ss--sm {
+    font-family: Arial, sans-serif;
+  }
   #atomic .Fw-n--sm {
     font-weight: normal;
   }
@@ -234,6 +324,9 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   #atomic .Bd-t--a--md {
     border-top: 1px solid #000;
   }
+  #atomic .Ff-ss--md {
+    font-family: Arial, sans-serif;
+  }
   #atomic .Fw-n--md {
     font-weight: normal;
   }
@@ -287,6 +380,9 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
 @media(min-width:1200px) {
   #atomic .Bd-t--a--lg {
     border-top: 1px solid #000;
+  }
+  #atomic .Ff-ss--lg {
+    font-family: Arial, sans-serif;
   }
   #atomic .Fw-n--lg {
     font-weight: normal;

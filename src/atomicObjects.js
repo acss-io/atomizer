@@ -10,17 +10,17 @@ module.exports = [
      ==================================================================
      */
     {
-        type: 'custom-pattern',
+        type: 'pattern',
         id: 'border-custom',
         name: 'Border',
         prefix: '.Bd-',
-        suffixType: 'alphabet',
         format: [
             utils.isLength,
             utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
             utils.isColor
         ],
-        rules: [
+        allowCustomSequencedSuffix: true,
+        properties: [
             {suffix: 'x', properties: ['border-left', 'border-right']},
             {suffix: 'y', properties: ['border-top', 'border-bottom']},
             {suffix: 't', properties: ['border-top']},
@@ -198,14 +198,159 @@ module.exports = [
 
     /* background-color */
     {
-        type: 'custom-pattern',
+        type: 'pattern',
         id: 'background-color',
         name: 'Background color',
         prefix: '.Bgc-',
         properties: ['background-color'],
-        suffixType: 'alphabet',
+        allowCustomSequencedSuffix: true,
         format: [
             utils.isColor
+        ]
+    },
+
+    /* background-clip */
+    {
+        type: 'pattern',
+        id: 'background-clip',
+        name: 'Background clip',
+        prefix: '.Bgclip-',
+        properties: ['background-clip'],
+        rules: [
+            {suffix: 'bb', values: ['border-box']},
+            {suffix: 'pb', values: ['padding-box']},
+            {suffix: 'cb', values: ['content-box']}
+        ]
+    },
+    /* background-origin */
+    {
+        type: 'pattern',
+        id: 'background-origin',
+        name: 'Background origin',
+        prefix: '.Bgo-',
+        properties: ['background-origin'],
+        rules: [
+            {suffix: 'bb', values: ['border-box']},
+            {suffix: 'pb', values: ['padding-box']},
+            {suffix: 'cb', values: ['content-box']}
+        ]
+    },
+    /* background-size (length would be customized) */
+    {
+        type: 'pattern',
+        id: 'background-size',
+        name: 'Background size',
+        prefix: '.Bgz-',
+        properties: ['background-size'],
+        allowCustom: true,
+        rules: [
+            {suffix: 'a', values: ['auto']},
+            {suffix: 'ct', values: ['contain']},
+            {suffix: 'cv', values: ['cover']}
+        ]
+    },
+    /* background-attachment */
+    {
+        type: 'pattern',
+        id: 'background-attachment',
+        name: 'Background attachment',
+        prefix: '.Bga-',
+        properties: ['background-attachment'],
+        rules: [
+            {suffix: 'f', values: ['fixed']},
+            {suffix: 'l', values: ['local']},
+            {suffix: 's', values: ['scroll']}
+        ]
+    },
+    /* background-position *4 corners only* (s=start and e=end) */
+    {
+        type: 'pattern',
+        id: 'background-position',
+        name: 'Background position',
+        prefix: '.Bgp-',
+        properties: ['background-position'],
+        rules: [
+            {suffix: 'ts', values: ['$START 0']},
+            {suffix: 'te', values: ['$END 0']},
+            {suffix: 'bs', values: ['$START 100%']},
+            {suffix: 'be', values: ['$END 100%']}
+        ]
+    },
+    /* background-repeat */
+    {
+        type: 'pattern',
+        id: 'background-repeat',
+        name: 'Background repeat',
+        prefix: '.Bgr-',
+        properties: ['background-repeat'],
+        rules: [
+            {suffix: 'n', values: ['no-repeat']},
+            {suffix: 'x', values: ['repeat-x']},
+            {suffix: 'y', values: ['repeat-y']},
+            {suffix: 'r', values: ['repeat']},
+            {suffix: 's', values: ['space']},
+            {suffix: 'ro', values: ['round']}
+        ]
+    },
+    /**
+     ==================================================================
+     BORDER-COLLAPSE
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'border-collapse',
+        name: 'Border collapse',
+        prefix: '.Bdcl-',
+        properties: ['border-collapse'],
+        rules: [
+            {suffix: 'c', values: ['collapse']},
+            {suffix: 's', values: ['separate']},
+            {suffix: 'inh', values: ['inherit']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     BOX-SIZING (checked)
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'boz-sizing',
+        name: 'Box sizing',
+        prefix: '.Bxz-',
+        properties: ['box-sizing'],
+        rules: [
+            {suffix: 'cb', values: ['content-box']},
+            {suffix: 'pb', values: ['padding-box']},
+            {suffix: 'bb', values: ['border-box']},
+            {suffix: 'inh', values: ['inherit']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     BOX-SHADOW
+     TODO: should we edit the function to accept 'none' with a 'n' suffix?
+     or should we group all reset rules together and use boolean? (border and what not)
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'box-shadow',
+        name: 'Box shadow',
+        properties: ['box-shadow'],
+        prefix: '.Bxsh-',
+        allowCustomSequencedSuffix: true,
+        format: [
+            utils.isLength,
+            utils.isLength,
+            utils.isLength,
+            utils.isColor
+        ],
+        rules: [
+            {suffix: 'n', values: ['none']}
         ]
     },
 
