@@ -8,7 +8,7 @@ var utils = require('./utils');
 
 /**
  * AtomicBuilder manage build object given an atomic object and a config object.
- * @class AtomicBuilder
+ * @class
  * @param {Array} atomicObjs  An array of atomic objects describing atomic.css.
  *                            It is the reference to the config object that tells
  *                            which rules it wants from this list.
@@ -212,6 +212,10 @@ AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfi
         throw new TypeError('The `atomicObj.properties` param is required and must be an Array.');
     }
 
+    if (!currentConfigObj || (currentConfigObj.constructor !== Object && currentConfigObj.constructor !== Boolean)) {
+        throw new TypeError('The `currentConfigObj` param is required and must be an Object or a Boolean.');
+    }
+
     suffix = rule.suffix;
     className = atomicObj.prefix + suffix;
 
@@ -243,67 +247,91 @@ AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfi
 };
 
 /**
- * Add rules that are written in 'custom-pattern' format.
+ * Add rules that should follow an alphabetical sequence suffix.
+ * This method only validates the array passed by the config object (configCustom param).
+ * It iterates the array and calls addCustomSequenceSuffixRule() to add each rule.
  * 
  * @method addCustomSequencedSuffixRules
+ * @see  addCustomSequencedSuffixRule
  * @param {Array}        configCustom                    (Required) An array of array of objects with keys that match
  *                                                       suffixes of the passed rules. Each key should have an array of 
  *                                                       values that will be added to each suffix property.
+ * e.g.
+ * 
+ * // array of arrays of objects:
+ * // used when a pattern produces multi-purpose rules.
+ * // such as ".Bd-t--a", ".Bd-b--a", ".Bd-x--a", ".Bd-y--a", etc.
+ * // objects require a suffix to map to the correct suffix of the pattern.
+ * [
+ *     // a
+ *     [
+ *         {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
+ *         {suffix: 'b', values: ['3px solid #f00']},
+ *         {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
+ *     ],
+ *     // b
+ *     [
+ *         {suffix: 't', values: ['1px solid #fff']},
+ *         {suffix: 'b', values: ['3px solid transparent']}
+ *     ]
+ * ]
+ *  
+ *  // array of objects
+ *  // used when a pattern produces a single rule.
+ *  // such as ".Bgc--a", ".Bgc--b", ".Bgc--c", etc.
+ *  // objects don't require a "suffix" since it maps already to the prefix of the pattern.
+ *  [
+ *      // a
+ *      {values: ['#000'], breakPoints: ['sm', 'md', 'lg']},
+ *      // b
+ *      {values: ['#fff']}
+ *  ],
+ *  
  * @param {Object}       atomicObj                       (Required) The atomicObj that is being evaluated.
- * @param {Array|Object} atomicObj.properties            (Required) The array of CSS properties to be added to this pattern.
- *                                                       It can also be an object containing `suffix` and `properties` keys.
- * @param {String}       atomicObj.properties.suffix     (Optional) Suffix of the rule.
- * @param {Array}        atomicObj.properties.properties (Optional) Properties to assign the values from the config.
+ * @param {Array}        atomicObj.properties            (Required) The array of CSS properties to be added to this pattern.
+ *                                                       It can also be an array of objects containing `suffix` and `properties` keys.
  * @param {String}       atomicObj.id                    (Required) The id of the pattern.
  * @param {String}       atomicObj.prefix                (Required) The prefix string of the class name.
  * @param {String}       atomicObj.suffixType            (Required) The type of the suffix to be appended to the custom class pattern.
  * @param {Array}        atomicObj.format                (Required) An array containing a function that tests each word passed on each item of class values.
  *
- * e.g.
- * 'border': [
- *      // a
- *      [
- *          {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
- *          {suffix: 'b', values: ['3px solid #f00']},
- *          {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
- *      ],
- *      // b
- *      [
- *          {suffix: 't', values: ['1px solid #fff']},
- *          {suffix: 'b', values: ['3px solid transparent']}
- *      ]
- *  ]
+ *
  */
 AtomicBuilder.prototype.addCustomSequencedSuffixRules = function (configCustom, atomicObj) {
     var self = this,
         properties;
 
+    // validate configCustom
     if (!configCustom || configCustom.constructor !== Array) {
         throw new TypeError('The `configCustom` param is required and must be an Object.');
-    }
-    if (!atomicObj || atomicObj.constructor !== Object) {
-        throw new TypeError('The `atomicObj` param is required and must be an Object.');
-    }
-    properties = atomicObj.properties;
-    if (!properties || (properties.constructor !== Array && properties.constructor !== Object)) {
-        throw new Error('The atomicObj.properties param is required and must be an Array or an Object.');
-    }
-    if (!configCustom.length || (properties && !properties.length)) {
-        return false;
     }
     // opinionated limit. this should not even go as far as 26.
     // this is the hard limit based on the letters of the alphabet.
     if (configCustom.length > 26) {
         throw new RangeError('The limit for total custom pattern rules is 26.');
     }
+
+    // validate atomicObj
+    if (!atomicObj || atomicObj.constructor !== Object) {
+        throw new TypeError('The `atomicObj` param is required and must be an Object.');
+    }
     if (!atomicObj.id || atomicObj.id.constructor !== String) {
         throw new TypeError('The `atomicObj.id` param must be a String.');
+    }
+    properties = atomicObj.properties;
+    if (!properties || properties.constructor !== Array) {
+        throw new TypeError('The atomicObj.properties param is required and must be an Array or an Object.');
     }
     if (!atomicObj.prefix || atomicObj.prefix.constructor !== String) {
         throw new TypeError('The `atomicObj.prefix` param must be a String.');
     }
     if (!atomicObj.format || atomicObj.format.constructor !== Array) {
         throw new TypeError('The `atomicObj.format` param must be an Array.');
+    }
+
+    // don't continue if either one of these is empty
+    if (!configCustom.length || !properties.length) {
+        return false;
     }
 
     if (atomicObj.format.some(function (formatFragment) {
@@ -329,28 +357,38 @@ AtomicBuilder.prototype.addCustomSequencedSuffixRules = function (configCustom, 
         }
 
         // iterate configCustom so we can produce the class if wanted by the config
-        configCustom.forEach(function (customPatterns, index) {
-            // at this point, customPatterns can either be an Array (if properties has not been passed) or an object (if properties has been passed)
-            if (customPatterns.constructor === Object) {
-                self.addCustomPatternObject(property, index, atomicObj, false, customPatterns);
+        configCustom.forEach(function (customRule, index) {
+            // at this point, customRule can either be an Array of Objects (multi-purpose patterns) or an Object (single-purpose patterns)
+            if (customRule.constructor === Object) {
+                self.addCustomSequencedSuffixRule(property, index, atomicObj, customRule);
             }
-            else if (customPatterns.constructor === Array) {
-                customPatterns.forEach(self.addCustomPatternObject.bind(self, property, index, atomicObj, true));
+            else if (customRule.constructor === Array) {
+                customRule.forEach(self.addCustomSequencedSuffixRule.bind(self, property, index, atomicObj));
             }
             else {
-                throw TypeError('configCustom of `' + id + '` should be an array of arrays or an array of objects.');
+                throw TypeError('`customRule` must be an Object or an Array.');
             }
         });
     });
 };
 
 /**
- * Used by addCustomPatternRules() to addCssRule().
+ * Add rules that should follow an alphabetical sequence suffix.
+ * Used by addCustomSequencedSuffixRules() to add a css rule using addCssRule().
  * 
- * @method  addCustomPatternRules
+ * @method  addCustomSequencedSuffixRule
+ * @see     addCustomSequencedSuffixRules
+ * @param {Array|String} property             (Required) The CSS property that will be added to this rule. It can be a 
+ *                                            String or an Array of objects containing the keys `suffix` and `property`.
+ * @param {Integer}      index                (Required) The index of the config array. Used to generate the sequetial 
+ *                                            alphabetical letters.
+ * @param {Object}       atomicObj            (Required) The atomicObj that is being evaluated.
+ * @param {Object}       customRule           (Required) The config object that is present in the array of custom rules.
+ * @param {Object}       customRule.suffix    (Optional) Used by multi-purpose patterns to map the values to the desired rule via suffix.
+ * @param {Object}       customRule.values    (Required) The CSS values to be added to each CSS property in this rule.
  * @private
  */
-AtomicBuilder.prototype.addCustomPatternObject = function (property, index, atomicObj, isMultiple, customPatternObject) {
+AtomicBuilder.prototype.addCustomSequencedSuffixRule = function (property, index, atomicObj, customRule) {
     var className = '',
         ruleSuffix = '',
         patternSuffix = '',
@@ -358,15 +396,17 @@ AtomicBuilder.prototype.addCustomPatternObject = function (property, index, atom
         properties = [],
         self = this;
 
-    if (!customPatternObject.values || customPatternObject.values.constructor !== Array) {
-        throw new Error('Custom pattern object of `' + id + '` should contain the key `values` and must be an Array.');
+    // required
+    if (!customRule || customRule.constructor !== Object) {
+        throw new TypeError('`customRule` is required and must be an Object');
     }
-    if (isMultiple) {
-        if (!customPatternObject.suffix) {
-            throw new Error('Custom pattern object with multiple properties of `' + id + '` should contain the key `suffix`.');
-        }
+    if (!customRule.values || customRule.values.constructor !== Array) {
+        throw new TypeError('`customRule.values` is required and must be an Array.');
+    }
+    // optional
+    if (customRule.suffix) {
         // return if it's not wanted by the config
-        if(customPatternObject.suffix !== property.suffix) {
+        if(property.suffix !== customRule.suffix) {
             return;
         }
         ruleSuffix = property.suffix;
@@ -386,7 +426,7 @@ AtomicBuilder.prototype.addCustomPatternObject = function (property, index, atom
     properties.forEach(function (ruleProperty, rulePropertyIndex) {
         // validate format of propertyValue passed in the config
         var invalid,
-            propertyValue = customPatternObject.values[rulePropertyIndex] || '',
+            propertyValue = customRule.values[rulePropertyIndex] || '',
             propertyValueParts = propertyValue.split(' ');
 
         invalid = propertyValueParts.length !== atomicObj.format.length || propertyValueParts.some(function (propertyValuePart, wordIndex) {
@@ -396,7 +436,7 @@ AtomicBuilder.prototype.addCustomPatternObject = function (property, index, atom
         if (invalid) {
             throw new Error('Invalid value format in `' + id + '`. Property value: ' + propertyValue);
         }
-        self.addCssRule(className, ruleProperty, propertyValue, customPatternObject.breakPoints);
+        self.addCssRule(className, ruleProperty, propertyValue, customRule.breakPoints);
     });
 }
 
@@ -462,11 +502,11 @@ AtomicBuilder.prototype.addFractionRules = function (fractionObj, atomicObj) {
         self = this;
 
     if (!fractionObj || fractionObj.constructor !== Object) {
-        throw new TypeError('fractionObj in config must be an Object. Config key: ' + id + '.');
+        throw new TypeError('fractionObj in config must be an Object.');
     }
     denominator = fractionObj.denominator;
     if (!denominator || !utils.isInteger(denominator)) {
-        throw new TypeError('fractionObj.denominator in config must be a Number. Config key: ' + id + '.');
+        throw new TypeError('fractionObj.denominator in config must be a Number.');
     }
     if (!atomicObj || atomicObj.constructor !== Object) {
         throw new TypeError('The `atomicObj` param is required and must be a String.');

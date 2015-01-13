@@ -206,12 +206,16 @@ describe('AtomicBuilder', function () {
     // -------------------------------------------------------
     describe('addPatternRule()', function () {
         // default params to send in tests
-        var rules = [
-            { suffix: 'foo', values: ['bold'] }
-        ];
+        var rule = {suffix: 'foo', values: ['bold']};
         var id = 'foo';
         var properties = ['font-weight'];
         var prefix = '.Fw-';
+        var atomicObj = {
+            id: id,
+            properties: properties,
+            prefix: prefix
+        };
+
         var isCustom = false;
         var expected = {
             '.Fw-foo': {
@@ -220,72 +224,123 @@ describe('AtomicBuilder', function () {
         };
 
         // tests
-        it('throws if `rules` is not an array', function () {
+        it('throws if `rules` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule();
+            }).to.throw(TypeError);
+        });
+        it('throws if `rules` is not an object', function () {
             // execute and assert
             expect(function () {
                 AtomicBuilder.prototype.addPatternRule('foo');
             }).to.throw(TypeError);
         });
-        it('should return false if `rules` is an array but it is empty', function () {
-            // execute and assert
-            expect(AtomicBuilder.prototype.addPatternRule([])).to.be.false();
-        });
-        it('throws if `id` is not a string', function () {
+        it('throws if `rules.values` is missing', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addPatternRule(rules);
+                AtomicBuilder.prototype.addPatternRule({
+                    suffix: rule.suffix
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `properties` is not an array', function () {
+        it('throws if `rules.values` is not an array', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addPatternRule(rules, id);
+                AtomicBuilder.prototype.addPatternRule({
+                    suffix: rule.suffix,
+                    values: 'values'
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `prefix` is not a string', function () {
+        it('throws if `rules.suffix` is missing', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addPatternRule(rules, id, properties);
+                AtomicBuilder.prototype.addPatternRule({
+                    values: ['values']
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `suffix` and `values` are not keys of `rules`', function () {
+        it('throws if `rules.suffix` is not a string', function () {
             // execute and assert
             expect(function () {
-                var rules = [{}];
-                AtomicBuilder.prototype.addPatternRule(rules, id, properties, prefix, isCustom);
-            }).to.throw(Error);
-        });
-        it('throws if `rule.suffix` is not a string', function () {
-            // execute and assert
-            expect(function () {
-                var rules = [{
-                    suffix: [],
-                    values: []
-                }];
-                AtomicBuilder.prototype.addPatternRule(rules, id, properties, prefix, isCustom);
+                AtomicBuilder.prototype.addPatternRule({
+                    suffix: [rule.suffix],
+                    values: ['values']
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `rule.values` is not an array', function () {
+        it('throws if `atomicObj` is missing', function () {
             // execute and assert
             expect(function () {
-                var rules = [{
-                    suffix: 'foo',
-                    values: 'foo'
-                }];
-                AtomicBuilder.prototype.addPatternRule(rules, id, properties, prefix, isCustom);
+                AtomicBuilder.prototype.addPatternRule(rule);
             }).to.throw(TypeError);
         });
-        it('throws if configObj is not set in the instance', function () {
+        it('throws if `atomicObj.id` is missing', function () {
             // execute and assert
             expect(function () {
-                // stub methods
-                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
-                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-                sinon.stub(AtomicBuilder.prototype, 'run');
-
-                // execute
-                var atomicBuilder = new AtomicBuilder();
-                atomicBuilder.addPatternRule(rules, id, properties, prefix);
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    prefix: prefix,
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.id` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    id: [id],
+                    prefix: prefix,
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.prefix` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    id: id,
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.prefix` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    id: id,
+                    prefix: [prefix],
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.properties` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    id: id,
+                    prefix: prefix
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.properties` is not an array', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    id: id,
+                    prefix: prefix,
+                    properties: {}
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if currentConfigObj is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addPatternRule(rule, {
+                    id: id,
+                    prefix: prefix,
+                    properties: properties
+                });
             }).to.throw(TypeError);
         });
         it('should use config values if passed by the config', function (done) {
@@ -303,17 +358,16 @@ describe('AtomicBuilder', function () {
             // instantiation & setup
             var atomicBuilder = new AtomicBuilder();
 
-            // set config and atomicObjs before running
-            atomicBuilder.configObj = {
-                'foo': {
-                    'foo': {values: [expected]}
-                }
-            };
-
             // execute
-            atomicBuilder.addPatternRule(rules, id, properties, prefix);
+            atomicBuilder.addPatternRule(rule, {
+                id: id,
+                prefix: prefix,
+                properties: properties,
+            }, {
+                values: [expected]
+            });
         });
-        it('should not call addCssRule() if rule is not wanted by the config', function () {
+        it('should call addCssRule() to add pattern to the build object if currentConfigObj is true', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
@@ -322,45 +376,12 @@ describe('AtomicBuilder', function () {
             // instantiation & setup
             var atomicBuilder = new AtomicBuilder();
             var mock = sinon.mock(atomicBuilder);
-
-            // set config and atomicObjs before running
-            atomicBuilder.configObj = {
-                'foo': {
-                    'foo': false
-                }
-            };
-
-            // set expectations
-            mock.expects('addCssRule').never();
-
-            // execute
-            atomicBuilder.addPatternRule(rules, id, properties, prefix);
-
-            // assert
-            mock.verify();
-        });
-        it('should call addCssRule() to add pattern to the build object', function () {
-            // stub methods
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
-            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'run');
-
-            // instantiation & setup
-            var atomicBuilder = new AtomicBuilder();
-            var mock = sinon.mock(atomicBuilder);
-
-            // set config and atomicObjs before running
-            atomicBuilder.configObj = {
-                'foo': {
-                    'foo': true
-                }
-            };
 
             // set expectations
             mock.expects('addCssRule').once();
 
             // execute
-            atomicBuilder.addPatternRule(rules, id, properties, prefix);
+            atomicBuilder.addPatternRule(rule, atomicObj, true);
 
             // assert
             mock.verify();
@@ -371,8 +392,6 @@ describe('AtomicBuilder', function () {
     // addFractionRules()
     // -------------------------------------------------------
     describe('addFractionRules()', function () {
-        // function (fractionObj, id, properties, prefix) {
-
         // default params to send in tests
         var fractionObj = {
             denominator: 3
@@ -380,42 +399,88 @@ describe('AtomicBuilder', function () {
         var id = 'width';
         var properties = ['width'];
         var prefix = '.W-';
+        var atomicObj = {
+            id: id,
+            prefix: prefix,
+            properties: properties
+        };
 
         // tests
         it('throws if `fractionObj` is not an object', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addFractionRules('foo', id, properties, prefix);
+                AtomicBuilder.prototype.addFractionRules('foo', atomicObj);
             }).to.throw(TypeError);
         });
         it('throws if `fractionObj.denominator` is missing', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addFractionRules(undefined, id, properties, prefix);
+                AtomicBuilder.prototype.addFractionRules({}, atomicObj);
             }).to.throw(TypeError);
         });
         it('throws if `fractionObj.denominator` is not an integer', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addFractionRules(1.2, id, properties, prefix);
+                AtomicBuilder.prototype.addFractionRules({
+                    denominator: 1.2
+                }, atomicObj);
             }).to.throw(TypeError);
         });
-        it('throws if `id` is not a string', function () {
+        it('throws if `atomicObj.id` is missing', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addFractionRules(fractionObj);
+                AtomicBuilder.prototype.addFractionRules(fractionObj, {
+                    prefix: prefix,
+                    properties: properties
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `properties` is not an array', function () {
+        it('throws if `atomicObj.id` is not a string', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addFractionRules(fractionObj, id);
+                AtomicBuilder.prototype.addFractionRules(fractionObj, {
+                    id: [id],
+                    prefix: prefix,
+                    properties: properties
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `prefix` is not a string', function () {
+        it('throws if `atomicObj.properties` is missing', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addFractionRules(fractionObj, id, properties);
+                AtomicBuilder.prototype.addFractionRules(fractionObj, {
+                    id: id,
+                    prefix: prefix
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.properties` is not an array', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(fractionObj, {
+                    id: id,
+                    prefix: prefix,
+                    properties: {}
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.prefix` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(fractionObj, {
+                    id: id,
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.prefix` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules(fractionObj, {
+                    id: id,
+                    prefix: [prefix],
+                    properties: properties
+                });
             }).to.throw(TypeError);
         });
         it('should call addCssRule() to add pattern to the build object', function () {
@@ -432,7 +497,7 @@ describe('AtomicBuilder', function () {
             mock.expects('addCssRule').thrice();
 
             // execute
-            atomicBuilder.addFractionRules(fractionObj, id, properties, prefix);
+            atomicBuilder.addFractionRules(fractionObj, atomicObj);
 
             // assert
             mock.verify();
@@ -448,26 +513,31 @@ describe('AtomicBuilder', function () {
         function returnsFalse() { return false; }
 
         // default params to send in tests
-        var configGroup = {
-            'custom': [
-                [
-                    {suffix: 'bar', values: ['1px solid #000001', '1px solid #000002']},
-                    {suffix: 'baz', values: ['1px solid #000003']}
-                ],
-                [
-                    {suffix: 'bar', values: ['1px solid #000004', '1px solid #000005']},
-                    {suffix: 'baz', values: ['1px solid #000006']}
-                ]
+        var configCustom = [
+            [
+                {suffix: 'bar', values: ['1px solid #000001', '1px solid #000002']},
+                {suffix: 'baz', values: ['1px solid #000003']}
+            ],
+            [
+                {suffix: 'bar', values: ['1px solid #000004', '1px solid #000005']},
+                {suffix: 'baz', values: ['1px solid #000006']}
             ]
-        };
-        var rules = [
+        ];
+        var properties = [
             {suffix: 'bar', properties: ['border-left', 'border-right']},
             {suffix: 'baz', properties: ['border-top']}
         ];
         var id = 'foo';
         var prefix = '.Foo-';
-        var suffixType = 'alphabet';
         var format = [ returnsTrue, returnsTrue, returnsTrue];
+        var atomicObj = {
+            id: id,
+            prefix: prefix,
+            properties: properties,
+            format: format
+        };
+
+
         var expected = {
             '.Foo-bar--a': {
                 'border-left': '1px solid #000001',
@@ -486,181 +556,243 @@ describe('AtomicBuilder', function () {
         };
 
         // tests
-        it('throws if `configGroup` is not an Object', function () {
+        it('throws if `configCustom` is not an Array', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules('foo', rules);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules({}, atomicObj);
             }).to.throw(TypeError);
         });
-        it('throws if `configGroup.custom` is not an Array', function () {
+        it('throws if `configCustom` length is greater than 26', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules({}, rules);
-            }).to.throw(TypeError);
-        });
-        it('throws if `rules` is not an array', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, 'foo');
-            }).to.throw(TypeError);
-        });
-        it('should return false if `configGroup.custom` is an array but it is empty', function () {
-            // execute and assert
-            expect(AtomicBuilder.prototype.addCustomSequencedSuffixRules({custom:[]}, rules)).to.be.false();
-        });
-        it('should return false if `rules` is an array but it is empty', function () {
-            // execute and assert
-            expect(AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, [])).to.be.false();
-        });
-        it('throws if `configGroup.custom` length is greater than 26', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules({
-                    custom: [0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9]
-                }, rules);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules([0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9,0,1,2,3,4,5,6,7,8,9], atomicObj);
             }).to.throw(RangeError);
         });
-        it('throws if `id` is not a string', function () {
+        it('throws if `atomicObj` is not an Object', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, []);
             }).to.throw(TypeError);
         });
-        it('throws if `prefix` is not a string', function () {
+        it('throws if `atomicObj.id` is missing', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    prefix: prefix,
+                    properties: properties
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `suffixType` is not a String', function () {
+        it('throws if `atomicObj.id` is not a string', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: [id],
+                    prefix: prefix,
+                    properties: properties
+                });
             }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.properties` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.properties` is not an array or object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix,
+                    properties: 'properties'
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.prefix` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj.prefix` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: [prefix],
+                    properties: properties
+                });
+            }).to.throw(TypeError);
+        });
+        it('should return false if `configCustom` is an array but it is empty', function () {
+            // execute and assert
+            expect(AtomicBuilder.prototype.addCustomSequencedSuffixRules([], atomicObj)).to.be.false();
+        });
+        it('should return false if `properties` is an array but it is empty', function () {
+            // execute and assert
+            expect(AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                id: id,
+                prefix: prefix,
+                format: format,
+                properties: []
+            })).to.be.false();
         });
         it('throws if `format` is not an Array', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix,
+                    properties: properties,
+                    format: 'format'
+                });
             }).to.throw(TypeError);
         });
         it('throws if `format` is not an Array of Functions', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, ['foo']);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix,
+                    properties: properties,
+                    format: ['format']
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `suffix` and `values` are not keys of `rules`', function () {
+        it('throws if `suffix` and `values` are not keys of `atomicObj.properties` if it is an object', function () {
             // execute and assert
             expect(function () {
-                var rules = [{}];
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix,
+                    properties: [{}],
+                    format: format
+                });
             }).to.throw(Error);
         });
-        it('throws if `rule.suffix` is not a string', function () {
+        it('throws if `atomicObj.properties.suffix` is not a string', function () {
             // execute and assert
             expect(function () {
-                var rules = [{
-                    suffix: [],
-                    properties: []
-                }];
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix,
+                    properties: [
+                        {suffix: ['suffix']}
+                    ],
+                    format: ['format']
+                });
             }).to.throw(TypeError);
         });
-        it('throws if `rule.values` is not an array', function () {
+        it('throws if `atomicObj.properties.values` is not an array', function () {
             // execute and assert
             expect(function () {
-                var rules = [{
-                    suffix: 'foo',
-                    properties: 'foo'
-                }];
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configCustom, {
+                    id: id,
+                    prefix: prefix,
+                    properties: [
+                        {suffix: 'suffix', values: 'values'}
+                    ],
+                    format: ['format']
+                });
             }).to.throw(TypeError);
         });
-        it('throws if configGroup is not an Array of Arrays', function () {
+        it('throws if configCustom is not an Array of Arrays or an Array of Objects', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules({custom: [0,1,2]}, rules, undefined, id, prefix, suffixType, format);
+                AtomicBuilder.prototype.addCustomSequencedSuffixRules(['foo', 'bar'], atomicObj);
             }).to.throw(TypeError);
         });
-        it('throws if configGroup\'s customPatterns does not have a `suffix` key', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules({
-                    custom: [
-                        [{values: ['a', 'b']}]
-                    ]
-                }, rules, undefined, id, prefix, suffixType, format);
-            }).to.throw(Error);
-        });
-        it('throws if configGroup\'s customPatterns does not have a `values` key', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules({
-                    custom: [
-                        [{suffix: 'abc'}]
-                    ]
-                }, rules, undefined, id, prefix, suffixType, format);
-            }).to.throw(Error);
-        });
-        it('throws if configGroup\'s property value does not have a valid format by length', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, [ returnsTrue ]);
-            }).to.throw(Error);
-        });
-        it('throws if configGroup\'s property value does not have a valid format by validation', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, [ returnsTrue, returnsTrue, returnsFalse ]);
-            }).to.throw(Error);
-        });
-        it('should not call addCssRule() is rule is not wanted by the config', function () {
-            // stub methods
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
-            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // instantiation & setup
-            var atomicBuilder = new AtomicBuilder();
-            var mock = sinon.mock(atomicBuilder);
+        // -------------------------------------------------------
+        // addCustomPatternObject()
+        // -------------------------------------------------------
+        describe('addCustomPatternObject()', function () {
+            it('throws if `customRule.values` is missing', function () {
+                // execute and assert
+                expect(function () {
+                    AtomicBuilder.prototype.addCustomSequencedSuffixRule(['font-weight'], 0, atomicObj, {});
+                }).to.throw(TypeError);
+            });
+            it('throws if `customRule.values` is not an array', function () {
+                // execute and assert
+                expect(function () {
+                    AtomicBuilder.prototype.addCustomSequencedSuffixRule(['font-weight'], 0, atomicObj, {values: 'bold'});
+                }).to.throw(TypeError);
+            });
+            it('throws if configCustom\'s property value does not have a valid format by length', function () {
+                // execute and assert
+                expect(function () {
+                    AtomicBuilder.prototype.addCustomSequencedSuffixRule(['font-weight'], 0, {
+                        id: id,
+                        prefix: prefix,
+                        properties: properties,
+                        format: [ returnsTrue ]
+                    }, { values: ['word word'] });
+                }).to.throw(Error);
+            });
+            it('throws if configCustom\'s property value does not have a valid format by validation', function () {
+                // execute and assert
+                expect(function () {
+                    AtomicBuilder.prototype.addCustomSequencedSuffixRule(['font-weight'], 0, {
+                        id: id,
+                        prefix: prefix,
+                        properties: properties,
+                        format: [ returnsTrue, returnsTrue, returnsFalse ]
+                    }, { values: ['word word'] });
+                }).to.throw(Error);
+            });
+            it('should not call addCssRule() is rule is not wanted by the config', function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // set config and atomicObjs before running
-            var configGroup = {
-                custom: [
+                // instantiation & setup
+                var atomicBuilder = new AtomicBuilder();
+                var mock = sinon.mock(atomicBuilder);
+
+                // set config and atomicObjs before running
+                var configGroup = [
                     [
                         {suffix: 'notPresentInRules', values: ['1px solid #000001', '1px solid #000002']},
                     ]
-                ]
-            };
+                ];
 
-            // set expectations
-            mock.expects('addCssRule').never();
+                // set expectations
+                mock.expects('addCssRule').never();
 
-            // execute
-            atomicBuilder.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, format);
+                // execute
+                atomicBuilder.addCustomSequencedSuffixRules(configGroup, atomicObj);
 
-            // assert
-            mock.verify();
-        });
-        it('should call addCssRule() to add custom pattern to the build object 6 times (1 for each property-value)', function () {
-            // stub methods
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
-            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'run');
+                // assert
+                mock.verify();
+            });
+            it('should call addCssRule() to add custom pattern to the build object 6 times (1 for each property-value)', function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
 
-            // instantiation & setup
-            var atomicBuilder = new AtomicBuilder();
-            var mock = sinon.mock(atomicBuilder);
+                // instantiation & setup
+                var atomicBuilder = new AtomicBuilder();
+                var mock = sinon.mock(atomicBuilder);
 
-            // set expectations
-            mock.expects('addCssRule').exactly(6);
+                // set expectations
+                mock.expects('addCssRule').exactly(6);
 
-            // execute
-            atomicBuilder.addCustomSequencedSuffixRules(configGroup, rules, undefined, id, prefix, suffixType, format);
+                // execute
+                atomicBuilder.addCustomSequencedSuffixRules(configCustom, atomicObj);
 
-            // assert
-            mock.verify();
+                // assert
+                mock.verify();
+            });
         });
     });
 
@@ -1271,7 +1403,7 @@ describe('AtomicBuilder', function () {
         // type: custom-pattern
         // -------------------------------------------------------
         describe('type: `custom-pattern`', function () {
-            it('should execute addCustomSequencedSuffixRules() once if atomicObj is custom-pattern', function () {
+            it('should execute addCustomSequencedSuffixRules() once if atomicObj has a custom-sequeced-suffix', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
@@ -1283,23 +1415,24 @@ describe('AtomicBuilder', function () {
 
                 // set config and atomicObjs before running
                 atomicBuilder.configObj = {
-                    'border': {
-                        custom: [
-                            {values: '1px solid #000'}
-                        ]
+                    'background-color': {
+                        'custom-sequenced-suffix': [
+                            // a
+                            {values: ['#000']},
+
+                            // b
+                            {values: ['#fff']}
+                        ],
                     }
                 };
                 atomicBuilder.atomicObjs = [{
-                    type: 'custom-pattern',
-                    id: 'border',
-                    name: 'Border',
-                    prefix: '.Bd-',
-                    suffixType: 'alphabet',
-                    format: [],
-                    rules: [
-                        {suffix: 'x', values: ['border-left', 'border-right']},
-                        {suffix: 'y', values: ['border-top', 'border-bottom']}
-                    ]
+                    type: 'pattern',
+                    id: 'background-color',
+                    name: 'Background color',
+                    prefix: '.Bgc-',
+                    properties: ['background-color'],
+                    allowCustomSequencedSuffix: true,
+                    format: []
                 }];
 
                 // restore the method we're testing
