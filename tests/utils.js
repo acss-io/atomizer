@@ -54,6 +54,7 @@ describe('utils', function () {
             // stub getUnit
             sinon.stub(utils, 'getUnit').returns('em');
             expect(utils.isLength('100em')).to.be.true;
+            expect(utils.isLength(0)).to.be.true;
         });
         it('should return false if length is invalid', function () {
             // stub getUnit

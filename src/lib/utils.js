@@ -16,7 +16,7 @@ utils.getUnit = function(value) {
 };
 
 utils.isLength = function(value) {
-    return /^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value) && ['em', 'ex', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax', 'px', 'mm', 'cm', 'in', 'pt', 'pc'].indexOf(utils.getUnit(value)) >= 0;
+    return parseInt(value, 10) === 0 || (/^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value) && ['em', 'ex', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax', 'px', 'mm', 'cm', 'in', 'pt', 'pc'].indexOf(utils.getUnit(value)) >= 0);
 };
 
 utils.isPercentage = function(value) {
