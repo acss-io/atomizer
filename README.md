@@ -32,193 +32,10 @@ selector { property: value }
 
 The generation process involves 2 main parts:
 
-   1. Atomic objects
-   2. Config object
+   1. [Config object](#1-config-object)
+   2. [Atomic objects](#2-atomic-objects)
 
-### 1. Atomic objects
-
-An array of atomic objects describing atomic.css. It is the reference to the config object.
-
-Atomic objects should only be written by atomic.css developers and not developers that consume it. Consumers should only pick which rules they want from this list in the config object.
-
-Atomic objects can follow 2 types of format:
-
-#### 1.1. Pattern format
-
-Used to generate CSS rules that share the same syntax, declaring the same properties but with different values.
-
-Syntax of a pattern:
-
-```css
-.prefix-suffix--sequencedsuffix {
-  property: value;
-  property: value;
-}
-```
-
-This object must contain the following keys:
-
-| key | type | required | description |
-| -----:| ------ | ---------- | -------------- |
-| `type` | {String} | Yes | For pattern objects 'pattern' must be declared here. |
-| `id` | {String} | Yes | A unique identifier for this pattern. Used by the config. |
-| `name` | {String} | Yes | The name of the pattern. Used by config tools as a short description of the pattern. |
-| `prefix` | {String} | Yes | The prefix to be prepended in the class name of each class. |
-| `allowFraction` | {Boolean} | No | Wether or not this pattern allows fraction objects to be declared in the config. These objects must contain a `denominator` key and it will be used to generate rules with fraction values and suffixes. |
-| `allowCustom` | {Boolean} | No | Wether or not this pattern allows custom values from config. |
-| `allowCustomSequencedSuffix` | {Boolean} | No | Wether or not this pattern allows custom sequenced suffixes (alphabetical suffixes) from config. See example's comments below. |
-| `properties` | {Array} | Yes | An array of CSS properties that will be inside each rule. This array could also contain objects instead of strings for multi-purpose patterns. Each object should contain they keys `suffix` (string) and `properties` (array of css properties). See examples below. |
-| `rules` | {Array} | Yes | An array of objects where each should have the keys below |
-
-| key | type | description |
-| -----:| ------ | -------------- |
-| `suffix` | {String} | The suffix that will be appended to the prefix. |
-| `values` | {Array} | An array of values. The index of each value corresponds to the index of each property declared in `properties`. If `properties` is an array of objects, these values will match each array item in `properties.properties` array. |
-
-Examples:
-
-```js
-// normal pattern
-{
-    type: 'pattern',
-    id: 'font-weight',
-    name: 'Font weight',
-    prefix: '.Fw-',
-    properties: ['font-weight']
-    rules: [
-        {suffix: 'n', values: ['normal']},
-        {suffix: 'b', values: ['bold']},
-        {suffix: 'br', values: ['bolder']},
-        {suffix: 'lr', values: ['lighter']}
-    ]
-},
-// a pattern allowing custom rules with arbitrary suffixes
-{
-    type: 'pattern',
-    id: 'padding-x',
-    name: 'Padding X',
-    prefix: '.Px-',
-    allowCustom: true,
-    properties: ['padding-left', 'padding-right'],
-    rules: [
-        {suffix: 'a', values: ['auto', 'auto']}
-    ]
-},
-// a pattern allowing custom rules with arbitrary suffixes and fraction values
-{
-    type: 'pattern',
-    id: 'width',
-    name: 'Width',
-    prefix: '.W-',
-    allowFraction: true,
-    allowCustom: true,
-    properties: ['width'],
-    rules: [
-        {suffix: 'a', values: ['auto']},
-        {suffix: 'inh', values: ['inherited']}
-    ]
-},
-/**
- * The patterns below allow custom sequenced suffixes rules.
- * Meaning it generates alphabetical suffixes based on custom values defined
- * in the config.
- * 
- * These patterns can produce two different types of pattern rules:
- * 
- * 1. Single-purpose rules:
- * Generates rules based on a single pattern.
- * 
- * Example:
- * .Bgc--a {
- *   background-color: #000;
- * }
- * .Bgc--b {
- *   background-color: #fff;
- * }
- * ...
- * 
- * 2. Multi-purpose rules:
- * Generates rules based on multiple patterns.
- *
- * Example:
- * .Bd-t--a {
- *   border-top: 1px solid #000;
- * }
- * .Bd-b--a {
- *   border-bottom: 2px solid #fff;
- * }
- * .Bd-y--a {
- *   border-top: 1px solid #000;
- *   border-bottom: 2px solid #fff;
- * }
- */
-
-// single-purpose rules
-{
-    type: 'pattern',
-    id: 'background-color',
-    name: 'Background color',
-    prefix: '.Bgc-',
-    properties: ['background-color'],
-    allowCustomSequencedSuffix: true,
-    format: [
-        utils.isColor
-    ]
-},
-
-// multi-purpose rules
-{
-    type: 'pattern',
-    id: 'border-custom',
-    name: 'Border',
-    prefix: '.Bd-',
-    format: [
-        utils.isLength,
-        utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
-        utils.isColor
-    ],
-    allowCustomSequencedSuffix: true,
-    properties: [
-        {suffix: 'x', properties: ['border-left', 'border-right']},
-        {suffix: 'y', properties: ['border-top', 'border-bottom']},
-        {suffix: 't', properties: ['border-top']},
-        {suffix: 'b', properties: ['border-bottom']},
-        {suffix: 'end', properties: ['border-$END']},
-        {suffix: 'start', properties: ['border-$START']}
-    ]
-}
-```
-
-#### 1.2. Rule format
-
-Used to generate unique classes that can contain one or more declarations.
-                           
-This object must contain the following keys:
-
-| key | type | required | description |
-| -----:| ------ | -------------- |
-| `type` | {String} | Yes | For rule objects 'rule' must be declared here. |
-| `id` | {String} | Yes| A unique identifier for this rule. Used by the config. |
-| `name` | {String} | Yes | The name of the pattern. Used by config tools as a short description of the pattern. |
-| `rule` | {Object} | Yes | An object following absurjs' rule format. |
-
-Example:
-
-```js
-{
-    type: 'rule',
-    id: 'bfc',
-    name: 'Block formatting context'
-    rule: {
-        '.Bfc': {
-            'overflow': 'hidden',
-            '*zoom': 1
-        }
-    }
-}
-```
-
-### 2. Config Object
+### 1. Config Object
 
 This is the object that tells what it wants from the atomic.css (the atomic rules) and it is used to to generate a custom build of atomic.css. This is the object that must be modified by different consumers based on their needs.
 
@@ -581,5 +398,190 @@ https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
   #atomic .Dn--lg {
     display: none;
   }
+}
+```
+
+---
+
+### 2. Atomic objects
+
+An array of atomic objects describing atomic.css. It is the reference to the config object.
+
+Atomic objects should only be written by atomic.css developers and not developers that consume it. Consumers should only pick which rules they want from this list in the [config object](#1-config-object).
+
+Atomic objects can follow 2 types of format:
+
+#### 2.1. Pattern format
+
+Used to generate CSS rules that share the same syntax, declaring the same properties but with different values.
+
+Syntax of a pattern:
+
+```css
+.prefix-suffix--sequencedsuffix {
+  property: value;
+  property: value;
+}
+```
+
+This object must contain the following keys:
+
+| key | type | required | description |
+| -----:| ------ | ---------- | -------------- |
+| `type` | {String} | Yes | For pattern objects 'pattern' must be declared here. |
+| `id` | {String} | Yes | A unique identifier for this pattern. Used by the config. |
+| `name` | {String} | Yes | The name of the pattern. Used by config tools as a short description of the pattern. |
+| `prefix` | {String} | Yes | The prefix to be prepended in the class name of each class. |
+| `allowFraction` | {Boolean} | No | Wether or not this pattern allows fraction objects to be declared in the config. These objects must contain a `denominator` key and it will be used to generate rules with fraction values and suffixes. |
+| `allowCustom` | {Boolean} | No | Wether or not this pattern allows custom values from config. |
+| `allowCustomSequencedSuffix` | {Boolean} | No | Wether or not this pattern allows custom sequenced suffixes (alphabetical suffixes) from config. See example's comments below. |
+| `properties` | {Array} | Yes | An array of CSS properties that will be inside each rule. This array could also contain objects instead of strings for multi-purpose patterns. Each object should contain they keys `suffix` (string) and `properties` (array of css properties). See examples below. |
+| `rules` | {Array} | Yes | An array of objects where each should have the keys below |
+
+| key | type | description |
+| -----:| ------ | -------------- |
+| `suffix` | {String} | The suffix that will be appended to the prefix. |
+| `values` | {Array} | An array of values. The index of each value corresponds to the index of each property declared in `properties`. If `properties` is an array of objects, these values will match each array item in `properties.properties` array. |
+
+Examples:
+
+```js
+// normal pattern
+{
+    type: 'pattern',
+    id: 'font-weight',
+    name: 'Font weight',
+    prefix: '.Fw-',
+    properties: ['font-weight']
+    rules: [
+        {suffix: 'n', values: ['normal']},
+        {suffix: 'b', values: ['bold']},
+        {suffix: 'br', values: ['bolder']},
+        {suffix: 'lr', values: ['lighter']}
+    ]
+},
+// a pattern allowing custom rules with arbitrary suffixes
+{
+    type: 'pattern',
+    id: 'padding-x',
+    name: 'Padding X',
+    prefix: '.Px-',
+    allowCustom: true,
+    properties: ['padding-left', 'padding-right'],
+    rules: [
+        {suffix: 'a', values: ['auto', 'auto']}
+    ]
+},
+// a pattern allowing custom rules with arbitrary suffixes and fraction values
+{
+    type: 'pattern',
+    id: 'width',
+    name: 'Width',
+    prefix: '.W-',
+    allowFraction: true,
+    allowCustom: true,
+    properties: ['width'],
+    rules: [
+        {suffix: 'a', values: ['auto']},
+        {suffix: 'inh', values: ['inherited']}
+    ]
+},
+/**
+ * The patterns below allow custom sequenced suffixes rules.
+ * Meaning it generates alphabetical suffixes based on custom values defined
+ * in the config.
+ * 
+ * These patterns can produce two different types of pattern rules:
+ * 
+ * 1. Single-purpose rules:
+ * Generates rules based on a single pattern.
+ * 
+ * Example:
+ * .Bgc--a {
+ *   background-color: #000;
+ * }
+ * .Bgc--b {
+ *   background-color: #fff;
+ * }
+ * ...
+ * 
+ * 2. Multi-purpose rules:
+ * Generates rules based on multiple patterns.
+ *
+ * Example:
+ * .Bd-t--a {
+ *   border-top: 1px solid #000;
+ * }
+ * .Bd-b--a {
+ *   border-bottom: 2px solid #fff;
+ * }
+ * .Bd-y--a {
+ *   border-top: 1px solid #000;
+ *   border-bottom: 2px solid #fff;
+ * }
+ */
+
+// single-purpose rules
+{
+    type: 'pattern',
+    id: 'background-color',
+    name: 'Background color',
+    prefix: '.Bgc-',
+    properties: ['background-color'],
+    allowCustomSequencedSuffix: true,
+    format: [
+        utils.isColor
+    ]
+},
+
+// multi-purpose rules
+{
+    type: 'pattern',
+    id: 'border-custom',
+    name: 'Border',
+    prefix: '.Bd-',
+    format: [
+        utils.isLength,
+        utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
+        utils.isColor
+    ],
+    allowCustomSequencedSuffix: true,
+    properties: [
+        {suffix: 'x', properties: ['border-left', 'border-right']},
+        {suffix: 'y', properties: ['border-top', 'border-bottom']},
+        {suffix: 't', properties: ['border-top']},
+        {suffix: 'b', properties: ['border-bottom']},
+        {suffix: 'end', properties: ['border-$END']},
+        {suffix: 'start', properties: ['border-$START']}
+    ]
+}
+```
+
+#### 2.2. Rule format
+
+Used to generate unique classes that can contain one or more declarations.
+                           
+This object must contain the following keys:
+
+| key | type | required | description |
+| ---:| ---- | -------- | ----------- |
+| `type` | {String} | Yes | For rule objects 'rule' must be declared here. |
+| `id` | {String} | Yes| A unique identifier for this rule. Used by the config. |
+| `name` | {String} | Yes | The name of the pattern. Used by config tools as a short description of the pattern. |
+| `rule` | {Object} | Yes | An object following absurjs' rule format. |
+
+Example:
+
+```js
+{
+    type: 'rule',
+    id: 'bfc',
+    name: 'Block formatting context'
+    rule: {
+        '.Bfc': {
+            'overflow': 'hidden',
+            '*zoom': 1
+        }
+    }
 }
 ```
