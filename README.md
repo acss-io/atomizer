@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=ojj_-6Xiud4
 ```
 ↓‾‾‾‾‾‾‾‾‾‾‾rule‾‾‾‾‾‾‾‾‾‾‾↓
 selector { property: value }
-         ↑̲̲̲declaration̲̲̲↑
+         ↑__ declaration __↑
 ```
 
 ## Atomic.css generation:
