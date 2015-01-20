@@ -150,6 +150,149 @@ module.exports = {
     },
 
     // pattern
+    'clear': {
+        n: true,
+        b: true,
+        start: true,
+        end: true,
+        inh: true
+    },
+
+    // pattern
+    'cursor': {
+        'a': true,
+        'c': true,
+        'd': true,
+        'p': true,
+        'm': true,
+        'er': true,
+        'ner': true,
+        'nwr': true,
+        'nr': true,
+        'ser': true,
+        'swr': true,
+        'sr': true,
+        'wr': true,
+        't': true,
+        'w': true,
+        'h': true,
+        'pr': true,
+        'inh': true
+    },
+
+    // pattern
+    'display': {
+        'n': true,
+        'b': true,
+        'f': true,
+        'i': true,
+        'ib': true,
+        'inh': true,
+        'tb': true,
+        'tbr': true,
+        'tbc': true,
+        'li': true,
+        'ri': true,
+        'cp': true,
+        'itb': true,
+        'tbcl': true,
+        'tbclg': true,
+        'tbhg': true,
+        'tbfg': true,
+        'tbrg': true,
+    },
+
+    // pattern
+    'flex': {
+        'a': true,
+        'n': true,
+        'custom': [
+            {suffix: '1', values: [1]}
+        ]
+    },
+
+    // pattern
+    'align-self': {
+        'a': true,
+        'fs': true,
+        'fe': true,
+        'c': true,
+        'b': true,
+        'st': true
+    },
+
+    // pattern
+    'flex-direction': {
+        'r': true,
+        'rr': true,
+        'c': true,
+        'cr': true
+    },
+
+    // pattern
+    'flex-flow': {
+        'r': true,
+        'rr': true,
+        'c': true,
+        'cr': true,
+        'nw': true,
+        'w': true,
+        'wr': true
+    },
+
+    // pattern
+    'align-items': {
+        'fs': true,
+        'fe': true,
+        'c': true,
+        'b': true,
+        'st': true
+    },
+
+    // pattern
+    'align-content': {
+        'fs': true,
+        'fe': true,
+        'c': true,
+        'sb': true,
+        'sa': true,
+        'st': true
+    },
+
+    // pattern
+    'order': {
+        custom: [
+            {suffix: '1', values: [1]},
+            {suffix: '2', values: [2]},
+            {suffix: '3', values: [3]},
+        ]
+    },
+
+    // pattern
+    'justify-content': {
+        'fs': true,
+        'fe': true,
+        'c': true,
+        'sb': true,
+        'sa': true
+    },
+
+    // pattern
+    'flex-wrap': {
+        'nw': true,
+        'w': true,
+        'wr': true
+    },
+
+    // pattern
+    'float': {
+        'n': true,
+        'start': true,
+        'end': true, 
+        'inh': true 
+    },
+
+    // pattern
     'font-weight': {
         'n': {
             breakPoints: ['sm', 'md', 'lg']
@@ -168,6 +311,97 @@ module.exports = {
         '700': true,
         '800': true,
         '900': true
+    },
+
+    // pattern
+    'font-size': {
+        '0': true,
+        'inh': true,
+        'xxs': true,
+        'xs': true,
+        's': true,
+        'sr': true,
+        'm': true,
+        'l': true,
+        'lr': true,
+        'xl': true,
+        'xxl': true,
+        'custom-sequenced-suffix': [
+            {values: ['11px']},
+            {values: ['12px']},
+            {values: ['13px']},
+            {values: ['14px']},
+            {values: ['15px']},
+            {values: ['16px']},
+            {values: ['17px']},
+            {values: ['18px']},
+            {values: ['19px']},
+            {values: ['20px']},
+            {values: ['21px']},
+            {values: ['22px']},
+        ]
+    },
+
+    // pattern
+    'font-style': {
+        'n': true,
+        'i': true,
+        'o': true
+    },
+
+    // pattern
+    'font-variant': {
+        'n': true,
+        'sc': true
+    },
+
+    // pattern
+    'height': {
+        a: true,
+        'custom': [
+            {suffix: '100px', values: ['100px']},
+            {suffix: '100\\%', values: ['100%']},
+        ]
+    },
+
+    // pattern
+    'hyphens': {
+        'a': true,
+        'inh': true,
+        'n': true,
+        'm': true
+    },
+
+    // pattern
+    'list-style-type': {
+        'n': true,
+        'inh': true,
+        'd': true,
+        'c': true,
+        's': true,
+        'dc': true,
+        'dclz': true,
+        'lr': true,
+        'lg': true,
+        'll': true,
+        'ur': true,
+        'ul': true,
+        'a': true,
+        'g': true,
+        'la': true,
+        'ua': true
+    },
+
+    // pattern
+    'list-style-image': {
+        'n': true,
+        'inh': true
+    },
+
+    // pattern
+    'line-height': {
+        'n': true,
+        'inh': true
     },
 
     // pattern
@@ -203,14 +437,5 @@ module.exports = {
     // rule
     'dn': {
         breakPoints: ['sm', 'md', 'lg']
-    },
-
-    // pattern
-    'height': {
-        a: true,
-        'custom': [
-            {suffix: '100px', values: ['100px']},
-            {suffix: '100\\%', values: ['100%']},
-        ]
     }
 };
