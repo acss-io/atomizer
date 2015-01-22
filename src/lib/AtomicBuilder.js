@@ -526,7 +526,7 @@ AtomicBuilder.prototype.addFractionRules = function (fractionObj, atomicObj) {
     }
 
     for (var i = 1; i <= denominator; i += 1) {
-        className = atomicObj.prefix + i + '\\/' + denominator;
+        className = atomicObj.prefix + i + '\/' + denominator;
         // multiplying by 100 then by 10000 on purpose to show more clearly that we want:
         // percentage: (i / denominator * 100)
         // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
@@ -559,7 +559,7 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
         throw new TypeError('addCssRule(): `value` param is required.');
     }
 
-    className = this.placeConstants(className);
+    className = this.escapeSelector(this.placeConstants(className));
     property = this.placeConstants(property);
     value = this.placeConstants(value);
 
@@ -587,6 +587,31 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
 
     _.merge(this.build, build);
     return true;
+};
+
+/**
+ * Escape CSS selectors with a backslash
+ * e.g. ".W-100%" => ".W-100\%"
+ * 
+ * @param  {String} str The string to be processed.
+ * @return {String} The processed string.
+ */
+AtomicBuilder.prototype.escapeSelector = function (str) {
+    if (!str && str !== 0) {
+        throw new TypeError('str must be present');
+    }
+
+    if (str.constructor !== String) {
+        return str;
+    }
+
+    // TODO: maybe find a better regex? (-?) is here because '-' is considered a word boundary
+    // so we get it and put it back to the string.
+    return str.replace(/\b(-?)([^-_a-zA-Z0-9\s]+)/g, function (str, dash, characters) {
+        return characters && dash + characters.split('').map(function (character) {
+            return ['\\', character].join('');
+        }).join('') || str;
+    });
 };
 
 /**
