@@ -434,11 +434,11 @@ AtomicBuilder.prototype.addCustomSequencedSuffixRule = function (property, index
         });
 
         if (invalid) {
-            throw new Error('Invalid value format in `' + id + '`. Property value: ' + propertyValue);
+            throw new Error('Invalid value format in `' + atomicObj.id + '`. Property value: ' + propertyValue);
         }
         self.addCssRule(className, ruleProperty, propertyValue, customRule.breakPoints);
     });
-}
+};
 
 /**
  * Parses an object of type "rule"

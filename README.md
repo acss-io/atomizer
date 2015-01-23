@@ -1,10 +1,9 @@
-```
-  .--.  .---.  .----. .-.   .-..-. .---.  .---.  .----. .----.
- / {} \{_   _}/  {}  \|  `.'  || |/  ___}/  ___}{ {__  { {__  
-/  /\  \ | |  \      /| |\ /| || |\     }\     }.-._} }.-._} }
-`-'  `-' `-'   `----' `-' ` `-'`-' `---'  `---' `----' `----' 
-```
-==============================================================
+# Atomic.css
+
+[![Build Status](https://magnum.travis-ci.com/yahoo/atomic.css.svg?token=1A1JtrzoyNwcyaqtpSCa)](https://magnum.travis-ci.com/yahoo/atomic.css)
+[![Dependency Status](https://david-dm.org/yahoo/atomic.css.svg)](https://david-dm.org/yahoo/atomic.css.svg)
+[![devDependency Status](https://david-dm.org/yahoo/atomic.css/dev-status.svg)](https://david-dm.org/yahoo/atomic.css#info=devDependencies)
+[![Coverage Status](https://img.shields.io/coveralls/yahoo/atomic.css.svg)](https://coveralls.io/r/yahoo/atomic.css?branch=master)
 
 A collection of single purpose styling units for maximum reuse.
 
