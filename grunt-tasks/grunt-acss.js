@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
     var Atomize = require('../src/atomize.js');
 
     grunt.registerMultiTask('acss', 'Grunt plugin to compile atomic.css.', function () {
@@ -11,7 +11,7 @@ module.exports = function(grunt) {
             options.require = grunt.file.expand(options.require);
         }
 
-        this.files.forEach(function(f) {
+        this.files.forEach(function (f) {
             Atomize(f.src, f.rules, options, f.dest, done);
         });
 

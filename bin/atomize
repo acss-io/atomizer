@@ -15,8 +15,6 @@ if (process.argv.slice(2).length === 0 || params.help) {
     return;
 }
 
-console.log(process);
-console.log(params)
 var rules = params.r || params.rules;
 if (rules) {
     rules = path.resolve(rules);
