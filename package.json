@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
-    "cover": "istanbul cover --dir artifacts -- ./node_modules/.bin/_mocha tests/ --recursive --reporter spec",
-    "lint": "jshint"
+    "cover": "node node_modules/istanbul/lib/cli.js cover --dir artifacts -- ./node_modules/mocha/bin/_mocha tests/ --recursive --reporter spec",
+    "lint": "./node_modules/.bin/jshint src tests"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
@@ -21,7 +21,10 @@
     "mocha": "~2.0.1",
     "chai": "~1.10.0",
     "sinon": "~1.12.2",
-    "sinon-chai": "~2.6.0"
+    "sinon-chai": "~2.6.0",
+    "istanbul": "~0.3.5",
+    "jshint": "~2.6.0",
+    "coveralls": "~2.11.2"
   },
   "repository": {
     "type": "git",

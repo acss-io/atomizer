@@ -1,4 +1,4 @@
-/*globals describe,it,beforeEach,afterEach */
+/*globals describe,it,afterEach */
 'use strict';
 
 var chai = require('chai');
@@ -15,9 +15,11 @@ describe('AtomicBuilder', function () {
         // restore original methods
         var methodName, method;
         for(methodName in AtomicBuilder.prototype) {
-            method = AtomicBuilder.prototype[methodName];
-            if (method.restore) {
-                method.restore();
+            if (AtomicBuilder.prototype.hasOwnProperty(methodName)) {
+                method = AtomicBuilder.prototype[methodName];
+                if (method.restore) {
+                    method.restore();
+                }
             }
         }
     });
@@ -214,13 +216,6 @@ describe('AtomicBuilder', function () {
             id: id,
             properties: properties,
             prefix: prefix
-        };
-
-        var isCustom = false;
-        var expected = {
-            '.Fw-foo': {
-                'font-weight': 'bold'
-            }
         };
 
         // tests
@@ -535,24 +530,6 @@ describe('AtomicBuilder', function () {
             prefix: prefix,
             properties: properties,
             format: format
-        };
-
-
-        var expected = {
-            '.Foo-bar--a': {
-                'border-left': '1px solid #000001',
-                'border-right': '1px solid #000002'
-            },
-            '.Foo-baz--a': {
-                'border-top': '1px solid #000003'
-            },
-            '.Foo-bar--b': {
-                'border-left': '1px solid #000004',
-                'border-right': '1px solid #000005'
-            },
-            '.Foo-baz--b': {
-                'border-top': '1px solid #000006'
-            }
         };
 
         // tests
