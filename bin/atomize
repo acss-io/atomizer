@@ -2,13 +2,21 @@
 
 'use strict';
 
-process.title = 'atomic';
+process.title = 'atomize';
 
 var path = require('path');
 var Atomize = require('../src/atomize.js');
 
 var params = require('minimist')(process.argv.slice(2));
 
+if (process.argv.slice(2).length === 0 || params.help) {
+    var usage = ['usage:  ', process.title, '[-o|--outfile=<file>] [-r|--rules=<rule file>] [--help] configfile ...'].join(' ');
+    console.log(usage);
+    return;
+}
+
+console.log(process);
+console.log(params)
 var rules = params.r || params.rules;
 if (rules) {
     rules = path.resolve(rules);
