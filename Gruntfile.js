@@ -15,6 +15,7 @@ module.exports = function(grunt) {
         src: 'src',
         docs: 'docs',
         dist: 'dist',
+        examples: 'examples',
         pkg: grunt.file.readJSON('package.json')
     };
 
@@ -38,7 +39,8 @@ module.exports = function(grunt) {
                         '*/\n'
                     ].join('\n')
                 },
-                src: '<%= project.src %>/atomic.js',
+                rules: '<%= project.src %>/rules.js',
+                src: '<%= project.examples %>/example-config.js',
                 dest: '<%= project.dist %>/atomic.css'
             }
         },

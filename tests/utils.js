@@ -1,3 +1,4 @@
+/*globals describe,it,afterEach */
 'use strict';
 
 var chai = require('chai');
@@ -14,9 +15,11 @@ describe('utils', function () {
         // restore original methods
         var methodName, method;
         for(methodName in utils) {
-            method = utils[methodName];
-            if (method.restore) {
-                method.restore();
+            if (utils.hasOwnProperty(methodName)) {
+                method = utils[methodName];
+                if (method.restore) {
+                    method.restore();
+                }
             }
         }
     });
@@ -24,7 +27,7 @@ describe('utils', function () {
     describe('getNumber()', function() {
         it('throws if invalid length', function () {
             expect(function () {
-                utils.getNumber('a100em')
+                utils.getNumber('a100em');
             }).to.throw(TypeError);
         });
         it('should return number from a valid length', function () {
@@ -38,7 +41,7 @@ describe('utils', function () {
     describe('getUnit()', function() {
         it('throws if invalid length', function () {
             expect(function () {
-                utils.getNumber('a100em')
+                utils.getNumber('a100em');
             }).to.throw(TypeError);
         });
         it('should return unit from a valid length', function () {
@@ -87,7 +90,7 @@ describe('utils', function () {
     describe('isFloat()', function() {
         it('should return true if integer is valid', function () {
             expect(utils.isFloat(100.5)).to.be.true;
-            expect(utils.isFloat(.5)).to.be.true;
+            expect(utils.isFloat(0.5)).to.be.true;
         });
         it('should return false if integer is invalid', function () {
             expect(utils.isFloat(99)).to.be.false;
