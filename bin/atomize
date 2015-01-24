@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+'use strict';
+
+process.title = 'atomize';
+
+var path = require('path');
+var Atomize = require('../src/atomize.js');
+
+var params = require('minimist')(process.argv.slice(2));
+
+if (process.argv.slice(2).length === 0 || params.help) {
+    var usage = ['usage:  ', process.title, '[-o|--outfile=<file>] [-r|--rules=<rule file>] [--help] configfile ...'].join(' ');
+    console.log(usage);
+    return;
+}
+
+var rules = params.r || params.rules;
+if (rules) {
+    rules = path.resolve(rules);
+} else {
+    rules = path.resolve('src', 'rules.js');
+}
+var srcFiles = params._ || []; 
+var outfile = params.o || params.outfile;
+var options = {}; // TODO
+
+Atomize(srcFiles, rules, options, outfile);

@@ -1,4 +1,4 @@
-var atomicConfig = require('./atomicConfig');
+var atomicConfig = require('../examples/example-config');
 var utils = require('./lib/utils.js');
 var START = atomicConfig.config.start;
 var END = atomicConfig.config.end;
