@@ -960,6 +960,29 @@ describe('AtomicBuilder', function () {
     });
 
     // -------------------------------------------------------
+    // escapeSelector()
+    // -------------------------------------------------------
+    describe('escapeSelector()', function () {
+        it('throws if str has not been passed', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.escapeSelector();
+            }).to.throw(TypeError);
+        });
+        it('returns the original string if the param is not a string', function () {
+            // execute and assert
+            expect(AtomicBuilder.prototype.escapeSelector(123)).to.equal(123);
+        });
+        it('returns the processed string if passed', function () {
+            // execute and assert
+            expect(AtomicBuilder.prototype.escapeSelector('#atomic .selector-50%')).to.equal('#atomic .selector-50\\%');
+            expect(AtomicBuilder.prototype.escapeSelector('#atomic .selector-50%/50%')).to.equal('#atomic .selector-50\\%\\/50\\%');
+            expect(AtomicBuilder.prototype.escapeSelector('#atomic .selector-50%::something')).to.equal('#atomic .selector-50\\%\\:\\:something');
+            expect(AtomicBuilder.prototype.escapeSelector('#atomic .selector-.50%:.:something')).to.equal('#atomic .selector-\\.50\\%\\:\\.\\:something');
+        });
+    });
+
+    // -------------------------------------------------------
     // placeConstants()
     // -------------------------------------------------------
     describe('placeConstants()', function () {

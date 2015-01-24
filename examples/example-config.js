@@ -45,7 +45,7 @@ module.exports = {
             {suffix: '3px', values: ['3px']},
             {suffix: '5px', values: ['5px']},
             {suffix: '500px', values: ['500px']},
-            {suffix: '50\\%', values: ['50%']},
+            {suffix: '50%', values: ['50%']},
         ]
     },
 
@@ -94,7 +94,7 @@ module.exports = {
         'ct': true,
         'cv': true,
         'custom': [
-            {suffix: '50\\%-auto', values: ['50% auto']}
+            {suffix: '50%-auto', values: ['50% auto']}
         ]
     },
 
@@ -360,7 +360,7 @@ module.exports = {
         a: true,
         'custom': [
             {suffix: '100px', values: ['100px']},
-            {suffix: '100\\%', values: ['100%']},
+            {suffix: '100%', values: ['100%']},
         ]
     },
 
