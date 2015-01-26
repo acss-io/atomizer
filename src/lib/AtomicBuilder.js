@@ -307,6 +307,7 @@ AtomicBuilder.prototype.addCustomSequencedSuffixRules = function (configCustom, 
     }
     // opinionated limit. this should not even go as far as 26.
     // this is the hard limit based on the letters of the alphabet.
+    // this also applies to numerical suffixes.
     if (configCustom.length > 26) {
         throw new RangeError('The limit for total custom pattern rules is 26.');
     }
@@ -416,7 +417,8 @@ AtomicBuilder.prototype.addCustomSequencedSuffixRule = function (property, index
     }
 
     // 1. build the class name
-    patternSuffix += String.fromCharCode(97 + index);
+    // suffix type is alphabetical by default
+    patternSuffix += atomicObj.suffixType === 'numerical' ? index + 1 : String.fromCharCode(97 + index);
     if (ruleSuffix) {
         separator += separator;
     }
@@ -626,16 +628,19 @@ AtomicBuilder.prototype.placeConstants = function (str) {
     if (!str && str !== 0) {
         throw new TypeError('str must be present');
     }
-
     if (str.constructor !== String) {
         return str;
     }
-
-    if (configObj.config.start) {
-        str = str.replace(/\$START/g, configObj.config.start);
+    if (!configObj || configObj.constructor !== Object) {
+        throw new TypeError('configObj is required and must be an Object.');
     }
-    if (configObj.config.start) {
-        str = str.replace(/\$END/g, configObj.config.end);
+    if (configObj.config) {
+        if (configObj.config.start) {
+            str = str.replace(/\$START/g, configObj.config.start);
+        }
+        if (configObj.config.end) {
+            str = str.replace(/\$END/g, configObj.config.end);
+        }
     }
     return str;
 };

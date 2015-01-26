@@ -718,9 +718,6 @@ module.exports = [
      FONT-SIZE (checked)
      ==================================================================
      */
-    // TODO: Fz should follow a sequenced suffix.
-    // Since we're using --a, --b (alphabetical), shouldn't we do the same?
-    // Confirm with Thierry if this approach is acceptable
     {
         type: 'pattern',
         id: 'font-size',
@@ -728,6 +725,7 @@ module.exports = [
         prefix: '.Fz-',
         properties: ['font-size'],
         allowCustomSequencedSuffix: true,
+        suffixType: 'numerical',
         format: [utils.isLength],
         rules: [
             {suffix: '0', values: ['0']},
