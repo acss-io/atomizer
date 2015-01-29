@@ -2,7 +2,7 @@
   "name": "atomic.css",
   "version": "0.1.0",
   "description": "A collection of single purpose styling units for maximum reuse.",
-  "main": "index.js",
+  "main": "./lib/atomic.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
     "cover": "node node_modules/istanbul/lib/cli.js cover --dir artifacts -- ./node_modules/mocha/bin/_mocha tests/ --recursive --reporter spec",
