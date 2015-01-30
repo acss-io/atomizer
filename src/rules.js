@@ -119,11 +119,11 @@ module.exports = [
         prefix: '.Ff-',
         properties: ['font-family'],
         rules: [
-            {suffix: 's', values: ['Georgia, "Times New Roman", serif']},
-            {suffix: 'ss', values: ['Helvetica, Arial, sans-serif']},
             {suffix: 'c', values: ['"Monotype Corsiva", "Comic Sans MS", cursive']},
             {suffix: 'f', values: ['Capitals, Impact, fantasy']},
-            {suffix: 'm', values: ['Monaco, "Courier New", monospace']}
+            {suffix: 'm', values: ['Monaco, "Courier New", monospace']},
+            {suffix: 's', values: ['Georgia, "Times New Roman", serif']},
+            {suffix: 'ss', values: ['Helvetica, Arial, sans-serif']}
         ]
     },
 
@@ -133,38 +133,33 @@ module.exports = [
      ==================================================================
      */
 
-    /* background-color/image "resets" */
+    /* background */
     {
-        type: 'rule',
-        id: 'background-none',
-        name: 'Background none',
-        rule: {
-            '.Bg-n': {
-                'background': 'none'
-            }
-        }
+        type: 'pattern',
+        id: 'background',
+        name: 'Background',
+        prefix: '.Bg-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        rules: [
+            {suffix: 'n', values: ['none']},
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'inh', values: ['inherit']}
+        ]
     },
+    /* background-image */
     {
-        type: 'rule',
-        id: 'background-color-transparent',
-        name: 'Background color transparent',
-        rule: {
-            '.Bgc-t': {
-                'background-color': 'transparent'
-            }
-        }
+        type: 'pattern',
+        id: 'background-image',
+        name: 'Background image',
+        prefix: '.Bgi-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        rules: [
+            {suffix: 'n', values: ['none']},
+            {suffix: 'inh', values: ['inherit']}
+        ]
     },
-    {
-        type: 'rule',
-        id: 'background-image-none',
-        name: 'Background image none',
-        rule: {
-            '.Bgi-n': {
-                'background-image': 'none'
-            }
-        }
-    },
-
     /* background-color */
     {
         type: 'pattern',
@@ -184,9 +179,9 @@ module.exports = [
         prefix: '.Bgcp-',
         properties: ['background-clip'],
         rules: [
-            {suffix: 'b', values: ['border-box']},
-            {suffix: 'p', values: ['padding-box']},
-            {suffix: 'c', values: ['content-box']}
+            {suffix: 'bb', values: ['border-box']},
+            {suffix: 'cb', values: ['content-box']},
+            {suffix: 'pb', values: ['padding-box']}
         ]
     },
     /* background-origin */
@@ -197,9 +192,9 @@ module.exports = [
         prefix: '.Bgo-',
         properties: ['background-origin'],
         rules: [
-            {suffix: 'b', values: ['border-box']},
-            {suffix: 'p', values: ['padding-box']},
-            {suffix: 'c', values: ['content-box']}
+            {suffix: 'bb', values: ['border-box']},
+            {suffix: 'cb', values: ['content-box']},
+            {suffix: 'pb', values: ['padding-box']}
         ]
     },
     /* background-size (length would be customized) */
@@ -670,10 +665,6 @@ module.exports = [
         prefix: '.Fw-',
         properties: ['font-weight'],
         rules: [
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'b', values: ['bold']},
-            {suffix: 'br', values: ['bolder']},
-            {suffix: 'lr', values: ['lighter']},
             {suffix: '100', values: ['100']},
             {suffix: '200', values: ['200']},
             {suffix: '300', values: ['300']},
@@ -682,7 +673,11 @@ module.exports = [
             {suffix: '600', values: ['600']},
             {suffix: '700', values: ['700']},
             {suffix: '800', values: ['800']},
-            {suffix: '900', values: ['900']}
+            {suffix: '900', values: ['900']},
+            {suffix: 'b', values: ['bold']},
+            {suffix: 'br', values: ['bolder']},
+            {suffix: 'lr', values: ['lighter']},
+            {suffix: 'n', values: ['normal']}
         ]
     },
 
@@ -702,8 +697,8 @@ module.exports = [
         suffixType: 'numerical',
         format: [utils.isLength],
         rules: [
+            // not in alphabetical order since here they are in t-shirt size order
             {suffix: '0', values: ['0']},
-            {suffix: 'inh', values: ['inherit']},
             {suffix: 'xxs', values: ['xx-small']},
             {suffix: 'xs', values: ['x-small']},
             {suffix: 's', values: ['small']},
@@ -712,7 +707,8 @@ module.exports = [
             {suffix: 'l', values: ['large']},
             {suffix: 'lr', values: ['larger']},
             {suffix: 'xl', values: ['x-large']},
-            {suffix: 'xxl', values: ['xx-large']}
+            {suffix: 'xxl', values: ['xx-large']},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
 
@@ -770,12 +766,12 @@ module.exports = [
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'a', values: ['auto']},
+            {suffix: 'av', values: ['available']},
             {suffix: 'bb', values: ['border-box']},
             {suffix: 'cb', values: ['content-box']},
-            {suffix: 'av', values: ['available']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'maxc', values: ['max-content']},
             {suffix: 'fc', values: ['fit-content']},
+            {suffix: 'maxc', values: ['max-content']},
+            {suffix: 'minc', values: ['min-content']},
             {suffix: 'inh', values: ['inherit']}
         ]
     },
@@ -1007,11 +1003,11 @@ module.exports = [
         properties: ['max-width'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
+            {suffix: 'fa', values: ['fill-available']},
+            {suffix: 'fc', values: ['fit-content']},
             {suffix: 'maxc', values: ['max-content']},
             {suffix: 'minc', values: ['min-content']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']}
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1028,11 +1024,11 @@ module.exports = [
         properties: ['min-height'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
+            {suffix: 'fa', values: ['fill-available']},
+            {suffix: 'fc', values: ['fit-content']},
             {suffix: 'maxc', values: ['max-content']},
             {suffix: 'minc', values: ['min-content']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']}
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1049,11 +1045,11 @@ module.exports = [
         properties: ['min-width'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
+            {suffix: 'fa', values: ['fill-available']},
+            {suffix: 'fc', values: ['fit-content']},
             {suffix: 'maxc', values: ['max-content']},
             {suffix: 'minc', values: ['min-content']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']}
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1069,9 +1065,9 @@ module.exports = [
         allowCustom: true,
         properties: ['outline'],
         rules: [
+            {suffix: '0', values: [0]},
             {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1144,9 +1140,9 @@ module.exports = [
         allowCustom: true,
         properties: ['opacity'],
         rules: [
-            {suffix: 'inh', values: ['inherit']},
             {suffix: '0', values: [0]},
-            {suffix: '1', values: [1]}
+            {suffix: '1', values: [1]},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1162,10 +1158,10 @@ module.exports = [
         properties: ['overflow'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'v', values: ['visible']},
             {suffix: 'h', values: ['hidden']},
-            {suffix: 's', values: ['scroll']}
+            {suffix: 's', values: ['scroll']},
+            {suffix: 'v', values: ['visible']},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1181,10 +1177,10 @@ module.exports = [
         properties: ['overflow-x'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'v', values: ['visible']},
             {suffix: 'h', values: ['hidden']},
-            {suffix: 's', values: ['scroll']}
+            {suffix: 's', values: ['scroll']},
+            {suffix: 'v', values: ['visible']},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1200,10 +1196,10 @@ module.exports = [
         properties: ['overflow-y'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'v', values: ['visible']},
             {suffix: 'h', values: ['hidden']},
-            {suffix: 's', values: ['scroll']}
+            {suffix: 's', values: ['scroll']},
+            {suffix: 'v', values: ['visible']},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1219,8 +1215,8 @@ module.exports = [
         properties: ['-webkit-overflow-scrolling'],
         rules: [
             {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'touch', values: ['touch']}
+            {suffix: 'touch', values: ['touch']},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     /**
@@ -1237,8 +1233,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding'],
         rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
+            {suffix: '0', values: [0]},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     // top
@@ -1250,8 +1246,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding-top'],
         rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
+            {suffix: '0', values: [0]},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     // end
@@ -1263,8 +1259,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding-$END'],
         rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
+            {suffix: '0', values: [0]},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     // bottom
@@ -1276,8 +1272,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding-bottom'],
         rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
+            {suffix: '0', values: [0]},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     // start
@@ -1289,8 +1285,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding-$START'],
         rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
+            {suffix: '0', values: [0]},
+            {suffix: 'inh', values: ['inherit']}
         ]
     },
     // X axis
@@ -1302,8 +1298,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding-$START', 'padding-$END'],
         rules: [
-            {suffix: 'inh', values: ['inherit', 'inherit']},
-            {suffix: '0', values: [0, 0]}
+            {suffix: '0', values: [0, 0]},
+            {suffix: 'inh', values: ['inherit', 'inherit']}
         ]
     },
     // Y axis
@@ -1315,8 +1311,8 @@ module.exports = [
         allowCustom: true,
         properties: ['padding-top', 'padding-bottom'],
         rules: [
-            {suffix: 'inh', values: ['inherit', 'inherit']},
-            {suffix: '0', values: [0, 0]}
+            {suffix: '0', values: [0, 0]},
+            {suffix: 'inh', values: ['inherit', 'inherit']}
         ]
     },
     /**
