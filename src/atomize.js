@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var fs = require('fs');
 var path = require('path');
 var chalk = require('chalk');
 var Absurd = require('absurd');
