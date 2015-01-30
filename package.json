@@ -1,5 +1,5 @@
 {
-  "name": "atomic.css",
+  "name": "atomic-css",
   "version": "0.1.0",
   "description": "A collection of single purpose styling units for maximum reuse.",
   "main": "./lib/atomic.js",
