@@ -26,7 +26,7 @@ atomize [-o|--outfile=<file>] [-r|--rules=<rule file>] [--help] configfile ...
 Example:
 
 ```
-atomize -r config.js -o atomic.css
+atomize config.js -o atomic.css
 ```
 
 ## Developer docs
