@@ -3,20 +3,20 @@ var utils = require('./lib/utils.js');
 var START = atomicConfig.config.start;
 var END = atomicConfig.config.end;
 
-// Inconsistent prefixes/suffixes, is this a problem?
-// 
-// e.g. (there are more)
-// 
-// Prefixes:
-// .Fl- (float)
-// .Flx- (flex)
-// .Fld- (flex-direction)
-// 
-// Suffixes:
-// .Cur-a (auto)
-// .List-a (armenian)
-// .Fw-n (normal)
-// .List-n (none)
+/**
+ * ============================================================================
+ * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+ *      http://docs.emmet.io/cheat-sheet/
+ * ============================================================================
+ *
+ *  NOTES:
+ *
+ *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
+ *  - look for top/right/bottom/left rules in the "offset" section
+ *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
+ *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
+ *  
+ **/
 
 module.exports = [
     /**
@@ -26,78 +26,57 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'border-custom',
-        name: 'Border',
-        prefix: '.Bd-',
-        format: [
-            utils.isLength,
-            utils.indexOf(['none', 'hidden', 'dotted', 'dashed', 'solid', 'double', 'groove', 'ridge', 'inset', 'outset']),
-            utils.isColor
-        ],
-        allowCustomSequencedSuffix: true,
-        properties: [
-            {suffix: 'x', properties: ['border-left', 'border-right']},
-            {suffix: 'y', properties: ['border-top', 'border-bottom']},
-            {suffix: 't', properties: ['border-top']},
-            {suffix: 'b', properties: ['border-bottom']},
-            {suffix: 'end', properties: ['border-' + END]},
-            {suffix: 'start', properties: ['border-' + START]}
-        ]
-    },
-    /**
-     ==================================================================
-     BORDER RESETS
-     ==================================================================
-     */
-    {
-        type: 'rule',
-        id: 'border-reset',
-        name: 'Border reset',
-        rule: {
-            '.Bd-0': {
-                border: 0
-            }
-        }
+        id: 'border-top',
+        name: 'Border top',
+        prefix: '.Bdt-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        properties: ['border-top']
     },
     {
-        type: 'rule',
-        id: 'border-top-reset',
-        name: 'Border top reset',
-        rule: {
-            '.Bd-t-0': {
-                'border-top': 0
-            }
-        }
+        type: 'pattern',
+        id: 'border-end',
+        name: 'Border end',
+        prefix: '.Bde-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        properties: ['border-$END']
     },
     {
-        type: 'rule',
-        id: 'border-end-reset',
-        name: 'Border end reset',
-        rule: {
-            '.Bd-end-0': {
-                'border-$END': 0
-            }
-        }
+        type: 'pattern',
+        id: 'border-bottom',
+        name: 'Border bottom',
+        prefix: '.Bdb-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        properties: ['border-bottom']
     },
     {
-        type: 'rule',
-        id: 'border-bottom-reset',
-        name: 'Border bottom reset',
-        rule: {
-            '.Bd-bottom-0': {
-                'border-bottom': 0
-            }
-        }
+        type: 'pattern',
+        id: 'border-start',
+        name: 'Border start',
+        prefix: '.Bds-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        properties: ['border-$START']
     },
     {
-        type: 'rule',
-        id: 'border-start-reset',
-        name: 'Border start reset',
-        rule: {
-            '.Bd-start-0': {
-                'border-$START': 0
-            }
-        }
+        type: 'pattern',
+        id: 'border-x',
+        name: 'Border X',
+        prefix: '.Bdx-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        properties: ['border-$START', 'border-$END']
+    },
+    {
+        type: 'pattern',
+        id: 'border-y',
+        name: 'Border Y',
+        prefix: '.Bdy-',
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        properties: ['border-top', 'border-bottom']
     },
     /**
      ==================================================================
@@ -131,21 +110,6 @@ module.exports = [
             {suffix: 'm', values: ['Monaco, "Courier New", monospace']}
         ]
     },
-
-    /**
-     * ============================================================================
-     * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
-     *      http://docs.emmet.io/cheat-sheet/
-     * ============================================================================
-     *
-     *  NOTES:
-     *
-     *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
-     *  - look for top/right/bottom/left rules in the "offset" section
-     *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
-     *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
-     *  
-     **/
 
      /**
      ==================================================================
@@ -192,10 +156,8 @@ module.exports = [
         name: 'Background color',
         prefix: '.Bgc-',
         properties: ['background-color'],
-        allowCustomSequencedSuffix: true,
-        format: [
-            utils.isColor
-        ]
+        allowCustom: true,
+        allowCustomAutoSuffix: true
     },
 
     /* background-clip */
@@ -203,12 +165,12 @@ module.exports = [
         type: 'pattern',
         id: 'background-clip',
         name: 'Background clip',
-        prefix: '.Bgclip-',
+        prefix: '.Bgcp-',
         properties: ['background-clip'],
         rules: [
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'pb', values: ['padding-box']},
-            {suffix: 'cb', values: ['content-box']}
+            {suffix: 'b', values: ['border-box']},
+            {suffix: 'p', values: ['padding-box']},
+            {suffix: 'c', values: ['content-box']}
         ]
     },
     /* background-origin */
@@ -219,9 +181,9 @@ module.exports = [
         prefix: '.Bgo-',
         properties: ['background-origin'],
         rules: [
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'pb', values: ['padding-box']},
-            {suffix: 'cb', values: ['content-box']}
+            {suffix: 'b', values: ['border-box']},
+            {suffix: 'p', values: ['padding-box']},
+            {suffix: 'c', values: ['content-box']}
         ]
     },
     /* background-size (length would be customized) */
@@ -329,13 +291,8 @@ module.exports = [
         name: 'Box shadow',
         properties: ['box-shadow'],
         prefix: '.Bxsh-',
-        allowCustomSequencedSuffix: true,
-        format: [
-            utils.isLength,
-            utils.isLength,
-            utils.isLength,
-            utils.isColor
-        ],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
         rules: [
             {suffix: 'n', values: ['none']}
         ]
@@ -724,7 +681,8 @@ module.exports = [
         name: 'Font size',
         prefix: '.Fz-',
         properties: ['font-size'],
-        allowCustomSequencedSuffix: true,
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
         suffixType: 'numerical',
         format: [utils.isLength],
         rules: [
@@ -920,7 +878,12 @@ module.exports = [
         prefix: '.W-',
         properties: ['width'],
         allowCustom: true,
-        allowFraction: true
+        allowCustomAutoSuffix: true,
+        allowFraction: true,
+        rules: [
+            {suffix: 'a', values: ['auto']},
+            {suffix: 'inh', values: ['inherited']}
+        ]
     },
     {
         type: 'rule',
@@ -929,17 +892,7 @@ module.exports = [
         rule: {
             '.Bfc': {
                 'overflow': 'hidden',
-                '*zoom': 1
-            }
-        }
-    },
-    {
-        type: 'rule',
-        id: 'dn',
-        name: 'Display None Helper',
-        rule: {
-            '.Dn': {
-                'display': 'none'
+                'zoom': 1
             }
         }
     }

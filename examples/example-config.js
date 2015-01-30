@@ -16,27 +16,31 @@ module.exports = {
     },
 
     // pattern
-    'border-custom': {
-        'custom-sequenced-suffix': [
-            // a
-            [
-                {suffix: 't', values: ['1px solid #000'], breakPoints: ['sm', 'md', 'lg']},
-                {suffix: 'b', values: ['3px solid #f00']},
-                {suffix: 'x', values: ['1px solid #f00', '3px solid #000']}
-            ],
-            // b
-            [
-                {suffix: 't', values: ['1px solid #fff']},
-                {suffix: 'b', values: ['3px solid transparent']}
-            ]
+    'border-top': {
+        'custom': [
+            {suffix: '0', values: [0]},
         ]
     },
 
-    // rule
-    'border-reset-top': true,
-    'border-reset-end': true,
-    'border-reset-bottom': true,
-    'border-reset-start': true,
+    // pattern
+    'border-end': {
+        'custom': [
+            {suffix: '0', values: [0]},
+        ]
+    },
+
+    // pattern
+    'border-bottom': {
+        'custom': [
+            {suffix: '0', values: [0]},
+        ]
+    },
+
+    'border-start': {
+        'custom': [
+            {suffix: '0', values: [0]},
+        ]
+    },
 
     // pattern
     'border-radius': {
@@ -65,7 +69,7 @@ module.exports = {
 
     // pattern
     'background-color': {
-        'custom-sequenced-suffix': [
+        'custom-auto-suffix': [
             // a
             {values: ['#000'], breakPoints: ['sm', 'md', 'lg']},
 
@@ -141,7 +145,7 @@ module.exports = {
     // pattern
     'box-shadow': {
         'n': true,
-        'custom-sequenced-suffix': [
+        'custom-auto-suffix': [
             // a
             {values: ['1px 1px 4px #555']},
             // b
@@ -326,7 +330,7 @@ module.exports = {
         'lr': true,
         'xl': true,
         'xxl': true,
-        'custom-sequenced-suffix': [
+        'custom-auto-suffix': [
             {values: ['11px']},
             {values: ['12px']},
             {values: ['13px']},
@@ -432,10 +436,5 @@ module.exports = {
     },
 
     // rule
-    'bfc': true,
-
-    // rule
-    'dn': {
-        breakPoints: ['sm', 'md', 'lg']
-    }
+    'bfc': true
 };
