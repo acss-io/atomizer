@@ -1,8 +1,3 @@
-var atomicConfig = require('../examples/example-config');
-var utils = require('./lib/utils.js');
-var START = atomicConfig.config.start;
-var END = atomicConfig.config.end;
-
 /**
  * ============================================================================
  * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
@@ -411,7 +406,6 @@ module.exports = [
         prefix: '.Flx-',
         properties: ['flex'],
         allowCustom: true,
-        format: [utils.isInteger],
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'n', values: ['none']}
@@ -581,8 +575,7 @@ module.exports = [
         name: 'Order',
         prefix: '.Or-',
         properties: ['order'],
-        allowCustom: true,
-        format: [utils.isInteger]
+        allowCustom: true
     },
 
     /* FLEX-PACK  */
@@ -695,7 +688,6 @@ module.exports = [
         allowCustom: true,
         allowCustomAutoSuffix: true,
         suffixType: 'numerical',
-        format: [utils.isLength],
         rules: [
             // not in alphabetical order since here they are in t-shirt size order
             {suffix: '0', values: ['0']},
@@ -856,9 +848,6 @@ module.exports = [
         name: 'Line height',
         prefix: '.Lh-',
         properties: ['line-height'],
-        format: [function (value) {
-            return utils.isPercentage(value) || utils.isInteger(value) || utils.isFloat(value) || utils.isLength(value);
-        }],
         rules: [
             {suffix: 'inh', values: ['inherit']},
             {suffix: 'n', values: ['normal']}
