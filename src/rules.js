@@ -27,7 +27,7 @@ module.exports = [
         prefix: '.Bd-',
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-top']
+        properties: ['border']
     },
     // top
     {
@@ -134,6 +134,7 @@ module.exports = [
         id: 'background',
         name: 'Background',
         prefix: '.Bg-',
+        properties: ['background'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         rules: [
@@ -148,6 +149,7 @@ module.exports = [
         id: 'background-image',
         name: 'Background image',
         prefix: '.Bgi-',
+        properties: ['background-image'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         rules: [
