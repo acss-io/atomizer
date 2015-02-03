@@ -15,7 +15,7 @@ if (process.argv.slice(2).length === 0 || params.help) {
     return;
 }
 
-var rules = path.resolve('src', 'rules.js');
+var rules = path.resolve(__dirname, '../src/rules.js');
 var srcFiles = params._ || []; 
 var outfile = params.o || params.outfile;
 var options = {}; // TODO
