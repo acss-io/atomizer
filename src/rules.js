@@ -10,7 +10,7 @@
  *  - look for top/right/bottom/left rules in the "offset" section
  *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
  *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
- *  
+ *
  **/
 
 module.exports = [
@@ -419,7 +419,7 @@ module.exports = [
     // TODO: Seems like 'flex-align' is not a valid property anymore, it was replaced by 'align-self'.
     // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
     //   Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    // 
+    //
     // {
     //     type: 'pattern',
     //     id: 'flex-align',
@@ -526,7 +526,7 @@ module.exports = [
     //          Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
     // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-line-pack
     //   Latest version: http://www.w3.org/TR/css3-flexbox/#align-content-property
-    // 
+    //
     // {
     //     type: 'pattern',
     //     id: 'flex-line-pack',
@@ -563,7 +563,7 @@ module.exports = [
     // TODO: 'flex-order' has been replaced by 'order'.
     // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-order
     //   Latest version: http://www.w3.org/TR/css3-flexbox/#order-property
-    // 
+    //
     // {
     //     type: 'pattern',
     //     id: 'flex-order',
@@ -585,7 +585,7 @@ module.exports = [
     // TODO: 'flex-pack' has been replaced by 'justify-content'.
     // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-pack
     //   Latest version: http://www.w3.org/TR/css3-flexbox/#justify-content-property
-    // 
+    //
     // {
     //     type: 'pattern',
     //     id: 'flex-pack',
@@ -850,7 +850,8 @@ module.exports = [
         name: 'Line height',
         prefix: '.Lh-',
         properties: ['line-height'],
-        rules: [
+        allowCustom: true,
+        rules: [f
             {suffix: 'inh', values: ['inherit']},
             {suffix: 'n', values: ['normal']}
         ]
@@ -1259,7 +1260,7 @@ module.exports = [
         type: 'pattern',
         id: 'padding-bottom',
         name: 'Padding bottom',
-        prefix: '.Mb-',
+        prefix: '.Pb-',
         allowCustom: true,
         properties: ['padding-bottom'],
         rules: [
@@ -1272,7 +1273,7 @@ module.exports = [
         type: 'pattern',
         id: 'padding-start',
         name: 'Padding start',
-        prefix: '.Mstart-',
+        prefix: '.Pstart-',
         allowCustom: true,
         properties: ['padding-$START'],
         rules: [
@@ -1285,7 +1286,7 @@ module.exports = [
         type: 'pattern',
         id: 'padding-x',
         name: 'Padding (X axis)',
-        prefix: '.Mx-',
+        prefix: '.Px-',
         allowCustom: true,
         properties: ['padding-$START', 'padding-$END'],
         rules: [
