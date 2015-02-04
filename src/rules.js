@@ -276,7 +276,7 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'boz-sizing',
+        id: 'box-sizing',
         name: 'Box sizing',
         prefix: '.Bxz-',
         properties: ['box-sizing'],
