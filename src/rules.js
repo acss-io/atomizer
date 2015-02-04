@@ -851,7 +851,7 @@ module.exports = [
         prefix: '.Lh-',
         properties: ['line-height'],
         allowCustom: true,
-        rules: [f
+        rules: [
             {suffix: 'inh', values: ['inherit']},
             {suffix: 'n', values: ['normal']}
         ]
