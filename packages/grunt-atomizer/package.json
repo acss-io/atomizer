@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
-    "grunt": "~0.4.5",
+    "grunt": "~0.4.5"
   },
   "keywords": [
     "atomizer",
