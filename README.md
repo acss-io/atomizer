@@ -9,7 +9,9 @@ A collection of single purpose styling units for maximum reuse.
 
 ## Overview
 
-This is a tool that lets you create atomic.css rules. Atomic.css is a collection of single purpose styling units for maximum reuse that fits well with components in templated frameworks such as React, Ember or Angular. For more information we recommend that you read "[Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/)" or watch the atomic.css [presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4).
+Atomizer is a tool that helps you create Atomic.css rules. 
+
+Atomic.css is a collection of single purpose styling units for maximum reuse that fits well with components in templated frameworks such as React, Ember or Angular. For more information we recommend that you read "[Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/)" or watch the Atomic.css [presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4).
 
 ## Install
 
@@ -20,13 +22,13 @@ npm install git+ssh://git@github.com:yahoo/atomic.css.git -g
 ## Usage
 
 ```
-atomize [-o|--outfile=<file>] [-r|--rules=<rule file>] [--help] configfile ...
+atomizer [-o|--outfile=<file>] [--help] configfile ...
 ```
 
 Example:
 
 ```
-atomize config.js -o atomic.css
+atomizer config.js -o atomic.css
 ```
 
 ## Developer docs
