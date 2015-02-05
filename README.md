@@ -31,7 +31,7 @@ atomizer config.js -o atomic.css
 
 ## Developer docs
 
-We have [wiki](https://github.com/yahoo/atomizer/wiki) docs for contributors that want to help the maintenance and development of this tool.
+We have [wiki](https://github.com/yahoo/atomizer/wiki) docs for contributors who want to help with the maintenance and development of this tool.
 
 ## License
 
