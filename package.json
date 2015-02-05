@@ -3,7 +3,11 @@
   "version": "0.2.0",
   "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
   "main": "./lib/atomic.js",
-  "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
+  "contributors": [
+    {"name": "Renato Iwashima", "email": "renatoi@yahoo-inc.com"},
+    {"name": "Steve Carlson", "email": "yasteve@yahoo-inc.com"},
+    {"name": "Thierry Koblentz", "email": "thierryk@yahoo-inc.com"},
+  ],
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
     "cover": "node node_modules/istanbul/lib/cli.js cover --dir artifacts -- ./node_modules/mocha/bin/_mocha tests/ --recursive --reporter spec",
