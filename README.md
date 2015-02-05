@@ -1,11 +1,9 @@
 # Atomic.css
 
-[![Build Status](https://magnum.travis-ci.com/yahoo/atomic.css.svg?token=1A1JtrzoyNwcyaqtpSCa)](https://magnum.travis-ci.com/yahoo/atomic.css)
-[![Dependency Status](https://david-dm.org/yahoo/atomic.css.svg)](https://david-dm.org/yahoo/atomic.css.svg)
-[![devDependency Status](https://david-dm.org/yahoo/atomic.css/dev-status.svg)](https://david-dm.org/yahoo/atomic.css#info=devDependencies)
-[![Coverage Status](https://img.shields.io/coveralls/yahoo/atomic.css.svg)](https://coveralls.io/r/yahoo/atomic.css?branch=master)
-
-A collection of single purpose styling units for maximum reuse.
+[![Build Status](https://magnum.travis-ci.com/yahoo/atomizer.svg?token=1A1JtrzoyNwcyaqtpSCa)](https://magnum.travis-ci.com/yahoo/atomizer)
+[![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer.svg)
+[![devDependency Status](https://david-dm.org/yahoo/atomizer/dev-status.svg)](https://david-dm.org/yahoo/atomizer#info=devDependencies)
+[![Coverage Status](https://img.shields.io/coveralls/yahoo/atomizer.svg)](https://coveralls.io/r/yahoo/atomizer?branch=master)
 
 ## Overview
 
@@ -16,7 +14,7 @@ Atomic.css is a collection of single purpose styling units for maximum reuse tha
 ## Install
 
 ```bash
-npm install git+ssh://git@github.com:yahoo/atomic.css.git -g
+npm install git+ssh://git@github.com:yahoo/atomizer.git -g
 ```
 
 ## Usage
@@ -33,13 +31,13 @@ atomizer config.js -o atomic.css
 
 ## Developer docs
 
-We have [wiki](https://github.com/yahoo/atomic.css/wiki) docs for contributors that want to help the maintenance and development of this tool.
+We have [wiki](https://github.com/yahoo/atomizer/wiki) docs for contributors that want to help the maintenance and development of this tool.
 
 ## License
 
 This software is free to use under the Yahoo! Inc. BSD license.
 See the [LICENSE file][] for license text and copyright information.
 
-[LICENSE file]: https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
+[LICENSE file]: https://github.com/yahoo/atomizer/blob/master/LICENSE.md
 
-Third-pary open source code used are listed in our [package.json file]( https://github.com/yahoo/atomic.css/blob/master/package.json).
+Third-pary open source code used are listed in our [package.json file]( https://github.com/yahoo/atomizer/blob/master/package.json).
