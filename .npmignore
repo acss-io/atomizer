@@ -1,5 +1,4 @@
 node_modules/
 artifacts/
 npm-debug.log
-src/scss/
 dist/
