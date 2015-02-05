@@ -3,11 +3,16 @@
   "version": "0.2.0",
   "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
   "main": "./lib/atomic.js",
+  "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
     "cover": "node node_modules/istanbul/lib/cli.js cover --dir artifacts -- ./node_modules/mocha/bin/_mocha tests/ --recursive --reporter spec",
     "lint": "./node_modules/.bin/jshint src tests"
   },
+  "bin": {
+    "atomizer": "./bin/atomizer"
+  },
+  "preferGlobal": true,
   "dependencies": {
     "object-assign": "^1.0.0",
     "absurd": "~0.3.33",
@@ -15,17 +20,7 @@
     "chalk": "~0.5.1",
     "lodash": "~2.4.1"
   },
-  "bin": {
-    "atomizer": "./bin/atomizer"
-  },
-  "preferGlobal": true,
   "devDependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-cssmin": "~0.10.0",
-    "grunt-newer": "~0.7.0",
-    "load-grunt-tasks": "~0.6.0",
-    "time-grunt": "~1.0.0",
     "mocha": "~2.0.1",
     "chai": "~1.10.0",
     "sinon": "~1.12.2",
