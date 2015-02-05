@@ -2,7 +2,7 @@
 
 ## Overview
 
-A grunt task for running [Atomizer](http://github.com/yahoo/atomizer))
+A grunt task for running [Atomizer](http://github.com/yahoo/atomizer)
 
 ## Install
 
