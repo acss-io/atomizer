@@ -1,7 +1,7 @@
 {
-  "name": "atomic-css",
-  "version": "0.1.0",
-  "description": "A collection of single purpose styling units for maximum reuse.",
+  "name": "atomizer",
+  "version": "0.2.0",
+  "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
   "main": "./lib/atomic.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
@@ -16,7 +16,7 @@
     "lodash": "~2.4.1"
   },
   "bin": {
-    "atomize": "./bin/atomize"
+    "atomizer": "./bin/atomizer"
   },
   "preferGlobal": true,
   "devDependencies": {
@@ -36,15 +36,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/yahoo/atomic.css.git"
+    "url": "git://github.com/yahoo/atomizer.git"
   },
   "keywords": [
     "atomic",
+    "atomize",
+    "atomizer",
+    "atomizr",
     "css"
   ],
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/yahoo/atomic.css/issues"
+    "url": "https://github.com/yahoo/atomizer/issues"
   },
-  "homepage": "https://github.com/yahoo/atomic.css"
+  "homepage": "https://github.com/yahoo/atomizer"
 }

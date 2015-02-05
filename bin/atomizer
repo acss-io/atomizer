@@ -2,10 +2,10 @@
 
 'use strict';
 
-process.title = 'atomize';
+process.title = 'atomizer';
 
 var path = require('path');
-var Atomize = require('../src/atomize.js');
+var Atomizer = require('../src/atomizer.js');
 
 var params = require('minimist')(process.argv.slice(2));
 
@@ -20,4 +20,4 @@ var srcFiles = params._ || [];
 var outfile = params.o || params.outfile;
 var options = {}; // TODO
 
-Atomize(srcFiles, rules, options, outfile);
+Atomizer(srcFiles, rules, options, outfile);

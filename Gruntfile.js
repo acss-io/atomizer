@@ -8,7 +8,7 @@ module.exports = function(grunt) {
     // Time how long tasks take. Can help when optimizing build times
     require('time-grunt')(grunt);
 
-    require('./grunt-tasks/grunt-acss')(grunt);
+    require('./grunt-tasks/grunt-atomizer')(grunt);
 
     // Configurable paths for the application
     var appConfig = {
@@ -26,14 +26,14 @@ module.exports = function(grunt) {
         project: appConfig,
 
         // -- Atomic.css -----------------------------------------------------------
-        acss: {
+        atomizer: {
             dist: {
                 options: {
                     minify: false,
                     banner: [
                         '/*!',
                         'Atomic.css v<%= project.pkg.version %>',
-                        'Copyright 2014 Yahoo! Inc. All rights reserved.',
+                        'Copyright 2015 Yahoo! Inc. All rights reserved.',
                         'Licensed under the BSD License.',
                         'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
                         '*/\n'
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', [
         'clean',
-        'acss:dist',
+        'atomizer:dist',
         'cssmin:dist'
     ]);
 };

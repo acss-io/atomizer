@@ -1,19 +1,22 @@
 {
-  "name": "atomic.css",
+  "name": "atomizer",
   "version": "0.1.0",
-  "homepage": "https://github.com/yahoo/atomic.css",
+  "homepage": "https://github.com/yahoo/atomizer",
   "authors": [
     "Renato Iwashima <renatoi@yahoo-inc.com>",
     "Steve Carlson <yasteve@yahoo-inc.com>",
     "Thierry Koblentz <thierryk@yahoo-inc.com>"
   ],
-  "description": "A collection of single purpose styling units for maximum reuse.",
-  "main": "dist/atomic.css",
+  "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
+  "main": "src/atomizer.js",
   "keywords": [
     "atomic",
     "css",
     "reuse",
-    "helpers"
+    "helpers",
+    "atomizer",
+    "atomizr",
+    "atomize"
   ],
   "license": "BSD",
   "ignore": [
