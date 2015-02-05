@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                     banner: [
                         '/*!',
                         'Atomic.css v<%= project.pkg.version %>',
-                        'Copyright 2014 Yahoo! Inc. All rights reserved.',
+                        'Copyright 2015 Yahoo! Inc. All rights reserved.',
                         'Licensed under the BSD License.',
                         'https://github.com/yahoo/atomic.css/blob/master/LICENSE.md',
                         '*/\n'
