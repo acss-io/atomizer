@@ -1,0 +1,28 @@
+{
+  "name": "grunt-atomizer",
+  "description": "Grunt task for Atomizer",
+  "version": "0.1.0",
+  "main": "index.js",
+  "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yahoo/grunt-atomizer.git"
+  },
+  "dependencies": {
+    "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
+    "grunt": "~0.4.5",
+  },
+  "keywords": [
+    "atomizer",
+    "atomic",
+    "grunt",
+    "grunt-atomic",
+    "grunt-atomizer",
+    "atomic-css"
+  ],
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/yahoo/grunt-atomizer/issues"
+  },
+  "homepage": "https://github.com/yahoo/grunt-atomizer"
+}
