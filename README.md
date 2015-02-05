@@ -1,4 +1,4 @@
-# Atomic.css
+# Atomizer
 
 [![Build Status](https://magnum.travis-ci.com/yahoo/atomizer.svg?token=1A1JtrzoyNwcyaqtpSCa)](https://magnum.travis-ci.com/yahoo/atomizer)
 [![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer.svg)
