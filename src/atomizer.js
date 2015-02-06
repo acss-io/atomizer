@@ -7,8 +7,9 @@ var chalk = require('chalk');
 var Absurd = require('absurd');
 var AtomicBuilder = require('./lib/AtomicBuilder.js');
 var objectAssign = require('object-assign');
+var rules = require('./rules.js');
 
-module.exports = function (srcFiles, rules, options, outfile, cb) {
+module.exports = function (srcFiles, options, outfile, cb) {
 
     options = objectAssign({}, {
         require: [],
@@ -29,11 +30,6 @@ module.exports = function (srcFiles, rules, options, outfile, cb) {
         }
     });
 
-    if (!fs.existsSync(rules)) {
-        console.warn('Rule file ' + chalk.cyan(rules) + ' not found.');
-        return;
-    }
-
     if (srcFiles.length === 0) {
         console.warn('No configuration files provided. ');
         return;
@@ -50,7 +46,7 @@ module.exports = function (srcFiles, rules, options, outfile, cb) {
     }
 
     srcFiles.forEach(function (f) {
-        var atomicBuilder = new AtomicBuilder(require(path.resolve(rules)), require(path.resolve(f)));
+        var atomicBuilder = new AtomicBuilder(rules, require(path.resolve(f)));
         var build = (atomicBuilder && atomicBuilder.getBuild()) || {};
 
         if (!_.size(build)) {
