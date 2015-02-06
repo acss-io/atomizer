@@ -102,25 +102,6 @@ module.exports = [
         properties: ['border-radius'],
         allowCustom: true
     },
-    /**
-     ==================================================================
-     FONT FAMILY suffix matches generic font-family
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        id: 'font-family',
-        name: 'Font family',
-        prefix: '.Ff-',
-        properties: ['font-family'],
-        rules: [
-            {suffix: 'c', values: ['"Monotype Corsiva", "Comic Sans MS", cursive']},
-            {suffix: 'f', values: ['Capitals, Impact, fantasy']},
-            {suffix: 'm', values: ['Monaco, "Courier New", monospace']},
-            {suffix: 's', values: ['Georgia, "Times New Roman", serif']},
-            {suffix: 'ss', values: ['Helvetica, Arial, sans-serif']}
-        ]
-    },
 
      /**
      ==================================================================
@@ -323,6 +304,25 @@ module.exports = [
             {suffix: 'start', values: ['$START']},
             {suffix: 'end', values: ['$END']},
             {suffix: 'inh', values: ['inherit']},
+        ]
+    },
+
+    /**
+     ==================================================================
+     COLOR
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'color',
+        name: 'color',
+        prefix: '.C-',
+        properties: ['color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
         ]
     },
 
@@ -645,6 +645,26 @@ module.exports = [
             {suffix: 'start', values: ['$START']},
             {suffix: 'end', values: ['$END']},
             {suffix: 'inh', values: ['inherit']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     FONT FAMILY suffix matches generic font-family
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'font-family',
+        name: 'Font family',
+        prefix: '.Ff-',
+        properties: ['font-family'],
+        rules: [
+            {suffix: 'c', values: ['"Monotype Corsiva", "Comic Sans MS", cursive']},
+            {suffix: 'f', values: ['Capitals, Impact, fantasy']},
+            {suffix: 'm', values: ['Monaco, "Courier New", monospace']},
+            {suffix: 's', values: ['Georgia, "Times New Roman", serif']},
+            {suffix: 'ss', values: ['Helvetica, Arial, sans-serif']}
         ]
     },
 
