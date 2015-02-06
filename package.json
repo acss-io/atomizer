@@ -6,7 +6,7 @@
   "contributors": [
     {"name": "Renato Iwashima", "email": "renatoi@yahoo-inc.com"},
     {"name": "Steve Carlson", "email": "yasteve@yahoo-inc.com"},
-    {"name": "Thierry Koblentz", "email": "thierryk@yahoo-inc.com"},
+    {"name": "Thierry Koblentz", "email": "thierryk@yahoo-inc.com"}
   ],
   "scripts": {
     "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
