@@ -4,6 +4,11 @@
   "version": "0.1.0",
   "main": "index.js",
   "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
+  "contributors": [
+    {"name": "Renato Iwashima", "email": "renatoi@yahoo-inc.com"},
+    {"name": "Steve Carlson", "email": "yasteve@yahoo-inc.com"},
+    {"name": "Thierry Koblentz", "email": "thierryk@yahoo-inc.com"}
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/yahoo/grunt-atomizer.git"
