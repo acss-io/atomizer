@@ -4,7 +4,7 @@
  */
 'use strict';
 var React = require('react');
-var Rules = require('atomizer').rules;
+var Rules = require('atomizer/src/rules');
 var SearchBox = require('./SearchBox');
 
 // stores
