@@ -20,6 +20,10 @@ module.exports = function (configObjs, options) {
         banner: ''
     }, options);
 
+    if (!_.isArray(configObjs)) {
+        configObjs = [configObjs];
+    }
+
     if (configObjs.length === 0) {
         throw new Error('No configuration provided.');
     }
