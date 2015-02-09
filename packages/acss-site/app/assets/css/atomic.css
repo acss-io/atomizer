@@ -1,0 +1,2878 @@
+/*!
+Atomic.css v0.1.0
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+https://github.com/yahoo/atomic.css/blob/master/LICENSE.md
+*/
+
+/*! http://www.sitepoint.com/managing-responsive-breakpoints-sass/
+ *
+ * use this like this: @include respond-to(xs) { color: teal; }
+ */
+/**
+ * rule maker via maps
+ * example for display property:
+ * $D-map-values: (n: none, b: block, etc.)
+ * $D-valid-values: block, inline, etc;
+ * $D-units: none; (% must be inside quotes as in "%")
+ * @include set-rules-for-list(D, display, $D-map-values, $D-valid-values, $D-units);
+ */
+/**
+ * rule maker via lists
+ * example for width property:
+ * $W-list-values: 10px, 20px, 30px, etc.;
+ * $W-valid-values: number;
+ * $W-units: px, em, rem, "%";
+ * @include set-rules-for-list(W, width, $W-list-values, $W-valid-values, $W-units);
+ */
+/**
+ * rule maker for static map
+ * example for display property:
+ * $display_values: none, block, flex, inline, inline-block;
+ * @include set-rules-for-static-map(D, display, $display_values, (n: none, b: block));
+ */
+/**
+ * from mezig
+ */
+/*! http://stackoverflow.com/questions/12328259/how-do-you-strip-the-unit-from-any-number-in-sass
+ * to get rid of units
+ */
+/**
+ * NAMESPACE: $namespace
+ **/
+#atomic {
+  /**
+   ==================================================================
+   BORDER
+   ==================================================================
+   */
+  /**
+   * global reset declarations (i.e. ".Bd-0") - unlike specific ones (i.e. ".Bdb-0") - should come before any other declaration
+   */
+  /**
+   ==================================================================
+   BORDER RADIUS
+   ==================================================================
+   */
+  /**
+   * reset declarations (i.e. ".Bdrs-0") should come before any other declaration
+   */
+  /**
+   * very large radius (i.e. to create a 'pill box')
+   */
+  /**
+   * border radius: 50%
+   */
+  /**
+   * default border radius
+   */
+  /**
+   ==================================================================
+   FONT FAMILY (checked) suffix matches generic font-family
+   ==================================================================
+   */
+  /**
+   * ============================================================================
+   * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
+   *      http://docs.emmet.io/cheat-sheet/
+   * ============================================================================
+   */
+  /**
+   *  NOTES:
+   *
+   *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
+   *  - look for top/right/bottom/left rules in the "offset" section
+   *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
+   *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
+   *  - TODO: bring consistency in the use of !important
+   */
+  /**
+   ==================================================================
+   BACKGROUNDS
+   ==================================================================
+   */
+  /* background-color/image "resets" */
+  /* background-color TODO: make this more clever than that */
+  /* background-clip */
+  /* background-origin */
+  /* background-size (length would be customized) */
+  /* background-attachment */
+  /* background-position *4 corners only* (s=start and e=end) */
+  /* background-repeat */
+  /**
+   ==================================================================
+   BORDER-COLLAPSE (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   BOX-SIZING (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   BOX-SHADOW
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   CLEAR (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   CURSOR (checked)
+   TODO: how to deal with URIs?
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   DISPLAY (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   FLEX
+   ==================================================================
+   */
+  /* FLEX (checked)
+   * width values (i.e. 350px) cannot really be set here (as a generic value)
+   */
+  /* FLEX-ALIGN (checked)  */
+  /* FLEX-DIRECTION (checked)  */
+  /* FLEX-FLOW (checked)  */
+  /* FLEX-ITEM-ALIGN (checked)  */
+  /* FLEX-LINE-PACK (checked)  */
+  /* FLEX-ORDER (checked)  */
+  /* FLEX-PACK (checked)  */
+  /* FLEX-WRAP (checked)  */
+  /**
+   ==================================================================
+   FLOAT (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   FONT-WEIGHT (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   FONT-SIZE (checked but not using mm/cm/and other like that)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   FONT-STYLE
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   FONT-VARIANT
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   HEIGHT
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   HYPHENS (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   LIST-STYLE-TYPE (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   LIST-STYLE-IMAGE (checked) could we validate the URL?
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   LINE-HEIGHT
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   MARGINS
+   ==================================================================
+   */
+  /**
+   * ALL EDGES (checked)
+   */
+  /**
+   * 'X' AXYS
+   */
+  /**
+   * 'Y' AXYS
+   */
+  /**
+   * TOP
+   */
+  /* negative values */
+  /**
+   * END (Right in LTR, Left in RTL)
+   */
+  /* negative values */
+  /**
+   * BOTTOM
+   */
+  /* negative values */
+  /**
+   * START (Left in LTR, Right in RTL)
+   */
+  /* negative values */
+  /**
+   ==================================================================
+   MAX-HEIGHT (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   MAX-WIDTH (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   MIN-HEIGHT (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   MIN-WIDTH (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   OUTLINE (reset mostly, no custom styling)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   OFFSETS (checked)
+   ==================================================================
+   */
+  /* TOP */
+  /* END (right) */
+  /* BOTTOM */
+  /* START (left) */
+  /**
+   ==================================================================
+   OPACITY (checked) (class always contain 2 digits after "0." - i.e. Op-0.50)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   OVERFLOW (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   OVERFLOW-X (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   OVERFLOW-Y (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   OVERFLOW-SCROLLING (-webkit-)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   PADDING
+   ==================================================================
+   */
+  /**
+   * ALL EDGES
+   */
+  /**
+   * 'X' AXYS
+   */
+  /**
+   * 'Y' AXYS
+   */
+  /**
+   * TOP
+   */
+  /**
+   * END (Right in LTR, Left in RTL)
+   */
+  /**
+   * BOTTOM
+   */
+  /**
+   * START (Left in LTR, Right in RTL)
+   */
+  /**
+   ==================================================================
+   POINTER-EVENTS
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   POSITION (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TABLE-LAYOUT (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-ALIGN (checked) TODO: inherit?
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-ALIGN-LAST (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-DECORATION (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-RENDERING (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-REPLACE (checked)
+   http://www.w3.org/TR/2007/WD-css3-gcpm-20070504/
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-TRANSFORM (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   TEXT-SHADOW TODO:
+   custom values would be: hoff voff blur #000;
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   USER-SELECT (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   VERTICAL-ALIGN (checked)
+   ==================================================================
+   */
+  @warning sup is not a valid value for vertical-align;
+  /**
+   ==================================================================
+   VISIBILITY (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   WHITE-SPACE (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   WHITE-SPACE-COLLAPSE (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   WIDTH
+   ==================================================================
+   */
+  /**
+   * Generic (auto, inherit, 0) + Percentage values or else
+   */
+  /**
+   * Pixel values (checked)
+   */
+  /**
+   * Fraction values (for grid)
+   */
+  /**
+   ==================================================================
+   WORD_BREAK (checked)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   WORD_WRAP (not part of the spec)
+   ==================================================================
+   */
+  /**
+   ==================================================================
+   Z-INDEX (checked)
+   ==================================================================
+   */
+}
+#atomic .Bd-0 {
+  border: 0;
+}
+#atomic .Bd-1 {
+  border-width: 1px;
+}
+#atomic .Bdx-1 {
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+#atomic .Bdy-1 {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+#atomic .Bd-t {
+  border-top-width: 1px;
+}
+#atomic .Bd-end {
+  border-right-width: 1px;
+}
+#atomic .Bd-b {
+  border-bottom-width: 1px;
+}
+#atomic .Bd-start {
+  border-left-width: 1px;
+}
+#atomic .Bdt-0 {
+  border-top: 0;
+}
+#atomic .Bdend-0 {
+  border-right: 0;
+}
+#atomic .Bdb-0 {
+  border-bottom: 0;
+}
+#atomic .Bdstart-0 {
+  border-left: 0;
+}
+#atomic .Bdrs-0 {
+  border-radius: 0;
+}
+#atomic .Bdtrrs-0 {
+  border-top-right-radius: 0;
+}
+#atomic .Bdtlrs-0 {
+  border-top-left-radius: 0;
+}
+#atomic .Bdbrrs-0 {
+  border-bottom-right-radius: 0;
+}
+#atomic .Bdblrs-0 {
+  border-bottom-left-radius: 0;
+}
+#atomic .Bdrs-500 {
+  border-radius: 500px;
+  /* 1 */
+}
+#atomic .Bdtrrs-500 {
+  border-top-right-radius: 500px;
+}
+#atomic .Bdtlrs-500 {
+  border-top-left-radius: 500px;
+}
+#atomic .Bdbrrs-500 {
+  border-bottom-right-radius: 500px;
+}
+#atomic .Bdblrs-500 {
+  border-bottom-left-radius: 500px;
+}
+#atomic .Bdrs-50 {
+  border-radius: 50%;
+}
+#atomic .Bdtrrs-50 {
+  border-top-right-radius: 50%;
+}
+#atomic .Bdtlrs-50 {
+  border-top-left-radius: 50%;
+}
+#atomic .Bdbrrs-50 {
+  border-bottom-right-radius: 50%;
+}
+#atomic .Bdblrs-50 {
+  border-bottom-left-radius: 50%;
+}
+#atomic .Bdrs {
+  border-radius: 3px;
+}
+#atomic .Bdtrrs {
+  border-top-right-radius: 3px;
+}
+#atomic .Bdtlrs {
+  border-top-left-radius: 3px;
+}
+#atomic .Bdbrrs {
+  border-bottom-right-radius: 3px;
+}
+#atomic .Bdblrs {
+  border-bottom-left-radius: 3px;
+}
+#atomic .Ff-s {
+  font-family: Georgia, "Times New Roman", serif;
+}
+#atomic .Ff-ss {
+  font-family: Helvetica, Arial, sans-serif;
+}
+#atomic .Ff-c {
+  font-family: "Monotype Corsiva", "Comic Sans MS", cursive;
+}
+#atomic .Ff-f {
+  font-family: Capitals, Impact, fantasy;
+}
+#atomic .Ff-m {
+  font-family: Monaco, "Courier New", monospace;
+}
+#atomic .Bg-n {
+  background: none;
+}
+#atomic .Bgc-t {
+  background-color: transparent;
+}
+#atomic .Bgi-n {
+  background-image: none;
+}
+#atomic .Bgc-r {
+  background-color: red;
+}
+#atomic .Bgc-g {
+  background-color: green;
+}
+#atomic .Bgc-b {
+  background-color: blue;
+}
+#atomic .Bgc-bl {
+  background-color: black;
+}
+#atomic .Bgc-wh {
+  background-color: white;
+}
+#atomic .Bgclip-bb {
+  background-clip: border-box;
+}
+#atomic .Bgclip-pb {
+  background-clip: padding-box;
+}
+#atomic .Bgclip-cb {
+  background-clip: content-box;
+}
+#atomic .Bgo-bb {
+  background-origin: border-box;
+}
+#atomic .Bgo-pb {
+  background-origin: padding-box;
+}
+#atomic .Bgo-cb {
+  background-origin: content-box;
+}
+#atomic .Bgs-a {
+  background-size: auto;
+}
+#atomic .Bgs-ct {
+  background-size: contain;
+}
+#atomic .Bgs-cv {
+  background-size: cover;
+}
+#atomic .Bga-f {
+  background-attachment: fixed;
+}
+#atomic .Bga-l {
+  background-attachment: local;
+}
+#atomic .Bga-s {
+  background-attachment: scroll;
+}
+#atomic .Bgp-st {
+  background-position: left 0;
+}
+#atomic .Bgp-et {
+  background-position: right 0;
+}
+#atomic .Bgp-bs {
+  background-position: left 100%;
+}
+#atomic .Bgp-be {
+  background-position: right 100%;
+}
+#atomic .Bgr-n {
+  background-repeat: no-repeat;
+}
+#atomic .Bgr-x {
+  background-repeat: repeat-x;
+}
+#atomic .Bgr-y {
+  background-repeat: repeat-y;
+}
+#atomic .Bgr-r {
+  background-repeat: repeat;
+}
+#atomic .Bgr-s {
+  background-repeat: space;
+}
+#atomic .Bgr-ro {
+  background-repeat: round;
+}
+#atomic .Bdcl-c {
+  border-collapse: collapse;
+}
+#atomic .Bdcl-s {
+  border-collapse: separate;
+}
+#atomic .Bdcl-inh {
+  border-collapse: inherit;
+}
+#atomic .Bxz-cb {
+  box-sizing: content-box;
+}
+#atomic .Bxz-pb {
+  box-sizing: padding-box;
+}
+#atomic .Bxz-bb {
+  box-sizing: border-box;
+}
+#atomic .Bxz-inh {
+  box-sizing: inherit;
+}
+#atomic .Bxsh-n {
+  box-shadow: none;
+}
+#atomic .Cl-n {
+  clear: none;
+}
+#atomic .Cl-start {
+  clear: left;
+}
+#atomic .Cl-end {
+  clear: right;
+}
+#atomic .Cl-b {
+  clear: both;
+}
+#atomic .Cl-inh {
+  clear: inherit;
+}
+#atomic .Cur-a {
+  cursor: auto;
+}
+#atomic .Cur-c {
+  cursor: crosshair;
+}
+#atomic .Cur-d {
+  cursor: default;
+}
+#atomic .Cur-p {
+  cursor: pointer;
+}
+#atomic .Cur-m {
+  cursor: move;
+}
+#atomic .Cur-er {
+  cursor: e-resize;
+}
+#atomic .Cur-ner {
+  cursor: ne-resize;
+}
+#atomic .Cur-nwr {
+  cursor: nw-resize;
+}
+#atomic .Cur-nr {
+  cursor: n-resize;
+}
+#atomic .Cur-ser {
+  cursor: se-resize;
+}
+#atomic .Cur-swr {
+  cursor: sw-resize;
+}
+#atomic .Cur-sr {
+  cursor: s-resize;
+}
+#atomic .Cur-wr {
+  cursor: w-resize;
+}
+#atomic .Cur-t {
+  cursor: text;
+}
+#atomic .Cur-w {
+  cursor: wait;
+}
+#atomic .Cur-h {
+  cursor: help;
+}
+#atomic .Cur-pr {
+  cursor: progress;
+}
+#atomic .Cur-inh {
+  cursor: inherit;
+}
+#atomic .D-n {
+  display: none;
+}
+#atomic .D-b {
+  display: block;
+}
+#atomic .D-f {
+  display: flex;
+}
+#atomic .D-i {
+  display: inline;
+}
+#atomic .D-ib {
+  display: inline-block;
+}
+#atomic .D-inh {
+  display: inherit;
+}
+#atomic .D-tb {
+  display: table;
+}
+#atomic .D-tbr {
+  display: table-row;
+}
+#atomic .D-tbc {
+  display: table-cell;
+}
+#atomic .D-li {
+  display: list-item;
+}
+#atomic .D-ri {
+  display: run-in;
+}
+#atomic .D-cp {
+  display: compact;
+}
+#atomic .D-itb {
+  display: inline-table;
+}
+#atomic .D-tbcl {
+  display: table-column;
+}
+#atomic .D-tbclg {
+  display: table-column-group;
+}
+#atomic .D-tbhg {
+  display: table-header-group;
+}
+#atomic .D-tbfg {
+  display: table-footer-group;
+}
+#atomic .D-tbrg {
+  display: table-row-group;
+}
+#atomic .Fl-a {
+  flex: auto;
+}
+#atomic .Fl-n {
+  flex: none;
+}
+#atomic .Fl-1 {
+  flex: 1;
+}
+#atomic .Fl-2 {
+  flex: 2;
+}
+#atomic .Fl-3 {
+  flex: 3;
+}
+#atomic .Fl-4 {
+  flex: 4;
+}
+#atomic .Fl-5 {
+  flex: 5;
+}
+#atomic .Fl-6 {
+  flex: 6;
+}
+#atomic .Fla-s {
+  flex-align: start;
+}
+#atomic .Fla-e {
+  flex-align: end;
+}
+#atomic .Fla-c {
+  flex-align: center;
+}
+#atomic .Fla-b {
+  flex-align: baseline;
+}
+#atomic .Fla-st {
+  flex-align: stretch;
+}
+#atomic .Fld-r {
+  flex-direction: row;
+}
+#atomic .Fld-rr {
+  flex-direction: row-reverse;
+}
+#atomic .Fld-c {
+  flex-direction: column;
+}
+#atomic .Fld-cr {
+  flex-direction: column-reverse;
+}
+#atomic .Flf-r {
+  flex-flow: row;
+}
+#atomic .Flf-rr {
+  flex-flow: row-reverse;
+}
+#atomic .Flf-c {
+  flex-flow: column;
+}
+#atomic .Flf-cr {
+  flex-flow: column-reverse;
+}
+#atomic .Flf-nw {
+  flex-flow: nowrap;
+}
+#atomic .Flf-w {
+  flex-flow: wrap;
+}
+#atomic .Flf-wr {
+  flex-flow: wrap-reverse;
+}
+#atomic .Flia-a {
+  flex-item-align: auto;
+}
+#atomic .Flia-s {
+  flex-item-align: start;
+}
+#atomic .Flia-e {
+  flex-item-align: end;
+}
+#atomic .Flia-c {
+  flex-item-align: center;
+}
+#atomic .Flia-b {
+  flex-item-align: baseline;
+}
+#atomic .Flia-st {
+  flex-item-align: stretch;
+}
+#atomic .Fllp-s {
+  flex-line-pack: start;
+}
+#atomic .Fllp-e {
+  flex-line-pack: end;
+}
+#atomic .Fllp-c {
+  flex-line-pack: center;
+}
+#atomic .Fllp-j {
+  flex-line-pack: justify;
+}
+#atomic .Fllp-d {
+  flex-line-pack: distribute;
+}
+#atomic .Fllp-st {
+  flex-line-pack: stretch;
+}
+#atomic .Flo-1 {
+  flex-order: 1;
+}
+#atomic .Flo-2 {
+  flex-order: 2;
+}
+#atomic .Flo-3 {
+  flex-order: 3;
+}
+#atomic .Flo-4 {
+  flex-order: 4;
+}
+#atomic .Flo-5 {
+  flex-order: 5;
+}
+#atomic .Flo-6 {
+  flex-order: 6;
+}
+#atomic .Flp-s {
+  flex-pack: start;
+}
+#atomic .Flp-e {
+  flex-pack: end;
+}
+#atomic .Flp-c {
+  flex-pack: center;
+}
+#atomic .Flp-j {
+  flex-pack: justify;
+}
+#atomic .Flp-d {
+  flex-pack: distribute;
+}
+#atomic .Flw-nw {
+  flex-wrap: nowrap;
+}
+#atomic .Flw-w {
+  flex-wrap: wrap;
+}
+#atomic .Flw-wr {
+  flex-wrap: wrap-reverse;
+}
+#atomic .Fl-n {
+  float: none;
+}
+#atomic .Fl-start {
+  float: left;
+}
+#atomic .Fl-end {
+  float: right;
+}
+#atomic .Fl-inh {
+  float: inherit;
+}
+#atomic .Fw-n {
+  font-weight: normal;
+}
+#atomic .Fw-b {
+  font-weight: bold;
+}
+#atomic .Fw-br {
+  font-weight: bolder;
+}
+#atomic .Fw-lr {
+  font-weight: lighter;
+}
+#atomic .Fw-100 {
+  font-weight: 100;
+}
+#atomic .Fw-200 {
+  font-weight: 200;
+}
+#atomic .Fw-300 {
+  font-weight: 300;
+}
+#atomic .Fw-400 {
+  font-weight: 400;
+}
+#atomic .Fw-500 {
+  font-weight: 500;
+}
+#atomic .Fw-600 {
+  font-weight: 600;
+}
+#atomic .Fw-700 {
+  font-weight: 700;
+}
+#atomic .Fw-800 {
+  font-weight: 800;
+}
+#atomic .Fw-900 {
+  font-weight: 900;
+}
+#atomic .Fw-inh {
+  font-weight: inherit;
+}
+#atomic .Fz-0 {
+  font-size: 0;
+}
+#atomic .Fz-1 {
+  font-size: 11px;
+}
+#atomic .Fz-1 {
+  font-size: 12px;
+}
+#atomic .Fz-1 {
+  font-size: 13px;
+}
+#atomic .Fz-1 {
+  font-size: 14px;
+}
+#atomic .Fz-1 {
+  font-size: 15px;
+}
+#atomic .Fz-1 {
+  font-size: 16px;
+}
+#atomic .Fz-1 {
+  font-size: 17px;
+}
+#atomic .Fz-1 {
+  font-size: 18px;
+}
+#atomic .Fz-1 {
+  font-size: 19px;
+}
+#atomic .Fz-1 {
+  font-size: 20px;
+}
+#atomic .Fz-1 {
+  font-size: 21px;
+}
+#atomic .Fz-1 {
+  font-size: 22px;
+}
+#atomic .Fs-n {
+  font-style: normal;
+}
+#atomic .Fs-i {
+  font-style: italic;
+}
+#atomic .Fv-sc {
+  font-variant: small-caps;
+}
+#atomic .Fv-n {
+  font-variant: normal;
+}
+#atomic .H-auto {
+  height: auto;
+}
+#atomic .H-inherit {
+  height: inherit;
+}
+#atomic .H-0 {
+  height: 0;
+}
+#atomic .H-20\% {
+  height: 20%;
+}
+#atomic .H-50\% {
+  height: 50%;
+}
+#atomic .H-75\% {
+  height: 75%;
+}
+#atomic .H-100\% {
+  height: 100%;
+}
+#atomic .Hy-n {
+  hyphens: none;
+}
+#atomic .Hy-m {
+  hyphens: manual;
+}
+#atomic .Hy-a {
+  hyphens: auto;
+}
+#atomic .Hy-inh {
+  hyphens: inherit;
+}
+#atomic .List-n {
+  list-style-type: none;
+}
+#atomic .List-inh {
+  list-style-type: inherit;
+}
+#atomic .List-d {
+  list-style-type: disc;
+}
+#atomic .List-c {
+  list-style-type: circle;
+}
+#atomic .List-s {
+  list-style-type: square;
+}
+#atomic .List-dc {
+  list-style-type: decimal;
+}
+#atomic .List-dclz {
+  list-style-type: decimal-leading-zero;
+}
+#atomic .List-lr {
+  list-style-type: lower-roman;
+}
+#atomic .List-lg {
+  list-style-type: lower-greek;
+}
+#atomic .List-ll {
+  list-style-type: lower-latin;
+}
+#atomic .List-ur {
+  list-style-type: upper-roman;
+}
+#atomic .List-ul {
+  list-style-type: upper-latin;
+}
+#atomic .List-a {
+  list-style-type: armenian;
+}
+#atomic .List-g {
+  list-style-type: georgian;
+}
+#atomic .List-la {
+  list-style-type: lower-alpha;
+}
+#atomic .List-ua {
+  list-style-type: upper-alpha;
+}
+#atomic .Lisi-n {
+  list-style-image: none;
+}
+#atomic .Lisi-inh {
+  list-style-image: inherit;
+}
+#atomic .Lisi-uri {
+  list-style-image: url(http://example.com/bullet.gif);
+  /* */
+}
+#atomic .Lh-n {
+  line-height: normal;
+}
+#atomic .Lh-inh {
+  line-height: inherit;
+}
+#atomic .Lh-0 {
+  line-height: 0;
+}
+#atomic .Lh-0\.2 {
+  line-height: 0.2;
+}
+#atomic .Lh-0\.4 {
+  line-height: 0.4;
+}
+#atomic .Lh-0\.6 {
+  line-height: 0.6;
+}
+#atomic .Lh-0\.8 {
+  line-height: 0.8;
+}
+#atomic .Lh-1 {
+  line-height: 1;
+}
+#atomic .Lh-1\.2 {
+  line-height: 1.2;
+}
+#atomic .Lh-1\.4 {
+  line-height: 1.4;
+}
+#atomic .Lh-1\.6 {
+  line-height: 1.6;
+}
+#atomic .Lh-1\.8 {
+  line-height: 1.8;
+}
+#atomic .Lh-2 {
+  line-height: 2;
+}
+#atomic .Lh-2\.2 {
+  line-height: 2.2;
+}
+#atomic .Lh-2\.4 {
+  line-height: 2.4;
+}
+#atomic .Lh-2\.6 {
+  line-height: 2.6;
+}
+#atomic .Lh-2\.8 {
+  line-height: 2.8;
+}
+#atomic .Lh-3 {
+  line-height: 3;
+}
+#atomic .M-inh {
+  margin: inherit;
+}
+#atomic .M-a {
+  margin: auto;
+}
+#atomic .M-0 {
+  margin: 0;
+}
+#atomic .M-2 {
+  margin: 2px;
+}
+#atomic .M-4 {
+  margin: 4px;
+}
+#atomic .M-6 {
+  margin: 6px;
+}
+#atomic .M-8 {
+  margin: 8px;
+}
+#atomic .M-10 {
+  margin: 10px;
+}
+#atomic .M-12 {
+  margin: 12px;
+}
+#atomic .M-14 {
+  margin: 14px;
+}
+#atomic .M-16 {
+  margin: 16px;
+}
+#atomic .M-18 {
+  margin: 18px;
+}
+#atomic .M-20 {
+  margin: 20px;
+}
+#atomic .Mx-a {
+  margin-right: auto;
+  margin-left: auto;
+}
+#atomic .Mx-0 {
+  margin-right: 0;
+  margin-left: 0;
+}
+#atomic .Mx-1px {
+  margin-right: 1px;
+  margin-left: 1px;
+}
+#atomic .Mx-2px {
+  margin-right: 2px;
+  margin-left: 2px;
+}
+#atomic .Mx-4px {
+  margin-right: 4px;
+  margin-left: 4px;
+}
+#atomic .Mx-6px {
+  margin-right: 6px;
+  margin-left: 6px;
+}
+#atomic .Mx-8px {
+  margin-right: 8px;
+  margin-left: 8px;
+}
+#atomic .Mx-10px {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+#atomic .Mx-12px {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+#atomic .Mx-14px {
+  margin-right: 14px;
+  margin-left: 14px;
+}
+#atomic .Mx-16px {
+  margin-right: 16px;
+  margin-left: 16px;
+}
+#atomic .Mx-18px {
+  margin-right: 18px;
+  margin-left: 18px;
+}
+#atomic .Mx-20px {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+#atomic .Mx-24px {
+  margin-right: 24px;
+  margin-left: 24px;
+}
+#atomic .Mx-28px {
+  margin-right: 28px;
+  margin-left: 28px;
+}
+#atomic .Mx-32px {
+  margin-right: 32px;
+  margin-left: 32px;
+}
+#atomic .Mx-36px {
+  margin-right: 36px;
+  margin-left: 36px;
+}
+#atomic .Mx-40px {
+  margin-right: 40px;
+  margin-left: 40px;
+}
+#atomic .My-a {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+#atomic .My-0 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+#atomic .My-1px {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+#atomic .My-2px {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+#atomic .My-4px {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+#atomic .My-6px {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+#atomic .My-8px {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+#atomic .My-10px {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#atomic .My-12px {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+#atomic .My-14px {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+#atomic .My-16px {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+#atomic .My-18px {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+#atomic .My-20px {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+#atomic .My-24px {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+#atomic .My-28px {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+#atomic .My-32px {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+#atomic .My-36px {
+  margin-top: 36px;
+  margin-bottom: 36px;
+}
+#atomic .My-40px {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+#atomic .Mt-a {
+  margin-top: auto;
+}
+#atomic .Mt-0 {
+  margin-top: 0;
+}
+#atomic .Mt-1 {
+  margin-top: 1px;
+}
+#atomic .Mt-2 {
+  margin-top: 2px;
+}
+#atomic .Mt-4 {
+  margin-top: 4px;
+}
+#atomic .Mt-6 {
+  margin-top: 6px;
+}
+#atomic .Mt-8 {
+  margin-top: 8px;
+}
+#atomic .Mt-10 {
+  margin-top: 10px;
+}
+#atomic .Mt-12 {
+  margin-top: 12px;
+}
+#atomic .Mt-14 {
+  margin-top: 14px;
+}
+#atomic .Mt-16 {
+  margin-top: 16px;
+}
+#atomic .Mt-18 {
+  margin-top: 18px;
+}
+#atomic .Mt-20 {
+  margin-top: 20px;
+}
+#atomic .Mt-30 {
+  margin-top: 30px;
+}
+#atomic .Mt-40 {
+  margin-top: 40px;
+}
+#atomic .Mt-50 {
+  margin-top: 50px;
+}
+#atomic .Mt-60 {
+  margin-top: 60px;
+}
+#atomic .Mt-70 {
+  margin-top: 70px;
+}
+#atomic .Mt-neg-1 {
+  margin-top: -1px;
+}
+#atomic .Mt-neg-2 {
+  margin-top: -2px;
+}
+#atomic .Mt-neg-4 {
+  margin-top: -4px;
+}
+#atomic .Mt-neg-6 {
+  margin-top: -6px;
+}
+#atomic .Mt-neg-8 {
+  margin-top: -8px;
+}
+#atomic .Mt-neg-10 {
+  margin-top: -10px;
+}
+#atomic .Mt-neg-12 {
+  margin-top: -12px;
+}
+#atomic .Mt-neg-14 {
+  margin-top: -14px;
+}
+#atomic .Mt-neg-16 {
+  margin-top: -16px;
+}
+#atomic .Mt-neg-18 {
+  margin-top: -18px;
+}
+#atomic .Mt-neg-20 {
+  margin-top: -20px;
+}
+#atomic .Mt-neg-30 {
+  margin-top: -30px;
+}
+#atomic .Mt-neg-40 {
+  margin-top: -40px;
+}
+#atomic .Mt-neg-50 {
+  margin-top: -50px;
+}
+#atomic .Mt-neg-60 {
+  margin-top: -60px;
+}
+#atomic .Mt-neg-70 {
+  margin-top: -70px;
+}
+#atomic .Mend-a {
+  margin-right: auto;
+}
+#atomic .Mend-0 {
+  margin-right: 0;
+}
+#atomic .Mend-1 {
+  margin-right: 1px;
+}
+#atomic .Mend-2 {
+  margin-right: 2px;
+}
+#atomic .Mend-4 {
+  margin-right: 4px;
+}
+#atomic .Mend-6 {
+  margin-right: 6px;
+}
+#atomic .Mend-8 {
+  margin-right: 8px;
+}
+#atomic .Mend-10 {
+  margin-right: 10px;
+}
+#atomic .Mend-12 {
+  margin-right: 12px;
+}
+#atomic .Mend-14 {
+  margin-right: 14px;
+}
+#atomic .Mend-16 {
+  margin-right: 16px;
+}
+#atomic .Mend-18 {
+  margin-right: 18px;
+}
+#atomic .Mend-20 {
+  margin-right: 20px;
+}
+#atomic .Mend-30 {
+  margin-right: 30px;
+}
+#atomic .Mend-40 {
+  margin-right: 40px;
+}
+#atomic .Mend-50 {
+  margin-right: 50px;
+}
+#atomic .Mend-60 {
+  margin-right: 60px;
+}
+#atomic .Mend-70 {
+  margin-right: 70px;
+}
+#atomic .Mend-neg-1 {
+  margin-right: -1px;
+}
+#atomic .Mend-neg-2 {
+  margin-right: -2px;
+}
+#atomic .Mend-neg-4 {
+  margin-right: -4px;
+}
+#atomic .Mend-neg-6 {
+  margin-right: -6px;
+}
+#atomic .Mend-neg-8 {
+  margin-right: -8px;
+}
+#atomic .Mend-neg-10 {
+  margin-right: -10px;
+}
+#atomic .Mend-neg-12 {
+  margin-right: -12px;
+}
+#atomic .Mend-neg-14 {
+  margin-right: -14px;
+}
+#atomic .Mend-neg-16 {
+  margin-right: -16px;
+}
+#atomic .Mend-neg-18 {
+  margin-right: -18px;
+}
+#atomic .Mend-neg-20 {
+  margin-right: -20px;
+}
+#atomic .Mend-neg-30 {
+  margin-right: -30px;
+}
+#atomic .Mend-neg-40 {
+  margin-right: -40px;
+}
+#atomic .Mend-neg-50 {
+  margin-right: -50px;
+}
+#atomic .Mend-neg-60 {
+  margin-right: -60px;
+}
+#atomic .Mend-neg-70 {
+  margin-right: -70px;
+}
+#atomic .Mb-a {
+  margin-bottom: auto;
+}
+#atomic .Mb-0 {
+  margin-bottom: 0;
+}
+#atomic .Mb-1 {
+  margin-bottom: 1px;
+}
+#atomic .Mb-2 {
+  margin-bottom: 2px;
+}
+#atomic .Mb-4 {
+  margin-bottom: 4px;
+}
+#atomic .Mb-6 {
+  margin-bottom: 6px;
+}
+#atomic .Mb-8 {
+  margin-bottom: 8px;
+}
+#atomic .Mb-10 {
+  margin-bottom: 10px;
+}
+#atomic .Mb-12 {
+  margin-bottom: 12px;
+}
+#atomic .Mb-14 {
+  margin-bottom: 14px;
+}
+#atomic .Mb-16 {
+  margin-bottom: 16px;
+}
+#atomic .Mb-18 {
+  margin-bottom: 18px;
+}
+#atomic .Mb-20 {
+  margin-bottom: 20px;
+}
+#atomic .Mb-30 {
+  margin-bottom: 30px;
+}
+#atomic .Mb-40 {
+  margin-bottom: 40px;
+}
+#atomic .Mb-50 {
+  margin-bottom: 50px;
+}
+#atomic .Mb-60 {
+  margin-bottom: 60px;
+}
+#atomic .Mb-70 {
+  margin-bottom: 70px;
+}
+#atomic .Mb-neg-1 {
+  margin-bottom: -1px;
+}
+#atomic .Mb-neg-2 {
+  margin-bottom: -2px;
+}
+#atomic .Mb-neg-4 {
+  margin-bottom: -4px;
+}
+#atomic .Mb-neg-6 {
+  margin-bottom: -6px;
+}
+#atomic .Mb-neg-8 {
+  margin-bottom: -8px;
+}
+#atomic .Mb-neg-10 {
+  margin-bottom: -10px;
+}
+#atomic .Mb-neg-12 {
+  margin-bottom: -12px;
+}
+#atomic .Mb-neg-14 {
+  margin-bottom: -14px;
+}
+#atomic .Mb-neg-16 {
+  margin-bottom: -16px;
+}
+#atomic .Mb-neg-18 {
+  margin-bottom: -18px;
+}
+#atomic .Mb-neg-20 {
+  margin-bottom: -20px;
+}
+#atomic .Mb-neg-30 {
+  margin-bottom: -30px;
+}
+#atomic .Mb-neg-40 {
+  margin-bottom: -40px;
+}
+#atomic .Mb-neg-50 {
+  margin-bottom: -50px;
+}
+#atomic .Mb-neg-60 {
+  margin-bottom: -60px;
+}
+#atomic .Mb-neg-70 {
+  margin-bottom: -70px;
+}
+#atomic .Mstart-a {
+  margin-left: auto;
+}
+#atomic .Mstart-0 {
+  margin-left: 0;
+}
+#atomic .Mstart-1 {
+  margin-left: 1px;
+}
+#atomic .Mstart-2 {
+  margin-left: 2px;
+}
+#atomic .Mstart-4 {
+  margin-left: 4px;
+}
+#atomic .Mstart-6 {
+  margin-left: 6px;
+}
+#atomic .Mstart-8 {
+  margin-left: 8px;
+}
+#atomic .Mstart-10 {
+  margin-left: 10px;
+}
+#atomic .Mstart-12 {
+  margin-left: 12px;
+}
+#atomic .Mstart-14 {
+  margin-left: 14px;
+}
+#atomic .Mstart-16 {
+  margin-left: 16px;
+}
+#atomic .Mstart-18 {
+  margin-left: 18px;
+}
+#atomic .Mstart-20 {
+  margin-left: 20px;
+}
+#atomic .Mstart-30 {
+  margin-left: 30px;
+}
+#atomic .Mstart-40 {
+  margin-left: 40px;
+}
+#atomic .Mstart-50 {
+  margin-left: 50px;
+}
+#atomic .Mstart-60 {
+  margin-left: 60px;
+}
+#atomic .Mstart-70 {
+  margin-left: 70px;
+}
+#atomic .Mstart-neg-1 {
+  margin-left: -1px;
+}
+#atomic .Mstart-neg-2 {
+  margin-left: -2px;
+}
+#atomic .Mstart-neg-4 {
+  margin-left: -4px;
+}
+#atomic .Mstart-neg-6 {
+  margin-left: -6px;
+}
+#atomic .Mstart-neg-8 {
+  margin-left: -8px;
+}
+#atomic .Mstart-neg-10 {
+  margin-left: -10px;
+}
+#atomic .Mstart-neg-12 {
+  margin-left: -12px;
+}
+#atomic .Mstart-neg-14 {
+  margin-left: -14px;
+}
+#atomic .Mstart-neg-16 {
+  margin-left: -16px;
+}
+#atomic .Mstart-neg-18 {
+  margin-left: -18px;
+}
+#atomic .Mstart-neg-20 {
+  margin-left: -20px;
+}
+#atomic .Mstart-neg-30 {
+  margin-left: -30px;
+}
+#atomic .Mstart-neg-40 {
+  margin-left: -40px;
+}
+#atomic .Mstart-neg-50 {
+  margin-left: -50px;
+}
+#atomic .Mstart-neg-60 {
+  margin-left: -60px;
+}
+#atomic .Mstart-neg-70 {
+  margin-left: -70px;
+}
+#atomic .Mah-n {
+  max-height: none;
+}
+#atomic .Mah-0 {
+  max-height: 0;
+}
+#atomic .Mah-20 {
+  max-height: 20px;
+}
+#atomic .Mah-30 {
+  max-height: 30px;
+}
+#atomic .Mah-40 {
+  max-height: 40px;
+}
+#atomic .Mah-50 {
+  max-height: 50px;
+}
+#atomic .Mah-60 {
+  max-height: 60px;
+}
+#atomic .Mah-70 {
+  max-height: 70px;
+}
+#atomic .Mah-80 {
+  max-height: 80px;
+}
+#atomic .Mah-90 {
+  max-height: 90px;
+}
+#atomic .Mah-100 {
+  max-height: 100px;
+}
+#atomic .Maw-n {
+  max-width: none;
+}
+#atomic .Maw-inh {
+  max-width: inherit;
+}
+#atomic .Maw-0 {
+  max-width: 0;
+}
+#atomic .Maw-20 {
+  max-width: 20px;
+}
+#atomic .Maw-30 {
+  max-width: 30px;
+}
+#atomic .Maw-40 {
+  max-width: 40px;
+}
+#atomic .Maw-50 {
+  max-width: 50px;
+}
+#atomic .Maw-60 {
+  max-width: 60px;
+}
+#atomic .Maw-70 {
+  max-width: 70px;
+}
+#atomic .Maw-80 {
+  max-width: 80px;
+}
+#atomic .Maw-90 {
+  max-width: 90px;
+}
+#atomic .Maw-100 {
+  max-width: 100px;
+}
+#atomic .Mih-inh {
+  min-height: inherit;
+}
+#atomic .Mih-0 {
+  min-height: 0;
+}
+#atomic .Mih-20 {
+  min-height: 20px;
+}
+#atomic .Mih-30 {
+  min-height: 30px;
+}
+#atomic .Mih-40 {
+  min-height: 40px;
+}
+#atomic .Mih-50 {
+  min-height: 50px;
+}
+#atomic .Mih-60 {
+  min-height: 60px;
+}
+#atomic .Mih-70 {
+  min-height: 70px;
+}
+#atomic .Mih-80 {
+  min-height: 80px;
+}
+#atomic .Mih-90 {
+  min-height: 90px;
+}
+#atomic .Mih-100 {
+  min-height: 100px;
+}
+#atomic .Miw-inh {
+  min-width: inherit;
+}
+#atomic .Miw-0 {
+  min-width: 0;
+}
+#atomic .Miw-20 {
+  min-width: 20px;
+}
+#atomic .Miw-30 {
+  min-width: 30px;
+}
+#atomic .Miw-40 {
+  min-width: 40px;
+}
+#atomic .Miw-50 {
+  min-width: 50px;
+}
+#atomic .Miw-60 {
+  min-width: 60px;
+}
+#atomic .Miw-70 {
+  min-width: 70px;
+}
+#atomic .Miw-80 {
+  min-width: 80px;
+}
+#atomic .Miw-90 {
+  min-width: 90px;
+}
+#atomic .Miw-100 {
+  min-width: 100px;
+}
+#atomic .O-0 {
+  outline: 0;
+}
+#atomic .O-n {
+  outline: none;
+}
+#atomic .O-inh {
+  outline: inherit;
+}
+#atomic .T-a {
+  top: auto;
+}
+#atomic .T-inh {
+  top: inherit;
+}
+#atomic .T-0 {
+  top: 0;
+}
+#atomic .T-50 {
+  top: 50%;
+}
+#atomic .T-100 {
+  top: 100%;
+}
+#atomic .End-a {
+  right: auto;
+}
+#atomic .End-inh {
+  right: inherit;
+}
+#atomic .End-0 {
+  right: 0;
+}
+#atomic .End-50 {
+  right: 50%;
+}
+#atomic .End-100 {
+  right: 100%;
+}
+#atomic .B-a {
+  bottom: auto;
+}
+#atomic .B-inh {
+  bottom: inherit;
+}
+#atomic .B-0 {
+  bottom: 0;
+}
+#atomic .B-50 {
+  bottom: 50%;
+}
+#atomic .B-100 {
+  bottom: 100%;
+}
+#atomic .Start-a {
+  left: auto;
+}
+#atomic .Start-inh {
+  left: inherit;
+}
+#atomic .Start-0 {
+  left: 0;
+}
+#atomic .Start-50 {
+  left: 50%;
+}
+#atomic .Start-100 {
+  left: 100%;
+}
+#atomic .Op-inh {
+  opacity: inherit;
+}
+#atomic .Op-0 {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+#atomic .Op-0\.33 {
+  opacity: 0.33;
+  filter: alpha(opacity=33);
+}
+#atomic .Op-0\.50 {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+#atomic .Op-0\.66 {
+  opacity: 0.66;
+  filter: alpha(opacity=66);
+}
+#atomic .Op-1 {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+#atomic .Ov-v {
+  overflow: visible;
+}
+#atomic .Ov-h {
+  overflow: hidden;
+}
+#atomic .Ov-s {
+  overflow: scroll;
+}
+#atomic .Ov-a {
+  overflow: auto;
+}
+#atomic .Ov-inh {
+  overflow: inherit;
+}
+#atomic .Ovx-v {
+  overflow-x: visible;
+}
+#atomic .Ovx-h {
+  overflow-x: hidden;
+}
+#atomic .Ovx-s {
+  overflow-x: scroll;
+}
+#atomic .Ovx-a {
+  overflow-x: auto;
+}
+#atomic .Ovx-inh {
+  overflow-x: inherit;
+}
+#atomic .Ovy-v {
+  overflow-y: visible;
+}
+#atomic .Ovy-h {
+  overflow-y: hidden;
+}
+#atomic .Ovy-s {
+  overflow-y: scroll;
+}
+#atomic .Ovy-a {
+  overflow-y: auto;
+}
+#atomic .Ovy-inh {
+  overflow-y: inherit;
+}
+#atomic .Ovs-t {
+  -webkit-overflow-scrolling: touch;
+}
+#atomic .P-0 {
+  padding: 0;
+}
+#atomic .P-1 {
+  padding: 1px;
+}
+#atomic .P-2 {
+  padding: 2px;
+}
+#atomic .P-4 {
+  padding: 4px;
+}
+#atomic .P-6 {
+  padding: 6px;
+}
+#atomic .P-8 {
+  padding: 8px;
+}
+#atomic .P-10 {
+  padding: 10px;
+}
+#atomic .P-12 {
+  padding: 12px;
+}
+#atomic .P-14 {
+  padding: 14px;
+}
+#atomic .P-16 {
+  padding: 16px;
+}
+#atomic .P-18 {
+  padding: 18px;
+}
+#atomic .P-20 {
+  padding: 20px;
+}
+#atomic .P-24 {
+  padding: 24px;
+}
+#atomic .P-28 {
+  padding: 28px;
+}
+#atomic .P-32 {
+  padding: 32px;
+}
+#atomic .P-36 {
+  padding: 36px;
+}
+#atomic .P-40 {
+  padding: 40px;
+}
+#atomic .Px-0 {
+  padding-right: 0;
+  padding-left: 0;
+}
+#atomic .Px-1px {
+  padding-right: 1px;
+  padding-left: 1px;
+}
+#atomic .Px-2px {
+  padding-right: 2px;
+  padding-left: 2px;
+}
+#atomic .Px-4px {
+  padding-right: 4px;
+  padding-left: 4px;
+}
+#atomic .Px-6px {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+#atomic .Px-8px {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+#atomic .Px-10px {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#atomic .Px-12px {
+  padding-right: 12px;
+  padding-left: 12px;
+}
+#atomic .Px-14px {
+  padding-right: 14px;
+  padding-left: 14px;
+}
+#atomic .Px-16px {
+  padding-right: 16px;
+  padding-left: 16px;
+}
+#atomic .Px-18px {
+  padding-right: 18px;
+  padding-left: 18px;
+}
+#atomic .Px-20px {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+#atomic .Px-24px {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+#atomic .Px-28px {
+  padding-right: 28px;
+  padding-left: 28px;
+}
+#atomic .Px-32px {
+  padding-right: 32px;
+  padding-left: 32px;
+}
+#atomic .Px-36px {
+  padding-right: 36px;
+  padding-left: 36px;
+}
+#atomic .Px-40px {
+  padding-right: 40px;
+  padding-left: 40px;
+}
+#atomic .Py-0 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#atomic .Py-1px {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+#atomic .Py-2px {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+#atomic .Py-4px {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+#atomic .Py-6px {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+#atomic .Py-8px {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+#atomic .Py-10px {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#atomic .Py-12px {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+#atomic .Py-14px {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+#atomic .Py-16px {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+#atomic .Py-18px {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+#atomic .Py-20px {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#atomic .Py-24px {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+#atomic .Py-28px {
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+#atomic .Py-32px {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+#atomic .Py-36px {
+  padding-top: 36px;
+  padding-bottom: 36px;
+}
+#atomic .Py-40px {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+#atomic .Pt-0 {
+  padding-top: 0;
+}
+#atomic .Pt-1 {
+  padding-top: 1px;
+}
+#atomic .Pt-2 {
+  padding-top: 2px;
+}
+#atomic .Pt-4 {
+  padding-top: 4px;
+}
+#atomic .Pt-6 {
+  padding-top: 6px;
+}
+#atomic .Pt-8 {
+  padding-top: 8px;
+}
+#atomic .Pt-10 {
+  padding-top: 10px;
+}
+#atomic .Pt-12 {
+  padding-top: 12px;
+}
+#atomic .Pt-14 {
+  padding-top: 14px;
+}
+#atomic .Pt-16 {
+  padding-top: 16px;
+}
+#atomic .Pt-18 {
+  padding-top: 18px;
+}
+#atomic .Pt-20 {
+  padding-top: 20px;
+}
+#atomic .Pt-24 {
+  padding-top: 24px;
+}
+#atomic .Pt-28 {
+  padding-top: 28px;
+}
+#atomic .Pt-32 {
+  padding-top: 32px;
+}
+#atomic .Pt-36 {
+  padding-top: 36px;
+}
+#atomic .Pt-40 {
+  padding-top: 40px;
+}
+#atomic .Pend-0 {
+  padding-right: 0;
+}
+#atomic .Pend-1 {
+  padding-right: 1px;
+}
+#atomic .Pend-2 {
+  padding-right: 2px;
+}
+#atomic .Pend-4 {
+  padding-right: 4px;
+}
+#atomic .Pend-6 {
+  padding-right: 6px;
+}
+#atomic .Pend-8 {
+  padding-right: 8px;
+}
+#atomic .Pend-10 {
+  padding-right: 10px;
+}
+#atomic .Pend-12 {
+  padding-right: 12px;
+}
+#atomic .Pend-14 {
+  padding-right: 14px;
+}
+#atomic .Pend-16 {
+  padding-right: 16px;
+}
+#atomic .Pend-18 {
+  padding-right: 18px;
+}
+#atomic .Pend-20 {
+  padding-right: 20px;
+}
+#atomic .Pend-24 {
+  padding-right: 24px;
+}
+#atomic .Pend-28 {
+  padding-right: 28px;
+}
+#atomic .Pend-32 {
+  padding-right: 32px;
+}
+#atomic .Pend-36 {
+  padding-right: 36px;
+}
+#atomic .Pend-40 {
+  padding-right: 40px;
+}
+#atomic .Pb-0 {
+  padding-bottom: 0;
+}
+#atomic .Pb-1 {
+  padding-bottom: 1px;
+}
+#atomic .Pb-2 {
+  padding-bottom: 2px;
+}
+#atomic .Pb-4 {
+  padding-bottom: 4px;
+}
+#atomic .Pb-6 {
+  padding-bottom: 6px;
+}
+#atomic .Pb-8 {
+  padding-bottom: 8px;
+}
+#atomic .Pb-10 {
+  padding-bottom: 10px;
+}
+#atomic .Pb-12 {
+  padding-bottom: 12px;
+}
+#atomic .Pb-14 {
+  padding-bottom: 14px;
+}
+#atomic .Pb-16 {
+  padding-bottom: 16px;
+}
+#atomic .Pb-18 {
+  padding-bottom: 18px;
+}
+#atomic .Pb-20 {
+  padding-bottom: 20px;
+}
+#atomic .Pb-24 {
+  padding-bottom: 24px;
+}
+#atomic .Pb-28 {
+  padding-bottom: 28px;
+}
+#atomic .Pb-32 {
+  padding-bottom: 32px;
+}
+#atomic .Pb-36 {
+  padding-bottom: 36px;
+}
+#atomic .Pb-40 {
+  padding-bottom: 40px;
+}
+#atomic .Pstart-0 {
+  padding-left: 0;
+}
+#atomic .Pstart-1 {
+  padding-left: 1px;
+}
+#atomic .Pstart-2 {
+  padding-left: 2px;
+}
+#atomic .Pstart-4 {
+  padding-left: 4px;
+}
+#atomic .Pstart-6 {
+  padding-left: 6px;
+}
+#atomic .Pstart-8 {
+  padding-left: 8px;
+}
+#atomic .Pstart-10 {
+  padding-left: 10px;
+}
+#atomic .Pstart-12 {
+  padding-left: 12px;
+}
+#atomic .Pstart-14 {
+  padding-left: 14px;
+}
+#atomic .Pstart-16 {
+  padding-left: 16px;
+}
+#atomic .Pstart-18 {
+  padding-left: 18px;
+}
+#atomic .Pstart-20 {
+  padding-left: 20px;
+}
+#atomic .Pstart-24 {
+  padding-left: 24px;
+}
+#atomic .Pstart-28 {
+  padding-left: 28px;
+}
+#atomic .Pstart-32 {
+  padding-left: 32px;
+}
+#atomic .Pstart-36 {
+  padding-left: 36px;
+}
+#atomic .Pstart-40 {
+  padding-left: 40px;
+}
+#atomic .Pe-n {
+  pointer-events: none;
+}
+#atomic .Pe-a {
+  pointer-events: auto;
+}
+#atomic .Pos-s {
+  position: static;
+}
+#atomic .Pos-a {
+  position: absolute;
+}
+#atomic .Pos-r {
+  position: relative;
+}
+#atomic .Pos-f {
+  position: fixed;
+}
+#atomic .Pos-inh {
+  position: inherit;
+}
+#atomic .Tbl-f {
+  table-layout: fixed;
+}
+#atomic .Tbl-a {
+  table-layout: auto;
+}
+#atomic .Tbl-inh {
+  table-layout: inherit;
+}
+#atomic .Ta-start {
+  text-align: left;
+}
+#atomic .Ta-end {
+  text-align: right;
+}
+#atomic .Ta-c {
+  text-align: center;
+}
+#atomic .Ta-j {
+  text-align: justify;
+}
+#atomic .Ta-m {
+  text-align: match-parent;
+}
+#atomic .Tal-a {
+  text-align-last: auto;
+}
+#atomic .Tal-start {
+  text-align-last: left;
+}
+#atomic .Tal-end {
+  text-align-last: right;
+}
+#atomic .Tal-c {
+  text-align-last: center;
+}
+#atomic .Tal-j {
+  text-align-last: justify;
+}
+#atomic .Td-n {
+  text-decoration: none;
+}
+#atomic .Td-u {
+  text-decoration: underline;
+}
+#atomic .Td-o {
+  text-decoration: overline;
+}
+#atomic .Td-l {
+  text-decoration: line-through;
+}
+#atomic .Tren-a {
+  text-rendering: auto;
+}
+#atomic .Tren-os {
+  text-rendering: optimizeSpeed;
+}
+#atomic .Tren-ol {
+  text-rendering: optimizeLegibility;
+}
+#atomic .Tren-gp {
+  text-rendering: geometricPrecision;
+}
+#atomic .Tren-inh {
+  text-rendering: inherit;
+}
+#atomic .Tr-n {
+  text-replace: none;
+}
+#atomic .Tt-n {
+  text-transform: none;
+}
+#atomic .Tt-c {
+  text-transform: capitalize;
+}
+#atomic .Tt-u {
+  text-transform: uppercase;
+}
+#atomic .Tt-l {
+  text-transform: lowercase;
+}
+#atomic .Tsh-n {
+  text-shadow: none;
+}
+#atomic .Us-n {
+  user-select: none;
+}
+#atomic .Us-t {
+  user-select: text;
+}
+#atomic .Us-to {
+  user-select: toggle;
+}
+#atomic .Us-el {
+  user-select: element;
+}
+#atomic .Us-els {
+  user-select: elements;
+}
+#atomic .Us-a {
+  user-select: all;
+}
+#atomic .Us-inh {
+  user-select: inherit;
+}
+#atomic .Va-sup {
+  vertical-align: super;
+}
+#atomic .Va-t {
+  vertical-align: top;
+}
+#atomic .Va-tt {
+  vertical-align: text-top;
+}
+#atomic .Va-m {
+  vertical-align: middle;
+}
+#atomic .Va-bl {
+  vertical-align: baseline;
+}
+#atomic .Va-b {
+  vertical-align: bottom;
+}
+#atomic .Va-tb {
+  vertical-align: text-bottom;
+}
+#atomic .Va-sub {
+  vertical-align: sub;
+}
+#atomic .V-v {
+  visibility: visible;
+}
+#atomic .V-h {
+  visibility: hidden;
+}
+#atomic .V-c {
+  visibility: collapse;
+}
+#atomic .Whs-n {
+  white-space: normal;
+}
+#atomic .Whs-p {
+  white-space: pre;
+}
+#atomic .Whs-nw {
+  white-space: nowrap;
+}
+#atomic .Whs-pw {
+  white-space: pre-wrap;
+}
+#atomic .Whs-pl {
+  white-space: pre-line;
+}
+#atomic .Whsc-n {
+  white-space-collapse: normal;
+}
+#atomic .Whsc-k {
+  white-space-collapse: keep-all;
+}
+#atomic .Whsc-l {
+  white-space-collapse: loose;
+}
+#atomic .Whsc-bs {
+  white-space-collapse: break-strict;
+}
+#atomic .Whsc-ba {
+  white-space-collapse: break-all;
+}
+#atomic .W-auto {
+  width: auto;
+}
+#atomic .W-inherit {
+  width: inherit;
+}
+#atomic .W-0 {
+  width: 0;
+}
+#atomic .W-20\% {
+  width: 20%;
+}
+#atomic .W-50\% {
+  width: 50%;
+}
+#atomic .W-75\% {
+  width: 75%;
+}
+#atomic .W-100\% {
+  width: 100%;
+}
+#atomic .Wpx-1 {
+  width: 1px;
+}
+#atomic .Wpx-2 {
+  width: 2px;
+}
+#atomic .Wpx-4 {
+  width: 4px;
+}
+#atomic .Wpx-6 {
+  width: 6px;
+}
+#atomic .Wpx-8 {
+  width: 8px;
+}
+#atomic .Wpx-10 {
+  width: 10px;
+}
+#atomic .Wpx-12 {
+  width: 12px;
+}
+#atomic .Wpx-14 {
+  width: 14px;
+}
+#atomic .Wpx-16 {
+  width: 16px;
+}
+#atomic .Wpx-18 {
+  width: 18px;
+}
+#atomic .Wpx-20 {
+  width: 20px;
+}
+#atomic .Wpx-24 {
+  width: 24px;
+}
+#atomic .Wpx-28 {
+  width: 28px;
+}
+#atomic .Wpx-32 {
+  width: 32px;
+}
+#atomic .Wpx-36 {
+  width: 36px;
+}
+#atomic .Wpx-40 {
+  width: 40px;
+}
+@media (min-width: 320px) {
+  #atomic .W-xs-1\/12 {
+    width: 8.33333%;
+  }
+  #atomic .W-xs-2\/12 {
+    width: 16.66667%;
+  }
+  #atomic .W-xs-3\/12 {
+    width: 25%;
+  }
+  #atomic .W-xs-4\/12 {
+    width: 33.33333%;
+  }
+  #atomic .W-xs-5\/12 {
+    width: 41.66667%;
+  }
+  #atomic .W-xs-6\/12 {
+    width: 50%;
+  }
+  #atomic .W-xs-7\/12 {
+    width: 58.33333%;
+  }
+  #atomic .W-xs-8\/12 {
+    width: 66.66667%;
+  }
+  #atomic .W-xs-9\/12 {
+    width: 75%;
+  }
+  #atomic .W-xs-10\/12 {
+    width: 83.33333%;
+  }
+  #atomic .W-xs-11\/12 {
+    width: 91.66667%;
+  }
+  #atomic .W-xs-12\/12 {
+    width: 100%;
+  }
+}
+@media (min-width: 767px) {
+  #atomic .W-sm-1\/12 {
+    width: 8.33333%;
+  }
+  #atomic .W-sm-2\/12 {
+    width: 16.66667%;
+  }
+  #atomic .W-sm-3\/12 {
+    width: 25%;
+  }
+  #atomic .W-sm-4\/12 {
+    width: 33.33333%;
+  }
+  #atomic .W-sm-5\/12 {
+    width: 41.66667%;
+  }
+  #atomic .W-sm-6\/12 {
+    width: 50%;
+  }
+  #atomic .W-sm-7\/12 {
+    width: 58.33333%;
+  }
+  #atomic .W-sm-8\/12 {
+    width: 66.66667%;
+  }
+  #atomic .W-sm-9\/12 {
+    width: 75%;
+  }
+  #atomic .W-sm-10\/12 {
+    width: 83.33333%;
+  }
+  #atomic .W-sm-11\/12 {
+    width: 91.66667%;
+  }
+  #atomic .W-sm-12\/12 {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  #atomic .W-md-1\/12 {
+    width: 8.33333%;
+  }
+  #atomic .W-md-2\/12 {
+    width: 16.66667%;
+  }
+  #atomic .W-md-3\/12 {
+    width: 25%;
+  }
+  #atomic .W-md-4\/12 {
+    width: 33.33333%;
+  }
+  #atomic .W-md-5\/12 {
+    width: 41.66667%;
+  }
+  #atomic .W-md-6\/12 {
+    width: 50%;
+  }
+  #atomic .W-md-7\/12 {
+    width: 58.33333%;
+  }
+  #atomic .W-md-8\/12 {
+    width: 66.66667%;
+  }
+  #atomic .W-md-9\/12 {
+    width: 75%;
+  }
+  #atomic .W-md-10\/12 {
+    width: 83.33333%;
+  }
+  #atomic .W-md-11\/12 {
+    width: 91.66667%;
+  }
+  #atomic .W-md-12\/12 {
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  #atomic .W-lg-1\/12 {
+    width: 8.33333%;
+  }
+  #atomic .W-lg-2\/12 {
+    width: 16.66667%;
+  }
+  #atomic .W-lg-3\/12 {
+    width: 25%;
+  }
+  #atomic .W-lg-4\/12 {
+    width: 33.33333%;
+  }
+  #atomic .W-lg-5\/12 {
+    width: 41.66667%;
+  }
+  #atomic .W-lg-6\/12 {
+    width: 50%;
+  }
+  #atomic .W-lg-7\/12 {
+    width: 58.33333%;
+  }
+  #atomic .W-lg-8\/12 {
+    width: 66.66667%;
+  }
+  #atomic .W-lg-9\/12 {
+    width: 75%;
+  }
+  #atomic .W-lg-10\/12 {
+    width: 83.33333%;
+  }
+  #atomic .W-lg-11\/12 {
+    width: 91.66667%;
+  }
+  #atomic .W-lg-12\/12 {
+    width: 100%;
+  }
+}
+#atomic .Wob-n {
+  word-break: normal;
+}
+#atomic .Wob-ba {
+  word-break: break-all;
+}
+#atomic .Wob-k {
+  word-break: keep-all;
+}
+#atomic .Wow-bw {
+  word-warp: break-word;
+}
+#atomic .Wow-n {
+  word-warp: normal;
+}
+#atomic .Z-a {
+  z-index: auto;
+}
+#atomic .Z-inh {
+  z-index: inherit;
+}
+#atomic .Z-0 {
+  z-index: 0;
+}
+#atomic .Z-1 {
+  z-index: 1;
+}
+#atomic .Z-3 {
+  z-index: 3;
+}
+#atomic .Z-5 {
+  z-index: 5;
+}
+#atomic .Z-7 {
+  z-index: 7;
+}
+#atomic .Z-10 {
+  z-index: 10;
+}
