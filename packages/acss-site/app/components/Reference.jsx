@@ -4,7 +4,7 @@
  */
 'use strict';
 var React = require('react');
-var Rules = require('atomic-css').rules;
+var Rules = require('atomizer').rules;
 var SearchBox = require('./SearchBox');
 
 // stores
@@ -15,7 +15,7 @@ var FluxibleMixin = require('fluxible').Mixin;
 
 
 /**
- * Generates atomic.css sass variables
+ * Searchable reference docs
  *
  * @class Reference
  * @constructor
