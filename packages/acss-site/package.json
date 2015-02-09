@@ -1,0 +1,55 @@
+{
+  "name": "acss-site",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Atomic CSS website",
+  "main": "app/server.js",
+  "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
+  "scripts": {
+    "dev": "grunt",
+    "prod": "grunt prod"
+  },
+  "dependencies": {
+    "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
+    "express-state": "^1.2.0",
+    "serve-favicon": "^2.1.7",
+    "serialize-javascript": "^1.0.0",
+    "express": "^4.10.4",
+    "body-parser": "^1.9.3",
+    "react": "~0.12.1",
+    "node-jsx": "~0.12.4",
+    "flux-router-component": "~0.5.0",
+    "react-router": "~0.11.4",
+    "fluxible-plugin-routr": "~0.3.0",
+    "fluxible": "~0.2.0"
+  },
+  "devDependencies": {
+    "chalk": "^0.5.1",
+    "grunt": "~0.4.5",
+    "grunt-contrib-copy": "~0.7.0",
+    "grunt-nodemon": "~0.3.0",
+    "grunt-webpack": "^1.0.8",
+    "jsx-loader": "~0.12.2",
+    "load-grunt-tasks": "^1.0.0",
+    "webpack": "^1.4.13",
+    "webpack-dev-server": "^1.6.6",
+    "maxmin": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yahoo/acss-site.git"
+  },
+  "keywords": [
+    "atomic",
+    "atomic-css",
+    "atomic.css",
+    "acss",
+    "css",
+    "yahoo"
+  ],
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/yahoo/acss-site/issues"
+  },
+  "homepage": "https://github.com/yahoo/acss-site"
+}
