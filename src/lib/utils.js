@@ -1,3 +1,9 @@
+/*
+ * Copyright (c) 2015, Yahoo Inc. All rights reserved.
+ * Copyrights licensed under the New BSD License.
+ * See the accompanying LICENSE file for terms.
+ */
+
 var utils = exports;
 
 utils.getNumber = function(value) {

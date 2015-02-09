@@ -35,7 +35,7 @@ We have [wiki](https://github.com/yahoo/atomizer/wiki) docs for contributors who
 
 ## License
 
-This software is free to use under the Yahoo! Inc. BSD license.
+This software is free to use under the Yahoo Inc. BSD license.
 See the [LICENSE file][] for license text and copyright information.
 
 [LICENSE file]: https://github.com/yahoo/atomizer/blob/master/LICENSE.md
