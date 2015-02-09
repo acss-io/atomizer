@@ -11,7 +11,10 @@
 process.title = 'atomizer';
 
 var path = require('path');
-var Atomizer = require('../src/atomizer.js');
+var fs = require('fs');
+var chalk = require('chalk');
+var atomizer = require('atomizer');
+var configObjs = [];
 
 var params = require('minimist')(process.argv.slice(2));
 
@@ -21,8 +24,39 @@ if (process.argv.slice(2).length === 0 || params.help) {
     return;
 }
 
-var srcFiles = params._ || []; 
-var outfile = params.o || params.outfile;
-var options = {}; // TODO
+// TODO
+var options = {
+    require: []
+}; 
 
-Atomizer(srcFiles, options, outfile);
+if (options.require.length > 0) {
+    options.require = options.require.map(function (file) {
+        return path.resolve(file);
+    });
+}
+
+var srcFiles = params._ || [];
+srcFiles = srcFiles.filter(function(filepath) {
+    if (!fs.existsSync(filepath)) { 
+        console.warn('Configuration file ' + chalk.cyan(filepath) + ' not found.');
+        return false;
+    } else {
+        configObjs.push(require(path.resolve(filepath)));
+        return true;
+    }
+});
+
+var content = atomizer(configObjs, options);
+
+var outfile = params.o || params.outfile;
+if (outfile) {
+    fs.mkdir(path.dirname(outfile), function (err) {
+        // Fail silently
+        fs.writeFile(path.resolve(outfile), content, function (err) {
+            if (err) throw err;
+            console.log('File ' + chalk.cyan(outfile) + ' created.');
+        });
+    });
+} else {
+    process.stdout.write(content);
+}
