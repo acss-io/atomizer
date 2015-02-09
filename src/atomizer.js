@@ -1,7 +1,6 @@
 'use strict';
 
 var _ = require('lodash');
-var chalk = require('chalk');
 var Absurd = require('absurd');
 var AtomicBuilder = require('./lib/AtomicBuilder.js');
 var objectAssign = require('object-assign');
