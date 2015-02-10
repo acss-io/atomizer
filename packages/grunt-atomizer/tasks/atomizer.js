@@ -1,6 +1,7 @@
 'use strict';
 
-var Atomizer = require('atomizer').atomizer;
+var atomizer = require('atomizer');
+var path = require('path');
 
 module.exports = function (grunt) {
 
@@ -13,8 +14,13 @@ module.exports = function (grunt) {
         }
 
         this.files.forEach(function (f) {
-            Atomizer(f.src, options, f.dest, done);
+            var content = '';
+            f.src.forEach(function (configFile) {
+                content += atomizer(require(path.resolve(configFile)), options);
+            });
+            grunt.file.write(f.dest, content);
         });
 
+        done();
     });
 };
