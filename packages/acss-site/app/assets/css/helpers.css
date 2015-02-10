@@ -1,0 +1,101 @@
+/**
+ * TODO:
+ *    - font-size on ".Opposite-boxes" should be same and 80% of font-size set for body
+ *    - ".ButtonLink" should be same color as links set in base
+ *    - ".NoLinkColor" should be the same as color set in body
+ */
+
+.Reset {
+    padding: 0;
+    margin: 0;
+}
+
+/**
+ * Warning: layout can break depending on content
+ */
+.Bfc-hack {
+    display: table-cell;
+    width: 1600px;
+    *width: auto;
+    zoom: 1;
+}
+
+ul.u-list {
+    list-style-type: disc;
+}
+
+
+/**
+ * direct children of "opposite boxes" must have the following class: `D-ib`
+ */
+.OppositeBoxes {
+    text-align: justify;
+    font-size: 0;
+}
+
+.OppositeBoxes > * {
+    font-size: 16px; /* should be default size (same as body) */
+}
+
+.OppositeBoxes > small {
+    font-size: 12px; /* this cannot be set in percentage no ems */
+}
+
+.OppositeBoxes:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+}
+
+/**
+ * .ButtonNaked removes the default styling of buttons
+ */
+.ButtonNaked,
+.ButtonLink {
+    background: none;
+    border: 0;
+}
+
+.ButtonLink {
+    color: #08c;
+}
+
+.ButtonNaked {
+    padding: 0;
+}
+
+/**
+ * Visually hidden (accessible to screen-readers)
+ */
+.Hidden {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+/**
+ * Default text color
+ */
+.NoLinkColor,
+.NoLinkColor a {
+    color: #555 !important;
+}
+
+/**
+ * Optimize legibility (legibility over rendering speed and geometric precision.)
+ * In base.css, this style is already applied onto headings and <strong>
+ */
+.OptLegibility {
+    -webkit-text-rendering: optimizeLegibility;
+     -moz-text-rendering: optimizeLegibility;
+     -ms-text-rendering: optimizeLegibility;
+     -o-text-rendering: optimizeLegibility;
+     text-rendering: optimizeLegibility;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}

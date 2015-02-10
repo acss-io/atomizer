@@ -16,6 +16,12 @@ var FluxibleMixin = require('fluxible').Mixin;
 var Html = React.createClass({
     mixins: [ FluxibleMixin ],
 
+    getDefaultProps: function () {
+        return {
+            dev: false
+        };
+    },
+
     /**
      * Refer to React documentation render
      *
@@ -23,6 +29,7 @@ var Html = React.createClass({
      * @return {Object} HTML head section
      */
     render: function() {
+        var liveReload = this.props.dev ? (<script src={"//localhost:35729/livereload.js"}></script>) : '';
         return (
             <html id="atomic">
                 <head>
@@ -30,9 +37,11 @@ var Html = React.createClass({
                     <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="stylesheet" href="/public/css/atomic.css" />
+                    <link rel="stylesheet" href="/public/css/bundle.css" />
                 </head>
                 <body>
                     <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
+                    {liveReload}
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 <script src="/public/js/client.js" defer></script>
