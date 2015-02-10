@@ -28,3 +28,6 @@ app/build/
 
 # Users Environment Variables
 .lock-wscript
+
+# grunt-nodemon
+.rebooted

@@ -5,9 +5,18 @@
   "description": "Atomic CSS website",
   "main": "app/server.js",
   "contributors": [
-    {"name": "Renato Iwashima", "email": "renatoi@yahoo-inc.com"},
-    {"name": "Steve Carlson", "email": "yasteve@yahoo-inc.com"},
-    {"name": "Thierry Koblentz", "email": "thierryk@yahoo-inc.com"}
+    {
+      "name": "Renato Iwashima",
+      "email": "renatoi@yahoo-inc.com"
+    },
+    {
+      "name": "Steve Carlson",
+      "email": "yasteve@yahoo-inc.com"
+    },
+    {
+      "name": "Thierry Koblentz",
+      "email": "thierryk@yahoo-inc.com"
+    }
   ],
   "scripts": {
     "dev": "grunt",
@@ -15,23 +24,30 @@
   },
   "dependencies": {
     "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
-    "express-state": "^1.2.0",
-    "serve-favicon": "^2.1.7",
-    "serialize-javascript": "^1.0.0",
-    "express": "^4.10.4",
     "body-parser": "^1.9.3",
-    "react": "~0.12.1",
-    "node-jsx": "~0.12.4",
+    "express": "^4.10.4",
+    "express-state": "^1.2.0",
     "flux-router-component": "~0.5.0",
+    "fluxible": "~0.2.0",
     "fluxible-plugin-routr": "~0.3.0",
-    "fluxible": "~0.2.0"
+    "minimist": "^1.1.0",
+    "node-jsx": "~0.12.4",
+    "react": "~0.12.1",
+    "serialize-javascript": "^1.0.0",
+    "serve-favicon": "^2.1.7"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-atomizer": "git+ssh://git@github.com:yahoo/grunt-atomizer.git",
+    "grunt-concurrent": "^1.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "~0.3.0",
     "grunt-webpack": "^1.0.8",
     "jsx-loader": "~0.12.2",
-    "load-grunt-tasks": "^1.0.0"
+    "load-grunt-tasks": "^1.0.0",
+    "open": "0.0.5"
   },
   "repository": {
     "type": "git",

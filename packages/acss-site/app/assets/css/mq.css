@@ -1,0 +1,79 @@
+@media screen and (max-width: 700px) {
+
+    /**
+     * SPLASH (home page)
+     */
+    #splash {
+        background-size: 200% !important;
+    }
+
+    #splash h1 {
+        width: 200px !important;
+        min-height: 200px;
+    }
+
+    #splash img {
+        max-width: none;
+        width: 1500px;
+        top: -20px;
+    }
+
+    /**
+     * menu (slider)
+     */
+    .menu-on #aside {
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        box-shadow: 1px 0 9px 1px #555;
+    }
+
+    .menu-on #overlay {
+        display: block;
+        background: rgba(0, 0, 0, .6);
+    }
+
+    #aside {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        -webkit-transform-origin: top right;
+        -ms-transform-origin: top right;
+        transform-origin: top right;
+        position: absolute;
+        margin-top: -20px;
+        background: #FFF;
+        transition: all .3s;
+    }
+
+    /**
+     * to remove the links from tabbing navigation
+     */
+    #atomic #aside a {
+        visibility: hidden;
+    }
+
+    .menu-on#atomic #aside a {
+        visibility: visible;
+    }
+
+    #toggleMenuButton {
+        background-image:url(../images/menu.png);
+        width: 32px;
+        height: 32px;
+    }
+
+    .menu-on #toggleMenuButton {
+        display: block;
+        background-position: 100% 0;
+    }
+
+}
+
+@media screen and (min-width:700px) {
+
+    #atomic .innerwrapper {
+        max-width: 1200px;
+    }
+
+}

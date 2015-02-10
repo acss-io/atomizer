@@ -1,0 +1,119 @@
+ /**********
+ ***********
+       ****
+      ****
+     ****
+    ****
+   ****
+  ****
+ ****/
+
+/**
+ * "justify" fails so display both as floats (left/right)
+ */
+#atomic #header #home {
+    *float: left;
+}
+
+#atomic #header ul {
+    *float: right;
+}
+
+#atomic #header li {
+    *margin-left: 15px;
+}
+
+/**
+ * only relevant for small viewport
+ */
+#atomic #toggleMenuButton {
+    *display: none;
+}
+
+#atomic .innerwrapper {
+    *width: 800px;
+    *margin-left: auto;
+    *margin-right: auto;
+}
+
+#atomic #aside,
+#atomic #main {
+    *display: inline;
+    *zoom: 1;
+}
+
+#atomic #aside {
+    *width: 150px !important;
+}
+
+#atomic #main {
+    *width: 620px !important;
+}
+
+#atomic .innerwrapper {
+    *width: 880px;
+    *margin-left: auto;
+    *margin-right: auto;
+}
+
+/**
+ * "justify" fails so display both lines as blocks
+ */
+#atomic #footer small {
+    *display: block !important;
+}
+
+   /*****
+  *********
+ ****   ****
+ ***     ***
+ ***     ***
+  *********
+  ********
+ ***     ***
+ ***     ***
+ ****   ****
+  *********
+    *****/
+
+@media screen\0 {
+
+    /**
+     * "justify" fails so display both as floats (left/right)
+     */
+    #atomic #header #home {
+        float: left;
+    }
+
+    #atomic #header ul {
+        float: right;
+    }
+
+    /**
+     * only relevant for small viewport
+     */
+    #atomic #toggleMenuButton {
+        display: none;
+    }
+
+    /**
+     * Fixed centered layout for oldIE
+     */
+    #atomic #aside {
+        width: 150px !important;
+    }
+
+    #atomic .innerwrapper {
+        width: 880px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /**
+     * "justify" fails so display both lines as blocks
+     */
+    #atomic #footer small {
+        display: block !important;
+    }
+
+}

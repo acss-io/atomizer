@@ -17,9 +17,12 @@ var navigateAction = require('flux-router-component').navigateAction;
 var HtmlComponent = React.createFactory(require('./components/Html.jsx'));
 var app = require('./app');
 
+// some options to start the server
+var argv = require('minimist')(process.argv.slice(2));
+var port = argv.port || process.env.PORT || 3000;
+var dev = argv.dev || false;
 
 var server = express();
-// expressState.extend(server);
 server.set('state namespace', 'App');
 server.use(favicon(__dirname + '/../favicon.ico'));
 server.use('/public', express.static(__dirname + '/build'));
@@ -27,9 +30,6 @@ server.use(bodyParser.json());
 
 // Every other request gets the app bootstrap
 server.use(function(req, res, next) {
-    // var component = HtmlComponent();
-    // var html = React.renderToString(component);
-    // res.send(html);
 
     var context = app.createContext();
 
@@ -52,6 +52,7 @@ server.use(function(req, res, next) {
         React.withContext(context.getComponentContext(), function () {
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: exposed,
+                dev: dev,
                 markup: React.renderToString(AppComponent({
                     context: context.getComponentContext()
                 }))
@@ -59,26 +60,8 @@ server.use(function(req, res, next) {
             res.send(doctype + html);
         });
 
-        // res.expose(app.dehydrate(context), 'App');
-
-        // var AppComponent = app.getAppComponent();
-        // var html = React.renderToStaticMarkup(
-        //     HtmlComponent({
-        //         state: res.locals.state,
-        //         context: context.getComponentContext(),
-        //         markup: React.renderToString(
-        //             AppComponent({
-        //                 context: context.getComponentContext()
-        //             })
-        //         )
-        //     })
-        // );
-
-        // res.write(html);
-        // res.end();
     });
 });
 
-var port = process.env.PORT || 3000;
 server.listen(port);
-console.log('Listening on port ' + port);
+console.log('Listening on port ' + port + (dev ? ' - dev mode' : ''));

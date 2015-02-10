@@ -1,0 +1,74 @@
+/**
+ * Missing in Atomic.css
+ */
+#atomic .D-ib {
+    *display: inline;
+    zoom: 1;
+}
+
+#atomic .Td-n\:h:hover,
+#atomic .Td-n\:h:focus {
+    text-decoration: none;
+}
+
+#atomic .C-logo\:h:hover,
+#atomic .C-logo\:h:focus {
+    color: #0280AE !important;
+}
+
+/**
+ * always-at-the-bottom-footer
+ */
+.wrapper {
+    padding-bottom: 60px;
+    margin-bottom: -60px;
+}
+
+/**
+ * mouseover effect on links inside HEADER
+ */
+#header li a:before {
+    pointer-events: none;
+    transition: all .3s;
+    content: "";
+    left: 50%;
+    top: 50%;
+    width: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    position: absolute;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);;
+    border-radius: 100%;
+    opacity: 0;
+}
+
+#header li a:hover:before,
+#header li a:focus:before {
+    opacity: 1;
+    width: 180%;
+    padding-bottom: 180%;
+    margin-top: -90%;
+    margin-left: -90%;
+}
+
+/**
+ * SPLASH box on home page
+ */
+#splash {
+    background: #fff  50%;
+    background-size: 80%;
+    transition: background-size .3s;
+}
+
+#splash:hover {
+    background-size: 400%;
+}
+
+/**
+ * FOOTER
+ */
+#footer {
+    background: #f6ffff;
+}
