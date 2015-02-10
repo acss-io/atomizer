@@ -23,7 +23,22 @@ var PageHome = React.createClass({
      */
     render: function() {
         return (
-            <h2>Page Home</h2>
+            <div className="home">
+                <div id='splash' className='D-tb W-100% Bdb-1'>
+                    <div className='D-tbc Ta-c Va-m'>
+                        <h1 className='Mx-a W-50% Pos-r Ov-h'>
+                            <img className='Start-0 Pos-a Pos-r--sm' alt='atomic css' src='/public/images/atomic-css-logo.svg' />
+                        </h1>
+                        <p className='My-20'>Build whatever you want</p>
+                        <p>
+                            <a className='D-ib Mb-10 P-20 C-fff Bgc-logo Bdrs-100 Td-n:h OptLegibility' href='docs.html'>Get Started</a>
+                        </p>
+                    </div>
+                </div>
+                <div role='main' className='innerwrapper Bxz-bb Pt-20 Mb-50 Px-10 Mx-a--sm W-80%--sm W-a'>
+                    Some content goes here
+                </div>
+            </div>
         );
     }
 });

@@ -8,7 +8,7 @@ var React = require('react');
 // components
 var Nav = require('./Nav');
 var PageHome = require('./PageHome');
-var PageOverview = require('./PageOverview');
+var PageDocs = require('./PageDocs');
 var PageReference = require('./PageReference');
 
 // stores
@@ -49,19 +49,22 @@ var App = React.createClass({
             case 'home':
                 page = <PageHome />;
                 break;
-            case 'overview':
-                page = <PageOverview />;
+            case 'docs':
+                page = <PageDocs />;
                 break;
             case 'reference':
                 page = <PageReference />;
                 break;
         }
 
+        // Keep <a> and <Nav> in the same line to enforce white-space between them
         return (
-            <div id="master-wrapper">
-                <h1>Atomic.css</h1>
-                <p>A collection of single purpose styling units for maximum reuse.</p>
-                <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+            <div className="wrapper Bxz-bb Mih-100%">
+                <div id="header" role="header" className="P-10 Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
+                    <div className="innerwrapper OppositeBoxes Mx-a--sm W-80%--sm W-a--sm">
+                        <a id="home" className="D-ib Va-m Fz-20 Lh-12 C-fff Td-n:h" href="/">ACSS.io</a> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                    </div>
+                </div>
                 {page}
             </div>
         );

@@ -7,13 +7,13 @@ module.exports = {
         path: '/',
         method: 'get',
         page: 'home',
-        label: 'Atomic.css'
+        label: 'ACSS.io'
     },
-    overview: {
-        path: '/overview',
+    docs: {
+        path: '/docs',
         method: 'get',
-        page: 'overview',
-        label: 'Overview'
+        page: 'docs',
+        label: 'Docs'
     },
     reference: {
         path: '/reference',
