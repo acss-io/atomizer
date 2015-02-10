@@ -5,9 +5,18 @@
   "main": "index.js",
   "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
   "contributors": [
-    {"name": "Renato Iwashima", "email": "renatoi@yahoo-inc.com"},
-    {"name": "Steve Carlson", "email": "yasteve@yahoo-inc.com"},
-    {"name": "Thierry Koblentz", "email": "thierryk@yahoo-inc.com"}
+    {
+      "name": "Renato Iwashima",
+      "email": "renatoi@yahoo-inc.com"
+    },
+    {
+      "name": "Steve Carlson",
+      "email": "yasteve@yahoo-inc.com"
+    },
+    {
+      "name": "Thierry Koblentz",
+      "email": "thierryk@yahoo-inc.com"
+    }
   ],
   "repository": {
     "type": "git",
