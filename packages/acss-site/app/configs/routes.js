@@ -15,12 +15,6 @@ module.exports = {
         page: 'overview',
         label: 'Overview'
     },
-    customize: {
-        path: '/customize',
-        method: 'get',
-        page: 'customize',
-        label: 'Customize'
-    },
     reference: {
         path: '/reference',
         method: 'get',
