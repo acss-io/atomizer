@@ -7,18 +7,6 @@ module.exports = function (grunt) {
     require('load-grunt-tasks')(grunt);
 
     grunt.initConfig({
-        copy: {
-            app: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'app/assets/',
-                        src: ['**/*.css'],
-                        dest: 'app/build/'
-                    }
-                ]
-            }
-        },
         webpack: {
             app: {
                 resolve: {
@@ -46,16 +34,9 @@ module.exports = function (grunt) {
                     ext: 'js,jsx'
                 }
             }
-        },
-        getsassvars: {
-            builder: {
-                files: {
-                    './app/build/js/reference.js': ['./parser/*.scss'],
-                }
-            }
         }
     });
 
     grunt.task.loadTasks('grunt/');
-    grunt.registerTask('default', ['copy:app', 'getsassvars:builder', 'webpack:app', 'nodemon:app']);
+    grunt.registerTask('default', ['webpack:app', 'nodemon:app']);
 };

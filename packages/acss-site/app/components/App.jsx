@@ -9,7 +9,6 @@ var React = require('react');
 var Nav = require('./Nav');
 var PageHome = require('./PageHome');
 var PageOverview = require('./PageOverview');
-var PageCustomize = require('./PageCustomize');
 var PageReference = require('./PageReference');
 
 // stores
@@ -52,9 +51,6 @@ var App = React.createClass({
                 break;
             case 'overview':
                 page = <PageOverview />;
-                break;
-            case 'customize':
-                page = <PageCustomize />;
                 break;
             case 'reference':
                 page = <PageReference />;
