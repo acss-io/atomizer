@@ -60,6 +60,8 @@
     background: #fff  50%;
     background-size: 80%;
     transition: background-size .3s;
+    min-height: 360px;
+    background-image:url(/public/images/background.png);
 }
 
 #splash:hover {

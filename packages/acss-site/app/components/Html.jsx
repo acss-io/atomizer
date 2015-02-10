@@ -18,6 +18,7 @@ var Html = React.createClass({
 
     getDefaultProps: function () {
         return {
+            ua: {},
             dev: false
         };
     },
@@ -29,7 +30,15 @@ var Html = React.createClass({
      * @return {Object} HTML head section
      */
     render: function() {
-        var liveReload = this.props.dev ? (<script src={"//localhost:35729/livereload.js"}></script>) : '';
+        var liveReload = this.props.dev ? (<script src={"//localhost:35729/livereload.js"}></script>) : '',
+            ieStylesheet;
+
+        // yes, browser sniffing isn't a good idea, but we're taking the pragmatic approach
+        // for old IE for server-side rendering.
+        if (this.props.ua.browser.name === 'IE' && this.props.ua.browser.major < 9) {
+            ieStylesheet = (<link rel="stylesheet" href="/public/css/ie.css" />);
+        }
+
         return (
             <html id="atomic">
                 <head>
@@ -38,8 +47,9 @@ var Html = React.createClass({
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="stylesheet" href="/public/css/atomic.css" />
                     <link rel="stylesheet" href="/public/css/bundle.css" />
+                    {ieStylesheet}
                 </head>
-                <body>
+                <body className="Mih-100%">
                     <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                     {liveReload}
                 </body>

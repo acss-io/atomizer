@@ -40,6 +40,20 @@ module.exports = function(grunt) {
             },
         },
 
+        // copy images to build
+        copy: {
+            app: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    cwd: '<%= project.app %>/assets/images/',
+                    src: '**',
+                    dest: '<%= project.build %>/images/',
+                    filter: 'isFile'
+                }]
+            }
+        },
+
         // nodemon to restart server if files change
         nodemon: {
             dev: {
@@ -119,6 +133,6 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean', 'concat:app', 'atomizer:app', 'webpack:dev', 'concurrent:dev']);
+    grunt.registerTask('default', ['clean', 'concat:app', 'atomizer:app', 'copy:app', 'webpack:dev', 'concurrent:dev']);
     // TODO: grunt.registerTask('build', ['clean', 'atomizer:app', 'webpack:prod']);
 };

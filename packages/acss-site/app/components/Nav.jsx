@@ -3,7 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 'use strict';
-var React = require('react');
+var React = require('react/addons');
 var NavLink = require('flux-router-component').NavLink;
 
 /**
@@ -26,25 +26,38 @@ var Nav = React.createClass({
      * @return {Object} HTML head section
      */
     render: function() {
-        var selected = this.props.selected || this.state.selected,
-            links = this.props.links || this.state.links,
-            context = this.props.context,
-            linkHTML = Object.keys(links).map(function (name) {
-                var className = '',
-                    link = links[name];
-
-                if (selected === name) {
-                    className = 'selected';
-                }
-                return (
-                    <li className={className} key={link.path}>
-                        <NavLink routeName={link.page} context={context}>{link.label}</NavLink>
-                    </li>
-                );
+        var cx = React.addons.classSet;
+        var selected = this.props.selected || this.state.selected;
+        var links = this.props.links || this.state.links;
+        var context = this.props.context;
+        var linkHTML = Object.keys(links).map(function (name, index) {
+            var link = links[name];
+            var className = cx({
+                'selected': selected === name,
+                'Mstart-10': index !== 1,
+                'D-ib Va-m Pos-r': true
             });
+
+            // we skip index 0, because we add the HOME link manually
+            return index === 0 ? '' : (
+                <li className={className} key={link.path}>
+                    <NavLink routeName={link.page} context={context} className="D-b C-fff Td-n:h">
+                        <b className="Pos-r">
+                            {link.label}
+                        </b>
+                    </NavLink>
+                </li>
+            );
+        });
+
         return (
-            <ul role="navigation">
+            <ul role="navigation" className="D-ib Va-m Reset">
                 {linkHTML}
+                <li className="D-ib Mstart-10 Pos-r">
+                    <a className="D-b C-fff Td-n:h" href="https://github.com/yahoo/atomizer">
+                        <img className="Va-m Pos-r" alt="GitHub" width="30" src="/public/images/github-logo.png" />
+                    </a>
+                </li>
             </ul>
         );
     }

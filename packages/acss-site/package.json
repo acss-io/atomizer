@@ -34,7 +34,8 @@
     "node-jsx": "~0.12.4",
     "react": "~0.12.1",
     "serialize-javascript": "^1.0.0",
-    "serve-favicon": "^2.1.7"
+    "serve-favicon": "^2.1.7",
+    "ua-parser-js": "^0.7.3"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
@@ -42,6 +43,7 @@
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-nodemon": "~0.3.0",
     "grunt-webpack": "^1.0.8",

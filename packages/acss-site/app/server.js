@@ -8,9 +8,9 @@ require('node-jsx').install({ extension: '.jsx' });
 var express = require('express');
 var favicon = require('serve-favicon');
 var serialize = require('serialize-javascript');
-// var expressState = require('express-state');
 var bodyParser = require('body-parser');
 var React = require('react');
+var UAParser = require('ua-parser-js');
 
 // other dependencies
 var navigateAction = require('flux-router-component').navigateAction;
@@ -32,6 +32,7 @@ server.use(bodyParser.json());
 server.use(function(req, res, next) {
 
     var context = app.createContext();
+    var ua = new UAParser().setUA(req.headers['user-agent']).getResult();
 
     context.executeAction(navigateAction, {
         url: req.url
@@ -52,6 +53,7 @@ server.use(function(req, res, next) {
         React.withContext(context.getComponentContext(), function () {
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: exposed,
+                ua: ua,
                 dev: dev,
                 markup: React.renderToString(AppComponent({
                     context: context.getComponentContext()
