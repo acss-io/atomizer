@@ -4,6 +4,8 @@
  */
 'use strict';
 var React = require('react');
+var Doc = require('./Doc');
+var NavLink = require('flux-router-component').NavLink;
 
 /**
  * PageHome
@@ -31,12 +33,12 @@ var PageHome = React.createClass({
                         </h1>
                         <p className='My-20'>Build whatever you want</p>
                         <p>
-                            <a className='D-ib Mb-10 P-20 C-fff Bgc-logo Bdrs-100 Td-n:h OptLegibility' href='docs.html'>Get Started</a>
+                            <NavLink className='D-ib Mb-10 P-20 C-fff Bgc-logo Bdrs-100 Td-n:h OptLegibility' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
                         </p>
                     </div>
                 </div>
                 <div role='main' className='innerwrapper Bxz-bb Pt-20 Mb-50 Px-10 Mx-a--sm W-80%--sm W-a'>
-                    Some content goes here
+                    <Doc content={this.props.content} />
                 </div>
             </div>
         );
