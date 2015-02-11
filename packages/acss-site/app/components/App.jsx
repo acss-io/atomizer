@@ -10,9 +10,11 @@ var Nav = require('./Nav');
 var PageHome = require('./PageHome');
 var PageDocs = require('./PageDocs');
 var PageReference = require('./PageReference');
+var NavLink = require('flux-router-component').NavLink;
 
 // stores
 var ApplicationStore = require('../stores/ApplicationStore');
+var DocStore = require('../stores/DocStore');
 
 // mixins
 var RouterMixin = require('flux-router-component').RouterMixin;
@@ -30,11 +32,21 @@ var App = React.createClass({
         storeListeners: [ApplicationStore]
     },
     getInitialState: function () {
-        return this.getStore(ApplicationStore).getState();
+        return this.getState();
+    },
+    getState: function () {
+        var appStore = this.getStore(ApplicationStore);
+        var docStore = this.getStore(DocStore);
+        return {
+            currentDoc: docStore.getCurrent() || {},
+            currentPageName: appStore.getCurrentPageName(),
+            pageTitle: appStore.getPageTitle(),
+            pages: appStore.getPages(),
+            route: appStore.getCurrentRoute()
+        };
     },
     onChange: function () {
-        var state = this.getStore(ApplicationStore).getState();
-        this.setState(state);
+        this.setState(this.getState());
     },
     /**
      * Refer to React documentation render
@@ -47,10 +59,11 @@ var App = React.createClass({
 
         switch (this.state.currentPageName) {
             case 'home':
-                page = <PageHome />;
+                page = <PageHome content={this.state.currentDoc.content} />;
                 break;
             case 'docs':
-                page = <PageDocs />;
+                var docsConfig = require('./../configs/docs');
+                page = <PageDocs menu={docsConfig} doc={this.state.currentDoc} />;
                 break;
             case 'reference':
                 page = <PageReference />;
@@ -63,7 +76,7 @@ var App = React.createClass({
                 <div className="wrapper Bxz-bb Mih-100%">
                     <div id="header" role="header" className="P-10 Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
                         <div className="innerwrapper SpaceBetween Mx-a--sm W-80%--sm W-a--sm">
-                            <a id="home" className="D-ib Va-m Fz-20 Lh-12 C-fff Td-n:h" href="/">ACSS.io</a> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                            <NavLink className="D-ib Va-m Fz-20 Lh-12 C-fff Td-n:h" routeName="home">ACSS.io</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
                         </div>
                     </div>
                     {page}
@@ -73,7 +86,16 @@ var App = React.createClass({
                 </div>
             </div>
         );
-    }
+    },
+    componentDidUpdate: function (prevProps, prevState) {
+        var newState = this.state;
+
+        if (newState.pageTitle === prevState.pageTitle) {
+            return;
+        }
+
+        document.title = newState.pageTitle;
+     }
 });
 
 module.exports = App;

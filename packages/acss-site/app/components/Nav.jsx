@@ -37,17 +37,22 @@ var Nav = React.createClass({
                 'Mstart-10': index !== 1,
                 'D-ib Va-m Pos-r': true
             });
+            var navParams = {};
 
-            // we skip index 0, because we add the HOME link manually
-            return index === 0 ? '' : (
+            if (name === 'docs') {
+                navParams = {key: 'quick-start'};
+            }
+
+            // skip home since we don't want it to render
+            return name !== 'home' ? (
                 <li className={className} key={link.path}>
-                    <NavLink routeName={link.page} context={context} className="D-b C-fff Td-n:h">
+                    <NavLink routeName={link.page} context={context} className="D-b C-fff Td-n:h" navParams={navParams}>
                         <b className="Pos-r">
                             {link.label}
                         </b>
                     </NavLink>
                 </li>
-            );
+            ) : '';
         });
 
         return (

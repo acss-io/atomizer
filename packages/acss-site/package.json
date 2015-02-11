@@ -25,17 +25,22 @@
   "dependencies": {
     "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
     "body-parser": "^1.9.3",
+    "debug": "^2.1.1",
     "express": "^4.10.4",
     "express-state": "^1.2.0",
     "flux-router-component": "~0.5.0",
     "fluxible": "~0.2.0",
+    "fluxible-plugin-fetchr": "^0.2.3",
     "fluxible-plugin-routr": "~0.3.0",
+    "highlight.js": "^8.4.0",
+    "marked": "^0.3.3",
     "minimist": "^1.1.0",
     "node-jsx": "~0.12.4",
     "react": "~0.12.1",
     "serialize-javascript": "^1.0.0",
     "serve-favicon": "^2.1.7",
-    "ua-parser-js": "^0.7.3"
+    "ua-parser-js": "^0.7.3",
+    "walk": "^2.3.9"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

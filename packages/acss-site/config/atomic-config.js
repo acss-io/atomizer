@@ -382,6 +382,9 @@ module.exports = {
         }, {
             suffix: '20',
             values: ['20px']
+        }, {
+            suffix: '30',
+            values: ['30px']
         }]
 //        '0': true,
 //        'inh': true,

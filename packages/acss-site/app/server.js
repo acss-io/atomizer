@@ -28,6 +28,15 @@ server.use(favicon(__dirname + '/../favicon.ico'));
 server.use('/public', express.static(__dirname + '/build'));
 server.use(bodyParser.json());
 
+// Get access to the fetchr plugin instance
+var fetchrPlugin = app.getPlugin('FetchrPlugin');
+
+// Register our services
+fetchrPlugin.registerService(require('./services/docs'));
+
+// Set up the fetchr middleware
+server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
+
 // Every other request gets the app bootstrap
 server.use(function(req, res, next) {
 
