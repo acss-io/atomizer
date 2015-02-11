@@ -59,13 +59,18 @@ var App = React.createClass({
 
         // Keep <a> and <Nav> in the same line to enforce white-space between them
         return (
-            <div className="wrapper Bxz-bb Mih-100%">
-                <div id="header" role="header" className="P-10 Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
-                    <div className="innerwrapper OppositeBoxes Mx-a--sm W-80%--sm W-a--sm">
-                        <a id="home" className="D-ib Va-m Fz-20 Lh-12 C-fff Td-n:h" href="/">ACSS.io</a> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+            <div className="H-100%">
+                <div className="wrapper Bxz-bb Mih-100%">
+                    <div id="header" role="header" className="P-10 Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
+                        <div className="innerwrapper SpaceBetween Mx-a--sm W-80%--sm W-a--sm">
+                            <a id="home" className="D-ib Va-m Fz-20 Lh-12 C-fff Td-n:h" href="/">ACSS.io</a> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                        </div>
                     </div>
+                    {page}
                 </div>
-                {page}
+                <div id="footer" className="SpaceBetween P-20 Bdt-1" role="footer">
+                    <small className="D-ib">All code on this site is licensed under the <a href="https://github.com/yahoo/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small className="D-ib">© 2015 Yahoo! Inc. All rights reserved.</small>
+                </div>
             </div>
         );
     }
