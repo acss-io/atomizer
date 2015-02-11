@@ -50,7 +50,7 @@ var Html = React.createClass({
                     {ieStylesheet}
                 </head>
                 <body className="Mih-100%">
-                    <div id="app" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
+                    <div id="app" className="H-100%" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                     {liveReload}
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
