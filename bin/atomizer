@@ -13,7 +13,7 @@ process.title = 'atomizer';
 var path = require('path');
 var fs = require('fs');
 var chalk = require('chalk');
-var atomizer = require('atomizer');
+var atomizer = require('../src/atomizer');
 var configObjs = [];
 
 var params = require('minimist')(process.argv.slice(2));
