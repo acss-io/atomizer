@@ -23,7 +23,7 @@
     "prod": "grunt prod"
   },
   "dependencies": {
-    "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
+    "atomizer": "~0.2.0",
     "body-parser": "^1.9.3",
     "debug": "^2.1.1",
     "express": "^4.10.4",
