@@ -144,7 +144,7 @@ AtomicBuilder.prototype.run = function () {
                     throw new TypeError('`Config ' + atomicObj.id + '.custom` must be an Array.');
                 }
                 currentConfigObj.custom.forEach(function (rule) {
-                    self.addPatternRule(rule, atomicObj, currentConfigObj, true);
+                    self.addPatternRule(rule, atomicObj, currentConfigObj);
                 });
             }
             // if `custom-auto-suffix` has been passed
@@ -160,7 +160,7 @@ AtomicBuilder.prototype.run = function () {
                         throw new TypeError('`custom-auto-suffix` rule must be an Object.');
                     }
                     rule.suffix = atomicObj.suffixType === 'numerical' ? index + 1 : String.fromCharCode(97 + index);
-                    self.addPatternRule(rule, atomicObj, currentConfigObj, true);
+                    self.addPatternRule(rule, atomicObj, currentConfigObj);
                 });
             }
         }
@@ -190,9 +190,8 @@ AtomicBuilder.prototype.run = function () {
  * @param {String}  atomicObj.id         (Required) The 'id' of pattern.
  * @param {String}  atomicObj.prefix     (Required) The prefix string of the class name.
  * @param {Array}   atomicObj.properties (Required) The array of CSS properties to be added to this pattern.
- * @param {Boolean} isCustom             (Optional) Wether or not this is a custom pattern.
  */
-AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfigObj, isCustom) {
+AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfigObj) {
     var self = this,
         className,
         suffix;
