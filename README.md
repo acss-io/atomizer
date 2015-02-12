@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/yahoo/atomizer.svg?branch=master)](https://travis-ci.org/yahoo/atomizer)
 [![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer.svg)
 [![devDependency Status](https://david-dm.org/yahoo/atomizer/dev-status.svg)](https://david-dm.org/yahoo/atomizer#info=devDependencies)
-[![Coverage Status](https://img.shields.io/coveralls/yahoo/atomizer.svg)](https://coveralls.io/r/yahoo/atomizer?branch=master)
+[![Coverage Status](https://coveralls.io/repos/yahoo/atomizer/badge.svg)](https://coveralls.io/r/yahoo/atomizer)
 
 
 ## Overview
