@@ -1,9 +1,11 @@
 # Atomizer
 
-[![Build Status](https://magnum.travis-ci.com/yahoo/atomizer.svg?token=1A1JtrzoyNwcyaqtpSCa)](https://magnum.travis-ci.com/yahoo/atomizer)
+[![npm version](https://badge.fury.io/js/atomizer.svg)](http://badge.fury.io/js/atomizer)
+[![Build Status](https://travis-ci.org/yahoo/atomizer.svg?branch=master)](https://travis-ci.org/yahoo/atomizer)
 [![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer.svg)
 [![devDependency Status](https://david-dm.org/yahoo/atomizer/dev-status.svg)](https://david-dm.org/yahoo/atomizer#info=devDependencies)
 [![Coverage Status](https://img.shields.io/coveralls/yahoo/atomizer.svg)](https://coveralls.io/r/yahoo/atomizer?branch=master)
+
 
 ## Overview
 
@@ -14,7 +16,7 @@ Atomic.css is a collection of single purpose styling units for maximum reuse tha
 ## Install
 
 ```bash
-npm install git+ssh://git@github.com:yahoo/atomizer.git -g
+npm install atomizer -g
 ```
 
 ## Usage
