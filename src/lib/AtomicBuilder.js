@@ -104,7 +104,7 @@ AtomicBuilder.prototype.run = function () {
             throw new TypeError('Key `id` of atomic object is required and must be a String. Object: ' + atomicObj);
         }
         if (!atomicObj.type || atomicObj.type.constructor !== String) {
-            throw new TypeError('Key `type` of atomic object is required must be a String. Object: ' + atomicObj.id);
+            throw new TypeError('Key `type` of atomic object is required and must be a String. Object: ' + atomicObj.id);
         }
 
         // return if this group is not wanted by the config
@@ -157,7 +157,7 @@ AtomicBuilder.prototype.run = function () {
                 }
                 currentConfigObj['custom-auto-suffix'].forEach(function (rule, index) {
                     if (rule.constructor !== Object) {
-                        throw new TypeError('`custo-auto-suffix` rule must be an Object.');
+                        throw new TypeError('`custom-auto-suffix` rule must be an Object.');
                     }
                     rule.suffix = atomicObj.suffixType === 'numerical' ? index + 1 : String.fromCharCode(97 + index);
                     self.addPatternRule(rule, atomicObj, currentConfigObj, true);
