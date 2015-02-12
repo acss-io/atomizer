@@ -43,7 +43,7 @@
   },
   "homepage": "https://github.com/yahoo/grunt-atomizer",
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^2.0.0",
     "jshint": "^2.6.0",
     "mocha": "^2.1.0"
   }
