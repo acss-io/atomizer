@@ -3,7 +3,6 @@
   "description": "Grunt task for Atomizer",
   "version": "0.1.0",
   "main": "index.js",
-  "author": "Renato Iwashima <renatoi@yahoo-inc.com>",
   "contributors": [
     {
       "name": "Renato Iwashima",
@@ -22,6 +21,10 @@
     "type": "git",
     "url": "git://github.com/yahoo/grunt-atomizer.git"
   },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
+    "lint": "./node_modules/.bin/jshint tasks tests"
+  },
   "dependencies": {
     "atomizer": "~0.2.0",
     "grunt": "~0.4.5"
@@ -38,5 +41,10 @@
   "bugs": {
     "url": "https://github.com/yahoo/grunt-atomizer/issues"
   },
-  "homepage": "https://github.com/yahoo/grunt-atomizer"
+  "homepage": "https://github.com/yahoo/grunt-atomizer",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "jshint": "^2.6.0",
+    "mocha": "^2.1.0"
+  }
 }
