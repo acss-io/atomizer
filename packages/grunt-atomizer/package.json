@@ -23,7 +23,7 @@
     "url": "git://github.com/yahoo/grunt-atomizer.git"
   },
   "dependencies": {
-    "atomizer": "git+ssh://git@github.com:yahoo/atomizer.git",
+    "atomizer": "~0.2.0",
     "grunt": "~0.4.5"
   },
   "keywords": [
