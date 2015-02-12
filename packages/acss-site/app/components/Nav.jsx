@@ -56,7 +56,7 @@ var Nav = React.createClass({
         });
 
         return (
-            <ul role="navigation" className="D-ib Va-m Reset">
+            <ul role="navigation" className="Va-m Reset">
                 {linkHTML}
                 <li className="D-ib Mstart-10 Pos-r">
                     <a className="D-b C-fff Td-n:h" href="https://github.com/yahoo/atomizer">

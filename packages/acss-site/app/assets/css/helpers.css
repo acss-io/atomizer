@@ -1,6 +1,5 @@
 /**
  * TODO:
- *    - font-size on ".Opposite-boxes" should be same and 80% of font-size set for body
  *    - ".ButtonLink" should be same color as links set in base
  *    - ".NoLinkColor" should be the same as color set in body
  */
@@ -26,16 +25,24 @@ ul.u-list {
 
 
 /**
- * direct children of "SpaceBetween" boxes must have the following class: `D-ib`
+ * Warning: this styling may create line-height issue as we are resetting the value to an "arbitrary" number
  */
 .SpaceBetween {
     text-align: justify;
+    line-height: 0; /* kill extra white space below the container */
 }
 
 .SpaceBetween:after {
     content: "";
     display: inline-block;
     width: 100%;
+    vertical-align: middle;
+}
+
+.SpaceBetween > * {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.5; /* reset to default value (from <body>) */
 }
 
 /**
@@ -89,4 +96,13 @@ ul.u-list {
      text-rendering: optimizeLegibility;
      -webkit-font-smoothing: antialiased;
      -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * to come last in this sheet
+ * this is because React plugs <span> all over the place and they get styled by rules using selectors like "> *"
+ */
+.atomic span {
+    display: inline;
+    float: none;
 }

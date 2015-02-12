@@ -31,3 +31,4 @@ app/build/
 
 # grunt-nodemon
 .rebooted
+.idea
