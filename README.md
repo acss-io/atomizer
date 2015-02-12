@@ -9,7 +9,7 @@
 
 ## Overview
 
-Atomizer is a tool that helps you create Atomic.css rules. 
+Atomizer is a tool that helps you create Atomic.css rules.
 
 Atomic.css is a collection of single purpose styling units for maximum reuse that fits well with components in templated frameworks such as React, Ember or Angular. For more information we recommend that you read "[Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/)" or watch the Atomic.css [presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4).
 
