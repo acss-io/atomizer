@@ -76,13 +76,15 @@ var App = React.createClass({
                 <div className="wrapper Bxz-bb Mih-100%">
                     <div id="header" role="header" className="P-10 Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
                         <div className="innerwrapper SpaceBetween Mx-a--sm W-80%--sm W-a--sm">
-                            <NavLink className="D-ib Va-m Fz-20 Lh-12 C-fff Td-n:h" routeName="home">ACSS.io</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                            <NavLink className="Va-m Fz-20 Lh-12 C-fff Td-n:h" routeName="home">ACSS.io</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
                         </div>
                     </div>
                     {page}
                 </div>
-                <div id="footer" className="SpaceBetween P-20 Bdt-1" role="footer">
-                    <small className="D-ib">All code on this site is licensed under the <a href="https://github.com/yahoo/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small className="D-ib">© 2015 Yahoo! Inc. All rights reserved.</small>
+                <div id="footer" className="P-20 Bdt-1" role="footer">
+                    <div className="innerwrapper SpaceBetween Mx-a--sm W-80%--sm W-a--sm">
+                        <small>All code on this site is licensed under the <a href="https://github.com/yahoo/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small>© 2015 Yahoo! Inc. All rights reserved.</small>
+                    </div>
                 </div>
             </div>
         );

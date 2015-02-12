@@ -106,7 +106,8 @@ module.exports = function(grunt) {
                         '<%= project.app %>/assets/css/helpers.css',
                         '<%= project.app %>/assets/css/custom.css',
                         '<%= project.app %>/assets/css/mq.css'
-                    ]
+                    ],
+                    '<%= project.build %>/css/ie.css': '<%= project.app %>/assets/css/ie.css'
                 }
             }
         },

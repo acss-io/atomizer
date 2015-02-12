@@ -40,7 +40,7 @@ var Html = React.createClass({
         }
 
         return (
-            <html id="atomic">
+            <html id="atomic" className="atomic">
                 <head>
                     <meta charSet="utf-8" />
                     <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
