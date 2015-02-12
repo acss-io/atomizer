@@ -12,7 +12,7 @@ A grunt task for running [Atomizer](http://github.com/yahoo/atomizer)
 ## Install
 
 ```bash
-npm install git+ssh://git@github.com:yahoo/grunt-atomizer.git 
+npm install grunt-atomizer 
 ```
 
 ## License
