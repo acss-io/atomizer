@@ -100,11 +100,11 @@ AtomicBuilder.prototype.run = function () {
         var currentConfigObj;
 
         // check if we have some basic required keys in the atomic object
-        if (atomicObj.id.constructor !== String) {
-            throw new TypeError('Key `id` of atomic object must be a String. Object: ' + atomicObj);
+        if (!atomicObj.id || atomicObj.id.constructor !== String) {
+            throw new TypeError('Key `id` of atomic object is required and must be a String. Object: ' + atomicObj);
         }
-        if (atomicObj.type.constructor !== String) {
-            throw new TypeError('Key `type` of atomic object must be a String. Object: ' + atomicObj.id);
+        if (!atomicObj.type || atomicObj.type.constructor !== String) {
+            throw new TypeError('Key `type` of atomic object is required must be a String. Object: ' + atomicObj.id);
         }
 
         // return if this group is not wanted by the config
@@ -156,9 +156,10 @@ AtomicBuilder.prototype.run = function () {
                     throw new TypeError('`Config ' + atomicObj.id + '.custom` must be an Array.');
                 }
                 currentConfigObj['custom-auto-suffix'].forEach(function (rule, index) {
-                    if (rule.constructor === Object) {
-                        rule.suffix = atomicObj.suffixType === 'numerical' ? index + 1 : String.fromCharCode(97 + index);
+                    if (rule.constructor !== Object) {
+                        throw new TypeError('`custo-auto-suffix` rule must be an Object.');
                     }
+                    rule.suffix = atomicObj.suffixType === 'numerical' ? index + 1 : String.fromCharCode(97 + index);
                     self.addPatternRule(rule, atomicObj, currentConfigObj, true);
                 });
             }
@@ -166,10 +167,14 @@ AtomicBuilder.prototype.run = function () {
         // if the atomic object is a rule
         else if (atomicObj.type === 'rule') {
             // check if `rule` is present
-            if (atomicObj.rule.constructor !== Object) {
-                throw new TypeError('Key `rule` of atomic object must be an Object. Object: ' + atomicObj.id);
+            if (!atomicObj.rule || atomicObj.rule.constructor !== Object) {
+                throw new TypeError('Key `rule` of atomic object is required and must be an Object. Object: ' + atomicObj.id);
             }
            self.addRule(atomicObj.rule, atomicObj.id);
+        }
+        // type is not any of the ones listed above
+        else {
+            throw new Error('Key `type` must be a `rule` or a `pattern`.');
         }
     });
 };
@@ -236,12 +241,8 @@ AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfi
         values.forEach(function (value) {
             var breakPoints;
 
-            // breakPoints is declared differently if the rule is custom within this pattern
-            if (isCustom && rule.breakPoints) {
-                breakPoints = rule.breakPoints;
-            }
-            // if it's not custom, it can be an object containing the breakPoints
-            else if (currentConfigObj.breakPoints && currentConfigObj.breakPoints.constructor === Array) {
+            // add BreakPoints
+            if (currentConfigObj.breakPoints && currentConfigObj.breakPoints.constructor === Array) {
                 breakPoints = currentConfigObj.breakPoints;
             }
 
@@ -264,11 +265,11 @@ AtomicBuilder.prototype.addRule = function (rule, id) {
     var configObj = this.configObj,
         breakPoints;
 
-    if (rule.constructor !== Object) {
-        throw new TypeError('The `rule` param must be an Object.');
+    if (!rule || rule.constructor !== Object) {
+        throw new TypeError('The `rule` param is required and must be an Object.');
     }
-    if (id.constructor !== String) {
-        throw new TypeError('The `id` param must be a String.');
+    if (!id || id.constructor !== String) {
+        throw new TypeError('The `id` param is required and must be a String.');
     }
     if (!configObj || configObj.constructor !== Object) {
         throw new TypeError('Expecting config object to be set in this instance.');
@@ -281,10 +282,12 @@ AtomicBuilder.prototype.addRule = function (rule, id) {
 
     // iterate through the rule so we can send it to addCssRule
     for (var className in rule) {
+        /* istanbul ignore else  */
         if (rule.hasOwnProperty(className)) {
             for (var property in rule[className]) {
+                /* istanbul ignore else  */
                 if (rule[className].hasOwnProperty(property)) {
-                    if (configObj[id].constructor === Object) {
+                    if (configObj[id].constructor === Object && configObj[id].breakPoints) {
                         breakPoints = configObj[id].breakPoints;
                     }
                     this.addCssRule(className, property, rule[className][property], breakPoints);
@@ -392,10 +395,6 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
         });
     }
 
-    if (!_.size(build)) {
-        return false;
-    }
-
     _.merge(this.build, build);
     return true;
 };
@@ -419,9 +418,9 @@ AtomicBuilder.prototype.escapeSelector = function (str) {
     // TODO: maybe find a better regex? (-?) is here because '-' is considered a word boundary
     // so we get it and put it back to the string.
     return str.replace(/\b(-?)([^-_a-zA-Z0-9\s]+)/g, function (str, dash, characters) {
-        return characters && dash + characters.split('').map(function (character) {
+        return dash + characters.split('').map(function (character) {
             return ['\\', character].join('');
-        }).join('') || str;
+        }).join('');
     });
 };
 

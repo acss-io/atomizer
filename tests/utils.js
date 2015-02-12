@@ -41,7 +41,7 @@ describe('utils', function () {
     describe('getUnit()', function() {
         it('throws if invalid length', function () {
             expect(function () {
-                utils.getNumber('a100em');
+                utils.getUnit('a100em');
             }).to.throw(TypeError);
         });
         it('should return unit from a valid length', function () {
@@ -365,10 +365,18 @@ describe('utils', function () {
         });
     });
     describe('indexOf()', function() {
-        it('should return a function', function () {
+        it('throws if argument is not an array', function () {
+            expect(function() {
+                utils.indexOf('[1, 2, 3]');
+            }).to.throw(Error);
+        });
+        it('should return a function if argument is an array', function () {
             expect(utils.indexOf([1, 2, 3]).constructor).to.be.instanceOf(Function);
         });
-        it('should return a function that performs an indexOf of the passed array', function () {
+        it('should return a function that performs an indexOf of the passed array and returns false if value is not an index of the array', function () {
+            expect(utils.indexOf([1, 2, 3]).call('undefined', 4)).to.be.false;
+        });
+        it('should return a function that performs an indexOf of the passed array and returns true if value is not an index of the array', function () {
             expect(utils.indexOf([1, 2, 3]).call('undefined', 1)).to.be.true;
         });
     });

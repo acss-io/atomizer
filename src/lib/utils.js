@@ -218,9 +218,10 @@ utils.isColor = function(value) {
 };
 
 utils.indexOf = function(listOfValidItems) {
-    if (listOfValidItems.constructor === Array) {
-        return function(value) {
-            return listOfValidItems.indexOf(value) >= 0 ? true : false;
-        };
+    if (listOfValidItems.constructor !== Array) {
+        throw new Error('Argument must be an Array.');
     }
+    return function(value) {
+        return listOfValidItems.indexOf(value) >= 0 ? true : false;
+    };
 };

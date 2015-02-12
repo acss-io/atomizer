@@ -155,7 +155,73 @@ describe('AtomicBuilder', function () {
             // assert
             expect(atomicBuilder.configObj).to.deep.equal(config);
         });
-        it('should store the breakPoints as mediaQueries', function () {
+        it('should store the `sm` breakPoint as mediaQuery', function () {
+            var config = {
+                config: {
+                    breakPoints: {
+                        sm: '200px'
+                    }
+                }
+            };
+            var expected = {
+                sm: '@media(min-width:200px)'
+            };
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            atomicBuilder = new AtomicBuilder({}, config);
+
+            // assert
+            expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
+        });
+        it('should store the `md` breakPoint as mediaQuery', function () {
+            var config = {
+                config: {
+                    breakPoints: {
+                        md: '300px'
+                    }
+                }
+            };
+            var expected = {
+                md: '@media(min-width:300px)'
+            };
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            atomicBuilder = new AtomicBuilder({}, config);
+
+            // assert
+            expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
+        });
+        it('should store the `lg` breakPoint as mediaQuery', function () {
+            var config = {
+                config: {
+                    breakPoints: {
+                        lg: '500px'
+                    }
+                }
+            };
+            var expected = {
+                lg: '@media(min-width:500px)'
+            };
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            atomicBuilder = new AtomicBuilder({}, config);
+
+            // assert
+            expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
+        });
+        it('should store all breakPoints as mediaQueries', function () {
             var config = {
                 config: {
                     breakPoints: {
@@ -338,15 +404,17 @@ describe('AtomicBuilder', function () {
                 });
             }).to.throw(TypeError);
         });
-        it('should use config values if passed by the config', function (done) {
-            var expected = 'custom-value';
+        it('should use config values and breakPoints if passed by the config', function (done) {
+            var expectedValue = 'custom-value';
+            var expectedBreakPoints = ['sm', 'md', 'lg'];
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
             sinon.stub(AtomicBuilder.prototype, 'run');
             sinon.stub(AtomicBuilder.prototype, 'addCssRule', function (className, property, value, breakPoints) {
-                expect(value).to.equal(expected);
+                expect(value).to.equal(expectedValue);
+                expect(breakPoints).to.equal(expectedBreakPoints);
                 done();
             });
 
@@ -359,7 +427,8 @@ describe('AtomicBuilder', function () {
                 prefix: prefix,
                 properties: properties,
             }, {
-                values: [expected]
+                values: [expectedValue],
+                breakPoints: expectedBreakPoints
             });
         });
         it('should call addCssRule() to add pattern to the build object if currentConfigObj is true', function () {
@@ -419,6 +488,22 @@ describe('AtomicBuilder', function () {
                 AtomicBuilder.prototype.addFractionRules({
                     denominator: 1.2
                 }, atomicObj);
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules({
+                    denominator: 12
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if `atomicObj` is not an object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addFractionRules({
+                    denominator: 12
+                }, 'atomicObj');
             }).to.throw(TypeError);
         });
         it('throws if `atomicObj.id` is missing', function () {
@@ -511,16 +596,28 @@ describe('AtomicBuilder', function () {
         var id = 'foo';
 
         // tests
+        it('throws if `rule` is missing', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addRule();
+            }).to.throw(TypeError);
+        });
         it('throws if `rule` is not an object', function () {
             // execute and assert
             expect(function () {
                 AtomicBuilder.prototype.addRule('foo');
             }).to.throw(TypeError);
         });
-        it('throws if `id` is not a string', function () {
+        it('throws if `id` is missing', function () {
             // execute and assert
             expect(function () {
                 AtomicBuilder.prototype.addRule({});
+            }).to.throw(TypeError);
+        });
+        it('throws if `id` is not a string', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.addRule({},{});
             }).to.throw(TypeError);
         });
         it('throws if configObj is not set in the instance', function () {
@@ -560,7 +657,40 @@ describe('AtomicBuilder', function () {
             // assert
             mock.verify();
         });
-        it('should call addCssrule() if rule is wanted by the config', function () {
+        it('should send expected arguments to addCssRule()', function (done) {
+            var expectedClassName = '.Foo';
+            var expectedProperty = 'font-weight';
+            var expectedValue = 'bold';
+            var expectedBreakPoints = ['sm', 'md', 'lg'];
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+            sinon.stub(AtomicBuilder.prototype, 'addCssRule', function (className, property, value, breakPoints) {
+                expect(className).to.equal(expectedClassName);
+                expect(property).to.equal(expectedProperty);
+                expect(value).to.equal(expectedValue);
+                expect(breakPoints).to.deep.equal(expectedBreakPoints);
+                done();
+            });
+
+            // instantiation & setup
+            var atomicBuilder = new AtomicBuilder();
+
+            // execute
+            atomicBuilder.configObj = {
+                'foo': {
+                    breakPoints: ['sm', 'md', 'lg'],
+                }
+            };
+            atomicBuilder.addRule({
+                '.Foo': {
+                    'font-weight': 'bold'
+                }
+            }, 'foo');
+        });
+        it('should call addCssRule() if rule is wanted by the config', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
@@ -598,28 +728,50 @@ describe('AtomicBuilder', function () {
         it('throws if className has not been passed or is invalid', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCssrule();
+                AtomicBuilder.prototype.addCssRule();
             }).to.throw(TypeError);
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCssrule({});
+                AtomicBuilder.prototype.addCssRule({});
             }).to.throw(TypeError);
         });
         it('throws if property has not been passed or is invalid', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCssrule(className);
+                AtomicBuilder.prototype.addCssRule(className);
             }).to.throw(TypeError);
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCssrule(className, {});
+                AtomicBuilder.prototype.addCssRule(className, {});
             }).to.throw(TypeError);
         });
         it('throws if value has not been passed', function () {
             // execute and assert
             expect(function () {
-                AtomicBuilder.prototype.addCssrule(className, property);
+                AtomicBuilder.prototype.addCssRule(className, property);
             }).to.throw(TypeError);
+        });
+        it('throws if breakPoints are not valid', function () {
+            expect(function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
+                sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
+                    return str;
+                });
+
+                // execute
+                var atomicBuilder = new AtomicBuilder();
+
+                // add mediaQueries
+                atomicBuilder.mediaQueries = {
+                    sm: '@media(min-width:100px)',
+                    md: '@media(min-width:200px)',
+                    lg: '@media(min-width:300px)'
+                };
+                atomicBuilder.addCssRule(className, property, value, ['invalidbp']);
+            }).to.throw(Error);
         });
         it('adds breakPoint rules if breakPoints have been passed', function () {
             var expected = {
@@ -746,7 +898,45 @@ describe('AtomicBuilder', function () {
             // assert
             expect(atomicBuilder.placeConstants(123)).equal(123);
         });
-        it('returns the processed string if passed', function () {
+        it('returns the processed string if passed, with config.start set', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            var atomicBuilder = new AtomicBuilder();
+            atomicBuilder.configObj = {
+                config: {
+                    start: 'foo'
+                }
+            };
+
+            // assert
+            expect(atomicBuilder.placeConstants('test-$START')).equal('test-foo');
+            expect(atomicBuilder.placeConstants('test-$END')).equal('test-$END');
+            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-foo-$END');
+        });
+        it('returns the processed string if passed, with config.end set', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            var atomicBuilder = new AtomicBuilder();
+            atomicBuilder.configObj = {
+                config: {
+                    end: 'bar'
+                }
+            };
+
+            // assert
+            expect(atomicBuilder.placeConstants('test-$START')).equal('test-$START');
+            expect(atomicBuilder.placeConstants('test-$END')).equal('test-bar');
+            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-$START-bar');
+        });
+        it('returns the processed string if passed, with both config.start and config.end set', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
@@ -838,7 +1028,7 @@ describe('AtomicBuilder', function () {
     // run()
     // -------------------------------------------------------
     describe('run()', function () {
-        it('throws if `id` in atomicObj is not a string', function () {
+        it('throws if `id` in atomicObj is missing', function () {
             // execute and assert
             expect(function () {
                 // stub methods
@@ -857,7 +1047,28 @@ describe('AtomicBuilder', function () {
                 atomicBuilder.run();
             }).to.throw(TypeError);
         });
-        it('throws if `type` in atomicObj is not a string', function () {
+        it('throws if `id` in atomicObj is not a string', function () {
+            // execute and assert
+            expect(function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
+
+                // instantiation & setup
+                var atomicBuilder = new AtomicBuilder();
+                atomicBuilder.atomicObjs = [{
+                    id: {}
+                }];
+
+                // restore the method we're testing
+                AtomicBuilder.prototype.run.restore();
+
+                // execute
+                atomicBuilder.run();
+            }).to.throw(TypeError);
+        });
+        it('throws if `type` in atomicObj is missing', function () {
             // execute and assert
             expect(function () {
                 // stub methods
@@ -878,12 +1089,103 @@ describe('AtomicBuilder', function () {
                 atomicBuilder.run();
             }).to.throw(TypeError);
         });
+        it('throws if `type` in atomicObj is not a string', function () {
+            // execute and assert
+            expect(function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
+
+                // instantiation & setup
+                var atomicBuilder = new AtomicBuilder();
+                atomicBuilder.atomicObjs = [{
+                    id: 'foo',
+                    type: {}
+                }];
+
+                // restore the method we're testing
+                AtomicBuilder.prototype.run.restore();
+
+                // execute
+                atomicBuilder.run();
+            }).to.throw(TypeError);
+        });
+
+        it('does nothing if rule is not wanted by the config', function () {
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // instantiation & setup
+            var atomicBuilder = new AtomicBuilder();
+            var mock = sinon.mock(atomicBuilder);
+
+            // set config and atomicObjs before running
+            atomicBuilder.configObj = {};
+            atomicBuilder.atomicObjs = [{
+                type: 'pattern',
+                id: 'font-weight',
+                name: 'Font weight',
+                prefix: '.Fw-',
+                properties: ['font-weight'],
+                rules: [
+                    {suffix: 'b', values: 'bold'}
+                ]
+            }];
+
+            // restore the method we're testing
+            AtomicBuilder.prototype.run.restore();
+
+            // set expectations
+            mock.expects('addPatternRule').never();
+
+            // execute
+            atomicBuilder.run();
+
+            // assert
+            mock.verify();
+        });
+
+        it('throws if ryle `type` is not a `pattern` nor a `rule`.', function () {
+            expect(function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
+
+                // instantiation & setup
+                var atomicBuilder = new AtomicBuilder();
+
+                // set config and atomicObjs before running
+                atomicBuilder.configObj = {
+                    'font-weight': {}
+                };
+                atomicBuilder.atomicObjs = [{
+                    type: 'not-pattern-nor-rule',
+                    id: 'font-weight',
+                    name: 'Font weight',
+                    prefix: '.Fw-',
+                    properties: ['font-weight'],
+                    rules: [
+                        {suffix: 'b', values: 'bold'}
+                    ]
+                }];
+
+                // restore the method we're testing
+                AtomicBuilder.prototype.run.restore();
+
+                // execute
+                atomicBuilder.run();
+            }).to.throw(Error);
+        });
 
         // -------------------------------------------------------
         // type: pattern
         // -------------------------------------------------------
         describe('type: `pattern`', function () {
-            it('throws if `properties` in atomicObj is not an array', function () {
+            it('throws if `rules` in atomicObj has been passed but it is not an array', function () {
                 // execute and assert
                 expect(function () {
                     // stub methods
@@ -893,9 +1195,13 @@ describe('AtomicBuilder', function () {
 
                     // instantiation & setup
                     var atomicBuilder = new AtomicBuilder();
+                    atomicBuilder.configObj = {
+                        'foo': {}
+                    };
                     atomicBuilder.atomicObjs = [{
                         id: 'foo',
-                        type: 'pattern'
+                        type: 'pattern',
+                        rules: 'abc'
                     }];
 
                     // restore the method we're testing
@@ -905,7 +1211,7 @@ describe('AtomicBuilder', function () {
                     atomicBuilder.run();
                 }).to.throw(TypeError);
             });
-            it('throws if `prefix` in atomicObj is not a String', function () {
+            it('throws if configObj has fraction but it is not allowed', function () {
                 // execute and assert
                 expect(function () {
                     // stub methods
@@ -915,10 +1221,17 @@ describe('AtomicBuilder', function () {
 
                     // instantiation & setup
                     var atomicBuilder = new AtomicBuilder();
+                    atomicBuilder.configObj = {
+                        'width': {
+                            fraction: {}
+                        }
+                    };
                     atomicBuilder.atomicObjs = [{
-                        id: 'foo',
                         type: 'pattern',
-                        properties: ['font-weight']
+                        id: 'width',
+                        name: 'Width',
+                        prefix: '.W-',
+                        properties: ['width']
                     }];
 
                     // restore the method we're testing
@@ -926,7 +1239,44 @@ describe('AtomicBuilder', function () {
 
                     // execute
                     atomicBuilder.run();
-                }).to.throw(TypeError);
+                }).to.throw(Error);
+            });
+            it('should execute addFractionRules() once if atomicObj is a pattern and has fraction', function () {
+                // stub methods
+                sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'run');
+
+                // instantiation & setup
+                var atomicBuilder = new AtomicBuilder();
+                var mock = sinon.mock(atomicBuilder);
+
+                // set config and atomicObjs before running
+                atomicBuilder.configObj = {
+                    'width': {
+                        fraction: {}
+                    }
+                };
+                atomicBuilder.atomicObjs = [{
+                    type: 'pattern',
+                    id: 'width',
+                    name: 'Width',
+                    prefix: '.W-',
+                    properties: ['width'],
+                    allowFraction: true
+                }];
+
+                // restore the method we're testing
+                AtomicBuilder.prototype.run.restore();
+
+                // set expectations
+                mock.expects('addFractionRules').once();
+
+                // execute
+                atomicBuilder.run();
+
+                // assert
+                mock.verify();
             });
             it('should execute addPatternRule() once if atomicObj is a pattern', function () {
                 // stub methods
@@ -1163,6 +1513,44 @@ describe('AtomicBuilder', function () {
                     atomicBuilder.run();
                 }).to.throw(TypeError);
             });
+            it('throws if custom has been passed in the config AND it is allowed, but it\'s not an array of objects', function () {
+                expect(function () {
+                    // stub methods
+                    sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                    sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'run');
+
+                    // instantiation & setup
+                    var atomicBuilder = new AtomicBuilder();
+
+                    // set config and atomicObjs before running
+                    atomicBuilder.configObj = {
+                        'font-weight': {
+                            b: true,
+                            'custom-auto-suffix': ['not an array of objects']
+                        }
+                    };
+                    atomicBuilder.atomicObjs = [{
+                        type: 'pattern',
+                        id: 'font-weight',
+                        name: 'Font weight',
+                        prefix: '.Fw-',
+                        properties: ['font-weight'],
+                        allowCustom: true,
+                        allowCustomAutoSuffix: true,
+                        rules: [
+                            {suffix: 'n', values: ['normal']},
+                            {suffix: 'b', values: ['bold']}
+                        ]
+                    }];
+
+                    // restore the method we're testing
+                    AtomicBuilder.prototype.run.restore();
+
+                    // execute
+                    atomicBuilder.run();
+                }).to.throw(TypeError);
+            });
             it('should execute addPatternRule() once if atomicObj is a pattern and has custom auto prefix values on an atomic object that allows them', function (done) {
                 var assertions = 0;
 
@@ -1243,6 +1631,31 @@ describe('AtomicBuilder', function () {
         // type: rule
         // -------------------------------------------------------
         describe('type: `rule`', function () {
+            it('throws if `rule` in atomicObj is missing', function () {
+                // execute and assert
+                expect(function () {
+                    // stub methods
+                    sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+                    sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'run');
+
+                    // instantiation & setup
+                    var atomicBuilder = new AtomicBuilder();
+                    atomicBuilder.configObj = {
+                        'foo': {}
+                    };
+                    atomicBuilder.atomicObjs = [{
+                        id: 'foo',
+                        type: 'rule'
+                    }];
+
+                    // restore the method we're testing
+                    AtomicBuilder.prototype.run.restore();
+
+                    // execute
+                    atomicBuilder.run();
+                }).to.throw(TypeError);
+            });
             it('throws if `rule` in atomicObj is not an object', function () {
                 // execute and assert
                 expect(function () {
@@ -1253,9 +1666,13 @@ describe('AtomicBuilder', function () {
 
                     // instantiation & setup
                     var atomicBuilder = new AtomicBuilder();
+                    atomicBuilder.configObj = {
+                        'foo': {}
+                    };
                     atomicBuilder.atomicObjs = [{
                         id: 'foo',
-                        type: 'rule'
+                        type: 'rule',
+                        rule: 'abc'
                     }];
 
                     // restore the method we're testing
