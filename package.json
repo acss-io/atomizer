@@ -27,15 +27,15 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "object-assign": "^1.0.0",
+    "object-assign": "^2.0.0",
     "absurd": "~0.3.33",
-    "minimist": "~0.2.0",
+    "minimist": "~1.1.0",
     "chalk": "~0.5.1",
-    "lodash": "~2.4.1"
+    "lodash": "~3.1.0"
   },
   "devDependencies": {
-    "mocha": "~2.0.1",
-    "chai": "~1.10.0",
+    "mocha": "~2.1.0",
+    "chai": "~2.0.0",
     "sinon": "~1.12.2",
     "sinon-chai": "~2.6.0",
     "istanbul": "~0.3.5",
