@@ -42,4 +42,4 @@ See the [LICENSE file][] for license text and copyright information.
 
 [LICENSE file]: https://github.com/yahoo/atomizer/blob/master/LICENSE.md
 
-Third-pary open source code used are listed in our [package.json file]( https://github.com/yahoo/atomizer/blob/master/package.json).
+Third-party open source code used are listed in our [package.json file]( https://github.com/yahoo/atomizer/blob/master/package.json).
