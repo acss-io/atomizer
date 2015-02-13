@@ -49,11 +49,11 @@
     /**
      * to remove the links from tabbing navigation
      */
-    #atomic #aside a {
+    #aside a {
         visibility: hidden;
     }
 
-    .menu-on#atomic #aside a {
+    .menu-on #aside a {
         visibility: visible;
     }
 

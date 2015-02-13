@@ -3,7 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 'use strict';
-var React = require('react');
+var React = require('react/addons');
 var Menu = require('./Menu.jsx');
 var Doc = require('./Doc.jsx');
 
@@ -15,7 +15,14 @@ var Doc = require('./Doc.jsx');
  */
 var PageDocs = React.createClass({
     getInitialState: function() {
-        return {};
+        return {
+            isMenuVisible: false
+        };
+    },
+    handleMenuToggle: function () {
+        this.setState({
+            isMenuVisible: !this.state.isMenuVisible
+        });
     },
     /**
      * Refer to React documentation render
@@ -24,14 +31,22 @@ var PageDocs = React.createClass({
      * @return {Object} HTML head section
      */
     render: function() {
-        // TODO DOCS INTEGRATION WITH GITHUB
+        var cx = React.addons.classSet,
+            wrapperClasses;
+
+        wrapperClasses = cx({
+            'menu-on': this.state.isMenuVisible,
+            'innerwrapper D-tb Tbl-f Pt-20 Mb-50 Mx-a--sm W-80%--sm W-a--sm': true
+        });
+
         return (
-            <div className="innerwrapper D-tb Tbl-f Pt-20 Mb-50 Mx-a--sm W-80%--sm W-a--sm">
-                <button id="toggleMenuButton" className="menu-button D-n--sm Pos-a ButtonNaked End-0 Z-7 Mend-10">
+            <div className={wrapperClasses}>
+                <button onClick={this.handleMenuToggle} id="toggleMenuButton" className="menu-button D-n--sm Pos-a ButtonNaked End-0 Z-7 Mend-10">
                     <b className="Hidden">Toggle the menu</b>
                 </button>
                 <Menu config={this.props.menu} selected={this.props.doc.key} />
                 <Doc content={this.props.doc.content} title={this.props.doc.title} slug={this.props.doc.key} />
+                <div id="overlay" className="D-n Z-3 Pos-f T-0 Start-0 W-100% H-100%"></div>
             </div>
         );
     }
