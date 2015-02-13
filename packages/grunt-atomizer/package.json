@@ -22,17 +22,20 @@
     "url": "git://github.com/yahoo/grunt-atomizer.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
-    "lint": "./node_modules/.bin/jshint tasks tests"
+    "test": "grunt test",
+    "lint": "grunt"
   },
   "dependencies": {
-    "atomizer": "~0.2.0",
-    "grunt": "~0.4.5"
+    "atomizer": "~0.2.0"
+  },
+  "peerDependencies": {
+    "grunt": ">=0.4.0"
   },
   "keywords": [
     "atomizer",
     "atomic",
     "grunt",
+    "gruntplugin",
     "grunt-atomic",
     "grunt-atomizer",
     "atomic-css"
@@ -43,8 +46,8 @@
   },
   "homepage": "https://github.com/yahoo/grunt-atomizer",
   "devDependencies": {
-    "chai": "^2.0.0",
-    "jshint": "^2.6.0",
-    "mocha": "^2.1.0"
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-nodeunit": "^0.4.1"
   }
 }
