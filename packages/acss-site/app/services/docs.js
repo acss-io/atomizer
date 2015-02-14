@@ -17,8 +17,8 @@ var content = {};
 var walker = walk.walk(path.join(CWD, 'app/docs'));
 
 marked.setOptions({
-    highlight: function (code) {
-        return highlight.highlightAuto(code).value;
+    highlight: function (code, lang) {
+        return highlight.highlight(lang, code).value;
     }
 });
 
