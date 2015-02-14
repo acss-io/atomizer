@@ -63,6 +63,7 @@ module.exports = function(grunt) {
                     env: {
                         PORT: '3000'
                     },
+                    ext: 'js,md',
                     callback: function(nodemon) {
                         nodemon.on('log', function(event) {
                             console.log(event.colour);
@@ -105,7 +106,8 @@ module.exports = function(grunt) {
                         '<%= project.app %>/assets/css/base.css',
                         '<%= project.app %>/assets/css/helpers.css',
                         '<%= project.app %>/assets/css/custom.css',
-                        '<%= project.app %>/assets/css/mq.css'
+                        '<%= project.app %>/assets/css/mq.css',
+                        '<%= project.app %>/assets/css/syntax.css'
                     ],
                     '<%= project.build %>/css/ie.css': '<%= project.app %>/assets/css/ie.css'
                 }
