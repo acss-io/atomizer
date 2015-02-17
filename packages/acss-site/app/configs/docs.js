@@ -12,7 +12,7 @@ module.exports = [
         ]
     },
     {
-        category: 'Guides',
+        category: 'GUIDES',
         children: [
             {
                 label: 'Atomizer tool',
@@ -33,7 +33,7 @@ module.exports = [
         ]
     },
     {
-        category: 'Tutorials',
+        category: 'TUTORIALS',
         children: [
             {
                 label: 'Grid system',

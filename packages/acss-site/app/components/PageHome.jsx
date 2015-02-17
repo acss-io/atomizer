@@ -37,7 +37,7 @@ var PageHome = React.createClass({
                         </p>
                     </div>
                 </div>
-                <div className='innerwrapper Bxz-bb Pt-20 Px-10 Mb-50 Mx-a--sm W-80%--sm W-a'>
+                <div className='innerwrapper Bxz-bb Pt-20 Px-10 Mb-50 Mx-a--sm W-90%--sm W-a'>
                     <Doc content={this.props.content} />
                 </div>
             </div>
