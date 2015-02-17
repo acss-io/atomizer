@@ -120,6 +120,9 @@ module.exports = function(grunt) {
                 resolve: {
                     extensions: ['', '.js', '.jsx']
                 },
+                externals: {
+                    absurd: "Absurd"
+                },
                 entry: '<%= project.app %>/client.js',
                 output: {
                     path: '<%= project.build %>/js',

@@ -4,9 +4,10 @@
  */
 'use strict';
 var React = require('react');
+var defaultConfig = require('../../config/atomic-config.js');
 
 // actions
-var SearchAction = require('../actions/searchReference');
+var addCustomConfig = require('../actions/addCustomConfig');
 
 // stores
 var ReferenceStore = require('../stores/ReferenceStore');
@@ -15,12 +16,12 @@ var ReferenceStore = require('../stores/ReferenceStore');
 var FluxibleMixin = require('fluxible').Mixin;
 
 /**
- * SearchBox
+ * ConfigBox
  *
- * @class SearchBox
+ * @class ConfigBox
  * @constructor
  */
-var SearchBox = React.createClass({
+var ConfigBox = React.createClass({
 
     mixins: [FluxibleMixin],
     statics: {
@@ -37,8 +38,13 @@ var SearchBox = React.createClass({
         this.setState(state);
     },
 
-    onQueryChange: function (e) {
-        this.executeAction(SearchAction, e.target.value);
+    onConfigChange: function (e) {
+        this.executeAction(addCustomConfig, e.target.value);
+    },
+
+    populateDefaultConfig: function (e) {
+        e.preventDefault();
+        this.executeAction(addCustomConfig, JSON.stringify(defaultConfig));
     },
 
     /**
@@ -48,13 +54,17 @@ var SearchBox = React.createClass({
      * @return {Object} HTML head section
      */
     render: function () {
+        var customConfig = this.state.customConfig;
+        var hasConfig = !!customConfig;
+
         return (
             <div>
-                <h3 labelfor="searchbox" className="D-ib">Search:</h3>
-                <input id="searchbox" type="search" className="D-ib P-5" size="50" placeholder="Type classname or CSS declaration here..." onChange={this.onQueryChange} value={this.state.currentQuery}></input>
+                <h3>Custom Configuration:</h3>
+                <textarea id="customconfig" className="D-b W-80%" rows="10" placeholder="Configuration must be valid JSON" onChange={this.onConfigChange} value={customConfig}></textarea>
+                <a href="#" onClick={this.populateDefaultConfig}>Use Example Configuration</a>
             </div>
         );
     }
 });
 
-module.exports = SearchBox;
+module.exports = ConfigBox;

@@ -8,10 +8,13 @@ var createStore = require('fluxible/utils/createStore');
 var ReferenceStore = createStore({
     storeName: 'ReferenceStore',
     handlers: {
-        'CHANGE_SEARCH_TERM': 'handleSearch'
+        'CHANGE_SEARCH_TERM': 'handleSearch',
+        'CHANGE_CUSTOM_CONFIG': 'handleCustomConfig'
     },
     initialize: function () {
         this.currentQuery = '';
+        this.customConfig = undefined;
+        this.customConfigObj = undefined;
     },
     handleSearch: function (payload) {
         var query = payload.query;
@@ -21,14 +24,32 @@ var ReferenceStore = createStore({
             return;
         }
         this.currentQuery = query;
-        this.emit('change');
+        this.emitChange();
+    },
+    handleCustomConfig: function (payload) {
+        var config = payload.config,
+            configObj;
+
+        if (config === this.customConfig) { 
+            return;
+        }
+
+        try {
+            configObj = JSON.parse(config);
+        } catch (ex) {}
+
+        this.customConfig = config;
+        this.customConfigObj = configObj;
+        this.emitChange();
     },
     getCurrentQuery: function () {
         return this.currentQuery;
     },
     getState: function () {
         return {
-            currentQuery: this.currentQuery
+            currentQuery: this.currentQuery,
+            customConfig: this.customConfig,
+            customConfigObj: this.customConfigObj
         };
     },
     dehydrate: function () {
@@ -36,6 +57,8 @@ var ReferenceStore = createStore({
     },
     rehydrate: function (state) {
         this.currentQuery = state.currentQuery;
+        this.customConfig = state.customConfig;
+        this.customConfigObj = state.customConfigObj;
     }
 });
 
