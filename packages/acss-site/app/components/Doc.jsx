@@ -38,7 +38,9 @@ var Component = React.createClass({
         return (
             <div id="main" role="main" className="D-tbc D-b--sm Px-10 D-ib Va-t">
                 <div className="SpaceBetween">
-                    <h1 className="D-ib Va-m Fz-30">{this.props.title}</h1> {editEl}
+                    <h1 className="D-ib Va-m Fz-30">
+                        {this.props.title}
+                    </h1> {editEl}
                 </div>
                 <div onClick={this.onClick} dangerouslySetInnerHTML={{__html: this.props.content}}></div>
             </div>

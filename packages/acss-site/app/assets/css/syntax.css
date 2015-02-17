@@ -6,8 +6,8 @@ pre {
     padding: 16px;
     overflow-x: auto;
     line-height: 1.45;
-    background-color: #f7f7f7;
-    border-radius: 10px;
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px #ccc;
 }
 /*
 github.com style (c) Vasily Polovnyov <vast@whiteants.net>

@@ -22,10 +22,12 @@
      * menu (slider)
      */
     .menu-on #aside {
-        -webkit-transform: none;
-        -ms-transform: none;
-        transform: none;
+        -webkit-animation: bounce .3s ease-out;
+        animation: bounce .5s ease-out;
         box-shadow: 1px 0 9px 1px #555;
+        -webkit-transform:translateY(0);
+        -ms-transform:translateY(0);
+        transform:translateY(0);
     }
 
     .menu-on #overlay {
@@ -33,18 +35,296 @@
         background: rgba(0, 0, 0, .6);
     }
 
+    /**
+     * for the footer to get this styling we'd need to move ".menu-on" higher up
+     */
+    .menu-on #main,
+    .menu-on #footer {
+        -webkit-filter: blur(2px);
+        filter: blur(2px);
+    }
+
     #aside {
-        -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        transform: rotate(90deg);
-        -webkit-transform-origin: top right;
-        -ms-transform-origin: top right;
-        transform-origin: top right;
+        -webkit-transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
+        transform: translateY(-100%);
+        will-change: transform;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
         position: absolute;
         margin-top: -20px;
         background: #FFF;
-        transition: all .3s;
     }
+
+    @-webkit-keyframes bounce {
+        0% {
+            -webkit-transform:translateY(-100%);
+          filter: blur(5px);
+          text-shadow:
+            0 -2px #555,
+            0 -3px #555,
+            0 -4px #555,
+            0 -5px #555,
+            0 -6px #555,
+            0 -7px #666,
+            0 -8px #666,
+            0 -9px #666,
+            0 -10px #666,
+            0 -11px #666,
+            0 -12px #777,
+            0 -13px #777,
+            0 -14px #777,
+            0 -15px #777,
+            0 -16px #777,
+            0 -17px #888,
+            0 -18px #888,
+            0 -19px #888,
+            0 -20px #888,
+            0 -21px #888,
+            0 -22px #999,
+            0 -23px #999,
+            0 -24px #999,
+            0 -25px #999,
+            0 -26px #999,
+            0 -27px #A7A7A7,
+            0 -28px #A7A7A7,
+            0 -29px #A7A7A7,
+            0 -30px #A7A7A7,
+            0 -31px #A7A7A7,
+            0 -32px #B7B7B7,
+            0 -33px #B7B7B7,
+            0 -34px #B7B7B7,
+            0 -35px #B7B7B7,
+            0 -36px #B7B7B7,
+            0 -37px #C7C7C7,
+            0 -38px #C7C7C7,
+            0 -39px #C7C7C7;
+         }
+        40% {
+            -webkit-transform:translateY(0);
+                      text-shadow:
+                        0 -2px #555,
+                        0 -3px #555,
+                        0 -4px #555,
+                        0 -5px #555,
+                        0 -6px #555,
+                        0 -7px #666,
+                        0 -8px #666,
+                        0 -9px #666,
+                        0 -10px #666,
+                        0 -11px #666,
+                        0 -12px #777,
+                        0 -13px #777,
+                        0 -14px #777,
+                        0 -15px #777,
+                        0 -16px #777,
+                        0 -17px #888,
+                        0 -18px #888,
+                        0 -19px #888,
+                        0 -20px #888,
+                        0 -21px #888,
+                        0 -22px #999,
+                        0 -23px #999,
+                        0 -24px #999,
+                        0 -25px #999,
+                        0 -26px #999,
+                        0 -27px #A7A7A7,
+                        0 -28px #A7A7A7,
+                        0 -29px #A7A7A7,
+                        0 -30px #A7A7A7,
+                        0 -31px #A7A7A7,
+                        0 -32px #B7B7B7,
+                        0 -33px #B7B7B7,
+                        0 -34px #B7B7B7,
+                        0 -35px #B7B7B7,
+                        0 -36px #B7B7B7,
+                        0 -37px #C7C7C7,
+                        0 -38px #C7C7C7,
+                        0 -39px #C7C7C7;
+        }
+        60% {
+            -webkit-transform:translateY(-20%);
+            text-shadow:
+            0 2px #555,
+            0 3px #555,
+            0 4px #555,
+            0 5px #555,
+            0 6px #555,
+            0 7px #666,
+            0 8px #666,
+            0 9px #666,
+            0 10px #666,
+            0 11px #666,
+            0 12px #777,
+            0 13px #777,
+            0 14px #777,
+            0 15px #777,
+            0 16px #777,
+            0 17px #888,
+            0 18px #888,
+            0 19px #888,
+            0 20px #888,
+            0 21px #888,
+            0 22px #999,
+            0 23px #999,
+            0 24px #999,
+            0 25px #999,
+            0 26px #999,
+            0 27px #A7A7A7,
+            0 28px #A7A7A7,
+            0 29px #A7A7A7,
+            0 30px #A7A7A7,
+            0 31px #A7A7A7,
+            0 32px #B7B7B7,
+            0 33px #B7B7B7,
+            0 34px #B7B7B7,
+            0 35px #B7B7B7,
+            0 36px #B7B7B7,
+            0 37px #C7C7C7,
+            0 38px #C7C7C7,
+            0 39px #C7C7C7;
+         }
+        100% {
+            -webkit-transform:translateY(0);
+         }
+    }
+
+    @keyframes bounce {
+        0% {
+            transform:translateY(-100%);
+          filter: blur(5px);
+          text-shadow:
+            0 -2px #555,
+            0 -3px #555,
+            0 -4px #555,
+            0 -5px #555,
+            0 -6px #555,
+            0 -7px #666,
+            0 -8px #666,
+            0 -9px #666,
+            0 -10px #666,
+            0 -11px #666,
+            0 -12px #777,
+            0 -13px #777,
+            0 -14px #777,
+            0 -15px #777,
+            0 -16px #777,
+            0 -17px #888,
+            0 -18px #888,
+            0 -19px #888,
+            0 -20px #888,
+            0 -21px #888,
+            0 -22px #999,
+            0 -23px #999,
+            0 -24px #999,
+            0 -25px #999,
+            0 -26px #999,
+            0 -27px #A7A7A7,
+            0 -28px #A7A7A7,
+            0 -29px #A7A7A7,
+            0 -30px #A7A7A7,
+            0 -31px #A7A7A7,
+            0 -32px #B7B7B7,
+            0 -33px #B7B7B7,
+            0 -34px #B7B7B7,
+            0 -35px #B7B7B7,
+            0 -36px #B7B7B7,
+            0 -37px #C7C7C7,
+            0 -38px #C7C7C7,
+            0 -39px #C7C7C7;
+         }
+        40% {
+            transform:translateY(0);
+                      text-shadow:
+                        0 -2px #555,
+                        0 -3px #555,
+                        0 -4px #555,
+                        0 -5px #555,
+                        0 -6px #555,
+                        0 -7px #666,
+                        0 -8px #666,
+                        0 -9px #666,
+                        0 -10px #666,
+                        0 -11px #666,
+                        0 -12px #777,
+                        0 -13px #777,
+                        0 -14px #777,
+                        0 -15px #777,
+                        0 -16px #777,
+                        0 -17px #888,
+                        0 -18px #888,
+                        0 -19px #888,
+                        0 -20px #888,
+                        0 -21px #888,
+                        0 -22px #999,
+                        0 -23px #999,
+                        0 -24px #999,
+                        0 -25px #999,
+                        0 -26px #999,
+                        0 -27px #A7A7A7,
+                        0 -28px #A7A7A7,
+                        0 -29px #A7A7A7,
+                        0 -30px #A7A7A7,
+                        0 -31px #A7A7A7,
+                        0 -32px #B7B7B7,
+                        0 -33px #B7B7B7,
+                        0 -34px #B7B7B7,
+                        0 -35px #B7B7B7,
+                        0 -36px #B7B7B7,
+                        0 -37px #C7C7C7,
+                        0 -38px #C7C7C7,
+                        0 -39px #C7C7C7;
+        }
+        60% {
+            transform:translateY(-20%);
+            text-shadow:
+            0 2px #555,
+            0 3px #555,
+            0 4px #555,
+            0 5px #555,
+            0 6px #555,
+            0 7px #666,
+            0 8px #666,
+            0 9px #666,
+            0 10px #666,
+            0 11px #666,
+            0 12px #777,
+            0 13px #777,
+            0 14px #777,
+            0 15px #777,
+            0 16px #777,
+            0 17px #888,
+            0 18px #888,
+            0 19px #888,
+            0 20px #888,
+            0 21px #888,
+            0 22px #999,
+            0 23px #999,
+            0 24px #999,
+            0 25px #999,
+            0 26px #999,
+            0 27px #A7A7A7,
+            0 28px #A7A7A7,
+            0 29px #A7A7A7,
+            0 30px #A7A7A7,
+            0 31px #A7A7A7,
+            0 32px #B7B7B7,
+            0 33px #B7B7B7,
+            0 34px #B7B7B7,
+            0 35px #B7B7B7,
+            0 36px #B7B7B7,
+            0 37px #C7C7C7,
+            0 38px #C7C7C7,
+            0 39px #C7C7C7;
+         }
+        100% {
+            transform:translateY(0);
+         }
+    }
+
+
+
+
 
     /**
      * to remove the links from tabbing navigation
