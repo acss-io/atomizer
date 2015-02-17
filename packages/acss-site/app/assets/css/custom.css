@@ -56,10 +56,6 @@
     margin-left: -90%;
 }
 
-#header li.selected a {
-    co lor: #0280AE !important;
-}
-
 #header li.selected a:before {
     width: 100%;
     left: 0;
@@ -72,6 +68,17 @@
     background: #FFF;
     border-radius: 0;
     opacity: 1;
+}
+
+/**
+ *
+ */
+li.selected a {
+    cursor: text;
+}
+
+#aside li.selected a {
+    color: #555 !important;
 }
 
 
@@ -91,9 +98,8 @@
 }
 
 /**
- * BACKGROUND COLORS
+ * Footer
  */
-pre,
 #footer {
     background: #f6ffff;
 }
