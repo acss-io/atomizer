@@ -18,6 +18,9 @@
 
 /**
  * always-at-the-bottom-footer
+ * the wrapper is also styled with box-sizing:border box and a min-width of 100%
+ * such styling positions the footer right below the fold if the page is "too short"
+ * the padding make room for the footer and the negative margin moves it up inside said padding
  */
 .wrapper {
     padding-bottom: 60px;
@@ -53,6 +56,25 @@
     margin-left: -90%;
 }
 
+#header li.selected a {
+    co lor: #0280AE !important;
+}
+
+#header li.selected a:before {
+    width: 100%;
+    left: 0;
+    top: auto;
+    right: 0;
+    bottom: -15px;
+    height: 5px;
+    margin: 0;
+    padding: 0;
+    background: #FFF;
+    border-radius: 0;
+    opacity: 1;
+}
+
+
 /**
  * SPLASH box on home page
  */
@@ -69,8 +91,47 @@
 }
 
 /**
- * FOOTER
+ * BACKGROUND COLORS
  */
+pre,
 #footer {
     background: #f6ffff;
 }
+
+
+/**
+ * TODO: include these colors through the config?
+ */
+/*
+.C-ff8b00 {
+	background: #ff8b00;
+}
+
+.C-b61854 {
+	background: #b61854;
+}
+
+.C-1d5cab {
+	background: #1d5cab;
+}
+
+.C-f2438c {
+	background: #f2438c;
+}
+
+.C-ff6414 {
+	background: #ff6414;
+}
+
+.C-5ed500 {
+	background: #5ed500;
+}
+
+.color-7 {
+	background: #0077ff;
+}
+
+.C-7bff00 {
+	background: #7bff00;
+}
+*/

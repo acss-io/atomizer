@@ -21,7 +21,7 @@ var Component = React.createClass({
                 var selected = '/' + link.routeName + '/' +
                     (link.navParams.type ? link.navParams.type + '/' : '') +
                     link.navParams.key + '.md';
-                submenu.push(<li key={link.label} className={cx({'selected': self.props.selected === selected})}><NavLink className="D-b Td-n:h C-logo:h Py-5" routeName={link.routeName} navParams={link.navParams}>{link.label}</NavLink></li>);
+               submenu.push(<li key={link.label} className={cx({'selected': self.props.selected === selected})}><NavLink className="D-b Td-n:h C-logo:h Py-5" routeName={link.routeName} navParams={link.navParams}>{link.label}</NavLink></li>);
             });
 
             if (submenu.length) {
@@ -29,7 +29,7 @@ var Component = React.createClass({
             }
         });
         return (
-            <div id="aside" className="D-tbc Va-t W-150px--sm End-0 Pt-20 Pb-40 Pstart-10 Pend-50 Z-5 Pend-10--sm End-a--sm Z-0 Start-0" role="aside">
+            <div id="aside" className="D-tbc Va-t W-150px--sm End-0 Pt-20 Pb-40 Pstart-10 Pstart-0--sm Pend-50 Z-5 Pend-10--sm End-a--sm Z-0 Start-0" role="aside">
                 {menu}
             </div>
         );

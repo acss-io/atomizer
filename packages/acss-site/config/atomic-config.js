@@ -256,9 +256,13 @@ module.exports = {
 //        'i': true,
         'ib': true,
 //        'inh': true,
-        'tb': true,
+        'tb': {
+            breakPoints: ['sm']
+        },
 //        'tbr': true,
-        'tbc': true
+        'tbc': {
+            breakPoints: ['sm']
+        }
 //        'li': true,
 //        'ri': true,
 //        'cp': true,
@@ -526,11 +530,18 @@ module.exports = {
     // pattern
     'margin-end': {
         'custom': [{
+            suffix: '0',
+            values: ['0'],
+            breakPoints: ['sm']
+        },{
             suffix: '10',
             values: ['10px']
         }, {
             suffix: '20',
             values: ['20px']
+        }, {
+            suffix: '50',
+            values: ['50px']
         }]
     },
 
@@ -650,6 +661,10 @@ module.exports = {
     // pattern
     'padding-start': {
         'custom': [{
+            suffix: '0',
+            values: ['0'],
+            breakPoints: ['sm']
+        }, {
             suffix: '10',
             values: ['10px']
         }]
