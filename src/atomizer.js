@@ -26,12 +26,12 @@ module.exports = function (configObjs, options) {
         banner: ''
     }, options);
 
-    if (!_.isArray(configObjs)) {
-        configObjs = [configObjs];
+    if (!configObjs) {
+        throw new Error('No configuration provided.');
     }
 
-    if (configObjs.length === 0) {
-        throw new Error('No configuration provided.');
+    if (!_.isArray(configObjs)) {
+        configObjs = [configObjs];
     }
 
     var api = Absurd();
@@ -44,8 +44,7 @@ module.exports = function (configObjs, options) {
 
     configObjs.forEach(function (config) {
         var atomicBuilder = new AtomicBuilder(rules, config);
-        var build = (atomicBuilder && atomicBuilder.getBuild()) || {};
-
+        var build = atomicBuilder.getBuild();
         if (!_.size(build)) {
             throw new Error('Failed to generate CSS. The `build` object is empty.');
         }
@@ -53,6 +52,7 @@ module.exports = function (configObjs, options) {
     });
 
     api.compile(function(err, result) {
+        /* istanbul ignore if else */
         if (err) {
             throw new Error('Failed to compile atomic css:' + err);
         }
