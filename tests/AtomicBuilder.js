@@ -422,7 +422,9 @@ describe('AtomicBuilder', function () {
             var atomicBuilder = new AtomicBuilder();
 
             // execute
-            atomicBuilder.addPatternRule(rule, {
+            atomicBuilder.addPatternRule({
+                suffix: 'foo', values: ['bold'], breakPoints: expectedBreakPoints
+            }, {
                 id: id,
                 prefix: prefix,
                 properties: properties,

@@ -241,6 +241,9 @@ AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfi
             var breakPoints;
 
             // add BreakPoints
+            if (rule.breakPoints && rule.breakPoints.constructor === Array) {
+                breakPoints = rule.breakPoints;
+            }
             if (currentConfigObj.breakPoints && currentConfigObj.breakPoints.constructor === Array) {
                 breakPoints = currentConfigObj.breakPoints;
             }
