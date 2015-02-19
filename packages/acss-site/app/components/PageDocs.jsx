@@ -36,12 +36,12 @@ var PageDocs = React.createClass({
 
         wrapperClasses = cx({
             'menu-on': this.state.isMenuVisible,
-            'docs-page innerwrapper D-tb--sm Tbl-f Pt-20 Mb-50 Mx-a--sm W-90%--sm W-a--sm': true
+            'docs-page innerwrapper D-tb--sm Tbl-f Pt-20px Mb-50px Mx-a--sm W-90%--sm W-a--sm': true
         });
 
         return (
             <div className={wrapperClasses}>
-                <button onClick={this.handleMenuToggle} id="toggleMenuButton" className="menu-button D-n--sm Pos-a ButtonNaked End-0 Z-7 Mend-10">
+                <button onClick={this.handleMenuToggle} id="toggleMenuButton" className="menu-button D-n--sm Pos-a ButtonNaked End-0 Z-7 Mend-10px">
                     <b className="Hidden">Toggle the menu</b>
                 </button>
                 <Menu config={this.props.menu} selected={this.props.doc.key} />

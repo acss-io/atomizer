@@ -19,10 +19,19 @@
     zoom: 1;
 }
 
-ul.u-list {
+ul.ul-list {
     list-style-type: disc;
+    padding-left: 1.5em;
 }
 
+
+dl.dl-list dt {
+    font-weight: bold;
+}
+
+dl.dl-list dd {
+    padding-left: 1.5em;
+}
 
 /**
  * Warning: this styling may create line-height issue as we are resetting the value to an "arbitrary" number

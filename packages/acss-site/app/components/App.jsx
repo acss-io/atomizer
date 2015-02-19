@@ -74,14 +74,14 @@ var App = React.createClass({
         return (
             <div className="H-100%">
                 <div className="wrapper Bxz-bb Mih-100%">
-                    <div id="header" role="header" className="P-10 Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
+                    <div id="header" role="header" className="P-10px Ov-h Z-7 Pos-r Bgc-logo OptLegibility">
                         <div className="innerwrapper SpaceBetween Mx-a--sm W-90%--sm W-a--sm">
-                            <NavLink className="Va-m Fz-20 Lh-12 C-fff Td-n:h" routeName="home">Atomic css</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                            <NavLink className="Va-m Fz-20px Lh-12 C-fff Td-n:h" routeName="home">Atomic css</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
                         </div>
                     </div>
                     {page}
                 </div>
-                <div id="footer" className="P-20 Bdt-1" role="footer">
+                <div id="footer" className="P-20px Bdt-1" role="footer">
                     <div className="innerwrapper SpaceBetween Mx-a--sm W-90%--sm W-a--sm">
                         <small>All code on this site is licensed under the <a href="https://github.com/yahoo/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small>© 2015 Yahoo! Inc. All rights reserved.</small>
                     </div>

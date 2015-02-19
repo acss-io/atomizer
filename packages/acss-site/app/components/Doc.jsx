@@ -32,13 +32,13 @@ var Component = React.createClass({
 
         // only output on docs pages
         if (this.props.slug && this.props.slug.indexOf('docs') !== -1) {
-            editEl = (<a href={DOCS_URL + this.props.slug} className="D-ib Va-m" target='_blank'>Edit on Github</a>)
+            editEl = (<a href={DOCS_URL + this.props.slug} className="D-ib Va-m Mt-30px" target='_blank'>Edit on Github</a>)
         }
 
         return (
-            <div id="main" role="main" className="D-tbc D-b--sm Px-10 D-ib Va-t">
+            <div id="main" role="main" className="D-tbc--sm Px-10px">
                 <div className="SpaceBetween">
-                    <h1 className="D-ib Va-m Fz-30">
+                    <h1 className="D-ib Va-m Fz-30px">
                         {this.props.title}
                     </h1> {editEl}
                 </div>

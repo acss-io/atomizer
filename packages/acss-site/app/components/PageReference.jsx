@@ -24,7 +24,7 @@ var PageReference = React.createClass({
      */
     render: function () {
         return (
-            <div id="reference" className="reference-page">
+            <div id="reference" role="main" className="reference-page innerwrapper Mb-50px Mx-10px Mx-a--sm W-90%--sm">
                 <h2>Reference</h2>
                 <Reference />
             </div>

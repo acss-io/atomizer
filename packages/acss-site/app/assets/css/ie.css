@@ -51,6 +51,7 @@
 #atomic #aside {
     padding-left: 0;
     width: 150px !important;
+    padding-right: 50px;
 }
 
 #atomic #main {

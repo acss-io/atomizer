@@ -7,7 +7,7 @@ npm install -g atomizer
 ```
 
 ```css
-.P-10 {
+.P-10px {
     padding: 10px;
 }
 .H-100% {
@@ -17,7 +17,7 @@ npm install -g atomizer
 
 ```html
 <div class="Bfc">
-    <img class="Fl-start Mend-10" src="avatar.jpg">
+    <img class="Fl-start Mend-10px" src="avatar.jpg">
     <div class="Bfc">Text</div>
 </div>
 ```
