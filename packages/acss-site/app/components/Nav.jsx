@@ -34,7 +34,7 @@ var Nav = React.createClass({
             var link = links[name];
             var className = cx({
                 'selected': selected === name,
-                'Mstart-10': index !== 1,
+                'Mstart-10px': index !== 1,
                 'D-ib Va-m Pos-r': true
             });
             var navParams = {};
@@ -58,7 +58,7 @@ var Nav = React.createClass({
         return (
             <ul role="navigation" className="Va-m Reset">
                 {linkHTML}
-                <li className="D-ib Mstart-10 Pos-r">
+                <li className="D-ib Mstart-10px Pos-r">
                     <a className="D-b C-fff Td-n:h" href="https://github.com/yahoo/atomizer">
                         <img className="Va-m Pos-r" alt="GitHub" width="30" src="/public/images/github-logo.png" />
                     </a>

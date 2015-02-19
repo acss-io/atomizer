@@ -71,7 +71,7 @@
 }
 
 /**
- *
+ * .selected list item
  */
 li.selected a {
     cursor: text;
@@ -98,19 +98,27 @@ li.selected a {
 }
 
 /**
- * Footer
+ * Background-color
  */
+pre,
+input,
+textarea,
+.textarea,
+code,
 #footer {
     background: #f6ffff;
 }
 
-
 /**
  * TODO: include these colors through the config?
  */
-/*
+
 .C-ff8b00 {
 	background: #ff8b00;
+}
+
+.C-ff6414 {
+	background: #ff6414;
 }
 
 .C-b61854 {
@@ -121,23 +129,10 @@ li.selected a {
 	background: #1d5cab;
 }
 
-.C-f2438c {
-	background: #f2438c;
-}
-
-.C-ff6414 {
-	background: #ff6414;
-}
-
 .C-5ed500 {
 	background: #5ed500;
-}
-
-.color-7 {
-	background: #0077ff;
 }
 
 .C-7bff00 {
 	background: #7bff00;
 }
-*/

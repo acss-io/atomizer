@@ -15,6 +15,10 @@ module.exports = {
         }
     },
 
+    // COLORS:
+    // redish: .C-f2438c
+    // blueish: .C-07f
+
     // pattern
     'border-x': {
         'custom': [{
@@ -65,7 +69,7 @@ module.exports = {
     // pattern
     'border-radius': {
         'custom': [{
-            suffix: '100',
+            suffix: '100px',
             values: ['100px']
 //        }, {
 //            suffix: '3px',
@@ -82,8 +86,8 @@ module.exports = {
         }, ]
     },
 
-//    // pattern
-//    'font-family': {
+    // pattern
+    'font-family': {
 //        s: true,
 //        ss: {
 //            values: ['Arial, sans-serif'],
@@ -91,9 +95,9 @@ module.exports = {
 //        },
 //        c: true,
 //        f: true,
-//        m: true
-//    },
-//
+        m: true
+    },
+
 //    // rule
 //    'background-none': true,
 //    'background-color-transparent': true,
@@ -190,6 +194,13 @@ module.exports = {
         'custom': [{
             suffix: 'fff',
             values: ['#fff !important']
+        },
+        {
+            suffix: 'f2438c',
+            values: ['#f2438c !important']
+        },{
+            suffix: '07f',
+            values: ['#07f !important']
         }]
     },
 
@@ -206,16 +217,16 @@ module.exports = {
 //            values: ['0 0 5px #333']
 //        }]
 //    },
-//
-//    // pattern
-//    'clear': {
+
+    // pattern
+    'clear': {
 //        n: true,
 //        b: true,
-//        start: true,
+        start: true
 //        end: true,
 //        inh: true
-//    },
-//
+    },
+
 //    // pattern
 //    'cursor': {
 //        'a': true,
@@ -254,7 +265,9 @@ module.exports = {
         },
 //        'f': true,
 //        'i': true,
-        'ib': true,
+        'ib': {
+            breakPoints: ['sm']
+        },
 //        'inh': true,
         'tb': {
             breakPoints: ['sm']
@@ -361,15 +374,15 @@ module.exports = {
 //        'w': true,
 //        'wr': true
 //    },
-//
-//    // pattern
-//    'float': {
+
+    // pattern
+    'float': {
 //        'n': true,
-//        'start': true,
+        'start': true
 //        'end': true,
 //        'inh': true
-//    },
-//
+    },
+
 //    // pattern
     'font-weight': {
 //        'n': {
@@ -381,13 +394,13 @@ module.exports = {
     // pattern
     'font-size': {
         'custom': [{
-            suffix: '14',
+            suffix: '14px',
             values: ['14px']
         }, {
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }, {
-            suffix: '30',
+            suffix: '30px',
             values: ['30px']
         }]
 //        '0': true,
@@ -501,11 +514,24 @@ module.exports = {
         }]
     },
 
+
+    // pattern
+    'margin': {
+        'custom': [{
+            suffix: '0',
+            values: ['0']
+        }]
+    },
+
     // pattern
     'margin-x': {
         a: {
             breakPoints: ['sm']
-        }
+        },
+        'custom': [{
+            suffix: '10px',
+            values: ['10px']
+        }]
     },
 
     // pattern
@@ -514,7 +540,7 @@ module.exports = {
             suffix: '0',
             values: ['0']
         }, {
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }]
     },
@@ -522,8 +548,8 @@ module.exports = {
     // pattern
     'margin-top': {
         'custom': [{
-            suffix: '24',
-            values: ['24px']
+            suffix: '30px',
+            values: ['30px']
         }]
     },
 
@@ -534,24 +560,21 @@ module.exports = {
             values: ['0'],
             breakPoints: ['sm']
         },{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
-        }, {
-            suffix: '20',
-            values: ['20px']
-        }, {
-            suffix: '50',
-            values: ['50px']
         }]
     },
 
     // pattern
     'margin-bottom': {
         'custom': [{
-            suffix: '10',
+            suffix: '0',
+            values: ['0']
+        },{
+            suffix: '10px',
             values: ['10px']
         }, {
-            suffix: '50',
+            suffix: '50px',
             values: ['50px']
         }]
     },
@@ -559,19 +582,10 @@ module.exports = {
     // pattern
     'margin-start': {
         'custom': [{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
         }]
     },
-
-    // pattern
-    'margin': {
-        'custom': [{
-            suffix: '0',
-            values: ['0']
-        }]
-    },
-
 
     // OFFSETS
     // pattern
@@ -609,20 +623,38 @@ module.exports = {
     },
 
     // pattern
+    'overflow-y': {
+        h: true,
+        s: true
+    },
+
+    // pattern
+    'padding': {
+        'custom': [{
+            suffix: '0',
+            values: ['0'],
+        }, {
+            suffix: '10px',
+            values: ['10px'],
+        //            breakPoints: ['sm', 'md', 'lg']
+        }, {
+            suffix: '20px',
+            values: ['20px']
+        }]
+    },
+
+    // pattern
     'padding-x': {
         'custom': [{
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
-        }, {
-            suffix: '20',
-            values: ['20px']
         }]
     },
 
     // pattern
     'padding-y': {
         'custom': [{
-            suffix: '5',
+            suffix: '5px',
             values: ['5px'],
             breakPoints: ['sm']
         }]
@@ -631,7 +663,7 @@ module.exports = {
     // pattern
     'padding-top': {
         'custom': [{
-            suffix: '20',
+            suffix: '20px',
             values: ['20px']
         }]
     },
@@ -639,12 +671,12 @@ module.exports = {
     // pattern
     'padding-end': {
         'custom': [{
-            suffix: '50',
-            values: ['50px'],
+            suffix: '10px',
+            values: ['10px'],
             breakPoints: ['sm']
         }, {
-            suffix: '10',
-            values: ['10px'],
+            suffix: '50px',
+            values: ['50px'],
             breakPoints: ['sm']
         }]
     },
@@ -652,10 +684,7 @@ module.exports = {
     // pattern
     'padding-bottom': {
         'custom': [{
-            suffix: '5',
-            values: ['5px']
-        }, {
-            suffix: '40',
+            suffix: '40px',
             values: ['40px']
         }]
     },
@@ -667,26 +696,10 @@ module.exports = {
             values: ['0'],
             breakPoints: ['sm']
         }, {
-            suffix: '10',
+            suffix: '10px',
             values: ['10px']
         }]
     },
-
-    // pattern
-    'padding': {
-        'custom': [{
-            suffix: '0',
-            values: ['0'],
-        }, {
-            suffix: '10',
-            values: ['10px'],
-        //            breakPoints: ['sm', 'md', 'lg']
-        }, {
-            suffix: '20',
-            values: ['20px']
-        }]
-    },
-
 
     // pattern
     'position': {
@@ -726,6 +739,11 @@ module.exports = {
         t: true
     },
 
+// pattern
+    'white-space': {
+        nw: true
+    },
+
 //    // pattern
     'width': {
         a: true,
@@ -739,7 +757,8 @@ module.exports = {
             values: ['0']
         },{
             suffix: '50%',
-            values: ['50%']
+            values: ['50%'],
+            breakPoints: ['sm']
         },{
             suffix: '90%',
             values: ['90%'],
