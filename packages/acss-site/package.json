@@ -23,8 +23,7 @@
     "prod": "grunt prod"
   },
   "dependencies": {
-    "absurd": "~0.3.33",
-    "atomizer": "~0.2.0",
+    "atomizer": "~0.2.3",
     "body-parser": "^1.9.3",
     "debug": "^2.1.1",
     "express": "^4.10.4",

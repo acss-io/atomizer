@@ -5,7 +5,7 @@
 'use strict';
 // Webpack script loader - Absurd build for client side only
 if (typeof window !== 'undefined') {
-    require("script!absurd/client-side/build/absurd.min.js");
+    require("script!atomizer/node_modules/absurd/client-side/build/absurd.min.js");
 }
 var React = require('react');
 var atomizer = require('atomizer');
