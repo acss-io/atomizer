@@ -25,9 +25,10 @@ module.exports = [
         id: 'border',
         name: 'Border',
         prefix: '.Bd-',
+        properties: ['border'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border']
+        allowSuffixToValue: false
     },
     // top
     {
@@ -35,9 +36,10 @@ module.exports = [
         id: 'border-top',
         name: 'Border top',
         prefix: '.Bdt-',
+        properties: ['border-top'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-top']
+        allowSuffixToValue: false
     },
     // end
     {
@@ -45,9 +47,10 @@ module.exports = [
         id: 'border-end',
         name: 'Border end',
         prefix: '.Bdend-',
+        properties: ['border-$END'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-$END']
+        allowSuffixToValue: false
     },
     // bottom
     {
@@ -55,9 +58,10 @@ module.exports = [
         id: 'border-bottom',
         name: 'Border bottom',
         prefix: '.Bdb-',
+        properties: ['border-bottom'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-bottom']
+        allowSuffixToValue: false
     },
     // start
     {
@@ -65,9 +69,10 @@ module.exports = [
         id: 'border-start',
         name: 'Border start',
         prefix: '.Bdstart-',
+        properties: ['border-$START'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-$START']
+        allowSuffixToValue: false
     },
     // X axis
     {
@@ -75,9 +80,10 @@ module.exports = [
         id: 'border-x',
         name: 'Border X',
         prefix: '.Bdx-',
+        properties: ['border-$START', 'border-$END'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-$START', 'border-$END']
+        allowSuffixToValue: false
     },
     // Y axis
     {
@@ -85,9 +91,10 @@ module.exports = [
         id: 'border-y',
         name: 'Border Y',
         prefix: '.Bdy-',
+        properties: ['border-top', 'border-bottom'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        properties: ['border-top', 'border-bottom']
+        allowSuffixToValue: false,
     },
     /**
      ==================================================================
@@ -100,7 +107,8 @@ module.exports = [
         name: 'Border radius',
         prefix: '.Bdrs-',
         properties: ['border-radius'],
-        allowCustom: true
+        allowCustom: true,
+        allowSuffixToValue: true
     },
 
      /**
@@ -118,6 +126,7 @@ module.exports = [
         properties: ['background'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
             {suffix: 't', values: ['transparent']},
@@ -133,6 +142,7 @@ module.exports = [
         properties: ['background-image'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
             {suffix: 'inh', values: ['inherit']}
@@ -146,7 +156,8 @@ module.exports = [
         prefix: '.Bgc-',
         properties: ['background-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true
     },
 
     /* background-clip */
@@ -183,6 +194,7 @@ module.exports = [
         prefix: '.Bgz-',
         properties: ['background-size'],
         allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'ct', values: ['contain']},
@@ -282,6 +294,7 @@ module.exports = [
         prefix: '.Bxsh-',
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']}
         ]
@@ -320,6 +333,7 @@ module.exports = [
         properties: ['color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
             {suffix: 'cc', values: ['currentColor']}
@@ -408,6 +422,7 @@ module.exports = [
         prefix: '.Flx-',
         properties: ['flex'],
         allowCustom: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'n', values: ['none']}
@@ -577,7 +592,8 @@ module.exports = [
         name: 'Order',
         prefix: '.Or-',
         properties: ['order'],
-        allowCustom: true
+        allowCustom: true,
+        allowSuffixToValue: true
     },
 
     /* FLEX-PACK  */
@@ -709,6 +725,7 @@ module.exports = [
         properties: ['font-size'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
         suffixType: 'numerical',
         rules: [
             // not in alphabetical order since here they are in t-shirt size order
@@ -776,6 +793,7 @@ module.exports = [
         prefix: '.H-',
         properties: ['height'],
         allowCustom: true,
+        allowSuffixToValue: true,
         allowFraction: true,
         rules: [
             {suffix: '0', values: [0]},
@@ -853,6 +871,7 @@ module.exports = [
         prefix: '.Lisi-',
         properties: ['list-style-image'],
         allowCustom: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
             {suffix: 'inh', values: ['inherit']}
@@ -871,6 +890,7 @@ module.exports = [
         prefix: '.Lh-',
         properties: ['line-height'],
         allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'inh', values: ['inherit']},
             {suffix: 'n', values: ['normal']}
@@ -888,8 +908,9 @@ module.exports = [
         id: 'margin',
         name: 'Margin (all edges)',
         prefix: '.M-',
-        allowCustom: true,
         properties: ['margin'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
@@ -902,8 +923,9 @@ module.exports = [
         id: 'margin-top',
         name: 'Margin top',
         prefix: '.Mt-',
-        allowCustom: true,
         properties: ['margin-top'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
@@ -916,8 +938,9 @@ module.exports = [
         id: 'margin-end',
         name: 'Margin end',
         prefix: '.Mend-',
-        allowCustom: true,
         properties: ['margin-$END'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
@@ -930,8 +953,9 @@ module.exports = [
         id: 'margin-bottom',
         name: 'Margin bottom',
         prefix: '.Mb-',
-        allowCustom: true,
         properties: ['margin-bottom'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
@@ -944,8 +968,9 @@ module.exports = [
         id: 'margin-start',
         name: 'Margin start',
         prefix: '.Mstart-',
-        allowCustom: true,
         properties: ['margin-$START'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
@@ -958,8 +983,9 @@ module.exports = [
         id: 'margin-x',
         name: 'Margin (X axis)',
         prefix: '.Mx-',
-        allowCustom: true,
         properties: ['margin-$START', 'margin-$END'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto', 'auto']},
             {suffix: 'inh', values: ['inherit', 'inherit']},
@@ -972,8 +998,9 @@ module.exports = [
         id: 'margin-y',
         name: 'Margin (Y axis)',
         prefix: '.My-',
-        allowCustom: true,
         properties: ['margin-top', 'margin-bottom'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto', 'auto']},
             {suffix: 'inh', values: ['inherit', 'inherit']},
@@ -990,8 +1017,9 @@ module.exports = [
         id: 'max-height',
         name: 'Max height',
         prefix: '.Mah-',
-        allowCustom: true,
         properties: ['max-height'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
@@ -1011,8 +1039,9 @@ module.exports = [
         id: 'max-width',
         name: 'Max width',
         prefix: '.Maw-',
-        allowCustom: true,
         properties: ['max-width'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'fa', values: ['fill-available']},
@@ -1032,8 +1061,9 @@ module.exports = [
         id: 'min-height',
         name: 'Min height',
         prefix: '.Mih-',
-        allowCustom: true,
         properties: ['min-height'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'fa', values: ['fill-available']},
@@ -1053,8 +1083,9 @@ module.exports = [
         id: 'min-width',
         name: 'Min width',
         prefix: '.Miw-',
-        allowCustom: true,
         properties: ['min-width'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'fa', values: ['fill-available']},
@@ -1074,8 +1105,9 @@ module.exports = [
         id: 'outline',
         name: 'Outline',
         prefix: '.O-',
-        allowCustom: true,
         properties: ['outline'],
+        allowCustom: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'n', values: ['none']},
@@ -1093,8 +1125,9 @@ module.exports = [
         id: 'top',
         name: 'Top',
         prefix: '.T-',
-        allowCustom: true,
         properties: ['top'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
@@ -1106,8 +1139,9 @@ module.exports = [
         id: 'end',
         name: 'End',
         prefix: '.End-',
-        allowCustom: true,
         properties: ['$END'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
@@ -1119,8 +1153,9 @@ module.exports = [
         id: 'bottom',
         name: 'Bottom',
         prefix: '.B-',
-        allowCustom: true,
         properties: ['bottom'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
@@ -1132,8 +1167,9 @@ module.exports = [
         id: 'start',
         name: 'Start',
         prefix: '.Start-',
-        allowCustom: true,
         properties: ['$START'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
@@ -1149,8 +1185,9 @@ module.exports = [
         id: 'opacity',
         name: 'Opacity',
         prefix: '.Op-',
-        allowCustom: true,
         properties: ['opacity'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: '1', values: [1]},
@@ -1242,8 +1279,9 @@ module.exports = [
         id: 'padding',
         name: 'Padding (all edges)',
         prefix: '.P-',
-        allowCustom: true,
         properties: ['padding'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'inh', values: ['inherit']}
@@ -1255,8 +1293,9 @@ module.exports = [
         id: 'padding-top',
         name: 'Padding top',
         prefix: '.Pt-',
-        allowCustom: true,
         properties: ['padding-top'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'inh', values: ['inherit']}
@@ -1268,8 +1307,9 @@ module.exports = [
         id: 'padding-end',
         name: 'Padding end',
         prefix: '.Pend-',
-        allowCustom: true,
         properties: ['padding-$END'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'inh', values: ['inherit']}
@@ -1281,8 +1321,9 @@ module.exports = [
         id: 'padding-bottom',
         name: 'Padding bottom',
         prefix: '.Pb-',
-        allowCustom: true,
         properties: ['padding-bottom'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'inh', values: ['inherit']}
@@ -1294,8 +1335,9 @@ module.exports = [
         id: 'padding-start',
         name: 'Padding start',
         prefix: '.Pstart-',
-        allowCustom: true,
         properties: ['padding-$START'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'inh', values: ['inherit']}
@@ -1307,8 +1349,9 @@ module.exports = [
         id: 'padding-x',
         name: 'Padding (X axis)',
         prefix: '.Px-',
-        allowCustom: true,
         properties: ['padding-$START', 'padding-$END'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0, 0]},
             {suffix: 'inh', values: ['inherit', 'inherit']}
@@ -1320,8 +1363,9 @@ module.exports = [
         id: 'padding-y',
         name: 'Padding (Y axis)',
         prefix: '.Py-',
-        allowCustom: true,
         properties: ['padding-top', 'padding-bottom'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0, 0]},
             {suffix: 'inh', values: ['inherit', 'inherit']}
@@ -1484,6 +1528,7 @@ module.exports = [
         prefix: '.Tr-',
         properties: ['text-replace'],
         allowCustom: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
             {suffix: 'inh', values: ['inherit']}
@@ -1521,6 +1566,7 @@ module.exports = [
         properties: ['text-shadow'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
             {suffix: 'inh', values: ['inherit']}
@@ -1642,6 +1688,7 @@ module.exports = [
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowFraction: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'a', values: ['auto']},
@@ -1702,6 +1749,7 @@ module.exports = [
         properties: ['z-index'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
