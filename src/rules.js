@@ -106,7 +106,7 @@ module.exports = [
         id: 'border-radius',
         name: 'Border radius',
         prefix: '.Bdrs-',
-        properties: ['border-radius']
+        properties: ['border-radius'],
         allowCustom: true,
         allowSuffixToValue: true
     },
