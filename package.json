@@ -1,6 +1,6 @@
 {
   "name": "atomizer",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
   "main": "./lib/atomic.js",
   "contributors": [
