@@ -1,7 +1,7 @@
 {
   "name": "grunt-atomizer",
   "description": "Grunt task for Atomizer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "main": "index.js",
   "contributors": [
     {
@@ -26,7 +26,8 @@
     "lint": "grunt"
   },
   "dependencies": {
-    "atomizer": "~0.2.0"
+    "atomizer": "~0.2.4",
+    "lodash": "^3.2.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.0"

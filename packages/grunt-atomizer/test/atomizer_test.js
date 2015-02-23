@@ -26,12 +26,43 @@ exports.atomizer = {
         // setup here if necessary
         done();
     },
-    default_options: function(test) {
+    configFileOnly: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/default-options.css');
-        var expected = grunt.file.read('test/expected/default-options.css');
-        test.equal(actual, expected, 'should generate the css with the default options.');
+        var actual = grunt.file.read('tmp/configFileOnly.css');
+        var expected = grunt.file.read('test/expected/configFileOnly.css');
+
+        test.equal(actual, expected, 'should generate the expected css by passing a configFile only.');
+
+        test.done();
+    },
+    configGruntOnly: function(test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/configGruntOnly.css');
+        var expected = grunt.file.read('test/expected/configGruntOnly.css');
+
+        test.equal(actual, expected, 'should generate the expected css by passing a config directly to grunt only.');
+
+        test.done();
+    },
+    configBoth: function(test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/configBoth.css');
+        var expected = grunt.file.read('test/expected/configBoth.css');
+
+        test.equal(actual, expected, 'should generate the expected css by passing a configFile and a config directly to grunt.');
+
+        test.done();
+    },
+    configBothWithParsing: function(test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/configBothWithParsing.css');
+        var expected = grunt.file.read('test/expected/configBothWithParsing.css');
+
+        test.equal(actual, expected, 'should generate the expected css by passing a configFile and a config directly to grunt + parsing.');
 
         test.done();
     }
