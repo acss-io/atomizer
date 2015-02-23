@@ -5,7 +5,7 @@ module.exports = {
         'end': 'right',
         'defaults': {
             'font-size': '16px',
-            'border-color': '#ccc',
+            'border-color': 'rgba(2, 128, 174, 0.3)',
             'bleed-value': '-10px'
         },
         'breakPoints': {
@@ -31,7 +31,7 @@ module.exports = {
     'border': {
         'custom': [{
             suffix: '1',
-            values: ['1px solid #ccc']
+            values: ['1px solid rgba(2, 128, 174, .3)']
         },]
     },
 
@@ -39,7 +39,7 @@ module.exports = {
     'border-top': {
         'custom': [{
             suffix: '1',
-            values: ['1px solid #ccc']
+            values: ['1px solid rgba(2, 128, 174, .3)']
         },]
     },
 
@@ -55,7 +55,7 @@ module.exports = {
     'border-bottom': {
         'custom': [{
             suffix: '1',
-            values: ['1px solid #ccc']
+            values: ['1px solid rgba(2, 128, 174, .3)']
         }, ]
     },
 
@@ -181,7 +181,7 @@ module.exports = {
 //    },
 //
 
-    // pattern
+// pattern
     'box-sizing': {
 //        'cb': true,
 //        'pb': true,
@@ -397,6 +397,9 @@ module.exports = {
             suffix: '14px',
             values: ['14px']
         }, {
+            suffix: '18px',
+            values: ['18px']
+        }, {
             suffix: '20px',
             values: ['20px']
         }, {
@@ -550,6 +553,9 @@ module.exports = {
         'custom': [{
             suffix: '30px',
             values: ['30px']
+        },{
+            suffix: '50px',
+            values: ['50px']
         }]
     },
 
@@ -648,6 +654,9 @@ module.exports = {
         'custom': [{
             suffix: '10px',
             values: ['10px']
+        }, {
+            suffix: '20px',
+            values: ['20px']
         }]
     },
 

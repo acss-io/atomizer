@@ -32,3 +32,4 @@ app/build/
 # grunt-nodemon
 .rebooted
 .idea
+.DS_Store

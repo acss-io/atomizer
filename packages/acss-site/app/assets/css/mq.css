@@ -320,11 +320,8 @@
         100% {
             transform:translateY(0);
          }
+
     }
-
-
-
-
 
     /**
      * to remove the links from tabbing navigation
@@ -346,6 +343,14 @@
     .menu-on #toggleMenuButton {
         display: block;
         background-position: 100% 0;
+    }
+
+    /**
+     * no fancy marker nor right border along the side of the menu
+     */
+    #aside:after,
+    #aside a:after {
+        display: None !important;
     }
 
 }

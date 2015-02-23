@@ -6,13 +6,13 @@
     zoom: 1;
 }
 
-#atomic .Td-n\:h:hover,
-#atomic .Td-n\:h:focus {
+#atomic .Td-n\:hover:hover,
+#atomic .Td-n\:hover:focus {
     text-decoration: none;
 }
 
-#atomic .C-logo\:h:hover,
-#atomic .C-logo\:h:focus {
+#atomic .C-logo\:hover:hover,
+#atomic .C-logo\:hover:focus {
     color: #0280AE !important;
 }
 
@@ -77,10 +77,45 @@ li.selected a {
     cursor: text;
 }
 
+#aside,
+#aside li a {
+    position:relative;
+}
+
+#aside:after {
+    right: 50px; /* same as padding-right */
+    z-index: -1;
+}
+
+#aside li:hover a:after,
+#aside li.selected a:after,
+#aside:after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    top: 0;
+    bottom: 0;
+    background: rgba(2, 128, 174, .3);
+}
+
+/**
+ * Position
+ */
+#aside li:hover a:after,
+#aside li.selected a:after {
+    right: 0;
+}
+
+/**
+ * Colors
+ */
 #aside li.selected a {
     color: #555 !important;
 }
 
+#aside li.selected a:after {
+    background: #0280AE;
+}
 
 /**
  * SPLASH box on home page
@@ -106,33 +141,71 @@ textarea,
 .textarea,
 code,
 #footer {
-    background: #f6ffff;
+    background: rgba(2, 128, 174, .05);
 }
+
+pre code {
+    background: none;
+}
+
 
 /**
  * TODO: include these colors through the config?
  */
 
-.C-ff8b00 {
-	background: #ff8b00;
+/**
+ * Note Boxes
+ * For all: Px-20px Py-5px Fs-i
+ * Warning: Bdx-7px-ff8b00
+ * Error/Important: Bdx-7px-b61854
+ * Info: Bdx-7px-1d5cab
+ * Success: Bdx-7px-5ed500
+ */
+
+.noteBox {
+    font-style: italic;
+    padding: 7px 20px;
+    border-radius: 2px;
 }
 
-.C-ff6414 {
-	background: #ff6414;
+.warning {
+    border-style: solid;
+    border-color: #ff8b00;
+    border-width: 0 7px;
+    background: #ffe8be;
 }
 
-.C-b61854 {
-	background: #b61854;
+.info {
+    border-style: solid;
+    border-color: #1d5cab;
+    border-width: 0 7px;
+    background: #D0E8FD;
 }
 
-.C-1d5cab {
-	background: #1d5cab;
+.important {
+    border-style: solid;
+    border-color: #FF0061;
+    border-width: 0 7px;
+    background: #FFDDEA;
 }
 
-.C-5ed500 {
-	background: #5ed500;
+.success {
+    border-style: solid;
+    border-color: #5ed500;
+    border-width: 0 7px;
+    background: #E0F9C5;
 }
 
-.C-7bff00 {
-	background: #7bff00;
+/**
+ * for embedded Pens
+ * The title needs to cover the Pen's tab but not the "Edit on CodePen" link
+ * <heading>.penResult
+ */
+.penResult {
+    margin-right: 180px;
+    position: relative;
+    z-index: 1;
+}
+.cp_embed_iframe {
+    margin-top: -50px;
 }

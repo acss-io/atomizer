@@ -1,6 +1,6 @@
-# Atomic class names
+# Atomic classes
 
-Atomic.css class names ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
+Atomic.css classes ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
 
 It might take you a short time to get familiar with these class names but as soon as you start using them you'll be at full speed in no time.
 
@@ -37,25 +37,37 @@ Where:
     <dd>optional property suffix that adds the breakpoint context to the rule. A breakpoint indicates that this rule will only take effect within a CSS media query breakpoint. Valid values are `sm` for small, `md` for medium and `lg` for large. The length values of each breakpoint are defined in the config object.</dd>
 </dl>
 
-Examples:
+### Examples:
 
-   * `D-n`: `.selector {display: none}`
-   * `Fz-s`: `.selector {font-size: small}`
-   * `Td-u:hover`: `.selector:hover {text-decoration: underline}`
-   * `Td-u:focus`: `.selector:focus {text-decoration: underline}`
-   * `Td-u:dir(rtl)`: `.selector:dir(rtl) {text-decoration: underline}`
-   * `Td-u:hover::after`: `.selector:hover::after {text-decoration: underline}`
-   * `Td-u::after`: `.selector::after {text-decoration: underline}`
-   * `Td-u::before`: `.selector::before {text-decoration: underline}`
-   * `Td-u::first-letter`: `.selector::first-letter {text-decoration: underline}`
-   * `Td-u::first-line`: `.selector::first-line {text-decoration: underline}`
-   * `Td-u::selection`: `.selector::selection {text-decoration: underline}`
-   * `Bxs-n`: `.selector {box-shadow: none}`
-   * `Bxs-a--lg`: `@media (min-width: 1200px) {.selector {box-shadow: arbitrary-value-a}}`
-   * `Bxs-b--lg`: `@media (min-width: 1200px) {.selector {box-shadow: arbitrary-value-b}}`
-   * `Bxs-a:hover--lg`: `@media (min-width: 1200px) {.selector:hover {box-shadow: arbitrary-value-a}}`
-   * `Mend-0`: `.selector {margin-end: 0}`
-   * `Bgp-start_t`: `.selector {background-position: left 0}`
-   * `Ta-start`: `.selector {text-align:left}`
-   * `Cl-start`: `.selector {clear:left}`
-   * `Bdstart-0`: `.selector {border-left:0}`
+<dl class="dl-list M-0 Pt-20px">
+    <dt class="Pend-10px Fl-start Cl-start">D-n</dt>
+    <dd class="Ov-h Reset C-f2438c">`display: none`</dd>
+    <dt class="Fl-start Cl-start">Fz-s</dt>
+    <dd class="Ov-h Reset C-f2438c">`font-size: small`</dd>
+    <dt class="Fl-start Cl-start">Td-u:hover</dt>
+    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* on mouseover \*/</dd>
+    <dt class="Fl-start Cl-start">Td-u:dir(rtl)</dt>
+    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* in a RTL context \*/</dd>
+    <dt class="Fl-start Cl-start">Td-u::first-letter</dt>
+    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* first letter \*/</dd>
+    <dt class="Fl-start Cl-start">Td-u::first-line</dt>
+    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* first line \*/</dd>
+    <dt class="Fl-start Cl-start">Td-u::selection</dt>
+    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* selected text \*/</dd>
+    <dt class="Fl-start Cl-start">Bxs-n</dt>
+    <dd class="Ov-h Reset C-f2438c">`box-shadow: none`</dd>
+    <dt class="Fl-start Cl-start">Bxs-a--lg</dt>
+    <dd class="Ov-h Reset C-f2438c">`box-shadow: <arbitrary-value-a>` /\* inside "lg" breakpoint \*/</dd>
+    <dt class="Fl-start Cl-start">Bxs-a:hover--lg</dt>
+    <dd class="Ov-h Reset C-f2438c">`box-shadow: <arbitrary-value-a>` /\* on mouseover inside "lg" breakpoint \*/</dd>
+    <dt class="Fl-start Cl-start">Mend-0</dt>
+    <dd class="Ov-h Reset C-f2438c">`margin-right: 0` /\* in a LTR context \*/</dd>
+    <dt class="Fl-start Cl-start">Bgp-start_t</dt>
+    <dd class="Ov-h Reset C-f2438c">`background-position: left 0` /\* in a LTR context \*/</dd>
+    <dt class="Fl-start Cl-start">Ta-start</dt>
+    <dd class="Ov-h Reset C-f2438c">`text-align: left` /\* in a LTR context \*/</dd>
+    <dt class="Fl-start Cl-start">Cl-start</dt>
+    <dd class="Ov-h Reset C-f2438c">`clear: left` /\* in a LTR context \*/</dd>
+    <dt class="Fl-start Cl-start">Bdstart-0</dt>
+    <dd class="Ov-h Reset C-f2438c">`border-left: 0` /\* in a LTR context \*/</dd>
+</dl>
