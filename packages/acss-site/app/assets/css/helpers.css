@@ -19,9 +19,24 @@
     zoom: 1;
 }
 
+/**
+ * .Row: class meant to contain boxes on a row (from left to right of containing box)
+ * see: http://cssmojo.com/row_for_grids/
+ */
+.row {
+    clear: both;
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+    box-sizing: border-box;
+    *display: block;
+    *width: auto;
+    zoom: 1;
+}
+
 ul.ul-list {
     list-style-type: disc;
-    padding-left: 1.5em;
+    padding-left: 2em;
 }
 
 
@@ -30,7 +45,7 @@ dl.dl-list dt {
 }
 
 dl.dl-list dd {
-    padding-left: 1.5em;
+    padding-left: 2em;
 }
 
 /**
@@ -115,4 +130,15 @@ dl.dl-list dd {
 .atomic span {
     display: inline;
     float: none;
+}
+
+/**
+ * stands for inline-block box
+ * this rule styles elements with inline-block + vertical-align:top + IE7 patch
+ */
+.ib-box {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
 }

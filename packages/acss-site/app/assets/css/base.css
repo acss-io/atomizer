@@ -25,7 +25,11 @@ body {
     margin: 0; /* 1 */
     background: #fff;
     color: #4c4c4c;
-    font: 16px/1.8 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font: 300 16px/1.55 "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 100%;
 }
 
@@ -61,6 +65,14 @@ ol,
 dd {
     margin-left: 0;
     padding-left: 0;
+}
+
+blockquote {
+    border-left: 7px solid #ccc;
+    font-size: 1.2em;
+    font-style: italic;
+    margin-left: 0;
+    padding: 1px 0 1px 2em;
 }
 
 /**
@@ -252,14 +264,7 @@ pre {
 }
 
 code {
-    padding: 0.2em;
-    font-size: 85%;
-    background-color: rgba(0,0,0,.04);
-    border-radius: 3px;
-}
-
-pre code {
-    background: none;
+    padding: .2em .2em .1em;
 }
 
 /**
@@ -269,11 +274,7 @@ pre code {
  */
 
 h1, h2, h3, h4, h5, h6 {
-    text-rendering: optimizeLegibility;
-    font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     font-weight: bold;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -283,12 +284,16 @@ h1 {
 
 h2 {
     font-size: 1.5em;
-    margin: .83em 0;
+    margin: 2em 0 1em;
+    padding-top: 1.8em;
+    border-top: 2px solid rgba(2, 128, 174, .3);
 }
 
 h3 {
     font-size: 1.17em;
-    margin: 1em 0;
+    margin: 2em 0 1em;
+    padding-top: 1.8em;
+    border-top: 1px solid rgba(2, 128, 174, .3);
 }
 
 h4 {
@@ -304,6 +309,15 @@ h5 {
 h6 {
     font-size: .67em;
     margin: 2.33em 0;
+}
+
+h1 *,
+h2 *,
+h3 *,
+h4 *,
+h5 *,
+h6 * {
+    font-size: inherit;
 }
 
 /**
@@ -553,13 +567,18 @@ textarea {
     resize: vertical; /* 1 */
 }
 
+code,
 pre,
 textarea,
 .textarea,
 input[type=search] {
-    box-shadow: inset 0 0 3px #ccc;
+    box-shadow: inset 0 0 3px rgba(2, 128, 174, .3);
     border-radius: 3px;
     border: 0;
+}
+
+pre code {
+    box-shadow: none;
 }
 
 /**
@@ -568,6 +587,11 @@ input[type=search] {
  */
 optgroup {
     font-weight: bold;
+}
+
+hr {
+    border: 0;
+    border-top: 4px solid rgba(2, 128, 174, .3);
 }
 
 /**
