@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-atomizer": "~0.1.0",
+    "grunt-atomizer": "~1.0.0",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",

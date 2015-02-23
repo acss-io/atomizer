@@ -92,9 +92,15 @@ module.exports = function(grunt) {
         // atomizer: initial task to generate the config
         atomizer: {
             app: {
-                files: {
-                    '<%= project.build %>/css/atomic.css': './config/atomic-config.js'
-                }
+                options: {
+                    configFile: './config/atomic-config.js'
+                },
+                files: [
+                    {
+                        src: ['./app/components/*.jsx', './app/docs/*.md'],
+                        dest: '<%= project.build %>/css/atomic.css'
+                    }
+                ]
             }
         },
 
