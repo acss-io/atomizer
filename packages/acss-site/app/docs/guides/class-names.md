@@ -39,35 +39,99 @@ Where:
 
 ### Examples:
 
-<dl class="dl-list M-0 Pt-20px">
-    <dt class="Pend-10px Fl-start Cl-start">D-n</dt>
-    <dd class="Ov-h Reset C-f2438c">`display: none`</dd>
-    <dt class="Fl-start Cl-start">Fz-s</dt>
-    <dd class="Ov-h Reset C-f2438c">`font-size: small`</dd>
-    <dt class="Fl-start Cl-start">Td-u:hover</dt>
-    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* on mouseover \*/</dd>
-    <dt class="Fl-start Cl-start">Td-u:dir(rtl)</dt>
-    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* in a RTL context \*/</dd>
-    <dt class="Fl-start Cl-start">Td-u::first-letter</dt>
-    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* first letter \*/</dd>
-    <dt class="Fl-start Cl-start">Td-u::first-line</dt>
-    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* first line \*/</dd>
-    <dt class="Fl-start Cl-start">Td-u::selection</dt>
-    <dd class="Ov-h Reset C-f2438c">`text-decoration: underline` /\* selected text \*/</dd>
-    <dt class="Fl-start Cl-start">Bxs-n</dt>
-    <dd class="Ov-h Reset C-f2438c">`box-shadow: none`</dd>
-    <dt class="Fl-start Cl-start">Bxs-a--lg</dt>
-    <dd class="Ov-h Reset C-f2438c">`box-shadow: <arbitrary-value-a>` /\* inside "lg" breakpoint \*/</dd>
-    <dt class="Fl-start Cl-start">Bxs-a:hover--lg</dt>
-    <dd class="Ov-h Reset C-f2438c">`box-shadow: <arbitrary-value-a>` /\* on mouseover inside "lg" breakpoint \*/</dd>
-    <dt class="Fl-start Cl-start">Mend-0</dt>
-    <dd class="Ov-h Reset C-f2438c">`margin-right: 0` /\* in a LTR context \*/</dd>
-    <dt class="Fl-start Cl-start">Bgp-start_t</dt>
-    <dd class="Ov-h Reset C-f2438c">`background-position: left 0` /\* in a LTR context \*/</dd>
-    <dt class="Fl-start Cl-start">Ta-start</dt>
-    <dd class="Ov-h Reset C-f2438c">`text-align: left` /\* in a LTR context \*/</dd>
-    <dt class="Fl-start Cl-start">Cl-start</dt>
-    <dd class="Ov-h Reset C-f2438c">`clear: left` /\* in a LTR context \*/</dd>
-    <dt class="Fl-start Cl-start">Bdstart-0</dt>
-    <dd class="Ov-h Reset C-f2438c">`border-left: 0` /\* in a LTR context \*/</dd>
-</dl>
+<table class="Ta-start W-100%">
+    <caption class="Hidden">Atomic class Examples</caption>
+    <tr>
+        <th scope="col" class="P-10px">HTML classes</th>
+        <th scope="col" class="P-10px">Declarations</th>
+        <th scope="col" class="P-10px">Comments</th>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">D-n</th>
+        <td class="Va-t C-f2438c Whs-nw P-10px">`display: none`</td>
+        <td class="Va-t P-10px"></td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Fz-s</th>
+        <td class="Va-t C-f2438c Whs-nw P-10px">`font-size: small`</td>
+        <td class="Va-t P-10px"></td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Fz-18px</th>
+        <td class="Va-t C-f2438c Whs-nw P-10px">`font-size: 18px`</td>
+        <td class="Va-t P-10px"></td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Td-u:hover</th>
+        <td class="Va-t C-f2438c Whs-nw P-10px">`text-decoration: underline`</td>
+        <td class="Va-t P-10px">underlines text on mouseover [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a></td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Td-u:dir(rtl)</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`text-decoration: underline`</td>
+        <td class="Va-t P-10px">underlines text within a RTL context</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Td-u::first-letter</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`text-decoration: underline`</td>
+        <td class="Va-t P-10px">underlines the first letter</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Td-u::first-line</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`text-decoration: underline`</td>
+        <td class="Va-t P-10px">underlines the first line</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Td-u::selection</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`text-decoration: underline`</td>
+        <td class="Va-t P-10px">underlines selected text</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Bxs-n</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`box-shadow: none`</td>
+        <td class="Va-t P-10px"></td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Bxs-a--lg</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`box-shadow: <arbitrary-value-a>`</td>
+        <td class="Va-t P-10px">applies inside a "lg" breakpoint</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Bxs-a:hover--lg</th>
+        <td class="Va-t C-f2438c Whs-nw P-10px">`box-shadow: <arbitrary-value-a>`</td>
+        <td class="Va-t P-10px">applies on mouseover [\[1\]](#footnote-1)<a id="footnote" class="D-ib"></a> inside a "lg" breakpoint</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Mend-0</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`margin-right: 0`</td>
+        <td class="Va-t P-10px">"end" is mapped to either "right" or "left" depending on config</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Bgp-start_t</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`background-position: left 0`</td>
+        <td class="Va-t P-10px">"start" is mapped to either "left" or "right" depending on config</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Ta-start</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`text-align: left`</td>
+        <td class="Va-t P-10px">"start" is mapped to either "left" or "right" depending on config</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Cl-start</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`clear: left`</td>
+        <td class="Va-t P-10px">"start" is mapped to either "left" or "right" depending on config</td>
+    </tr>
+    <tr class="Bdt-1">
+        <th scope="row" class="Va-t Whs-nw P-10px">Bdstart-0</th>
+        <td class="Va-t  C-f2438c Whs-nw P-10px">`border-left: 0`</td>
+        <td class="Va-t P-10px">"start" is mapped to either "left" or "right" depending on config</td>
+    </tr>
+</table>
+
+<p class="noteBox info">CSS class selectors contain proper escape character where needed (i.e. `.Td-u\:hover`).</p>
+
+<hr class="Mt-50px">
+
+<ul id="footnote" class="ul-list">
+    <li>[\[1\]](#footnote-1) classes containing the string `:hover` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover and on focus as well.</li>
+</ul>
