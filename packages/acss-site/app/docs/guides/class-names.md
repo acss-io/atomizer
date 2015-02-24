@@ -30,7 +30,7 @@ Where:
     </ul>
     </dd>
     <dt>[:pseudo-class]</dt>
-    <dd>optional suffix indicating that this class applies to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo class (e.g. `Td-u:hover`, `Td-u:only-child`).</dd>
+    <dd>optional suffix indicating that this class applies to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo class (e.g. `Td-u:h`, `Td-u:only-child`).</dd>
     <dt>[::pseudo-element]</dt>
     <dd>optional suffix indicating that this class applies to [pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo element (e.g. `Td-u::before`).</dd>
     <dt>[--breakpoint_identifier]</dt>
@@ -62,7 +62,7 @@ Where:
         <td class="Va-t P-10px"></td>
     </tr>
     <tr class="Bdt-1">
-        <th scope="row" class="Va-t Whs-nw P-10px">Td-u:hover</th>
+        <th scope="row" class="Va-t Whs-nw P-10px">Td-u:h</th>
         <td class="Va-t C-f2438c Whs-nw P-10px">`text-decoration: underline`</td>
         <td class="Va-t P-10px">underlines text on mouseover [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a></td>
     </tr>
@@ -97,7 +97,7 @@ Where:
         <td class="Va-t P-10px">applies inside a "lg" breakpoint</td>
     </tr>
     <tr class="Bdt-1">
-        <th scope="row" class="Va-t Whs-nw P-10px">Bxs-a:hover--lg</th>
+        <th scope="row" class="Va-t Whs-nw P-10px">Bxs-a:h--lg</th>
         <td class="Va-t C-f2438c Whs-nw P-10px">`box-shadow: <arbitrary-value-a>`</td>
         <td class="Va-t P-10px">applies on mouseover [\[1\]](#footnote-1)<a id="footnote" class="D-ib"></a> inside a "lg" breakpoint</td>
     </tr>
@@ -128,10 +128,10 @@ Where:
     </tr>
 </table>
 
-<p class="noteBox info">CSS class selectors contain proper escape character where needed (i.e. `.Td-u\:hover`).</p>
+<p class="noteBox info">CSS class selectors contain proper escape character where needed (i.e. `.Td-u\:h`).</p>
 
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) classes containing the string `:hover` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover <em>and on focus as well</em>.</li>
+    <li>[\[1\]](#footnote-1) classes containing the string `:h` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover <em>and on focus as well</em>.</li>
 </ul>
