@@ -7,13 +7,13 @@
     zoom: 1;
 }
 
-#atomic .Td-n\:hover:hover,
-#atomic .Td-n\:hover:focus {
+#atomic .Td-n\:h:hover,
+#atomic .Td-n\:h:focus {
     text-decoration: none;
 }
 
-#atomic .C-logo\:hover:hover,
-#atomic .C-logo\:hover:focus {
+#atomic .C-logo\:h:hover,
+#atomic .C-logo\:h:focus {
     color: #0280AE !important;
 }
 
