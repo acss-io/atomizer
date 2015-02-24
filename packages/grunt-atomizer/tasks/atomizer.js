@@ -72,6 +72,23 @@ module.exports = function (grunt) {
     }
 
     /**
+     * helper function to handle merging array of objects
+     * @param  {mixed} a Data of the first merge param
+     * @param  {mixed} b Data of the second merge param
+     * @return {mixed}   The merged object
+     */
+    function handleMergeArrays (a, b) {
+        if (_.isArray(a) && _.isArray(b)) {
+            a.forEach(function(item){
+                if(_.findIndex(b, item) === -1) {
+                    b.push(item);
+                }
+            });
+            return b;
+        }
+    }
+
+    /**
      * Look for atomic class names in text and add to class names object.
      * @param  {string} src The text to be parsed.
      * @param  {regexp} atomicRegex The regular expression to find class names.
@@ -211,7 +228,7 @@ module.exports = function (grunt) {
             if (classNamesObj.hasOwnProperty(className)) {
                 occurrences = classNamesObj[className];
                 grunt.verbose.writeln('Found `' + className + '`, occurrences: ' + occurrences);
-                config = _.merge(config, getConfigRule(className, currentConfig));
+                config = _.merge(config, getConfigRule(className, currentConfig), handleMergeArrays);
             }
         }
 
@@ -333,16 +350,7 @@ module.exports = function (grunt) {
             config = getConfig(classNamesObj, gruntConfig);
 
             // merge the config we have with the grunt config
-            config = _.merge(config, gruntConfig, function(a, b) {
-                if (_.isArray(a) && _.isArray(b)) {
-                    a.forEach(function(item){
-                        if(_.findIndex(b, item) === -1) {
-                            b.push(item);
-                        }
-                    });
-                    return b;
-                }
-            });
+            config = _.merge(config, gruntConfig, handleMergeArrays);
 
             // run atomizer with the config we got
             content = atomizer(config, options);
