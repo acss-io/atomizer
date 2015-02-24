@@ -37,7 +37,6 @@
     "minimist": "^1.1.0",
     "node-jsx": "~0.12.4",
     "react": "~0.12.1",
-    "script-loader": "~0.6.1",
     "serialize-javascript": "^1.0.0",
     "serve-favicon": "^2.1.7",
     "ua-parser-js": "^0.7.3",
@@ -55,7 +54,8 @@
     "grunt-webpack": "^1.0.8",
     "jsx-loader": "~0.12.2",
     "load-grunt-tasks": "^1.0.0",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "script-loader": "~0.6.1"
   },
   "repository": {
     "type": "git",
