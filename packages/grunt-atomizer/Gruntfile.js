@@ -89,6 +89,7 @@ module.exports = function(grunt) {
             configBothWithParsing: {
                 options: {
                     configFile: 'test/fixtures/sample-config.js',
+                    configOutput: 'tmp/configOutput.json',
                     config: {
                         config: {
                             namespace: '#atomic',

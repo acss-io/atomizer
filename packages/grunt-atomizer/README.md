@@ -19,13 +19,17 @@ npm install grunt-atomizer --save-dev
 
 ### Options
 
-#### options.configFile
-
-The [Atomizer](/yahoo/atomizer) config file to generate atomic css.
-
 #### options.config
 
-The [Atomizer](/yahoo/atomizer) config passed directly to the grunt task. See examples below.
+The [Atomizer](/yahoo/atomizer) config passed directly to the grunt task. See examples below. If `options.configFile` has not been passed, this options is required. A config must have `namespace`, `start` and `end` keys.
+
+#### options.configFile
+
+The [Atomizer](/yahoo/atomizer) config file to generate atomic css. If `options.config` has not been passed, this options is required. A config must have `namespace`, `start` and `end` keys.
+
+#### options.configOutput
+
+The generated config file used by the tool. Useful for when parsing is used (See `files.src` below).
 
 #### files.src
 

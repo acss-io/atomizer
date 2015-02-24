@@ -212,6 +212,7 @@ module.exports = function (grunt) {
                 config = _.merge(config, getConfigRule(className, currentConfig));
             }
         }
+
         return config;
     }
 
@@ -288,6 +289,7 @@ module.exports = function (grunt) {
         var done = this.async();
         var options = this.options({
             configFile: null,
+            configOutput: null,
             config: null
         });
         var gruntConfig = {}; // the config if passed directly via the grunt task
@@ -329,12 +331,24 @@ module.exports = function (grunt) {
             config = getConfig(classNamesObj, gruntConfig);
 
             // merge the config we have with the grunt config
-            config = _.merge(config, gruntConfig);
+            config = _.merge(config, gruntConfig, function(a, b) {
+                if (_.isArray(a) && _.isArray(b)) {
+                    a.forEach(function(item){
+                        if(_.findIndex(b, item) === -1) {
+                            b.push(item);
+                        }
+                    });
+                    return b;
+                }
+            });
 
             // run atomizer with the config we got
             content = atomizer(config, options);
 
             // write file
+            if (options.configOutput) {
+                grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
+            }
             grunt.file.write(f.dest, content);
 
             grunt.log.oklns('File ' + f.dest + ' successfully created.');
