@@ -40,7 +40,7 @@ Where:
 ### Examples:
 
 <table class="Ta-start W-100%">
-    <caption class="Hidden">Atomic class Examples</caption>
+    <caption class="hidden">Atomic class Examples</caption>
     <tr>
         <th scope="col" class="P-10px">HTML classes</th>
         <th scope="col" class="P-10px">Declarations</th>
@@ -133,5 +133,5 @@ Where:
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) classes containing the string `:hover` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover and on focus as well.</li>
+    <li>[\[1\]](#footnote-1) classes containing the string `:hover` are associated with both `:hover` and `:focus` pseudo-classes; meaning the styling will apply on mouseover <em>and on focus as well</em>.</li>
 </ul>

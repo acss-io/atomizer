@@ -33,7 +33,7 @@ var PageHome = React.createClass({
                         </h1>
                         <p className='My-20px'>Build whatever you want, the way you want it.</p>
                         <p>
-                            <NavLink className='D-ib Mb-10px P-20px C-fff Bgc-logo Bdrs-100px Td-n:hover OptLegibility' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
+                            <NavLink className='D-ib Mb-10px P-20px C-fff Bgc-logo Bdrs-100px Td-n:hover' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
                         </p>
                     </div>
                 </div>
