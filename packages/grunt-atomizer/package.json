@@ -1,7 +1,7 @@
 {
   "name": "grunt-atomizer",
   "description": "Grunt task for Atomizer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "contributors": [
     {

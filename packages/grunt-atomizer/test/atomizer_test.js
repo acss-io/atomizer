@@ -61,8 +61,20 @@ exports.atomizer = {
 
         var actual = grunt.file.read('tmp/configBothWithParsing.css');
         var expected = grunt.file.read('test/expected/configBothWithParsing.css');
+        var actualConfigOutput = grunt.file.read('tmp/configOutput.json');
+        var expectedConfigOutput = grunt.file.read('test/expected/configOutput.json');
 
         test.equal(actual, expected, 'should generate the expected css by passing a configFile and a config directly to grunt + parsing.');
+
+        test.done();
+    },
+    configOutputBothWithParsing: function(test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/configOutput.json');
+        var expected = grunt.file.read('test/expected/configOutput.json');
+
+        test.equal(actual, expected, 'should generate the expected config JSON output by passing a configFile and a config directly to grunt + parsing.');
 
         test.done();
     }
