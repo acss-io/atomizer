@@ -16,9 +16,9 @@ npm install -g atomizer
 ```
 
 ```html
-<div class="Bfc">
+<div class="bfc">
     <img class="Fl-start Mend-10px" src="avatar.jpg">
-    <div class="Bfc">Text</div>
+    <div class="bfc">Text</div>
 </div>
 ```
 

@@ -1,10 +1,10 @@
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 
 /**
- * =============================================================================
+ * ==============================================================================
  * Normalize is used as a starting point. We don't include everything it contains
- * and we add a lot of our own to create a *Design opinionated* base style sheet
- * =============================================================================
+ * and we add a lot of our own to create a *Design opinionated* base style sheet.
+ * ==============================================================================
  */
 /**
  * 1. Prevent iOS text size adjust after orientation change, without disabling
@@ -18,27 +18,32 @@ html {
     overflow-y: scroll;
 }
 
-/**
- * 1. Remove default margin.
- */
 body {
-    margin: 0; /* 1 */
     background: #fff;
     color: #4c4c4c;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font: 300 16px/1.55 "Helvetica Neue", Helvetica, Arial, sans-serif;
     height: 100%;
 }
 
 /**
- * WebKit bug related to list items and inheritance
- * https://github.com/necolas/normalize.css/issues/334
+ * 1. Correct font properties not being inherited.
+ * 2. Remove default margin on body and address margins set differently in Firefox 4+, Safari, and Chrome.
  */
-[dir] {
-    text-align: start;
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+    font: 300 16px/1.55 "Helvetica Neue", Helvetica, Arial, sans-serif; /* 1 */
+    margin: 0; /* 2 */
+}
+
+.spaceBetween > * {
+    line-height: 1.55; /* must match value from body (above) */
 }
 
 /**
@@ -47,8 +52,6 @@ body {
 blockquote,
 dd,
 dl,
-figure,
-menu,
 ol,
 ul,
 p,
@@ -59,7 +62,7 @@ ul {
     margin-bottom: 1em;
 }
 
-/* TODO: rtl version of this */
+/* TODO: rtl version of this? */
 ul,
 ol,
 dd {
@@ -68,7 +71,7 @@ dd {
 }
 
 blockquote {
-    border-left: 7px solid #ccc;
+    border-left: 7px solid rgba(2, 128, 174, 0.3);
     font-size: 1.2em;
     font-style: italic;
     margin-left: 0;
@@ -78,79 +81,20 @@ blockquote {
 /**
  * 1. reset UA list-style
  */
-menu,
 ol,
 ul {
     list-style-type: none;
 }
 
 /**
- * 1. reset UA padding
- */
-menu {
-    padding: 0; /* 1 */
-}
-
-/**
- * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
- * Correct `block` display not defined for `main` in IE 11.
- */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section,
-summary {
-    display: block;
-}
-
-/**
  * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
-audio,
-canvas,
-progress,
 video {
     display: inline-block; /* 1 */
-    vertical-align: baseline; /* 2 */
 }
 
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-audio:not([controls]) {
-    display: none;
-    height: 0;
-}
-
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- * Note that this rule is not safe for table elements
- * It would be better to use this:
- * [hidden]:not(colgroup):not(col):not(thead):not(tbody):not(tfoot):not(tr):not(td):not(th) { display: none; }
- * Unfortunately, IE8 does not support the :not() functional notation
- */
-[hidden],
-template {
-    display: none;
-}
-
-/**
- * 1. Reset FF styling
- */
 abbr[title] {
-    border: 0; /* 1 */
+    border-bottom: 1px dotted rgba(2, 128, 174, 0.3);
     cursor: help;
 }
 
@@ -161,62 +105,17 @@ b {
     font-weight: normal;
 }
 
-/**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
- */
-strong {
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/**
- * Reset UA styling
- */
 i {
     font-style: normal;
 }
 
 /**
- * Address styling not present in Safari and Chrome.
+ * Address inconsistent and variable font size in all browsers for small.
+ * Address odd "em"-unit font size rendering in all browsers for pre..
  */
-dfn {
-    font-style: italic;
-}
-
-/**
- * Address styling not present in IE 8/9.
- */
-mark {
-    background: #ff0;
-    color: #000;
-}
-
-/**
- * Address inconsistent and variable font size in all browsers.
- */
+pre,
 small {
-    font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
- */
-sub,
-sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
-sup {
-    top: -.5em;
-}
-
-sub {
-    bottom: -.25em;
+    font-size: 85%;
 }
 
 /**
@@ -232,35 +131,36 @@ img {
 }
 
 /**
- * Correct overflow not hidden in IE 9/10/11.
+ * 1. Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+button {
+    overflow: visible; /* 1 */
+}
+
+/**
+ * 1. Correct overflow not hidden in IE 9/10/11.
  */
 svg:not(:root) {
-    overflow: hidden;
+    overflow: hidden; /* 1 */
+}
+
+.textarea {
+    overflow-x: hidden;
+}
+
+pre,
+textarea {
+    overflow-x: auto;
 }
 
 /**
- * Address differences between Firefox and other browsers.
+ * 1 & 2. Address differences between Firefox and other browsers.
  */
 hr {
-    box-sizing: content-box;
-    height: 0;
-}
-
-/**
- * Contain overflow in all browsers.
- */
-/**
- * Address odd "em"-unit font size rendering in all browsers.
- */
-kbd,
-pre,
-samp {
-    font-family: monospace;
-    font-size: 85%;
-}
-
-pre {
-    overflow: auto;
+    box-sizing: content-box; /* 1/2 */
+    height: 0; /* 1/2 */
+    border: 0;
+    border-top: 4px solid rgba(2, 128, 174, .3);
 }
 
 code {
@@ -273,42 +173,24 @@ code {
  * =============================================================================
  */
 
-h1, h2, h3, h4, h5, h6 {
-    font-weight: bold;
-}
-
 h1 {
-    font-size: 2em;
     margin: .67em 0 0;
 }
 
 h2 {
-    font-size: 1.5em;
     margin: 2em 0 1em;
     padding-top: 1.8em;
     border-top: 2px solid rgba(2, 128, 174, .3);
 }
 
 h3 {
-    font-size: 1.17em;
     margin: 2em 0 1em;
     padding-top: 1.8em;
     border-top: 1px solid rgba(2, 128, 174, .3);
 }
 
 h4 {
-    font-size: 1em;
     margin: 1.33em 0;
-}
-
-h5 {
-    font-size: .83em;
-    margin: 1.67em 0;
-}
-
-h6 {
-    font-size: .67em;
-    margin: 2.33em 0;
 }
 
 h1 *,
@@ -340,12 +222,9 @@ a:hover {
     outline: 0;
 }
 
-:link {
-    text-decoration: none;
-    color: #0280AE;
-}
-
+:link,
 :visited {
+    text-decoration: none;
     color: #0280AE;
 }
 
@@ -358,13 +237,6 @@ a:hover {
  * Form
  * =============================================================================
  */
-
-textarea {
-    overflow: auto;
-}
-.textarea {
-    overflow-x: hidden;
-}
 
 /**
  * Known limitation: by default, Chrome and Safari on OS X allow very limited
@@ -381,50 +253,12 @@ textarea {
     box-sizing: border-box;
 }
 
-/**
- * 1. Correct font properties not being inherited.
- * 2. Address margins set differently in Firefox 4+, Safari, and Chrome.
- */
-button,
-input,
-optgroup,
-select,
-textarea {
-    font: 16px "Helvetica Neue", Helvetica, Arial, sans-serif; /* 1 */
-    margin: 0; /* 2 */
-}
-
-/**
- * input:not([type="checkbox"]):not([type="radio"])
- * input type checkbox and radio cannot really be styled with some of the declarations below
- * but there is no easy way to rely on selectors to keep these out (across browsers)
- */
-.txt-field {
-    border-radius: 2px;
-    color: #000;
-    padding: .3em;
-    margin: 5px 0;
-    background-color: #fff;
-    -webkit-transition: border linear .2s, box-shadow linear .2s;
-    transition: border linear .2s, box-shadow linear .2s;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    box-shadow: none\9; /* not for IE */
-}
-
 input,
 label,
 select,
 textarea {
     display: inline-block;
     vertical-align: middle;
-}
-
-/**
- * 1. Address `overflow` set to `hidden` in IE 8/9/10/11.
- */
-button {
-    overflow: visible; /* 1 */
 }
 
 /**
@@ -436,56 +270,18 @@ input {
     line-height: normal;
 }
 
-/**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
- * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
- * Correct `select` style inheritance in Firefox.
- */
-button,
-select {
-    text-transform: none;
-}
-
 select[size],
 select[multiple] {
     height: auto;
 }
 
 /**
- * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
- *    and `video` controls.
- * 2. Correct inability to style clickable `input` types in iOS.
+ * 1. Correct inability to style clickable `input` types in iOS.
  */
-html input[type="button"],
+input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button; /* 2 */
-}
-
-/**
- * Improve usability and consistency of cursor style between form controls and other elements
- * see Normalize issue #371
- */
-button,
-input[type="button"],
-input[type="checkbox"],
-input[type="image"],
-input[type="file"],
-input[type="radio"],
-input[type="reset"],
-input[type="submit"],
-label,
-[role="button"] {
-    cursor: pointer;
-}
-
-/**
- * Re-set default cursor for disabled elements.
- */
-button[disabled],
-input[disabled] {
-    cursor: default;
+    -webkit-appearance: button; /* 1 */
 }
 
 /**
@@ -520,16 +316,6 @@ input[type="radio"] {
 }
 
 /**
- * Fix the cursor style for Chrome's increment/decrement buttons. For certain
- * `font-size` values of the `input`, it causes the cursor style of the
- * decrement button to change from `default` to `text`.
- */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    height: auto;
-}
-
-/**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
  * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
  *    (include `-moz` to future-proof).
@@ -537,26 +323,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
     -webkit-appearance: none; /* 1 */
     box-sizing: border-box; /* 2 */
-}
-
-/**
- * Reset border, margin, and padding.
- */
-fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-}
-
-/**
- * 1. Remove border.
- * 2. Correct "color" not being inherited in IE 8/9/10/11.
- * 3. Remove padding so people aren't caught out if they zero out fieldsets.
- */
-legend {
-    border: 0; /* 1 */
-    color: inherit; /* 2 */
-    padding: 0; /* 3 */
 }
 
 /**
@@ -582,31 +348,13 @@ pre code {
 }
 
 /**
- * Don't inherit the `font-weight` (applied by a rule above).
- * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
- */
-optgroup {
-    font-weight: bold;
-}
-
-hr {
-    border: 0;
-    border-top: 4px solid rgba(2, 128, 174, .3);
-}
-
-/**
  * =============================================================================
  * Table
  * =============================================================================
  */
 /**
- * Remove most spacing between table cells.
+ * Remove spacing between table cells and allow border styling on cells
  */
 table {
     border-collapse: collapse;
-}
-
-td,
-th {
-    padding: 0;
 }

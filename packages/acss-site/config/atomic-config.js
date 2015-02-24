@@ -512,7 +512,7 @@ module.exports = {
 //        'n': true,
 //        'inh': true,
         'custom': [{
-            suffix: '12',
+            suffix: '1.2',
             values: ['1.2']
         }]
     },
@@ -551,6 +551,9 @@ module.exports = {
     // pattern
     'margin-top': {
         'custom': [{
+            suffix: '10px',
+            values: ['10px']
+        },{
             suffix: '30px',
             values: ['30px']
         },{
@@ -672,6 +675,9 @@ module.exports = {
     // pattern
     'padding-top': {
         'custom': [{
+            suffix: '0',
+            values: ['0']
+        }, {
             suffix: '20px',
             values: ['20px']
         }]

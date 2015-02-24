@@ -14,10 +14,10 @@ You can choose from creating a unit-base system, using percentages, or using any
 
 How to create the above classes via config.js?
 
-```js
+```json
 // pattern
 'width': {
-    fraction: {
+    'fraction': {
         denominator: 12
     }
 },
@@ -29,26 +29,26 @@ How to create the above classes via config.js?
 
 How to create the above classes via config.js?
 
-```js
+```json
 // pattern
 'width': {
     'custom': [{
-        suffix: '10%',
-        values: ['10%']
+        'suffix': '10%',
+        'values': ['10%']
     }, {
-        suffix: '20%',
-        values: ['20%']
+        'suffix': '20%',
+        'values': ['20%']
     }, {
-        suffix: '30%',
-        values: ['30%']
+        'suffix': '30%',
+        'values': ['30%']
     }, {
-        suffix: '40%',
-        values: ['40%']
+        'suffix': '40%',
+        'values': ['40%']
      },
     ...
     {
-        suffix: '100%',
-        values: ['100%']
+        'suffix': '100%',
+        'values': ['100%']
     }]
 },
 ```
@@ -59,15 +59,15 @@ How to create the above classes via config.js?
 
 How to create the above classes via config.js?
 
-```js
+```json
 // pattern
 'width': {
     'custom': [{
-        suffix: '10em',
-        values: ['10em']
+        'suffix': '10em',
+        'values': ['10em']
     }, {
-        suffix: '50em',
-        values: ['50em']
+        'suffix': '50em',
+        'values': ['50em']
     }]
 },
 ```
@@ -80,22 +80,22 @@ You can have everything you want:
 
 How to create the above classes via config.js?
 
-```js
+```json
 // pattern
 'width': {
-    a: true,
-    fraction: {
-        denominator: 4
+    'a': true,
+    'fraction': {
+        'denominator': 4
     }, {
-        suffix: '5%',
-        values: ['5%']
+        'suffix': '5%',
+        'values': ['5%']
     },
     'custom': [{
-        suffix: '10em',
-        values: ['10em']
+        'suffix': '10em',
+        'values': ['10em']
     }, {
-        suffix: '200px',
-        values: ['200px']
+        'suffix': '200px',
+        'values': ['200px']
     }]
 },
 ```
@@ -116,7 +116,7 @@ This styling has great browser support [\[1\]](#footnote) and it is direction-fr
 
 How to create the above classes via config.js?
 
-```js
+```json
 // pattern
 'display': {
     'ib': true
@@ -124,7 +124,7 @@ How to create the above classes via config.js?
 
 // pattern
 'vertical-align': {
-    t: true
+    't': true
 },
 ```
 
@@ -168,7 +168,7 @@ This styling has great browser support and is &quot;direction&quot; agnostic [\[
 
 How to create the above class via config.js?
 
-```js
+```json
 // pattern
 'float': {
     'start': true
@@ -202,7 +202,7 @@ How to create the above class via config.js?
 
 <p>How to create the above classes via config.js?</p>
 
-```js
+```json
 // pattern
 'display': {
     'tb': true,
@@ -211,12 +211,12 @@ How to create the above class via config.js?
 
 // pattern
 'text-align': {
-    c: true
+    'c': true
 },
 
 // pattern
 'vertical-align': {
-    m: true
+    'm': true
 },
 ```
 
@@ -267,7 +267,7 @@ How to create the above class via config.js?
 
 <p>How to create the above classes via config.js?</p>
 
-```js
+```json
 // pattern
 'display': {
     'f': true
@@ -310,7 +310,7 @@ How to create the above class via config.js?
 
 <p>Pick the names and values you want:</p>
 
-```js
+```json
 'config': {
     ...
     },
@@ -331,11 +331,11 @@ How to create the above class via config.js?
     <li>One that is bound to the &quot;`sm`&quot; breakpoint</li>
 </ul>
 
-```js
+```json
 // pattern
 'display': {
     'b': {
-        breakPoints: ['sm']
+        'breakPoints': ['sm']
     },
     'n': true
 },
@@ -362,7 +362,7 @@ How to create the above class via config.js?
 
 <p>Use such classes to apply different styles in the context of various breakpoints, for example:</p>
 
-```js
+```json
 'config': {
     ...
     },
@@ -382,13 +382,13 @@ How to create the above class via config.js?
     // pattern
     'width': {
         'custom': [{
-            suffix: '25%',
-            values: ['25%'],
-            breakPoints: ['lg']
+            'suffix': '25%',
+            'values': ['25%'],
+            'breakPoints': ['lg']
         }, {
-            suffix: '50%',
-            values: ['50%'],
-            breakPoints: ['sm']
+            'suffix': '50%',
+            'values': ['50%'],
+            'breakPoints': ['sm']
         }]
     }
 ...

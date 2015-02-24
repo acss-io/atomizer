@@ -1,5 +1,6 @@
 /**
- * Missing in Atomic.css
+ * TODO: take care of these 4 rules
+ * Should belong to Atomic.css somehow
  */
 #atomic .D-ib {
     *display: inline;
@@ -17,8 +18,20 @@
 }
 
 /**
- * always-at-the-bottom-footer
- * the wrapper is also styled with box-sizing:border box and a min-width of 100%
+ * stands for inline-block box
+ * this rule styles elements with inline-block + vertical-align:top + IE7 patch
+ */
+.ib-box {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+}
+
+/* always-at-the-bottom-footer ====================================== */
+
+/**
+ * The wrapper is also styled with box-sizing:border box and a min-width of 100%
  * such styling positions the footer right below the fold if the page is "too short"
  * the padding make room for the footer and the negative margin moves it up inside said padding
  */
@@ -27,9 +40,8 @@
     margin-bottom: -60px;
 }
 
-/**
- * mouseover effect on links inside HEADER
- */
+/* mouseover effect on links inside HEADER ========================== */
+
 #header li a:before {
     pointer-events: none;
     transition: all .3s;
@@ -83,7 +95,7 @@ li.selected a {
 }
 
 #aside:after {
-    right: 50px; /* same as padding-right */
+    right: 50px; /* same as padding-right on #aside */
     z-index: -1;
 }
 
@@ -106,20 +118,8 @@ li.selected a {
     right: 0;
 }
 
-/**
- * Colors
- */
-#aside li.selected a {
-    color: #555 !important;
-}
+/* SPLASH box on home page ========================================== */
 
-#aside li.selected a:after {
-    background: #0280AE;
-}
-
-/**
- * SPLASH box on home page
- */
 #splash {
     background: #fff  50%;
     background-size: 80%;
@@ -132,8 +132,21 @@ li.selected a {
     background-size: 400%;
 }
 
+/* Colors =========================================================== */
+
 /**
- * Background-color
+ * Foreground
+ */
+#aside li.selected a {
+    color: #555 !important;
+}
+
+#aside li.selected a:after {
+    background: #0280AE;
+}
+
+/**
+ * Background
  */
 pre,
 input,
@@ -148,19 +161,7 @@ pre code {
     background: none;
 }
 
-
-/**
- * TODO: include these colors through the config?
- */
-
-/**
- * Note Boxes
- * For all: Px-20px Py-5px Fs-i
- * Warning: Bdx-7px-ff8b00
- * Error/Important: Bdx-7px-b61854
- * Info: Bdx-7px-1d5cab
- * Success: Bdx-7px-5ed500
- */
+/* info/warning/important/success boxes ============================= */
 
 .noteBox {
     font-style: italic;
@@ -196,8 +197,9 @@ pre code {
     background: #E0F9C5;
 }
 
+/* embedded Code Pens =============================================== */
+
 /**
- * for embedded Pens
  * The title needs to cover the Pen's tab but not the "Edit on CodePen" link
  * <heading>.penResult
  */
@@ -209,3 +211,5 @@ pre code {
 .cp_embed_iframe {
     margin-top: -50px;
 }
+
+/* ================================================================== */

@@ -1,18 +1,23 @@
 /**
- * TODO:
- *    - ".ButtonLink" should be same color as links set in base
- *    - ".NoLinkColor" should be the same as color set in body
+ * Reset both padding/margin
  */
-
-.Reset {
+.reset {
     padding: 0;
     margin: 0;
 }
 
 /**
- * Warning: layout can break depending on content
+ * Create a block-formatting context
+ * #2. does not rely on "overflow" but could potentially break a layout
  */
-.Bfc-hack {
+.bfc {
+    overflow: hidden;
+    zoom: 1;
+}
+/**
+ * #2
+ */
+.bfcHack {
     display: table-cell;
     width: 1600px;
     *width: auto;
@@ -20,7 +25,7 @@
 }
 
 /**
- * .Row: class meant to contain boxes on a row (from left to right of containing box)
+ * .Row: this style is meant to contain boxes on a row (from left to right of containing box)
  * see: http://cssmojo.com/row_for_grids/
  */
 .row {
@@ -34,63 +39,66 @@
     zoom: 1;
 }
 
-ul.ul-list {
+/**
+ * Fancy lists
+ */
+.ul-list {
     list-style-type: disc;
     padding-left: 2em;
 }
 
-
-dl.dl-list dt {
+.dl-list dt {
     font-weight: bold;
 }
 
-dl.dl-list dd {
+.dl-list dd {
     padding-left: 2em;
 }
 
 /**
  * Warning: this styling may create line-height issue as we are resetting the value to an "arbitrary" number
+ * Check: http://cssmojo.com/magic_boxes/#things-you-should-know-about
  */
-.SpaceBetween {
+.spaceBetween {
     text-align: justify;
     line-height: 0; /* kill extra white space below the container */
 }
 
-.SpaceBetween:after {
+.spaceBetween:after {
     content: "";
     display: inline-block;
     width: 100%;
     vertical-align: middle;
 }
 
-.SpaceBetween > * {
+.spaceBetween > * {
     display: inline-block;
     vertical-align: middle;
-    line-height: 1.5; /* reset to default value (from <body>) */
+    /* line-height is reset in base.css near <body> rule */
 }
 
 /**
- * .ButtonNaked removes the default styling of buttons
+ * .resetButton removes the default styling of buttons
  */
-.ButtonNaked,
-.ButtonLink {
+.resetButton,
+.buttonLink {
     background: none;
     border: 0;
 }
 
-.LinkColor,
-.ButtonLink {
+.linkColor,
+.buttonLink {
     color: #08c !important;
 }
 
-.ButtonNaked {
+.resetButton {
     padding: 0;
 }
 
 /**
  * Visually hidden (accessible to screen-readers)
  */
-.Hidden {
+.hidden {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px);
     clip: rect(1px, 1px, 1px, 1px);
@@ -104,41 +112,16 @@ dl.dl-list dd {
 /**
  * Default text color
  */
-.NoLinkColor,
-.NoLinkColor a {
+.noLinkColor,
+.noLinkColor a {
     color: #555 !important;
 }
 
 /**
- * Optimize legibility (legibility over rendering speed and geometric precision.)
- * In base.css, this style is already applied onto headings and <strong>
- */
-.OptLegibility {
-    -webkit-text-rendering: optimizeLegibility;
-     -moz-text-rendering: optimizeLegibility;
-     -ms-text-rendering: optimizeLegibility;
-     -o-text-rendering: optimizeLegibility;
-     text-rendering: optimizeLegibility;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-}
-
-/**
- * to come last in this sheet
+ * TO COME LAST IN THIS STYLE SHEET
  * this is because React plugs <span> all over the place and they get styled by rules using selectors like "> *"
  */
 .atomic span {
     display: inline;
     float: none;
-}
-
-/**
- * stands for inline-block box
- * this rule styles elements with inline-block + vertical-align:top + IE7 patch
- */
-.ib-box {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-    vertical-align: top;
 }

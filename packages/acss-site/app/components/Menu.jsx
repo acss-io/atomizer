@@ -25,7 +25,7 @@ var Component = React.createClass({
             });
 
             if (submenu.length) {
-                menu.push(<ul className="Reset" key={menuitem.category + 'sub'}>{submenu}</ul>);
+                menu.push(<ul className="reset" key={menuitem.category + 'sub'}>{submenu}</ul>);
             }
         });
         return (
