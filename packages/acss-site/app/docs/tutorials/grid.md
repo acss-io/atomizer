@@ -156,7 +156,6 @@ How to create the above classes via config.js?
 <h4 class="penResult">Result</h4>
 
 <p data-height="190" data-theme-id="12469" data-slug-hash="emMPaw" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/emMPaw/'>emMPaw</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p class="noteBox info">Atomic.css also provides a helper class (`ib-box`) that can be used in lieu of `D-ib` and `Va-t` as it groups those 2 styles and also contains the IE7 patch.</p>
 
@@ -187,12 +186,10 @@ How to create the above class via config.js?
 <h4 class="penResult">Result</h4>
 
 <p data-height="110" data-theme-id="12469" data-slug-hash="PwewjM" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/PwewjM/'>PwewjM</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p class="penResult">The <em>exact same markup</em> with the `rtl` version of the style sheet:</p>
 
 <p data-height="110" data-theme-id="12469" data-slug-hash="OPZPjL" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/OPZPjL/'>OPZPjL</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <h3> `table` and `table-cell`</h3>
 
@@ -241,7 +238,6 @@ How to create the above class via config.js?
 <h4 class="penResult">Result</h4>
 
 <p data-height="250" data-theme-id="12469" data-slug-hash="GgdgMa" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/GgdgMa/'>GgdgMa</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p>One can also use `table-header-group` and/or `table-footer-group` to swap boxes vertically without removing them from the flow:</p>
 
@@ -256,7 +252,6 @@ How to create the above class via config.js?
 <h4 class="penResult">Result</h4>
 
 <p data-height="105" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 
 <h3> `flexbox`</h3>
@@ -298,7 +293,6 @@ How to create the above class via config.js?
 <h4 class="penResult">Result</h4>
 
 <p data-height="155" data-theme-id="12469" data-slug-hash="Jovoem" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/Jovoem/'>Jovoem</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <h2> Responsive layout</h2>
 
@@ -447,7 +441,6 @@ How to create the above class via config.js?
 <h4 class="penResult">Result</h4>
 
 <p data-height="265" data-theme-id="12469" data-slug-hash="jExMYr" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/jExMYr/'>jExMYr</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 
 <p class="noteBox info">The breakpoints have been chosen so you can see the changes in the embedded Pen above within this page. Give it a try!</p>
 
