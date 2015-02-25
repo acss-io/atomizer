@@ -1,3 +1,4 @@
+/* global CodePenEmbed */
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
@@ -25,6 +26,11 @@ var Component = React.createClass({
                 url: target.getAttribute('href')
             });
             e.preventDefault();
+        }
+    },
+    componentDidUpdate: function () {
+        if (typeof CodePenEmbed !== 'undefined') {
+            CodePenEmbed.showCodePenEmbeds();
         }
     },
     render: function () {

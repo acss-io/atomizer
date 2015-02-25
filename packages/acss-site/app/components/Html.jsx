@@ -55,6 +55,7 @@ var Html = React.createClass({
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
                 <script src="/public/js/client.js" defer></script>
+                <script src="https://assets.codepen.io/assets/embed/ei.js" async></script>
             </html>
         );
     }
