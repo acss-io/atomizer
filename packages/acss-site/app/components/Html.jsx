@@ -54,7 +54,8 @@ var Html = React.createClass({
                     {liveReload}
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
-                <script src="/public/js/client.js" defer></script>
+                <script src={this.props.assets.common}></script>
+                <script src={this.props.assets.main}></script>
                 <script src="https://assets.codepen.io/assets/embed/ei.js" async></script>
             </html>
         );
