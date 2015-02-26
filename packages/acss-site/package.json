@@ -55,7 +55,9 @@
     "jsx-loader": "~0.12.2",
     "load-grunt-tasks": "^1.0.0",
     "open": "0.0.5",
-    "script-loader": "~0.6.1"
+    "script-loader": "~0.6.1",
+    "webpack": "^1.4.12",
+    "webpack-dev-server": "^1.6.5"
   },
   "repository": {
     "type": "git",
