@@ -50,8 +50,8 @@ var Reference = React.createClass({
         return (
             <div>
                 <SearchBox />
-                <ConfigBox />
                 <ReferenceRules />
+                <ConfigBox />
                 <AtomicCssOutputBox className={hasConfig ? '' : 'D-n'} />
             </div>
         );
