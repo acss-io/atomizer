@@ -82,5 +82,16 @@
   "bugs": {
     "url": "https://github.com/yahoo/acss-site/issues"
   },
-  "homepage": "https://github.com/yahoo/acss-site"
+  "homepage": "https://github.com/yahoo/acss-site",
+  "yahoo": {
+    "bugzilla": {
+      "component": "General",
+      "product": "General"
+    },
+    "custodian": {
+      "email": "stencil@yahoo-inc.com"
+    },
+    "lint": "yhint",
+    "profile": "td-app"
+  }
 }
