@@ -20,8 +20,12 @@
   ],
   "scripts": {
     "dev": "grunt",
+    "lint": "grunt jshint",
     "prod": "grunt prod"
   },
+  "precommit": [
+    "lint"
+  ],
   "dependencies": {
     "atomizer": "~0.2.3",
     "body-parser": "^1.9.3",
@@ -57,6 +61,7 @@
     "jsx-loader": "~0.12.2",
     "load-grunt-tasks": "^1.0.0",
     "open": "0.0.5",
+    "precommit-hook": "^1.0.7",
     "script-loader": "~0.6.1",
     "webpack": "^1.4.12",
     "webpack-dev-server": "^1.6.5"
