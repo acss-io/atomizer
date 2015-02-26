@@ -27,7 +27,7 @@ node_modules
 
 app/build/
 screwdriver
-assets.js
+/assets.js
 deploy.json
 grasshopper.json
 
