@@ -294,7 +294,7 @@ module.exports = function (grunt) {
                 // custom-only patterns with no rules
             }
             if (pattern.prefix) {
-                regexes.push(escapeRegExp(prefix) + '(?:(?:neg)?[0-9]+(?:\.[0-9]+)?(?:[a-zA-Z%]+)?|[0-9a-f]{3}(?:[0-9a-f]{3})?|[a-zA-Z0-9%\.]+\\b)');
+                regexes.push('\\b' + escapeRegExp(prefix) + '(?:(?:neg)?[0-9]+(?:\.[0-9]+)?(?:[a-zA-Z%]+)?|[0-9a-f]{3}(?:[0-9a-f]{3})?|[a-zA-Z0-9%\.]+\\b)');
             }
         });
         return new RegExp('(' + regexes.join('|') + ')', 'g');
