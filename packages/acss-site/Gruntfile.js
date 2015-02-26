@@ -2,6 +2,14 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
+
+var webpack = require('webpack');
+var path = require('path');
+var fs = require('fs');
+
+// format `*.[chunkhash].min.js`
+var CHUNK_REGEX = /^([A-Za-z0-9_\-]+)\..*/;
+
 module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
@@ -16,6 +24,17 @@ module.exports = function(grunt) {
 
         // clean build
         clean: ['<%= project.build %>'],
+
+        // lint files
+        jshint: {
+            all: [
+                '*.js',
+                '{app/actions,app/components,app/services,app/stores,/app/utils}/**/*.js'
+            ],
+            options: {
+                jshintrc: true
+            }
+        },
 
         // run nodemon and watch concurrently
         concurrent: {
@@ -141,10 +160,83 @@ module.exports = function(grunt) {
                     }]
                 },
                 watch: true
+            },
+            prod: {
+                resolve: {
+                    extensions: ['', '.js', '.jsx']
+                },
+                externals: {
+                    absurd: "Absurd"
+                },
+                entry: '<%= project.app %>/client.js',
+                output: {
+                    path: '<%= project.build %>/js',
+                    publicPath: 'http://l.yimg.com/os/acss/js/',
+                    filename: '[name].[chunkhash].min.js',
+                    chunkFilename: '[name].[chunkhash].min.js'
+                },
+                module: {
+                    loaders: [
+                        { test: /\.jsx$/, loader: 'jsx-loader' }
+                    ]
+                },
+                plugins: [
+                    new webpack.DefinePlugin({
+                        'process.env': {
+                            NODE_ENV: JSON.stringify('production')
+                        }
+                    }),
+
+                    // These are performance optimizations for your bundles
+                    new webpack.optimize.DedupePlugin(),
+                    new webpack.optimize.OccurenceOrderPlugin(),
+                    new webpack.optimize.CommonsChunkPlugin('common.[hash].min.js', 2),
+
+                    // This ensures requires for `react` and `react/addons` normalize to the same requirement
+                    new webpack.NormalModuleReplacementPlugin(/^react(\/addons)?$/, require.resolve('react/addons')),
+
+                    new webpack.optimize.UglifyJsPlugin({
+                        compress: {
+                            warnings: false
+                        }
+                    }),
+
+                    // generates webpack assets config to use hashed assets in production mode
+                    function webpackStatsPlugin() {
+                        this.plugin('done', function(stats) {
+                            var data = stats.toJson();
+                            var assets = data.assetsByChunkName;
+                            var output = {
+                                assets: {},
+                                cdnPath: this.options.output.publicPath
+                            };
+
+                            Object.keys(assets).forEach(function eachAsset(key) {
+                                var value = assets[key];
+
+                                // if `*.[chunkhash].min.js` regex matched, then use file name for key
+                                var matches = key.match(CHUNK_REGEX);
+                                if (matches) {
+                                    key = matches[1];
+                                }
+
+                                output.assets[key] = value;
+                            });
+
+                            fs.writeFileSync(
+                                path.join(process.cwd(), 'app', 'build', 'assets.json'),
+                                JSON.stringify(output, null, 4)
+                            );
+                        });
+                    }
+                ],
+
+                // removes verbosity from builds
+                progress: false
             }
         }
     });
 
     grunt.registerTask('default', ['clean', 'concat:app', 'atomizer:app', 'copy:app', 'webpack:dev', 'concurrent:dev']);
-    // TODO: grunt.registerTask('build', ['clean', 'atomizer:app', 'webpack:prod']);
+    grunt.registerTask('build', ['clean', 'atomizer:app', 'webpack:prod']);
 };
