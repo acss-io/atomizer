@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/atomizer.svg)](http://badge.fury.io/js/atomizer)
 [![Build Status](https://travis-ci.org/yahoo/atomizer.svg?branch=master)](https://travis-ci.org/yahoo/atomizer)
-[![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer.svg)
+[![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer)
 [![devDependency Status](https://david-dm.org/yahoo/atomizer/dev-status.svg)](https://david-dm.org/yahoo/atomizer#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/yahoo/atomizer/badge.svg)](https://coveralls.io/r/yahoo/atomizer)
 
