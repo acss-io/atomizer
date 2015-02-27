@@ -1604,6 +1604,8 @@ module.exports = [
         name: 'Vertical align',
         prefix: '.Va-',
         properties: ['vertical-align'],
+        allowCustom: true,
+        allowSuffixToValue: true,
         rules: [
             {suffix: 'b', values: ['bottom']},
             {suffix: 'bl', values: ['baseline']},
