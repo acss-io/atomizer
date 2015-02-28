@@ -261,109 +261,106 @@ function warnMissingClassInConfig(className, patternId, suffix, warnings) {
         ].join("\n"));
 }
 
-/**
- * Look for atomic class names in text and add to class names object.
- * @param  {string} src The text to be parsed.
- * @param  {object} classNamesObj The classNames object.
- * @return {array} An array of class names.
- */
-var parse = function (src, classNamesObj) {    
-    if (!atomicRegex) {
-        atomicRegex = getAtomicRegex(rules);
-    }
-
-    var match = atomicRegex.exec(src);
-    while (match !== null) {
-        classNamesObj[match[0]] = classNamesObj[match[0]] ? classNamesObj[match[0]] + 1 : 1;
-        match = atomicRegex.exec(src);
-    }
-
-    return classNamesObj;
-};
-
-/**
- * Get config object given an array of atomic class names.
- * @param  {object}  classNamesObj  The object of atomic class names.
- * @param  {object}  currentConfig  The current config.
- * @param  {boolean} verboseLogging Verbose logging (default = false)
- * @return {object}                 The atomic config object.
- */
-var getConfig = function (classNamesObj, currentConfig, verboseLogging) {
-    var config = {},
-        warnings = [],
-        className;
-
-    verbose = !!verboseLogging;
-
-    for (className in classNamesObj) {
-        if (classNamesObj.hasOwnProperty(className)) {
-            config = _.merge(config, getConfigRule(className, currentConfig, warnings), handleMergeArrays);
-        }
-    }
-
-    // Now that we've processed all the configuration, notify the user
-    // if any custom classnames were found that were too ambiguous to 
-    // have their config auto-generated.
-    if (warnings.length) {
-        warnings.forEach(function (w) {
-            console.warn(w);
-        });
-    }
-
-    return config;
-}
-
-/** 
- * createCSS()
- * 
- * Converts configuration JSON into CSS
- */
-var createCSS = function (config, options) {
-    var content;
-
-    options = objectAssign({}, {
-        require: [],
-        morph: null,
-        combineSelectors: true,
-        minify: false,
-        keepCamelCase: false,
-        extCSS: '.css',
-        banner: ''
-    }, options);
-
-    if (!config) {
-        throw new Error('No configuration provided.');
-    }
-
-    var api = Absurd();
-
-    api.morph(options.morph);
-
-    if (options.require.length > 0) {
-        api.import(options.require);
-    }
-
-    var atomicBuilder = new AtomicBuilder(rules, config);
-    var build = atomicBuilder.getBuild();
-    if (!_.size(build)) {
-        throw new Error('Failed to generate CSS. The `build` object is empty.');
-    }
-
-    api.add(build);
-
-    api.compile(function(err, result) {
-        /* istanbul ignore if else */
-        if (err) {
-            throw new Error('Failed to compile atomic css:' + err);
-        }
-        content = options.banner + result;
-    }, options);
-
-    return content;
-};
-
 module.exports = {
-    createCSS: createCSS,
-    parse: parse,
-    getConfig: getConfig
+
+    /**
+     * Look for atomic class names in text and add to class names object.
+     * @param  {string} src The text to be parsed.
+     * @param  {object} classNamesObj A hash of classnames -> number instances found
+     * @return {array} An array of class names.
+     */
+    parse: function (src, classNamesObj) {
+        classNamesObj = classNamesObj || {};
+
+        if (!atomicRegex) {
+            atomicRegex = getAtomicRegex(rules);
+        }
+
+        var match = atomicRegex.exec(src);
+        while (match !== null) {
+            classNamesObj[match[0]] = classNamesObj[match[0]] ? classNamesObj[match[0]] + 1 : 1;
+            match = atomicRegex.exec(src);
+        }
+
+        return _.keys(classNamesObj);
+    },
+
+    /**
+     * Get config object given an array of atomic class names.
+     * @param  {array}   classNames     Array of atomic class names.
+     * @param  {object}  currentConfig  The current config.
+     * @param  {boolean} verboseLogging Verbose logging (default = false)
+     * @return {object}                 The atomic config object.
+     */
+    getConfig: function (classNames, currentConfig, verboseLogging) {
+        var config = {},
+            warnings = [];
+
+        verbose = !!verboseLogging;
+
+        for (var i = 0, iLen = classNames.length; i < iLen; i++) {
+            config = _.merge(config, getConfigRule(classNames[i], currentConfig, warnings), handleMergeArrays);
+        }
+
+        // Now that we've processed all the configuration, notify the user
+        // if any custom classnames were found that were too ambiguous to 
+        // have their config auto-generated.
+        if (warnings.length) {
+            warnings.forEach(function (w) {
+                console.warn(w);
+            });
+        }
+
+        return config;
+    },
+
+    /** 
+     * createCSS()
+     * 
+     * Converts configuration JSON into CSS
+     */
+    createCSS: function (config, options) {
+        var content;
+
+        options = objectAssign({}, {
+            require: [],
+            morph: null,
+            combineSelectors: true,
+            minify: false,
+            keepCamelCase: false,
+            extCSS: '.css',
+            banner: ''
+        }, options);
+
+        if (!config) {
+            throw new Error('No configuration provided.');
+        }
+
+        var api = Absurd();
+
+        api.morph(options.morph);
+
+        if (options.require.length > 0) {
+            api.import(options.require);
+        }
+
+        var atomicBuilder = new AtomicBuilder(rules, config);
+        var build = atomicBuilder.getBuild();
+        if (!_.size(build)) {
+            throw new Error('Failed to generate CSS. The `build` object is empty.');
+        }
+
+        api.add(build);
+
+        api.compile(function(err, result) {
+            /* istanbul ignore if else */
+            if (err) {
+                throw new Error('Failed to compile atomic css:' + err);
+            }
+            content = options.banner + result;
+        }, options);
+
+        return content;
+    }
+
 };

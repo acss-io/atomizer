@@ -66,13 +66,13 @@ if (configFile) {
 // Generate config from parsed src files
 var parseFiles = params._ || [];
 if (parseFiles.length) {
-    var classNamesObj = {};
+    var classNames = [];
     parseFiles.forEach(function (filepath) {
         console.warn('Parsing file ' + chalk.cyan(filepath) + ' for Atomic CSS classes');
         var fileContents = fs.readFileSync(path.resolve(filepath), {encoding: 'utf-8'});
-        atomizer.parse(fileContents, classNamesObj);
+        classNames = _.union(classNames, atomizer.parse(fileContents));
     });
-    parsedConfig = atomizer.getConfig(classNamesObj, config, !!params.verbose);
+    parsedConfig = atomizer.getConfig(classNames, config, !!params.verbose);
 }
 
 // Merge the static config with the generated config
