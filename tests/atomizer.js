@@ -210,7 +210,7 @@ describe('getConfig()', function () {
 
     it('should return valid configuration when provided Atomic classnames', function () {
         var config;
-        var classNames = ['Fz-3em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
+        var classNames = ['Bd-1', 'Fz-3em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
         var expectedConfig = {
             'background-clip': { bb: true },
             color: {
