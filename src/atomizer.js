@@ -92,23 +92,6 @@ function isFloat(value) {
 }
 
 /**
- * helper function to handle merging array of objects
- * @param  {mixed} a Data of the first merge param
- * @param  {mixed} b Data of the second merge param
- * @return {mixed}   The merged object
- */
-function handleMergeArrays (a, b) {
-    if (_.isArray(a) && _.isArray(b)) {
-        a.forEach(function(item){
-            if(_.findIndex(b, item) === -1) {
-                b.push(item);
-            }
-        });
-        return b;
-    }
-}
-
-/**
  * Escapes special regular expression characters
  * @param  {string} str The regexp string.
  * @return {string}     The escaped regexp string.
@@ -266,7 +249,7 @@ module.exports = {
     /**
      * Look for atomic class names in text and add to class names object.
      * @param  {string} src The text to be parsed.
-     * @param  {object} classNamesObj A hash of classnames -> number instances found
+     * @param  {object} classNamesObj (Optional) A hash of classnames -> number instances found
      * @return {array} An array of class names.
      */
     parse: function (src, classNamesObj) {
