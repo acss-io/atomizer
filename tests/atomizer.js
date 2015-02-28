@@ -26,18 +26,18 @@ describe('atomizer', function () {
     });
     it ('throws if no configuration is provided', function () {
         expect(function () {
-            atomizer();
+            atomizer.createCSS();
         }).to.throw(Error);
     });
     it ('throws if a config has been passed but with not enough info', function () {
         expect(function () {
-            atomizer({
+            atomizer.createCSS({
                 'config': {}
             });
         }).to.throw(Error);
     });
     it ('imports different absurdjs objects if passed as an option', function () {
-        var result = atomizer(defaultConfig, {
+        var result = atomizer.createCSS(defaultConfig, {
             require: [__dirname + '/fixtures/fz.js']
         });
         var expected = [
@@ -46,37 +46,6 @@ describe('atomizer', function () {
             '}',
             ''
         ].join('\n');
-        expect(result).to.equal(expected);
-    });
-    it ('should execute even when config is an array', function () {
-        var result;
-        var config;
-        var config1 = {
-            'padding': {
-                'inh': true
-            }
-        };
-        var config2 = {
-            'padding-end': {
-                'inh': true
-            }
-        };
-        var expected = [
-            '#atomic .P-inh {',
-            '  padding: inherit;',
-            '}',
-            '#atomic .Pend-inh {',
-            '  padding-right: inherit;',
-            '}',
-            ''
-        ].join('\n');
-
-        config1 = objectAssign(defaultConfig, config1);
-        config2 = objectAssign(defaultConfig, config2);
-
-        config = [config1, config2];
-
-        result = atomizer(config);
         expect(result).to.equal(expected);
     });
     it ('should escape illegal characters', function () {
@@ -97,7 +66,7 @@ describe('atomizer', function () {
 
         config = objectAssign(defaultConfig, config);
 
-        result = atomizer(config);
+        result = atomizer.createCSS(config);
 
         expect(result).to.equal(expected);
     });
@@ -148,7 +117,7 @@ describe('atomizer', function () {
 
         config = objectAssign(defaultConfig, config);
 
-        result = atomizer(config);
+        result = atomizer.createCSS(config);
 
         expect(result).to.equal(expected);
     });
@@ -176,7 +145,7 @@ describe('atomizer', function () {
 
         config = objectAssign(defaultConfig, config);
 
-        result = atomizer(config);
+        result = atomizer.createCSS(config);
 
         expect(result).to.equal(expected);
     });
@@ -197,7 +166,7 @@ describe('atomizer', function () {
 
         config = objectAssign(defaultConfig, config);
 
-        result = atomizer(config);
+        result = atomizer.createCSS(config);
 
         expect(result).to.equal(expected);
     });
