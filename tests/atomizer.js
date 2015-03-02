@@ -222,7 +222,7 @@ describe('getConfig()', function () {
 
     it('should return valid configuration when provided Atomic classnames', function () {
         var config;
-        var classNames = ['Bd-1', 'Bd-2', 'Fz-3em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
+        var classNames = ['Bd-1', 'Bd-2', 'Fz-3em', 'Fz-4em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
         var expectedConfig = {
             'background-clip': { bb: true },
             color: {
@@ -268,6 +268,10 @@ describe('getConfig()', function () {
             "font-size": {
                 custom: [
                     {
+                        "suffix": "4em",
+                        "values": [ "4em" ]
+                    },
+                    {
                         "suffix": "3em",
                         "values": [ "3em" ]
                     }
@@ -275,7 +279,21 @@ describe('getConfig()', function () {
             }
         };
 
+        config = atomizer.getConfig(classNames, {}, true); // To cover a particular use case
+        expect(config).to.deep.equal(expectedConfig);
+
         config = atomizer.getConfig(classNames, defaultConfig, true);
         expect(config).to.deep.equal(expectedConfig);
+    });
+
+    it('should ignore illegal units of measure', function () {
+        var expectedConfig = {};
+        var config;
+
+        config = atomizer.getConfig(['Bdrs-1foo'], defaultConfig);
+        expect(config).to.deep.equal(expectedConfig)
+
+        config = atomizer.getConfig(['Bdrs-foo'], defaultConfig);
+        expect(config).to.deep.equal(expectedConfig)
     });
 });

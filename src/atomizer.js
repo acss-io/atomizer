@@ -38,6 +38,7 @@ function handleMergeArrays (a, b) {
  * @return {string|false}  The unit of the string or false if length is not a number.
  */
 function getUnit(value) {
+    /* istanbul ignore if else */
     if (isNaN(parseFloat(value, 10))) {
         return false;
     }
