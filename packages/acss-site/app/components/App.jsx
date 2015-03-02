@@ -59,7 +59,7 @@ var App = React.createClass({
 
         switch (this.state.currentPageName) {
             case 'home':
-                page = <PageHome content={this.state.currentDoc.content} />;
+                page = <PageHome assets={this.props.assets} content={this.state.currentDoc.content} />;
                 break;
             case 'docs':
                 var docsConfig = require('./../configs/docs');

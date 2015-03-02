@@ -16,7 +16,6 @@ var UAParser = require('ua-parser-js');
 var navigateAction = require('flux-router-component').navigateAction;
 var HtmlComponent = React.createFactory(require('./components/Html.jsx'));
 var app = require('./app');
-var assets = require('./utils/assets');
 
 // some options to start the server
 var argv = require('minimist')(process.argv.slice(2));
@@ -62,7 +61,6 @@ server.use(function(req, res, next) {
         var doctype = '<!DOCTYPE html>';
         React.withContext(context.getComponentContext(), function () {
             var html = React.renderToStaticMarkup(HtmlComponent({
-                assets: assets,
                 state: exposed,
                 ua: ua,
                 dev: dev,

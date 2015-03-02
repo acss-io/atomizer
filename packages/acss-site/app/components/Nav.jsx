@@ -5,6 +5,7 @@
 'use strict';
 var React = require('react/addons');
 var NavLink = require('flux-router-component').NavLink;
+var assets = require('../utils/assets');
 
 /**
  * Main navigation component
@@ -60,7 +61,7 @@ var Nav = React.createClass({
                 {linkHTML}
                 <li className="D-ib Mstart-10px Pos-r">
                     <a className="D-b C-fff Td-n:h" href="https://github.com/yahoo/atomizer">
-                        <img className="Va-m Pos-r" alt="GitHub" width="30" src="/public/images/github-logo.png" />
+                        <img className="Va-m Pos-r" alt="GitHub" width="30" src={assets['images/github-logo.png']} />
                     </a>
                 </li>
             </ul>
