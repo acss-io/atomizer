@@ -11,10 +11,8 @@ var walk = require('walk');
 var marked = require('marked');
 var highlight = require('highlight.js');
 
-var CWD = process.cwd();
-
 var content = {};
-var walker = walk.walk(path.join(CWD, 'app', 'docs'));
+var walker = walk.walk(path.join(__dirname, '..', 'docs'));
 
 marked.setOptions({
     highlight: function (code, lang) {
@@ -35,10 +33,9 @@ walker.on('file', function (root, fstats, next) {
         // strip heading as its outputted via the title property
         var text = data.toString().split('\n').splice(1).join('\n');
 
-        console.log(key);
-
         // need to strip folder path to match URL key
-        key = key.replace(CWD, '');
+        key = key.replace(path.join(__dirname, '..', '..', 'app'), '');
+
 
         content[key] = {
             key: key,
@@ -58,6 +55,6 @@ walker.on('end', function () {
 module.exports = {
     name: 'docs',
     read: function (req, resource, params, config, callback) {
-        callback(null, content['/app' + params.key]);
+        callback(null, content[params.key]);
     }
 };
