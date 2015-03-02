@@ -204,13 +204,25 @@ describe('getConfig()', function () {
                     'md': '992px',
                     'lg': '1200px'
                 }
+            },
+            'border': {
+                custom: [
+                    {
+                        "suffix": "happyblue",
+                        "values": [ '#F00' ]
+                    },
+                    {
+                        "suffix": "2",
+                        "values": [ '#444' ]
+                    }
+                ]
             }
         };
     });
 
     it('should return valid configuration when provided Atomic classnames', function () {
         var config;
-        var classNames = ['Bd-1', 'Fz-3em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
+        var classNames = ['Bd-1', 'Bd-2', 'Fz-3em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
         var expectedConfig = {
             'background-clip': { bb: true },
             color: {
@@ -263,7 +275,7 @@ describe('getConfig()', function () {
             }
         };
 
-        config = atomizer.getConfig(classNames, defaultConfig);
+        config = atomizer.getConfig(classNames, defaultConfig, true);
         expect(config).to.deep.equal(expectedConfig);
     });
 });

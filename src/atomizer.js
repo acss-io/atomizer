@@ -77,7 +77,7 @@ function isHex(value) {
  * @return {Boolean}
  */
 function isInteger(value) {
-    value = parseInt(value, 10);
+    value = new Number(value); // typecast to Number
     return !isNaN(value) && (value % 1) === 0;
 }
 
@@ -211,14 +211,12 @@ function handleCustomConfigRule(configRule, className, pattern, suffix, currentC
     } else {
         if (!currentConfig[pattern.id] || !currentConfig[pattern.id].custom) {
             warnMissingClassInConfig(className, pattern.id, suffix, warnings);
-            return false;
-        }
-
-        if (currentConfig[pattern.id].custom.every(function (custom) {
+        } else if (currentConfig[pattern.id].custom.every(function (custom) {
             return custom.suffix !== suffix;
         })) {
             warnMissingClassInConfig(className, pattern.id, suffix, warnings);            
         };
+        return false;
     }
 
     return configRule;
