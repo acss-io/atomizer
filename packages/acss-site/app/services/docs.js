@@ -35,8 +35,10 @@ walker.on('file', function (root, fstats, next) {
         // strip heading as its outputted via the title property
         var text = data.toString().split('\n').splice(1).join('\n');
 
+        console.log(key);
+
         // need to strip folder path to match URL key
-        key = key.replace(path.join(CWD, 'app'), '');
+        key = key.replace(CWD, '');
 
         content[key] = {
             key: key,
@@ -50,13 +52,12 @@ walker.on('file', function (root, fstats, next) {
 
 walker.on('end', function () {
     // done walking
-    console.log(Object.keys(content));
     debug(content);
 });
 
 module.exports = {
     name: 'docs',
     read: function (req, resource, params, config, callback) {
-        callback(null, content[params.key]);
+        callback(null, content['/app' + params.key]);
     }
 };
