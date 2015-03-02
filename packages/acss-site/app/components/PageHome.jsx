@@ -6,6 +6,7 @@
 var React = require('react');
 var Doc = require('./Doc');
 var NavLink = require('flux-router-component').NavLink;
+var assets = require('../utils/assets');
 
 /**
  * PageHome
@@ -29,7 +30,7 @@ var PageHome = React.createClass({
                 <div id='splash' className='D-tb W-100% Bdb-1'>
                     <div className='D-tbc Ta-c Va-m'>
                         <h1 className='Mx-a W-50% Pos-r Ov-h'>
-                            <img id="logo" className='Start-0 Pos-a Pos-r--sm' alt='atomic css' src='/public/images/atomic-css-logo.svg' />
+                            <img id="logo" className='Start-0 Pos-a Pos-r--sm' alt='atomic css' src={assets['images/atomic-css-logo.svg']} />
                         </h1>
                         <p className='My-20px'>Build whatever you want, the way you want it.</p>
                         <p>

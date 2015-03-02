@@ -6,6 +6,7 @@
 var React = require('react');
 var ApplicationStore = require('../stores/ApplicationStore');
 var FluxibleMixin = require('fluxible').Mixin;
+var assets = require('../utils/assets');
 
 /**
  * React class to handle the rendering of the HTML head section
@@ -36,7 +37,7 @@ var Html = React.createClass({
         // yes, browser sniffing isn't a good idea, but we're taking the pragmatic approach
         // for old IE for server-side rendering.
         if (this.props.ua.browser.name === 'IE' && this.props.ua.browser.major < 9) {
-            ieStylesheet = (<link rel="stylesheet" href="/public/css/ie.css" />);
+            ieStylesheet = (<link rel="stylesheet" href={assets['css/ie.css']} />);
         }
 
         return (
@@ -45,8 +46,7 @@ var Html = React.createClass({
                     <meta charSet="utf-8" />
                     <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
-                    <link rel="stylesheet" href="/public/css/atomic.css" />
-                    <link rel="stylesheet" href="/public/css/bundle.css" />
+                    <link rel="stylesheet" href={assets['css/bundle.css']} />
                     {ieStylesheet}
                 </head>
                 <body className="Mih-100%">
@@ -54,8 +54,8 @@ var Html = React.createClass({
                     {liveReload}
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
-                <script src={this.props.assets.common}></script>
-                <script src={this.props.assets.main}></script>
+                <script src={assets['js/common.js']}></script>
+                <script src={assets['js/main.js']}></script>
                 <script src="https://assets.codepen.io/assets/embed/ei.js" async></script>
             </html>
         );

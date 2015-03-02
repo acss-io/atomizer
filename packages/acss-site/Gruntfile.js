@@ -8,7 +8,11 @@ var path = require('path');
 var fs = require('fs');
 
 // format `*.[chunkhash].min.js`
-var CHUNK_REGEX = /^([A-Za-z0-9_\-]+)\..*/;
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+};
+
+
 
 module.exports = function(grunt) {
     // Load grunt tasks automatically
@@ -19,11 +23,35 @@ module.exports = function(grunt) {
         // project variables
         project: {
             app: './app',
-            build: '<%= project.app %>/build'
+            build: '<%= project.app %>/build',
+            public: '/public',
+            cdnPath: 'http://l.yimg.com/os/acss/'
         },
 
         // clean build
-        clean: ['<%= project.build %>'],
+        clean: {
+            'build': '<%= project.build %>',
+            'cdntrash': {
+                files: [{
+                    expand: true,
+                    extDot: 'last',
+                    cwd: '<%= project.build %>',
+                    src: ['**/*.{css,js}', '!**/*.*.{css,js}']
+                }]
+            },
+            'cdnimagestrash': {
+                files: [{
+                    expand: true,
+                    extDot: 'last',
+                    cwd: '<%= project.build %>',
+                    src: ['images/*', '!images/*.*.*']
+                }]
+            }
+        },
+
+        // ------------------------------------------------------------------------------
+        // DEV TASKS --------------------------------------------------------------------
+        // ------------------------------------------------------------------------------
 
         // lint files
         jshint: {
@@ -51,26 +79,12 @@ module.exports = function(grunt) {
         watch: {
             atomizer: {
                 files: ['config/atomic-config.js', '.rebooted', '<%= project.app %>/assets/css/*.css'],
-                tasks: ['atomizer', 'concat'],
+                tasks: ['atomizer', 'cssmin:dev', 'devmanifest'],
                 options: {
                     interrupt: true,
                     livereload: true
                 }
             },
-        },
-
-        // copy images to build
-        copy: {
-            app: {
-                files: [{
-                    expand: true,
-                    flatten: true,
-                    cwd: '<%= project.app %>/assets/images/',
-                    src: '**',
-                    dest: '<%= project.build %>/images/',
-                    filter: 'isFile'
-                }]
-            }
         },
 
         // nodemon to restart server if files change
@@ -108,6 +122,23 @@ module.exports = function(grunt) {
             }
         },
 
+        // ------------------------------------------------------------------------------
+        // PROD/DEV ---------------------------------------------------------------------
+        // ------------------------------------------------------------------------------
+        
+        copy: {
+            images: {
+                files: [{
+                    expand: true,
+                    flatten: true,
+                    cwd: '<%= project.app %>/assets/images/',
+                    src: '**',
+                    dest: '<%= project.build %>/images/',
+                    filter: 'isFile'
+                }]
+            }
+        },
+
         // atomizer: initial task to generate the config
         atomizer: {
             app: {
@@ -123,19 +154,93 @@ module.exports = function(grunt) {
             }
         },
 
-        // concat: concatenate CSS files
-        concat: {
-            app: {
-                files: {
-                    '<%= project.build %>/css/bundle.css': [
+        // cssmin for production (atomizer needs to run first)
+        cssmin: {
+            dev: {
+                options: {
+                    report: 'gzip',
+                    compatibility: 'ie7',
+                    sourceMap: true
+                },
+                files: [{
+                    src: [
+                        '<%= project.build %>/css/atomic.css',
                         '<%= project.app %>/assets/css/base.css',
                         '<%= project.app %>/assets/css/helpers.css',
                         '<%= project.app %>/assets/css/custom.css',
                         '<%= project.app %>/assets/css/mq.css',
                         '<%= project.app %>/assets/css/syntax.css'
                     ],
-                    '<%= project.build %>/css/ie.css': '<%= project.app %>/assets/css/ie.css'
+                    dest: '<%= project.build %>/css/bundle.css'
+                }, {
+                    src: [ '<%= project.app %>/assets/css/ie.css'],
+                    dest: '<%= project.build %>/css/ie.css'
+                }]
+            },
+            prod: {
+                options: {
+                    report: 'gzip',
+                    compatibility: 'ie7',
+                    sourceMap: false
+                },
+                files: [{
+                    src: [
+                        '<%= project.build %>/css/atomic.css',
+                        '<%= project.app %>/assets/css/base.css',
+                        '<%= project.app %>/assets/css/helpers.css',
+                        '<%= project.app %>/assets/css/custom.css',
+                        '<%= project.app %>/assets/css/mq.css',
+                        '<%= project.app %>/assets/css/syntax.css'
+                    ],
+                    dest: '<%= project.build %>/css/bundle.css'
+                }, {
+                    src: [ '<%= project.app %>/assets/css/ie.css'],
+                    dest: '<%= project.build %>/css/ie.css'
+                }]
+            },
+        },
+
+        // has files for caching on cdn
+        hash: {
+            options: {
+                mapping: '<%= project.build %>/assets.json',
+                srcBasePath: 'app/build/', // the base Path you want to remove from the `key` string in the mapping file
+                destBasePath: 'app/build/', // the base Path you want to remove from the `value` string in the mapping file
+                flatten: false, // Set to true if you don't want to keep folder structure in the `key` value in the mapping file
+                hashLength: 8, // hash length, the max value depends on your hash function
+                hashFunction: function(source, encoding){ // default is md5
+                    return require('crypto').createHash('sha1').update(source, encoding).digest('hex');
                 }
+            },
+            css: {
+                src: '<%= project.build %>/css/*.css',
+                dest: '<%= project.build %>/css/'
+            },
+            js: {
+                src: '<%= project.build %>/js/*.js',
+                dest: '<%= project.build %>/js/'
+            },
+            images: {
+                options: {
+                    mapping: '<%= project.build %>/images.json'
+                },
+                src: '<%= project.build %>/images/*',
+                dest: '<%= project.build %>/images/'
+            }
+        },
+
+        // replace paths in css
+        replaceimg: {
+            images: {
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        extDot: 'last',
+                        src: ['<%= project.build %>/css/*.css'],
+                        dest: '<%= project.build %>/css/'
+                    }
+                ]
             }
         },
 
@@ -145,20 +250,27 @@ module.exports = function(grunt) {
                 resolve: {
                     extensions: ['', '.js', '.jsx']
                 },
-                externals: {
-                    absurd: "Absurd"
-                },
                 entry: '<%= project.app %>/client.js',
                 output: {
                     path: '<%= project.build %>/js',
-                    filename: 'client.js'
+                    publicPath: '/public/js/',
+                    filename: '[name].js',
+                    chunkFilename: '[name].js'
                 },
                 module: {
-                    loaders: [{
-                        test: /\.jsx$/,
-                        loader: 'jsx-loader'
-                    }]
+                    loaders: [
+                        { test: /\.jsx$/, loader: 'jsx-loader' },
+                        { test: /\.json$/, loader: 'json-loader'}
+                    ]
                 },
+                plugins: [
+                    new webpack.optimize.CommonsChunkPlugin('common.js', undefined, 2),
+                    new webpack.NormalModuleReplacementPlugin(/^react(\/addons)?$/, require.resolve('react/addons'))
+                ],
+                stats: {
+                    colors: true
+                },
+                devtool: 'source-map',
                 watch: true
             },
             prod: {
@@ -166,18 +278,19 @@ module.exports = function(grunt) {
                     extensions: ['', '.js', '.jsx']
                 },
                 externals: {
-                    absurd: "Absurd"
+                    absurd: 'Absurd'
                 },
                 entry: '<%= project.app %>/client.js',
                 output: {
                     path: '<%= project.build %>/js',
                     publicPath: 'http://l.yimg.com/os/acss/js/',
-                    filename: '[name].[chunkhash].min.js',
-                    chunkFilename: '[name].[chunkhash].min.js'
+                    filename: '[name].js',
+                    chunkFilename: '[name].js'
                 },
                 module: {
                     loaders: [
-                        { test: /\.jsx$/, loader: 'jsx-loader' }
+                        { test: /\.jsx$/, loader: 'jsx-loader' },
+                        { test: /\.json$/, loader: 'json-loader'}
                     ]
                 },
                 plugins: [
@@ -190,7 +303,7 @@ module.exports = function(grunt) {
                     // These are performance optimizations for your bundles
                     new webpack.optimize.DedupePlugin(),
                     new webpack.optimize.OccurenceOrderPlugin(),
-                    new webpack.optimize.CommonsChunkPlugin('common.[hash].min.js', 2),
+                    new webpack.optimize.CommonsChunkPlugin('common.js', 2),
 
                     // This ensures requires for `react` and `react/addons` normalize to the same requirement
                     new webpack.NormalModuleReplacementPlugin(/^react(\/addons)?$/, require.resolve('react/addons')),
@@ -199,36 +312,7 @@ module.exports = function(grunt) {
                         compress: {
                             warnings: false
                         }
-                    }),
-
-                    // generates webpack assets config to use hashed assets in production mode
-                    function webpackStatsPlugin() {
-                        this.plugin('done', function(stats) {
-                            var data = stats.toJson();
-                            var assets = data.assetsByChunkName;
-                            var output = {
-                                assets: {},
-                                cdnPath: this.options.output.publicPath
-                            };
-
-                            Object.keys(assets).forEach(function eachAsset(key) {
-                                var value = assets[key];
-
-                                // if `*.[chunkhash].min.js` regex matched, then use file name for key
-                                var matches = key.match(CHUNK_REGEX);
-                                if (matches) {
-                                    key = matches[1];
-                                }
-
-                                output.assets[key] = value;
-                            });
-
-                            fs.writeFileSync(
-                                path.join(process.cwd(), 'app', 'build', 'assets.json'),
-                                JSON.stringify(output, null, 4)
-                            );
-                        });
-                    }
+                    })
                 ],
 
                 // removes verbosity from builds
@@ -237,6 +321,100 @@ module.exports = function(grunt) {
         }
     });
 
-    grunt.registerTask('default', ['clean', 'concat:app', 'atomizer:app', 'copy:app', 'webpack:dev', 'concurrent:dev']);
-    grunt.registerTask('build', ['clean', 'atomizer:app', 'webpack:prod']);
+    // replace image paths with images.json generated by hash:images
+    grunt.registerMultiTask('replaceimg', function () {
+        var images = require(grunt.config.get('project.build') + '/images.json');
+
+        this.files.forEach(function (f) {
+            var src;
+
+            if (f.src) {
+                f.src.forEach(function (filePath) {
+                    src = grunt.file.read(filePath);
+                    // replace
+                    for (var image in images) {
+                        if (images.hasOwnProperty(image)) {                            
+                            src = src.replace(new RegExp(escapeRegex(image), 'g'), images[image]);
+                        }
+                    }
+                });
+            }
+            grunt.file.write(f.dest, src);
+            grunt.log.oklns('File ' + f.dest + ' successfully created.');
+        });
+    });
+
+    // used to normalize how we get assets on runtime
+    grunt.registerTask('devmanifest', function () {
+        var images = {},
+            assets = {},
+            build = grunt.config.get('project.build'),
+            public = grunt.config.get('project.public');
+
+        grunt.file.recurse(build, function (abspath, rootdir, subdir, filename) {
+            var path = subdir + '/' + filename;
+            if (subdir === 'images') {
+                images[path] = public + '/' + path;
+            } else if (!/\.map/.test(filename)) {
+                assets[path] = public + '/' + path;
+            }
+        });
+
+        grunt.file.write(path.join(build, 'images.json'), JSON.stringify(images, null, 4));
+        grunt.file.write(path.join(build, 'assets.json'), JSON.stringify(assets, null, 4));
+        grunt.log.oklns('Files assets.json and images.json successfully created.');
+    });
+
+    grunt.registerTask('prodmanifest', function () {
+        var images = {},
+            assets = {},
+            build = grunt.config.get('project.build'),
+            cdnPath = grunt.config.get('project.cdnPath'),
+            images = require('./app/build/images.json'),
+            assets = require('./app/build/assets.json');
+
+        for (var key in images) {
+            if (images.hasOwnProperty(key)) {
+                images[key] = cdnPath + images[key];
+            }
+        }
+
+        for (var key in assets) {
+            if (assets.hasOwnProperty(key)) {
+                assets[key] = cdnPath + assets[key];
+            }
+        }
+
+        grunt.file.write(path.join(build, 'images.json'), JSON.stringify(images, null, 4));
+        grunt.file.write(path.join(build, 'assets.json'), JSON.stringify(assets, null, 4));
+        grunt.log.oklns('Files assets.json and images.json successfully created.');
+    });
+
+    // dev
+    grunt.registerTask('default', [
+        'clean:build',
+        'copy:images',
+        'atomizer:app',
+        'cssmin:dev',
+        'devmanifest',
+        'webpack:dev',
+        'devmanifest',
+        'concurrent:dev'
+    ]);
+
+    // build assets for prod
+    grunt.registerTask('build', [
+        'clean:build',
+        'atomizer:app',
+        'cssmin:prod',
+        'copy:images',
+        'hash:images',
+        'clean:cdnimagestrash',
+        'replaceimg:images',
+        'hash:css',
+        'webpack:prod',
+        'hash:js',
+        'clean:cdntrash',
+        'prodmanifest'
+    ]);
 };

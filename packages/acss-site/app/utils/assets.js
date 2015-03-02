@@ -1,24 +1,9 @@
 'use strict';
 
-/**
- * In production, we use the webpack stats plugin to collect the asset hash names
- * and replace the local paths with the production ones.
- */
+var objectAssign = require('object-assign');
 
-var path = require('path');
-var assets = {
-    common: '/public/js/common.js',
-    main: '/public/js/main.js'
-};
+var assets = require('../build/assets.json');
+var images = require('../build/images.json');
+var manifest = objectAssign(assets, images);
 
-if ('production' === process.env.NODE_ENV) {
-    try {
-        var webpackAssets = require(path.join(__dirname, '..', 'build', 'assets.json'));
-    } catch (e) {
-        throw new Error('Please run `grunt build` to generate the production assets.');
-    }
-    assets.common = webpackAssets.cdnPath + webpackAssets.assets.common;
-    assets.main = webpackAssets.cdnPath + webpackAssets.assets.main;
-}
-
-module.exports = assets;
+module.exports = manifest;
