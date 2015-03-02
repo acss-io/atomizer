@@ -373,13 +373,13 @@ module.exports = function(grunt) {
 
         for (key in images) {
             if (images.hasOwnProperty(key)) {
-                images[key] = cdnPath + images[key];
+                images[key] = images[key].indexOf(cdnPath) === -1 ? cdnPath + images[key] : images[key];
             }
         }
 
         for (key in assets) {
             if (assets.hasOwnProperty(key)) {
-                assets[key] = cdnPath + assets[key];
+                assets[key] = assets[key].indexOf(cdnPath) === -1 ? cdnPath + assets[key] : assets[key];
             }
         }
 
