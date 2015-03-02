@@ -5,12 +5,11 @@
 
 var webpack = require('webpack');
 var path = require('path');
-var fs = require('fs');
 
 // format `*.[chunkhash].min.js`
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-};
+}
 
 
 
@@ -366,20 +365,19 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('prodmanifest', function () {
-        var images = {},
-            assets = {},
-            build = grunt.config.get('project.build'),
+        var build = grunt.config.get('project.build'),
             cdnPath = grunt.config.get('project.cdnPath'),
             images = require('./app/build/images.json'),
-            assets = require('./app/build/assets.json');
+            assets = require('./app/build/assets.json'),
+            key;
 
-        for (var key in images) {
+        for (key in images) {
             if (images.hasOwnProperty(key)) {
                 images[key] = cdnPath + images[key];
             }
         }
 
-        for (var key in assets) {
+        for (key in assets) {
             if (assets.hasOwnProperty(key)) {
                 assets[key] = cdnPath + assets[key];
             }
