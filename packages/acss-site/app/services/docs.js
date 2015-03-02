@@ -50,6 +50,7 @@ walker.on('file', function (root, fstats, next) {
 
 walker.on('end', function () {
     // done walking
+    console.log(Object.keys(content));
     debug(content);
 });
 
