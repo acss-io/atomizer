@@ -17,23 +17,6 @@ var atomicRegex;
 var verbose = false;
 
 /**
- * helper function to handle merging array of objects
- * @param  {mixed} a Data of the first merge param
- * @param  {mixed} b Data of the second merge param
- * @return {mixed}   The merged object
- */
-function handleMergeArrays (a, b) {
-    if (_.isArray(a) && _.isArray(b)) {
-        a.forEach(function(item){
-            if(_.findIndex(b, item) === -1) {
-                b.push(item);
-            }
-        });
-        return b;
-    }
-}
-
-/**
  * Escapes special regular expression characters
  * @param  {string} str The regexp string.
  * @return {string}     The escaped regexp string.
@@ -222,7 +205,7 @@ module.exports = {
         verbose = !!verboseLogging;
 
         for (var i = 0, iLen = classNames.length; i < iLen; i++) {
-            config = _.merge(config, getConfigRule(classNames[i], currentConfig, warnings), handleMergeArrays);
+            config = _.merge(config, getConfigRule(classNames[i], currentConfig, warnings), utils.handleMergeArrays);
         }
 
         // Now that we've processed all the configuration, notify the user
