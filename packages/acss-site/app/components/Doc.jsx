@@ -6,7 +6,7 @@
 'use strict';
 var React = require('react');
 var navigateAction = require('flux-router-component').navigateAction;
-var DOCS_URL = 'https://github.com/yahoo/acss-site/tree/master';
+var DOCS_URL = 'https://github.com/yahoo/acss-site/tree/master/app';
 
 function isLeftClickEvent (e) {
     return e.button === 0;
