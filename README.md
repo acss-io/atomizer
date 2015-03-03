@@ -35,7 +35,7 @@ atomizer -c config.js -o atomic.css ./site/*.html
 
 ### API
 
-```
+```javascript
 var Atomizer = require('atomizer');
 
 var defaultConfig = {
