@@ -14,12 +14,16 @@ var path = require('path');
 var fs = require('fs');
 var chalk = require('chalk');
 var atomizer = require('../src/atomizer');
-var configObjs = [];
+var utils = require('../src/lib/utils');
+var _ = require('lodash');
+var content = '';
+var config; 
+var parsedConfig = {};
 
 var params = require('minimist')(process.argv.slice(2));
 
 if (process.argv.slice(2).length === 0 || params.help) {
-    var usage = ['usage:  ', process.title, '[-o|--outfile=<file>] [--help] configfile ...'].join(' ');
+    var usage = ['usage:  ', process.title, ' -c|--config=<file> [-o|--outfile=<file>] [--help] [--verbose] [<files-to-parse> ...]'].join(' ');
     console.log(usage);
     return;
 }
@@ -35,19 +39,39 @@ if (options.require.length > 0) {
     });
 }
 
-var srcFiles = params._ || [];
-srcFiles = srcFiles.filter(function(filepath) {
-    if (!fs.existsSync(filepath)) { 
-        console.warn('Configuration file ' + chalk.cyan(filepath) + ' not found.');
+// Static config should contain the general 'config' options, along with any
+// statically defined configuration. It is required.
+var configFile = params.c || params.config;
+if (configFile) {
+    if (!fs.existsSync(configFile)) { 
+        throw new Error('Configuration file ' + chalk.cyan(configFile) + ' not found.');
         return false;
-    } else {
-        configObjs.push(require(path.resolve(filepath)));
-        return true;
     }
-});
+    config = require(path.resolve(configFile));
+} else {
+    throw new Error('Configuration file not provided.');
+    return false;
+}
 
-var content = atomizer(configObjs, options);
+// Generate config from parsed src files
+var parseFiles = params._ || [];
+if (parseFiles.length) {
+    var classNames = [];
+    parseFiles.forEach(function (filepath) {
+        console.warn('Parsing file ' + chalk.cyan(filepath) + ' for Atomic CSS classes');
+        var fileContents = fs.readFileSync(path.resolve(filepath), {encoding: 'utf-8'});
+        classNames = _.union(classNames, atomizer.parse(fileContents));
+    });
+    parsedConfig = atomizer.getConfig(classNames, config, !!params.verbose);
+}
 
+// Merge the static config with the generated config
+config = _.merge(parsedConfig, config, utils.handleMergeArrays);
+
+// Create the CSS
+content = atomizer.createCSS(config, options);
+
+// Output the CSS
 var outfile = params.o || params.outfile;
 if (outfile) {
     fs.mkdir(path.dirname(outfile), function (err) {
@@ -58,5 +82,5 @@ if (outfile) {
         });
     });
 } else {
-    process.stdout.write(content);
+    process.stdout.write("\n" + content);
 }

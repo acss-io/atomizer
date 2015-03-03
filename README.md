@@ -21,14 +21,48 @@ npm install atomizer -g
 
 ## Usage
 
+### CLI
+
 ```
-atomizer [-o|--outfile=<file>] [--help] configfile ...
+atomizer -c|--config=<file> [-o|--outfile=<file>] [--help] [--verbose] [<files-to-parse> ...]
 ```
 
 Example:
 
 ```
-atomizer config.js -o atomic.css
+atomizer -c config.js -o atomic.css ./site/*.html
+```
+
+### API
+
+```
+var Atomizer = require('atomizer');
+
+var defaultConfig = {
+    'config': {
+        'namespace': '#atomic',
+        'start': 'left',
+        'end': 'right'
+    },
+    "border": {
+        "custom": [
+            {
+                "suffix": "1",
+                "values": [ "1px solid #000" ]
+            }
+        ]
+    }
+};
+
+// Parse text to find Atomic CSS classes
+var classes = atomizer.parse('<div class="P-10px M-20% B-1"></div>');
+
+// Generate Atomizer configuration from an array of Atomic classnames
+var config = atomizer.getConfig(classes, defaultConfig);
+
+// Generate Atomic CSS from configuration
+var css = atomizer.createCSS(config);
+
 ```
 
 ## Developer docs

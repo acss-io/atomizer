@@ -3,6 +3,7 @@
  * Copyrights licensed under the New BSD License.
  * See the accompanying LICENSE file for terms.
  */
+var _ = require('lodash');
 
 var utils = exports;
 
@@ -30,7 +31,8 @@ utils.isPercentage = function(value) {
 };
 
 utils.isInteger = function(value) {
-    return typeof value === 'number' && (value % 1) === 0;
+    value = new Number(value); // typecast to Number
+    return !isNaN(value) && (value % 1) === 0;
 };
 
 utils.isFloat = function(value) {
@@ -38,7 +40,7 @@ utils.isFloat = function(value) {
 };
 
 utils.isHex = function(value) {
-    return /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(value);
+    return /^#?[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(value);
 };
 
 utils.isRgb = function(value) {
@@ -224,4 +226,21 @@ utils.indexOf = function(listOfValidItems) {
     return function(value) {
         return listOfValidItems.indexOf(value) >= 0 ? true : false;
     };
+};
+
+/**
+ * helper function to handle merging array of objects
+ * @param  {mixed} a Data of the first merge param
+ * @param  {mixed} b Data of the second merge param
+ * @return {mixed}   The merged object
+ */
+utils.handleMergeArrays = function (a, b) {
+    if (_.isArray(a) && _.isArray(b)) {
+        a.forEach(function(item){
+            if(_.findIndex(b, item) === -1) {
+                b.push(item);
+            }
+        });
+        return b;
+    }
 };
