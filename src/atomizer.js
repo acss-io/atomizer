@@ -11,6 +11,7 @@ var Absurd = require('absurd');
 var AtomicBuilder = require('./lib/AtomicBuilder.js');
 var objectAssign = require('object-assign');
 var rules = require('./rules.js');
+var utils = require('./lib/utils');
 
 var atomicRegex;
 var verbose = false;
@@ -30,66 +31,6 @@ function handleMergeArrays (a, b) {
         });
         return b;
     }
-}
-
-/**
- * Get the unit of a length.
- * @param  {string}  value The length to be parsed.
- * @return {string|false}  The unit of the string or false if length is not a number.
- */
-function getUnit(value) {
-    /* istanbul ignore if else */
-    if (isNaN(parseFloat(value, 10))) {
-        return false;
-    }
-    return value.replace(/^[\d\.\s]+/, '');
-}
-
-/**
- * Tells wether a value is a length unit or not
- * @param  {string}  value The value to be tested.
- * @return {Boolean}
- */
-function isLength(value) {
-    return parseInt(value, 10) === 0 || (/^-?(?:\d+)?\.?\b\d+[a-z]+$/.test(value) && ['em', 'ex', 'ch', 'rem', 'vh', 'vw', 'vmin', 'vmax', 'px', 'mm', 'cm', 'in', 'pt', 'pc'].indexOf(getUnit(value)) >= 0);
-}
-
-/**
- * Tells wether a value is a percentage or not
- * @param  {string}  value The value to be tested.
- * @return {Boolean}
- */
-function isPercentage(value) {
-    return /^-?(?:\d+)?\.?\b\d+%$/.test(value);
-}
-
-/**
- * Tells wether a value is a hex value or not
- * @param  {string}  value The value to be tested.
- * @return {Boolean}
- */
-function isHex(value) {
-    return /^[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(value);
-}
-
-/**
- * Tells wether a value is an integer or not
- * @param  {string}  value The value to be tested.
- * @return {Boolean}
- */
-function isInteger(value) {
-    value = new Number(value); // typecast to Number
-    return !isNaN(value) && (value % 1) === 0;
-}
-
-/**
- * Tells wether a value is a float or not
- * @param  {string}  value The value to be tested.
- * @return {Boolean}
- */
-function isFloat(value) {
-    value = parseFloat(value, 10);
-    return (!isNaN(value) && value.toString().indexOf('.') !== -1);
 }
 
 /**
@@ -191,17 +132,17 @@ function handleCustomConfigRule(configRule, className, pattern, suffix, currentC
     var value;
 
     if (pattern.allowSuffixToValue && (
-        isPercentage(suffix) || 
-        isLength(suffix) || 
-        isHex(suffix) || 
-        isInteger(suffix) || 
-        isFloat(suffix))) {
+        utils.isPercentage(suffix) || 
+        utils.isLength(suffix) || 
+        utils.isHex(suffix) || 
+        utils.isInteger(suffix) || 
+        utils.isFloat(suffix))) {
 
         if (!configRule[pattern.id].custom) {
             configRule[pattern.id].custom = [];
         }
 
-        value = isHex(suffix) ? '#' + suffix : suffix;
+        value = utils.isHex(suffix) ? '#' + suffix : suffix;
         configRule[pattern.id].custom.push({
             suffix: suffix,
             values: [value]
