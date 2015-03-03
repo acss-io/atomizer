@@ -55,13 +55,13 @@ var defaultConfig = {
 };
 
 // Parse text to find Atomic CSS classes
-var classes = atomizer.parse('<div class="P-10px M-20% B-1"></div>');
+var classes = Atomizer.parse('<div class="P-10px M-20% B-1"></div>');
 
 // Generate Atomizer configuration from an array of Atomic classnames
-var config = atomizer.getConfig(classes, defaultConfig);
+var config = Atomizer.getConfig(classes, defaultConfig);
 
 // Generate Atomic CSS from configuration
-var css = atomizer.createCSS(config);
+var css = Atomizer.createCSS(config);
 
 ```
 
