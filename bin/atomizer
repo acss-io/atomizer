@@ -19,11 +19,43 @@ var _ = require('lodash');
 var content = '';
 var config; 
 var parsedConfig = {};
+var recursive = false;
 
 var params = require('minimist')(process.argv.slice(2));
 
+function parseFiles (files, dir) {
+    var classNames = [];
+
+    for (var i=0, iLen=files.length; i < iLen; i++) {
+        classNames = _.union(classNames, parseFile(files[i], dir));
+    }
+
+    return classNames;
+}
+
+function parseFile (file, dir) {
+    var classNames = [],
+        fileContents,
+        filepath = dir ? path.resolve(dir, file) : path.resolve(file),
+        relative = path.relative(process.cwd(), filepath),
+        stat = fs.statSync(filepath);
+
+    if (stat.isFile()) {
+        console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+        fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
+        classNames = atomizer.parse(fileContents);
+    } else if (stat.isDirectory()) {
+        if (!dir || dir && recursive) {
+            console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
+            classNames = parseFiles(fs.readdirSync(filepath), filepath);
+        }
+    }
+
+    return classNames;
+}
+
 if (process.argv.slice(2).length === 0 || params.help) {
-    var usage = ['usage:  ', process.title, ' -c|--config=<file> [-o|--outfile=<file>] [--help] [--verbose] [<files-to-parse> ...]'].join(' ');
+    var usage = ['usage:  ', process.title, ' -c|--config=<file> [-o|--outfile=<file>] [--help] [--verbose] [ [-R] files_to_parse ...]'].join(' ');
     console.log(usage);
     return;
 }
@@ -54,15 +86,11 @@ if (configFile) {
 }
 
 // Generate config from parsed src files
-var parseFiles = params._ || [];
-if (parseFiles.length) {
-    var classNames = [];
-    parseFiles.forEach(function (filepath) {
-        console.warn('Parsing file ' + chalk.cyan(filepath) + ' for Atomic CSS classes');
-        var fileContents = fs.readFileSync(path.resolve(filepath), {encoding: 'utf-8'});
-        classNames = _.union(classNames, atomizer.parse(fileContents));
-    });
-    parsedConfig = atomizer.getConfig(classNames, config, !!params.verbose);
+var filesToParse = params._ || [];
+if (filesToParse.length) {
+    // Recursive parsing?
+    recursive = !!params.R;
+    parsedConfig = atomizer.getConfig(parseFiles(filesToParse), config, !!params.verbose);
 }
 
 // Merge the static config with the generated config
