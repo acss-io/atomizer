@@ -24,13 +24,15 @@ npm install atomizer -g
 ### CLI
 
 ```
-atomizer -c|--config=<file> [-o|--outfile=<file>] [--help] [--verbose] [<files-to-parse> ...]
+atomizer -c|--config=<file> [-o|--outfile=<file>] [--help] [--verbose] [ [-R] files_to_parse ...]
 ```
 
 Example:
 
 ```
 atomizer -c config.js -o atomic.css ./site/*.html
+atomizer -c config.js -R ./site/ > atomic.css
+
 ```
 
 ### API
