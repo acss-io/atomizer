@@ -235,7 +235,15 @@ module.exports = {
             minify: false,
             keepCamelCase: false,
             extCSS: '.css',
-            banner: ''
+            banner: '',
+            namespace: '#atomic',
+            rtl: false,
+            // TODO: Verify these are good defaults
+            breakPoints: {
+                'sm': '767px',
+                'md': '992px',
+                'lg': '1200px'
+            }
         }, options);
 
         if (!config) {
@@ -250,7 +258,7 @@ module.exports = {
             api.import(options.require);
         }
 
-        var atomicBuilder = new AtomicBuilder(rules, config);
+        var atomicBuilder = new AtomicBuilder(rules, config, options);
         var build = atomicBuilder.getBuild();
         if (!_.size(build)) {
             throw new Error('Failed to generate CSS. The `build` object is empty.');

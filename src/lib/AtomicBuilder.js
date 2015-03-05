@@ -18,10 +18,12 @@ var utils = require('./utils');
  * @param {Object} configObj  Tells what it wants from the atomic.css (the atomic
  *                            rules) and it is used to to generate a custom build 
  *                            of atomic.css.
+ * @param {Object} optionsObj Options used in rendering the CSS.
  */
-function AtomicBuilder (atomicObjs, configObj) {
+function AtomicBuilder (atomicObjs, configObj, optionsObj) {
     this.loadObjects(atomicObjs);
     this.loadConfig(configObj);
+    this.loadOptions(optionsObj);
 
     // create our build obj
     this.build = {};
@@ -59,28 +61,43 @@ AtomicBuilder.prototype.loadConfig = function (config) {
     if (config.constructor !== Object) {
         throw new TypeError('The `config` param must be an Object.');
     }
-    if (!config.config || config.config.constructor !== Object) {
-        throw new TypeError('`config` must have a `config` key');
-    }
-    if (config.config.breakPoints) {
-        if (config.config.breakPoints.constructor !== Object) {
-            throw new TypeError('`config.breakpoints` must be an Object');
-        }
-        if (!config.config.breakPoints.sm && !config.config.breakPoints.md && !config.config.breakPoints.lg) {
-            throw new Error('`config.breakpoints` must be an Object containing at least one of the following keys: sm, md, lg.');
-        }
-        this.mediaQueries = {};
-        if (config.config.breakPoints.sm) {
-            this.mediaQueries.sm = '@media(min-width:' + config.config.breakPoints.sm + ')';
-        }
-        if (config.config.breakPoints.md) {
-            this.mediaQueries.md = '@media(min-width:' + config.config.breakPoints.md + ')';
-        }
-        if (config.config.breakPoints.lg) {
-            this.mediaQueries.lg = '@media(min-width:' + config.config.breakPoints.lg + ')';
-        }
-    }
     this.configObj = config;
+};
+
+/**
+ * Loads options
+ * 
+ * @method loadOptions
+ * @param {Object} config (Required) The options object to be loaded
+ */
+AtomicBuilder.prototype.loadOptions = function (options) {
+    if (!options) {
+        throw new Error('`options` param is required');
+    }
+    if (options.constructor !== Object) {
+        throw new TypeError('The `options` param must be an Object.');
+    }
+    if (options.breakPoints) {
+        if (options.breakPoints.constructor !== Object) {
+            throw new TypeError('`options.breakPoints` must be an Object');
+        }
+        if (_.size(options.breakPoints) > 0) {
+            if (!options.breakPoints.sm && !options.breakPoints.md && !options.breakPoints.lg) {
+                throw new Error('`options.breakPoints` must be an Object containing at least one of the following keys: sm, md, lg.');
+            }
+            this.mediaQueries = {};
+            if (options.breakPoints.sm) {
+                this.mediaQueries.sm = '@media(min-width:' + options.breakPoints.sm + ')';
+            }
+            if (options.breakPoints.md) {
+                this.mediaQueries.md = '@media(min-width:' + options.breakPoints.md + ')';
+            }
+            if (options.breakPoints.lg) {
+                this.mediaQueries.lg = '@media(min-width:' + options.breakPoints.lg + ')';
+            }
+        }
+    }
+    this.optionsObj = options;
 };
 
 /**
@@ -388,7 +405,7 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
 
             // check if breakPoint is valid
             if (!mqs[breakPoint]) {
-                throw new Error('BreakPoint is not valid: ' + breakPoint + '. Valid BreakPoint values: ' + Object.keys(mqs));
+                throw new Error('Breakpoint is not valid: ' + breakPoint + '. Valid breakPoint values: ' + Object.keys(mqs));
             }
 
             build[bpClassName] = {};
@@ -435,6 +452,10 @@ AtomicBuilder.prototype.escapeSelector = function (str) {
  */
 AtomicBuilder.prototype.placeConstants = function (str) {
     var configObj = this.configObj;
+    var optionsObj = this.optionsObj;
+    var start = optionsObj && optionsObj.rtl ? 'right' : 'left';
+    var end = optionsObj && optionsObj.rtl ? 'left' : 'right';
+
     if (!str && str !== 0) {
         throw new TypeError('str must be present');
     }
@@ -444,14 +465,7 @@ AtomicBuilder.prototype.placeConstants = function (str) {
     if (!configObj || configObj.constructor !== Object) {
         throw new TypeError('configObj is required and must be an Object.');
     }
-    if (configObj.config) {
-        if (configObj.config.start) {
-            str = str.replace(/\$START/g, configObj.config.start);
-        }
-        if (configObj.config.end) {
-            str = str.replace(/\$END/g, configObj.config.end);
-        }
-    }
+    str = str.replace(/\$START/g, start).replace(/\$END/g, end);
     return str;
 };
 
@@ -480,7 +494,7 @@ AtomicBuilder.prototype.getBuild = function () {
         throw new TypeError('Expecting config object to be set in this instance.');
     }
 
-    namespace = configObj.config && configObj.config.namespace;
+    namespace = this.optionsObj.namespace;
 
     if (namespace) {
         build[namespace] = this.build;

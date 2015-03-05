@@ -29,13 +29,6 @@ describe('createCss()', function () {
             atomizer.createCSS();
         }).to.throw(Error);
     });
-    it ('throws if a config has been passed but with not enough info', function () {
-        expect(function () {
-            atomizer.createCSS({
-                'config': {}
-            });
-        }).to.throw(Error);
-    });
     it ('imports different absurdjs objects if passed as an option', function () {
         var result = atomizer.createCSS(defaultConfig, {
             require: [__dirname + '/fixtures/fz.js']
