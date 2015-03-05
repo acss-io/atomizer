@@ -1,20 +1,4 @@
 module.exports = {
-    'config': {
-        'namespace': '#atomic',
-        'start': 'left',
-        'end': 'right',
-        'defaults': {
-            'font-size': '16px',
-            'border-color': '#555',
-            'bleed-value': '-10px'
-        },
-        'breakPoints': {
-            'sm': '767px',
-            'md': '992px',
-            'lg': '1200px'
-        }
-    },
-
     // pattern
     'border-top': {
         'custom': [

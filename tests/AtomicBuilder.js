@@ -34,10 +34,11 @@ describe('AtomicBuilder', function () {
             // mock methods
             mock.expects('loadObjects').once();
             mock.expects('loadConfig').once();
+            mock.expects('loadOptions').once();
             mock.expects('run').once();
 
             // execute
-            atomicBuilder = new AtomicBuilder([], {});
+            atomicBuilder = new AtomicBuilder([], {}, {});
 
             // assert
             expect(atomicBuilder.build).to.deep.equal({});
@@ -76,10 +77,46 @@ describe('AtomicBuilder', function () {
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder(atomicObjs);
+            atomicBuilder = new AtomicBuilder(atomicObjs, {}, {});
 
             // assert
             expect(atomicBuilder.atomicObjs).to.deep.equal(atomicObjs);
+        });
+    });
+
+    describe('loadOptions()', function () {
+        it('throws if objs param is empty', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions();
+            }).to.throw(Error);
+        });
+        it('throws if objs param is not an object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions('foo');
+            }).to.throw(TypeError);
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions([]);
+            }).to.throw(TypeError);
+        });
+        it('throws if options has breakPoints key but it\'s not an object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions({    
+                    breakPoints: []
+                });
+            }).to.throw(TypeError);
+        });
+        it('throws if options has a breakPoints object but does not have `sm`, `md` nor `lg` keys', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions({
+                    breakPoints: {
+                        foo: 'bar'
+                    }
+                });
+            }).to.throw(Error);
         });
     });
 
@@ -99,46 +136,8 @@ describe('AtomicBuilder', function () {
                 AtomicBuilder.prototype.loadConfig('foo');
             }).to.throw(TypeError);
         });
-        it('throws if config does not have a config key', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.loadConfig({});
-            }).to.throw(TypeError);
-        });
-        it('throws if config has breakPoints key but it\'s not an object', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.loadConfig({
-                    config: {
-                        breakPoints: []
-                    }
-                });
-            }).to.throw(TypeError);
-        });
-        it('throws if config has a breakPoints object but does not have `sm`, `md` nor `lg` keys', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.loadConfig({
-                    config: {
-                        breakPoints: {
-                            foo: 'bar'
-                        }
-                    }
-                });
-            }).to.throw(Error);
-        });
         it('should store the config', function () {
             var config = {
-                'config': {
-                    'namespace': '#atomic',
-                    'start': 'left',
-                    'end': 'right',
-                    'defaults': {
-                        'font-size': '16px',
-                        'border-color': '#555',
-                        'bleed-value': '-10px'
-                    }
-                },
                 'font-weight': {
                     'n': true,
                     'b': true
@@ -147,20 +146,19 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, config);
+            atomicBuilder = new AtomicBuilder({}, config, {});
 
             // assert
             expect(atomicBuilder.configObj).to.deep.equal(config);
         });
         it('should store the `sm` breakPoint as mediaQuery', function () {
-            var config = {
-                config: {
-                    breakPoints: {
-                        sm: '200px'
-                    }
+            var options = {
+                breakPoints: {
+                    sm: '200px'
                 }
             };
             var expected = {
@@ -169,20 +167,19 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, config);
+            atomicBuilder = new AtomicBuilder({}, {}, options);
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
         it('should store the `md` breakPoint as mediaQuery', function () {
-            var config = {
-                config: {
-                    breakPoints: {
-                        md: '300px'
-                    }
+            var options = {
+                breakPoints: {
+                    md: '300px'
                 }
             };
             var expected = {
@@ -191,20 +188,19 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, config);
+            atomicBuilder = new AtomicBuilder({}, {}, options);
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
         it('should store the `lg` breakPoint as mediaQuery', function () {
-            var config = {
-                config: {
-                    breakPoints: {
-                        lg: '500px'
-                    }
+            var options = {
+                breakPoints: {
+                    lg: '500px'
                 }
             };
             var expected = {
@@ -213,22 +209,21 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, config);
+            atomicBuilder = new AtomicBuilder({}, {}, options);
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
         it('should store all breakPoints as mediaQueries', function () {
-            var config = {
-                config: {
-                    breakPoints: {
-                        sm: '200px',
-                        md: '300px',
-                        lg: '500px'
-                    }
+            var options = {
+                breakPoints: {
+                    sm: '200px',
+                    md: '300px',
+                    lg: '500px'
                 }
             };
             var expected = {
@@ -242,7 +237,7 @@ describe('AtomicBuilder', function () {
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, config);
+            atomicBuilder = new AtomicBuilder({}, {}, options);
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
@@ -254,7 +249,7 @@ describe('AtomicBuilder', function () {
     // -------------------------------------------------------
     describe('flush()', function () {
         it('should clean build object', function () {
-            var atomicBuilder = new AtomicBuilder([], {config: {}});
+            var atomicBuilder = new AtomicBuilder([], {}, {});
             // set something in the build
             atomicBuilder.build = {
                 '.foo': {
@@ -411,6 +406,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
             sinon.stub(AtomicBuilder.prototype, 'addCssRule', function (className, property, value, breakPoints) {
                 expect(value).to.equal(expectedValue);
@@ -437,6 +433,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // instantiation & setup
@@ -569,6 +566,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // instantiation & setup
@@ -628,6 +626,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // execute
@@ -639,6 +638,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // instantiation & setup
@@ -668,6 +668,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
             sinon.stub(AtomicBuilder.prototype, 'addCssRule', function (className, property, value, breakPoints) {
                 expect(className).to.equal(expectedClassName);
@@ -696,6 +697,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // instantiation & setup
@@ -758,6 +760,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
                 sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
                     return str;
@@ -799,6 +802,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
             sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
                 return str;
@@ -826,6 +830,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
             sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
                 return str;
@@ -886,77 +891,52 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
             var atomicBuilder = new AtomicBuilder();
-            atomicBuilder.configObj = {
-                config: {
-                    start: 'foo',
-                    end: 'bar'
-                }
-            };
 
             // assert
             expect(atomicBuilder.placeConstants(123)).equal(123);
         });
-        it('returns the processed string if passed, with config.start set', function () {
+        it('returns the processed string if passed, in ltr mode', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
             var atomicBuilder = new AtomicBuilder();
-            atomicBuilder.configObj = {
-                config: {
-                    start: 'foo'
-                }
+            atomicBuilder.configObj = {};
+            atomicBuilder.optionsObj = { 
+                rtl: false
             };
 
             // assert
-            expect(atomicBuilder.placeConstants('test-$START')).equal('test-foo');
-            expect(atomicBuilder.placeConstants('test-$END')).equal('test-$END');
-            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-foo-$END');
+            expect(atomicBuilder.placeConstants('test-$START')).equal('test-left');
+            expect(atomicBuilder.placeConstants('test-$END')).equal('test-right');
+            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-left-right');
         });
-        it('returns the processed string if passed, with config.end set', function () {
+        it('returns the processed string if passed, in rtl mode', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
             var atomicBuilder = new AtomicBuilder();
-            atomicBuilder.configObj = {
-                config: {
-                    end: 'bar'
-                }
+            atomicBuilder.configObj = {};
+            atomicBuilder.optionsObj = { 
+                rtl: true
             };
 
             // assert
-            expect(atomicBuilder.placeConstants('test-$START')).equal('test-$START');
-            expect(atomicBuilder.placeConstants('test-$END')).equal('test-bar');
-            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-$START-bar');
-        });
-        it('returns the processed string if passed, with both config.start and config.end set', function () {
-            // stub methods
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
-            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'run');
-
-            // execute
-            var atomicBuilder = new AtomicBuilder();
-            atomicBuilder.configObj = {
-                config: {
-                    start: 'foo',
-                    end: 'bar'
-                }
-            };
-
-            // assert
-            expect(atomicBuilder.placeConstants('test-$START')).equal('test-foo');
-            expect(atomicBuilder.placeConstants('test-$END')).equal('test-bar');
-            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-foo-bar');
+            expect(atomicBuilder.placeConstants('test-$START')).equal('test-right');
+            expect(atomicBuilder.placeConstants('test-$END')).equal('test-left');
+            expect(atomicBuilder.placeConstants('test-$START-$END')).equal('test-right-left');
         });
     });
 
@@ -970,6 +950,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // execute
@@ -981,6 +962,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
@@ -991,6 +973,9 @@ describe('AtomicBuilder', function () {
                 }
             };
             atomicBuilder.configObj = {
+                'foo': true
+            };
+            atomicBuilder.optionsObj = {
                 'foo': true
             };
             var result = atomicBuilder.getBuild();
@@ -1002,6 +987,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
@@ -1012,14 +998,14 @@ describe('AtomicBuilder', function () {
                 }
             };
             atomicBuilder.configObj = {
-                config: {
-                    namespace: '.baz'
-                },
                 'foo': true
+            };
+            atomicBuilder.optionsObj = {
+                namespace: '.baz'
             };
             var result = atomicBuilder.getBuild();
             var expected = {};
-            expected[atomicBuilder.configObj.config.namespace] = atomicBuilder.build;
+            expected[atomicBuilder.optionsObj.namespace] = atomicBuilder.build;
 
             // assert
             expect(result).to.deep.equal(expected);
@@ -1036,6 +1022,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1055,6 +1042,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1076,6 +1064,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1097,6 +1086,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1118,6 +1108,7 @@ describe('AtomicBuilder', function () {
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadConfig');
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // instantiation & setup
@@ -1155,6 +1146,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1193,6 +1185,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1219,6 +1212,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1247,6 +1241,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1284,6 +1279,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1327,6 +1323,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1365,6 +1362,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1401,6 +1399,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup
@@ -1444,6 +1443,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1482,6 +1482,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1520,6 +1521,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1559,6 +1561,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
                 sinon.stub(AtomicBuilder.prototype, 'addPatternRule', function (rule) {
                     switch(rule.values[0]) {
@@ -1639,6 +1642,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1664,6 +1668,7 @@ describe('AtomicBuilder', function () {
                     // stub methods
                     sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                     sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                    sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                     sinon.stub(AtomicBuilder.prototype, 'run');
 
                     // instantiation & setup
@@ -1688,6 +1693,7 @@ describe('AtomicBuilder', function () {
                 // stub methods
                 sinon.stub(AtomicBuilder.prototype, 'loadConfig');
                 sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+                sinon.stub(AtomicBuilder.prototype, 'loadOptions');
                 sinon.stub(AtomicBuilder.prototype, 'run');
 
                 // instantiation & setup

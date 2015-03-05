@@ -11,29 +11,11 @@ var defaultConfig;
 
 describe('createCss()', function () {
     beforeEach(function () {
-        defaultConfig = {
-            'config': {
-                'namespace': '#atomic',
-                'start': 'left',
-                'end': 'right',
-                'breakPoints': {
-                    'sm': '767px',
-                    'md': '992px',
-                    'lg': '1200px'
-                }
-            }
-        };
+        defaultConfig = {};
     });
     it ('throws if no configuration is provided', function () {
         expect(function () {
             atomizer.createCSS();
-        }).to.throw(Error);
-    });
-    it ('throws if a config has been passed but with not enough info', function () {
-        expect(function () {
-            atomizer.createCSS({
-                'config': {}
-            });
         }).to.throw(Error);
     });
     it ('imports different absurdjs objects if passed as an option', function () {
@@ -170,6 +152,18 @@ describe('createCss()', function () {
 
         expect(result).to.equal(expected);
     });
+    // it ('should throw if there\'s nothing to transform into CSS', function () {
+    //     var result;
+    //     var config = {
+    //         display: {
+    //             b: false
+    //         }
+    //     };
+
+    //     expect(function () {
+    //         atomizer.createCSS(config, { namespace: '' });
+    //     }).to.throw(Error);
+    // });
 });
 
 describe('parse()', function () {
