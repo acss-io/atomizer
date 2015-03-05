@@ -85,6 +85,21 @@ describe('AtomicBuilder', function () {
     });
 
     describe('loadOptions()', function () {
+        it('throws if objs param is empty', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions();
+            }).to.throw(Error);
+        });
+        it('throws if objs param is not an object', function () {
+            // execute and assert
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions('foo');
+            }).to.throw(TypeError);
+            expect(function () {
+                AtomicBuilder.prototype.loadOptions([]);
+            }).to.throw(TypeError);
+        });
         it('throws if options has breakPoints key but it\'s not an object', function () {
             // execute and assert
             expect(function () {
