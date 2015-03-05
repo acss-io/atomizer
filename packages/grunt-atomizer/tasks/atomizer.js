@@ -24,23 +24,6 @@ module.exports = function (grunt) {
     }
 
     /**
-     * helper function to handle merging array of objects
-     * @param  {mixed} a Data of the first merge param
-     * @param  {mixed} b Data of the second merge param
-     * @return {mixed}   The merged object
-     */
-    function handleMergeArrays (a, b) {
-        if (_.isArray(a) && _.isArray(b)) {
-            a.forEach(function(item){
-                if(_.findIndex(b, item) === -1) {
-                    b.push(item);
-                }
-            });
-            return b;
-        }
-    }
-
-    /**
      * TASKS
      */
     grunt.registerMultiTask('atomizer', 'Grunt plugin to execute Atomizer given a config file', function () {
@@ -113,10 +96,9 @@ module.exports = function (grunt) {
 
                 // get the config object given an array of atomic class names
                 config = atomizer.getConfig(_.keys(classNamesObj), gruntConfig, grunt.option.flags().indexOf('--verbose') > -1);
+            } else {
+                config = gruntConfig;
             }
-
-            // merge the config we have with the grunt config
-            config = _.merge(config, gruntConfig, handleMergeArrays);
 
             // run atomizer with the config we got
             content = atomizer.createCSS(config, options);
