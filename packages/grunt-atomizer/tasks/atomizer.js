@@ -21,24 +21,6 @@ module.exports = function (grunt) {
         if (grunt.util.kindOf(config) !== 'object') {            
             grunt.fail.warn('`' + configObjPath + '` must be an object.');
         }
-        if (!config.config || grunt.util.kindOf(config.config) !== 'object') {
-            grunt.fail.warn('If `' + configObjPath + '` has been passed, it must be an object.');
-        }
-        if (!config.config.namespace || grunt.util.kindOf(config.config.namespace) !== 'string') {
-            grunt.fail.warn('`' + configObjPath + '.config.namespace` is required and must be a string.');
-        }
-        if (!config.config.end || grunt.util.kindOf(config.config.end) !== 'string') {
-            grunt.fail.warn('`' + configObjPath + '.config.end` is required and must be a string.');
-        }
-        if (config.config.end !== 'left' && config.config.end !== 'right') {
-            grunt.fail.warn('`' + configObjPath + '.config.end` must be either `left` or `right`.');
-        }
-        if (!config.config.start || grunt.util.kindOf(config.config.end) !== 'string') {
-            grunt.fail.warn('`' + configObjPath + '.config.start` is required and must be a string.');
-        }
-        if (config.config.start !== 'left' && config.config.start !== 'right') {
-            grunt.fail.warn('`' + configObjPath + '.config.start` must be either `left` or `right`.');
-        }
     }
 
     /**
@@ -71,7 +53,6 @@ module.exports = function (grunt) {
         var gruntConfig = {}; // the config if passed directly via the grunt task
         var configFile;
 
-
         if (options.require && options.require.length > 0) {
             options.require = grunt.file.expand(options.require);
         }
@@ -89,6 +70,30 @@ module.exports = function (grunt) {
         if (options.config) {
             validateConfig(options.config, 'options.config');
             gruntConfig = _.merge(gruntConfig, options.config);
+        }
+
+        if (options.namespace && grunt.util.kindOf(options.namespace) !== 'string') {
+            grunt.fail.warn('`options.namespace` must be a string.');
+        }
+
+        if (options.end) {
+            if (grunt.util.kindOf(options.end) !== 'string') {
+                grunt.fail.warn('`options.end` must be a string.');
+            }
+
+            if (options.end !== 'left' && options.end !== 'right') {
+                grunt.fail.warn('`options.end` must be either `left` or `right`.');
+            }
+        }
+
+        if (options.start) {
+            if (grunt.util.kindOf(options.end) !== 'string') {
+                grunt.fail.warn('`options.start` must be a string.');
+            }
+
+            if (options.start !== 'left' && options.start !== 'right') {
+                grunt.fail.warn('`options.start` must be either `left` or `right`.');
+            }
         }
 
         this.files.forEach(function (f) {
