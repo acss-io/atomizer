@@ -30,7 +30,12 @@ module.exports = function(grunt) {
             // here we test if passing a configFile works as expected
             configFileOnly: {
                 options: {
-                    configFile: 'test/fixtures/sample-config.js'
+                    configFile: 'test/fixtures/sample-config.js',
+                    breakPoints: {
+                        'sm': '767px',
+                        'md': '992px',
+                        'lg': '1200px'
+                    }
                 },
                 files: [
                     {
@@ -41,12 +46,8 @@ module.exports = function(grunt) {
             // here we test if passing config to grunt task directly works as expected
             configGruntOnly: {
                 options: {
+                    namespace: '#atomic',
                     config: {
-                        config: {
-                            namespace: '#atomic',
-                            start: 'left',
-                            end: 'right'
-                        },
                         display: {
                             ib: true
                         }
@@ -61,13 +62,14 @@ module.exports = function(grunt) {
             // here we test which one has precedence (config declared in grunt task directly first then configFile second)
             configBoth: {
                 options: {
+                    namespace: '#atomic',
+                    breakPoints: {
+                        'sm': '767px',
+                        'md': '992px',
+                        'lg': '1200px'
+                    },
                     configFile: 'test/fixtures/sample-config.js',
                     config: {
-                        config: {
-                            namespace: '#atomic',
-                            start: 'left',
-                            end: 'right'
-                        },
                         'border-top': {
                             custom: [
                                 {suffix: '1', values: ['10px solid #ccc']}
@@ -88,14 +90,15 @@ module.exports = function(grunt) {
             // Grunt task should warn about 'Bdb-1' missing in config (found in parsing)
             configBothWithParsing: {
                 options: {
+                    namespace: '#atomic',
+                    breakPoints: {
+                        'sm': '767px',
+                        'md': '992px',
+                        'lg': '1200px'
+                    },
                     configFile: 'test/fixtures/sample-config.js',
                     configOutput: 'tmp/configOutput.json',
                     config: {
-                        config: {
-                            namespace: '#atomic',
-                            start: 'left',
-                            end: 'right'
-                        },
                         display: {
                             b: true
                         }
