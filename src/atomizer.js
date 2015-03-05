@@ -260,9 +260,9 @@ module.exports = {
 
         var atomicBuilder = new AtomicBuilder(rules, config, options);
         var build = atomicBuilder.getBuild();
-        if (!_.size(build)) {
-            throw new Error('Failed to generate CSS. The `build` object is empty.');
-        }
+        // if (!_.size(build)) {
+        //     throw new Error('Failed to generate CSS. The `build` object is empty.');
+        // }
 
         api.add(build);
 
