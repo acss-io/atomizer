@@ -30,8 +30,10 @@ atomizer [-c|--config=<file>] [-o|--outfile=<file>] [--rtl] [--help] [--verbose]
 Example:
 
 ```
-atomizer -c config.js -o atomic.css ./site/*.html
+atomizer -o atomic.css ./site/*.html
 atomizer -c config.js -R ./site/ > atomic.css
+atomizer -c config.js > atomic.css
+
 
 ```
 

@@ -189,16 +189,6 @@ describe('parse()', function () {
 describe('getConfig()', function () {
     beforeEach(function () {
         defaultConfig = {
-            'config': {
-                'namespace': '#atomic',
-                'start': 'left',
-                'end': 'right',
-                'breakPoints': {
-                    'sm': '767px',
-                    'md': '992px',
-                    'lg': '1200px'
-                }
-            },
             'border': {
                 custom: [
                     {
@@ -276,18 +266,106 @@ describe('getConfig()', function () {
         config = atomizer.getConfig(classNames, {}, true); // To cover a particular use case
         expect(config).to.deep.equal(expectedConfig);
 
-        config = atomizer.getConfig(classNames, defaultConfig, true);
-        expect(config).to.deep.equal(expectedConfig);
     });
 
     it('should ignore illegal units of measure', function () {
-        var expectedConfig = {};
+        var expectedConfig = defaultConfig;
         var config;
 
         config = atomizer.getConfig(['Bdrs-1foo'], defaultConfig);
-        expect(config).to.deep.equal(expectedConfig)
+        expect(config).to.deep.equal(expectedConfig);
 
         config = atomizer.getConfig(['Bdrs-foo'], defaultConfig);
-        expect(config).to.deep.equal(expectedConfig)
+        expect(config).to.deep.equal(expectedConfig);
+    });
+
+    it('should merge the default config with the newly created config', function () {
+        var config;
+        var classNames = ['Bd-1', 'Bd-2', 'C-07f', 'Bgcp-bb', 'Fz-3em'];
+        var expectedConfig = {
+            'background-clip': {
+                bb: true
+            },
+            color: {
+                custom: [
+                    {
+                        "suffix": "07f",
+                        "values": [ "#07f" ]
+                    }
+                ]
+            },
+            "font-size": {
+                custom: [
+                    {
+                        "suffix": "3em",
+                        "values": [ "3em" ]
+                    }
+                ]
+            }
+        };
+
+        config = atomizer.getConfig(classNames, defaultConfig);
+        expect(config).to.deep.equal(atomizer.mergeConfigs([defaultConfig, expectedConfig]));
+    });
+});
+
+describe('mergeConfigs()', function () {
+    it('should deep merge two config objects', function () {
+        var primaryConfig = {
+            'background-clip': {
+                bb: true
+            },
+            color: {
+                custom: [
+                    {
+                        "suffix": "07f",
+                        "values": [ "#07f" ]
+                    }
+                ]
+            }
+        };
+
+        var secondaryConfig = {
+            'background-clip': {
+                pb: true,
+                cb: true
+            },
+            "padding-top": {
+                custom: [
+                    {
+                        "suffix": "foo",
+                        "values": [ "231px" ]
+                    }
+                ]
+            }
+        };
+
+        var expectedConfig = {
+            'background-clip': {
+                bb: true,
+                pb: true,
+                cb: true
+            },
+            color: {
+                custom: [
+                    {
+                        "suffix": "07f",
+                        "values": [ "#07f" ]
+                    }
+                ]
+            },
+            "padding-top": {
+                custom: [
+                    {
+                        "suffix": "foo",
+                        "values": [ "231px" ]
+                    }
+                ]
+            }
+        };
+
+        var config = atomizer.mergeConfigs([primaryConfig, secondaryConfig]);
+
+        expect(config).to.deep.equal(expectedConfig);
     });
 });
