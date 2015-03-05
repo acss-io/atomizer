@@ -170,6 +170,15 @@ function warnMissingClassInConfig(className, patternId, suffix, warnings) {
 module.exports = {
 
     /**
+     * Merge atomizer configs into a single config
+     * @param {Array} configs An array of Atomizer config objects
+     * @return {object} An atomizer config object
+     */
+    mergeConfigs: function (configs) {
+        return _.merge.apply(null, configs.concat(utils.handleMergeArrays));
+    },
+
+    /**
      * Look for atomic class names in text and add to class names object.
      * @param  {string} src The text to be parsed.
      * @param  {object} classNamesObj (Optional) A hash of classnames -> number instances found
@@ -206,7 +215,11 @@ module.exports = {
 
         for (var i = 0, iLen = classNames.length; i < iLen; i++) {
             config = _.merge(config, getConfigRule(classNames[i], currentConfig, warnings), utils.handleMergeArrays);
+            // config = this.mergeConfigs([config, getConfigRule(classNames[i], currentConfig, warnings)]);
         }
+
+        // Merge the existing config with the new config
+        config = this.mergeConfigs([config, currentConfig]);
 
         // Now that we've processed all the configuration, notify the user
         // if any custom classnames were found that were too ambiguous to 
