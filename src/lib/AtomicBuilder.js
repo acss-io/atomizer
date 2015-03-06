@@ -9,6 +9,47 @@
 var _ = require('lodash');
 var utils = require('./utils');
 
+var PSEUDOS = {
+    'active':          'a',
+    'checked':         'c',
+    'default':         'd',
+    'disabled':        'di',
+    'empty':           'e',
+    'enabled':         'en',
+    'first':           'fi',
+    'first-child':     'fc',
+    'first-of-type':   'fot',
+    'fullscreen':      'fs',
+    'focus':           'f',
+    'hover':           'h',
+    'indeterminate':   'ind',
+    'in-range':        'ir',
+    'invalid':         'inv',
+    'last-child':      'lc',
+    'last-of-type':    'lot',
+    'left':            'l',
+    'link':            'li',
+    'only-child':      'oc',
+    'only-of-type':    'oot',
+    'optional':        'o',
+    'out-of-range':    'oor',
+    'read-only':       'ro',
+    'read-write':      'rw',
+    'required':        'req',
+    'right':           'r',
+    'root':            'rt',
+    'scope':           's',
+    'target':          't',
+    'valid':           'va',
+    'visited':         'vi'
+};
+var pseudoRegex = [];
+for (var pseudo in PSEUDOS) {
+    pseudoRegex.push(pseudo);
+    pseudoRegex.push(PSEUDOS[pseudo]);
+}
+pseudoRegex = new RegExp(':(' + pseudoRegex.join('|') + ')\\b');
+
 /**
  * AtomicBuilder manage build object given an atomic object and a config object.
  * @class
@@ -81,19 +122,14 @@ AtomicBuilder.prototype.loadOptions = function (options) {
         if (options.breakPoints.constructor !== Object) {
             throw new TypeError('`options.breakPoints` must be an Object');
         }
+        /* istanbul ignore else  */
         if (_.size(options.breakPoints) > 0) {
-            if (!options.breakPoints.sm && !options.breakPoints.md && !options.breakPoints.lg) {
-                throw new Error('`options.breakPoints` must be an Object containing at least one of the following keys: sm, md, lg.');
-            }
             this.mediaQueries = {};
-            if (options.breakPoints.sm) {
-                this.mediaQueries.sm = '@media(min-width:' + options.breakPoints.sm + ')';
-            }
-            if (options.breakPoints.md) {
-                this.mediaQueries.md = '@media(min-width:' + options.breakPoints.md + ')';
-            }
-            if (options.breakPoints.lg) {
-                this.mediaQueries.lg = '@media(min-width:' + options.breakPoints.lg + ')';
+            for(var bp in options.breakPoints) {
+                if (!/^@media/.test(options.breakPoints[bp])) {
+                    throw new Error('Breakpoint `' + bp + '` must start with `@media`.');
+                }
+                this.mediaQueries[bp] = options.breakPoints[bp];
             }
         }
     }
@@ -132,14 +168,14 @@ AtomicBuilder.prototype.run = function () {
 
         // if the atomic object is a pattern
         if (atomicObj.type === 'pattern') {
-            // if `rules` has been passed
+            // if `rules` is present in atomicObj
             if (atomicObj.rules) {
                 if (atomicObj.rules.constructor !== Array) {
                     throw new TypeError('`atomicObj.rules` must be an Array. AtomicObject id: ' + atomicObj.id);
                 }
                 // add each rule, if present in the config
                 atomicObj.rules.forEach(function (rule) {
-                    // check if rule is wanted by the config
+                    // check if rule is present in the config
                     if (currentConfigObj[rule.suffix]) {
                         self.addPatternRule(rule, atomicObj, currentConfigObj[rule.suffix]);
                     }
@@ -380,7 +416,9 @@ AtomicBuilder.prototype.addFractionRules = function (fractionObj, atomicObj) {
  */
 AtomicBuilder.prototype.addCssRule = function (className, property, value, breakPoints) {
     var build = {},
-        mqs = this.mediaQueries || {};
+        mqs = this.mediaQueries,
+        breakPointName,
+        pseudoName;
 
     if (!className || className.constructor !== String) {
         throw new TypeError('addCssRule(): `className` param is required and must be a String.');
@@ -392,13 +430,43 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
         throw new TypeError('addCssRule(): `value` param is required.');
     }
 
+    // make sure we have at least an array
+    breakPoints = breakPoints ? breakPoints : [];
+
+    // check for breakPoints in the class name
+    breakPointName = className.match(/--([a-z]+)$/);
+    breakPointName = breakPointName ? breakPointName[1] : null;
+
+    // check for pseudos in the class name
+    pseudoName = className.match(pseudoRegex);
+    pseudoName = pseudoName ? pseudoName[1] : null;
+
+    if (pseudoName) {
+        pseudoName = PSEUDOS[pseudoName] ? pseudoName : _.invert(PSEUDOS)[pseudoName];
+        pseudoName  = ':' + pseudoName;
+    }
+
     className = this.escapeSelector(this.placeConstants(className));
     property = this.placeConstants(property);
     value = this.placeConstants(value);
 
-    build[className] = {};
-    build[className][property] = value;
+    // handle breakPoint in the class name
+    if (breakPointName) {
+        breakPoints = _.union(breakPoints, [breakPointName]);
+        className = className.replace('--' + breakPointName, '');
+    }
+    // no modifiers in the class name
+    else {
+        build[className] = {};
+        if (pseudoName) {
+            build[className][pseudoName] = {};
+            build[className][pseudoName][property] = value;
+        } else {
+            build[className][property] = value;
+        }
+    }
 
+    /* istanbul ignore else  */
     if (breakPoints) {
         breakPoints.forEach(function (breakPoint) {
             var bpClassName = className + '--' + breakPoint;
@@ -410,7 +478,12 @@ AtomicBuilder.prototype.addCssRule = function (className, property, value, break
 
             build[bpClassName] = {};
             build[bpClassName][mqs[breakPoint]] = {};
-            build[bpClassName][mqs[breakPoint]][property] = value;
+            if (pseudoName) {
+                build[bpClassName][mqs[breakPoint]][pseudoName] = {};
+                build[bpClassName][mqs[breakPoint]][pseudoName][property] = value;
+            } else {
+                build[bpClassName][mqs[breakPoint]][property] = value;
+            }
         });
     }
 
