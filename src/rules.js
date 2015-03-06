@@ -110,6 +110,121 @@ module.exports = [
         allowCustom: true,
         allowSuffixToValue: true
     },
+    // top-right
+    {
+        type: 'pattern',
+        id: 'border-top-right-radius',
+        name: 'Border radius top right',
+        prefix: '.Bdrstend-',
+        properties: ['border-top-$END-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // bottom-right
+    {
+        type: 'pattern',
+        id: 'border-bottom-right-radius',
+        name: 'Border radius bottom right',
+        prefix: '.Bdrsbend-',
+        properties: ['border-bottom-$END-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // bottom-left
+    {
+        type: 'pattern',
+        id: 'border-bottom-left-radius',
+        name: 'Border radius bottom left',
+        prefix: '.Bdrsbstart-',
+        properties: ['border-bottom-$START-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // top-left
+    {
+        type: 'pattern',
+        id: 'border-top-left-radius',
+        name: 'Border radius top left',
+        prefix: '.Bdrststart-',
+        properties: ['border-top-$START-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+
+    /**
+     ==================================================================
+     BORDER COLOR
+     ==================================================================
+     */
+
+    /* border-color */
+    {
+        type: 'pattern',
+        id: 'border-color',
+        name: 'Border color',
+        prefix: '.Bdc-',
+        properties: ['border-color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     BORDER STYLE
+     ==================================================================
+     */
+
+    /* border-style */
+    {
+        type: 'pattern',
+        id: 'border-style',
+        name: 'Border style',
+        prefix: '.Bds-',
+        properties: ['border-style'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'd', values: ['dotted']},
+            {suffix: 'da', values: ['dashed']},
+            {suffix: 'do', values: ['double']},
+            {suffix: 'g', values: ['groove']},
+            {suffix: 'h', values: ['hidden']},
+            {suffix: 'i', values: ['inset']},
+            {suffix: 'n', values: ['none']},
+            {suffix: 'o', values: ['outset']},
+            {suffix: 'r', values: ['ridge']},
+            {suffix: 's', values: ['solid']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     BORDER WIDTH
+     ==================================================================
+     */
+
+    /* border-width */
+    {
+        type: 'pattern',
+        id: 'border-width',
+        name: 'Border width',
+        prefix: '.Bdw-',
+        properties: ['border-width'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'm', values: ['medium']},
+            {suffix: 't', values: ['thin']},
+            {suffix: 'th', values: ['thick']}
+        ]
+    },
 
      /**
      ==================================================================
