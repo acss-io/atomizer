@@ -43,11 +43,21 @@ atomizer -c config.js > atomic.css
 var Atomizer = require('atomizer');
 
 var defaultConfig = {
+    "breakPoints": {
+        'sm': '750px',
+        'md': '1000px',
+        'lg': '1200px'
+    },
     "border": {
         "custom": [
             {
                 "suffix": "1",
                 "values": [ "1px solid #000" ]
+            },
+            {
+                "suffix": "foo",
+                "values": [ "2px dotted #f00" ],
+                "breakPoints": ['sm', 'md']
             }
         ]
     }
