@@ -100,24 +100,6 @@ describe('AtomicBuilder', function () {
                 AtomicBuilder.prototype.loadOptions([]);
             }).to.throw(TypeError);
         });
-        it('throws if options has breakPoints key but it\'s not an object', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.loadOptions({    
-                    breakPoints: []
-                });
-            }).to.throw(TypeError);
-        });
-        it('throws if options has a breakPoints object but does not have `sm`, `md` nor `lg` keys', function () {
-            // execute and assert
-            expect(function () {
-                AtomicBuilder.prototype.loadOptions({
-                    breakPoints: {
-                        foo: 'bar'
-                    }
-                });
-            }).to.throw(Error);
-        });
     });
 
     // -------------------------------------------------------
@@ -155,8 +137,40 @@ describe('AtomicBuilder', function () {
             // assert
             expect(atomicBuilder.configObj).to.deep.equal(config);
         });
+        it('should handle empty breakPoints', function () {
+            var config = {
+                breakPoints: {}
+            };
+            var expected = {};
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute
+            atomicBuilder = new AtomicBuilder({}, config, {});
+
+            // assert
+            expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
+        });
+        it('throws if breakPoints is not an object', function () {
+            var config = {
+                breakPoints: 'foo'
+            };
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute and assert
+            expect(function () {
+                var atomicBuilder = new AtomicBuilder({}, config, {});
+            }).to.throw(TypeError);
+        });
         it('should store the `sm` breakPoint as mediaQuery', function () {
-            var options = {
+            var config = {
                 breakPoints: {
                     sm: '200px'
                 }
@@ -167,17 +181,17 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, {}, options);
+            atomicBuilder = new AtomicBuilder({}, config, {});
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
         it('should store the `md` breakPoint as mediaQuery', function () {
-            var options = {
+            var config = {
                 breakPoints: {
                     md: '300px'
                 }
@@ -188,17 +202,17 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, {}, options);
+            atomicBuilder = new AtomicBuilder({}, config, {});
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
         it('should store the `lg` breakPoint as mediaQuery', function () {
-            var options = {
+            var config = {
                 breakPoints: {
                     lg: '500px'
                 }
@@ -209,17 +223,17 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
-            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, {}, options);
+            atomicBuilder = new AtomicBuilder({}, config, {});
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
         it('should store all breakPoints as mediaQueries', function () {
-            var options = {
+            var config = {
                 breakPoints: {
                     sm: '200px',
                     md: '300px',
@@ -234,10 +248,11 @@ describe('AtomicBuilder', function () {
 
             // stub methods
             sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
             sinon.stub(AtomicBuilder.prototype, 'run');
 
             // execute
-            atomicBuilder = new AtomicBuilder({}, {}, options);
+            atomicBuilder = new AtomicBuilder({}, config, {});
 
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
