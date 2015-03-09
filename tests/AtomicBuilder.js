@@ -154,6 +154,21 @@ describe('AtomicBuilder', function () {
             // assert
             expect(atomicBuilder.mediaQueries).to.deep.equal(expected);
         });
+        it('throws if breakPoints is not an object', function () {
+            var config = {
+                breakPoints: 'foo'
+            };
+
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+
+            // execute and assert
+            expect(function () {
+                var atomicBuilder = new AtomicBuilder({}, config, {});
+            }).to.throw(TypeError);
+        });
         it('should store the `sm` breakPoint as mediaQuery', function () {
             var config = {
                 breakPoints: {
