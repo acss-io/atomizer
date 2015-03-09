@@ -59,23 +59,9 @@ module.exports = function (grunt) {
             grunt.fail.warn('`options.namespace` must be a string.');
         }
 
-        if (options.end) {
-            if (grunt.util.kindOf(options.end) !== 'string') {
-                grunt.fail.warn('`options.end` must be a string.');
-            }
-
-            if (options.end !== 'left' && options.end !== 'right') {
-                grunt.fail.warn('`options.end` must be either `left` or `right`.');
-            }
-        }
-
-        if (options.start) {
-            if (grunt.util.kindOf(options.end) !== 'string') {
-                grunt.fail.warn('`options.start` must be a string.');
-            }
-
-            if (options.start !== 'left' && options.start !== 'right') {
-                grunt.fail.warn('`options.start` must be either `left` or `right`.');
+        if (options.rtl) {
+            if (grunt.util.kindOf(options.rtl) !== 'boolean') {
+                grunt.fail.warn('`options.rtl` must be a boolean.');
             }
         }
 
