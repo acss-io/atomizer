@@ -253,9 +253,9 @@ module.exports = {
             rtl: false,
             // TODO: Verify these are good defaults
             breakPoints: {
-                'sm': '767px',
-                'md': '992px',
-                'lg': '1200px'
+                'sm': '@media(min-width:767px)',
+                'md': '@media(min-width:992px)',
+                'lg': '@media(min-width:1200px)'
             }
         }, options);
 

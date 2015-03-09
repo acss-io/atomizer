@@ -158,7 +158,7 @@ describe('AtomicBuilder', function () {
         it('should store the `sm` breakPoint as mediaQuery', function () {
             var options = {
                 breakPoints: {
-                    sm: '200px'
+                    sm: '@media(min-width:200px)'
                 }
             };
             var expected = {
@@ -179,7 +179,7 @@ describe('AtomicBuilder', function () {
         it('should store the `md` breakPoint as mediaQuery', function () {
             var options = {
                 breakPoints: {
-                    md: '300px'
+                    md: '@media(min-width:300px)'
                 }
             };
             var expected = {
@@ -200,7 +200,7 @@ describe('AtomicBuilder', function () {
         it('should store the `lg` breakPoint as mediaQuery', function () {
             var options = {
                 breakPoints: {
-                    lg: '500px'
+                    lg: '@media(min-width:500px)'
                 }
             };
             var expected = {
@@ -221,9 +221,9 @@ describe('AtomicBuilder', function () {
         it('should store all breakPoints as mediaQueries', function () {
             var options = {
                 breakPoints: {
-                    sm: '200px',
-                    md: '300px',
-                    lg: '500px'
+                    sm: '@media(min-width:200px)',
+                    md: '@media(min-width:300px)',
+                    lg: '@media(min-width:500px)'
                 }
             };
             var expected = {
@@ -771,9 +771,9 @@ describe('AtomicBuilder', function () {
 
                 // add mediaQueries
                 atomicBuilder.mediaQueries = {
-                    sm: '@media(min-width:100px)',
-                    md: '@media(min-width:200px)',
-                    lg: '@media(min-width:300px)'
+                    sm: '100px',
+                    md: '200px',
+                    lg: '300px'
                 };
                 atomicBuilder.addCssRule(className, property, value, ['invalidbp']);
             }).to.throw(Error);
@@ -819,6 +819,56 @@ describe('AtomicBuilder', function () {
             };
 
             expect(atomicBuilder.addCssRule(className, property, value, breakPoints)).to.be.true;
+            expect(atomicBuilder.build).to.deep.equal(expected);
+        });
+        it('adds breakPoint rules if breakPoints AND pseudos have been passed in the suffix', function () {
+            var expected = {
+                '.Foo\\:active': {
+                    ':active': {
+                        'font-weight': 'bold'
+                    }
+                },
+                '.Foo\\:h': {
+                    ':hover': {
+                        'font-weight': 'bold'
+                    }
+                },
+                '.Foo--sm': {
+                    '@media(min-width:100px)': {
+                        'font-weight': 'bold'
+                    }
+                },
+                '.Foo\\:h--sm': {
+                    '@media(min-width:100px)': {
+                        ':hover': {
+                            'font-weight': 'bold'
+                        }
+                    }
+                }
+            };
+            // stub methods
+            sinon.stub(AtomicBuilder.prototype, 'loadConfig');
+            sinon.stub(AtomicBuilder.prototype, 'loadObjects');
+            sinon.stub(AtomicBuilder.prototype, 'loadOptions');
+            sinon.stub(AtomicBuilder.prototype, 'run');
+            sinon.stub(AtomicBuilder.prototype, 'placeConstants', function (str) {
+                return str;
+            });
+
+            // execute
+            var atomicBuilder = new AtomicBuilder();
+
+            // add mediaQueries
+            atomicBuilder.mediaQueries = {
+                sm: '@media(min-width:100px)',
+                md: '@media(min-width:200px)',
+                lg: '@media(min-width:300px)'
+            };
+
+            expect(atomicBuilder.addCssRule('.Foo:h', property, value)).to.be.true;
+            expect(atomicBuilder.addCssRule('.Foo:active', property, value)).to.be.true;
+            expect(atomicBuilder.addCssRule('.Foo--sm', property, value)).to.be.true;
+            expect(atomicBuilder.addCssRule('.Foo:h--sm', property, value)).to.be.true;
             expect(atomicBuilder.build).to.deep.equal(expected);
         });
         it('adds rule if all params are valid and `breakPoints` has not been passed', function () {

@@ -103,6 +103,57 @@ describe('createCss()', function () {
 
         expect(result).to.equal(expected);
     });
+    it ('should return pseudo-classes and breakpoints if they are specified in the suffix', function () {
+        var result;
+        var config = {
+            display: {
+                b: {
+                    breakPoints: ['sm', 'md']
+                }
+            },
+            'padding-end': {
+                custom: [
+                    {suffix: 'foo', values: ['10px'], breakPoints: ['sm', 'md', 'lg']}
+                ]
+            }
+        };
+        var expected = [
+            '#atomic .D-b {',
+            '  display: block;',
+            '}',
+            '#atomic .Pend-foo {',
+            '  padding-right: 10px;',
+            '}',
+            '@media(min-width:767px) {',
+            '  #atomic .D-b--sm {',
+            '    display: block;',
+            '  }',
+            '  #atomic .Pend-foo--sm {',
+            '    padding-right: 10px;',
+            '  }',
+            '}',
+            '@media(min-width:992px) {',
+            '  #atomic .D-b--md {',
+            '    display: block;',
+            '  }',
+            '  #atomic .Pend-foo--md {',
+            '    padding-right: 10px;',
+            '  }',
+            '}',
+            '@media(min-width:1200px) {',
+            '  #atomic .Pend-foo--lg {',
+            '    padding-right: 10px;',
+            '  }',
+            '}',
+            ''
+        ].join('\n');
+
+        config = objectAssign(defaultConfig, config);
+
+        result = atomizer.createCSS(config);
+
+        expect(result).to.equal(expected);
+    });
     it ('should return rules in the same order they were declared in rules.js even if config was declared in a different order', function () {
         var result;
         var config = {
