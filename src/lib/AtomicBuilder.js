@@ -61,6 +61,21 @@ AtomicBuilder.prototype.loadConfig = function (config) {
     if (config.constructor !== Object) {
         throw new TypeError('The `config` param must be an Object.');
     }
+    if (config.breakPoints) {
+        if (config.breakPoints.constructor !== Object) {
+            throw new TypeError('`config.breakPoints` must be an Object');
+        }
+        this.mediaQueries = {};
+        if (config.breakPoints.sm) {
+            this.mediaQueries.sm = '@media(min-width:' + config.breakPoints.sm + ')';
+        }
+        if (config.breakPoints.md) {
+            this.mediaQueries.md = '@media(min-width:' + config.breakPoints.md + ')';
+        }
+        if (config.breakPoints.lg) {
+            this.mediaQueries.lg = '@media(min-width:' + config.breakPoints.lg + ')';
+        }
+    }
     this.configObj = config;
 };
 
@@ -76,26 +91,6 @@ AtomicBuilder.prototype.loadOptions = function (options) {
     }
     if (options.constructor !== Object) {
         throw new TypeError('The `options` param must be an Object.');
-    }
-    if (options.breakPoints) {
-        if (options.breakPoints.constructor !== Object) {
-            throw new TypeError('`options.breakPoints` must be an Object');
-        }
-        if (_.size(options.breakPoints) > 0) {
-            if (!options.breakPoints.sm && !options.breakPoints.md && !options.breakPoints.lg) {
-                throw new Error('`options.breakPoints` must be an Object containing at least one of the following keys: sm, md, lg.');
-            }
-            this.mediaQueries = {};
-            if (options.breakPoints.sm) {
-                this.mediaQueries.sm = '@media(min-width:' + options.breakPoints.sm + ')';
-            }
-            if (options.breakPoints.md) {
-                this.mediaQueries.md = '@media(min-width:' + options.breakPoints.md + ')';
-            }
-            if (options.breakPoints.lg) {
-                this.mediaQueries.lg = '@media(min-width:' + options.breakPoints.lg + ')';
-            }
-        }
     }
     this.optionsObj = options;
 };
