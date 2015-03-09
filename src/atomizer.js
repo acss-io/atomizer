@@ -175,7 +175,7 @@ module.exports = {
      * @return {object} An atomizer config object
      */
     mergeConfigs: function (configs) {
-        return _.merge.apply(null, configs.concat(utils.handleMergeArrays));
+        return _.isArray(configs) && configs.length > 0 ? _.merge.apply(null, configs.concat(utils.handleMergeArrays)) : {};
     },
 
     /**
