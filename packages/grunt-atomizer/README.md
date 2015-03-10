@@ -35,10 +35,6 @@ The config file generated and used by the tool. Useful when parsing is used (See
 
 Process the rules for right-to-left output.
 
-#### options.breakPoints
-
-Define the media query breakpoint values.  Must be an object with the keys `sm` (small), `md` (medium) and `lg` (large) which map to strings representing pixel values (eg, `{ "sm": "700px", "md": "900px", "lg": "1200px"}` )
-
 #### options.namespace
 
 A CSS selector used to define scope for the Atomic CSS rules.  (eg, if `options.namespace` is set to `#atomic`, the CSS output will be in the form of `#atomic .P-10px`, etc.)
