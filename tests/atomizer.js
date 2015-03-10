@@ -368,4 +368,12 @@ describe('mergeConfigs()', function () {
 
         expect(config).to.deep.equal(expectedConfig);
     });
+    it('should return an empty object if argument is not an array', function () {
+        var config = atomizer.mergeConfigs();
+        expect(config).to.deep.equal({});
+    });
+    it('should return an empty object if argument is an empty array', function () {
+        var config = atomizer.mergeConfigs([]);
+        expect(config).to.deep.equal({});
+    });
 });

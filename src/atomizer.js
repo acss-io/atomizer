@@ -175,7 +175,7 @@ module.exports = {
      * @return {object} An atomizer config object
      */
     mergeConfigs: function (configs) {
-        return _.merge.apply(null, configs.concat(utils.handleMergeArrays));
+        return _.isArray(configs) && configs.length > 0 ? _.merge.apply(null, configs.concat(utils.handleMergeArrays)) : {};
     },
 
     /**
@@ -240,6 +240,12 @@ module.exports = {
      */
     createCSS: function (config, options) {
         var content;
+        // TODO: Verify these are good defaults
+        var breakPoints = {
+            'sm': '767px',
+            'md': '992px',
+            'lg': '1200px'
+        };
 
         options = objectAssign({}, {
             require: [],
@@ -250,17 +256,16 @@ module.exports = {
             extCSS: '.css',
             banner: '',
             namespace: '#atomic',
-            rtl: false,
-            // TODO: Verify these are good defaults
-            breakPoints: {
-                'sm': '767px',
-                'md': '992px',
-                'lg': '1200px'
-            }
+            rtl: false
         }, options);
 
         if (!config) {
             throw new Error('No configuration provided.');
+        }
+
+        // Set defaults
+        if (!config.breakPoints) {
+            config.breakPoints = breakPoints;
         }
 
         var api = Absurd();
