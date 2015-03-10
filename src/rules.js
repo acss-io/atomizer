@@ -2085,33 +2085,5 @@ module.exports = [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
         ]
-    },
-    /**
-     ==================================================================
-     RULES (Helpers)
-     ==================================================================
-     */
-    {
-        type: 'rule',
-        id: 'reset',
-        name: 'Reset',
-        rule: {
-            '.Reset,.ResetChildren > *': {
-                'margin': 0,
-                'padding': 0
-            }
-        }
-    },
-    // TODO: BLEED AS PATTERN
-    {
-        type: 'rule',
-        id: 'bfc',
-        name: 'Block formatting context',
-        rule: {
-            '.Bfc': {
-                'overflow': 'hidden',
-                'zoom': 1
-            }
-        }
     }
 ];
