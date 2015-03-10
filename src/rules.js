@@ -96,6 +96,295 @@ module.exports = [
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
     },
+
+    /**
+     ==================================================================
+     BORDER COLOR
+     ==================================================================
+     */
+    // all edges
+    {
+        type: 'pattern',
+        id: 'border-color',
+        name: 'Border color',
+        prefix: '.Bdc-',
+        properties: ['border-color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
+        ]
+    },
+    // top
+    {
+        type: 'pattern',
+        id: 'border-top-color',
+        name: 'Border top color',
+        prefix: '.Bdtc-',
+        properties: ['border-top-color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
+        ]
+    },
+    // end
+    {
+        type: 'pattern',
+        id: 'border-end-color',
+        name: 'Border end color',
+        prefix: '.Bdendc-',
+        properties: ['border-$END-color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
+        ]
+    },
+    // bottom
+    {
+        type: 'pattern',
+        id: 'border-bottom-color',
+        name: 'Border bottom color',
+        prefix: '.Bdbc-',
+        properties: ['border-bottom-color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
+        ]
+    },
+    // start
+    {
+        type: 'pattern',
+        id: 'border-start-color',
+        name: 'Border start color',
+        prefix: '.Bdstartc-',
+        properties: ['border-$START-color'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'cc', values: ['currentColor']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     BORDER STYLE
+     ==================================================================
+     */
+    // all edges
+    {
+        type: 'pattern',
+        id: 'border-style',
+        name: 'Border style',
+        prefix: '.Bds-',
+        properties: ['border-style'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'd', values: ['dotted']},
+            {suffix: 'da', values: ['dashed']},
+            {suffix: 'do', values: ['double']},
+            {suffix: 'g', values: ['groove']},
+            {suffix: 'h', values: ['hidden']},
+            {suffix: 'i', values: ['inset']},
+            {suffix: 'n', values: ['none']},
+            {suffix: 'o', values: ['outset']},
+            {suffix: 'r', values: ['ridge']},
+            {suffix: 's', values: ['solid']}
+        ]
+    },
+    // top
+    {
+        type: 'pattern',
+        id: 'border-top-style',
+        name: 'Border top style',
+        prefix: '.Bdts-',
+        properties: ['border-top-style'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'd', values: ['dotted']},
+            {suffix: 'da', values: ['dashed']},
+            {suffix: 'do', values: ['double']},
+            {suffix: 'g', values: ['groove']},
+            {suffix: 'h', values: ['hidden']},
+            {suffix: 'i', values: ['inset']},
+            {suffix: 'n', values: ['none']},
+            {suffix: 'o', values: ['outset']},
+            {suffix: 'r', values: ['ridge']},
+            {suffix: 's', values: ['solid']}
+        ]
+    },
+    // end
+    {
+        type: 'pattern',
+        id: 'border-end-style',
+        name: 'Border end style',
+        prefix: '.Bdends-',
+        properties: ['border-$END-style'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'd', values: ['dotted']},
+            {suffix: 'da', values: ['dashed']},
+            {suffix: 'do', values: ['double']},
+            {suffix: 'g', values: ['groove']},
+            {suffix: 'h', values: ['hidden']},
+            {suffix: 'i', values: ['inset']},
+            {suffix: 'n', values: ['none']},
+            {suffix: 'o', values: ['outset']},
+            {suffix: 'r', values: ['ridge']},
+            {suffix: 's', values: ['solid']}
+        ]
+    },
+    // bottom
+    {
+        type: 'pattern',
+        id: 'border-bottom-style',
+        name: 'Border bottom style',
+        prefix: '.Bdbs-',
+        properties: ['border-bottom-style'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'd', values: ['dotted']},
+            {suffix: 'da', values: ['dashed']},
+            {suffix: 'do', values: ['double']},
+            {suffix: 'g', values: ['groove']},
+            {suffix: 'h', values: ['hidden']},
+            {suffix: 'i', values: ['inset']},
+            {suffix: 'n', values: ['none']},
+            {suffix: 'o', values: ['outset']},
+            {suffix: 'r', values: ['ridge']},
+            {suffix: 's', values: ['solid']}
+        ]
+    },
+    // start
+    {
+        type: 'pattern',
+        id: 'border-start-style',
+        name: 'Border start style',
+        prefix: '.Bdstarts-',
+        properties: ['border-$START-style'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'd', values: ['dotted']},
+            {suffix: 'da', values: ['dashed']},
+            {suffix: 'do', values: ['double']},
+            {suffix: 'g', values: ['groove']},
+            {suffix: 'h', values: ['hidden']},
+            {suffix: 'i', values: ['inset']},
+            {suffix: 'n', values: ['none']},
+            {suffix: 'o', values: ['outset']},
+            {suffix: 'r', values: ['ridge']},
+            {suffix: 's', values: ['solid']}
+        ]
+    },
+
+    /**
+     ==================================================================
+     BORDER WIDTH
+     ==================================================================
+     */
+    // all edges
+    {
+        type: 'pattern',
+        id: 'border-width',
+        name: 'Border width',
+        prefix: '.Bdw-',
+        properties: ['border-width'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'm', values: ['medium']},
+            {suffix: 't', values: ['thin']},
+            {suffix: 'th', values: ['thick']}
+        ]
+    },
+    // top
+    {
+        type: 'pattern',
+        id: 'border-top-width',
+        name: 'Border top width',
+        prefix: '.Bdtw-',
+        properties: ['border-top-width'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'm', values: ['medium']},
+            {suffix: 't', values: ['thin']},
+            {suffix: 'th', values: ['thick']}
+        ]
+    },
+    // end
+    {
+        type: 'pattern',
+        id: 'border-end-width',
+        name: 'Border end width',
+        prefix: '.Bdendw-',
+        properties: ['border-$END-width'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'm', values: ['medium']},
+            {suffix: 't', values: ['thin']},
+            {suffix: 'th', values: ['thick']}
+        ]
+    },
+    // bottom
+    {
+        type: 'pattern',
+        id: 'border-bottom-width',
+        name: 'Border bottom width',
+        prefix: '.Bdbw-',
+        properties: ['border-bottom-width'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'm', values: ['medium']},
+            {suffix: 't', values: ['thin']},
+            {suffix: 'th', values: ['thick']}
+        ]
+    },
+    // start
+    {
+        type: 'pattern',
+        id: 'border-start-width',
+        name: 'Border start width',
+        prefix: '.Bdsw-',
+        properties: ['border-$START-width'],
+        allowCustom: true,
+        allowCustomAutoSuffix: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'm', values: ['medium']},
+            {suffix: 't', values: ['thin']},
+            {suffix: 'th', values: ['thick']}
+        ]
+    },
+
     /**
      ==================================================================
      BORDER RADIUS
@@ -107,6 +396,46 @@ module.exports = [
         name: 'Border radius',
         prefix: '.Bdrs-',
         properties: ['border-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // top-right
+    {
+        type: 'pattern',
+        id: 'border-top-right-radius',
+        name: 'Border radius top right',
+        prefix: '.Bdrstend-',
+        properties: ['border-top-$END-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // bottom-right
+    {
+        type: 'pattern',
+        id: 'border-bottom-right-radius',
+        name: 'Border radius bottom right',
+        prefix: '.Bdrsbend-',
+        properties: ['border-bottom-$END-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // bottom-left
+    {
+        type: 'pattern',
+        id: 'border-bottom-left-radius',
+        name: 'Border radius bottom left',
+        prefix: '.Bdrsbstart-',
+        properties: ['border-bottom-$START-radius'],
+        allowCustom: true,
+        allowSuffixToValue: true
+    },
+    // top-left
+    {
+        type: 'pattern',
+        id: 'border-top-left-radius',
+        name: 'Border radius top left',
+        prefix: '.Bdrststart-',
+        properties: ['border-top-$START-radius'],
         allowCustom: true,
         allowSuffixToValue: true
     },
@@ -1756,33 +2085,5 @@ module.exports = [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']}
         ]
-    },
-    /**
-     ==================================================================
-     RULES (Helpers)
-     ==================================================================
-     */
-    {
-        type: 'rule',
-        id: 'reset',
-        name: 'Reset',
-        rule: {
-            '.Reset,.ResetChildren > *': {
-                'margin': 0,
-                'padding': 0
-            }
-        }
-    },
-    // TODO: BLEED AS PATTERN
-    {
-        type: 'rule',
-        id: 'bfc',
-        name: 'Block formatting context',
-        rule: {
-            '.Bfc': {
-                'overflow': 'hidden',
-                'zoom': 1
-            }
-        }
     }
 ];
