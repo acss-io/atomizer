@@ -1,3 +1,3 @@
 ## Features
 
-Describe something here.
+A collection of single purpose styling units for maximum reuse.
