@@ -551,10 +551,10 @@ module.exports = [
         prefix: '.Bgp-',
         properties: ['background-position'],
         rules: [
-            {suffix: 'ts', values: ['$START 0']},
-            {suffix: 'te', values: ['$END 0']},
-            {suffix: 'bs', values: ['$START 100%']},
-            {suffix: 'be', values: ['$END 100%']}
+            {suffix: 't_s', values: ['$START 0']},
+            {suffix: 't_e', values: ['$END 0']},
+            {suffix: 'b_s', values: ['$START 100%']},
+            {suffix: 'b_e', values: ['$END 100%']}
         ]
     },
     /* background-repeat */
@@ -1106,7 +1106,7 @@ module.exports = [
         properties: ['font-variant'],
         rules: [
             {suffix: 'n', values: ['normal']},
-            {suffix: 'sc', values: ['small-caps']},
+            {suffix: 'sc', values: ['small-caps']}
         ]
     },
 
@@ -1152,7 +1152,7 @@ module.exports = [
             {suffix: 'a', values: ['auto']},
             {suffix: 'inh', values: ['inherit']},
             {suffix: 'n', values: ['normal']},
-            {suffix: 'm', values: ['manual']},
+            {suffix: 'm', values: ['manual']}
         ]
     },
 
@@ -1183,7 +1183,7 @@ module.exports = [
             {suffix: 'a', values: ['armenian']},
             {suffix: 'g', values: ['georgian']},
             {suffix: 'la', values: ['lower-alpha']},
-            {suffix: 'ua', values: ['upper-alpha']},
+            {suffix: 'ua', values: ['upper-alpha']}
         ]
     },
 
