@@ -1054,7 +1054,8 @@ module.exports = [
         properties: ['font-size'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        allowSuffixToValue: true
+        allowSuffixToValue: true,
+        suffixType: 'numerical'
     },
 
     /**
