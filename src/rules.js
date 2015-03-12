@@ -551,10 +551,10 @@ module.exports = [
         prefix: '.Bgp-',
         properties: ['background-position'],
         rules: [
-            {suffix: 't_s', values: ['$START 0']},
-            {suffix: 't_e', values: ['$END 0']},
-            {suffix: 'b_s', values: ['$START 100%']},
-            {suffix: 'b_e', values: ['$END 100%']}
+            {suffix: 's_t', values: ['$START 0']},
+            {suffix: 'e_t', values: ['$END 0']},
+            {suffix: 's_b', values: ['$START 100%']},
+            {suffix: 'e_b', values: ['$END 100%']}
         ]
     },
     /* background-repeat */
@@ -1898,6 +1898,81 @@ module.exports = [
         allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
+            {suffix: 'inh', values: ['inherit']}
+        ]
+    },
+    /**
+     ==================================================================
+     TRANSITION
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'transition',
+        name: 'Transition',
+        prefix: '.Trs-',
+        properties: ['transition'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false
+    },
+    {
+        type: 'pattern',
+        id: 'transition-delay',
+        name: 'Transition delay',
+        prefix: '.Trsde-',
+        properties: ['transition-delay'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'i', values: ['initial']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'transition-duration',
+        name: 'Transition duration',
+        prefix: '.Trsdu-',
+        properties: ['transition-duration'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'inh', values: ['inherit']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'transition-property',
+        name: 'Transition property',
+        prefix: '.Trsp-',
+        properties: ['transition-property'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'a', values: ['all']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'transition-timing-function',
+        name: 'Transition timing function',
+        prefix: '.Trstf-',
+        properties: ['transition-timing-function'],
+        // for cubic-bezier
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'e', values: ['ease']},
+            {suffix: 'ei', values: ['ease-in']},
+            {suffix: 'eo', values: ['ease-out']},
+            {suffix: 'eio', values: ['ease-in-out']},
+            {suffix: 'l', values: ['linear']},
+            {suffix: 'ss', values: ['step-start']},
+            {suffix: 'se', values: ['step-end']},
             {suffix: 'inh', values: ['inherit']}
         ]
     },
