@@ -1961,9 +1961,10 @@ module.exports = [
         name: 'Transition timing function',
         prefix: '.Trstf-',
         properties: ['transition-timing-function'],
+        // for cubic-bezier
         allowCustom: true,
         allowCustomAutoSuffix: false,
-        allowSuffixToValue: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'e', values: ['ease']},
             {suffix: 'ei', values: ['ease-in']},
