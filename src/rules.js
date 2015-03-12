@@ -1914,7 +1914,7 @@ module.exports = [
         properties: ['transition'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
-        allowSuffixToValue: true
+        allowSuffixToValue: false
     },
     {
         type: 'pattern',
@@ -1950,7 +1950,7 @@ module.exports = [
         properties: ['transition-property'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
-        allowSuffixToValue: true,
+        allowSuffixToValue: false,
         rules: [
             {suffix: 'a', values: ['all']}
         ]
