@@ -1054,22 +1054,7 @@ module.exports = [
         properties: ['font-size'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        allowSuffixToValue: true,
-        suffixType: 'numerical',
-        rules: [
-            // not in alphabetical order since here they are in t-shirt size order
-            {suffix: '0', values: ['0']},
-            {suffix: 'xxs', values: ['xx-small']},
-            {suffix: 'xs', values: ['x-small']},
-            {suffix: 's', values: ['small']},
-            {suffix: 'sr', values: ['smaller']},
-            {suffix: 'm', values: ['medium']},
-            {suffix: 'l', values: ['large']},
-            {suffix: 'lr', values: ['larger']},
-            {suffix: 'xl', values: ['x-large']},
-            {suffix: 'xxl', values: ['xx-large']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        allowSuffixToValue: true
     },
 
     /**
