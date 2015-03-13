@@ -24,7 +24,7 @@ npm install atomizer -g
 ### CLI
 
 ```
-atomizer [-c|--config=<file>] [-o|--outfile=<file>] [--rtl] [--help] [--verbose] [ [-R] files_to_parse ...]
+atomizer [-c|--config=<file>] [-o|--outfile=<file>] [-n namespace] [--rtl] [--help] [--verbose] [ [-R] files_to_parse ...]
 ```
 
 Example:
@@ -32,7 +32,7 @@ Example:
 ```
 atomizer -o atomic.css ./site/*.html
 atomizer -c config.js -R ./site/ > atomic.css
-atomizer -c config.js > atomic.css
+atomizer -c config.js -n \#myrootclass > atomic.css
 
 
 ```
