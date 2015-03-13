@@ -250,10 +250,6 @@ module.exports = {
         options = objectAssign({}, {
             require: [],
             morph: null,
-            combineSelectors: true,
-            minify: false,
-            keepCamelCase: false,
-            extCSS: '.css',
             banner: '',
             namespace: '#atomic',
             rtl: false
