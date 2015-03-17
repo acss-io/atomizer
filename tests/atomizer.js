@@ -281,7 +281,7 @@ describe('getConfig()', function () {
 
     it('should merge the default config with the newly created config', function () {
         var config;
-        var classNames = ['C-07f', 'Bgcp-bb', 'Fz-3em'];
+        var classNames = ['Bd-1', 'Bd-2', 'C-07f', 'Bgcp-bb', 'Fz-3em'];
         var expectedConfig = {
             'background-clip': {
                 bb: true
