@@ -102,6 +102,33 @@ function getConfigRule(className, currentConfig, warnings) {
 }
 
 /**
+ * Used by handleCustomConfigRule to sanitize the suffix value
+ * @param  {string} suffix        The suffix of the class.
+ * @param  {object} pattern       The pattern that matches this class in atomic css.
+ * @param  {object} config        An existing config.
+ * @return {string}               The suffix value.
+ */
+function getSuffixValue(suffix, pattern, config) {
+    var unit;
+
+    // Prepends color hash
+    if (utils.isHex(suffix)) {
+        return '#' + suffix;
+    }
+
+    // Appends default unit
+    if (pattern.allowDefaultUnit && (
+        utils.isInteger(suffix) ||
+        utils.isFloat(suffix))) {
+
+        unit = config[pattern.id] ? config[pattern.id].defaultUnit : config.defaultUnit;
+        return suffix + (unit || '');
+    }
+
+    return suffix;
+}
+
+/**
  * Used by getConfigRule to handle custom config rules
  * @param  {object} configRule    The config rule object being built.
  * @param  {string} className     The class name of the custom class to be evaluated.
@@ -112,26 +139,24 @@ function getConfigRule(className, currentConfig, warnings) {
  * @return {object}               The custom config rule.
  */
 function handleCustomConfigRule(configRule, className, pattern, suffix, currentConfig, warnings) {
-    var value;
-
     if (pattern.allowSuffixToValue && (
-        utils.isPercentage(suffix) || 
-        utils.isLength(suffix) || 
-        utils.isHex(suffix) || 
-        utils.isInteger(suffix) || 
+        utils.isPercentage(suffix) ||
+        utils.isLength(suffix) ||
+        utils.isHex(suffix) ||
+        utils.isInteger(suffix) ||
         utils.isFloat(suffix))) {
 
         if (!configRule[pattern.id].custom) {
             configRule[pattern.id].custom = [];
         }
 
-        value = utils.isHex(suffix) ? '#' + suffix : suffix;
         configRule[pattern.id].custom.push({
             suffix: suffix,
-            values: [value]
+            values: [getSuffixValue(suffix, pattern, currentConfig)]
         });
-        if (verbose) { 
-            console.warn('Found `' + className + '`, config has been added.'); 
+
+        if (verbose) {
+            console.warn('Found `' + className + '`, config has been added.');
         }
     } else {
         if (!currentConfig[pattern.id] || !currentConfig[pattern.id].custom) {
@@ -139,7 +164,7 @@ function handleCustomConfigRule(configRule, className, pattern, suffix, currentC
         } else if (currentConfig[pattern.id].custom.every(function (custom) {
             return custom.suffix !== suffix;
         })) {
-            warnMissingClassInConfig(className, pattern.id, suffix, warnings);            
+            warnMissingClassInConfig(className, pattern.id, suffix, warnings);
         };
         return false;
     }
@@ -215,14 +240,13 @@ module.exports = {
 
         for (var i = 0, iLen = classNames.length; i < iLen; i++) {
             config = _.merge(config, getConfigRule(classNames[i], currentConfig, warnings), utils.handleMergeArrays);
-            // config = this.mergeConfigs([config, getConfigRule(classNames[i], currentConfig, warnings)]);
         }
 
         // Merge the existing config with the new config
         config = this.mergeConfigs([config, currentConfig]);
 
         // Now that we've processed all the configuration, notify the user
-        // if any custom classnames were found that were too ambiguous to 
+        // if any custom classnames were found that were too ambiguous to
         // have their config auto-generated.
         if (warnings.length) {
             warnings.forEach(function (w) {
@@ -233,9 +257,9 @@ module.exports = {
         return config;
     },
 
-    /** 
+    /**
      * createCSS()
-     * 
+     *
      * Converts configuration JSON into CSS
      */
     createCSS: function (config, options) {
