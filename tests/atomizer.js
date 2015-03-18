@@ -2,378 +2,156 @@
 'use strict';
 
 var expect = require('chai').expect;
-var objectAssign = require('object-assign');
+var Atomizer = require('../src/atomizer');
 
-var atomizer = require('../src/atomizer');
-
-// default config
-var defaultConfig;
-
-describe('createCss()', function () {
-    beforeEach(function () {
-        defaultConfig = {};
-    });
-    it ('throws if no configuration is provided', function () {
-        expect(function () {
-            atomizer.createCSS();
-        }).to.throw(Error);
-    });
-    it ('imports different absurdjs objects if passed as an option', function () {
-        var result = atomizer.createCSS(defaultConfig, {
-            require: [__dirname + '/fixtures/fz.js']
+describe('Atomizer()', function () {
+    describe('constructor()', function () {
+        it('instantiate without any params', function () {
+            var atomizer = new Atomizer();
+            expect(atomizer).to.be.an.Object;
         });
-        var expected = [
-            'body {',
-            '  margin: 20px;',
-            '}',
-            ''
-        ].join('\n');
-        expect(result).to.equal(expected);
+        it('instantiate with the assigned params', function () {
+            var rules = [{
+                type: 'pattern',
+                id: 'border',
+                name: 'Border',
+                prefix: '.Bd-',
+                properties: ['border']
+            }];
+            var options = {
+                verbose: true
+            };
+            var atomizer = new Atomizer(rules, options);
+            expect(atomizer.rules).to.equal(rules);
+            expect(atomizer.verbose).to.equal(true);
+        });
     });
-    it ('should escape illegal characters', function () {
-        var result;
-        var config = {
-            'height': {
-                custom: [
-                    {suffix: '55%', values: ['55%']}
-                ]
-            }
-        };
-        var expected = [
-            '#atomic .H-55\\% {',
-            '  height: 55%;',
-            '}',
-            ''
-        ].join('\n');
-
-        config = objectAssign(defaultConfig, config);
-
-        result = atomizer.createCSS(config);
-
-        expect(result).to.equal(expected);
+    describe('findClassNames()', function () {
+        it('returns an array of valid atomic class names', function () {
+            var atomizer = new Atomizer();
+            var result = atomizer.findClassNames('<div class="P-55px H-100% test:h>Op-1:h test:test>Op-1"></div>');
+            var expected = ['P-55px', 'H-100%', 'test:h>Op-1:h'];
+            expect(result).to.deep.equal(expected);
+        });
     });
-    it ('should return rules within media queries if breakPoints is specified', function () {
-        var result;
-        var config = {
-            display: {
-                b: {
-                    breakPoints: ['sm', 'md']
+    describe('getCss()', function () {
+        it ('returns css by reading an array of class names', function () {
+            var atomizer = new Atomizer();
+            var classNames = ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'Op-1'];
+            var expected = [
+                '.H-100\\% {',
+                '  height: 100%;',
+                '}',
+                '.M-a {',
+                '  margin: auto;',
+                '}',
+                '.test:hover>.test\\:h\\>Op-1\\:h:hover, .Op-1 {',
+                '  opacity: 1;',
+                '}',
+                '.P-55px {',
+                '  padding: 55px;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(classNames);
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css by reading an array of class names in config only', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'Op-1', 'W-1/3', 'Op-1!']
+            };
+            var expected = [
+                '.H-100\\% {',
+                '  height: 100%;',
+                '}',
+                '.M-a {',
+                '  margin: auto;',
+                '}',
+                '.test:hover>.test\\:h\\>Op-1\\:h:hover, .Op-1 {',
+                '  opacity: 1;',
+                '}',
+                '.Op-1\\! {',
+                '  opacity: 1 !important;',
+                '}',
+                '.P-55px {',
+                '  padding: 55px;',
+                '}',
+                '.W-1\\/3 {',
+                '  width: 33.3333%;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(null, config);
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css value declared in custom', function () {
+            var atomizer = new Atomizer(null);
+            var config = {
+                custom: {
+                    'brand-color': '#400090'
                 }
-            },
-            'padding-end': {
-                custom: [
-                    {suffix: 'foo', values: ['10px'], breakPoints: ['sm', 'md', 'lg']}
-                ]
-            }
-        };
-        var expected = [
-            '#atomic .D-b {',
-            '  display: block;',
-            '}',
-            '#atomic .Pend-foo {',
-            '  padding-right: 10px;',
-            '}',
-            '@media(min-width:767px) {',
-            '  #atomic .D-b--sm {',
-            '    display: block;',
-            '  }',
-            '  #atomic .Pend-foo--sm {',
-            '    padding-right: 10px;',
-            '  }',
-            '}',
-            '@media(min-width:992px) {',
-            '  #atomic .D-b--md {',
-            '    display: block;',
-            '  }',
-            '  #atomic .Pend-foo--md {',
-            '    padding-right: 10px;',
-            '  }',
-            '}',
-            '@media(min-width:1200px) {',
-            '  #atomic .Pend-foo--lg {',
-            '    padding-right: 10px;',
-            '  }',
-            '}',
-            ''
-        ].join('\n');
-
-        config = objectAssign(defaultConfig, config);
-
-        result = atomizer.createCSS(config);
-
-        expect(result).to.equal(expected);
+            };
+            var expected = [
+                '.C-brand-color {',
+                '  color: #400090;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(['C-brand-color', 'C-custom'], config);
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css value with breakpoints', function () {
+            var atomizer = new Atomizer(null);
+            var config = {
+                breakPoints: {
+                    sm: '@media(min-width:400px)'
+                }
+            };
+            var expected = [
+                '.D-n--sm {',
+                '  display: none;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(['D-n--sm'], config);
+            // console.log(result);
+            // expect(result).to.equal(expected);
+        });
     });
-    it ('should return rules in the same order they were declared in rules.js even if config was declared in a different order', function () {
-        var result;
-        var config = {
-            'padding-end': {
-                custom: [
-                    {suffix: 'foo', values: ['10px']}
-                ]
-            },
-            display: {
-                b: true
-            }
-        };
-        var expected = [
-            '#atomic .D-b {',
-            '  display: block;',
-            '}',
-            '#atomic .Pend-foo {',
-            '  padding-right: 10px;',
-            '}',
-            ''
-        ].join('\n');
-
-        config = objectAssign(defaultConfig, config);
-
-        result = atomizer.createCSS(config);
-
-        expect(result).to.equal(expected);
+    // -------------------------------------------------------
+    // getPseudo()
+    // -------------------------------------------------------
+    describe('getPseudo()', function () {
+        it('returns undefined if undefined has been passed', function () {
+            // execute and assert
+            expect(Atomizer.getPseudo()).to.be.undefined;
+        });
+        it('returns non abbreviated form if abbreviated form has been passed', function () {
+            // execute and assert
+            expect(Atomizer.getPseudo(':h')).to.equal(':hover');
+        });
+        it('returns non abbreviated form if non abbreviated form has been passed', function () {
+            // execute and assert
+            expect(Atomizer.getPseudo(':hover')).to.equal(':hover');
+        });
     });
-    it ('should not return a rule if it was set to false in the config', function () {
-        var result;
-        var config = {
-            display: {
-                b: false,
-                ib: true
-            }
-        };
-        var expected = [
-            '#atomic .D-ib {',
-            '  display: inline-block;',
-            '}',
-            ''
-        ].join('\n');
-
-        config = objectAssign(defaultConfig, config);
-
-        result = atomizer.createCSS(config);
-
-        expect(result).to.equal(expected);
-    });
-    // it ('should throw if there\'s nothing to transform into CSS', function () {
-    //     var result;
-    //     var config = {
-    //         display: {
-    //             b: false
-    //         }
-    //     };
-
-    //     expect(function () {
-    //         atomizer.createCSS(config, { namespace: '' });
-    //     }).to.throw(Error);
-    // });
-});
-
-describe('parse()', function () {
-    it('Properly identifies Atomic classes found in text', function () {
-        var result;
-        var markup = '<div class="Fake-t Ovs-t Bgo-bb"><span class="Bgo-bb">Foobar</span></div>';
-        var classnameObj = {};
-        var classnames = atomizer.parse(markup, classnameObj);
-        expect(classnames.sort()).to.deep.equal(['Ovs-t', 'Bgo-bb'].sort());
-        expect(classnameObj).to.deep.equal({'Bgo-bb': 2, 'Ovs-t': 1});
-    });
-
-    it('Properly identifies custom value classes found in text', function () {
-        var result;
-        var markup = '<div class="Fake-xs Fz-3em Lh-1.2 Z-3 C-07f Bgc-1 M-100%"><span class="P-10px">Foobar</span></div>';
-        var classnameObj = {};
-        var classnames = atomizer.parse(markup, classnameObj);
-        expect(classnames.sort()).to.deep.equal(['Fz-3em','Bgc-1', 'C-07f', "P-10px", "M-100%", 'Lh-1.2', 'Z-3'].sort());
-        expect(classnameObj).to.deep.equal({'Fz-3em': 1, 'Bgc-1': 1, 'C-07f': 1, "P-10px": 1, "M-100%": 1, 'Lh-1.2': 1, 'Z-3': 1});
-    });
-});
-
-describe('getConfig()', function () {
-    beforeEach(function () {
-        defaultConfig = {
-            'border': {
-                custom: [
-                    {
-                        "suffix": "happyblue",
-                        "values": [ '#F00' ]
-                    },
-                    {
-                        "suffix": "2",
-                        "values": [ '#444' ]
-                    }
-                ]
-            }
-        };
-    });
-
-    it('should return valid configuration when provided Atomic classnames', function () {
-        var config;
-        var classNames = ['Bd-1', 'Bd-2', 'Fz-3em', 'Fz-4em', 'Lh-1.2', 'Z-3', 'Bgcp-bb', 'C-07f', "P-10px", "M-100%"];
-        var expectedConfig = {
-            'background-clip': { bb: true },
-            color: {
-                custom: [
-                    {
-                        "suffix": "07f",
-                        "values": [ "#07f" ]
-                    }
-                ]
-            },
-            padding: {
-                custom: [
-                    {
-                        "suffix": "10px",
-                        "values": [ "10px" ]
-                    }
-                ]
-            },
-            margin: {
-                custom: [
-                    {
-                        "suffix": "100%",
-                        "values": [ "100%" ]
-                    }
-                ]
-            },
-            "line-height": {
-                custom: [
-                    {
-                        "suffix": "1.2",
-                        "values": [ "1.2" ]
-                    }
-                ]
-            },
-            "z-index": {
-                custom: [
-                    {
-                        "suffix": "3",
-                        "values": [ "3" ]
-                    }
-                ]
-            },
-            "font-size": {
-                custom: [
-                    {
-                        "suffix": "4em",
-                        "values": [ "4em" ]
-                    },
-                    {
-                        "suffix": "3em",
-                        "values": [ "3em" ]
-                    }
-                ]
-            }
-        };
-
-        config = atomizer.getConfig(classNames, {}, true); // To cover a particular use case
-        expect(config).to.deep.equal(expectedConfig);
-
-    });
-
-    it('should ignore illegal units of measure', function () {
-        var expectedConfig = defaultConfig;
-        var config;
-
-        config = atomizer.getConfig(['Bdrs-1foo'], defaultConfig);
-        expect(config).to.deep.equal(expectedConfig);
-
-        config = atomizer.getConfig(['Bdrs-foo'], defaultConfig);
-        expect(config).to.deep.equal(expectedConfig);
-    });
-
-    it('should merge the default config with the newly created config', function () {
-        var config;
-        var classNames = ['Bd-1', 'Bd-2', 'C-07f', 'Bgcp-bb', 'Fz-3em'];
-        var expectedConfig = {
-            'background-clip': {
-                bb: true
-            },
-            color: {
-                custom: [
-                    {
-                        "suffix": "07f",
-                        "values": [ "#07f" ]
-                    }
-                ]
-            },
-            "font-size": {
-                custom: [
-                    {
-                        "suffix": "3em",
-                        "values": [ "3em" ]
-                    }
-                ]
-            }
-        };
-
-        config = atomizer.getConfig(classNames, defaultConfig);
-        expect(config).to.deep.equal(atomizer.mergeConfigs([defaultConfig, expectedConfig]));
-    });
-});
-
-describe('mergeConfigs()', function () {
-    it('should deep merge two config objects', function () {
-        var primaryConfig = {
-            'background-clip': {
-                bb: true
-            },
-            color: {
-                custom: [
-                    {
-                        "suffix": "07f",
-                        "values": [ "#07f" ]
-                    }
-                ]
-            }
-        };
-
-        var secondaryConfig = {
-            'background-clip': {
-                pb: true,
-                cb: true
-            },
-            "padding-top": {
-                custom: [
-                    {
-                        "suffix": "foo",
-                        "values": [ "231px" ]
-                    }
-                ]
-            }
-        };
-
-        var expectedConfig = {
-            'background-clip': {
-                bb: true,
-                pb: true,
-                cb: true
-            },
-            color: {
-                custom: [
-                    {
-                        "suffix": "07f",
-                        "values": [ "#07f" ]
-                    }
-                ]
-            },
-            "padding-top": {
-                custom: [
-                    {
-                        "suffix": "foo",
-                        "values": [ "231px" ]
-                    }
-                ]
-            }
-        };
-
-        var config = atomizer.mergeConfigs([primaryConfig, secondaryConfig]);
-
-        expect(config).to.deep.equal(expectedConfig);
-    });
-    it('should return an empty object if argument is not an array', function () {
-        var config = atomizer.mergeConfigs();
-        expect(config).to.deep.equal({});
-    });
-    it('should return an empty object if argument is an empty array', function () {
-        var config = atomizer.mergeConfigs([]);
-        expect(config).to.deep.equal({});
+    // -------------------------------------------------------
+    // escapeSelector()
+    // -------------------------------------------------------
+    describe('escapeSelector()', function () {
+        it('throws if str has not been passed', function () {
+            // execute and assert
+            expect(function () {
+                Atomizer.escapeSelector();
+            }).to.throw(TypeError);
+        });
+        it('returns the original string if the param is not a string', function () {
+            // execute and assert
+            expect(Atomizer.escapeSelector(123)).to.equal(123);
+        });
+        it('returns the processed string if passed', function () {
+            // execute and assert
+            expect(Atomizer.escapeSelector('#atomic .selector-50%')).to.equal('#atomic .selector-50\\%');
+            expect(Atomizer.escapeSelector('#atomic .selector-50%/50%')).to.equal('#atomic .selector-50\\%\\/50\\%');
+            expect(Atomizer.escapeSelector('#atomic .selector-50%::something')).to.equal('#atomic .selector-50\\%\\:\\:something');
+            expect(Atomizer.escapeSelector('#atomic .selector-.50%:.:something')).to.equal('#atomic .selector-\\.50\\%\\:\\.\\:something');
+        });
     });
 });

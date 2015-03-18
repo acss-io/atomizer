@@ -10,6 +10,7 @@
  *  - look for top/right/bottom/left rules in the "offset" section
  *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
  *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
+ *  - Rules is written as an array because ORDER is important for the CSS generation
  *
  **/
 

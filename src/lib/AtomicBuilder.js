@@ -12,7 +12,7 @@ var utils = require('./utils');
 /**
  * AtomicBuilder manage build object given an atomic object and a config object.
  * @class
- * @param {Array} atomicObjs  An array of atomic objects describing atomic.css.
+ * @param {Array} rules       An array of atomic objects describing atomic.css.
  *                            It is the reference to the config object that tells
  *                            which rules it wants from this list.
  * @param {Object} configObj  Tells what it wants from the atomic.css (the atomic
@@ -20,10 +20,10 @@ var utils = require('./utils');
  *                            of atomic.css.
  * @param {Object} optionsObj Options used in rendering the CSS.
  */
-function AtomicBuilder (atomicObjs, configObj, optionsObj) {
-    this.loadObjects(atomicObjs);
-    this.loadConfig(configObj);
-    this.loadOptions(optionsObj);
+function AtomicBuilder (rules, config, options) {
+    this.loadRules(rules);
+    this.loadConfig(config);
+    this.loadOptions(options);
 
     // create our build obj
     this.build = {};
@@ -35,17 +35,17 @@ function AtomicBuilder (atomicObjs, configObj, optionsObj) {
 /**
  * Adds an atomic object array to the instance.
  * 
- * @method loadObjects
- * @param {Array} objs (Required) The array of atomic objects to be loaded
+ * @method loadRules
+ * @param {Array} rules (Required) The array of atomic objects to be loaded
  */
-AtomicBuilder.prototype.loadObjects = function (objs) {
-    if (!objs) {
-        throw new Error('`objs` param is required');
+AtomicBuilder.prototype.loadRules = function (rules) {
+    if (!rules) {
+        throw new Error('`rules` param is required');
     }
-    if (objs.constructor !== Array) {
-        throw new TypeError('The `objs` param must be an Array.');
+    if (rules.constructor !== Array) {
+        throw new TypeError('The `rules` param must be an Array.');
     }
-    this.atomicObjs = objs;
+    this.rulesObj = rules;
 };
 
 /**
@@ -65,15 +65,15 @@ AtomicBuilder.prototype.loadConfig = function (config) {
         if (config.breakPoints.constructor !== Object) {
             throw new TypeError('`config.breakPoints` must be an Object');
         }
-        this.mediaQueries = {};
-        if (config.breakPoints.sm) {
-            this.mediaQueries.sm = '@media(min-width:' + config.breakPoints.sm + ')';
-        }
-        if (config.breakPoints.md) {
-            this.mediaQueries.md = '@media(min-width:' + config.breakPoints.md + ')';
-        }
-        if (config.breakPoints.lg) {
-            this.mediaQueries.lg = '@media(min-width:' + config.breakPoints.lg + ')';
+        /* istanbul ignore else  */
+        if (_.size(config.breakPoints) > 0) {
+            this.mediaQueries = {};
+            for(var bp in config.breakPoints) {
+                if (!/^@media/.test(config.breakPoints[bp])) {
+                    throw new Error('Breakpoint `' + bp + '` must start with `@media`.');
+                }
+                this.mediaQueries[bp] = config.breakPoints[bp];
+            }
         }
     }
     this.configObj = config;
@@ -264,103 +264,6 @@ AtomicBuilder.prototype.addPatternRule = function (rule, atomicObj, currentConfi
             self.addCssRule(className, property, value, breakPoints);
         });
     });
-};
-
-/**
- * Parses an object of type "rule"
- * 
- * @method  addRule
- * @param {Object} rule        (Required) The rule to be added.
- * @param {String} id          (Required) The id of the rule to be added.
- * @param {Object} breakPoints (Optional) The breakPoints object to be grouped in media queries.
- * @return {Boolean} True if the rule has been added, false otherwise.
- */
-AtomicBuilder.prototype.addRule = function (rule, id) {
-    var configObj = this.configObj,
-        breakPoints;
-
-    if (!rule || rule.constructor !== Object) {
-        throw new TypeError('The `rule` param is required and must be an Object.');
-    }
-    if (!id || id.constructor !== String) {
-        throw new TypeError('The `id` param is required and must be a String.');
-    }
-    if (!configObj || configObj.constructor !== Object) {
-        throw new TypeError('Expecting config object to be set in this instance.');
-    }
-
-    // check if this rule is wanted by the config
-    if (!configObj[id]) {
-        return;
-    }
-
-    // iterate through the rule so we can send it to addCssRule
-    for (var className in rule) {
-        /* istanbul ignore else  */
-        if (rule.hasOwnProperty(className)) {
-            for (var property in rule[className]) {
-                /* istanbul ignore else  */
-                if (rule[className].hasOwnProperty(property)) {
-                    if (configObj[id].constructor === Object && configObj[id].breakPoints) {
-                        breakPoints = configObj[id].breakPoints;
-                    }
-                    this.addCssRule(className, property, rule[className][property], breakPoints);
-                }
-            }
-        }
-    }
-};
-
-/**
- * Adds fraction rules (in percentage values) that are written in pattern format to the build obj.
- *
- * @method  addFractionRules
- * @param {Object}  fractionObj             (Required) An object containing information about the fraction rules to be added.
- * @param {Integer} fractionObj.denominator (Required) The denominator of the fraction (how many equal parts it will be divided).
- * @param {Array}   fractionObj.breakPoints (Optional) An array containing the media queries that will be added to each rule.
- * @param {String}  atomicObj               (Required) The atomic object containing the following keys:
- * @param {String}  atomicObj.id            (Required) The 'id' of the pattern.
- * @param {Array}   atomicObj.properties    (Required) The array of properties of the pattern.
- * @param {String}  atomicObj.prefix        (Required) The prefix string of the class name.
- */
-AtomicBuilder.prototype.addFractionRules = function (fractionObj, atomicObj) {
-    var denominator,
-        className = '',
-        value = '',
-        self = this;
-
-    if (!fractionObj || fractionObj.constructor !== Object) {
-        throw new TypeError('fractionObj in config must be an Object.');
-    }
-    denominator = fractionObj.denominator;
-    if (!denominator || !utils.isInteger(denominator)) {
-        throw new TypeError('fractionObj.denominator in config must be a Number.');
-    }
-    if (!atomicObj || atomicObj.constructor !== Object) {
-        throw new TypeError('The `atomicObj` param is required and must be a String.');
-    }
-    if (!atomicObj.id || atomicObj.id.constructor !== String) {
-        throw new TypeError('The `atomicObj.id` param is required and must be a String.');
-    }
-    if (!atomicObj.properties || atomicObj.properties.constructor !== Array) {
-        throw new TypeError('The `atomicObj.properties` param is required and must be an Array.');
-    }
-    if (!atomicObj.prefix || atomicObj.prefix.constructor !== String) {
-        throw new TypeError('The `atomicObj.prefix` param is required and must be a String.');
-    }
-
-    function add(property) {
-        self.addCssRule(className, property, value, fractionObj.breakPoints);
-    }
-
-    for (var i = 1; i <= denominator; i += 1) {
-        className = atomicObj.prefix + i + '\/' + denominator;
-        // multiplying by 100 then by 10000 on purpose to show more clearly that we want:
-        // percentage: (i / denominator * 100)
-        // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
-        value = Math.round(i / denominator * 100 * 10000) / 10000 + '%';
-        atomicObj.properties.forEach(add);
-    }
 };
 
 /**
