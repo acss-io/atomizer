@@ -1,18 +1,8 @@
 module.exports = {
-    'config': {
-        'namespace': '#atomic',
-        'start': 'left',
-        'end': 'right',
-        'defaults': {
-            'font-size': '16px',
-            'border-color': 'rgba(2, 128, 174, 0.3)',
-            'bleed-value': '-10px'
-        },
-        'breakPoints': {
-            'sm': '700px',
-            'md': '992px',
-            'lg': '1200px'
-        }
+    'breakPoints': {
+        'sm': '700px',
+        'md': '992px',
+        'lg': '1200px'
     },
 
     // COLORS:
@@ -24,7 +14,7 @@ module.exports = {
         'custom': [{
             suffix: '1',
             values: ['1px solid #ccc']
-        },]
+        }]
     },
 
     // pattern
@@ -32,7 +22,7 @@ module.exports = {
         'custom': [{
             suffix: '1',
             values: ['1px solid rgba(2, 128, 174, .3)']
-        },]
+        }]
     },
 
     // pattern
@@ -40,7 +30,7 @@ module.exports = {
         'custom': [{
             suffix: '1',
             values: ['1px solid rgba(2, 128, 174, .3)']
-        },]
+        }]
     },
 
 //    // pattern
@@ -56,7 +46,7 @@ module.exports = {
         'custom': [{
             suffix: '1',
             values: ['1px solid rgba(2, 128, 174, .3)']
-        }, ]
+        }]
     },
 
 //    'border-start': {
@@ -83,7 +73,7 @@ module.exports = {
 //        }, {
 //            suffix: '50%',
 //            values: ['50%']
-        }, ]
+        }]
     },
 
     // pattern
@@ -191,17 +181,20 @@ module.exports = {
 
     // pattern
     'color': {
-        'custom': [{
-            suffix: 'fff',
-            values: ['#fff !important']
-        },
-        {
-            suffix: 'f2438c',
-            values: ['#f2438c !important']
-        },{
-            suffix: '07f',
-            values: ['#07f !important']
-        }]
+        'custom': [
+            {
+                suffix: 'fff',
+                values: ['#fff !important']
+            },
+            {
+                suffix: 'f2438c',
+                values: ['#f2438c !important']
+            },
+            {
+                suffix: '07f',
+                values: ['#07f !important']
+            }
+        ]
     },
 
 //    // pattern
@@ -803,8 +796,5 @@ module.exports = {
             suffix: '7',
             values: ['7']
         }]
-    },
-
-    // rule
-    'bfc': true
+    }
 };
