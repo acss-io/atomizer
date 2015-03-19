@@ -21,7 +21,8 @@ var config = {};
 var classnames = [];
 
 var params = require('minimist')(process.argv.slice(2), { 
-    "boolean": ['rtl', 'help', 'verbose', 'R' ] 
+    "boolean": ['rtl', 'help', 'verbose', 'R' ],
+    "string": ['n']
 });
 
 var atomizer = new Atomizer(undefined, { verbose: !!params.verbose });
@@ -58,22 +59,27 @@ function parseFile (file, recursive, dir) {
 }
 
 if (process.argv.slice(2).length === 0 || params.help) {
-    var usage = ['usage:  ', process.title, ' [-c|--config=<file>] [-o|--outfile=<file>] [--rtl] [--help] [--verbose] [ [-R] files_to_parse ...]'].join(' ');
+    var usage = ['usage:  ', process.title, ' [-c|--config=<file>] [-o|--outfile=<file>] [--rtl] [-n namespace] [--help] [--verbose] [ [-R] files_to_parse ...]'].join(' ');
     console.log(usage);
     return;
 }
 
 // TODO: Populate this with params passed in on the command line
 var options = {
-    namespace: params.n,
     rtl: params.rtl
 }; 
 
-if (Array.isArray(options.require) && options.require.length > 0) {
-    options.require = options.require.map(function (file) {
-        return path.resolve(file);
-    });
+// Options: Namespace
+if (typeof params.n !== 'undefined') {
+    options.namespace = params.n;
 }
+
+// Options: require.  Not currently supported via this CLI
+// if (Array.isArray(options.require) && options.require.length > 0) {
+//     options.require = options.require.map(function (file) {
+//         return path.resolve(file);
+//     });
+// }
 
 // Static config should contain the general 'config' options, along with any
 // statically defined configuration. It is required.
