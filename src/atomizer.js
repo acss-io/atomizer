@@ -18,6 +18,7 @@
 'use strict';
 
 var _ = require('lodash');
+var objectAssign = require('object-assign');
 var Absurd = require('absurd');
 var XRegExp = require('xregexp').XRegExp;
 
@@ -285,7 +286,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     var isVerbose = !!this.verbose;
     var breakPoints;
 
-    options = options || {banner: ''};
+    options = objectAssign({}, {
+        require: [],
+        morph: null,
+        banner: '',
+        namespace: '#atomic',
+        rtl: false
+    }, options);
 
     classNames = classNames || [];
 
@@ -492,6 +499,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         }
     });
 
+    // Pass some options through to Absurd
+    api.morph(options.morph);
+
+    if (options.require.length > 0) {
+        api.import(options.require);
+    }
+
     // send CSSO to absurd
     absurd.add(csso);
     absurd.compile(function(err, result) {
@@ -501,8 +515,6 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         }
         content = options.banner + result;
     }, options);
-
-    console.log(content);
 
     return content;
 };

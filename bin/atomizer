@@ -13,29 +13,30 @@ process.title = 'atomizer';
 var path = require('path');
 var fs = require('fs');
 var chalk = require('chalk');
-var atomizer = require('../src/atomizer');
+var Atomizer = require('../src/atomizer');
 var utils = require('../src/lib/utils');
 var _ = require('lodash');
 var content = '';
 var config = {}; 
-var parsedConfig = {};
-var recursive = false;
+var classnames = [];
 
 var params = require('minimist')(process.argv.slice(2), { 
     "boolean": ['rtl', 'help', 'verbose', 'R' ] 
 });
 
-function parseFiles (files, dir) {
+var atomizer = new Atomizer(undefined, { verbose: !!params.verbose });
+
+function parseFiles (files, recursive, dir) {
     var classNames = [];
 
     for (var i=0, iLen=files.length; i < iLen; i++) {
-        classNames = _.union(classNames, parseFile(files[i], dir));
+        classNames = _.union(classNames, parseFile(files[i], recursive, dir));
     }
 
     return classNames;
 }
 
-function parseFile (file, dir) {
+function parseFile (file, recursive, dir) {
     var classNames = [],
         fileContents,
         filepath = dir ? path.resolve(dir, file) : path.resolve(file),
@@ -45,7 +46,7 @@ function parseFile (file, dir) {
     if (stat.isFile()) {
         console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
         fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
-        classNames = atomizer.parse(fileContents);
+        classNames = atomizer.findClassNames(fileContents);
     } else if (stat.isDirectory()) {
         if (!dir || dir && recursive) {
             console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
@@ -88,16 +89,11 @@ if (configFile) {
 // Generate config from parsed src files
 var filesToParse = params._ || [];
 if (filesToParse.length) {
-    // Recursive parsing?
-    recursive = !!params.R;
-    parsedConfig = atomizer.getConfig(parseFiles(filesToParse), config, !!params.verbose);
+    classnames = parseFiles(filesToParse, !!params.R);
 }
 
-// Merge the static config with the generated config
-config = _.merge(parsedConfig, config, utils.handleMergeArrays);
-
 // Create the CSS
-content = atomizer.createCSS(config, options);
+content = atomizer.getCss(classnames, config, options);
 
 // Output the CSS
 var outfile = params.o || params.outfile;
