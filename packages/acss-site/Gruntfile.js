@@ -250,6 +250,9 @@ module.exports = function(grunt) {
                     extensions: ['', '.js', '.jsx']
                 },
                 entry: '<%= project.app %>/client.js',
+                externals: {
+                    absurd: "Absurd"
+                },
                 output: {
                     path: '<%= project.build %>/js',
                     publicPath: '/public/js/',

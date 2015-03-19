@@ -46,14 +46,15 @@ var AtomicCssOutputBox = React.createClass({
      * @return {Object} HTML head section
      */
     render: function () {
-        var config, 
+        var config,
             css;
 
         if (this.state.customConfig) {
             try {
-                css = atomizer(this.state.customConfigObj, {});
+                css = atomizer.createCSS(this.state.customConfigObj, {});
             } catch (ex) {
                 css = 'Invalid configuration.';
+                console.log(ex);
             }
         }
 
