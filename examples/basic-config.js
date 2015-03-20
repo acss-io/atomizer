@@ -16,7 +16,7 @@ module.exports = {
         'Td-u:h',
         'Td-u--sm',
         // custom
-        'foo/W-uh',
+        'foo>W-uh',
         'H-uh',
         'C-primary',
         // rtl

@@ -23,9 +23,8 @@ module.exports = [
     // all edges
     {
         type: 'pattern',
-        id: 'border',
         name: 'Border',
-        prefix: '.Bd-',
+        prefix: 'Bd-',
         properties: ['border'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -34,9 +33,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'border-top',
         name: 'Border top',
-        prefix: '.Bdt-',
+        prefix: 'Bdt-',
         properties: ['border-top'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -45,9 +43,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'border-end',
         name: 'Border end',
-        prefix: '.Bdend-',
+        prefix: 'Bdend-',
         properties: ['border-$END'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -56,9 +53,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'border-bottom',
         name: 'Border bottom',
-        prefix: '.Bdb-',
+        prefix: 'Bdb-',
         properties: ['border-bottom'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -67,9 +63,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'border-start',
         name: 'Border start',
-        prefix: '.Bdstart-',
+        prefix: 'Bdstart-',
         properties: ['border-$START'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -78,9 +73,8 @@ module.exports = [
     // X axis
     {
         type: 'pattern',
-        id: 'border-x',
         name: 'Border X',
-        prefix: '.Bdx-',
+        prefix: 'Bdx-',
         properties: ['border-$START', 'border-$END'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -89,9 +83,8 @@ module.exports = [
     // Y axis
     {
         type: 'pattern',
-        id: 'border-y',
         name: 'Border Y',
-        prefix: '.Bdy-',
+        prefix: 'Bdy-',
         properties: ['border-top', 'border-bottom'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -106,9 +99,8 @@ module.exports = [
     // all edges
     {
         type: 'pattern',
-        id: 'border-color',
         name: 'Border color',
-        prefix: '.Bdc-',
+        prefix: 'Bdc-',
         properties: ['border-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -121,9 +113,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'border-top-color',
         name: 'Border top color',
-        prefix: '.Bdtc-',
+        prefix: 'Bdtc-',
         properties: ['border-top-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -136,9 +127,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'border-end-color',
         name: 'Border end color',
-        prefix: '.Bdendc-',
+        prefix: 'Bdendc-',
         properties: ['border-$END-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -151,9 +141,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'border-bottom-color',
         name: 'Border bottom color',
-        prefix: '.Bdbc-',
+        prefix: 'Bdbc-',
         properties: ['border-bottom-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -166,9 +155,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'border-start-color',
         name: 'Border start color',
-        prefix: '.Bdstartc-',
+        prefix: 'Bdstartc-',
         properties: ['border-$START-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -187,9 +175,8 @@ module.exports = [
     // all edges
     {
         type: 'pattern',
-        id: 'border-style',
         name: 'Border style',
-        prefix: '.Bds-',
+        prefix: 'Bds-',
         properties: ['border-style'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
@@ -210,9 +197,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'border-top-style',
         name: 'Border top style',
-        prefix: '.Bdts-',
+        prefix: 'Bdts-',
         properties: ['border-top-style'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -233,9 +219,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'border-end-style',
         name: 'Border end style',
-        prefix: '.Bdends-',
+        prefix: 'Bdends-',
         properties: ['border-$END-style'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -256,9 +241,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'border-bottom-style',
         name: 'Border bottom style',
-        prefix: '.Bdbs-',
+        prefix: 'Bdbs-',
         properties: ['border-bottom-style'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -279,9 +263,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'border-start-style',
         name: 'Border start style',
-        prefix: '.Bdstarts-',
+        prefix: 'Bdstarts-',
         properties: ['border-$START-style'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -308,9 +291,8 @@ module.exports = [
     // all edges
     {
         type: 'pattern',
-        id: 'border-width',
         name: 'Border width',
-        prefix: '.Bdw-',
+        prefix: 'Bdw-',
         properties: ['border-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -324,9 +306,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'border-top-width',
         name: 'Border top width',
-        prefix: '.Bdtw-',
+        prefix: 'Bdtw-',
         properties: ['border-top-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -340,9 +321,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'border-end-width',
         name: 'Border end width',
-        prefix: '.Bdendw-',
+        prefix: 'Bdendw-',
         properties: ['border-$END-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -356,9 +336,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'border-bottom-width',
         name: 'Border bottom width',
-        prefix: '.Bdbw-',
+        prefix: 'Bdbw-',
         properties: ['border-bottom-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -372,9 +351,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'border-start-width',
         name: 'Border start width',
-        prefix: '.Bdsw-',
+        prefix: 'Bdsw-',
         properties: ['border-$START-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -393,9 +371,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'border-radius',
         name: 'Border radius',
-        prefix: '.Bdrs-',
+        prefix: 'Bdrs-',
         properties: ['border-radius'],
         allowCustom: true,
         allowSuffixToValue: true
@@ -403,9 +380,8 @@ module.exports = [
     // top-right
     {
         type: 'pattern',
-        id: 'border-top-right-radius',
         name: 'Border radius top right',
-        prefix: '.Bdrstend-',
+        prefix: 'Bdrstend-',
         properties: ['border-top-$END-radius'],
         allowCustom: true,
         allowSuffixToValue: true
@@ -413,9 +389,8 @@ module.exports = [
     // bottom-right
     {
         type: 'pattern',
-        id: 'border-bottom-right-radius',
         name: 'Border radius bottom right',
-        prefix: '.Bdrsbend-',
+        prefix: 'Bdrsbend-',
         properties: ['border-bottom-$END-radius'],
         allowCustom: true,
         allowSuffixToValue: true
@@ -423,9 +398,8 @@ module.exports = [
     // bottom-left
     {
         type: 'pattern',
-        id: 'border-bottom-left-radius',
         name: 'Border radius bottom left',
-        prefix: '.Bdrsbstart-',
+        prefix: 'Bdrsbstart-',
         properties: ['border-bottom-$START-radius'],
         allowCustom: true,
         allowSuffixToValue: true
@@ -433,9 +407,8 @@ module.exports = [
     // top-left
     {
         type: 'pattern',
-        id: 'border-top-left-radius',
         name: 'Border radius top left',
-        prefix: '.Bdrststart-',
+        prefix: 'Bdrststart-',
         properties: ['border-top-$START-radius'],
         allowCustom: true,
         allowSuffixToValue: true
@@ -450,9 +423,8 @@ module.exports = [
     /* background */
     {
         type: 'pattern',
-        id: 'background',
         name: 'Background',
-        prefix: '.Bg-',
+        prefix: 'Bg-',
         properties: ['background'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -466,9 +438,8 @@ module.exports = [
     /* background-image */
     {
         type: 'pattern',
-        id: 'background-image',
         name: 'Background image',
-        prefix: '.Bgi-',
+        prefix: 'Bgi-',
         properties: ['background-image'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -481,9 +452,8 @@ module.exports = [
     /* background-color */
     {
         type: 'pattern',
-        id: 'background-color',
         name: 'Background color',
-        prefix: '.Bgc-',
+        prefix: 'Bgc-',
         properties: ['background-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -493,9 +463,8 @@ module.exports = [
     /* background-clip */
     {
         type: 'pattern',
-        id: 'background-clip',
         name: 'Background clip',
-        prefix: '.Bgcp-',
+        prefix: 'Bgcp-',
         properties: ['background-clip'],
         rules: [
             {suffix: 'bb', values: ['border-box']},
@@ -506,9 +475,8 @@ module.exports = [
     /* background-origin */
     {
         type: 'pattern',
-        id: 'background-origin',
         name: 'Background origin',
-        prefix: '.Bgo-',
+        prefix: 'Bgo-',
         properties: ['background-origin'],
         rules: [
             {suffix: 'bb', values: ['border-box']},
@@ -519,9 +487,8 @@ module.exports = [
     /* background-size (length would be customized) */
     {
         type: 'pattern',
-        id: 'background-size',
         name: 'Background size',
-        prefix: '.Bgz-',
+        prefix: 'Bgz-',
         properties: ['background-size'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -534,9 +501,8 @@ module.exports = [
     /* background-attachment */
     {
         type: 'pattern',
-        id: 'background-attachment',
         name: 'Background attachment',
-        prefix: '.Bga-',
+        prefix: 'Bga-',
         properties: ['background-attachment'],
         rules: [
             {suffix: 'f', values: ['fixed']},
@@ -547,9 +513,8 @@ module.exports = [
     /* background-position *4 corners only* (s=start and e=end) */
     {
         type: 'pattern',
-        id: 'background-position',
         name: 'Background position',
-        prefix: '.Bgp-',
+        prefix: 'Bgp-',
         properties: ['background-position'],
         rules: [
             {suffix: 's_t', values: ['$START 0']},
@@ -561,9 +526,8 @@ module.exports = [
     /* background-repeat */
     {
         type: 'pattern',
-        id: 'background-repeat',
         name: 'Background repeat',
-        prefix: '.Bgr-',
+        prefix: 'Bgr-',
         properties: ['background-repeat'],
         rules: [
             {suffix: 'n', values: ['no-repeat']},
@@ -581,9 +545,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'border-collapse',
         name: 'Border collapse',
-        prefix: '.Bdcl-',
+        prefix: 'Bdcl-',
         properties: ['border-collapse'],
         rules: [
             {suffix: 'c', values: ['collapse']},
@@ -599,9 +562,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'box-sizing',
         name: 'Box sizing',
-        prefix: '.Bxz-',
+        prefix: 'Bxz-',
         properties: ['box-sizing'],
         rules: [
             {suffix: 'cb', values: ['content-box']},
@@ -618,10 +580,9 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'box-shadow',
         name: 'Box shadow',
         properties: ['box-shadow'],
-        prefix: '.Bxsh-',
+        prefix: 'Bxsh-',
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
@@ -637,9 +598,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'clear',
         name: 'Clear',
-        prefix: '.Cl-',
+        prefix: 'Cl-',
         properties: ['clear'],
         rules: [
             {suffix: 'n', values: ['none']},
@@ -657,9 +617,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'color',
         name: 'color',
-        prefix: '.C-',
+        prefix: 'C-',
         properties: ['color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -678,9 +637,8 @@ module.exports = [
      */
      {
         type: 'pattern',
-        id: 'cursor',
         name: 'Cursor',
-        prefix: '.Cur-',
+        prefix: 'Cur-',
         properties: ['cursor'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -711,9 +669,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'display',
         name: 'Display',
-        prefix: '.D-',
+        prefix: 'D-',
         properties: ['display'],
         rules: [
             {suffix: 'n', values: ['none']},
@@ -747,9 +704,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'flex',
         name: 'Flex',
-        prefix: '.Flx-',
+        prefix: 'Flx-',
         properties: ['flex'],
         allowCustom: true,
         allowSuffixToValue: false,
@@ -767,9 +723,8 @@ module.exports = [
     //
     // {
     //     type: 'pattern',
-    //     id: 'flex-align',
-    //     name: 'Flex align',
-    //     prefix: '.Fla-',
+    //     //     name: 'Flex align',
+    //     prefix: 'Fla-',
     //     properties: ['flex-align'],
     //     rules: [
     //         {suffix: 's', values: ['start']},
@@ -781,9 +736,8 @@ module.exports = [
     // },
     {
         type: 'pattern',
-        id: 'align-self',
         name: 'Align self',
-        prefix: '.As-',
+        prefix: 'As-',
         properties: ['align-self'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -798,9 +752,8 @@ module.exports = [
     /* FLEX-DIRECTION  */
     {
         type: 'pattern',
-        id: 'flex-direction',
         name: 'Flex direction',
-        prefix: '.Fld-',
+        prefix: 'Fld-',
         properties: ['flex-direction'],
         rules: [
             {suffix: 'r', values: ['row']},
@@ -813,9 +766,8 @@ module.exports = [
     /* FLEX-FLOW  */
     {
         type: 'pattern',
-        id: 'flex-flow',
         name: 'Flex flow',
-        prefix: '.Flf-',
+        prefix: 'Flf-',
         properties: ['flex-flow'],
         rules: [
             {suffix: 'r', values: ['row']},
@@ -836,9 +788,8 @@ module.exports = [
     //
     // {
     //     type: 'pattern',
-    //     id: 'flex-item-align',
-    //     name: 'Flex item align',
-    //     prefix: '.Flia-',
+    //     //     name: 'Flex item align',
+    //     prefix: 'Flia-',
     //     properties: ['flex-item-align'],
     //     rules: [
     //         {suffix: 'a', values: ['auto']},
@@ -851,9 +802,8 @@ module.exports = [
     // },
     {
         type: 'pattern',
-        id: 'align-items',
         name: 'Align items',
-        prefix: '.Ai-',
+        prefix: 'Ai-',
         properties: ['align-items'],
         rules: [
             // flex-start | flex-end | center | baseline | stretch
@@ -874,9 +824,8 @@ module.exports = [
     //
     // {
     //     type: 'pattern',
-    //     id: 'flex-line-pack',
-    //     name: 'Flex line pack',
-    //     prefix: '.Fllp-',
+    //     //     name: 'Flex line pack',
+    //     prefix: 'Fllp-',
     //     properties: ['flex-line-pack'],
     //     rules: [
     //         {suffix: 's', values: ['start']},
@@ -889,9 +838,8 @@ module.exports = [
     // },
     {
         type: 'pattern',
-        id: 'align-content',
         name: 'Align content',
-        prefix: '.Ac-',
+        prefix: 'Ac-',
         properties: ['align-content'],
         rules: [
             {suffix: 'fs', values: ['flex-start']},
@@ -911,16 +859,14 @@ module.exports = [
     //
     // {
     //     type: 'pattern',
-    //     id: 'flex-order',
-    //     name: 'Flex order',
-    //     prefix: '.Flo-',
+    //     //     name: 'Flex order',
+    //     prefix: 'Flo-',
     //     properties: ['flex-order']
     // },
     {
         type: 'pattern',
-        id: 'order',
         name: 'Order',
-        prefix: '.Or-',
+        prefix: 'Or-',
         properties: ['order'],
         allowCustom: true,
         allowSuffixToValue: true
@@ -934,9 +880,8 @@ module.exports = [
     //
     // {
     //     type: 'pattern',
-    //     id: 'flex-pack',
-    //     name: 'Flex pack',
-    //     prefix: '.Flp-',
+    //     //     name: 'Flex pack',
+    //     prefix: 'Flp-',
     //     properties: ['flex-pack'],
     //     rules: [
     //         {suffix: 's', values: ['start']},
@@ -948,9 +893,8 @@ module.exports = [
     // },
     {
         type: 'pattern',
-        id: 'justify-content',
         name: 'Justify content',
-        prefix: '.Jc-',
+        prefix: 'Jc-',
         properties: ['justify-content'],
         rules: [
             {suffix: 'fs', values: ['flex-start']},
@@ -964,9 +908,8 @@ module.exports = [
     /* FLEX-WRAP  */
     {
         type: 'pattern',
-        id: 'flex-wrap',
         name: 'Flex-wrap',
-        prefix: '.Flw-',
+        prefix: 'Flw-',
         properties: ['flex-wrap'],
         rules: [
             {suffix: 'nw', values: ['nowrap']},
@@ -982,9 +925,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'float',
         name: 'Float',
-        prefix: '.Fl-',
+        prefix: 'Fl-',
         properties: ['float'],
         rules: [
             {suffix: 'n', values: ['none']},
@@ -1001,9 +943,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'font-family',
         name: 'Font family',
-        prefix: '.Ff-',
+        prefix: 'Ff-',
         properties: ['font-family'],
         rules: [
             {suffix: 'c', values: ['"Monotype Corsiva", "Comic Sans MS", cursive']},
@@ -1021,9 +962,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'font-weight',
         name: 'Font weight',
-        prefix: '.Fw-',
+        prefix: 'Fw-',
         properties: ['font-weight'],
         rules: [
             {suffix: '100', values: ['100']},
@@ -1049,9 +989,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'font-size',
         name: 'Font size',
-        prefix: '.Fz-',
+        prefix: 'Fz-',
         properties: ['font-size'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -1065,9 +1004,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'font-style',
         name: 'Font style',
-        prefix: '.Fs-',
+        prefix: 'Fs-',
         properties: ['font-style'],
         rules: [
             {suffix: 'n', values: ['normal']},
@@ -1086,9 +1024,8 @@ module.exports = [
     // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant
     {
         type: 'pattern',
-        id: 'font-variant',
         name: 'Font variant',
-        prefix: '.Fv-',
+        prefix: 'Fv-',
         properties: ['font-variant'],
         rules: [
             {suffix: 'n', values: ['normal']},
@@ -1103,9 +1040,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'height',
         name: 'Height',
-        prefix: '.H-',
+        prefix: 'H-',
         properties: ['height'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1130,9 +1066,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'hyphens',
         name: 'Hyphens',
-        prefix: '.Hy-',
+        prefix: 'Hy-',
         properties: ['hyphens'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1149,9 +1084,8 @@ module.exports = [
      */
      {
         type: 'pattern',
-        id: 'list-style-type',
         name: 'List style type',
-        prefix: '.List-',
+        prefix: 'List-',
         properties: ['list-style-type'],
         rules: [
             {suffix: 'n', values: ['none']},
@@ -1181,9 +1115,8 @@ module.exports = [
     // TODO: Validate URI
     {
         type: 'pattern',
-        id: 'list-style-image',
         name: 'List style image',
-        prefix: '.Lisi-',
+        prefix: 'Lisi-',
         properties: ['list-style-image'],
         allowCustom: true,
         allowSuffixToValue: false,
@@ -1200,9 +1133,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'line-height',
         name: 'Line height',
-        prefix: '.Lh-',
+        prefix: 'Lh-',
         properties: ['line-height'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1220,9 +1152,8 @@ module.exports = [
     // all edges
     {
         type: 'pattern',
-        id: 'margin',
         name: 'Margin (all edges)',
-        prefix: '.M-',
+        prefix: 'M-',
         properties: ['margin'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1235,9 +1166,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'margin-top',
         name: 'Margin top',
-        prefix: '.Mt-',
+        prefix: 'Mt-',
         properties: ['margin-top'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1250,9 +1180,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'margin-end',
         name: 'Margin end',
-        prefix: '.Mend-',
+        prefix: 'Mend-',
         properties: ['margin-$END'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1265,9 +1194,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'margin-bottom',
         name: 'Margin bottom',
-        prefix: '.Mb-',
+        prefix: 'Mb-',
         properties: ['margin-bottom'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1280,9 +1208,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'margin-start',
         name: 'Margin start',
-        prefix: '.Mstart-',
+        prefix: 'Mstart-',
         properties: ['margin-$START'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1295,9 +1222,8 @@ module.exports = [
     // X axis
     {
         type: 'pattern',
-        id: 'margin-x',
         name: 'Margin (X axis)',
-        prefix: '.Mx-',
+        prefix: 'Mx-',
         properties: ['margin-$START', 'margin-$END'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1310,9 +1236,8 @@ module.exports = [
     // Y axis
     {
         type: 'pattern',
-        id: 'margin-y',
         name: 'Margin (Y axis)',
-        prefix: '.My-',
+        prefix: 'My-',
         properties: ['margin-top', 'margin-bottom'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1329,9 +1254,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'max-height',
         name: 'Max height',
-        prefix: '.Mah-',
+        prefix: 'Mah-',
         properties: ['max-height'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1351,9 +1275,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'max-width',
         name: 'Max width',
-        prefix: '.Maw-',
+        prefix: 'Maw-',
         properties: ['max-width'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1373,9 +1296,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'min-height',
         name: 'Min height',
-        prefix: '.Mih-',
+        prefix: 'Mih-',
         properties: ['min-height'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1395,9 +1317,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'min-width',
         name: 'Min width',
-        prefix: '.Miw-',
+        prefix: 'Miw-',
         properties: ['min-width'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1417,9 +1338,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'outline',
         name: 'Outline',
-        prefix: '.O-',
+        prefix: 'O-',
         properties: ['outline'],
         allowCustom: true,
         allowSuffixToValue: false,
@@ -1437,9 +1357,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'top',
         name: 'Top',
-        prefix: '.T-',
+        prefix: 'T-',
         properties: ['top'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1451,9 +1370,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'end',
         name: 'End',
-        prefix: '.End-',
+        prefix: 'End-',
         properties: ['$END'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1465,9 +1383,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'bottom',
         name: 'Bottom',
-        prefix: '.B-',
+        prefix: 'B-',
         properties: ['bottom'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1479,9 +1396,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'start',
         name: 'Start',
-        prefix: '.Start-',
+        prefix: 'Start-',
         properties: ['$START'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1497,9 +1413,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'opacity',
         name: 'Opacity',
-        prefix: '.Op-',
+        prefix: 'Op-',
         properties: ['opacity'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1516,9 +1431,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'overflow',
         name: 'Overflow',
-        prefix: '.Ov-',
+        prefix: 'Ov-',
         properties: ['overflow'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1535,9 +1449,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'overflow-x',
         name: 'Overflow (X axis)',
-        prefix: '.Ovx-',
+        prefix: 'Ovx-',
         properties: ['overflow-x'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1554,9 +1467,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'overflow-y',
         name: 'Overflow (Y axis)',
-        prefix: '.Ovy-',
+        prefix: 'Ovy-',
         properties: ['overflow-y'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1573,9 +1485,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'overflow-scrolling',
         name: 'Overflow scrolling',
-        prefix: '.Ovs-',
+        prefix: 'Ovs-',
         properties: ['-webkit-overflow-scrolling'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1591,9 +1502,8 @@ module.exports = [
     // all edges
     {
         type: 'pattern',
-        id: 'padding',
         name: 'Padding (all edges)',
-        prefix: '.P-',
+        prefix: 'P-',
         properties: ['padding'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1605,9 +1515,8 @@ module.exports = [
     // top
     {
         type: 'pattern',
-        id: 'padding-top',
         name: 'Padding top',
-        prefix: '.Pt-',
+        prefix: 'Pt-',
         properties: ['padding-top'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1619,9 +1528,8 @@ module.exports = [
     // end
     {
         type: 'pattern',
-        id: 'padding-end',
         name: 'Padding end',
-        prefix: '.Pend-',
+        prefix: 'Pend-',
         properties: ['padding-$END'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1633,9 +1541,8 @@ module.exports = [
     // bottom
     {
         type: 'pattern',
-        id: 'padding-bottom',
         name: 'Padding bottom',
-        prefix: '.Pb-',
+        prefix: 'Pb-',
         properties: ['padding-bottom'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1647,9 +1554,8 @@ module.exports = [
     // start
     {
         type: 'pattern',
-        id: 'padding-start',
         name: 'Padding start',
-        prefix: '.Pstart-',
+        prefix: 'Pstart-',
         properties: ['padding-$START'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1661,9 +1567,8 @@ module.exports = [
     // X axis
     {
         type: 'pattern',
-        id: 'padding-x',
         name: 'Padding (X axis)',
-        prefix: '.Px-',
+        prefix: 'Px-',
         properties: ['padding-$START', 'padding-$END'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1675,9 +1580,8 @@ module.exports = [
     // Y axis
     {
         type: 'pattern',
-        id: 'padding-y',
         name: 'Padding (Y axis)',
-        prefix: '.Py-',
+        prefix: 'Py-',
         properties: ['padding-top', 'padding-bottom'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -1693,9 +1597,8 @@ module.exports = [
      */
      {
         type: 'pattern',
-        id: 'pointer-events',
         name: 'Pointer events',
-        prefix: '.Pe-',
+        prefix: 'Pe-',
         properties: ['pointer-events'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1718,9 +1621,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'position',
         name: 'Position',
-        prefix: '.Pos-',
+        prefix: 'Pos-',
         properties: ['position'],
         rules: [
             {suffix: 'a', values: ['absolute']},
@@ -1738,9 +1640,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'table-layout',
         name: 'Table layout',
-        prefix: '.Tbl-',
+        prefix: 'Tbl-',
         properties: ['table-layout'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1755,9 +1656,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-align',
         name: 'Text align',
-        prefix: '.Ta-',
+        prefix: 'Ta-',
         properties: ['text-align'],
         rules: [
             {suffix: 'c', values: ['center']},
@@ -1777,9 +1677,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-align-last',
         name: 'Text align last',
-        prefix: '.Tal-',
+        prefix: 'Tal-',
         properties: ['text-align-last'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1799,9 +1698,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-decoration',
         name: 'Text decoration',
-        prefix: '.Td-',
+        prefix: 'Td-',
         properties: ['text-decoration'],
         rules: [
             {suffix: 'l', values: ['line-through']},
@@ -1818,9 +1716,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-rendering',
         name: 'Text rendering',
-        prefix: '.Tren-',
+        prefix: 'Tren-',
         properties: ['text-rendering'],
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1838,9 +1735,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-replace',
         name: 'Text replace',
-        prefix: '.Tr-',
+        prefix: 'Tr-',
         properties: ['text-replace'],
         allowCustom: true,
         allowSuffixToValue: false,
@@ -1856,9 +1752,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-transform',
         name: 'Text transform',
-        prefix: '.Tt-',
+        prefix: 'Tt-',
         properties: ['text-transform'],
         rules: [
             {suffix: 'n', values: ['none']},
@@ -1875,9 +1770,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'text-shadow',
         name: 'Text shadow',
-        prefix: '.Tsh-',
+        prefix: 'Tsh-',
         properties: ['text-shadow'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -1894,9 +1788,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'transition',
         name: 'Transition',
-        prefix: '.Trs-',
+        prefix: 'Trs-',
         properties: ['transition'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
@@ -1904,9 +1797,8 @@ module.exports = [
     },
     {
         type: 'pattern',
-        id: 'transition-delay',
         name: 'Transition delay',
-        prefix: '.Trsde-',
+        prefix: 'Trsde-',
         properties: ['transition-delay'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
@@ -1917,9 +1809,8 @@ module.exports = [
     },
     {
         type: 'pattern',
-        id: 'transition-duration',
         name: 'Transition duration',
-        prefix: '.Trsdu-',
+        prefix: 'Trsdu-',
         properties: ['transition-duration'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
@@ -1930,9 +1821,8 @@ module.exports = [
     },
     {
         type: 'pattern',
-        id: 'transition-property',
         name: 'Transition property',
-        prefix: '.Trsp-',
+        prefix: 'Trsp-',
         properties: ['transition-property'],
         allowCustom: true,
         allowCustomAutoSuffix: false,
@@ -1943,9 +1833,8 @@ module.exports = [
     },
     {
         type: 'pattern',
-        id: 'transition-timing-function',
         name: 'Transition timing function',
-        prefix: '.Trstf-',
+        prefix: 'Trstf-',
         properties: ['transition-timing-function'],
         // for cubic-bezier
         allowCustom: true,
@@ -1969,9 +1858,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'user-select',
         name: 'User select',
-        prefix: '.Us-',
+        prefix: 'Us-',
         properties: ['user-select'],
         rules: [
             {suffix: 'a', values: ['all']},
@@ -1990,9 +1878,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'vertical-align',
         name: 'Vertical align',
-        prefix: '.Va-',
+        prefix: 'Va-',
         properties: ['vertical-align'],
         allowCustom: true,
         allowSuffixToValue: true,
@@ -2015,9 +1902,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'visibility',
         name: 'Visibility',
-        prefix: '.V-',
+        prefix: 'V-',
         properties: ['visibility'],
         rules: [
             {suffix: 'v', values: ['visible']},
@@ -2033,9 +1919,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'white-space',
         name: 'White space',
-        prefix: '.Whs-',
+        prefix: 'Whs-',
         properties: ['white-space'],
         rules: [
             {suffix: 'n', values: ['normal']},
@@ -2053,9 +1938,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'white-space-collapse',
         name: 'White space collapse',
-        prefix: '.Whsc-',
+        prefix: 'Whsc-',
         properties: ['white-space-collapse'],
         rules: [
             {suffix: 'n', values: ['normal']},
@@ -2073,9 +1957,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'width',
         name: 'Width',
-        prefix: '.W-',
+        prefix: 'W-',
         properties: ['width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
@@ -2100,9 +1983,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'word-break',
         name: 'Word break',
-        prefix: '.Wob-',
+        prefix: 'Wob-',
         properties: ['word-break'],
         rules: [
             {suffix: 'ba', values: ['break-all']},
@@ -2118,9 +2000,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'word-wrap',
         name: 'Word wrap',
-        prefix: '.Wow-',
+        prefix: 'Wow-',
         properties: ['word-wrap'],
         rules: [
             {suffix: 'bw', values: ['break-word']},
@@ -2135,9 +2016,8 @@ module.exports = [
      */
     {
         type: 'pattern',
-        id: 'z-index',
         name: 'Z index',
-        prefix: '.Z-',
+        prefix: 'Z-',
         properties: ['z-index'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
