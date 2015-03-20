@@ -102,13 +102,19 @@ describe('Atomizer()', function () {
     describe('getCss()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
-            var classNames = ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'Op-1'];
+            var classNames = ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'Op-1', 'C-333', 'Mt-neg10px'];
             var expected = [
+                '.C-333 {',
+                '  color: #333;',
+                '}',
                 '.H-100\\% {',
                 '  height: 100%;',
                 '}',
                 '.M-a {',
                 '  margin: auto;',
+                '}',
+                '.Mt-neg10px {',
+                '  margin-top: -10px;',
                 '}',
                 '.test:hover>.test\\:h\\>Op-1\\:h:hover, .Op-1 {',
                 '  opacity: 1;',
@@ -166,6 +172,9 @@ describe('Atomizer()', function () {
         it ('returns expected css value with breakpoints', function () {
             var atomizer = new Atomizer();
             var config = {
+                custom: {
+                    "foo": "10px"
+                },
                 breakPoints: {
                     sm: '@media(min-width:400px)'
                 }
@@ -175,9 +184,12 @@ describe('Atomizer()', function () {
                 '  .D-n--sm {',
                 '    display: none;',
                 '  }',
+                '  .P-foo--sm {',
+                '    padding: 10px;',
+                '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['D-n--sm'], config);
+            var result = atomizer.getCss(['D-n--sm', 'P-foo--sm'], config);
             expect(result).to.equal(expected);
         });
         it ('throws if breakpoints aren\'t valid', function () {
@@ -213,6 +225,28 @@ describe('Atomizer()', function () {
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(['C-brand-color'], config, {namespace: '#atomic'});
+            expect(result).to.equal(expected);
+        });
+        it ('ignores invalid classnames', function () {
+            var atomizer = new Atomizer();
+            var config = {};
+            var expected = '';
+            var result = atomizer.getCss(['XXXXX-1'], config);
+            expect(result).to.equal(expected);
+        });
+        it ('warns the user if an ambiguous class is provided and verbose flag is true', function (done) {
+            var atomizer = new Atomizer({verbose: true});
+            var config = {};
+            var expected = '';
+            // mock console.warn
+            console.temp = console.warn;
+            console.warn = function (text) {
+                var expected = "Class `C-foo` is ambiguous";
+                expect(text).to.contain(expected);
+                done();
+            };
+            var result = atomizer.getCss(['C-foo'], config);
+            console.warn = console.temp;
             expect(result).to.equal(expected);
         });
     });

@@ -226,6 +226,13 @@ Atomizer.prototype.getSyntax = function () {
                     GRAMMAR.FRACTION,
                 ')',
                 '|',
+                '(?<hex>',
+                    GRAMMAR.HEX,
+                    '(?!',
+                    GRAMMAR.UNIT,
+                    ')',
+                ')',
+                '|',
                 '(?<sign>',
                     GRAMMAR.SIGN,
                 ')?',
@@ -235,10 +242,6 @@ Atomizer.prototype.getSyntax = function () {
                 '(?<unit>',
                     GRAMMAR.UNIT,
                 ')?',
-                '|',
-                '(?<hex>',
-                    GRAMMAR.HEX,
-                ')',
                 '|',
                 '(?<named>',
                     GRAMMAR.NAMED,
@@ -384,9 +387,6 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         if (match.parentSep) {
             treeo.parentSep = match.parentSep;
         }
-        if (match.prop) {
-            treeo.prop = match.prop;
-        }
         if (match.value) {
             treeo.value = match.value;
         }
@@ -398,16 +398,10 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
             treeo.value = Math.round(match.numerator / match.denominator * 100 * 10000) / 10000 + '%';
         }
         if (match.sign) {
-            treeo.sign = match.sign;
-        }
-        if (match.number) {
-            treeo.number = match.number;
-        }
-        if (match.unit) {
-            treeo.unit = match.unit;
+            treeo.value = treeo.value.replace(GRAMMAR.SIGN, '-');
         }
         if (match.hex) {
-            treeo.hex = match.hex;
+            treeo.value = '#' + match.hex;
         }
         if (match.named) {
             treeo.named = match.named;
@@ -537,7 +531,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     // if (options.morph) {
     //     api.morph(options.morph);
     // }
-    
+
     // if (options.require.length > 0) {
     //     api.import(options.require);
     // }
