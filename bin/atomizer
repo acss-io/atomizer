@@ -14,7 +14,6 @@ var path = require('path');
 var fs = require('fs');
 var chalk = require('chalk');
 var Atomizer = require('../src/atomizer');
-var utils = require('../src/lib/utils');
 var _ = require('lodash');
 var content = '';
 var config = {}; 
@@ -25,7 +24,7 @@ var params = require('minimist')(process.argv.slice(2), {
     "string": ['n']
 });
 
-var atomizer = new Atomizer(undefined, { verbose: !!params.verbose });
+var atomizer = new Atomizer({ verbose: !!params.verbose });
 
 function parseFiles (files, recursive, dir) {
     var classNames = [];
