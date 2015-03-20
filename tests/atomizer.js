@@ -110,7 +110,7 @@ describe('Atomizer()', function () {
                 '  display: none;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['D-n--sm'], config);
+            var result = atomizer.getCss(['D-n--sm', 'test:h>Op-1:h--sm'], config);
             // console.log(result);
             // expect(result).to.equal(expected);
         });

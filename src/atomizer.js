@@ -72,14 +72,15 @@ var GRAMMAR = {
     'PARENT_SEP' : '[>_]',
     'PROP'       : PROPS_REGEX,
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
-    'SIGN'       : '(?:neg)?',
+    'SIGN'       : 'neg',
     'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
-    'UNIT'       : '(?:[a-zA-Z%]+)?',
+    'UNIT'       : '[a-zA-Z%]+',
     'HEX'        : '[0-9a-f]{3}(?:[0-9a-f]{3})?',
     'IMPORTANT'  : '!',
-    'NAMED'      : '[-a-zA-Z0-9$%\\.]+\\b',
+    // how do we deal with word boundary here?
+    'NAMED'      : '(.+?(?=--|!|:)|.+\\b)',
     'PSEUDO'     : PSEUDO_REGEX,
-    'BREAKPOINT' : '--(?<breakpoint>[a-z]+)'
+    'BREAKPOINT' : '--(?<breakPoint>[a-z]+)'
 };
 GRAMMAR.PARENT_SELECTOR = [
     // parent (any character that is not a space)
@@ -87,11 +88,11 @@ GRAMMAR.PARENT_SELECTOR = [
         GRAMMAR.PARENT,
     ')',
     // followed by optional pseudo class
-    '(?<parent_pseudo>',
+    '(?<parentPseudo>',
         GRAMMAR.PSEUDO,
     ')?',
     // followed by either a descendant or direct symbol
-    '(?<parent_sep>',
+    '(?<parentSep>',
         GRAMMAR.PARENT_SEP,
     ')'
 ].join('');
@@ -102,7 +103,7 @@ var SYNTAX_REGEX = XRegExp.cache([
     // word boundary
     GRAMMAR.BOUNDARY,
     // optional parent
-    '(?<parent_selector>',
+    '(?<parentSelector>',
         GRAMMAR.PARENT_SELECTOR,
     ')?',
     // required property
@@ -117,13 +118,13 @@ var SYNTAX_REGEX = XRegExp.cache([
         '|',
         '(?<sign>',
             GRAMMAR.SIGN,
-        ')',
+        ')?',
         '(?<number>',
             GRAMMAR.NUMBER,
         ')',
         '(?<unit>',
             GRAMMAR.UNIT,
-        ')',
+        ')?',
         '|',
         '(?<hex>',
             GRAMMAR.HEX,
@@ -137,7 +138,7 @@ var SYNTAX_REGEX = XRegExp.cache([
         GRAMMAR.IMPORTANT,
     ')?',
     // optional pseudo
-    '(?<value_pseudo>',
+    '(?<valuePseudo>',
         GRAMMAR.PSEUDO,
     ')?',
     // optional modifier
@@ -257,7 +258,7 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
 /**
  * Get CSS given an array of class names, a config and css options.
  * examples:
- * 
+ *
  * getCss(['Op-1', 'D-n:h', 'Fz-heading'], {
  *     custom: {
  *         heading: '80px'
@@ -272,7 +273,7 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
  *     rtl: true
  * });
  *
- * getCss(['Op-1', 'D-n:h']);   
+ * getCss(['Op-1', 'D-n:h']);
  */
 Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:string*/ {
     var matches;
@@ -314,12 +315,18 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     classNames.forEach(function (className) {
         var match = XRegExp.exec(className, SYNTAX_REGEX);
         var namedFound = false;
+        var rule;
+        var treeo;
+
+        if (!match) {
+          return '';
+        }
 
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
         // as it will return the index given an prefix.
-        var rule = RULES[RULES_DICTIONARY[match.prop]];
-        var treeo = {
+        rule = RULES[RULES_DICTIONARY[match.prop]];
+        treeo = {
             className: match[0]
         };
 
@@ -327,17 +334,17 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
             tree[rule.id] = [];
         }
 
-        if (match.parent_selector) {
-            treeo.parent_selector = match.parent_selector;
+        if (match.parentSelector) {
+            treeo.parentSelector = match.parentSelector;
         }
         if (match.parent) {
             treeo.parent = match.parent;
         }
-        if (match.parent_pseudo) {
-            treeo.parent_pseudo = match.parent_pseudo;
+        if (match.parentPseudo) {
+            treeo.parentPseudo = match.parentPseudo;
         }
-        if (match.parent_sep) {
-            treeo.parent_sep = match.parent_sep;
+        if (match.parentSep) {
+            treeo.parentSep = match.parentSep;
         }
         if (match.prop) {
             treeo.prop = match.prop;
@@ -403,11 +410,12 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                 treeo.value = null;
             }
         }
-        if (match.value_pseudo) {
-            treeo.value_pseudo = match.value_pseudo;
+        if (match.valuePseudo) {
+            treeo.valuePseudo = match.valuePseudo;
         }
-        if (match.breakpoint) {
-            treeo.breakpoint = match.breakpoint;
+
+        if (match.breakPoint) {
+            treeo.breakPoint = match.breakPoint;
         }
         if (match.important) {
             treeo.value = treeo.value + ' !important';
@@ -422,7 +430,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
             console.warn(warning);
         });
     }
-    
+
     // write CSSO
     // start by iterating rules (we need to follow the order that the rules were declared)
     RULES.forEach(function (rule) {
@@ -432,25 +440,27 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         // check if we have a class name that matches this rule
         if (tree[rule.id]) {
             tree[rule.id].forEach(function(treeo) {
+                var breakPoint = breakPoints && breakPoints[treeo.breakPoint];
+
                 // this is where we start writing the class name, properties and values
                 className = Atomizer.escapeSelector(treeo.className);
 
                 // handle parent classname
-                if (treeo.parent_selector) {
+                if (treeo.parentSelector) {
                     className = [
                         Atomizer.escapeSelector(treeo.parent),
-                        Atomizer.getPseudo(treeo.parent_pseudo),
-                        treeo.parent_sep !== '>' ? ' ' : treeo.parent_sep,
+                        Atomizer.getPseudo(treeo.parentPseudo),
+                        treeo.parentSep !== '>' ? ' ' : treeo.parentSep,
                         '.',
                         className
                     ].join('');
                 }
 
                 // handle pseudo in values
-                if (treeo.value_pseudo) {
+                if (treeo.valuePseudo) {
                     className = [
                         className,
-                        Atomizer.getPseudo(treeo.value_pseudo)
+                        Atomizer.getPseudo(treeo.valuePseudo)
                     ].join('');
                 }
 
@@ -459,17 +469,20 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
 
                 // finaly, create the object
                 csso[className] = {};
+                if (breakPoint) {
+                    csso[className][breakPoint] = {};
+                }
+
                 if (treeo.declaration) {
-                    console.log(breakPoints);
-                    if (breakPoints && breakPoints[treeo.breakpoint]) {
-                        csso[className][breakPoints[treeo.breakpoint]] = treeo.declaration;
+                    if (breakPoint) {
+                        csso[className][breakPoint] = treeo.declaration;
                     } else {
                         csso[className] = treeo.declaration;
                     }
                 } else {
                     rule.properties.forEach(function (property) {
-                        if (breakPoints && breakPoints[treeo.breakpoint]) {
-                            csso[className][breakPoints[treeo.breakpoint]] = treeo.declaration;
+                        if (breakPoint) {
+                            csso[className][breakPoint][property] = treeo.value;
                         } else {
                             csso[className][property] = treeo.value;
                         }
