@@ -318,8 +318,8 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     var breakPoints;
 
     options = objectAssign({}, {
-        require: [],
-        morph: null,
+        // require: [],
+        // morph: null,
         banner: '',
         namespace: null,
         rtl: false
@@ -534,11 +534,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     });
 
     // Pass some options through to Absurd
-    api.morph(options.morph);
-
-    if (options.require.length > 0) {
-        api.import(options.require);
-    }
+    // if (options.morph) {
+    //     api.morph(options.morph);
+    // }
+    
+    // if (options.require.length > 0) {
+    //     api.import(options.require);
+    // }
 
     if (options.namespace) {
         var cssoNew = {};
