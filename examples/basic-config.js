@@ -1,7 +1,9 @@
 module.exports = {
     'custom': {
         uh: '79px',
-        primary: '#f6a1e1'
+        primary: '#f6a1e1',
+        l: '$START',
+        r: '$END'
     },
     breakPoints: {
         'sm': '@media(min-width:500px)',
@@ -17,6 +19,11 @@ module.exports = {
         'foo/W-uh',
         'H-uh',
         'C-primary',
+        // rtl
+        'Fl-start',
+        'Fl-end',
+        'Fl-l',
+        'Fl-r',
         // more lengthy then the previous one
         'W-1/12',
         'W-2/12',

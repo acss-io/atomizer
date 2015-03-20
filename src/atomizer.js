@@ -394,7 +394,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                                 if (!treeo.declaration) {
                                     treeo.declaration = {};
                                 }
-                                treeo.declaration[property] = value;
+                                treeo.declaration[Atomizer.replaceConstants(property, options.rtl)] = Atomizer.replaceConstants(value, options.rtl);
                             });
                         });
                         namedFound = true;
@@ -450,7 +450,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                 var breakPoint = breakPoints && breakPoints[treeo.breakPoint];
 
                 // this is where we start writing the class name, properties and values
-                className = Atomizer.escapeSelector(treeo.className);
+                className = Atomizer.escapeSelector(Atomizer.replaceConstants(treeo.className, options.rtl));
 
                 // handle parent classname
                 if (treeo.parentSelector) {
@@ -488,10 +488,12 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                     }
                 } else {
                     rule.properties.forEach(function (property) {
+                        var value = Atomizer.replaceConstants(treeo.value, options.rtl);
+                        property = Atomizer.replaceConstants(property, options.rtl);
                         if (breakPoint) {
-                            csso[className][breakPoint][property] = treeo.value;
+                            csso[className][breakPoint][property] = value;
                         } else {
-                            csso[className][property] = treeo.value;
+                            csso[className][property] = value;
                         }
                     });
                 }
@@ -552,6 +554,23 @@ Atomizer.escapeSelector = function (str/*:string*/)/*:string*/ {
             return ['\\', character].join('');
         }).join('');
     });
+};
+
+/**
+ * Replace LTR/RTL placeholders with actual left/right strings
+ */
+Atomizer.replaceConstants = function (str, rtl) {
+    var start = rtl ? 'right' : 'left';
+    var end = rtl ? 'left' : 'right';
+
+    if (!str && str !== 0) {
+        throw new TypeError('Parameter "str" is required.');
+    }
+    if (str.constructor !== String) {
+        return str;
+    }
+
+    return str.replace(/\$START/g, start).replace(/\$END/g, end);
 };
 
 module.exports = Atomizer;
