@@ -180,6 +180,21 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(['D-n--sm'], config);
             expect(result).to.equal(expected);
         });
+        it ('returns namespaced css when a namespace is specified in options', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    'brand-color': '#400090'
+                }
+            };
+            var expected = [
+                '#atomic .C-brand-color {',
+                '  color: #400090;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(['C-brand-color'], config, {namespace: '#atomic'});
+            expect(result).to.equal(expected);
+        });
     });
     // -------------------------------------------------------
     // getPseudo()
