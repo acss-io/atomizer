@@ -220,4 +220,32 @@ describe('Atomizer()', function () {
             expect(Atomizer.escapeSelector('#atomic .selector-.50%:.:something')).to.equal('#atomic .selector-\\.50\\%\\:\\.\\:something');
         });
     });
+    // -------------------------------------------------------
+    // replaceConstants()
+    // -------------------------------------------------------
+    describe('replaceConstants()', function () {
+        it('returns the original string if the param is not a string', function () {
+            var obj = {};
+            var arr = [];
+            // execute and assert
+            expect(Atomizer.replaceConstants(123)).to.equal(123);
+            expect(Atomizer.replaceConstants(obj)).to.equal(obj);
+            expect(Atomizer.replaceConstants(arr)).to.equal(arr);
+            expect(Atomizer.replaceConstants(null)).to.equal(null);
+            expect(Atomizer.replaceConstants(undefined)).to.equal(undefined);
+
+        });
+        it('returns the processed string if passed, in ltr mode', function () {
+            // assert
+            expect(Atomizer.replaceConstants('test-$START', false)).equal('test-left');
+            expect(Atomizer.replaceConstants('test-$END', false)).equal('test-right');
+            expect(Atomizer.replaceConstants('test-$START-$END', false)).equal('test-left-right');
+        });
+        it('returns the processed string if passed, in rtl mode', function () {
+            // assert
+            expect(Atomizer.replaceConstants('test-$START', true)).equal('test-right');
+            expect(Atomizer.replaceConstants('test-$END', true)).equal('test-left');
+            expect(Atomizer.replaceConstants('test-$START-$END', true)).equal('test-right-left');
+        });
+    });
 });
