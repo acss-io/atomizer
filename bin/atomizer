@@ -21,7 +21,7 @@ var config = {};
 var classnames = [];
 
 var params = require('minimist')(process.argv.slice(2), { 
-    "boolean": ['rtl', 'help', 'verbose', 'R' ],
+    "boolean": ['rtl', 'help', 'verbose', 'R'],
     "string": ['n']
 });
 
@@ -40,21 +40,26 @@ function parseFiles (files, recursive, dir) {
 function parseFile (file, recursive, dir) {
     var classNames = [],
         fileContents,
-        filepath = dir ? path.resolve(dir, file) : path.resolve(file),
-        relative = path.relative(process.cwd(), filepath),
+        filepath,
+        relative,
+        stat;
+
+    if (file) {
+        filepath = dir ? path.resolve(dir, file) : path.resolve(file);
+        relative = path.relative(process.cwd(), filepath);
         stat = fs.statSync(filepath);
 
-    if (stat.isFile()) {
-        console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
-        fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
-        classNames = atomizer.findClassNames(fileContents);
-    } else if (stat.isDirectory()) {
-        if (!dir || dir && recursive) {
-            console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
-            classNames = parseFiles(fs.readdirSync(filepath), filepath);
+        if (stat.isFile()) {
+            console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+            fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
+            classNames = atomizer.findClassNames(fileContents);
+        } else if (stat.isDirectory()) {
+            if (!dir || dir && recursive) {
+                console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
+                classNames = parseFiles(fs.readdirSync(filepath), filepath);
+            }
         }
     }
-
     return classNames;
 }
 
