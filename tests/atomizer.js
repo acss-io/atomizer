@@ -11,17 +11,17 @@ describe('Atomizer()', function () {
             expect(atomizer).to.be.an.Object;
         });
         it('instantiate with the assigned params', function () {
+            var options = {
+                verbose: true
+            };
             var rules = [{
                 type: 'pattern',
                 id: 'border',
                 name: 'Border',
-                prefix: '.Bd-',
+                prefix: 'Bd-',
                 properties: ['border']
             }];
-            var options = {
-                verbose: true
-            };
-            var atomizer = new Atomizer(rules, options);
+            var atomizer = new Atomizer(options, rules);
             expect(atomizer.rules).to.equal(rules);
             expect(atomizer.verbose).to.equal(true);
         });
@@ -32,6 +32,81 @@ describe('Atomizer()', function () {
             var result = atomizer.findClassNames('<div class="P-55px H-100% test:h>Op-1:h test:test>Op-1"></div>');
             var expected = ['P-55px', 'H-100%', 'test:h>Op-1:h'];
             expect(result).to.deep.equal(expected);
+        });
+    });
+    describe('addRule()', function () {
+        it('throws if a rule with the same prefix already exists', function () {
+            var rules = [{
+                type: 'pattern',
+                id: 'border',
+                name: 'Border',
+                prefix: 'Bd-',
+                properties: ['border']
+            }];
+            var atomizer = new Atomizer(null, rules);
+            expect(function() {
+                atomizer.addRule({prefix: 'Bd-'});
+            }).to.throw();
+        });
+        it('adds a new rule to the atomizer instance', function () {
+            var atomizer = new Atomizer();
+            var myRule = {
+                type: 'pattern',
+                id: 'foo',
+                name: 'foo',
+                prefix: 'Foo-',
+                properties: ['foo']
+            };
+            atomizer.addRule(myRule);
+            expect(atomizer.rules[atomizer.rules.length - 1]).to.deep.equal(myRule);
+            expect(atomizer.rulesMap).to.have.ownProperty('Foo-');
+        });
+        it('resets the syntax', function () {
+            var atomizer = new Atomizer();
+            var myRule = {
+                type: 'pattern',
+                id: 'foo',
+                name: 'foo',
+                prefix: 'Foo-',
+                properties: ['foo']
+            };
+            atomizer.addRule(myRule);
+            expect(atomizer.syntax).to.be.null;
+        });
+    });
+    describe('getSyntax()', function () {
+        it('returns the same syntax if syntax has not changed', function () {
+            var rules = [{
+                type: 'pattern',
+                id: 'border',
+                name: 'Border',
+                prefix: 'Bd-',
+                properties: ['border']
+            }];
+            var atomizer = new Atomizer(null, rules);
+            var result = atomizer.getSyntax();
+
+            expect(atomizer.syntax).to.equal(result);
+        });
+        it('returns a new syntax if syntax has changed', function () {
+            var rules = [{
+                type: 'pattern',
+                id: 'border',
+                name: 'Border',
+                prefix: 'Bd-',
+                properties: ['border']
+            }];
+            var atomizer = new Atomizer(null, rules);
+            var syntax = atomizer.getSyntax();
+            atomizer.addRule({
+                type: 'pattern',
+                id: 'foo',
+                name: 'Foo',
+                prefix: 'Foo-',
+                properties: ['foo']
+            });
+            var result = atomizer.getSyntax();
+            expect(syntax).to.not.equal(result);
         });
     });
     describe('getCss()', function () {
@@ -84,7 +159,7 @@ describe('Atomizer()', function () {
             expect(result).to.equal(expected);
         });
         it ('returns expected css value declared in custom', function () {
-            var atomizer = new Atomizer(null);
+            var atomizer = new Atomizer();
             var config = {
                 custom: {
                     'brand-color': '#400090'
@@ -99,20 +174,21 @@ describe('Atomizer()', function () {
             expect(result).to.equal(expected);
         });
         it ('returns expected css value with breakpoints', function () {
-            var atomizer = new Atomizer(null);
+            var atomizer = new Atomizer();
             var config = {
                 breakPoints: {
                     sm: '@media(min-width:400px)'
                 }
             };
             var expected = [
-                '.D-n--sm {',
-                '  display: none;',
+                '@media(min-width:400px) {',
+                '  .D-n--sm {',
+                '    display: none;',
+                '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['D-n--sm', 'test:h>Op-1:h--sm'], config);
-            // console.log(result);
-            // expect(result).to.equal(expected);
+            var result = atomizer.getCss(['D-n--sm'], config);
+            expect(result).to.equal(expected);
         });
     });
     // -------------------------------------------------------

@@ -6,6 +6,7 @@
 
 /**
  * @TODO:
+ * - Try using immutable.js for rules.
  * - don't require the entire lodash lib, just what we're using.
  * - implement getConfig() so we can export a merged config.
  * - validate config? maybe we need it.
@@ -58,7 +59,6 @@ var PSEUDOS = {
     ':visited':         ':vi'
 };
 var PSEUDOS_INVERTED = _.invert(PSEUDOS);
-var PROPS_REGEX = '(?:' + RULES.map(function (rule) {return rule.prefix.substr(1);}).join('|') + ')';
 var PSEUDO_REGEX = [];
 for (var pseudo in PSEUDOS) {
     PSEUDO_REGEX.push(pseudo);
@@ -71,7 +71,6 @@ var GRAMMAR = {
     'BOUNDARY'   : '(?:^|\\s|"|\'|\{)',
     'PARENT'     : '[^\\s:>_]+',
     'PARENT_SEP' : '[>_]',
-    'PROP'       : PROPS_REGEX,
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
     'SIGN'       : 'neg',
     'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
@@ -97,63 +96,6 @@ GRAMMAR.PARENT_SELECTOR = [
         GRAMMAR.PARENT_SEP,
     ')'
 ].join('');
-
-// we combine the regular expressions here. since we're NOT doing a lexical
-// analysis of the entire document we need to use regular grammar here.
-var SYNTAX_REGEX = XRegExp.cache([
-    // word boundary
-    GRAMMAR.BOUNDARY,
-    // optional parent
-    '(?<parentSelector>',
-        GRAMMAR.PARENT_SELECTOR,
-    ')?',
-    // required property
-    '(?<prop>',
-        GRAMMAR.PROP,
-    ')',
-    // required value
-    '(?<value>',
-        '(?<fraction>',
-            GRAMMAR.FRACTION,
-        ')',
-        '|',
-        '(?<sign>',
-            GRAMMAR.SIGN,
-        ')?',
-        '(?<number>',
-            GRAMMAR.NUMBER,
-        ')',
-        '(?<unit>',
-            GRAMMAR.UNIT,
-        ')?',
-        '|',
-        '(?<hex>',
-            GRAMMAR.HEX,
-        ')',
-        '|',
-        '(?<named>',
-            GRAMMAR.NAMED,
-        ')',
-    ')',
-    '(?<important>',
-        GRAMMAR.IMPORTANT,
-    ')?',
-    // optional pseudo
-    '(?<valuePseudo>',
-        GRAMMAR.PSEUDO,
-    ')?',
-    // optional modifier
-    '(?:',
-        GRAMMAR.BREAKPOINT,
-    ')?'
-].join(''), 'g');
-
-// we create this so it's easier to find the rule by the prefix
-var RULES_DICTIONARY = {};
-RULES.forEach(function (rule, index) {
-    // prefix: index
-    RULES_DICTIONARY[rule.prefix.substr(1)] = index;
-});
 
 /*
 // -----------------------------------
@@ -184,7 +126,7 @@ interface AtomizerRule {
 // AtomizerConfig
 // the config that contains additional info to create atomic classes
 interface AtomizerConfig {
-    globals?: {[index:string]:string};
+    custom?: {[index:string]:string};
     breakPoints?: {[index:string]:string};
     classNames: string[];
 }
@@ -229,10 +171,97 @@ interface AtomicTreeValue {
 /**
  * constructor
  */
-function Atomizer(rules/*:rules*/, options/*:AtomizerOptions*/) {
-    this.rules = rules || RULES;
+function Atomizer(options/*:AtomizerOptions*/, rules/*AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
+    this.rules = rules || _.cloneDeep(RULES);
+    this.rulesMap = {};
+    this.rulesRegex = [];
+
+    // create map for rules
+    this.rules.forEach(function (rule, index) {
+        this.rulesMap[rule.prefix] = index;
+    }, this);
 }
+
+Atomizer.prototype.addRule = function(rule/*:AtomizerRule*/)/*:void*/ {
+
+    if (this.rulesMap.hasOwnProperty(rule.prefix)) {
+        throw new Error('Rule ' + rule.prefix + ' already exists');
+    }
+
+    // push new rule to this.rules and update rulesMap
+    this.rules.push(rule);
+    this.rulesMap[rule.prefix] = this.rules.length - 1;
+
+    // invalidates syntax
+    this.syntax = null;
+};
+
+/**
+ * getSyntax()
+ * we combine the regular expressions here. since we're NOT doing a lexical
+ * analysis of the entire document we need to use regular grammar for this.
+ * @private
+ */
+Atomizer.prototype.getSyntax = function () {
+    var syntax;
+    var prop;
+
+    if (!this.syntax) {
+        prop = '(?:' + Object.keys(this.rulesMap).join('|') + ')';
+        syntax = [
+            // word boundary
+            GRAMMAR.BOUNDARY,
+            // optional parent
+            '(?<parentSelector>',
+                GRAMMAR.PARENT_SELECTOR,
+            ')?',
+            // required property
+            '(?<prop>',
+                prop,
+            ')',
+            // required value
+            '(?<value>',
+                '(?<fraction>',
+                    GRAMMAR.FRACTION,
+                ')',
+                '|',
+                '(?<sign>',
+                    GRAMMAR.SIGN,
+                ')?',
+                '(?<number>',
+                    GRAMMAR.NUMBER,
+                ')',
+                '(?<unit>',
+                    GRAMMAR.UNIT,
+                ')?',
+                '|',
+                '(?<hex>',
+                    GRAMMAR.HEX,
+                ')',
+                '|',
+                '(?<named>',
+                    GRAMMAR.NAMED,
+                ')',
+            ')',
+            '(?<important>',
+                GRAMMAR.IMPORTANT,
+            ')?',
+            // optional pseudo
+            '(?<valuePseudo>',
+                GRAMMAR.PSEUDO,
+            ')?',
+            // optional modifier
+            '(?:',
+                GRAMMAR.BREAKPOINT,
+            ')?'
+        ].join('');
+
+        this.syntax = XRegExp(syntax, 'g');
+    }
+
+    return this.syntax;
+};
 
 /**
  * findClassNames
@@ -241,7 +270,8 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
     // using object to remove dupes
     var classNamesObj = {};
     var className;
-    var match = SYNTAX_REGEX.exec(src);
+    var syntaxRegex = this.getSyntax();
+    var match = syntaxRegex.exec(src);
 
     while (match !== null) {
         // strip boundary character
@@ -249,7 +279,7 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
         // assign to classNamesObj as key and give it a counter
         classNamesObj[className] = classNamesObj[className] ? classNamesObj[className] + 1 : 1;
         // run regex again
-        match = SYNTAX_REGEX.exec(src);
+        match = syntaxRegex.exec(src);
     }
 
     // return an array of the matched class names
@@ -284,6 +314,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     var content = '';
     var warnings = [];
     var isVerbose = !!this.verbose;
+    var syntaxRegex = this.getSyntax();
     var breakPoints;
 
     options = objectAssign({}, {
@@ -320,7 +351,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
 
     // each match is a valid class name
     classNames.forEach(function (className) {
-        var match = XRegExp.exec(className, SYNTAX_REGEX);
+        var match = XRegExp.exec(className, syntaxRegex);
         var namedFound = false;
         var rule;
         var treeo;
@@ -332,13 +363,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
         // as it will return the index given an prefix.
-        rule = RULES[RULES_DICTIONARY[match.prop]];
+        rule = this.rules[this.rulesMap[match.prop]];
         treeo = {
             className: match[0]
         };
 
-        if (!tree[rule.id]) {
-            tree[rule.id] = [];
+        if (!tree[rule.prefix]) {
+            tree[rule.prefix] = [];
         }
 
         if (match.parentSelector) {
@@ -428,8 +459,9 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
             treeo.value = treeo.value + ' !important';
         }
 
-        tree[rule.id].push(treeo);
-    });
+        tree[rule.prefix].push(treeo);
+
+    }, this);
 
     // throw warnings
     if (isVerbose && warnings.length > 0) {
@@ -440,13 +472,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
 
     // write CSSO
     // start by iterating rules (we need to follow the order that the rules were declared)
-    RULES.forEach(function (rule) {
+    this.rules.forEach(function (rule) {
         var className;
         var treeCurrent;
 
         // check if we have a class name that matches this rule
-        if (tree[rule.id]) {
-            tree[rule.id].forEach(function(treeo) {
+        if (tree[rule.prefix]) {
+            tree[rule.prefix].forEach(function(treeo) {
                 var breakPoint = breakPoints && breakPoints[treeo.breakPoint];
 
                 // this is where we start writing the class name, properties and values
