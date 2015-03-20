@@ -22,7 +22,7 @@ describe('Atomizer()', function () {
                 properties: ['border']
             }];
             var atomizer = new Atomizer(options, rules);
-            expect(atomizer.rules).to.equal(rules);
+            expect(atomizer.rules).to.deep.equal(rules);
             expect(atomizer.verbose).to.equal(true);
         });
     });
@@ -34,7 +34,7 @@ describe('Atomizer()', function () {
             expect(result).to.deep.equal(expected);
         });
     });
-    describe('addRule()', function () {
+    describe('addRules()', function () {
         it('throws if a rule with the same prefix already exists', function () {
             var rules = [{
                 type: 'pattern',
@@ -45,32 +45,22 @@ describe('Atomizer()', function () {
             }];
             var atomizer = new Atomizer(null, rules);
             expect(function() {
-                atomizer.addRule({prefix: 'Bd-'});
+                atomizer.addRules([{prefix: 'Bd-'}]);
             }).to.throw();
         });
-        it('adds a new rule to the atomizer instance', function () {
+        it('adds a new rule to the atomizer instance and resets the syntax', function () {
             var atomizer = new Atomizer();
-            var myRule = {
+            var myRules = [{
                 type: 'pattern',
                 id: 'foo',
                 name: 'foo',
                 prefix: 'Foo-',
                 properties: ['foo']
-            };
-            atomizer.addRule(myRule);
-            expect(atomizer.rules[atomizer.rules.length - 1]).to.deep.equal(myRule);
+            }];
+            atomizer.addRules(myRules);
+
+            expect(atomizer.rules[atomizer.rules.length - 1]).to.deep.equal(myRules[0]);
             expect(atomizer.rulesMap).to.have.ownProperty('Foo-');
-        });
-        it('resets the syntax', function () {
-            var atomizer = new Atomizer();
-            var myRule = {
-                type: 'pattern',
-                id: 'foo',
-                name: 'foo',
-                prefix: 'Foo-',
-                properties: ['foo']
-            };
-            atomizer.addRule(myRule);
             expect(atomizer.syntax).to.be.null;
         });
     });
@@ -98,13 +88,13 @@ describe('Atomizer()', function () {
             }];
             var atomizer = new Atomizer(null, rules);
             var syntax = atomizer.getSyntax();
-            atomizer.addRule({
+            atomizer.addRules([{
                 type: 'pattern',
                 id: 'foo',
                 name: 'Foo',
                 prefix: 'Foo-',
                 properties: ['foo']
-            });
+            }]);
             var result = atomizer.getSyntax();
             expect(syntax).to.not.equal(result);
         });

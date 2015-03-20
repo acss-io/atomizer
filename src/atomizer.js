@@ -173,25 +173,25 @@ interface AtomicTreeValue {
  */
 function Atomizer(options/*:AtomizerOptions*/, rules/*AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
-    this.rules = rules || _.cloneDeep(RULES);
+    this.rules = [];
     this.rulesMap = {};
     this.rulesRegex = [];
 
-    // create map for rules
-    this.rules.forEach(function (rule, index) {
-        this.rulesMap[rule.prefix] = index;
-    }, this);
+    // add rules
+    this.addRules(rules || RULES);
 }
 
-Atomizer.prototype.addRule = function(rule/*:AtomizerRule*/)/*:void*/ {
+Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
-    if (this.rulesMap.hasOwnProperty(rule.prefix)) {
-        throw new Error('Rule ' + rule.prefix + ' already exists');
-    }
+    rules.forEach(function (rule) {
+        if (this.rulesMap.hasOwnProperty(rule.prefix)) {
+            throw new Error('Rule ' + rule.prefix + ' already exists');
+        }
 
-    // push new rule to this.rules and update rulesMap
-    this.rules.push(rule);
-    this.rulesMap[rule.prefix] = this.rules.length - 1;
+        // push new rule to this.rules and update rulesMap
+        this.rules.push(rule);
+        this.rulesMap[rule.prefix] = this.rules.length - 1;
+    }, this);
 
     // invalidates syntax
     this.syntax = null;
