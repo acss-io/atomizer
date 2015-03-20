@@ -243,6 +243,13 @@ Atomizer.prototype.getSyntax = function () {
                         GRAMMAR.FRACTION,
                     ')',
                     '|',
+                    '(?<hex>',
+                        GRAMMAR.HEX,
+                        '(?!',
+                            GRAMMAR.UNIT,
+                        ')',
+                    ')',
+                    '|',
                     '(?<sign>',
                         GRAMMAR.SIGN,
                     ')?',
@@ -252,10 +259,6 @@ Atomizer.prototype.getSyntax = function () {
                     '(?<unit>',
                         GRAMMAR.UNIT,
                     ')?',
-                    '|',
-                    '(?<hex>',
-                        GRAMMAR.HEX,
-                    ')',
                     '|',
                     '(?<named>',
                         GRAMMAR.NAMED,
@@ -352,8 +355,8 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     var breakPoints;
 
     options = objectAssign({}, {
-        require: [],
-        morph: null,
+        // require: [],
+        // morph: null,
         banner: '',
         namespace: null,
         rtl: false
@@ -395,7 +398,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
           return '';
         }
 
-        ruleIndex = this.rulesMap[match.prop] || this.helpersMap[match.helper];
+        ruleIndex = match.prop ? this.rulesMap[match.prop] : this.helpersMap[match.helper];
 
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
@@ -421,9 +424,6 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         if (match.parentSep) {
             treeo.parentSep = match.parentSep;
         }
-        if (match.prop) {
-            treeo.prop = match.prop;
-        }
         if (match.value) {
             treeo.value = match.value;
         }
@@ -438,16 +438,11 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
             treeo.value = Math.round(match.numerator / match.denominator * 100 * 10000) / 10000 + '%';
         }
         if (match.sign) {
-            treeo.sign = match.sign;
+            treeo.value = treeo.value.replace(GRAMMAR.SIGN, '-');
         }
-        if (match.number) {
-            treeo.number = match.number;
-        }
-        if (match.unit) {
-            treeo.unit = match.unit;
-        }
+
         if (match.hex) {
-            treeo.hex = match.hex;
+            treeo.value = '#' + match.hex;
         }
         if (match.named) {
             treeo.named = match.named;
@@ -610,11 +605,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     });
 
     // Pass some options through to Absurd
-    api.morph(options.morph);
+    // if (options.morph) {
+    //     api.morph(options.morph);
+    // }
 
-    if (options.require.length > 0) {
-        api.import(options.require);
-    }
+    // if (options.require.length > 0) {
+    //     api.import(options.require);
+    // }
 
     if (options.namespace) {
         var cssoNew = {};
@@ -681,10 +678,7 @@ Atomizer.replaceConstants = function (str, rtl) {
     var start = rtl ? 'right' : 'left';
     var end = rtl ? 'left' : 'right';
 
-    if (!str && str !== 0) {
-        throw new TypeError('Parameter "str" is required.');
-    }
-    if (str.constructor !== String) {
+    if (!str || str.constructor !== String) {
         return str;
     }
 
