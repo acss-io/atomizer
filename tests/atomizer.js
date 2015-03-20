@@ -180,6 +180,26 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(['D-n--sm'], config);
             expect(result).to.equal(expected);
         });
+        it ('throws if breakpoints aren\'t valid', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: {
+                    sm: '400px'
+                }
+            };
+            expect(function() {
+                atomizer.getCss(['D-n--sm'], config);
+            }).to.throw();
+        });
+        it ('throws if breakpoints aren\'t passed as an object', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: '400px'
+            };
+            expect(function() {
+                atomizer.getCss(['D-n--sm'], config);
+            }).to.throw();
+        });
         it ('returns namespaced css when a namespace is specified in options', function () {
             var atomizer = new Atomizer();
             var config = {
