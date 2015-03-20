@@ -595,10 +595,7 @@ Atomizer.replaceConstants = function (str, rtl) {
     var start = rtl ? 'right' : 'left';
     var end = rtl ? 'left' : 'right';
 
-    if (!str && str !== 0) {
-        throw new TypeError('Parameter "str" is required.');
-    }
-    if (str.constructor !== String) {
+    if (!str || str.constructor !== String) {
         return str;
     }
 
