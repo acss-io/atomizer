@@ -290,7 +290,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         require: [],
         morph: null,
         banner: '',
-        namespace: '#atomic',
+        namespace: null,
         rtl: false
     }, options);
 
@@ -504,6 +504,12 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
 
     if (options.require.length > 0) {
         api.import(options.require);
+    }
+
+    if (options.namespace) {
+        var cssoNew = {};
+        cssoNew[options.namespace] = csso;
+        csso = cssoNew;
     }
 
     // send CSSO to absurd
