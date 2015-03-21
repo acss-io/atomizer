@@ -29,7 +29,8 @@ describe('Atomizer()', function () {
     describe('findClassNames()', function () {
         it('returns an array of valid atomic class names', function () {
             var atomizer = new Atomizer();
-            var result = atomizer.findClassNames('<div class="P-55px H-100% test:h>Op-1:h test:test>Op-1"></div>');
+            // duplicate P-55px to make sure we get only one
+            var result = atomizer.findClassNames('<div class="P-55px P-55px H-100% test:h>Op-1:h test:test>Op-1"></div>');
             var expected = ['P-55px', 'H-100%', 'test:h>Op-1:h'];
             expect(result).to.deep.equal(expected);
         });
@@ -74,9 +75,10 @@ describe('Atomizer()', function () {
                 properties: ['border']
             }];
             var atomizer = new Atomizer(null, rules);
+            var syntax = atomizer.getSyntax();
             var result = atomizer.getSyntax();
 
-            expect(atomizer.syntax).to.equal(result);
+            expect(syntax).to.equal(result);
         });
         it('returns a new syntax if syntax has changed', function () {
             var rules = [{
@@ -102,7 +104,7 @@ describe('Atomizer()', function () {
     describe('getCss()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
-            var classNames = ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'Op-1', 'C-333', 'Mt-neg10px'];
+            var classNames = ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'C-333', 'Mt-neg10px'];
             var expected = [
                 '.C-333 {',
                 '  color: #333;',
@@ -116,7 +118,7 @@ describe('Atomizer()', function () {
                 '.Mt-neg10px {',
                 '  margin-top: -10px;',
                 '}',
-                '.test:hover>.test\\:h\\>Op-1\\:h:hover, .Op-1 {',
+                '.test:hover>.test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1 {',
                 '  opacity: 1;',
                 '}',
                 '.P-55px {',
@@ -125,6 +127,65 @@ describe('Atomizer()', function () {
             ].join('\n');
             var result = atomizer.getCss(classNames);
             expect(result).to.equal(expected);
+        });
+        it ('returns expected css of a helper class', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer(null, [
+                // params
+                {
+                    type: 'helper',
+                    name: 'Foo',
+                    prefix: 'Foo',
+                    declaration: {
+                        'param0': '$0',
+                        'param1': '$1'
+                    },
+                    rules: {
+                        'rule': {
+                           'foo': 'bar'
+                        }
+                    }
+                },
+                // empty
+                {
+                    type: 'helper',
+                    name: 'Bar',
+                    prefix: 'Bar',
+                    declaration: {
+                        'bar': 'foo'
+                    }
+                }
+            ]);
+            var classNames = ['Foo(1,10px)', 'Bar()'];
+            var expected = [
+                'rule {',
+                '  foo: bar;',
+                '}',
+                '.Foo\\(1\\,10px\\) {',
+                '  param0: 1;',
+                '  param1: 10px;',
+                '}',
+                '.Bar\\(\\) {',
+                '  bar: foo;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(classNames);
+            expect(result).to.equal(expected);
+        });
+        it ('throws if helper class doesn\'t have a declaration', function () {
+            expect(function() {
+                // set rules here so if helper change, we don't fail the test
+                var atomizer = new Atomizer(null, [
+                    // empty
+                    {
+                        type: 'helper',
+                        name: 'Bar',
+                        prefix: 'Bar'
+                    }
+                ]);
+                var classNames = ['Bar()'];
+                atomizer.getCss(classNames);
+            }).to.throw();
         });
         it ('returns expected css by reading an array of class names in config only', function () {
             var atomizer = new Atomizer();
@@ -170,7 +231,39 @@ describe('Atomizer()', function () {
             expect(result).to.equal(expected);
         });
         it ('returns expected css value with breakpoints', function () {
-            var atomizer = new Atomizer();
+            var atomizer = new Atomizer(null, [
+                {
+                    type: 'pattern',
+                    name: 'Display',
+                    prefix: 'D-',
+                    properties: ['display'],
+                    rules: [
+                        {suffix: 'n', values: ['none']}
+                    ]
+                },
+                {
+                    type: 'pattern',
+                    name: 'Padding (all edges)',
+                    prefix: 'P-',
+                    properties: ['padding']
+                },
+                {
+                    type: 'helper',
+                    name: 'Foo',
+                    prefix: 'Foo',
+                    declaration: {
+                        foo: 'bar'
+                    }
+                },
+                {
+                    type: 'helper',
+                    name: 'Bar',
+                    prefix: 'Bar',
+                    declaration: {
+                        bar: '$0'
+                    }
+                }
+            ]);
             var config = {
                 custom: {
                     "foo": "10px"
@@ -187,9 +280,15 @@ describe('Atomizer()', function () {
                 '  .P-foo--sm {',
                 '    padding: 10px;',
                 '  }',
+                '  .Foo\\(\\)--sm {',
+                '    foo: bar;',
+                '  }',
+                '  .Bar\\(10px\\)--sm {',
+                '    bar: 10px;',
+                '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['D-n--sm', 'P-foo--sm'], config);
+            var result = atomizer.getCss(['D-n--sm', 'P-foo--sm', 'Foo()--sm', 'Bar(10px)--sm'], config);
             expect(result).to.equal(expected);
         });
         it ('throws if breakpoints aren\'t valid', function () {

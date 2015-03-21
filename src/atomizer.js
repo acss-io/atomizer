@@ -218,7 +218,9 @@ Atomizer.prototype.getSyntax = function () {
     var rulesKeys;
     var mainSyntax;
 
-    if (!this.syntax) {
+    if (this.syntax) {
+        return this.syntax;
+    } else {
         helpersKeys = Object.keys(this.helpersMap);
         rulesKeys = Object.keys(this.rulesMap);
 
@@ -294,9 +296,9 @@ Atomizer.prototype.getSyntax = function () {
         ].join('');
 
         this.syntax = XRegExp(syntax, 'g');
-    }
 
-    return this.syntax;
+        return this.syntax;
+    }
 };
 
 /**
@@ -457,6 +459,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                         // build declaration (iterate prop the value)
                         rule.properties.forEach(function (property) {
                             keywordRule.values.forEach(function (value) {
+                                /* istanbul ignore else */
                                 if (!treeo.declaration) {
                                     treeo.declaration = {};
                                 }
@@ -550,22 +553,34 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
 
                 // helper rules doesn't have the same format as patterns
                 if (rule.type === 'helper') {
-                    cssoHelpers = {};
+                    cssoHelpers[className] = {};
 
                     if (breakPoint) {
                         cssoHelpers[className][breakPoint] = {};
                     }
-                    if (rule.declaration) {
-                        cssoHelpers[className] = rule.declaration;
+                    if (!rule.declaration) {
+                        throw new Error('Declaration key is expected in a helper class. Helper class: ' + rule.prefix);
+                    }
 
-                        // we have params in declaration
-                        if (treeo.params) {
-                            treeo.params.forEach(function (param, index) {
+                    if (breakPoint) {
+                        cssoHelpers[className][breakPoint] = rule.declaration;
+                    } else {
+                        cssoHelpers[className] = rule.declaration;
+                    }
+
+                    // we have params in declaration
+                    if (treeo.params) {
+                        treeo.params.forEach(function (param, index) {
+                            if (breakPoint) {
+                                for (var prop in cssoHelpers[className][breakPoint]) {
+                                    cssoHelpers[className][breakPoint][prop] = cssoHelpers[className][breakPoint][prop].replace('$' + index, param);
+                                }
+                            } else {
                                 for (var prop in cssoHelpers[className]) {
                                     cssoHelpers[className][prop] = cssoHelpers[className][prop].replace('$' + index, param);
                                 }
-                            });
-                        }
+                            }
+                        });
                     }
                     if (rule.rules) {
                         _.merge(csso, rule.rules);
@@ -587,17 +602,15 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                     }
                     // a custom class name not declared in the config might not have values
                     else if (treeo.value) {
-                        if (rule.properties) {
-                            rule.properties.forEach(function (property) {
-                                var value = Atomizer.replaceConstants(treeo.value, options.rtl);
-                                property = Atomizer.replaceConstants(property, options.rtl);
-                                if (breakPoint) {
-                                    csso[className][breakPoint][property] = value;
-                                } else {
-                                    csso[className][property] = value;
-                                }
-                            });
-                        }
+                        rule.properties.forEach(function (property) {
+                            var value = Atomizer.replaceConstants(treeo.value, options.rtl);
+                            property = Atomizer.replaceConstants(property, options.rtl);
+                            if (breakPoint) {
+                                csso[className][breakPoint][property] = value;
+                            } else {
+                                csso[className][property] = value;
+                            }
+                        });
                     }
                 }
             });
