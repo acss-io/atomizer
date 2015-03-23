@@ -23,7 +23,8 @@ var objectAssign = require('object-assign');
 var Absurd = require('absurd');
 var XRegExp = require('xregexp').XRegExp;
 
-var RULES = require('./rules.js');
+var RULES = require('./rules.js').concat(require('./helpers.js'));
+
 var PSEUDOS = {
     ':active':          ':a',
     ':checked':         ':c',
@@ -72,6 +73,7 @@ var GRAMMAR = {
     'PARENT'     : '[^\\s:>_]+',
     'PARENT_SEP' : '[>_]',
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
+    'PARAMS'     : '\\((?<params>(?:.*?,?)+)\\)',
     'SIGN'       : 'neg',
     'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
     'UNIT'       : '[a-zA-Z%]+',
@@ -175,7 +177,7 @@ function Atomizer(options/*:AtomizerOptions*/, rules/*AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
     this.rules = [];
     this.rulesMap = {};
-    this.rulesRegex = [];
+    this.helpersMap = {};
 
     // add rules
     this.addRules(rules || RULES);
@@ -190,7 +192,12 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
         // push new rule to this.rules and update rulesMap
         this.rules.push(rule);
-        this.rulesMap[rule.prefix] = this.rules.length - 1;
+
+        if (rule.type === 'pattern') {
+            this.rulesMap[rule.prefix] = this.rules.length - 1;
+        } else {
+            this.helpersMap[rule.prefix] = this.rules.length - 1;
+        }
     }, this);
 
     // invalidates syntax
@@ -205,10 +212,71 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
  */
 Atomizer.prototype.getSyntax = function () {
     var syntax;
-    var prop;
+    var helperRegex;
+    var propRegex;
+    var helpersKeys;
+    var rulesKeys;
+    var mainSyntax;
 
-    if (!this.syntax) {
-        prop = '(?:' + Object.keys(this.rulesMap).join('|') + ')';
+    if (this.syntax) {
+        return this.syntax;
+    } else {
+        helpersKeys = Object.keys(this.helpersMap);
+        rulesKeys = Object.keys(this.rulesMap);
+
+        // helpers regex
+        if (helpersKeys.length) {            
+            helperRegex = [
+                // prefix
+                '(?<helper>' + helpersKeys.join('|') + ')',
+                // required param ()
+                GRAMMAR.PARAMS
+            ].join('');
+            mainSyntax = helperRegex;
+        }
+        // rules regex
+        if (rulesKeys.length) {
+            propRegex = [
+                // prefix
+                '(?<prop>' + rulesKeys.join('|') + ')',
+                // required value
+                '(?<value>',
+                    '(?<fraction>',
+                        GRAMMAR.FRACTION,
+                    ')',
+                    '|',
+                    '(?<hex>',
+                        GRAMMAR.HEX,
+                        '(?!',
+                            GRAMMAR.UNIT,
+                        ')',
+                    ')',
+                    '|',
+                    '(?<sign>',
+                        GRAMMAR.SIGN,
+                    ')?',
+                    '(?<number>',
+                        GRAMMAR.NUMBER,
+                    ')',
+                    '(?<unit>',
+                        GRAMMAR.UNIT,
+                    ')?',
+                    '|',
+                    '(?<named>',
+                        GRAMMAR.NAMED,
+                    ')',
+                ')',
+                '(?<important>',
+                    GRAMMAR.IMPORTANT,
+                ')?',
+            ].join('');
+            mainSyntax = propRegex;
+        }
+
+        if (helpersKeys.length && rulesKeys.length) {
+            mainSyntax = ['(?:', helperRegex , '|', propRegex,')'].join('');
+        }
+
         syntax = [
             // word boundary
             GRAMMAR.BOUNDARY,
@@ -216,40 +284,7 @@ Atomizer.prototype.getSyntax = function () {
             '(?<parentSelector>',
                 GRAMMAR.PARENT_SELECTOR,
             ')?',
-            // required property
-            '(?<prop>',
-                prop,
-            ')',
-            // required value
-            '(?<value>',
-                '(?<fraction>',
-                    GRAMMAR.FRACTION,
-                ')',
-                '|',
-                '(?<hex>',
-                    GRAMMAR.HEX,
-                    '(?!',
-                    GRAMMAR.UNIT,
-                    ')',
-                ')',
-                '|',
-                '(?<sign>',
-                    GRAMMAR.SIGN,
-                ')?',
-                '(?<number>',
-                    GRAMMAR.NUMBER,
-                ')',
-                '(?<unit>',
-                    GRAMMAR.UNIT,
-                ')?',
-                '|',
-                '(?<named>',
-                    GRAMMAR.NAMED,
-                ')',
-            ')',
-            '(?<important>',
-                GRAMMAR.IMPORTANT,
-            ')?',
+            mainSyntax,
             // optional pseudo
             '(?<valuePseudo>',
                 GRAMMAR.PSEUDO,
@@ -261,9 +296,9 @@ Atomizer.prototype.getSyntax = function () {
         ].join('');
 
         this.syntax = XRegExp(syntax, 'g');
-    }
 
-    return this.syntax;
+        return this.syntax;
+    }
 };
 
 /**
@@ -313,6 +348,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     var matches;
     var tree/*:AtomicTree*/ = {};
     var csso = {};
+    var cssoHelpers = {};
     var absurd = Absurd();
     var content = '';
     var warnings = [];
@@ -358,15 +394,18 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         var namedFound = false;
         var rule;
         var treeo;
+        var ruleIndex;
 
         if (!match) {
           return '';
         }
 
+        ruleIndex = match.prop ? this.rulesMap[match.prop] : this.helpersMap[match.helper];
+
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
         // as it will return the index given an prefix.
-        rule = this.rules[this.rulesMap[match.prop]];
+        rule = this.rules[ruleIndex];
         treeo = {
             className: match[0]
         };
@@ -390,6 +429,9 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         if (match.value) {
             treeo.value = match.value;
         }
+        if (match.params) {
+            treeo.params = match.params.split(',');
+        }
         if (match.fraction) {
             // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
             // making clear the steps involved:
@@ -400,6 +442,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         if (match.sign) {
             treeo.value = treeo.value.replace(GRAMMAR.SIGN, '-');
         }
+
         if (match.hex) {
             treeo.value = '#' + match.hex;
         }
@@ -416,6 +459,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                         // build declaration (iterate prop the value)
                         rule.properties.forEach(function (property) {
                             keywordRule.values.forEach(function (value) {
+                                /* istanbul ignore else */
                                 if (!treeo.declaration) {
                                     treeo.declaration = {};
                                 }
@@ -500,28 +544,74 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
                 // add the dot for the class
                 className = ['.', className].join('');
 
-                // finaly, create the object
-                csso[className] = {};
-                if (breakPoint) {
-                    csso[className][breakPoint] = {};
-                }
+                // fix the comma problem in Absurd
+                // @TODO temporary until we replace Absurd
+                // See also the return of this method.
+                className = className.replace(',', '__COMMA__');
 
-                if (treeo.declaration) {
+                // finaly, create the object
+
+                // helper rules doesn't have the same format as patterns
+                if (rule.type === 'helper') {
+                    cssoHelpers[className] = {};
+
                     if (breakPoint) {
-                        csso[className][breakPoint] = treeo.declaration;
-                    } else {
-                        csso[className] = treeo.declaration;
+                        cssoHelpers[className][breakPoint] = {};
                     }
-                } else {
-                    rule.properties.forEach(function (property) {
-                        var value = Atomizer.replaceConstants(treeo.value, options.rtl);
-                        property = Atomizer.replaceConstants(property, options.rtl);
+                    if (!rule.declaration) {
+                        throw new Error('Declaration key is expected in a helper class. Helper class: ' + rule.prefix);
+                    }
+
+                    if (breakPoint) {
+                        cssoHelpers[className][breakPoint] = rule.declaration;
+                    } else {
+                        cssoHelpers[className] = rule.declaration;
+                    }
+
+                    // we have params in declaration
+                    if (treeo.params) {
+                        treeo.params.forEach(function (param, index) {
+                            if (breakPoint) {
+                                for (var prop in cssoHelpers[className][breakPoint]) {
+                                    cssoHelpers[className][breakPoint][prop] = cssoHelpers[className][breakPoint][prop].replace('$' + index, param);
+                                }
+                            } else {
+                                for (var prop in cssoHelpers[className]) {
+                                    cssoHelpers[className][prop] = cssoHelpers[className][prop].replace('$' + index, param);
+                                }
+                            }
+                        });
+                    }
+                    if (rule.rules) {
+                        _.merge(csso, rule.rules);
+                    }
+                } else/* if (type === 'pattern')*/ {
+                    csso[className] = {};
+
+                    if (breakPoint) {
+                        csso[className][breakPoint] = {};
+                    }
+
+                    // named classes have their property/value already assigned
+                    if (treeo.declaration) {
                         if (breakPoint) {
-                            csso[className][breakPoint][property] = value;
+                            csso[className][breakPoint] = treeo.declaration;
                         } else {
-                            csso[className][property] = value;
+                            csso[className] = treeo.declaration;
                         }
-                    });
+                    }
+                    // a custom class name not declared in the config might not have values
+                    else if (treeo.value) {
+                        rule.properties.forEach(function (property) {
+                            var value = Atomizer.replaceConstants(treeo.value, options.rtl);
+                            property = Atomizer.replaceConstants(property, options.rtl);
+                            if (breakPoint) {
+                                csso[className][breakPoint][property] = value;
+                            } else {
+                                csso[className][property] = value;
+                            }
+                        });
+                    }
                 }
             });
         }
@@ -541,6 +631,13 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         cssoNew[options.namespace] = csso;
         csso = cssoNew;
     }
+    if (options.helpersNS) {
+        var cssoHelpersNew = {};
+        cssoHelpersNew[options.helpersNS] = cssoHelpers;
+        cssoHelpers = cssoHelpersNew;
+    }
+
+    _.merge(csso, cssoHelpers);
 
     // send CSSO to absurd
     absurd.add(csso);
@@ -551,6 +648,9 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         }
         content = options.banner + result;
     }, options);
+
+    // fix the comma problem in Absurd
+    content = content.replace(/__COMMA__/g, ',');
 
     return content;
 };
