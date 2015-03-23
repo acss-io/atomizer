@@ -14,6 +14,132 @@
  **/
 
 module.exports = [
+/**
+ ==================================================================
+ ANIMATION
+ ==================================================================
+ */
+    {
+        type: 'pattern',
+        id: 'animation',
+        name: 'Animation',
+        prefix: '.Anim-',
+        properties: ['animation'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true
+    },
+    {
+        type: 'pattern',
+        id: 'animation-delay',
+        name: 'Animation delay',
+        prefix: '.Animdel-',
+        properties: ['animation-delay'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true
+    },
+    {
+        type: 'pattern',
+        id: 'animation-direction',
+        name: 'Animation direction',
+        prefix: '.Animdir-',
+        properties: ['animation-direction'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'a', values: ['alternate']},
+            {suffix: 'ar', values: ['alternate-reverse']},
+            {suffix: 'n', values: ['normal']},
+            {suffix: 'r', values: ['reverse']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'animation-duration',
+        name: 'Animation duration',
+        prefix: '.Animdur-',
+        properties: ['animation-duration'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true
+    },
+    {
+        type: 'pattern',
+        id: 'animation-fill-mode',
+        name: 'Animation fill mode',
+        prefix: '.Animfm-',
+        properties: ['animation-fill-mode'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'b', values: ['backwards']},
+            {suffix: 'bo', values: ['both']},
+            {suffix: 'f', values: ['forwards']},
+            {suffix: 'n', values: ['none']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'animation-iteration-count',
+        name: 'Animation iteration count',
+        prefix: '.Animic-',
+        properties: ['animation-iteration-count'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'i', values: ['infinite']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'animation-name',
+        name: 'Animation name',
+        prefix: '.Animn-',
+        properties: ['animation-name'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'n', values: ['none']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'animation-play-state',
+        name: 'Animation play state',
+        prefix: '.Animps-',
+        properties: ['animation-play-state'],
+        allowCustom: false,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'p', values: ['paused']},
+            {suffix: 'r', values: ['running']}
+        ]
+    },
+    {
+        type: 'pattern',
+        id: 'animation-timing-function',
+        name: 'Animation timing function',
+        prefix: '.Animtf-',
+        properties: ['animation-timing-function'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'e', values: ['ease']},
+            {suffix: 'ei', values: ['ease-in']},
+            {suffix: 'eo', values: ['ease-out']},
+            {suffix: 'eio', values: ['ease-in-out']},
+            {suffix: 'l', values: ['linear']},
+            {suffix: 'se', values: ['step-send']},
+            {suffix: 'ss', values: ['step-start']}
+        ]
+    },
     /**
      ==================================================================
      BORDERS
@@ -1886,6 +2012,24 @@ module.exports = [
             {suffix: 'inh', values: ['inherit']}
         ]
     },
+    /**
+     ==================================================================
+     TRANSFORM
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        id: 'transform',
+        name: 'Transform',
+        prefix: '.Trf-',
+        properties: ['transform'],
+        allowCustom: true,
+        allowCustomAutoSuffix: false,
+        allowSuffixToValue: false
+    },
+    // We also need to be able to manage values within value?
+    // For example "Trfr-90deg" -> "transform: rotate(90deg)"
+    // And we need aliases for those as well (i.e. Rot-90deg)
     /**
      ==================================================================
      TRANSITION
