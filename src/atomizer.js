@@ -446,7 +446,12 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
             treeo.parentSep = match.parentSep;
         }
         if (match.value) {
-            treeo.value = match.value;
+            // is this a valid value?
+            if (rule.allowSuffixToValue) {
+                treeo.value = match.value;
+            } else {
+                match.named = match.value;
+            }
         }
         if (match.params) {
             treeo.params = match.params.split(',');

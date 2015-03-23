@@ -116,18 +116,18 @@ describe('Atomizer()', function () {
         });
         it ('returns a valid config object when given classes and existing config', function () {
             var atomizer = new Atomizer();
-            var classNames = ['P-55px'];
+            var classNames = ['P-55px', 'D-b'];
             var existingConfig = {
                 custom: {
                     heading: '80px'
                 },
-                classNames: ['M-10px']
+                classNames: ['M-10px', 'D-ib']
             };
             var expected = {
                 custom: {
                     heading: '80px'
                 },
-                classNames: ['P-55px', 'M-10px']
+                classNames: ['P-55px', 'D-b', 'M-10px', 'D-ib']
             };
             var result = atomizer.getConfig(classNames, existingConfig);
             expect(result).to.deep.equal(expected);
@@ -250,6 +250,22 @@ describe('Atomizer()', function () {
             var expected = [
                 '.C-brand-color {',
                 '  color: #400090;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css value declared in custom when using numeric keys', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    '1': '10px solid #ccc'
+                },
+                classNames: ['Bdt-1']
+            };
+            var expected = [
+                '.Bdt-1 {',
+                '  border-top: 10px solid #ccc;',
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(config);
