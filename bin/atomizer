@@ -102,8 +102,11 @@ if (filesToParse.length) {
     classnames = parseFiles(filesToParse, !!params.R);
 }
 
+// Finalize the config
+config = atomizer.getConfig(classnames, config);
+
 // Create the CSS
-content = atomizer.getCss(classnames, config, options);
+content = atomizer.getCss(config, options);
 
 // Output the CSS
 var outfile = params.o || params.outfile;

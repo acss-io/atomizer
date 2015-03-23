@@ -325,10 +325,10 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
 };
 
 /**
- * Get CSS given an array of class names, a config and css options.
+ * Get Atomizer config given an array of class names and an optional config object
  * examples:
  *
- * getCss(['Op-1', 'D-n:h', 'Fz-heading'], {
+ * getConfig(['Op-1', 'D-n:h', 'Fz-heading'], {
  *     custom: {
  *         heading: '80px'
  *     },
@@ -342,9 +342,35 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
  *     rtl: true
  * });
  *
- * getCss(['Op-1', 'D-n:h']);
+ * getConfig(['Op-1', 'D-n:h']);
  */
-Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:string*/ {
+Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:AtomizerConfig*/)/*:AtomizerConfig*/ {
+    config = config || { classNames: [] };
+    // merge classnames with config
+    config.classNames = _.union(classNames || [], config.classNames);
+    return config;
+};
+
+/**
+ * Get CSS given an array of class names, a config and css options.
+ * examples:
+ *
+ * getCss({
+ *     custom: {
+ *         heading: '80px'
+ *     },
+ *     breakPoints: {
+ *         'sm': '@media(min-width:500px)',
+ *         'md': '@media(min-width:900px)',
+ *         'lg': '@media(min-width:1200px)'
+ *     },
+ *     classNames: ['D-b', 'Op-1', 'D-n:h', 'Fz-heading']
+ * }, {
+ *     rtl: true
+ * });
+ *
+ */
+Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:string*/ {
     var matches;
     var tree/*:AtomicTree*/ = {};
     var csso = {};
@@ -364,13 +390,6 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
         rtl: false
     }, options);
 
-    classNames = classNames || [];
-
-    // merge classnames with config
-    if (config && config.classNames) {
-        classNames = _.union(classNames, config.classNames);
-    }
-
     // validate config.breakPoints
     if (config && config.breakPoints) {
         if (!_.isObject(config.breakPoints)) {
@@ -389,7 +408,7 @@ Atomizer.prototype.getCss = function (classNames/*:string[]*/, config/*:Atomizer
     }
 
     // each match is a valid class name
-    classNames.forEach(function (className) {
+    config.classNames.forEach(function (className) {
         var match = XRegExp.exec(className, syntaxRegex);
         var namedFound = false;
         var rule;
