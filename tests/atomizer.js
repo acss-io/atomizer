@@ -145,7 +145,7 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'C-333', 'Mt-neg10px']
+                classNames: ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'C-333', 'Mt-neg10px', 'W-1/3']
             };
             var expected = [
                 '.C-333 {',
@@ -163,8 +163,14 @@ describe('Atomizer()', function () {
                 '.test:hover>.test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1 {',
                 '  opacity: 1;',
                 '}',
+                '.Op-1\\! {',
+                '  opacity: 1 !important;',
+                '}',
                 '.P-55px {',
                 '  padding: 55px;',
+                '}',
+                '.W-1\\/3 {',
+                '  width: 33.3333%;',
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(config);
