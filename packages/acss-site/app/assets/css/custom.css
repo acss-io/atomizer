@@ -123,13 +123,13 @@ li.selected a {
 #splash {
     background: #fff  50%;
     background-size: 80%;
-    transition: background-size .3s;
+    transition: background-size 1.5s;
     min-height: 360px;
     background-image:url(../images/background.png);
 }
 
 #splash:hover {
-    background-size: 400%;
+    background-size: 105%;
 }
 
 /* Colors =========================================================== */
