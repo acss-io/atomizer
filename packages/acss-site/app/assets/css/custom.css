@@ -1,6 +1,5 @@
 /**
- * TODO: take care of these 4 rules
- * Should belong to Atomic.css somehow
+ * TODO: Atomizer will take care of these 4 rules
  */
 #atomic .D-ib {
     *display: inline;
@@ -89,11 +88,6 @@ li.selected a {
     cursor: text;
 }
 
-#aside,
-#aside li a {
-    position:relative;
-}
-
 #aside:after {
     right: 50px; /* same as padding-right on #aside */
     z-index: -1;
@@ -138,7 +132,7 @@ li.selected a {
  * Foreground
  */
 #aside li.selected a {
-    color: #555 !important;
+    font-weight: 500;
 }
 
 #aside li.selected a:after {
@@ -168,32 +162,30 @@ pre code {
     padding: 7px 20px;
     border-radius: 2px;
 }
-
-.warning {
+.warning,
+.info,
+.important,
+.success {
     border-style: solid;
-    border-color: #ff8b00;
     border-width: 0 7px;
+}
+.warning {
+    border-color: #ff8b00;
     background: #ffe8be;
 }
 
 .info {
-    border-style: solid;
     border-color: #1d5cab;
-    border-width: 0 7px;
     background: #D0E8FD;
 }
 
 .important {
-    border-style: solid;
     border-color: #FF0061;
-    border-width: 0 7px;
     background: #FFDDEA;
 }
 
 .success {
-    border-style: solid;
     border-color: #5ed500;
-    border-width: 0 7px;
     background: #E0F9C5;
 }
 
