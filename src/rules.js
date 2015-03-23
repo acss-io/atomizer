@@ -1233,6 +1233,7 @@ module.exports = [
         prefix: '.H-',
         properties: ['height'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         allowFraction: true,
         rules: [
@@ -1330,6 +1331,7 @@ module.exports = [
         prefix: '.Lh-',
         properties: ['line-height'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'inh', values: ['inherit']},
@@ -1350,6 +1352,7 @@ module.exports = [
         prefix: '.M-',
         properties: ['margin'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1365,6 +1368,7 @@ module.exports = [
         prefix: '.Mt-',
         properties: ['margin-top'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1380,6 +1384,7 @@ module.exports = [
         prefix: '.Mend-',
         properties: ['margin-$END'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1395,6 +1400,7 @@ module.exports = [
         prefix: '.Mb-',
         properties: ['margin-bottom'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1410,6 +1416,7 @@ module.exports = [
         prefix: '.Mstart-',
         properties: ['margin-$START'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1425,6 +1432,7 @@ module.exports = [
         prefix: '.Mx-',
         properties: ['margin-$START', 'margin-$END'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto', 'auto']},
@@ -1440,6 +1448,7 @@ module.exports = [
         prefix: '.My-',
         properties: ['margin-top', 'margin-bottom'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto', 'auto']},
@@ -1567,6 +1576,7 @@ module.exports = [
         prefix: '.T-',
         properties: ['top'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1581,6 +1591,7 @@ module.exports = [
         prefix: '.End-',
         properties: ['$END'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1595,6 +1606,7 @@ module.exports = [
         prefix: '.B-',
         properties: ['bottom'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1609,6 +1621,7 @@ module.exports = [
         prefix: '.Start-',
         properties: ['$START'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
@@ -1722,6 +1735,7 @@ module.exports = [
         properties: ['padding'],
         allowCustom: true,
         allowSuffixToValue: true,
+        allowDefaultUnit: true,
         rules: [
             {suffix: '0', values: [0]},
             {suffix: 'inh', values: ['inherit']}
@@ -1735,6 +1749,7 @@ module.exports = [
         prefix: '.Pt-',
         properties: ['padding-top'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
@@ -1749,6 +1764,7 @@ module.exports = [
         prefix: '.Pend-',
         properties: ['padding-$END'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
@@ -1763,6 +1779,7 @@ module.exports = [
         prefix: '.Pb-',
         properties: ['padding-bottom'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
@@ -1777,6 +1794,7 @@ module.exports = [
         prefix: '.Pstart-',
         properties: ['padding-$START'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0]},
@@ -1791,6 +1809,7 @@ module.exports = [
         prefix: '.Px-',
         properties: ['padding-$START', 'padding-$END'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0, 0]},
@@ -1805,6 +1824,7 @@ module.exports = [
         prefix: '.Py-',
         properties: ['padding-top', 'padding-bottom'],
         allowCustom: true,
+        allowDefaultUnit: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: '0', values: [0, 0]},
@@ -2222,6 +2242,7 @@ module.exports = [
         properties: ['width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
+        allowDefaultUnit: true,
         allowFraction: true,
         allowSuffixToValue: true,
         rules: [

@@ -307,6 +307,53 @@ describe('getConfig()', function () {
         config = atomizer.getConfig(classNames, defaultConfig);
         expect(config).to.deep.equal(atomizer.mergeConfigs([defaultConfig, expectedConfig]));
     });
+
+    it("should append the default unit", function () {
+        var classNames = ['P-1', 'M-0.3', 'P-2%', 'C-333'];
+
+        var defaultConfig = {
+            defaultUnit: 'px',
+            margin: {
+                defaultUnit: 'em'
+            }
+        };
+
+        var expectedConfig = {
+            defaultUnit: 'px',
+            padding: {
+                custom: [
+                    {
+                        "suffix": "2%",
+                        "values": [ "2%" ]
+                    },
+                    {
+                        "suffix": "1",
+                        "values": [ "1px" ]
+                    }
+                ]
+            },
+            margin: {
+                defaultUnit: 'em',
+                custom: [
+                    {
+                        "suffix": "0.3",
+                        "values": [ "0.3em" ]
+                    }
+                ]
+            },
+            color: {
+                custom: [
+                    {
+                        "suffix": "333",
+                        "values": [ "#333" ]
+                    }
+                ]
+            }
+        };
+
+        var config = atomizer.getConfig(classNames, defaultConfig);
+        expect(config).to.deep.equal(expectedConfig);
+    });
 });
 
 describe('mergeConfigs()', function () {
