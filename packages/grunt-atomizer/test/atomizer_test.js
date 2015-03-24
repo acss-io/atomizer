@@ -26,6 +26,16 @@ exports.atomizer = {
         // setup here if necessary
         done();
     },
+    noConfigWithParsing: function(test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/noConfigWithParsing.css');
+        var expected = grunt.file.read('test/expected/noConfigWithParsing.css');
+
+        test.equal(actual, expected, 'should generate the expected css by passing only the source.');
+
+        test.done();
+    },
     configFileOnly: function(test) {
         test.expect(1);
 

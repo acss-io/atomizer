@@ -53,10 +53,6 @@ module.exports = function (grunt) {
             options.require = grunt.file.expand(options.require);
         }
 
-        if (!options.configFile && !options.config) {
-            grunt.fail.warn('`options.config` or `options.configFile` is required.');
-        }
-
         if (options.configFile) {
             configFile = require(path.resolve(options.configFile));
             validateConfig(configFile, 'options.configFile');
