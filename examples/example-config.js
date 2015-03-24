@@ -11,19 +11,22 @@ module.exports = {
     'classNames': [
         // normal
         'Td-u',
+        // pseudos
         'Td-u:h',
+        // breakpoints
         'Td-u--sm',
         // custom
-        'foo>W-uh',
         'H-uh',
         'C-primary',
+        // descendent
+        'foo>W-uh',
         // important
         'D-n!',
         'Op-1!',
         // rtl
         'Fl-start',
         'Fl-end',
-        // more lengthy then the previous one
+        // percentages
         'W-1/12',
         'W-2/12',
         'W-3/12',
