@@ -1,13 +1,20 @@
 module.exports = {
-    'custom': {
-        uh: '79px',
-        primary: '#f6a1e1'
-    },
+    // Breakpoints, for media queries
     breakPoints: {
         'sm': '@media(min-width:500px)',
         'md': '@media(min-width:900px)',
         'lg': '@media(min-width:1200px)'
     },
+
+    // Custom suffixes, which allow you to reuse common style values 
+    // in multiple CSS classes
+    'custom': {
+        uh: '79px',
+        primary: '#f6a1e1'
+    },
+
+    // Classnames.  This list may be augmented by any classes
+    // found during the optional parsing of content. 
     'classNames': [
         // normal
         'Td-u',
@@ -15,7 +22,7 @@ module.exports = {
         'Td-u:h',
         // breakpoints
         'Td-u--sm',
-        // custom
+        // custom suffixes - maps to 'custom' object properties above
         'H-uh',
         'C-primary',
         // descendent
