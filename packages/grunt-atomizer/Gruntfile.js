@@ -30,12 +30,7 @@ module.exports = function(grunt) {
             // here we test if passing a configFile works as expected
             configFileOnly: {
                 options: {
-                    configFile: 'test/fixtures/sample-config.js',
-                    breakPoints: {
-                        'sm': '767px',
-                        'md': '992px',
-                        'lg': '1200px'
-                    }
+                    configFile: 'test/fixtures/sample-config.js'
                 },
                 files: [
                     {
@@ -48,9 +43,7 @@ module.exports = function(grunt) {
                 options: {
                     namespace: '#atomic',
                     config: {
-                        display: {
-                            ib: true
-                        }
+                        classNames: ['D-ib']
                     }
                 },
                 files: [
@@ -63,20 +56,11 @@ module.exports = function(grunt) {
             configBoth: {
                 options: {
                     namespace: '#atomic',
-                    breakPoints: {
-                        'sm': '767px',
-                        'md': '992px',
-                        'lg': '1200px'
-                    },
                     configFile: 'test/fixtures/sample-config.js',
                     config: {
-                        'border-top': {
-                            custom: [
-                                {suffix: '1', values: ['10px solid #ccc']}
-                            ]
-                        },
-                        display: {
-                            ib: true
+                        classNames: ['D-ib'],
+                        custom: {
+                            '1': '10px solid #ccc'
                         }
                     }
                 },
@@ -91,17 +75,10 @@ module.exports = function(grunt) {
             configBothWithParsing: {
                 options: {
                     namespace: '#atomic',
-                    breakPoints: {
-                        'sm': '767px',
-                        'md': '992px',
-                        'lg': '1200px'
-                    },
                     configFile: 'test/fixtures/sample-config.js',
                     configOutput: 'tmp/configOutput.json',
                     config: {
-                        display: {
-                            b: true
-                        }
+                        classNames: ['D-b']
                     }
                 },
                 files: [

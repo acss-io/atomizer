@@ -5,9 +5,26 @@
 
 'use strict';
 
-var atomizer = require('atomizer');
+var Atomizer = require('atomizer');
 var path = require('path');
 var _ = require('lodash');
+
+/**
+ * helper function to handle merging array of objects
+ * @param  {mixed} a Data of the first merge param
+ * @param  {mixed} b Data of the second merge param
+ * @return {mixed}   The merged object
+ */
+var handleMergeArrays = function (a, b) {
+    if (_.isArray(a) && _.isArray(b)) {
+        a.forEach(function(item){
+            if(_.findIndex(b, item) === -1) {
+                b.push(item);
+            }
+        });
+        return b;
+    }
+};
 
 module.exports = function (grunt) {
 
@@ -28,11 +45,7 @@ module.exports = function (grunt) {
      */
     grunt.registerMultiTask('atomizer', 'Grunt plugin to execute Atomizer given a config file', function () {
         var done = this.async();
-        var options = this.options({
-            configFile: null,
-            configOutput: null,
-            config: null
-        });
+        var options = this.options();
         var gruntConfig = {}; // the config if passed directly via the grunt task
         var configFile;
 
@@ -52,7 +65,7 @@ module.exports = function (grunt) {
 
         if (options.config) {
             validateConfig(options.config, 'options.config');
-            gruntConfig = _.merge(gruntConfig, options.config);
+            gruntConfig = _.merge(gruntConfig, options.config, handleMergeArrays);
         }
 
         if (options.namespace && grunt.util.kindOf(options.namespace) !== 'string') {
@@ -65,29 +78,26 @@ module.exports = function (grunt) {
             }
         }
 
+        var atomizer = new Atomizer({ verbose: (grunt.option.flags().indexOf('--verbose') > -1) });
+
         this.files.forEach(function (f) {
             var config = {};
             var content;
 
             if (f.src) {
-                var classNamesObj = {};
+                var classNames = [];
                 f.src.forEach(function (filePath) {
-                    atomizer.parse(grunt.file.read(filePath), classNamesObj);
+                    classNames = _.union(classNames, atomizer.findClassNames(grunt.file.read(filePath)));
                 });
 
-                // Logging
-                for (var className in classNamesObj) {
-                    grunt.verbose.writeln('Found `' + className + '`, occurrences: ' + classNamesObj[className]);
-                }
-
                 // get the config object given an array of atomic class names
-                config = atomizer.getConfig(_.keys(classNamesObj), gruntConfig, grunt.option.flags().indexOf('--verbose') > -1);
+                config = atomizer.getConfig(classNames, gruntConfig);
             } else {
                 config = gruntConfig;
             }
 
             // run atomizer with the config we got
-            content = atomizer.createCSS(config, options);
+            content = atomizer.getCss(config, options);
 
             // write file
             if (options.configOutput) {
