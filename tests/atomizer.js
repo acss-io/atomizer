@@ -30,8 +30,8 @@ describe('Atomizer()', function () {
         it('returns an array of valid atomic class names', function () {
             var atomizer = new Atomizer();
             // duplicate P-55px to make sure we get only one
-            var result = atomizer.findClassNames('<div class="P-55px P-55px H-100% test:h>Op-1:h test:test>Op-1"></div>');
-            var expected = ['P-55px', 'H-100%', 'test:h>Op-1:h'];
+            var result = atomizer.findClassNames('<div class="P-55px P-55px H-100% test:h>Op-1:h test:test>Op-1 C-the-best-border-color"></div>');
+            var expected = ['P-55px', 'H-100%', 'test:h>Op-1:h', 'C-the-best-border-color'];
             expect(result).to.deep.equal(expected);
         });
     });
@@ -101,10 +101,52 @@ describe('Atomizer()', function () {
             expect(syntax).to.not.equal(result);
         });
     });
+    describe('getConfig()', function () {
+        it ('returns a valid config object when given classes and no config', function () {
+            var atomizer = new Atomizer();
+            var classNames = ['P-55px'];
+            var expected = {
+                classNames: ['P-55px']
+            };
+            var result = atomizer.getConfig(classNames);
+            expect(result).to.deep.equal(expected);
+
+            result = atomizer.getConfig(classNames, {});
+            expect(result).to.deep.equal(expected);
+        });
+        it ('returns a valid config object when given classes and existing config', function () {
+            var atomizer = new Atomizer();
+            var classNames = ['P-55px', 'D-b'];
+            var existingConfig = {
+                custom: {
+                    heading: '80px'
+                },
+                classNames: ['M-10px', 'D-ib']
+            };
+            var expected = {
+                custom: {
+                    heading: '80px'
+                },
+                classNames: ['P-55px', 'D-b', 'M-10px', 'D-ib']
+            };
+            var result = atomizer.getConfig(classNames, existingConfig);
+            expect(result).to.deep.equal(expected);
+        });
+        it ('returns a valid config object when given no arguments', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                classNames: []
+            };
+            var result = atomizer.getConfig();
+            expect(result).to.deep.equal(expected);
+        });
+    });
     describe('getCss()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
-            var classNames = ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'C-333', 'Mt-neg10px'];
+            var config = {
+                classNames: ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'C-333', 'Mt-neg10px', 'W-1/3']
+            };
             var expected = [
                 '.C-333 {',
                 '  color: #333;',
@@ -121,11 +163,17 @@ describe('Atomizer()', function () {
                 '.test:hover>.test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1 {',
                 '  opacity: 1;',
                 '}',
+                '.Op-1\\! {',
+                '  opacity: 1 !important;',
+                '}',
                 '.P-55px {',
                 '  padding: 55px;',
+                '}',
+                '.W-1\\/3 {',
+                '  width: 33.3333%;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(classNames);
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css of a helper class', function () {
@@ -142,7 +190,7 @@ describe('Atomizer()', function () {
                     },
                     rules: {
                         'rule': {
-                           'foo': 'bar'
+                            'foo': 'bar'
                         }
                     }
                 },
@@ -156,7 +204,9 @@ describe('Atomizer()', function () {
                     }
                 }
             ]);
-            var classNames = ['Foo(1,10px)', 'Bar()'];
+            var config = {
+                classNames: ['Foo(1,10px)', 'Bar()']
+            };
             var expected = [
                 'rule {',
                 '  foo: bar;',
@@ -169,11 +219,11 @@ describe('Atomizer()', function () {
                 '  bar: foo;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(classNames);
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('throws if helper class doesn\'t have a declaration', function () {
-            expect(function() {
+            expect(function () {
                 // set rules here so if helper change, we don't fail the test
                 var atomizer = new Atomizer(null, [
                     // empty
@@ -183,51 +233,42 @@ describe('Atomizer()', function () {
                         prefix: 'Bar'
                     }
                 ]);
-                var classNames = ['Bar()'];
-                atomizer.getCss(classNames);
+                var config = {
+                    classNames: ['Bar()']
+                };
+                atomizer.getCss(config);
             }).to.throw();
-        });
-        it ('returns expected css by reading an array of class names in config only', function () {
-            var atomizer = new Atomizer();
-            var config = {
-                classNames: ['P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'Op-1', 'W-1/3', 'Op-1!']
-            };
-            var expected = [
-                '.H-100\\% {',
-                '  height: 100%;',
-                '}',
-                '.M-a {',
-                '  margin: auto;',
-                '}',
-                '.test:hover>.test\\:h\\>Op-1\\:h:hover, .Op-1 {',
-                '  opacity: 1;',
-                '}',
-                '.Op-1\\! {',
-                '  opacity: 1 !important;',
-                '}',
-                '.P-55px {',
-                '  padding: 55px;',
-                '}',
-                '.W-1\\/3 {',
-                '  width: 33.3333%;',
-                '}\n'
-            ].join('\n');
-            var result = atomizer.getCss(null, config);
-            expect(result).to.equal(expected);
         });
         it ('returns expected css value declared in custom', function () {
             var atomizer = new Atomizer();
             var config = {
                 custom: {
                     'brand-color': '#400090'
-                }
+                },
+                classNames: ['C-brand-color', 'C-custom']
             };
             var expected = [
                 '.C-brand-color {',
                 '  color: #400090;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['C-brand-color', 'C-custom'], config);
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css value declared in custom when using numeric keys', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    '1': '10px solid #ccc'
+                },
+                classNames: ['Bdt-1']
+            };
+            var expected = [
+                '.Bdt-1 {',
+                '  border-top: 10px solid #ccc;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css value with breakpoints', function () {
@@ -270,7 +311,8 @@ describe('Atomizer()', function () {
                 },
                 breakPoints: {
                     sm: '@media(min-width:400px)'
-                }
+                },
+                classNames: ['D-n--sm', 'P-foo--sm', 'Foo()--sm', 'Bar(10px)--sm']
             };
             var expected = [
                 '@media(min-width:400px) {',
@@ -288,7 +330,7 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['D-n--sm', 'P-foo--sm', 'Foo()--sm', 'Bar(10px)--sm'], config);
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('throws if breakpoints aren\'t valid', function () {
@@ -296,19 +338,21 @@ describe('Atomizer()', function () {
             var config = {
                 breakPoints: {
                     sm: '400px'
-                }
+                },
+                classNames: ['D-n--sm']
             };
             expect(function() {
-                atomizer.getCss(['D-n--sm'], config);
+                atomizer.getCss(config);
             }).to.throw();
         });
         it ('throws if breakpoints aren\'t passed as an object', function () {
             var atomizer = new Atomizer();
             var config = {
-                breakPoints: '400px'
+                breakPoints: '400px',
+                classNames: ['D-n--sm']
             };
             expect(function() {
-                atomizer.getCss(['D-n--sm'], config);
+                atomizer.getCss(config);
             }).to.throw();
         });
         it ('returns namespaced css when a namespace is specified in options', function () {
@@ -331,7 +375,8 @@ describe('Atomizer()', function () {
             var config = {
                 custom: {
                     'brand-color': '#400090'
-                }
+                },
+                classNames: ['C-brand-color', 'Foo()']
             };
             var expected = [
                 '#atomic .C-brand-color {',
@@ -341,19 +386,23 @@ describe('Atomizer()', function () {
                 '  font-weight: bold;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(['C-brand-color', 'Foo()'], config, {namespace: '#atomic', helpersNS: '.atomic'});
+            var result = atomizer.getCss(config, {namespace: '#atomic', helpersNS: '.atomic'});
             expect(result).to.equal(expected);
         });
         it ('ignores invalid classnames', function () {
             var atomizer = new Atomizer();
-            var config = {};
+            var config = {
+                classNames: ['XXXXX-1']
+            };
             var expected = '';
-            var result = atomizer.getCss(['XXXXX-1'], config);
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('warns the user if an ambiguous class is provided and verbose flag is true', function (done) {
             var atomizer = new Atomizer({verbose: true});
-            var config = {};
+            var config = {
+                classNames: ['C-foo']
+            };
             var expected = '';
             // mock console.warn
             console.temp = console.warn;
@@ -362,7 +411,7 @@ describe('Atomizer()', function () {
                 expect(text).to.contain(expected);
                 done();
             };
-            var result = atomizer.getCss(['C-foo'], config);
+            var result = atomizer.getCss(config);
             console.warn = console.temp;
             expect(result).to.equal(expected);
         });
