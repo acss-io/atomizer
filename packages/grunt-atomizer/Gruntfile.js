@@ -27,6 +27,15 @@ module.exports = function(grunt) {
 
         // Configuration to be run (and then tested).
         atomizer: {
+            // here we test without passing a config, just the src files
+            noConfigWithParsing: {
+                files: [
+                    {
+                        src: ['test/fixtures/*.html'],
+                        dest: 'tmp/noConfigWithParsing.css'
+                    }
+                ]
+            },
             // here we test if passing a configFile works as expected
             configFileOnly: {
                 options: {
