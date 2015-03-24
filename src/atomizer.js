@@ -79,8 +79,8 @@ var GRAMMAR = {
     'UNIT'       : '[a-zA-Z%]+',
     'HEX'        : '[0-9a-f]{3}(?:[0-9a-f]{3})?',
     'IMPORTANT'  : '!',
-    // how do we deal with word boundary here?
-    'NAMED'      : '(.+?(?=--|!|:)|.+\\b)',
+    // https://regex101.com/r/mM2vT9/7
+    'NAMED'      : '(\\w+(?:(?:-(?!\\-))?\\w*)*)',
     'PSEUDO'     : PSEUDO_REGEX,
     'BREAKPOINT' : '--(?<breakPoint>[a-z]+)'
 };
