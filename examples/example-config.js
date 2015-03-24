@@ -19,6 +19,7 @@ module.exports = {
         'C-primary',
         // important
         'D-n!',
+        'Op-1!',
         // rtl
         'Fl-start',
         'Fl-end',
