@@ -44,33 +44,33 @@ var Atomizer = require('atomizer');
 
 var defaultConfig = {
     "breakPoints": {
-        'sm': '750px',
-        'md': '1000px',
-        'lg': '1200px'
+        'sm': '@media(min-width=750px)',
+        'md': '@media(min-width=1000px)',
+        'lg': '@media(min-width=1200px)'
     },
-    "border": {
-        "custom": [
-            {
-                "suffix": "1",
-                "values": [ "1px solid #000" ]
-            },
-            {
-                "suffix": "foo",
-                "values": [ "2px dotted #f00" ],
-                "breakPoints": ['sm', 'md']
-            }
-        ]
-    }
+    "custom": {
+        "1": "1px solid #000",
+        "foo": "2px dotted #f00"
+    },
+    "classNames": [
+        'Bd-1',
+        'Bd-foo',
+        'Bd-foo--sm',
+        'Bd-foo--md',
+        'D-n!'
+    ]
 };
 
+var atomizer = new Atomizer({verbose: true});
+
 // Parse text to find Atomic CSS classes
-var classes = Atomizer.parse('<div class="P-10px M-20% B-1"></div>');
+var classes = atomizer.findClassNames('<div class="D-n! P-10px M-20% Bd-1 Bd-foo--sm"></div>');
 
 // Generate Atomizer configuration from an array of Atomic classnames
-var config = Atomizer.getConfig(classes, defaultConfig);
+var config = atomizer.getConfig(classes, defaultConfig);
 
 // Generate Atomic CSS from configuration
-var css = Atomizer.createCSS(config);
+var css = atomizer.getCSS(config);
 
 ```
 
