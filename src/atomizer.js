@@ -487,7 +487,11 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                                 if (!treeo.declaration) {
                                     treeo.declaration = {};
                                 }
-                                treeo.declaration[Atomizer.replaceConstants(property, options.rtl)] = Atomizer.replaceConstants(value, options.rtl);
+                                var prop = Atomizer.replaceConstants(property, options.rtl);
+                                treeo.declaration[prop] = Atomizer.replaceConstants(value, options.rtl);
+                                if (match.important) {
+                                    treeo.declaration[prop] += ' !important';
+                                }
                             });
                         });
                         namedFound = true;
