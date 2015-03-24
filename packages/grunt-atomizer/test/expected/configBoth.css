@@ -1,9 +1,9 @@
 #atomic .Bdt-1 {
   border-top: 10px solid #ccc;
 }
-#atomic .D-b {
-  display: block;
-}
 #atomic .D-ib {
   display: inline-block;
+}
+#atomic .D-b {
+  display: block;
 }

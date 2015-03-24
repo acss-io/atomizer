@@ -1,13 +1,13 @@
 module.exports = {
-    // pattern
-    'display': {
-        'b': true
+    breakPoints: {
+        'sm': '@media(min-width:767px)',
+        'md': '@media(min-width:992px)',
+        'lg': '@media(min-width:1200px)'
     },
-
-    // pattern
-    'border-top': {
-        custom: [
-            {suffix: '1', values: ['1px solid #ccc']}
-        ]
+    classNames: [
+        'D-b', 'Bdt-1'
+    ],
+    custom: {
+        '1': '1px solid #ccc'
     }
 };
