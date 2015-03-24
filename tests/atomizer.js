@@ -151,7 +151,7 @@ describe('Atomizer()', function () {
                 '.C-333 {',
                 '  color: #333;',
                 '}',
-                '.D-n\! {',
+                '.D-n\\! {',
                 '  display: none !important;',
                 '}',
                 '.H-100\\% {',
