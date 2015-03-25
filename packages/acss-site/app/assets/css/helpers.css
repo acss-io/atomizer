@@ -1,8 +1,170 @@
 /**
- * .Row: this style is meant to contain boxes on a row (from left to right of containing box)
+ * borders (default: solid 1px)
+ * use these with Atomic classes like: 'Bdc-E2E2E6'
+ * TODO: introduce $START and $END
+ ==================================================================
+ */
+
+.Bd,
+.BdX,
+.BdY,
+.BdT,
+.BdEnd,
+.BdB,
+.BdStart {
+    border-width: 0;
+    border-style: solid;
+}
+
+.Bd {
+    border-width: 1px;
+}
+
+.BdX {
+    border-right-width: 1px;
+    border-left-width: 1px;
+}
+
+.BdY {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.BdT {
+    border-top-width: 1px;
+}
+
+.BdEnd {
+    border-right-width: 1px;
+}
+
+.BdB {
+    border-bottom-width: 1px;
+}
+
+.BdStart {
+    border-left-width: 1px;
+}
+
+/**
+ * BFC via table-cell
+ * 1. this is a hack, it does not make the box grow up to 1600px, just enough to fill the container
+ ==================================================================
+ */
+.BfcHack {
+    display: table-cell;
+    width: 1600px; /* 1 */
+    *width: auto;
+    zoom: 1;
+}
+
+/**
+ * 'clearfix' ==================================================================
+ */
+.Cf:before,
+.Cf:after {
+  content: " ";
+  display: table;
+}
+
+.Cf:after {
+  clear: both;
+}
+
+.Cf {
+  zoom: 1;
+}
+
+/**
+ * Ellipsis
+ * Single line with ellipsis (see also LineClamp below)
+ ==================================================================
+ */
+.Ell {
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    hyphens: none;
+}
+
+.Ell:after {
+    content: ".";
+    font-size: 0;
+    visibility: hidden;
+    display: inline-block;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+}
+
+/**
+ * Hides content from sighted users (accessible to SR users)
+ ==================================================================
+ */
+.Hidden {
+    position: absolute!important;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px,1px,1px,1px);
+    padding: 0!important;
+    border: 0!important;
+    height: 1px!important;
+    width: 1px!important;
+    overflow: hidden;
+}
+
+/**
+ * 'shortcut' for inline-block construct
+ ==================================================================
+ */
+.IbBox {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+}
+
+/**
+ * LINE CLAMP (Atomizer plugs a companion rule)
+ * Class in the markup should be in the form of `LineClamp(3,72px)` for Atomizer to create an extra rule, for example:
+ * .LineClamp-(3,72px) {
+ *    -webkit-line-clamp: 3;
+ *    max-height: 72px;
+ * }
+ * First character is the number of lines to show, the rest is meant to set a max-height.
+ ==================================================================
+*/
+[class*=LineClamp] {
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+}
+a[class*=LineClamp] {
+   display: inline-block;
+   *display: inline;
+   zoom: 1;
+}
+/**
+ * Fix WebKit bug that displays ellipsis in middle of text inside *LINKS*
+ * see: https://twitter.com/thierrykoblentz/status/443899465842176000
+ * 1. removes that hack out of the flow (bug reported by Fonda)
+ */
+a[class*=LineClamp]:after {
+   content: ".";
+   font-size: 0;
+   visibility: hidden;
+   display: inline-block; /* 1 */
+   overflow: hidden; /* 1 */
+   height: 0; /* 1 */
+   width: 0; /* 1 */
+}
+
+/**
+ * .Row is meant to contain boxes on a row (from left to right of containing box)
+ ==================================================================
  * see: http://cssmojo.com/row_for_grids/
  */
-.row {
+.Row {
     clear: both;
     display: inline-block;
     vertical-align: top;
@@ -13,8 +175,58 @@
     zoom: 1;
 }
 
+
+/**
+ * Warning: this styling may create line-height issue as we are resetting the value to an "arbitrary" number
+ * Check: http://cssmojo.com/magic_boxes/#things-you-should-know-about
+ */
+.SpaceBetween {
+    text-align: justify;
+    line-height: 0; /* kill extra white space below the container */
+}
+
+.SpaceBetween:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.SpaceBetween > * {
+    display: inline-block;
+    vertical-align: middle;
+    /* line-height is reset in base.css near <body> rule */
+}
+
+/**
+ * stretches a box inside its 'containing block'
+ ==================================================================
+ */
+.StretchedBox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/**
+ * hack for oldIE to create a "block-formatting context"
+ ==================================================================
+ */
+.Zoom {
+    zoom: 1;
+}
+
+/**
+ ==================================================================
+ * PROJECT SPECIFIC STUFF BELOW
+ ==================================================================
+ */
+
 /**
  * Fancy lists
+ ==================================================================
  */
 .ul-list {
     list-style-type: disc;
@@ -27,42 +239,6 @@
 
 .dl-list dd {
     padding-left: 2em;
-}
-
-/**
- * Warning: this styling may create line-height issue as we are resetting the value to an "arbitrary" number
- * Check: http://cssmojo.com/magic_boxes/#things-you-should-know-about
- */
-.spaceBetween {
-    text-align: justify;
-    line-height: 0; /* kill extra white space below the container */
-}
-
-.spaceBetween:after {
-    content: "";
-    display: inline-block;
-    width: 100%;
-    vertical-align: middle;
-}
-
-.spaceBetween > * {
-    display: inline-block;
-    vertical-align: middle;
-    /* line-height is reset in base.css near <body> rule */
-}
-
-/**
- * Visually hidden (accessible to screen-readers)
- */
-.hidden {
-    position: absolute !important;
-    clip: rect(1px 1px 1px 1px);
-    clip: rect(1px, 1px, 1px, 1px);
-    padding: 0 !important;
-    border: 0 !important;
-    height: 1px !important;
-    width: 1px !important;
-    overflow: hidden;
 }
 
 /**

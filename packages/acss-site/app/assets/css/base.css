@@ -42,7 +42,7 @@ textarea {
     margin: 0; /* 2 */
 }
 
-.spaceBetween > * {
+.SpaceBetween > * {
     line-height: 1.55; /* must match value from body (above) */
 }
 
@@ -72,7 +72,7 @@ dd {
 
 blockquote {
     border-left: 7px solid rgba(2, 128, 174, 0.3);
-    font-size: 1.2em;
+    color: #000;
     font-style: italic;
     margin-left: 0;
     padding: 1px 0 1px 2em;
@@ -94,7 +94,7 @@ video {
 }
 
 abbr[title] {
-    border-bottom: 1px dotted rgba(2, 128, 174, 0.3);
+    border-bottom: 1px dotted #555;
     cursor: help;
 }
 
@@ -107,6 +107,14 @@ b {
 
 i {
     font-style: normal;
+}
+
+em {
+    color: #000;
+}
+
+a em {
+    color: #0280AE;
 }
 
 /**
@@ -200,6 +208,15 @@ h4 *,
 h5 *,
 h6 * {
     font-size: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Nobile;
 }
 
 /**

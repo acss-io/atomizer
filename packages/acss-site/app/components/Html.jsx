@@ -47,6 +47,7 @@ var Html = React.createClass({
                     <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="stylesheet" href={assets['css/bundle.css']} />
+                    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" />
                     {ieStylesheet}
                 </head>
                 <body className="Mih-100%">

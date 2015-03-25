@@ -41,8 +41,8 @@ var PageDocs = React.createClass({
 
         return (
             <div className={wrapperClasses}>
-                <button onClick={this.handleMenuToggle} id="toggleMenuButton" className="menu-button D-n--sm Pos-a Bgc-n Bd-0 P-0 End-0 Z-7 Mend-10px">
-                    <b className="hidden">Toggle the menu</b>
+                <button onClick={this.handleMenuToggle} id="toggleMenuButton" className="menu-button D-n--sm Pos-a Bdw-0 Bgc-t P-0 End-0 Z-7 Mend-10px">
+                    <b className="Hidden">Toggle the menu</b>
                 </button>
                 <Menu config={this.props.menu} selected={this.props.doc.key} />
                 <Doc content={this.props.doc.content} title={this.props.doc.title} slug={this.props.doc.key} />

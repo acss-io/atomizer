@@ -12,7 +12,7 @@ module.exports = function (context, payload, done) {
     if (docFromCache) {
         context.dispatch('RECEIVE_DOC_SUCCESS', docFromCache);
         context.dispatch('UPDATE_PAGE_TITLE', {
-            pageTitle: (payload.pageTitle || docFromCache.title) + ' | Atomic.css'
+            pageTitle: (payload.pageTitle || docFromCache.title) + ' | Atomic CSS'
         });
         return done();
     }
@@ -26,7 +26,7 @@ module.exports = function (context, payload, done) {
 
         context.dispatch('RECEIVE_DOC_SUCCESS', data);
         context.dispatch('UPDATE_PAGE_TITLE', {
-            pageTitle: (payload.pageTitle || data.title) + ' | Atomic.css'
+            pageTitle: (payload.pageTitle || data.title) + ' | Atomic CSS'
         });
         done();
     });

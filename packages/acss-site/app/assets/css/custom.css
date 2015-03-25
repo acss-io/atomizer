@@ -16,11 +16,60 @@
     color: #0280AE !important;
 }
 
+#atomic .Bdc-FF6347 {
+    border-color: #FF6347;
+}
+
+#atomic .Bdw-0 {
+    border-width: 0;
+}
+
+#atomic .Bgc-t {
+    background-color: transparent;
+}
+
+#atomic .LineClamp\(2\,54px\){
+    -webkit-line-clamp: 2;
+    max-height: 54px;
+}
+
+#atomic .Lh-1\.5 {
+    line-height: 1.5;
+}
+
+#atomic .Pt-10\% {
+    padding-top: 10%;
+}
+
+#atomic .Bgc-0B0 {
+    background-color: #0B0;
+}
+
+#atomic .H-0 {
+    height: 0;
+}
+
+#atomic .W-300px {
+    width: 300px;
+}
+
+#atomic .Fl-end {
+    float: right;
+}
+
+.home-page .home-page_D-b\! {
+    display: block !important;
+}
+
+.home-page .home-page_V-h\! {
+    visibility: hidden !important;
+}
+
 /**
  * stands for inline-block box
  * this rule styles elements with inline-block + vertical-align:top + IE7 patch
  */
-.ib-box {
+.ibBox {
     display: inline-block;
     *display: inline;
     zoom: 1;
