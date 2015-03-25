@@ -4,8 +4,8 @@ module.exports = {
     // these key/value pairs map to the custom suffixes in 'classNames'.
     // i.e. H-uh will get height: 79px and C-primary will get color: #f6a1e1
     'custom': {
-        uh: '79px',         // custom 1 (see classNames below)
-        primary: '#f6a1e1'  // custom 2 (see classNames below)
+        uh: '79px',             // custom 1 (see classNames below)
+        primary: '#f6a1e1'      // custom 2 (see classNames below)
     },
     // breakpoints define media queries and is used to contain the style of a class
     // only when that media query is active.
@@ -45,6 +45,8 @@ module.exports = {
         'W-10/12',         // fraction
         'W-11/12',         // fraction
         'W-12/12',         // fraction
-        'W-1/12--sm'       // fraction with breakpoint
+        'W-1/12--sm',      // fraction with breakpoint
+        'Bgc-#333',        // hex value
+        'Bgc-#fff.8'       // hex value + alpha
     ]
 };
