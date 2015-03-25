@@ -511,10 +511,9 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                                 if (!treeo.declaration) {
                                     treeo.declaration = {};
                                 }
-                                var prop = Atomizer.replaceConstants(property, options.rtl);
-                                treeo.declaration[prop] = Atomizer.replaceConstants(value, options.rtl);
+                                treeo.declaration[property] = value;
                                 if (match.important) {
-                                    treeo.declaration[prop] += ' !important';
+                                    treeo.declaration[property] += ' !important';
                                 }
                             });
                         });
@@ -589,7 +588,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 var breakPoint = breakPoints && breakPoints[treeo.breakPoint];
 
                 // this is where we start writing the class name, properties and values
-                className = Atomizer.escapeSelector(Atomizer.replaceConstants(treeo.className, options.rtl));
+                className = Atomizer.escapeSelector(treeo.className);
 
                 // handle parent classname
                 if (treeo.parentSelector) {
@@ -672,8 +671,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     // a custom class name not declared in the config might not have values
                     else if (treeo.value) {
                         rule.properties.forEach(function (property) {
-                            var value = Atomizer.replaceConstants(treeo.value, options.rtl);
-                            property = Atomizer.replaceConstants(property, options.rtl);
+                            var value = treeo.value;
                             if (breakPoint) {
                                 csso[className][breakPoint][property] = value;
                             } else {
@@ -720,6 +718,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 
     // fix the comma problem in Absurd
     content = content.replace(/__COMMA__/g, ',');
+    content = Atomizer.replaceConstants(content, options.rtl);
 
     return content;
 };
@@ -764,7 +763,7 @@ Atomizer.replaceConstants = function (str/*:string*/, rtl/*:boolean*/) {
         return str;
     }
 
-    return str.replace(/\$START/g, start).replace(/\$END/g, end);
+    return str.replace(/__START__/g, start).replace(/__END__/g, end);
 };
 
 module.exports = Atomizer;

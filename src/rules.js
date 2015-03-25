@@ -171,7 +171,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border end',
         prefix: 'Bdend-',
-        properties: ['border-$END'],
+        properties: ['border-__END__'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false
@@ -191,7 +191,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border start',
         prefix: 'Bdstart-',
-        properties: ['border-$START'],
+        properties: ['border-__START__'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false
@@ -201,7 +201,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border X',
         prefix: 'Bdx-',
-        properties: ['border-$START', 'border-$END'],
+        properties: ['border-__START__', 'border-__END__'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false
@@ -255,7 +255,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border end color',
         prefix: 'Bdendc-',
-        properties: ['border-$END-color'],
+        properties: ['border-__END__-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
@@ -283,7 +283,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border start color',
         prefix: 'Bdstartc-',
-        properties: ['border-$START-color'],
+        properties: ['border-__START__-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
@@ -347,7 +347,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border end style',
         prefix: 'Bdends-',
-        properties: ['border-$END-style'],
+        properties: ['border-__END__-style'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
@@ -391,7 +391,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border start style',
         prefix: 'Bdstarts-',
-        properties: ['border-$START-style'],
+        properties: ['border-__START__-style'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
@@ -449,7 +449,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border end width',
         prefix: 'Bdendw-',
-        properties: ['border-$END-width'],
+        properties: ['border-__END__-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
@@ -479,7 +479,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border start width',
         prefix: 'Bdsw-',
-        properties: ['border-$START-width'],
+        properties: ['border-__START__-width'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
@@ -508,7 +508,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border radius top right',
         prefix: 'Bdrstend-',
-        properties: ['border-top-$END-radius'],
+        properties: ['border-top-__END__-radius'],
         allowCustom: true,
         allowSuffixToValue: true
     },
@@ -517,7 +517,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border radius bottom right',
         prefix: 'Bdrsbend-',
-        properties: ['border-bottom-$END-radius'],
+        properties: ['border-bottom-__END__-radius'],
         allowCustom: true,
         allowSuffixToValue: true
     },
@@ -526,7 +526,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border radius bottom left',
         prefix: 'Bdrsbstart-',
-        properties: ['border-bottom-$START-radius'],
+        properties: ['border-bottom-__START__-radius'],
         allowCustom: true,
         allowSuffixToValue: true
     },
@@ -535,7 +535,7 @@ module.exports = [
         type: 'pattern',
         name: 'Border radius top left',
         prefix: 'Bdrststart-',
-        properties: ['border-top-$START-radius'],
+        properties: ['border-top-__START__-radius'],
         allowCustom: true,
         allowSuffixToValue: true
     },
@@ -643,10 +643,10 @@ module.exports = [
         prefix: 'Bgp-',
         properties: ['background-position'],
         rules: [
-            {suffix: 's_t', values: ['$START 0']},
-            {suffix: 'e_t', values: ['$END 0']},
-            {suffix: 's_b', values: ['$START 100%']},
-            {suffix: 'e_b', values: ['$END 100%']}
+            {suffix: 's_t', values: ['__START__ 0']},
+            {suffix: 'e_t', values: ['__END__ 0']},
+            {suffix: 's_b', values: ['__START__ 100%']},
+            {suffix: 'e_b', values: ['__END__ 100%']}
         ]
     },
     /* background-repeat */
@@ -730,8 +730,8 @@ module.exports = [
         rules: [
             {suffix: 'n', values: ['none']},
             {suffix: 'b', values: ['both']},
-            {suffix: 'start', values: ['$START']},
-            {suffix: 'end', values: ['$END']},
+            {suffix: 'start', values: ['__START__']},
+            {suffix: 'end', values: ['__END__']},
             {suffix: 'inh', values: ['inherit']},
         ]
     },
@@ -1056,8 +1056,8 @@ module.exports = [
         properties: ['float'],
         rules: [
             {suffix: 'n', values: ['none']},
-            {suffix: 'start', values: ['$START']},
-            {suffix: 'end', values: ['$END']},
+            {suffix: 'start', values: ['__START__']},
+            {suffix: 'end', values: ['__END__']},
             {suffix: 'inh', values: ['inherit']}
         ]
     },
@@ -1308,7 +1308,7 @@ module.exports = [
         type: 'pattern',
         name: 'Margin end',
         prefix: 'Mend-',
-        properties: ['margin-$END'],
+        properties: ['margin-__END__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1336,7 +1336,7 @@ module.exports = [
         type: 'pattern',
         name: 'Margin start',
         prefix: 'Mstart-',
-        properties: ['margin-$START'],
+        properties: ['margin-__START__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1350,7 +1350,7 @@ module.exports = [
         type: 'pattern',
         name: 'Margin (X axis)',
         prefix: 'Mx-',
-        properties: ['margin-$START', 'margin-$END'],
+        properties: ['margin-__START__', 'margin-__END__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1498,7 +1498,7 @@ module.exports = [
         type: 'pattern',
         name: 'End',
         prefix: 'End-',
-        properties: ['$END'],
+        properties: ['__END__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1524,7 +1524,7 @@ module.exports = [
         type: 'pattern',
         name: 'Start',
         prefix: 'Start-',
-        properties: ['$START'],
+        properties: ['__START__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1656,7 +1656,7 @@ module.exports = [
         type: 'pattern',
         name: 'Padding end',
         prefix: 'Pend-',
-        properties: ['padding-$END'],
+        properties: ['padding-__END__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1682,7 +1682,7 @@ module.exports = [
         type: 'pattern',
         name: 'Padding start',
         prefix: 'Pstart-',
-        properties: ['padding-$START'],
+        properties: ['padding-__START__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1695,7 +1695,7 @@ module.exports = [
         type: 'pattern',
         name: 'Padding (X axis)',
         prefix: 'Px-',
-        properties: ['padding-$START', 'padding-$END'],
+        properties: ['padding-__START__', 'padding-__END__'],
         allowCustom: true,
         allowSuffixToValue: true,
         rules: [
@@ -1788,11 +1788,11 @@ module.exports = [
         rules: [
             {suffix: 'c', values: ['center']},
             {suffix: 'e', values: ['end']},
-            {suffix: 'end', values: ['$END']},
+            {suffix: 'end', values: ['__END__']},
             {suffix: 'j', values: ['justify']},
             {suffix: 'mp', values: ['match-parent']},
             {suffix: 's', values: ['start']},
-            {suffix: 'start', values: ['$START']},
+            {suffix: 'start', values: ['__START__']},
             {suffix: 'inh', values: ['inherit']}
         ]
     },
@@ -1810,10 +1810,10 @@ module.exports = [
             {suffix: 'a', values: ['auto']},
             {suffix: 'c', values: ['center']},
             {suffix: 'e', values: ['end']},
-            {suffix: 'end', values: ['$END']},
+            {suffix: 'end', values: ['__END__']},
             {suffix: 'j', values: ['justify']},
             {suffix: 's', values: ['start']},
-            {suffix: 'start', values: ['$START']},
+            {suffix: 'start', values: ['__START__']},
             {suffix: 'inh', values: ['inherit']}
         ]
     },
