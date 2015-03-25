@@ -19,6 +19,7 @@
 'use strict';
 
 var _ = require('lodash');
+var utils = require('./utils');
 var objectAssign = require('object-assign');
 var Absurd = require('absurd');
 var XRegExp = require('xregexp').XRegExp;
@@ -77,7 +78,8 @@ var GRAMMAR = {
     'SIGN'       : 'neg',
     'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
     'UNIT'       : '[a-zA-Z%]+',
-    'HEX'        : '[0-9A-F]{3}(?:[0-9A-F]{3})?',
+    'HEX'        : '#[0-9a-f]{3}(?:[0-9a-f]{3})?',
+    'ALPHA'      : '\\.\\d\\d?',
     'IMPORTANT'  : '!',
     // https://regex101.com/r/mM2vT9/7
     'NAMED'      : '(\\w+(?:(?:-(?!\\-))?\\w*)*)',
@@ -245,8 +247,13 @@ Atomizer.prototype.getSyntax = function () {
                         GRAMMAR.FRACTION,
                     ')',
                     '|',
-                    '(?<hex>',
-                        GRAMMAR.HEX,
+                    '(?:',
+                        '(?<hex>',
+                            GRAMMAR.HEX,
+                        ')',
+                        '(?<alpha>',
+                            GRAMMAR.ALPHA,
+                        ')?',
                         '(?!',
                             GRAMMAR.UNIT,
                         ')',
@@ -414,6 +421,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         var rule;
         var treeo;
         var ruleIndex;
+        var rgb;
 
         if (!match) {
           return '';
@@ -468,7 +476,22 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
 
         if (match.hex) {
-            treeo.value = '#' + match.hex.toLowerCase();
+            if (match.alpha) {
+                rgb = utils.hexToRgb(match.hex);
+                treeo.value = [
+                    'rgba(',
+                    rgb.r,
+                    ',',
+                    rgb.g,
+                    ',',
+                    rgb.b,
+                    ',',
+                    match.alpha,
+                    ')'
+                ].join('');
+            } else {
+                treeo.value = match.hex;
+            }
         }
         if (match.named) {
             treeo.named = match.named;

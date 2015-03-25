@@ -145,13 +145,16 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Bgc-FFF', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-333', 'Mt-neg10px', 'W-1/3']
+                classNames: ['Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'Mt-neg10px', 'W-1/3']
             };
             var expected = [
-                '.Bgc-FFF {',
+                '.Bgc-\\#fff\\.4 {',
+                '  background-color: rgba(255,255,255,.4);',
+                '}',
+                '.Bgc-\\#fff {',
                 '  background-color: #fff;',
                 '}',
-                '.C-333 {',
+                '.C-\\#333 {',
                 '  color: #333;',
                 '}',
                 '.D-n\\! {',
