@@ -173,7 +173,7 @@ interface AtomicTreeValue {
 /**
  * constructor
  */
-function Atomizer(options/*:AtomizerOptions*/, rules/*AtomizerRules*/) {
+function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
     this.rules = [];
     this.rulesMap = {};
@@ -210,7 +210,7 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
  * analysis of the entire document we need to use regular grammar for this.
  * @private
  */
-Atomizer.prototype.getSyntax = function () {
+Atomizer.prototype.getSyntax = function ()/*:void*/ {
     var syntax;
     var helperRegex;
     var propRegex;
@@ -414,6 +414,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         var rule;
         var treeo;
         var ruleIndex;
+        var propAndValue;
 
         if (!match) {
           return '';
@@ -500,18 +501,30 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 });
             }
             // check if named suffix was passed in the config
-            if (!namedFound && config && _.isObject(config.custom) && config.custom.hasOwnProperty(match.named)) {
-                treeo.value = config.custom[match.named];
-            } else {
-                if (isVerbose) {
-                    warnings.push([
-                    'Warning: Class `' + className + '` is ambiguous, and must be manually added to your config file:',
-                    '"custom": {',
-                    '    "' + match.named + '": <YOUR-CUSTOM-VALUE>',
-                    '}'
-                    ].join("\n"));
+            // as value
+            if (!namedFound) {
+                propAndValue = match.prop + match.named;
+
+                // no custom, warn it
+                if (!config.custom) {
+                    warnings.push(propAndValue);
+                    // set to null so we don't write it to the css
+                    treeo.value = null;
                 }
-                treeo.value = null;
+                // as prop + value
+                else if (config.custom.hasOwnProperty(propAndValue)) {
+                    treeo.value = config.custom[propAndValue];
+                }
+                // as value
+                else if (config.custom.hasOwnProperty(match.named)) {
+                    treeo.value = config.custom[match.named];
+                }
+                // we have custom but we could not find the named class name there
+                else {
+                    warnings.push(propAndValue);
+                    // set to null so we don't write it to the css
+                    treeo.value = null;
+                }
             }
         }
         if (match.valuePseudo) {
@@ -531,8 +544,13 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 
     // throw warnings
     if (isVerbose && warnings.length > 0) {
-        warnings.forEach(function (warning) {
-            console.warn(warning);
+        warnings.forEach(function (className) {
+            console.warn([
+                'Warning: Class `' + className + '` is ambiguous, and must be manually added to your config file:',
+                '"custom": {',
+                '    "' + className + '": <YOUR-CUSTOM-VALUE>',
+                '}'
+            ].join("\n"));
         });
     }
 
@@ -715,7 +733,7 @@ Atomizer.escapeSelector = function (str/*:string*/)/*:string*/ {
 /**
  * Replace LTR/RTL placeholders with actual left/right strings
  */
-Atomizer.replaceConstants = function (str, rtl) {
+Atomizer.replaceConstants = function (str/*:string*/, rtl/*:boolean*/) {
     var start = rtl ? 'right' : 'left';
     var end = rtl ? 'left' : 'right';
 
