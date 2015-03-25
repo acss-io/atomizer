@@ -14,7 +14,7 @@ module.exports = {
             var params = {
                 resource: 'docs',
                 key: '/docs/home.md',
-                pageTitle: 'Atomic.css | A collection of single purpose styling units for maximum reuse'
+                pageTitle: 'Atomic CSS | A collection of single purpose styling units for maximum reuse'
             };
             context.executeAction(showDoc, params, done);
         }
