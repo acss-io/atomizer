@@ -77,7 +77,7 @@ var GRAMMAR = {
     'SIGN'       : 'neg',
     'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
     'UNIT'       : '[a-zA-Z%]+',
-    'HEX'        : '[0-9a-f]{3}(?:[0-9a-f]{3})?',
+    'HEX'        : '[0-9A-F]{3}(?:[0-9A-F]{3})?',
     'IMPORTANT'  : '!',
     // https://regex101.com/r/mM2vT9/7
     'NAMED'      : '(\\w+(?:(?:-(?!\\-))?\\w*)*)',
@@ -468,7 +468,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
 
         if (match.hex) {
-            treeo.value = '#' + match.hex;
+            treeo.value = '#' + match.hex.toLowerCase();
         }
         if (match.named) {
             treeo.named = match.named;
