@@ -264,6 +264,26 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('returns expected css value declared in custom as prop + value', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    'C-brand-color': '#400090',
+                    'Bgc-brand-color': '#000000'
+                },
+                classNames: ['C-brand-color', 'Bgc-brand-color']
+            };
+            var expected = [
+                '.Bgc-brand-color {',
+                '  background-color: #000000;',
+                '}',
+                '.C-brand-color {',
+                '  color: #400090;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
         it ('returns expected css value declared in custom when using numeric keys', function () {
             var atomizer = new Atomizer();
             var config = {
