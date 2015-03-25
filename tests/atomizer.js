@@ -495,15 +495,15 @@ describe('Atomizer()', function () {
         });
         it('returns the processed string if passed, in ltr mode', function () {
             // assert
-            expect(Atomizer.replaceConstants('test-$START', false)).equal('test-left');
-            expect(Atomizer.replaceConstants('test-$END', false)).equal('test-right');
-            expect(Atomizer.replaceConstants('test-$START-$END', false)).equal('test-left-right');
+            expect(Atomizer.replaceConstants('test-__START__', false)).equal('test-left');
+            expect(Atomizer.replaceConstants('test-__END__', false)).equal('test-right');
+            expect(Atomizer.replaceConstants('test-__START__-__END__', false)).equal('test-left-right');
         });
         it('returns the processed string if passed, in rtl mode', function () {
             // assert
-            expect(Atomizer.replaceConstants('test-$START', true)).equal('test-right');
-            expect(Atomizer.replaceConstants('test-$END', true)).equal('test-left');
-            expect(Atomizer.replaceConstants('test-$START-$END', true)).equal('test-right-left');
+            expect(Atomizer.replaceConstants('test-__START__', true)).equal('test-right');
+            expect(Atomizer.replaceConstants('test-__END__', true)).equal('test-left');
+            expect(Atomizer.replaceConstants('test-__START__-__END__', true)).equal('test-right-left');
         });
     });
 });
