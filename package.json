@@ -2,7 +2,7 @@
   "name": "atomizer",
   "version": "2.0.0-beta.3",
   "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
-  "main": "./lib/atomic.js",
+  "main": "./src/atomizer.js",
   "contributors": [
     {
       "name": "Renato Iwashima",
