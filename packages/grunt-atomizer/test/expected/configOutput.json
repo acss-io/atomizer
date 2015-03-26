@@ -5,7 +5,7 @@
     "lg": "@media(min-width:1200px)"
   },
   "classNames": [
-    "C-fff",
+    "C-#fff",
     "D-ib",
     "Fz-13px",
     "P-10px",
