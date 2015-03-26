@@ -763,7 +763,7 @@ Atomizer.replaceConstants = function (str/*:string*/, rtl/*:boolean*/) {
         return str;
     }
 
-    return str.replace(/__START__/g, start).replace(/__END__/g, end);
+    return str.replace(/__start__/g, start).replace(/__end__/g, end);
 };
 
 module.exports = Atomizer;
