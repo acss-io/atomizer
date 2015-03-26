@@ -145,7 +145,7 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'Mt-neg10px', 'W-1/3']
+                classNames: ['Ta-start', 'Ta-end', 'Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'Mt-neg10px', 'W-1/3']
             };
             var expected = [
                 '.Bgc-\\#fff\\.4 {',
@@ -177,6 +177,12 @@ describe('Atomizer()', function () {
                 '}',
                 '.P-55px {',
                 '  padding: 55px;',
+                '}',
+                '.Ta-start {',
+                '  text-align: left;',
+                '}',
+                '.Ta-end {',
+                '  text-align: right;',
                 '}',
                 '.W-1\\/3 {',
                 '  width: 33.3333%;',
@@ -252,13 +258,17 @@ describe('Atomizer()', function () {
             var atomizer = new Atomizer();
             var config = {
                 custom: {
-                    'brand-color': '#400090'
+                    'brand-color': '#400090',
+                    'End-test': '300px'
                 },
-                classNames: ['C-brand-color', 'C-custom']
+                classNames: ['C-brand-color', 'C-custom', 'End-test']
             };
             var expected = [
                 '.C-brand-color {',
                 '  color: #400090;',
+                '}',
+                '.End-test {',
+                '  right: 300px;',
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(config);
@@ -501,15 +511,15 @@ describe('Atomizer()', function () {
         });
         it('returns the processed string if passed, in ltr mode', function () {
             // assert
-            expect(Atomizer.replaceConstants('test-__START__', false)).equal('test-left');
-            expect(Atomizer.replaceConstants('test-__END__', false)).equal('test-right');
-            expect(Atomizer.replaceConstants('test-__START__-__END__', false)).equal('test-left-right');
+            expect(Atomizer.replaceConstants('test-__start__', false)).equal('test-left');
+            expect(Atomizer.replaceConstants('test-__end__', false)).equal('test-right');
+            expect(Atomizer.replaceConstants('test-__start__-__end__', false)).equal('test-left-right');
         });
         it('returns the processed string if passed, in rtl mode', function () {
             // assert
-            expect(Atomizer.replaceConstants('test-__START__', true)).equal('test-right');
-            expect(Atomizer.replaceConstants('test-__END__', true)).equal('test-left');
-            expect(Atomizer.replaceConstants('test-__START__-__END__', true)).equal('test-right-left');
+            expect(Atomizer.replaceConstants('test-__start__', true)).equal('test-right');
+            expect(Atomizer.replaceConstants('test-__end__', true)).equal('test-left');
+            expect(Atomizer.replaceConstants('test-__start__-__end__', true)).equal('test-right-left');
         });
     });
 });
