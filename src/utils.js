@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 var utils = {};
 
 utils.hexToRgb = function (hex) {
@@ -15,5 +17,28 @@ utils.hexToRgb = function (hex) {
         b: parseInt(result[3], 16)
     } : null;
 }
+
+/**
+ * helper function to handle merging array of strings
+ * @param  {mixed} a Data of the first merge param
+ * @param  {mixed} b Data of the second merge param
+ * @return {mixed}   The merged array
+ */
+utils.handleMergeArrays = function (a, b) {
+    if (_.isArray(a) && _.isArray(b)) {
+        return _.union(a, b);
+    }
+};
+
+/**
+* Merge atomizer configs into a single config
+* @param {Array} configs An array of Atomizer config objects
+* @return {object} An atomizer config object
+*/
+utils.mergeConfigs = function (configs) {
+    // TODO: Offer option to warn on conflicts
+    return _.merge.apply(null, configs.concat(utils.handleMergeArrays));
+},
+
 
 module.exports = utils;
