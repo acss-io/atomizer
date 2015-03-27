@@ -71,7 +71,7 @@ PSEUDO_REGEX = '(?:' + PSEUDO_REGEX.join('|') + ')';
 // regular grammar to match valid atomic classes
 var GRAMMAR = {
     'BOUNDARY'   : '(?:^|\\s|"|\'|\{)',
-    'PARENT'     : '[^\\s:>_+\'"`]+',
+    'PARENT'     : '[a-zA-Z][-_a-zA-Z0-9]+?',
     'PARENT_SEP' : '[>_+]',
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
     'PARAMS'     : '\\((?<params>[^)]*)\\)',
