@@ -71,10 +71,10 @@ PSEUDO_REGEX = '(?:' + PSEUDO_REGEX.join('|') + ')';
 // regular grammar to match valid atomic classes
 var GRAMMAR = {
     'BOUNDARY'   : '(?:^|\\s|"|\'|\{)',
-    'PARENT'     : '[^\\s:>_]+',
-    'PARENT_SEP' : '[>_]',
+    'PARENT'     : '[^\\s:>_\'"`]+',
+    'PARENT_SEP' : '[>_+]',
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
-    'PARAMS'     : '\\((?<params>(?:.*?,?)+)\\)',
+    'PARAMS'     : '\\((?<params>[^)]*)\\)',
     'SIGN'       : 'neg',
     'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
     'UNIT'       : '[a-zA-Z%]+',
@@ -595,7 +595,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     className = [
                         Atomizer.escapeSelector(treeo.parent),
                         Atomizer.getPseudo(treeo.parentPseudo),
-                        treeo.parentSep !== '>' ? ' ' : treeo.parentSep,
+                        treeo.parentSep === '_' ? ' ' : [' ', treeo.parentSep, ' '].join(''),
                         '.',
                         className
                     ].join('');
