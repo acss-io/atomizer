@@ -29,9 +29,8 @@ describe('Atomizer()', function () {
     describe('findClassNames()', function () {
         it('returns an array of valid atomic class names', function () {
             var atomizer = new Atomizer();
-            // duplicate P-55px to make sure we get only one
-            // var result = atomizer.findClassNames('<div class="P-55px P-55px H-100% test:h>Op-1:h test:test>Op-1 C-the-best-border-color"></div>');
-            var result = atomizer.findClassNames("<div className={classNames('sibling:c+D-n Pos-r Ov-h H-0 test:h>Op-1:h test:test>Op-1', 'test-open_Ov-v test-open_H-a')}>");
+            // duplicate Pos-r to make sure we get only one
+            var result = atomizer.findClassNames("<div className={classNames('sibling:c+D-n Pos-r Pos-r Ov-h H-0 test:h>Op-1:h test:test>Op-1', 'test-open_Ov-v test-open_H-a')}>");
             var expected = ['sibling:c+D-n', 'Pos-r', 'Ov-h', 'H-0', 'test:h>Op-1:h', 'test-open_Ov-v', 'test-open_H-a'];
             expect(result).to.deep.equal(expected);
         });
