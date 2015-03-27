@@ -76,7 +76,7 @@ var GRAMMAR = {
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
     'PARAMS'     : '\\((?<params>[^)]*)\\)',
     'SIGN'       : 'neg',
-    'NUMBER'     : '[0-9]+(?:\\.[0-9]+)?',
+    'NUMBER'     : '[0-9]+(?:\.[0-9]+)?|\\.[0-9]+',
     'UNIT'       : '[a-zA-Z%]+',
     'HEX'        : '#[0-9a-f]{3}(?:[0-9a-f]{3})?',
     'ALPHA'      : '\\.\\d{1,2}',
