@@ -96,6 +96,23 @@ module.exports = function(grunt) {
                         dest: 'tmp/configBothWithParsing.css'
                     }
                 ]
+            },
+            // here we test both cases and also parsing the HTML files
+            // Grunt task should warn about 'Bdb-1' missing in config (found in parsing)
+            customRulesets: {
+                options: {
+                    namespace: '#atomic',
+                    configFile: 'test/fixtures/sample-config.js',
+                    rules: ['test/fixtures/customRules.js'],
+                    config: {
+                        classNames: ['FooBar()']
+                    }
+                },
+                files: [
+                    {
+                        dest: 'tmp/customRuleset.css'
+                    }
+                ]
             }
         },
 
