@@ -49,6 +49,10 @@ module.exports = function (grunt) {
         var gruntConfig = {}; // the config if passed directly via the grunt task
         var configFile;
 
+        if (options.rules && options.rules.length > 0) {
+            options.rules = grunt.file.expand(options.rules);
+        }
+
         if (options.require && options.require.length > 0) {
             options.require = grunt.file.expand(options.require);
         }
@@ -75,6 +79,12 @@ module.exports = function (grunt) {
         }
 
         var atomizer = new Atomizer({ verbose: (grunt.option.flags().indexOf('--verbose') > -1) });
+
+        if (options.rules && options.rules.length > 0) {
+            options.rules.forEach(function (ruleFile) {
+                atomizer.addRules(require(path.resolve(ruleFile)));
+            });
+        }
 
         this.files.forEach(function (f) {
             var config = {};

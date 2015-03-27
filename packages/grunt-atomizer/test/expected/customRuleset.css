@@ -1,0 +1,11 @@
+#atomic .Bdt-1 {
+  border-top: 1px solid #ccc;
+}
+#atomic .D-b, .FooBar\(\) {
+  display: block;
+}
+.FooBar\(\) {
+  width: 300px;
+  height: 100px;
+  overflow: scroll;
+}

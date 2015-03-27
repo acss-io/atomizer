@@ -87,5 +87,15 @@ exports.atomizer = {
         test.equal(actual, expected, 'should generate the expected config JSON output by passing a configFile and a config directly to grunt + parsing.');
 
         test.done();
+    },
+    customRules: function(test) {
+        test.expect(1);
+
+        var actual = grunt.file.read('tmp/customRuleset.css');
+        var expected = grunt.file.read('test/expected/customRuleset.css');
+
+        test.equal(actual, expected, 'should generate the expected css when using a custom ruleset.');
+
+        test.done();
     }
 };
