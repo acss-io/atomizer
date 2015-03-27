@@ -29,9 +29,9 @@ describe('Atomizer()', function () {
     describe('findClassNames()', function () {
         it('returns an array of valid atomic class names', function () {
             var atomizer = new Atomizer();
-            // duplicate P-55px to make sure we get only one
-            var result = atomizer.findClassNames('<div class="P-55px P-55px H-100% test:h>Op-1:h test:test>Op-1 C-the-best-border-color"></div>');
-            var expected = ['P-55px', 'H-100%', 'test:h>Op-1:h', 'C-the-best-border-color'];
+            // duplicate Pos-r to make sure we get only one
+            var result = atomizer.findClassNames("<div className={classNames('sibling:c+D-n Pos-r Pos-r Ov-h H-0 test:h>Op-1:h test:test>Op-1', 'test-open_Ov-v test-open_H-a')}>");
+            var expected = ['sibling:c+D-n', 'Pos-r', 'Ov-h', 'H-0', 'test:h>Op-1:h', 'test-open_Ov-v', 'test-open_H-a'];
             expect(result).to.deep.equal(expected);
         });
     });
@@ -145,7 +145,7 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Ta-start', 'Ta-end', 'Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'Mt-neg10px', 'W-1/3']
+                classNames: ['Trsdu-.3s', 'sibling:c+D-n', 'End-0', 'Ta-start', 'Ta-end', 'Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'Mt-neg10px', 'W-1/3']
             };
             var expected = [
                 '.Bgc-\\#fff\\.4 {',
@@ -156,6 +156,9 @@ describe('Atomizer()', function () {
                 '}',
                 '.C-\\#333 {',
                 '  color: #333;',
+                '}',
+                '.sibling:checked + .sibling\\:c\\+D-n {',
+                '  display: none;',
                 '}',
                 '.D-n\\! {',
                 '  display: none !important;',
@@ -169,7 +172,10 @@ describe('Atomizer()', function () {
                 '.Mt-neg10px {',
                 '  margin-top: -10px;',
                 '}',
-                '.test:hover>.test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1 {',
+                '.End-0 {',
+                '  right: 0;',
+                '}',
+                '.test:hover > .test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1 {',
                 '  opacity: 1;',
                 '}',
                 '.Op-1\\! {',
@@ -183,6 +189,9 @@ describe('Atomizer()', function () {
                 '}',
                 '.Ta-end {',
                 '  text-align: right;',
+                '}',
+                '.Trsdu-\\.3s {',
+                '  transition-duration: .3s;',
                 '}',
                 '.W-1\\/3 {',
                 '  width: 33.3333%;',
