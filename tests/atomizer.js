@@ -145,7 +145,7 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Trsdu-.3s', 'sibling:c+D-n', 'End-0', 'Ta-start', 'Ta-end', 'Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'Mt-neg10px', 'W-1/3']
+                classNames: ['Trsdu-.3s', 'sibling:c+D-n', 'End-0', 'Ta-start', 'Ta-end', 'Bgc-#fff.4', 'Bgc-#fff', 'P-55px', 'H-100%', 'M-a', 'test:h>Op-1:h', 'test:h_Op-1:h', 'Op-1', 'Op-1!', 'D-n!', 'C-#333', 'C-#333:li', 'Mt-neg10px', 'W-1/3']
             };
             var expected = [
                 '.Bgc-\\#fff\\.4 {',
@@ -154,7 +154,7 @@ describe('Atomizer()', function () {
                 '.Bgc-\\#fff {',
                 '  background-color: #fff;',
                 '}',
-                '.C-\\#333 {',
+                '.C-\\#333, .C-\\#333\\:li:link {',
                 '  color: #333;',
                 '}',
                 '.sibling:checked + .sibling\\:c\\+D-n {',

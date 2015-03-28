@@ -66,7 +66,7 @@ for (var pseudo in PSEUDOS) {
     PSEUDO_REGEX.push(pseudo);
     PSEUDO_REGEX.push(PSEUDOS[pseudo]);
 }
-PSEUDO_REGEX = '(?:' + PSEUDO_REGEX.join('|') + ')';
+PSEUDO_REGEX = '(?:' + PSEUDO_REGEX.join('|') + ')(?![a-z])';
 
 // regular grammar to match valid atomic classes
 var GRAMMAR = {
