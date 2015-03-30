@@ -583,7 +583,11 @@ module.exports = [
         properties: ['background-color'],
         allowCustom: true,
         allowCustomAutoSuffix: true,
-        allowSuffixToValue: true
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 't', values: ['transparent']},
+            {suffix: 'inh', values: ['inherit']}
+        ]
     },
 
     /* background-clip */
