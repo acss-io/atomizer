@@ -29,7 +29,7 @@ var Component = React.createClass({
             }
         });
         return (
-            <div id="aside" className="D-tbc Va-t W-150px--sm End-0 Pt-20px Pb-40px Pstart-10px Pend-50px--sm Z-5 End-a--sm Z-0 Start-0 Pos-a Pos-r--sm" role="aside">
+            <div id="aside" className="D-tbc Bgc-#fff Mt-neg20px--xs Pos-a--xs Va-t W-150px--sm End-0 Pt-20px Pb-40px Pstart-10px Pend-50px--sm Z-5 End-a--sm Start-0 Pos-a Pos-r--sm" role="aside">
                 {menu}
             </div>
         );

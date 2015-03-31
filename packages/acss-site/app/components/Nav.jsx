@@ -47,7 +47,7 @@ var Nav = React.createClass({
             // skip home since we don't want it to render
             return name !== 'home' ? (
                 <li className={className} key={link.path}>
-                    <NavLink routeName={link.page} context={context} className="D-b C-fff Td-n:h" navParams={navParams}>
+                    <NavLink routeName={link.page} context={context} className="D-b C-#fff Td-n:h" navParams={navParams}>
                         <b className="Pos-r">
                             {link.label}
                         </b>
@@ -60,7 +60,7 @@ var Nav = React.createClass({
             <ul role="navigation" className="Va-m M-0 P-0">
                 {linkHTML}
                 <li className="D-ib Mstart-10px Pos-r">
-                    <a className="D-b C-fff Td-n:h" href="https://github.com/yahoo/atomizer">
+                    <a className="D-b C-#fff Td-n:h" href="https://github.com/yahoo/atomizer">
                         <img className="Va-m Pos-r" alt="GitHub" width="30" src={assets['images/github-logo.png']} />
                     </a>
                 </li>
