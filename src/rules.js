@@ -1857,6 +1857,23 @@ module.exports = [
     },
     /**
      ==================================================================
+     TEXT-OVERFLOW
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        name: 'Text overflow',
+        prefix: 'Tov-',
+        properties: ['text-overflow'],
+        allowCustom: true,
+        allowSuffixToValue: false,
+        rules: [
+            {suffix: 'c', values: ['clip']},
+            {suffix: 'e', values: ['ellipsis']}
+        ]
+    },
+    /**
+     ==================================================================
      TEXT-RENDERING
      ==================================================================
      */
