@@ -34,11 +34,11 @@ var PageHome = React.createClass({
                         </h1>
                         <p className='My-20px'>Build whatever you want, the way you want it.</p>
                         <p>
-                            <NavLink className='D-ib Mb-10px P-20px C-fff Bgc-logo Bdrs-100px Td-n:h' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
+                            <NavLink className='D-ib Mb-10px P-20px C-#fff Bgc-logo Bdrs-100px Td-n:h' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
                         </p>
                     </div>
                 </div>
-                <div className='innerwrapper Bxz-bb Pt-20px Px-10px Mb-50px Mx-a--sm W-90%--sm W-a'>
+                <div className='innerwrapper Bxz-bb Pt-20px Px-10px Mb-50px Mx-a--sm Maw-1000px--sm W-90%--sm W-a'>
                     <Doc content={this.props.content} />
                 </div>
             </div>

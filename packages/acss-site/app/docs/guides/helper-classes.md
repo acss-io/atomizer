@@ -21,11 +21,11 @@ So to make styling via classes a bit less verbose, we have the following helpers
     <li>`BdStart` to create a border on the left edge of a box (in a LTR context)</li>
 </ul>
 
-You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc-FF6347`) to get a border color different than the text color of the box.
+You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc-#ff6347`) to get a border color different than the text color of the box.
 
 Example:
 
-<p class="Bd Bdc-FF6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd Bdc-#ff6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 ## `BfcHack` (Block-formatting context)
 
@@ -47,7 +47,11 @@ Use `Ell` to create a one-liner with ellipsis (in browsers that support `text-ov
 
 Example:
 
-<p class="Ell">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+```html
+<p class="Ell W-300px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+```
+
+<p class="Ell W-300px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 ## Hiding content from sighted users
 
@@ -72,14 +76,14 @@ vertical-align: top;
 ```
 
 ```html
-<div class="IbBox W-50% Ta-c Bgc-0B0">Box-1</div><!--
---><div class="IbBox W-50% Ta-c Bgc-0B0">Box-2</div>
+<div class="IbBox W-50% Ta-c Bgc-#0B0">Box-1</div><!--
+--><div class="IbBox W-50% Ta-c Bgc-#0B0">Box-2</div>
 ```
 
 Example:
 
-<div class="IbBox W-50% Ta-c Bgc-0B0">Box-1</div><!--
---><div class="IbBox W-50% Ta-c Bgc-0B0">Box-2</div>
+<div class="IbBox W-50% Ta-c Bgc-#0B0">Box-1</div><!--
+--><div class="IbBox W-50% Ta-c Bgc-#0B0">Box-2</div>
 
 <p class="noteBox info">Remember to remove the white-space between nodes when creating inline-block constructs.</p>
 
@@ -110,12 +114,12 @@ Use the class `Row` to style a block that expands to fill its container, contain
 Example:
 
 ```html
-<div class="Row Bgc-0B0">
+<div class="Row Bgc-#0B0">
     <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
     <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
 </div>
 ```
-<div class="Row Bgc-0B0">
+<div class="Row Bgc-#0B0">
     <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
     <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
 </div>
@@ -130,13 +134,13 @@ Example:
 
 ```html
 <div class="SpaceBetween">
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-0B0">Box-1</div>
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-0B0">Box-2</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-1</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-2</div>
 </div>
 ```
 <div class="SpaceBetween">
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-0B0">Box-1</div>
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-0B0">Box-2</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-1</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-2</div>
 </div>
 
 <p class="noteBox info">You can resize the viewport to see how the boxes behave when there is not enough room for them to show side-by-side. You can also compare this styling with the one from the `Row` example above, where 2 boxes are floated in opposite direction.</p>
@@ -157,11 +161,11 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ```html
 <div class="Pos-r H-0 Pt-10%">
-    <div class="StretchedBox Bgc-0B0">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc-#0B0">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 <div class="Pos-r H-0 Pt-10%">
-    <div class="StretchedBox Bgc-0B0"></div>
+    <div class="StretchedBox Bgc-#0B0"></div>
 </div>
 
 ## `Zoom`

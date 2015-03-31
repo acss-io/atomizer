@@ -50,7 +50,7 @@ var Html = React.createClass({
                     <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" />
                     {ieStylesheet}
                 </head>
-                <body className="Mih-100%">
+                <body>
                     <div id="app" className="H-100%" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                     {liveReload}
                 </body>

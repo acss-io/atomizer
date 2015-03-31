@@ -42,7 +42,7 @@ Following a <em>common</em> syntax favors better collaboration between teams and
         <dt>Defined</dt>
         <dd>This is the abbreviation of a <em>defined value</em>. For example `inh` for `inherited`, `a` for `auto`, etc. Atomizer knows about defined values so there is no need to edit the config object before using such identifiers.</dd>
         <dt>Literal</dt>
-        <dd>Those are strings meant to use verbatim. `5px`, `20%`, `1/2`, and `FFF` are example of literals. Note that `neg10px` is also considered a literal as Atomizer interprets `neg` as the minus sign `-` as in `-10px`.</dd>
+        <dd>Those are strings meant to be used verbatim. `5px`, `20%`, `1/2`, and `#FFF` are example of literals. Note that `neg10px` is also considered a literal as Atomizer interprets `neg` as the minus sign `-` as in `-10px`.</dd>
     </dl>
     Any occurrence of `left` and `right` keywords should be replaced with `start` and `end`. **Values that are not present in Emmet** should be named using the rules below:
     <ul class="ul-list">
@@ -54,6 +54,7 @@ Following a <em>common</em> syntax favors better collaboration between teams and
         <li>Custom  values should use arbitrary keywords such as `.Bxs-heading` or `.Fz-xl`. These keywords are arbitrary and are defined by the consumer of atomic.css.</li>
         <li>The `inherit` value should always use the keyword `inh` as a special exception because it is available almost globally.</li>
     </ul>
+    <p class="noteBox warning">Use the first letter of the `start` and `end` keywords when using the `background-position` property, for example `Bgp-s_t` for `background-position: start end`.</p>
     </dd>
     <dt>The `!` character</dt>
     <dd>Optional.<br>
