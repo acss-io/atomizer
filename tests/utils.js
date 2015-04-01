@@ -5,6 +5,73 @@ var expect = require('chai').expect;
 var utils = require('../src/utils');
 
 describe('utils', function () {
+    describe('flattenJson()', function () {
+        it('flattens', function () {
+            var result = utils.flattenJson({}, {
+                'body': {
+                    'background': 'white'
+                },
+                'foo': {
+                    'bar': 'baz'
+                },
+                '.test4': {
+                    '.test5': {
+                        'background': 'black'
+                    }
+                },
+                '.test6': {
+                    '.test7': {
+                        '.test8': {
+                            '.test9': {
+                                'background': 'red'
+                            }
+                        }
+                    }
+                },
+                '.test10': {
+                    '@media(min-width:400px)': {
+                        'background': 'black'
+                    }
+                },
+                '.test11': {
+                    '@media(min-width:400px)': {
+                        'color': 'white'
+                    }
+                }
+            });
+        });
+    });
+    describe('jsonToCss()', function () {
+        it('selector', function () {
+            var result = utils.jsonToCss({
+                'body': {
+                    'background': 'white'
+                },
+                '.test': {
+                    'background': 'white'
+                },
+                '.test2': {
+                    'background': 'black'
+                },
+                '.test3': {
+                    '@media(min-width:400px)': {
+                        'background': 'white'
+                    }
+                },
+                '.test4': {
+                    '.test5': {
+                        'background': 'black'
+                    }
+                },
+                '.test6': {
+                    '@media(min-width:400px)': {
+                        'background': 'black'
+                    }
+                },
+            });
+        });
+    });
+
     describe('hexToRgb()', function () {
         it('should return null given an invalid hex', function () {
             var result = utils.hexToRgb('ghk');
