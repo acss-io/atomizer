@@ -660,9 +660,9 @@ module.exports = [
         prefix: 'Bgr-',
         properties: ['background-repeat'],
         rules: [
-            {suffix: 'n', values: ['no-repeat']},
-            {suffix: 'x', values: ['repeat-x']},
-            {suffix: 'y', values: ['repeat-y']},
+            {suffix: 'nr', values: ['no-repeat']},
+            {suffix: 'rx', values: ['repeat-x']},
+            {suffix: 'ry', values: ['repeat-y']},
             {suffix: 'r', values: ['repeat']},
             {suffix: 's', values: ['space']},
             {suffix: 'ro', values: ['round']}
