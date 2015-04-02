@@ -625,9 +625,9 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     }
 
                     if (breakPoint) {
-                        jssHelpers[className][breakPoint] = rule.declaration;
+                        jssHelpers[className][breakPoint] = _.cloneDeep(rule.declaration);
                     } else {
-                        jssHelpers[className] = rule.declaration;
+                        jssHelpers[className] = _.cloneDeep(rule.declaration);
                     }
 
                     // we have params in declaration
