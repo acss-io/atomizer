@@ -229,7 +229,7 @@ describe('Atomizer()', function () {
                 }
             ]);
             var config = {
-                classNames: ['Foo(1,10px)', 'Bar()']
+                classNames: ['Foo(1,10px)', 'Foo(2,30px)', 'Bar()']
             };
             var expected = [
                 'rule {',
@@ -238,6 +238,10 @@ describe('Atomizer()', function () {
                 '.Foo\\(1\\,10px\\) {',
                 '  param0: 1;',
                 '  param1: 10px;',
+                '}',
+                '.Foo\\(2\\,30px\\) {',
+                '  param0: 2;',
+                '  param1: 30px;',
                 '}',
                 '.Bar\\(\\) {',
                 '  bar: foo;',
