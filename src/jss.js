@@ -1,5 +1,8 @@
-var JSS = {};
+/**
+ * Utility functions to handle JSS objects (JS literal objects with similar CSS structure)
+ */
 var utils = require('./utils');
+var JSS = {};
 
 // returns a new JSS with flattened selectors
 JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/) {
