@@ -137,7 +137,7 @@ module.exports = [
             {suffix: 'eo', values: ['ease-out']},
             {suffix: 'eio', values: ['ease-in-out']},
             {suffix: 'l', values: ['linear']},
-            {suffix: 'se', values: ['step-send']},
+            {suffix: 'se', values: ['step-end']},
             {suffix: 'ss', values: ['step-start']}
         ]
     },
