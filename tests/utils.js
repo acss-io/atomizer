@@ -119,4 +119,23 @@ describe('utils', function () {
             expect(result).to.deep.equal(expected);
         });
     });
+
+    describe('repeatString()', function () {
+        it('should not repeat string if count < 0', function () {
+            var result = utils.repeatString('test', 0);
+            expect(result).to.be.empty;
+        });
+        it('should output string once if count is 1', function () {
+            var result = utils.repeatString('test', 1);
+            expect(result).to.equal('test');
+        });
+        it('should output string twice if count is 2', function () {
+            var result = utils.repeatString('test', 2);
+            expect(result).to.equal('testtest');
+        });
+        it('should output string twice if count is 3', function () {
+            var result = utils.repeatString('test', 3);
+            expect(result).to.equal('testtesttest');
+        });
+    });
 });

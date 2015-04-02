@@ -20,8 +20,8 @@
 
 var _ = require('lodash');
 var utils = require('./utils');
+var JSS = require('./jss');
 var objectAssign = require('object-assign');
-var Absurd = require('absurd');
 var XRegExp = require('xregexp').XRegExp;
 
 var RULES = require('./rules.js').concat(require('./helpers.js'));
@@ -380,9 +380,8 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
 Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:string*/ {
     var matches;
     var tree/*:AtomicTree*/ = {};
-    var csso = {};
-    var cssoHelpers = {};
-    var absurd = Absurd();
+    var jss = {};
+    var jssHelpers = {};
     var content = '';
     var warnings = [];
     var isVerbose = !!this.verbose;
@@ -612,60 +611,55 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 // add the dot for the class
                 className = ['.', className].join('');
 
-                // fix the comma problem in Absurd
-                // @TODO temporary until we replace Absurd
-                // See also the return of this method.
-                className = className.replace(',', '__COMMA__');
-
                 // finaly, create the object
 
                 // helper rules doesn't have the same format as patterns
                 if (rule.type === 'helper') {
-                    cssoHelpers[className] = {};
+                    jssHelpers[className] = {};
 
                     if (breakPoint) {
-                        cssoHelpers[className][breakPoint] = {};
+                        jssHelpers[className][breakPoint] = {};
                     }
                     if (!rule.declaration) {
                         throw new Error('Declaration key is expected in a helper class. Helper class: ' + rule.prefix);
                     }
 
                     if (breakPoint) {
-                        cssoHelpers[className][breakPoint] = rule.declaration;
+                        jssHelpers[className][breakPoint] = rule.declaration;
                     } else {
-                        cssoHelpers[className] = rule.declaration;
+                        jssHelpers[className] = rule.declaration;
                     }
 
                     // we have params in declaration
                     if (treeo.params) {
                         treeo.params.forEach(function (param, index) {
                             if (breakPoint) {
-                                for (var prop in cssoHelpers[className][breakPoint]) {
-                                    cssoHelpers[className][breakPoint][prop] = cssoHelpers[className][breakPoint][prop].replace('$' + index, param);
+                                for (var prop in jssHelpers[className][breakPoint]) {
+                                    jssHelpers[className][breakPoint][prop] = jssHelpers[className][breakPoint][prop].replace('$' + index, param);
                                 }
                             } else {
-                                for (var prop in cssoHelpers[className]) {
-                                    cssoHelpers[className][prop] = cssoHelpers[className][prop].replace('$' + index, param);
+                                for (var prop in jssHelpers[className]) {
+                                    jssHelpers[className][prop] = jssHelpers[className][prop].replace('$' + index, param);
                                 }
                             }
                         });
                     }
                     if (rule.rules) {
-                        _.merge(csso, rule.rules);
+                        _.merge(jss, rule.rules);
                     }
                 } else/* if (type === 'pattern')*/ {
-                    csso[className] = {};
+                    jss[className] = {};
 
                     if (breakPoint) {
-                        csso[className][breakPoint] = {};
+                        jss[className][breakPoint] = {};
                     }
 
                     // named classes have their property/value already assigned
                     if (treeo.declaration) {
                         if (breakPoint) {
-                            csso[className][breakPoint] = treeo.declaration;
+                            jss[className][breakPoint] = treeo.declaration;
                         } else {
-                            csso[className] = treeo.declaration;
+                            jss[className] = treeo.declaration;
                         }
                     }
                     // a custom class name not declared in the config might not have values
@@ -673,9 +667,9 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                         rule.properties.forEach(function (property) {
                             var value = treeo.value;
                             if (breakPoint) {
-                                csso[className][breakPoint][property] = value;
+                                jss[className][breakPoint][property] = value;
                             } else {
-                                csso[className][property] = value;
+                                jss[className][property] = value;
                             }
                         });
                     }
@@ -684,40 +678,23 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
     });
 
-    // Pass some options through to Absurd
-    // if (options.morph) {
-    //     api.morph(options.morph);
-    // }
-
-    // if (options.require.length > 0) {
-    //     api.import(options.require);
-    // }
-
     if (options.namespace) {
-        var cssoNew = {};
-        cssoNew[options.namespace] = csso;
-        csso = cssoNew;
+        var jssNew = {};
+        jssNew[options.namespace] = jss;
+        jss = jssNew;
     }
     if (options.helpersNS) {
-        var cssoHelpersNew = {};
-        cssoHelpersNew[options.helpersNS] = cssoHelpers;
-        cssoHelpers = cssoHelpersNew;
+        var jssHelpersNew = {};
+        jssHelpersNew[options.helpersNS] = jssHelpers;
+        jssHelpers = jssHelpersNew;
     }
 
-    _.merge(csso, cssoHelpers);
+    _.merge(jss, jssHelpers);
 
-    // send CSSO to absurd
-    absurd.add(csso);
-    absurd.compile(function(err, result) {
-        /* istanbul ignore if else */
-        if (err) {
-            throw new Error('Failed to compile atomic css:' + err);
-        }
-        content = options.banner + result;
-    }, options);
+    // convert JSS to CSS
+    content = options.banner + JSS.jssToCss(jss);
 
     // fix the comma problem in Absurd
-    content = content.replace(/__COMMA__/g, ',');
     content = Atomizer.replaceConstants(content, options.rtl);
 
     return content;
@@ -763,7 +740,7 @@ Atomizer.replaceConstants = function (str/*:string*/, rtl/*:boolean*/) {
         return str;
     }
 
-    return str.replace(/__start__/g, start).replace(/__end__/g, end);
+    return str.replace(/__START__/g, start).replace(/__END__/g, end);
 };
 
 module.exports = Atomizer;

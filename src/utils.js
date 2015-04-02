@@ -2,7 +2,8 @@ var _ = require('lodash');
 
 var utils = {};
 
-utils.hexToRgb = function (hex) {
+// hex value to rgb object
+utils.hexToRgb = function (hex/*:string*/)/*:Rgb*/ {
     var result;
 
     // shorthand to full form
@@ -30,15 +31,25 @@ utils.handleMergeArrays = function (a, b) {
     }
 };
 
-/**
-* Merge atomizer configs into a single config
-* @param {Array} configs An array of Atomizer config objects
-* @return {object} An atomizer config object
-*/
-utils.mergeConfigs = function (configs) {
+// merge atomizer configs into a single config
+utils.mergeConfigs = function (configs/*:Config[]*/)/*:Config*/ {
     // TODO: Offer option to warn on conflicts
     return _.merge.apply(null, configs.concat(utils.handleMergeArrays));
-},
+};
 
+// returns a repeated string by X amount
+utils.repeatString = function (pattern/*:string*/, count/*:integer*/) {
+    var result = '';
+    if (count < 1) {
+        return result;
+    }
+    while (count > 1) {
+        if (count & 1) {
+            result += pattern;
+        }
+        count >>= 1, pattern += pattern;
+    }
+    return result + pattern;
+};
 
 module.exports = utils;

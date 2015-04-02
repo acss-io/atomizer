@@ -28,7 +28,6 @@
   "preferGlobal": true,
   "dependencies": {
     "object-assign": "^2.0.0",
-    "absurd": "0.3.34",
     "minimist": "^1.1.1",
     "chalk": "^1.0.0",
     "lodash": "^3.6.0",
