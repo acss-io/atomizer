@@ -1205,7 +1205,6 @@ module.exports = [
             {suffix: 'inh', values: ['inherit']}
         ]
     },
-
     /**
      ==================================================================
      HYPHENS
@@ -1223,7 +1222,23 @@ module.exports = [
             {suffix: 'm', values: ['manual']}
         ]
     },
-
+    /**
+     ==================================================================
+     LETTER-SPACING
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        name: 'Letter spacing',
+        prefix: 'Lts-',
+        properties: ['letter-spacing'],
+        allowCustom: true,
+        allowSuffixToValue: true,
+        rules: [
+            {suffix: 'inh', values: ['inherit']},
+            {suffix: 'n', values: ['normal']}
+        ]
+    },
     /**
      ==================================================================
      LIST-STYLE-TYPE
