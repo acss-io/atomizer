@@ -20,8 +20,8 @@
 
 var _ = require('lodash');
 var utils = require('./utils');
+var JSS = require('./jss');
 var objectAssign = require('object-assign');
-var Absurd = require('absurd');
 var XRegExp = require('xregexp').XRegExp;
 
 var RULES = require('./rules.js').concat(require('./helpers.js'));
@@ -382,7 +382,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     var tree/*:AtomicTree*/ = {};
     var csso = {};
     var cssoHelpers = {};
-    var absurd = Absurd();
     var content = '';
     var warnings = [];
     var isVerbose = !!this.verbose;
@@ -612,11 +611,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 // add the dot for the class
                 className = ['.', className].join('');
 
-                // fix the comma problem in Absurd
-                // @TODO temporary until we replace Absurd
-                // See also the return of this method.
-                className = className.replace(',', '__COMMA__');
-
                 // finaly, create the object
 
                 // helper rules doesn't have the same format as patterns
@@ -684,15 +678,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
     });
 
-    // Pass some options through to Absurd
-    // if (options.morph) {
-    //     api.morph(options.morph);
-    // }
-
-    // if (options.require.length > 0) {
-    //     api.import(options.require);
-    // }
-
     if (options.namespace) {
         var cssoNew = {};
         cssoNew[options.namespace] = csso;
@@ -706,18 +691,10 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 
     _.merge(csso, cssoHelpers);
 
-    // send CSSO to absurd
-    absurd.add(csso);
-    absurd.compile(function(err, result) {
-        /* istanbul ignore if else */
-        if (err) {
-            throw new Error('Failed to compile atomic css:' + err);
-        }
-        content = options.banner + result;
-    }, options);
+    // convert JSS to CSS
+    content = options.banner + JSS.cssoToCss(csso);
 
     // fix the comma problem in Absurd
-    content = content.replace(/__COMMA__/g, ',');
     content = Atomizer.replaceConstants(content, options.rtl);
 
     return content;
@@ -763,7 +740,7 @@ Atomizer.replaceConstants = function (str/*:string*/, rtl/*:boolean*/) {
         return str;
     }
 
-    return str.replace(/__start__/g, start).replace(/__end__/g, end);
+    return str.replace(/__START__/g, start).replace(/__END__/g, end);
 };
 
 module.exports = Atomizer;

@@ -5,73 +5,6 @@ var expect = require('chai').expect;
 var utils = require('../src/utils');
 
 describe('utils', function () {
-    describe('flattenJson()', function () {
-        it('flattens', function () {
-            var result = utils.flattenJson({}, {
-                'body': {
-                    'background': 'white'
-                },
-                'foo': {
-                    'bar': 'baz'
-                },
-                '.test4': {
-                    '.test5': {
-                        'background': 'black'
-                    }
-                },
-                '.test6': {
-                    '.test7': {
-                        '.test8': {
-                            '.test9': {
-                                'background': 'red'
-                            }
-                        }
-                    }
-                },
-                '.test10': {
-                    '@media(min-width:400px)': {
-                        'background': 'black'
-                    }
-                },
-                '.test11': {
-                    '@media(min-width:400px)': {
-                        'color': 'white'
-                    }
-                }
-            });
-        });
-    });
-    describe('jsonToCss()', function () {
-        it('selector', function () {
-            var result = utils.jsonToCss({
-                'body': {
-                    'background': 'white'
-                },
-                '.test': {
-                    'background': 'white'
-                },
-                '.test2': {
-                    'background': 'black'
-                },
-                '.test3': {
-                    '@media(min-width:400px)': {
-                        'background': 'white'
-                    }
-                },
-                '.test4': {
-                    '.test5': {
-                        'background': 'black'
-                    }
-                },
-                '.test6': {
-                    '@media(min-width:400px)': {
-                        'background': 'black'
-                    }
-                },
-            });
-        });
-    });
-
     describe('hexToRgb()', function () {
         it('should return null given an invalid hex', function () {
             var result = utils.hexToRgb('ghk');
@@ -184,6 +117,25 @@ describe('utils', function () {
             };
             var result = utils.mergeConfigs([config1, config2]);
             expect(result).to.deep.equal(expected);
+        });
+    });
+
+    describe('repeatString()', function () {
+        it('should not repeat string if count < 0', function () {
+            var result = utils.repeatString('test', 0);
+            expect(result).to.be.empty;
+        });
+        it('should output string once if count is 1', function () {
+            var result = utils.repeatString('test', 1);
+            expect(result).to.equal('test');
+        });
+        it('should output string twice if count is 2', function () {
+            var result = utils.repeatString('test', 2);
+            expect(result).to.equal('testtest');
+        });
+        it('should output string twice if count is 3', function () {
+            var result = utils.repeatString('test', 3);
+            expect(result).to.equal('testtesttest');
         });
     });
 });
