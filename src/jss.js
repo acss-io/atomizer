@@ -1,8 +1,8 @@
 var JSS = {};
 var utils = require('./utils');
 
-// returns a new CSSO with flattened selectors
-JSS.flattenSelectors = function (newCsso/*:Csso*/, csso/*:Csso*/, parent/*:string*/) {
+// returns a new JSS with flattened selectors
+JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/) {
     var props;
     var value;
     var selector;
@@ -10,45 +10,45 @@ JSS.flattenSelectors = function (newCsso/*:Csso*/, csso/*:Csso*/, parent/*:strin
     parent = parent || '';
     selector = parent;
 
-    for (var rule in csso) {
-        props = csso[rule];
+    for (var rule in jss) {
+        props = jss[rule];
         for (var prop in props) {
             value = props[prop];
             // prop is not a prop
             if (typeof value === 'object') {
                 // prop is a media query
                 if (/^@media/.test(prop)) {
-                    if (!newCsso[prop]) {
-                        newCsso[prop] = {};
+                    if (!newJss[prop]) {
+                        newJss[prop] = {};
                     }
-                    newCsso[prop][parent ? parent + ' ' + rule : rule] = value;
+                    newJss[prop][parent ? parent + ' ' + rule : rule] = value;
                 } else {
-                    JSS.flattenSelectors(newCsso, props, parent ? parent + ' ' + rule : rule);
+                    JSS.flattenSelectors(newJss, props, parent ? parent + ' ' + rule : rule);
                 }
             }
             // prop is prop
             else /*if (typeof value === 'string' || typeof value === 'number')*/ {
                 selector = parent ? parent + ' ' + rule : rule;
-                if (!newCsso[selector]) {
-                    newCsso[selector] = {};
+                if (!newJss[selector]) {
+                    newJss[selector] = {};
                 }
-                newCsso[selector][prop] = value;
+                newJss[selector][prop] = value;
             }
         }
     }
-    return newCsso;
+    return newJss;
 };
 
-// read CSSO and build Extracted object
-JSS.extractProperties = function (extracted/*:Extracted*/, csso/*:CssoFlat*/, block/*:string*/)/*:Extracted*/ {
+// read a flat JSS and build an Extracted object
+JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, block/*:string*/)/*:Extracted*/ {
     var props;
     var prop;
     var extract;
 
     block = block || 'main';
 
-    for (var selector in csso) {
-        props = csso[selector];
+    for (var selector in jss) {
+        props = jss[selector];
         // if selector is a media query
         if (/^@media/.test(selector)) {
             JSS.extractProperties(extracted, props, selector);
@@ -111,8 +111,8 @@ JSS.extractedToStylesheet = function (extracted/*:Extracted*/)/*:Stylesheet*/ {
     return stylesheet;
 };
 
-// transforms csso to css
-JSS.cssoToCss = function (csso/*:Csso*/, options/*:Options*/) {
+// transforms jss to css
+JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     var css = [];
     var extracted/*:Extracted*/;
     var stylesheet/*:Stylesheet*/;
@@ -120,10 +120,10 @@ JSS.cssoToCss = function (csso/*:Csso*/, options/*:Options*/) {
     var ruleTab = '';
 
     // flatten nested selectors
-    csso = JSS.flattenSelectors({}, csso);
+    jss = JSS.flattenSelectors({}, jss);
 
     // extract properties
-    extracted = JSS.extractProperties({}, csso);
+    extracted = JSS.extractProperties({}, jss);
 
     // combine the selectors in the stylesheet
     extracted = JSS.combineSelectors(extracted);

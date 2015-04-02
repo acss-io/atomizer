@@ -253,9 +253,9 @@ describe('JSS', function () {
             expect(result).to.deep.equal(expected);
         });
     });
-    describe('cssoToCss()', function () {
+    describe('jssToCss()', function () {
         it('should return CSS with the specified tab width', function () {
-            var result = JSS.cssoToCss({
+            var result = JSS.jssToCss({
                 '.foo': {
                     'background': 'black',
                     'color': 'red',
@@ -282,7 +282,7 @@ describe('JSS', function () {
             expect(result).to.equal(expected);
         });
         it('should return CSS with combined selectors given a CSS Object', function () {
-            var result = JSS.cssoToCss({
+            var result = JSS.jssToCss({
                 'body': {
                     'background': 'black',
                     'color': 'red',
