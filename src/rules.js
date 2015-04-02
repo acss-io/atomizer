@@ -1849,7 +1849,7 @@ module.exports = [
         prefix: 'Td-',
         properties: ['text-decoration'],
         rules: [
-            {suffix: 'l', values: ['line-through']},
+            {suffix: 'lt', values: ['line-through']},
             {suffix: 'n', values: ['none']},
             {suffix: 'o', values: ['overline']},
             {suffix: 'u', values: ['underline']},
@@ -2141,7 +2141,7 @@ module.exports = [
         properties: ['white-space-collapse'],
         rules: [
             {suffix: 'n', values: ['normal']},
-            {suffix: 'k', values: ['keep-all']},
+            {suffix: 'ka', values: ['keep-all']},
             {suffix: 'l', values: ['loose']},
             {suffix: 'bs', values: ['break-strict']},
             {suffix: 'ba', values: ['break-all']},
@@ -2186,7 +2186,7 @@ module.exports = [
         properties: ['word-break'],
         rules: [
             {suffix: 'ba', values: ['break-all']},
-            {suffix: 'k', values: ['keep-all']},
+            {suffix: 'ka', values: ['keep-all']},
             {suffix: 'n', values: ['normal']},
             {suffix: 'inh', values: ['inherit']}
         ]
