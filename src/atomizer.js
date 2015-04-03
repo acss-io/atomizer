@@ -381,7 +381,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     var matches;
     var tree/*:AtomicTree*/ = {};
     var jss = {};
-    var jssHelpers = {};
     var content = '';
     var warnings = [];
     var isVerbose = !!this.verbose;
@@ -647,16 +646,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     if (rule.rules) {
                         _.merge(jss, rule.rules);
                     }
-
-                    // put the declaration to the JSS object with the associated class name
-                    if (!jssHelpers[className]) {
-                        jssHelpers[className] = {};
-                    }
-                    if (breakPoint) {
-                        jssHelpers[className][breakPoint] = declarations;
-                    } else {
-                        jssHelpers[className] = declarations;
-                    }
                 } else/* if (type === 'pattern')*/ {
                     // named classes have their property/value already assigned
                     if (treeo.declaration) {
@@ -668,21 +657,20 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                             declarations[property] = treeo.value;
                         });
                     }
-                    // put the declaration to the JSS object with the associated class name
-                    if (!jss[className]) {
-                        jss[className] = {};
-                    }
-                    if (breakPoint) {
-                        jss[className][breakPoint] = declarations;
-                    } else {
-                        jss[className] = declarations;
-                    }
+                }
+                // put the declaration to the JSS object with the associated class name
+                /* istanbul ignore else */
+                if (!jss[className]) {
+                    jss[className] = {};
+                }
+                if (breakPoint) {
+                    jss[className][breakPoint] = declarations;
+                } else {
+                    jss[className] = declarations;
                 }
             });
         }
     });
-
-    _.merge(jss, jssHelpers);
 
     // convert JSS to CSS
     content = options.banner + JSS.jssToCss(jss);
