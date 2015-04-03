@@ -425,7 +425,7 @@ describe('Atomizer()', function () {
                 custom: {
                     'brand-color': '#400090'
                 },
-                classNames: ['parent_C-brand-color', 'C-brand-color', 'Foo()']
+                classNames: ['parent_C-brand-color', 'C-brand-color', 'parent_Foo()', 'Foo()']
             };
             // make sure parent selectors and helpers don't have the namespace
             // helpers should have their own namespace and parent should not have any
@@ -436,11 +436,14 @@ describe('Atomizer()', function () {
                 '#atomic .C-brand-color {',
                 '  color: #400090;',
                 '}',
+                '.parent .parent_Foo\\(\\) {',
+                '  font-weight: bold !important;',
+                '}',
                 '.atomic .Foo\\(\\) {',
                 '  font-weight: bold;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {namespace: '#atomic', helpersNS: '.atomic'});
+            var result = atomizer.getCss(config, {namespace: '#atomic', helpersNamespace: '.atomic'});
             expect(result).to.equal(expected);
         });
         it ('ignores invalid classnames', function () {
