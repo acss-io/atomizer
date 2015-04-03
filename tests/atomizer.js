@@ -157,10 +157,7 @@ describe('Atomizer()', function () {
                 '.C-\\#333, .C-\\#333\\:li:link {',
                 '  color: #333;',
                 '}',
-                '.sibling:checked + .sibling\\:c\\+D-n {',
-                '  display: none;',
-                '}',
-                '.D-n\\! {',
+                '.sibling:checked + .sibling\\:c\\+D-n, .D-n\\! {',
                 '  display: none !important;',
                 '}',
                 '.H-100\\% {',
@@ -175,11 +172,11 @@ describe('Atomizer()', function () {
                 '.End-0 {',
                 '  right: 0;',
                 '}',
-                '.test:hover > .test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1 {',
-                '  opacity: 1;',
-                '}',
-                '.Op-1\\! {',
+                '.test:hover > .test\\:h\\>Op-1\\:h:hover, .test:hover .test\\:h_Op-1\\:h:hover, .Op-1\\! {',
                 '  opacity: 1 !important;',
+                '}',
+                '.Op-1 {',
+                '  opacity: 1;',
                 '}',
                 '.P-55px {',
                 '  padding: 55px;',
@@ -428,17 +425,25 @@ describe('Atomizer()', function () {
                 custom: {
                     'brand-color': '#400090'
                 },
-                classNames: ['C-brand-color', 'Foo()']
+                classNames: ['parent_C-brand-color', 'C-brand-color', 'parent_Foo()', 'Foo()']
             };
+            // make sure parent selectors and helpers don't have the namespace
+            // helpers should have their own namespace and parent should not have any
             var expected = [
+                '.parent .parent_C-brand-color {',
+                '  color: #400090 !important;',
+                '}',
                 '#atomic .C-brand-color {',
                 '  color: #400090;',
+                '}',
+                '.parent .parent_Foo\\(\\) {',
+                '  font-weight: bold !important;',
                 '}',
                 '.atomic .Foo\\(\\) {',
                 '  font-weight: bold;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {namespace: '#atomic', helpersNS: '.atomic'});
+            var result = atomizer.getCss(config, {namespace: '#atomic', helpersNamespace: '.atomic'});
             expect(result).to.equal(expected);
         });
         it ('ignores invalid classnames', function () {

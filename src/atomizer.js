@@ -381,7 +381,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     var matches;
     var tree/*:AtomicTree*/ = {};
     var jss = {};
-    var jssHelpers = {};
     var content = '';
     var warnings = [];
     var isVerbose = !!this.verbose;
@@ -446,6 +445,8 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
         if (match.parent) {
             treeo.parent = match.parent;
+            // enforce !important, since these classes don't have the namespace
+            match.important = true;
         }
         if (match.parentPseudo) {
             treeo.parentPseudo = match.parentPseudo;
@@ -556,6 +557,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
             treeo.breakPoint = match.breakPoint;
         }
         if (match.important) {
+            treeo.important = true;
             treeo.value = treeo.value + ' !important';
         }
 
@@ -578,13 +580,12 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     // write CSSO
     // start by iterating rules (we need to follow the order that the rules were declared)
     this.rules.forEach(function (rule) {
-        var className;
-        var treeCurrent;
-
         // check if we have a class name that matches this rule
         if (tree[rule.prefix]) {
             tree[rule.prefix].forEach(function(treeo) {
                 var breakPoint = breakPoints && breakPoints[treeo.breakPoint];
+                var className;
+                var declarations = {};
 
                 // this is where we start writing the class name, properties and values
                 className = Atomizer.escapeSelector(treeo.className);
@@ -611,85 +612,65 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 // add the dot for the class
                 className = ['.', className].join('');
 
-                // finaly, create the object
-
-                // helper rules doesn't have the same format as patterns
-                if (rule.type === 'helper') {
-                    jssHelpers[className] = {};
-
-                    if (breakPoint) {
-                        jssHelpers[className][breakPoint] = {};
+                // add the namespace only if we don't have a parent selector
+                if (!treeo.parent) {
+                    if (rule.type === 'helper' && options.helpersNamespace) {
+                        className = [options.helpersNamespace, ' ', className].join('');
+                    } else if (rule.type !== 'helper' && options.namespace) {
+                        className = [options.namespace, ' ', className].join('');
                     }
+                }
+
+                // finaly, fill the declarations object
+                // helper rules don't have the same format as patterns
+                if (rule.type === 'helper') {
                     if (!rule.declaration) {
                         throw new Error('Declaration key is expected in a helper class. Helper class: ' + rule.prefix);
                     }
 
-                    if (breakPoint) {
-                        jssHelpers[className][breakPoint] = _.cloneDeep(rule.declaration);
-                    } else {
-                        jssHelpers[className] = _.cloneDeep(rule.declaration);
-                    }
+                    declarations = _.cloneDeep(rule.declaration);
 
                     // we have params in declaration
-                    if (treeo.params) {
-                        treeo.params.forEach(function (param, index) {
-                            if (breakPoint) {
-                                for (var prop in jssHelpers[className][breakPoint]) {
-                                    jssHelpers[className][breakPoint][prop] = jssHelpers[className][breakPoint][prop].replace('$' + index, param);
-                                }
-                            } else {
-                                for (var prop in jssHelpers[className]) {
-                                    jssHelpers[className][prop] = jssHelpers[className][prop].replace('$' + index, param);
-                                }
+                    if (treeo.params || treeo.important) {
+                        for (var prop in declarations) {
+                            if (treeo.params) {
+                                treeo.params.forEach(function (param, index) {
+                                    declarations[prop] = declarations[prop].replace('$' + index, param);
+                                });
                             }
-                        });
+                            if (treeo.important) {
+                                declarations[prop] += ' !important';
+                            }
+                        }
                     }
                     if (rule.rules) {
                         _.merge(jss, rule.rules);
                     }
                 } else/* if (type === 'pattern')*/ {
-                    jss[className] = {};
-
-                    if (breakPoint) {
-                        jss[className][breakPoint] = {};
-                    }
-
                     // named classes have their property/value already assigned
                     if (treeo.declaration) {
-                        if (breakPoint) {
-                            jss[className][breakPoint] = treeo.declaration;
-                        } else {
-                            jss[className] = treeo.declaration;
-                        }
+                        declarations = treeo.declaration;
                     }
                     // a custom class name not declared in the config might not have values
                     else if (treeo.value) {
                         rule.properties.forEach(function (property) {
-                            var value = treeo.value;
-                            if (breakPoint) {
-                                jss[className][breakPoint][property] = value;
-                            } else {
-                                jss[className][property] = value;
-                            }
+                            declarations[property] = treeo.value;
                         });
                     }
+                }
+                // put the declaration to the JSS object with the associated class name
+                /* istanbul ignore else */
+                if (!jss[className]) {
+                    jss[className] = {};
+                }
+                if (breakPoint) {
+                    jss[className][breakPoint] = declarations;
+                } else {
+                    jss[className] = declarations;
                 }
             });
         }
     });
-
-    if (options.namespace) {
-        var jssNew = {};
-        jssNew[options.namespace] = jss;
-        jss = jssNew;
-    }
-    if (options.helpersNS) {
-        var jssHelpersNew = {};
-        jssHelpersNew[options.helpersNS] = jssHelpers;
-        jssHelpers = jssHelpersNew;
-    }
-
-    _.merge(jss, jssHelpers);
 
     // convert JSS to CSS
     content = options.banner + JSS.jssToCss(jss);
