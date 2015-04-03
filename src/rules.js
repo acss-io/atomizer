@@ -137,7 +137,7 @@ module.exports = [
             {suffix: 'eo', values: ['ease-out']},
             {suffix: 'eio', values: ['ease-in-out']},
             {suffix: 'l', values: ['linear']},
-            {suffix: 'se', values: ['step-send']},
+            {suffix: 'se', values: ['step-end']},
             {suffix: 'ss', values: ['step-start']}
         ]
     },
@@ -663,9 +663,9 @@ module.exports = [
         prefix: 'Bgr-',
         properties: ['background-repeat'],
         rules: [
-            {suffix: 'n', values: ['no-repeat']},
-            {suffix: 'x', values: ['repeat-x']},
-            {suffix: 'y', values: ['repeat-y']},
+            {suffix: 'nr', values: ['no-repeat']},
+            {suffix: 'rx', values: ['repeat-x']},
+            {suffix: 'ry', values: ['repeat-y']},
             {suffix: 'r', values: ['repeat']},
             {suffix: 's', values: ['space']},
             {suffix: 'ro', values: ['round']}
@@ -1867,7 +1867,7 @@ module.exports = [
         prefix: 'Td-',
         properties: ['text-decoration'],
         rules: [
-            {suffix: 'l', values: ['line-through']},
+            {suffix: 'lt', values: ['line-through']},
             {suffix: 'n', values: ['none']},
             {suffix: 'o', values: ['overline']},
             {suffix: 'u', values: ['underline']},
@@ -2159,7 +2159,7 @@ module.exports = [
         properties: ['white-space-collapse'],
         rules: [
             {suffix: 'n', values: ['normal']},
-            {suffix: 'k', values: ['keep-all']},
+            {suffix: 'ka', values: ['keep-all']},
             {suffix: 'l', values: ['loose']},
             {suffix: 'bs', values: ['break-strict']},
             {suffix: 'ba', values: ['break-all']},
@@ -2204,7 +2204,7 @@ module.exports = [
         properties: ['word-break'],
         rules: [
             {suffix: 'ba', values: ['break-all']},
-            {suffix: 'k', values: ['keep-all']},
+            {suffix: 'ka', values: ['keep-all']},
             {suffix: 'n', values: ['normal']},
             {suffix: 'inh', values: ['inherit']}
         ]
