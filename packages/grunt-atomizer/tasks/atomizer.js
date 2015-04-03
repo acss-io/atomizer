@@ -108,9 +108,9 @@ module.exports = function (grunt) {
             // write file
             if (options.configOutput) {
                 grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
+                grunt.log.oklns('Config file ' + options.configOutput + ' successfully created.');
             }
             grunt.file.write(f.dest, content);
-
             grunt.log.oklns('File ' + f.dest + ' successfully created.');
         });
 
