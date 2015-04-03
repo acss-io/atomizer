@@ -125,41 +125,6 @@
 }
 
 /**
- * LINE CLAMP (Atomizer plugs a companion rule)
- * Class in the markup should be in the form of `LineClamp(3,72px)` for Atomizer to create an extra rule, for example:
- * .LineClamp-(3,72px) {
- *    -webkit-line-clamp: 3;
- *    max-height: 72px;
- * }
- * First character is the number of lines to show, the rest is meant to set a max-height.
- ==================================================================
-*/
-[class*=LineClamp] {
-   display: -webkit-box;
-   -webkit-box-orient: vertical;
-   overflow: hidden;
-}
-a[class*=LineClamp] {
-   display: inline-block;
-   *display: inline;
-   zoom: 1;
-}
-/**
- * Fix WebKit bug that displays ellipsis in middle of text inside *LINKS*
- * see: https://twitter.com/thierrykoblentz/status/443899465842176000
- * 1. removes that hack out of the flow (bug reported by Fonda)
- */
-a[class*=LineClamp]:after {
-   content: ".";
-   font-size: 0;
-   visibility: hidden;
-   display: inline-block; /* 1 */
-   overflow: hidden; /* 1 */
-   height: 0; /* 1 */
-   width: 0; /* 1 */
-}
-
-/**
  * .Row is meant to contain boxes on a row (from left to right of containing box)
  ==================================================================
  * see: http://cssmojo.com/row_for_grids/
@@ -230,6 +195,11 @@ a[class*=LineClamp]:after {
  */
 .ul-list {
     list-style-type: disc;
+    padding-left: 2em;
+}
+
+.ol-list {
+    list-style-type: decimal;
     padding-left: 2em;
 }
 

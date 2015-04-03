@@ -17,23 +17,19 @@ These classes are the ones Atomizer can make sense of without the need to check 
 The value identifier of these classes is mapped to a custom value set in the config object. For example, the following:
 
 ```javascript
-'font-size': {
-    custom: [
-        {suffix: 'verylarge', values: ['3em']}
-    ]
-},
-'padding': {
-    'custom': [
-        {suffix: 'gutter', values: ['10px']}
-    ]
+'custom': {
+    'Fz-verylarge': '3em',
+    'P-gutter': '10px',
+    'C-primary': 'teal'
 }
 ```
 
-creates 2 classes:
+creates 3 classes/declarations:
 
 <ul class="ul-list">
-    <li>`Fz-verylarge` (`font-size:3em`)</li>
-    <li>`P-gutter` (`padding:10px`)</li>
+    <li>`Fz-verylarge` for `font-size: 3em`</li>
+    <li>`P-gutter` for (`padding: 10px`</li>
+    <li>`C-primary` for (`color: teal`</li>
 </ul>
 
 ## Aliases
@@ -110,64 +106,101 @@ Atomic CSS uses aliases whenever they make more sense than the class the regular
 
 ## Variables
 
-You can use custom value identifiers to be used as variables across different styles. You set such classes via the config object, for example:
+You can use custom value identifiers to be used as &quot;variables&quot; across different styles. You set such values via the config object, for example:
 
 ```javascript
 custom: {
-    "headerHeight": "20px"
+    "$headerHeight": "20px"
 }
 ```
 
-Then you could use this value identifier like this:
+Then you can use that value identifier like this:
 
 ```javascript
-<body class="Pt-headerHeight">
-    <header class="Mih-headerHeight Bgc-primary">...</header>
+<body class="Pt-$headerHeight">
+    <header class="Mih-$headerHeight Pos-f T-0 Start-0 End-0">...</header>
 ```
 
-This way, even if the value of `headerHeight` changes, the padding of body will allways be in sync with the height of the header.
+This way, even if the value of `$headerHeight` changes, the padding of `body` is still in sync with the height of the `header`.
 
-Variables are also an easy way to abstract colors to create themes:
+Variables are also an easy way to abstract colors:
 
 ```javascript
 custom: {
-    "primaryColor": "blue",
-    "secondaryColor": "orange",
-    "tertiaryColor": "tomato"
+    "$primaryColor": "blue",
+    "$secondaryColor": "orange",
+    "$tertiaryColor": "tomato"
 }
 ```
+
+Such variables can then be used with any properties that set colors, for example:
+
+<ul class="ul-list">
+    <li>`Bgc-$primaryColor` for background color</li>
+    <li>`C-$secondaryColor` for color</li>
+    <li>`Bdc-$tertiaryColor` for border-color</li>
+    <li>etc.</li>
+</ul>
+
+Changing any value in the config changes all occurrences in the style sheet.
 
 ## Advanced classes
 
-These classes are mostly contextual; they take into consideration ancestor nodes or media query breakpoints.
+These classes are mostly contextual; they take into consideration ancestor nodes or media queries.
 
 ### Descendant selectors
 
-You can style a node according to its relationship with a parent or ancestor, for example:
+You can style a node according to its relationship with its parent or ancestor, for example:
 
-The class `myList_Td-u` on links inside an element to which the class `myList` is applied to will be underline.
+```html
+<p class="someElement">The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+```
+<p class="someElement">The following text is <b class="someElement_C-#0b0">lime</b>.</p>
 
-The class `myList>V-h` on list items that are direct children of the `myList` will be invisible.
+Same class on a node outside the scope of `.someElement`:
 
-<p class="noteBox info"><strong>Practical example</strong>: we use the class `home-page_D-b!` to style `#main` differently on the home page.</p>
+```html
+<p>The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+```
+
+<p>The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+
+<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page_D-b` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
 
 #### pseudo-classes on ancestors
 
-You can use pseudo-classes with classes relying on contextual selectors, for example `myList:h>V-h` will hide the direct children of `.myList` only when users hover over the said list.
+You can use pseudo-classes with classes relying on contextual selectors, for example `ul-list:h>V-h` hides the direct children of `.ul-list` &mdash; only when users hover over the said list.
+
+```html
+<ul class="ul-list">
+    <li class="ul-list:h>V-h">List item #1</li>
+    <li class="ul-list:h>V-h">List item #2</li>
+    <li>List item #3</li>
+</ul>
+```
+
+<ul class="ul-list">
+    <li class="ul-list:h>V-h">List item #1</li>
+    <li class="ul-list:h>V-h">List item #2</li>
+    <li>List item #3</li>
+</ul>
+
+<p class="noteBox important">Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if one is set in the config). Instead, Atomizer adds `!important` to these styles.</p>
 
 ### Breakpoints
 
-You use the config object to create breakpoints then you can add a modifier to your classes so its styling comes into play only within the breakpoint it relates to.
+Use the config object to create breakpoints then append a modifier (`--<breakpoint name>`) to your Atomic classes so their styling comes into play only within the breakpoint they relate to.
 
 ```javascript
-'padding': {
-    'custom': [
-        {suffix: '10', values: ['10px'], breakPoints: ['sm']},
-        {suffix: '20', values: ['20px'], breakPoints: ['lg']}
-    ]
+breakPoints: {
+    'sm': '@media(min-width:500px)', // breakpoint 1
+    'md': '@media(min-width:900px)', // breakpoint 2
+    'lg': '@media(min-width:1200px)' // breakpoint 3
 }
 ```
 
-The above creates 2 classes: `P-10--sm` and `P-20--lg`. The former will be applied inside the small (`--sm`) breakpoint, the latter inside the large (`--lg`) breakpoint.
-
 <p class="noteBox info">You can choose any name you want for the breakpoints you create via the config object.</p>
+
+The class `P-10--sm` will style a box with a `padding` of `10px` inside the `sm` breakpoint while the class `P-20--lg` will style a box with a `padding` of `20px` inside the `lg` breakpoint.
+
+More info about [breakpoints and responsive web design](../tutorials/responsive-web-design.html).

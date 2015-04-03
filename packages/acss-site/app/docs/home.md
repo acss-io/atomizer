@@ -1,6 +1,6 @@
 ## Features
 
-A collection of single purpose styling units for maximum reuse.
+## TL;DR: the style sheet of this web site is less than 4KB
 
 ## Atomic CSS is not opinionated
 
