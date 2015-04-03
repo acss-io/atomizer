@@ -15,6 +15,7 @@ module.exports = [
             },
             'a[class*=LineClamp]': {
                'display': 'inline-block',
+               'display': '-webkit-box',
                '*display': 'inline',
                'zoom': 1
             },
