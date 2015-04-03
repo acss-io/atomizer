@@ -4,7 +4,7 @@
  */
 'use strict';
 var React = require('react');
-var defaultConfig = require('../../config/atomic-config.js');
+var defaultConfig = require('../../build/atomizer.json');
 
 // actions
 var addCustomConfig = require('../actions/addCustomConfig');
