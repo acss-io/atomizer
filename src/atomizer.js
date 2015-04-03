@@ -446,6 +446,8 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
         if (match.parent) {
             treeo.parent = match.parent;
+            // enforce !important, since these classes don't have the namespace
+            match.important = true;
         }
         if (match.parentPseudo) {
             treeo.parentPseudo = match.parentPseudo;
@@ -611,8 +613,12 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 // add the dot for the class
                 className = ['.', className].join('');
 
-                // finaly, create the object
+                // add the namespace
+                if (options.namespace && !treeo.parent && rule.type !== 'helper') {
+                    className = [options.namespace, ' ', className].join('');
+                }
 
+                // finaly, create the object
                 // helper rules doesn't have the same format as patterns
                 if (rule.type === 'helper') {
                     jssHelpers[className] = {};
@@ -678,11 +684,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
     });
 
-    if (options.namespace) {
-        var jssNew = {};
-        jssNew[options.namespace] = jss;
-        jss = jssNew;
-    }
     if (options.helpersNS) {
         var jssHelpersNew = {};
         jssHelpersNew[options.helpersNS] = jssHelpers;
