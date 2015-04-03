@@ -3,12 +3,10 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 'use strict';
-// Webpack script loader - Absurd build for client side only
-if (typeof window !== 'undefined') {
-    require("script!atomizer/node_modules/absurd/client-side/build/absurd.min.js");
-}
+
 var React = require('react');
-var atomizer = require('atomizer');
+var Atomizer = require('atomizer');
+var atomizer = new Atomizer();
 
 // stores
 var ReferenceStore = require('../stores/ReferenceStore');
@@ -51,7 +49,7 @@ var AtomicCssOutputBox = React.createClass({
 
         if (this.state.customConfig) {
             try {
-                css = atomizer.createCSS(this.state.customConfigObj, {});
+                css = atomizer.getCss(this.state.customConfigObj, {});
             } catch (ex) {
                 css = 'Invalid configuration.';
                 console.log(ex);

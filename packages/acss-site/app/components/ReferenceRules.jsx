@@ -198,7 +198,7 @@ var ReferenceRules = React.createClass({
 
             var displayclassDefinitions = "Va-t W-50%--sm " + (showRecipeBlock ? "D-ib--sm" : "D-n");
             return (
-                <div key={'id-' + recipe.id} className={displayclassDefinitions}>
+                <div key={'id-' + recipe.prefix} className={displayclassDefinitions}>
                     <h3 className="M-0 Mt-10px P-10px">{recipe.name}</h3>
                     <dl className="M-0 P-10px Pt-0 Pend-50px--sm Ff-m">{classDefinitions}</dl>
                 </div>

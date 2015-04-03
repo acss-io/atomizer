@@ -143,7 +143,8 @@ module.exports = function(grunt) {
             app: {
                 options: {
                     namespace: '#atomic',
-                    configFile: './config/atomic-config.js'
+                    configFile: './config/atomic-config.js',
+                    configOutput: './build/atomizer.json'
                 },
                 files: [
                     {
@@ -251,9 +252,6 @@ module.exports = function(grunt) {
                     extensions: ['', '.js', '.jsx']
                 },
                 entry: '<%= project.app %>/client.js',
-                externals: {
-                    absurd: "Absurd"
-                },
                 output: {
                     path: '<%= project.build %>/js',
                     publicPath: '/public/js/',
@@ -279,9 +277,6 @@ module.exports = function(grunt) {
             prod: {
                 resolve: {
                     extensions: ['', '.js', '.jsx']
-                },
-                externals: {
-                    absurd: 'Absurd'
                 },
                 entry: '<%= project.app %>/client.js',
                 output: {

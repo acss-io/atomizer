@@ -27,7 +27,7 @@
     "lint"
   ],
   "dependencies": {
-    "atomizer": "^2.0.0-beta",
+    "atomizer": "^2.0.0-beta.9",
     "body-parser": "^1.9.3",
     "debug": "^2.1.1",
     "express": "^4.10.4",
