@@ -650,7 +650,10 @@ module.exports = [
             {suffix: 's_t', values: ['__START__ 0']},
             {suffix: 'e_t', values: ['__END__ 0']},
             {suffix: 's_b', values: ['__START__ 100%']},
-            {suffix: 'e_b', values: ['__END__ 100%']}
+            {suffix: 'e_b', values: ['__END__ 100%']},
+            {suffix: 's_c', values: ['__START__ center']},
+            {suffix: 'c_t', values: ['center 0']},
+            {suffix: 'c', values: ['center']}
         ]
     },
     /* background-repeat */
