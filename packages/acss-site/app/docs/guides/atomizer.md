@@ -63,11 +63,11 @@ You can create any custom class you want via the [config object](https://github.
     <dt>Unit-less values</dt>
     <dd>Use unit-less values to set styles like `line-height` (i.e. `Lh-1.5`), `font-weight` (i.e. `Fw-500`), etc.</dd>
     <dt>Negative values</dt>
-    <dd>Use `neg`, in lieu of `-`, in value identifiers to set negative values (i.e. `M-neg20px`)</dd>
+    <dd>Use `neg`, in lieu of `-` (minus sign), in value identifiers to set negative values (i.e. `M-neg20px`)</dd>
     <dt>Hexadecimal colors</dt>
     <dd>Use hexadecimal colors (in *uppercase* and *without* the `#`) as value identifier (i.e. `C-#FFF`) and Atomizer will create the declaration for you (`color:#fff`)</dd>
     <dt>Hexadecimal colors with alpha</dt>
-    <dd>Use hexadecimal colors (in *uppercase* and *without* the `#`) as value identifier followed by the opacity value (i.e. `C-#FFF.5`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)</dd>
+    <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier followed by the opacity value (i.e. `C-#fff.5`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)</dd>
     <dt>Fractions</dt>
     <dd>Use any fraction you want (i.e. `W-1/2`) and Atomizer will create the CSS declaration for you (`width:50%`)</dd>
     <dt>`!important` directive</dt>

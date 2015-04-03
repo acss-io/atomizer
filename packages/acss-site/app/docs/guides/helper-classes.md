@@ -25,6 +25,10 @@ You can combine one of the class above with a `border-color` of your choice (i.e
 
 Example:
 
+```html
+<p class="Bd Bdc-#ff6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+```
+
 <p class="Bd Bdc-#ff6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 ## `BfcHack` (Block-formatting context)
@@ -76,14 +80,14 @@ vertical-align: top;
 ```
 
 ```html
-<div class="IbBox W-50% Ta-c Bgc-#0B0">Box-1</div><!--
---><div class="IbBox W-50% Ta-c Bgc-#0B0">Box-2</div>
+   <div class="IbBox W-50% Ta-c Bgc-#ccc">Box-1</div><!--
+--><div class="IbBox W-50% Ta-c Bgc-#999">Box-2</div>
 ```
 
 Example:
 
-<div class="IbBox W-50% Ta-c Bgc-#0B0">Box-1</div><!--
---><div class="IbBox W-50% Ta-c Bgc-#0B0">Box-2</div>
+<div class="IbBox W-50% Ta-c Bgc-#ccc">Box-1</div><!--
+--><div class="IbBox W-50% Ta-c Bgc-#999">Box-2</div>
 
 <p class="noteBox info">Remember to remove the white-space between nodes when creating inline-block constructs.</p>
 
@@ -109,17 +113,17 @@ Example:
 
 ## `Row`
 
-Use the class `Row` to style a block that expands to fill its container, contains floats, and [more <span class="Hidden"> about Row</span>](http://cssmojo.com/row_for_grids/).
+Use the class `Row` to style a box that expands to fill its container, contains floats, and [more <span class="Hidden"> about Row</span>](http://cssmojo.com/row_for_grids/).
 
 Example:
 
 ```html
-<div class="Row Bgc-#0B0">
+<div class="Row Bgc-#0b0">
     <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
     <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
 </div>
 ```
-<div class="Row Bgc-#0B0">
+<div class="Row Bgc-#0b0">
     <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
     <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
 </div>
@@ -134,13 +138,13 @@ Example:
 
 ```html
 <div class="SpaceBetween">
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-1</div>
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-2</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#ccc">Box-1</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#999">Box-2</div>
 </div>
 ```
 <div class="SpaceBetween">
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-1</div>
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#0B0">Box-2</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#ccc">Box-1</div>
+    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#999">Box-2</div>
 </div>
 
 <p class="noteBox info">You can resize the viewport to see how the boxes behave when there is not enough room for them to show side-by-side. You can also compare this styling with the one from the `Row` example above, where 2 boxes are floated in opposite direction.</p>
@@ -161,11 +165,11 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ```html
 <div class="Pos-r H-0 Pt-10%">
-    <div class="StretchedBox Bgc-#0B0">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc-#0b0">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 <div class="Pos-r H-0 Pt-10%">
-    <div class="StretchedBox Bgc-#0B0"></div>
+    <div class="StretchedBox Bgc-#0b0"></div>
 </div>
 
 ## `Zoom`

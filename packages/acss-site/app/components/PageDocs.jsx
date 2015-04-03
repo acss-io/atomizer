@@ -46,7 +46,7 @@ var PageDocs = React.createClass({
                 </button>
                 <Menu config={this.props.menu} selected={this.props.doc.key} />
                 <Doc content={this.props.doc.content} title={this.props.doc.title} slug={this.props.doc.key} />
-                <div id="overlay" className="D-n menu-on_D-b Bgc-#000.6 Z-3 Pos-f T-0 Start-0 W-100% H-100%"></div>
+                <div id="overlay" className="D-n D-n!--sm menu-on_D-b Bgc-#000.6 Z-3 Pos-f T-0 Start-0 W-100% H-100%"></div>
             </div>
         );
     }

@@ -76,7 +76,7 @@ var App = React.createClass({
                 <div className="wrapper Bxz-bb Mih-100%">
                     <div id="header" role="header" className="P-10px Ov-h Z-7 Pos-r Bgc-logo optLegibility">
                         <div className="innerwrapper SpaceBetween Mx-a--sm Maw-1000px--sm W-90%--sm W-a--sm">
-                            <NavLink className="Va-m Fz-20px Lh-1.2 C-#fff Td-n:h home-page_V-h" routeName="home">Atomic CSS</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                            <NavLink className="Va-m Fz-20px Lh-1.2 C-#fff Td-n:h home-page_V-h V-h!--xs" routeName="home">Atomic CSS</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
                         </div>
                     </div>
                     {page}
