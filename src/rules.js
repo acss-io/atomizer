@@ -27,7 +27,6 @@ module.exports = [
         prefix: '.Anim-',
         properties: ['animation'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true
     },
     {
@@ -37,7 +36,6 @@ module.exports = [
         prefix: '.Animdel-',
         properties: ['animation-delay'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true
     },
     {
@@ -47,7 +45,6 @@ module.exports = [
         prefix: '.Animdir-',
         properties: ['animation-direction'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'a', values: ['alternate']},
@@ -63,7 +60,6 @@ module.exports = [
         prefix: '.Animdur-',
         properties: ['animation-duration'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true
     },
     {
@@ -73,7 +69,6 @@ module.exports = [
         prefix: '.Animfm-',
         properties: ['animation-fill-mode'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'b', values: ['backwards']},
@@ -89,7 +84,6 @@ module.exports = [
         prefix: '.Animic-',
         properties: ['animation-iteration-count'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'i', values: ['infinite']}
@@ -102,7 +96,6 @@ module.exports = [
         prefix: '.Animn-',
         properties: ['animation-name'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'n', values: ['none']}
@@ -115,7 +108,6 @@ module.exports = [
         prefix: '.Animps-',
         properties: ['animation-play-state'],
         allowCustom: false,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'p', values: ['paused']},
@@ -129,7 +121,6 @@ module.exports = [
         prefix: '.Animtf-',
         properties: ['animation-timing-function'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'e', values: ['ease']},
@@ -153,7 +144,6 @@ module.exports = [
         prefix: 'Bd-',
         properties: ['border'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false
     },
     // top
@@ -163,7 +153,6 @@ module.exports = [
         prefix: 'Bdt-',
         properties: ['border-top'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false
     },
     // end
@@ -173,7 +162,6 @@ module.exports = [
         prefix: 'Bdend-',
         properties: ['border-__END__'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false
     },
     // bottom
@@ -183,7 +171,6 @@ module.exports = [
         prefix: 'Bdb-',
         properties: ['border-bottom'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false
     },
     // start
@@ -193,7 +180,6 @@ module.exports = [
         prefix: 'Bdstart-',
         properties: ['border-__START__'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false
     },
     // X axis
@@ -203,7 +189,6 @@ module.exports = [
         prefix: 'Bdx-',
         properties: ['border-__START__', 'border-__END__'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false
     },
     // Y axis
@@ -213,7 +198,6 @@ module.exports = [
         prefix: 'Bdy-',
         properties: ['border-top', 'border-bottom'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
     },
 
@@ -229,7 +213,6 @@ module.exports = [
         prefix: 'Bdc-',
         properties: ['border-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -243,7 +226,6 @@ module.exports = [
         prefix: 'Bdtc-',
         properties: ['border-top-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -257,7 +239,6 @@ module.exports = [
         prefix: 'Bdendc-',
         properties: ['border-__END__-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -271,7 +252,6 @@ module.exports = [
         prefix: 'Bdbc-',
         properties: ['border-bottom-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -285,7 +265,6 @@ module.exports = [
         prefix: 'Bdstartc-',
         properties: ['border-__START__-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -305,7 +284,6 @@ module.exports = [
         prefix: 'Bds-',
         properties: ['border-style'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'd', values: ['dotted']},
@@ -327,7 +305,6 @@ module.exports = [
         prefix: 'Bdts-',
         properties: ['border-top-style'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'd', values: ['dotted']},
@@ -349,7 +326,6 @@ module.exports = [
         prefix: 'Bdends-',
         properties: ['border-__END__-style'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'd', values: ['dotted']},
@@ -371,7 +347,6 @@ module.exports = [
         prefix: 'Bdbs-',
         properties: ['border-bottom-style'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'd', values: ['dotted']},
@@ -393,7 +368,6 @@ module.exports = [
         prefix: 'Bdstarts-',
         properties: ['border-__START__-style'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'd', values: ['dotted']},
@@ -421,7 +395,6 @@ module.exports = [
         prefix: 'Bdw-',
         properties: ['border-width'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'm', values: ['medium']},
@@ -436,7 +409,6 @@ module.exports = [
         prefix: 'Bdtw-',
         properties: ['border-top-width'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'm', values: ['medium']},
@@ -451,7 +423,6 @@ module.exports = [
         prefix: 'Bdendw-',
         properties: ['border-__END__-width'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'm', values: ['medium']},
@@ -466,7 +437,6 @@ module.exports = [
         prefix: 'Bdbw-',
         properties: ['border-bottom-width'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'm', values: ['medium']},
@@ -481,7 +451,6 @@ module.exports = [
         prefix: 'Bdsw-',
         properties: ['border-__START__-width'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'm', values: ['medium']},
@@ -553,7 +522,6 @@ module.exports = [
         prefix: 'Bg-',
         properties: ['background'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
@@ -568,7 +536,6 @@ module.exports = [
         prefix: 'Bgi-',
         properties: ['background-image'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
@@ -582,7 +549,6 @@ module.exports = [
         prefix: 'Bgc-',
         properties: ['background-color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -717,7 +683,6 @@ module.exports = [
         properties: ['box-shadow'],
         prefix: 'Bxsh-',
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']}
@@ -754,7 +719,6 @@ module.exports = [
         prefix: 'C-',
         properties: ['color'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 't', values: ['transparent']},
@@ -1143,7 +1107,6 @@ module.exports = [
         prefix: 'Fz-',
         properties: ['font-size'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true
     },
 
@@ -1972,7 +1935,6 @@ module.exports = [
         prefix: 'Tsh-',
         properties: ['text-shadow'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'n', values: ['none']},
@@ -1991,7 +1953,6 @@ module.exports = [
         prefix: '.Trf-',
         properties: ['transform'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false
     },
     // We also need to be able to manage values within value?
@@ -2008,7 +1969,6 @@ module.exports = [
         prefix: 'Trs-',
         properties: ['transition'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false
     },
     {
@@ -2017,7 +1977,6 @@ module.exports = [
         prefix: 'Trsde-',
         properties: ['transition-delay'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'i', values: ['initial']}
@@ -2029,7 +1988,6 @@ module.exports = [
         prefix: 'Trsdu-',
         properties: ['transition-duration'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'inh', values: ['inherit']}
@@ -2041,7 +1999,6 @@ module.exports = [
         prefix: 'Trsp-',
         properties: ['transition-property'],
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'a', values: ['all']}
@@ -2054,7 +2011,6 @@ module.exports = [
         properties: ['transition-timing-function'],
         // for cubic-bezier
         allowCustom: true,
-        allowCustomAutoSuffix: false,
         allowSuffixToValue: false,
         rules: [
             {suffix: 'e', values: ['ease']},
@@ -2177,7 +2133,6 @@ module.exports = [
         prefix: 'W-',
         properties: ['width'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowFraction: true,
         allowSuffixToValue: true,
         rules: [
@@ -2236,7 +2191,6 @@ module.exports = [
         prefix: 'Z-',
         properties: ['z-index'],
         allowCustom: true,
-        allowCustomAutoSuffix: true,
         allowSuffixToValue: true,
         rules: [
             {suffix: 'a', values: ['auto']},
