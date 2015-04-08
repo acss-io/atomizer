@@ -4,18 +4,6 @@
  * See the accompanying LICENSE file for terms.
  */
 
-/**
- * @TODO:
- * - Try using immutable.js for rules.
- * - don't require the entire lodash lib, just what we're using.
- * - implement getConfig() so we can export a merged config.
- * - validate config? maybe we need it.
- * - GRAMMAR/SYNTAX needs to handle some edge cases, specifically in regards to word boundaries.
- * - check how much memory this program is using, check if we could potentially run out of memory
- *   because of the lengthy regex.
- * - replace Absurd() with something simpler, it does too much and it's slow.
- */
-
 'use strict';
 
 var _ = require('lodash');
@@ -73,10 +61,11 @@ var GRAMMAR = {
     'BOUNDARY'   : '(?:^|\\s|"|\'|\{)',
     'PARENT'     : '[a-zA-Z][-_a-zA-Z0-9]+?',
     'PARENT_SEP' : '[>_+]',
+    // all character allowed to be in values
+    'VALUES'     : '[-_,.#$/%0-9a-zA-Z]+',
     'FRACTION'   : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
     'PARAMS'     : '\\((?<params>[^)]*)\\)',
-    'SIGN'       : 'neg',
-    'NUMBER'     : '[0-9]+(?:\.[0-9]+)?|\\.[0-9]+',
+    'NUMBER'     : '-?[0-9]+(?:\.[0-9]+)?|\\.[0-9]+',
     'UNIT'       : '[a-zA-Z%]+',
     'HEX'        : '#[0-9a-f]{3}(?:[0-9a-f]{3})?',
     'ALPHA'      : '\\.\\d{1,2}',
@@ -101,76 +90,34 @@ GRAMMAR.PARENT_SELECTOR = [
     ')'
 ].join('');
 
-/*
-// -----------------------------------
-// INTERFACE
-// -----------------------------------
-
-// Atomizer Options
-// options for the behavior of the atomizer class (not the CSS output)
-interface AtomizerOptions {
-    verbose:boolean;
-}
-
-// Atomizer Rules
-// rules are expected to be in the following format
-interface AtomizerRules {
-    [index:number]:AtomizerRule
-}
-interface AtomizerRule {
-    allowCustom:boolean;
-    allowSuffixToValue:boolean;
-    id:string;
-    name:string;
-    prefix:string;
-    properties:string;
-    type:string;
-}
-
-// AtomizerConfig
-// the config that contains additional info to create atomic classes
-interface AtomizerConfig {
-    custom?: {[index:string]:string};
-    breakPoints?: {[index:string]:string};
-    classNames: string[];
-}
-
-// CssOptions
-// general options that affect the CSS output
-interface CssOptions {
-    namespace?:string;
-    rtl?:boolean;
-}
-
-// AtomicTree
-// the parse tree is generated after a class is parsed.
-// it's an object where its keys are mapped to AtomizerRules.ids
-// and value is an array of objects containing structured data about
-// the class name.
-interface AtomicTree {
-    [index:string]:AtomicTreeArray;
-}
-interface AtomicTreeArray {
-    [index:number]:AtomicTreeObject;
-}
-interface AtomicTreeObject {
-    breakPoint?:string;
-    className:string;
-    context?:AtomicTreeContext;
-    pseudo?:string;
-    value:AtomicTreeValue;
-}
-interface AtomicTreeContext {
-    directParent:boolean;
-    parent:string;
-}
-interface AtomicTreeValue {
-    percentage?:number;
-    fraction:string;
-    color:string;
-    value:string;
-}
-*/
+var VALUE_SYNTAXE = XRegExp([
+    '(?<fraction>',
+        GRAMMAR.FRACTION,
+    ')',
+    '|',
+    '(?:',
+        '(?<hex>',
+            GRAMMAR.HEX,
+        ')',
+        '(?<alpha>',
+            GRAMMAR.ALPHA,
+        ')?',
+        '(?!',
+            GRAMMAR.UNIT,
+        ')',
+    ')',
+    '|',
+    '(?<number>',
+        GRAMMAR.NUMBER,
+    ')',
+    '(?<unit>',
+        GRAMMAR.UNIT,
+    ')?',
+    '|',
+    '(?<named>',
+        GRAMMAR.NAMED,
+    ')',
+].join(''));
 
 /**
  * constructor
@@ -179,12 +126,15 @@ function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
     this.rules = [];
     this.rulesMap = {};
-    this.helpersMap = {};
 
     // add rules
     this.addRules(rules || RULES);
 }
 
+/**
+ * addRules
+ * @public
+ */
 Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
     rules.forEach(function (rule) {
@@ -194,12 +144,7 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
         // push new rule to this.rules and update rulesMap
         this.rules.push(rule);
-
-        if (rule.type === 'pattern') {
-            this.rulesMap[rule.prefix] = this.rules.length - 1;
-        } else {
-            this.helpersMap[rule.prefix] = this.rules.length - 1;
-        }
+        this.rulesMap[rule.prefix] = this.rules.length - 1;
     }, this);
 
     // invalidates syntax
@@ -207,83 +152,15 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 };
 
 /**
- * getSyntax()
- * we combine the regular expressions here. since we're NOT doing a lexical
- * analysis of the entire document we need to use regular grammar for this.
+ * getClassNameSyntax()
  * @private
  */
-Atomizer.prototype.getSyntax = function ()/*:void*/ {
+Atomizer.prototype.getSyntax = function ()/*:string*/ {
     var syntax;
-    var helperRegex;
-    var propRegex;
-    var helpersKeys;
-    var rulesKeys;
-    var mainSyntax;
 
     if (this.syntax) {
         return this.syntax;
     } else {
-        helpersKeys = Object.keys(this.helpersMap);
-        rulesKeys = Object.keys(this.rulesMap);
-
-        // helpers regex
-        if (helpersKeys.length) {            
-            helperRegex = [
-                // prefix
-                '(?<helper>' + helpersKeys.join('|') + ')',
-                // required param ()
-                GRAMMAR.PARAMS
-            ].join('');
-            mainSyntax = helperRegex;
-        }
-        // rules regex
-        if (rulesKeys.length) {
-            propRegex = [
-                // prefix
-                '(?<prop>' + rulesKeys.join('|') + ')',
-                // required value
-                '(?<value>',
-                    '(?<fraction>',
-                        GRAMMAR.FRACTION,
-                    ')',
-                    '|',
-                    '(?:',
-                        '(?<hex>',
-                            GRAMMAR.HEX,
-                        ')',
-                        '(?<alpha>',
-                            GRAMMAR.ALPHA,
-                        ')?',
-                        '(?!',
-                            GRAMMAR.UNIT,
-                        ')',
-                    ')',
-                    '|',
-                    '(?<sign>',
-                        GRAMMAR.SIGN,
-                    ')?',
-                    '(?<number>',
-                        GRAMMAR.NUMBER,
-                    ')',
-                    '(?<unit>',
-                        GRAMMAR.UNIT,
-                    ')?',
-                    '|',
-                    '(?<named>',
-                        GRAMMAR.NAMED,
-                    ')',
-                ')',
-                '(?<important>',
-                    GRAMMAR.IMPORTANT,
-                ')?',
-            ].join('');
-            mainSyntax = propRegex;
-        }
-
-        if (helpersKeys.length && rulesKeys.length) {
-            mainSyntax = ['(?:', helperRegex , '|', propRegex,')'].join('');
-        }
-
         syntax = [
             // word boundary
             GRAMMAR.BOUNDARY,
@@ -291,7 +168,24 @@ Atomizer.prototype.getSyntax = function ()/*:void*/ {
             '(?<parentSelector>',
                 GRAMMAR.PARENT_SELECTOR,
             ')?',
-            mainSyntax,
+            // prefix
+            '(?<prop>',
+                // sort prefixes by descending alphabetical order
+                // this is important so "B" doesn't match "Bgc"
+                // e.g. Use (Bgc|B) instead of (B|Bgc)
+                Object.keys(this.rulesMap).sort(function (a, b) {
+                    return a > b ? -1 : 1;
+                }).join('|'),
+            ')',
+            // value
+            '(?:\\(',
+                '(?<values>',
+                    GRAMMAR.VALUES,
+                ')',
+            '\\))?',
+            '(?<important>',
+                GRAMMAR.IMPORTANT,
+            ')?',
             // optional pseudo
             '(?<valuePseudo>',
                 GRAMMAR.PSEUDO,
@@ -315,16 +209,17 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
     // using object to remove dupes
     var classNamesObj = {};
     var className;
-    var syntaxRegex = this.getSyntax();
-    var match = syntaxRegex.exec(src);
+    var classNameSyntax = this.getSyntax();
+    var match = classNameSyntax.exec(src);
 
     while (match !== null) {
         // strip boundary character
         className = match[0].substr(1);
+
         // assign to classNamesObj as key and give it a counter
         classNamesObj[className] = classNamesObj[className] ? classNamesObj[className] + 1 : 1;
         // run regex again
-        match = syntaxRegex.exec(src);
+        match = classNameSyntax.exec(src);
     }
 
     // return an array of the matched class names
@@ -335,7 +230,7 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
  * Get Atomizer config given an array of class names and an optional config object
  * examples:
  *
- * getConfig(['Op-1', 'D-n:h', 'Fz-heading'], {
+ * getConfig(['Op(1)', 'D(n):h', 'Fz(heading)'], {
  *     custom: {
  *         heading: '80px'
  *     },
@@ -344,12 +239,12 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
  *         'md': '@media(min-width:900px)',
  *         'lg': '@media(min-width:1200px)'
  *     },
- *     classNames: ['D-b']
+ *     classNames: ['D(b)']
  * }, {
  *     rtl: true
  * });
  *
- * getConfig(['Op-1', 'D-n:h']);
+ * getConfig(['Op(1)', 'D(n):h']);
  */
 Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:AtomizerConfig*/)/*:AtomizerConfig*/ {
     config = config || { classNames: [] };
@@ -371,20 +266,17 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
  *         'md': '@media(min-width:900px)',
  *         'lg': '@media(min-width:1200px)'
  *     },
- *     classNames: ['D-b', 'Op-1', 'D-n:h', 'Fz-heading']
+ *     classNames: ['D(b)', 'Op(1)', 'D(n):h', 'Fz(heading)']
  * }, {
  *     rtl: true
  * });
  *
+ * @public
  */
 Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:string*/ {
-    var matches;
-    var tree/*:AtomicTree*/ = {};
     var jss = {};
+    var tree;
     var content = '';
-    var warnings = [];
-    var isVerbose = !!this.verbose;
-    var syntaxRegex = this.getSyntax();
     var breakPoints;
 
     options = objectAssign({}, {
@@ -394,6 +286,9 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         namespace: null,
         rtl: false
     }, options);
+
+    // make sense of the config
+    tree = this.parseConfig(config);
 
     // validate config.breakPoints
     if (config && config.breakPoints) {
@@ -412,172 +307,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         }
     }
 
-    // each match is a valid class name
-    config.classNames.forEach(function (className) {
-        var match = XRegExp.exec(className, syntaxRegex);
-        var namedFound = false;
-        var rule;
-        var treeo;
-        var ruleIndex;
-        var rgb;
-        var propAndValue;
-
-        if (!match) {
-          return '';
-        }
-
-        ruleIndex = match.prop ? this.rulesMap[match.prop] : this.helpersMap[match.helper];
-
-        // get the rule that this class name belongs to.
-        // this is why we created the dictionary
-        // as it will return the index given an prefix.
-        rule = this.rules[ruleIndex];
-        treeo = {
-            className: match[0]
-        };
-
-        if (!tree[rule.prefix]) {
-            tree[rule.prefix] = [];
-        }
-
-        if (match.parentSelector) {
-            treeo.parentSelector = match.parentSelector;
-        }
-        if (match.parent) {
-            treeo.parent = match.parent;
-            // enforce !important, since these classes don't have the namespace
-            match.important = true;
-        }
-        if (match.parentPseudo) {
-            treeo.parentPseudo = match.parentPseudo;
-        }
-        if (match.parentSep) {
-            treeo.parentSep = match.parentSep;
-        }
-        if (match.value) {
-            // is this a valid value?
-            if (rule.allowSuffixToValue) {
-                treeo.value = match.value;
-            } else {
-                match.named = match.value;
-            }
-        }
-        if (match.params) {
-            treeo.params = match.params.split(',');
-        }
-        if (match.fraction) {
-            // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
-            // making clear the steps involved:
-            // percentage: (numerator / denominator * 100)
-            // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
-            treeo.value = Math.round(match.numerator / match.denominator * 100 * 10000) / 10000 + '%';
-        }
-        if (match.sign) {
-            treeo.value = treeo.value.replace(GRAMMAR.SIGN, '-');
-        }
-
-        if (match.hex) {
-            if (match.alpha) {
-                rgb = utils.hexToRgb(match.hex);
-                treeo.value = [
-                    'rgba(',
-                    rgb.r,
-                    ',',
-                    rgb.g,
-                    ',',
-                    rgb.b,
-                    ',',
-                    match.alpha,
-                    ')'
-                ].join('');
-            } else {
-                treeo.value = match.hex;
-            }
-        }
-        if (match.named) {
-            treeo.named = match.named;
-
-            // check if the named suffix matches any of
-            // the suffixes registered in rules.
-            if (rule.rules) {
-                // iterate rules
-                rule.rules.some(function (keywordRule, index) {
-                    // if we find it, then add declaration
-                    if (keywordRule.suffix === match.named) {
-                        // build declaration (iterate prop the value)
-                        rule.properties.forEach(function (property) {
-                            keywordRule.values.forEach(function (value) {
-                                /* istanbul ignore else */
-                                if (!treeo.declaration) {
-                                    treeo.declaration = {};
-                                }
-                                treeo.declaration[property] = value;
-                                if (match.important) {
-                                    treeo.declaration[property] += ' !important';
-                                }
-                            });
-                        });
-                        namedFound = true;
-                        return true;
-                    }
-                });
-            }
-            // check if named suffix was passed in the config
-            // as value
-            if (!namedFound) {
-                propAndValue = match.prop + match.named;
-
-                // no custom, warn it
-                if (!config.custom) {
-                    warnings.push(propAndValue);
-                    // set to null so we don't write it to the css
-                    treeo.value = null;
-                }
-                // as prop + value
-                else if (config.custom.hasOwnProperty(propAndValue)) {
-                    treeo.value = config.custom[propAndValue];
-                }
-                // as value
-                else if (config.custom.hasOwnProperty(match.named)) {
-                    treeo.value = config.custom[match.named];
-                }
-                // we have custom but we could not find the named class name there
-                else {
-                    warnings.push(propAndValue);
-                    // set to null so we don't write it to the css
-                    treeo.value = null;
-                }
-            }
-        }
-        if (match.valuePseudo) {
-            treeo.valuePseudo = match.valuePseudo;
-        }
-
-        if (match.breakPoint) {
-            treeo.breakPoint = match.breakPoint;
-        }
-        if (match.important) {
-            treeo.important = true;
-            treeo.value = treeo.value + ' !important';
-        }
-
-        tree[rule.prefix].push(treeo);
-
-    }, this);
-
-    // throw warnings
-    if (isVerbose && warnings.length > 0) {
-        warnings.forEach(function (className) {
-            console.warn([
-                'Warning: Class `' + className + '` is ambiguous, and must be manually added to your config file:',
-                '"custom": {',
-                '    "' + className + '": <YOUR-CUSTOM-VALUE>',
-                '}'
-            ].join("\n"));
-        });
-    }
-
-    // write CSSO
+    // write JSS
     // start by iterating rules (we need to follow the order that the rules were declared)
     this.rules.forEach(function (rule) {
         // check if we have a class name that matches this rule
@@ -628,14 +358,16 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                         throw new Error('Declaration key is expected in a helper class. Helper class: ' + rule.prefix);
                     }
 
+                    // clone declaration to declarations, otherwise we're dealing with
+                    // the same object and outputting the same CSS declaration
                     declarations = _.cloneDeep(rule.declaration);
 
-                    // we have params in declaration
-                    if (treeo.params || treeo.important) {
+                    // helpers can have params
+                    if (treeo.values || treeo.important) {
                         for (var prop in declarations) {
-                            if (treeo.params) {
-                                treeo.params.forEach(function (param, index) {
-                                    declarations[prop] = declarations[prop].replace('$' + index, param);
+                            if (treeo.values) {
+                                treeo.values.forEach(function (value, index) {
+                                    declarations[prop] = declarations[prop].replace('$' + index, value.param);
                                 });
                             }
                             if (treeo.important) {
@@ -647,16 +379,49 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                         _.merge(jss, rule.rules);
                     }
                 } else/* if (type === 'pattern')*/ {
-                    // named classes have their property/value already assigned
-                    if (treeo.declaration) {
-                        declarations = treeo.declaration;
-                    }
-                    // a custom class name not declared in the config might not have values
-                    else if (treeo.value) {
-                        rule.properties.forEach(function (property) {
-                            declarations[property] = treeo.value;
-                        });
-                    }
+                    treeo.values.forEach(function (parsedValue) {
+                        var value;
+                        // a custom class name not declared in the config might not have values
+                        // in which case value will be null, so we don't want to write these
+                        if (parsedValue) {
+                            // named classes have their property/value already assigned
+                            if (parsedValue.declaration) {
+                                declarations = parsedValue.declaration;
+                            }
+                            else {
+                                // hex values
+                                if (parsedValue.hex) {
+                                    value = parsedValue.hex;
+                                }
+                                // number
+                                else if (parsedValue.number) {
+                                    value = parsedValue.number;
+                                    if (parsedValue.unit) {
+                                        value += parsedValue.unit;
+                                    }
+                                }
+                                // fractions
+                                else if (parsedValue.fraction) {
+                                    value = parsedValue.fraction;
+                                }
+                                // custom
+                                /* istanbul ignore else */
+                                else if (parsedValue.custom) {
+                                    value = parsedValue.custom;
+                                }
+                                rule.properties.forEach(function (property) {
+                                    var important;
+                                    // enforce !important on parent if namespace is passed
+                                    // since these classes don't have the namespace
+                                    if (treeo.important || (treeo.parent && options.namespace)) {
+                                        important = ' !important';
+                                    }
+
+                                    declarations[property] = [value, important].join('');
+                                });
+                            }
+                        }
+                    });
                 }
                 // put the declaration to the JSS object with the associated class name
                 /* istanbul ignore else */
@@ -679,6 +444,187 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     content = Atomizer.replaceConstants(content, options.rtl);
 
     return content;
+};
+
+/**
+ * parseConfig
+ */
+Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
+    var tree = {};
+    var classNameSyntax = this.getSyntax();
+    var parsedValues = [];
+    var warnings = [];
+    var isVerbose = !!this.verbose;
+
+    config.classNames.forEach(function (className) {
+        var match = XRegExp.exec(className, classNameSyntax);
+        var rule;
+        var ruleIndex;
+        var treeo;
+        var rgb;
+
+        if (!match) {
+          return '';
+        }
+
+        ruleIndex = match.prop && this.rulesMap[match.prop];
+
+        // get the rule that this class name belongs to.
+        // this is why we created the dictionary
+        // as it will return the index given an prefix.
+        rule = this.rules[ruleIndex];
+
+        treeo = {
+            className: match[0]
+        };
+
+        if (!tree[rule.prefix]) {
+            tree[rule.prefix] = [];
+        }
+
+        if (match.parentSelector) {
+            treeo.parentSelector = match.parentSelector;
+        }
+        if (match.parent) {
+            treeo.parent = match.parent;
+        }
+        if (match.parentPseudo) {
+            treeo.parentPseudo = match.parentPseudo;
+        }
+        if (match.parentSep) {
+            treeo.parentSep = match.parentSep;
+        }
+        if (match.values) {
+            // values can be separated by a comma
+            treeo.values = match.values.split(',').map(function (value) {
+                // parse values
+                var matchVal = XRegExp.exec(value, VALUE_SYNTAXE);
+                var parsedValue = {};
+                var propAndValue;
+                var namedFound;
+
+                if (matchVal.number) {
+                    if (rule.allowSuffixToValue) {
+                        parsedValue.number = matchVal.number;
+                        if (matchVal.unit) {
+                            parsedValue.unit = matchVal.unit;
+                        }
+                    } else {
+                        // treat as if we matched a named value
+                        matchVal.named = [matchVal.number, matchVal.unit].join('');
+                    }
+                }
+                if (matchVal.fraction) {
+                    // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
+                    // making clear the steps involved:
+                    // percentage: (numerator / denominator * 100)
+                    // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
+                    parsedValue.fraction = Math.round(matchVal.numerator / matchVal.denominator * 100 * 10000) / 10000 + '%';
+                }
+                if (matchVal.hex) {
+                    if (matchVal.alpha) {
+                        rgb = utils.hexToRgb(matchVal.hex);
+                        parsedValue.hex = [
+                            'rgba(',
+                            rgb.r,
+                            ',',
+                            rgb.g,
+                            ',',
+                            rgb.b,
+                            ',',
+                            matchVal.alpha,
+                            ')'
+                        ].join('');
+                    } else {
+                        parsedValue.hex = matchVal.hex;
+                    }
+                }
+                if (matchVal.named) {
+                    if (rule.type === 'helper') {
+                        parsedValue.param = matchVal.named;
+                        namedFound = true;
+                    }
+                    // check if the named value matches any of the values registered in rules.
+                    else if (rule.rules) {
+                        // iterate rules
+                        rule.rules.some(function (keywordRule, index) {
+                            // if we find it, then add declaration
+                            if (keywordRule.suffix === matchVal.named) {
+                                // build declaration (iterate prop the value)
+                                rule.properties.forEach(function (property) {
+                                    keywordRule.values.forEach(function (value) {
+                                        /* istanbul ignore else */
+                                        if (!parsedValue.declaration) {
+                                            parsedValue.declaration = {};
+                                        }
+                                        parsedValue.declaration[property] = value;
+                                        if (match.important) {
+                                            parsedValue.declaration[property] += ' !important';
+                                        }
+                                    });
+                                });
+                                namedFound = true;
+                                return true;
+                            }
+                        });
+                    }
+                    // check if named value was passed in the config
+                    if (!namedFound) {
+                        propAndValue = [match.prop, '(', matchVal.named, ')'].join('');
+
+                        // no custom, warn it
+                        if (!config.custom) {
+                            warnings.push(propAndValue);
+                            // set to null so we don't write it to the css
+                            parsedValue = null;
+                        }
+                        // as prop + value
+                        else if (config.custom.hasOwnProperty(propAndValue)) {
+                            parsedValue.custom = config.custom[propAndValue];
+                        }
+                        // as value
+                        else if (config.custom.hasOwnProperty(matchVal.named)) {
+                            parsedValue.custom = config.custom[matchVal.named];
+                        }
+                        // we have custom but we could not find the named class name there
+                        else {
+                            warnings.push(propAndValue);
+                            // set to null so we don't write it to the css
+                            parsedValue = null;
+                        }
+                    }
+                }
+                return parsedValue;
+            });
+        }
+        if (match.valuePseudo) {
+            treeo.valuePseudo = match.valuePseudo;
+        }
+
+        if (match.breakPoint) {
+            treeo.breakPoint = match.breakPoint;
+        }
+        if (match.important) {
+            treeo.important = true;
+        }
+
+        tree[rule.prefix].push(treeo);
+
+    }, this);
+
+    // throw warnings
+    if (isVerbose && warnings.length > 0) {
+        warnings.forEach(function (className) {
+            console.warn([
+                'Warning: Class `' + className + '` is ambiguous, and must be manually added to your config file:',
+                '"custom": {',
+                '    "' + className + '": <YOUR-CUSTOM-VALUE>',
+                '}'
+            ].join("\n"));
+        });
+    }
+
+    return tree;
 };
 
 /**
