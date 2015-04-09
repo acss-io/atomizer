@@ -2,7 +2,7 @@
 
 [Atomizer](https://github.com/yahoo/atomizer) is a [npm module](https://www.npmjs.com/package/atomizer) meant to create `atomic.css` &mdash; a style sheet that contains Atomic *and* helper rules.
 
-Atomizer creates CSS rules based on Atomic classes it finds in documents. This means that styles are always up-to-date *without the need for writing a single CSS declaration* [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a>.
+Atomizer creates CSS rules based on Atomic classes it finds in documents. This means that styles are always up-to-date *without the need for writing a single CSS declaration* [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a>.
 
 For example, if your project was a single page containing:
 
@@ -69,7 +69,7 @@ You can create any custom class you want via the [config object](https://github.
     <dt>Hexadecimal colors</dt>
     <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier (i.e. `C(#fff)`) and Atomizer will create the declaration for you (`color:#fff`)</dd>
     <dt>Hexadecimal colors with alpha</dt>
-    <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier followed by the opacity value (i.e. `C-#fff.5`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)</dd>
+    <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier followed by the opacity value (i.e. `C(#fff.5)`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)</dd>
     <dt>Fractions</dt>
     <dd>Use any fraction you want (i.e. `W(1/2)`) and Atomizer will create the CSS declaration for you (`width:50%`)</dd>
     <dt>`!important` directive</dt>
@@ -78,7 +78,7 @@ You can create any custom class you want via the [config object](https://github.
 
 <div class="noteBox info">The [reference page](/reference) lets you quickly search for properties, values, or class names.</div>
 
-<hr class="Mt-50px">
+<hr class="Mt(50px)">
 
 <ul id="footnote" class="ul-list">
     <li>1. This is true for non-custom classes [\[↩\]](#footnote-1).</li>

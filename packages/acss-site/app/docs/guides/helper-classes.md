@@ -29,7 +29,7 @@ Example:
 <p class="Bd Bdc(#ff6347) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
-<p class="Bd Bdc-#ff6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd Bdc(#ff6347) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 <p>We have chosen to set the default `width` of those helpers to be `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either</p>
 <ul class="ul-list">
@@ -47,7 +47,7 @@ For this reason, we have a helper class called `BfcHack` which creates a block-f
 
 <p class="noteBox warning">Note that this is a hack and may break if the content of the box is too large or if the box is next to floats.</p>
 
-<p class="noteBox info">Atomizer plugs `zoom:1` along with `overflow:hidden` whenever you use the class `Ov-h`. This is because `overflow:hidden` does not create a block-formatting context in old IE but `zoom` does.</p>
+<p class="noteBox info">Atomizer plugs `zoom:1` along with `overflow:hidden` whenever you use the class `Ov(h)`. This is because `overflow:hidden` does not create a block-formatting context in old IE but `zoom` does.</p>
 
 ## `Cf` (Clearfix)
 
@@ -63,7 +63,7 @@ Example:
 <p class="Ell W(300px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
-<p class="Ell W300px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Ell W(300px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 ## Hiding content from sighted users
 
@@ -72,9 +72,9 @@ Use the class `Hidden` if you want to hide content that should be accessible to 
 Example:
 
 ```html
-<p class="Bgc(000)">Something is <b class="Hidden">missing</b> here.</p>
+<p>Something is <b class="Hidden">missing</b> here.</p>
 ```
-<p class="Bgc-000">Something is <b class="Hidden">missing</b> here.</p>
+<p>Something is <b class="Hidden">missing</b> here.</p>
 
 ## `IbBox`
 
@@ -115,7 +115,7 @@ Example:
 ```html
 <p class="Fz(18px) Lh(1.5) LineClamp(2,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
-<p class="Fz-18px Lh-1.5 LineClamp(2,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Fz(18px) Lh(1.5) LineClamp(2,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 <p class="noteBox info">The value of `max-height` is the result of: &lt;number of lines> times &lt;font-size> times &lt;line-height>.</p>
 
@@ -127,13 +127,13 @@ Example:
 
 ```html
 <div class="Row Bgc(#0b0)">
-    <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
-    <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
+    <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
+    <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
 ```
-<div class="Row Bgc-#0b0">
-    <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
-    <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
+<div class="Row Bgc(#0b0)">
+    <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
+    <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
 
 The background of the wrapper shows which proves the box contains floats.
@@ -151,8 +151,8 @@ Example:
 </div>
 ```
 <div class="SpaceBetween">
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#ccc">Box-1</div>
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#999">Box-2</div>
+    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
+    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
 </div>
 
 <p class="noteBox info">You can resize the viewport to see how the boxes behave when there is not enough room for them to show side-by-side. You can also compare this styling with the one from the `Row` example above, where 2 boxes are floated in opposite direction.</p>
@@ -176,8 +176,8 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
     <div class="StretchedBox Bgc(#0b0)">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
-<div class="Pos-r H-0 Pt-10%">
-    <div class="StretchedBox Bgc-#0b0"></div>
+<div class="Pos(r) H(0) Pt(10%)">
+    <div class="StretchedBox Bgc(#0b0)"></div>
 </div>
 
 ## `Zoom`

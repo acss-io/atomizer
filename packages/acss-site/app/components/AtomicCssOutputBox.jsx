@@ -59,7 +59,7 @@ var AtomicCssOutputBox = React.createClass({
         return (
             <section className={this.props.className}>
                 <h3>CSS:</h3>
-                <pre className="W-100% Ovy-s textarea" style={{height: "300px"}}>
+                <pre className="W(100%) Ovy(s) textarea" style={{height: "300px"}}>
                 {css}
                 </pre>
             </section>

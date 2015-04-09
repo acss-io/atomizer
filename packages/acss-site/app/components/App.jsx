@@ -72,17 +72,17 @@ var App = React.createClass({
 
         // Keep <a> and <Nav> in the same line to enforce white-space between them
         return (
-            <div className="H-100%">
-                <div className="wrapper Bxz-bb Mih-100%">
-                    <div id="header" role="header" className="P-10px Ov-h Z-7 Pos-r Bgc-logo optLegibility">
-                        <div className="innerwrapper SpaceBetween Mx-a--sm Maw-1000px--sm W-90%--sm W-a--sm">
-                            <NavLink className="Va-m Fz-20px Lh-1.2 C-#fff Td-n:h home-page_V-h V-h!--xs" routeName="home">Atomic CSS</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+            <div className="H(100%)">
+                <div className="wrapper Bxz(bb) Mih(100%)">
+                    <div id="header" role="header" className="P(10px) Ov(h) Z(7) Pos(r) Bgc(logo) optLegibility">
+                        <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
+                            <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h home-page_V(h) V(h)!--xs" routeName="home">Atomic CSS</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
                         </div>
                     </div>
                     {page}
                 </div>
-                <div id="footer" className="P-20px Bdt-1" role="footer">
-                    <div className="innerwrapper SpaceBetween Mx-a--sm Maw-1000px--sm W-90%--sm W-a--sm">
+                <div id="footer" className="P(20px) BdT" role="footer">
+                    <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
                         <small>All code on this site is licensed under the <a href="https://github.com/yahoo/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small>© 2015 Yahoo! Inc. All rights reserved.</small>
                     </div>
                 </div>

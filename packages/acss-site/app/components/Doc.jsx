@@ -38,13 +38,13 @@ var Component = React.createClass({
 
         // only output on docs pages
         if (this.props.slug && this.props.slug.indexOf('docs') !== -1) {
-            editEl = (<a href={DOCS_URL + this.props.slug} className="D-ib Va-m Mt-30px" target='_blank'>Edit on Github</a>)
+            editEl = (<a href={DOCS_URL + this.props.slug} className="D(ib) Va(m) Mt(30px)" target='_blank'>Edit on Github</a>)
         }
 
         return (
-            <div id="main" role="main" className="D-tbc--sm home-page_D-b! Px-10px">
+            <div id="main" role="main" className="D(tbc)--sm home-page_D(b)! Px(10px)">
                 <div className="SpaceBetween">
-                    <h1 className="D-ib Va-m Fz-30px">
+                    <h1 className="D(ib) Va(m) Fz(30px)">
                         {this.props.title}
                     </h1> {editEl}
                 </div>

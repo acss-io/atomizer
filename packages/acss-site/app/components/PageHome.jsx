@@ -27,19 +27,19 @@ var PageHome = React.createClass({
     render: function() {
         return (
             <div className="home-page">
-                <div id='splash' className='D-tb W-100% Bdb-1'>
-                    <div className='D-tbc Ta-c Va-m'>
-                        <h1 className='Mx-a W-50% Pos-r Ov-h'>
-                            <img id="logo" className='Start-0 Pos-a Pos-r--sm' alt='atomic css' src={assets['images/atomic-css-logo.svg']} />
+                <div id='splash' className='D(tb) W(100%) BdB'>
+                    <div className='D(tbc) Ta(c) Va(m)'>
+                        <h1 className='Mx(a) W(50%) Pos(r) Ov(h)'>
+                            <img id="logo" className='Start(0) Pos(a) Pos(r)--sm' alt='atomic css' src={assets['images/atomic-css-logo.svg']} />
                         </h1>
-                        <p className='My-20px'>A collection of single purpose styling units for maximum reuse.</p>
+                        <p className='My(20px)'>A collection of single purpose styling units for maximum reuse.</p>
                         <p>
-                            <NavLink className='D-ib Mb-10px P-20px C-#fff Bgc-logo Bdrs-100px Td-n:h' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
+                            <NavLink className='D(ib) Mb(10px) P(20px) C(#fff) Bgc(logo) Bdrs(100px) Td(n):h' routeName='docs' navParams={{key: 'quick-start'}}>Get Started</NavLink>
                         </p>
                         <p>Build whatever you want, the way you want it.</p>
                     </div>
                 </div>
-                <div className='innerwrapper Bxz-bb Pt-20px Px-10px Mb-50px Mx-a--sm Maw-1000px--sm W-90%--sm W-a'>
+                <div className='innerwrapper Bxz(bb) Pt(20px) Px(10px) Mb(50px) Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)'>
                     <Doc content={this.props.content} />
                 </div>
             </div>
