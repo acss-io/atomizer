@@ -226,10 +226,19 @@ describe('Atomizer()', function () {
                     declaration: {
                         'bar': 'foo'
                     }
+                },
+                // empty
+                {
+                    type: 'helper',
+                    name: 'Baz',
+                    prefix: 'Baz',
+                    declaration: {
+                        'baz': 'foo'
+                    }
                 }
             ]);
             var config = {
-                classNames: ['Foo(1,10px)', 'Foo(2,30px)', 'Foo(2,30px)!', 'Bar', 'Bar!']
+                classNames: ['Foo(1,10px)', 'Foo(2,30px)', 'Foo(2,30px)!', 'Bar', 'Bar!', 'Baz']
             };
             var expected = [
                 'rule {',
@@ -252,6 +261,9 @@ describe('Atomizer()', function () {
                 '}',
                 '.Bar\\! {',
                 '  bar: foo !important;',
+                '}',
+                '.Baz {',
+                '  baz: foo;',
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(config);

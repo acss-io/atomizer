@@ -126,6 +126,7 @@ function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
     this.rules = [];
     this.rulesMap = {};
+    this.helpersMap = {};
 
     // add rules
     this.addRules(rules || RULES);
@@ -144,7 +145,12 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
         // push new rule to this.rules and update rulesMap
         this.rules.push(rule);
-        this.rulesMap[rule.prefix] = this.rules.length - 1;
+
+        if (rule.type === 'pattern') {
+            this.rulesMap[rule.prefix] = this.rules.length - 1;
+        } else {
+            this.helpersMap[rule.prefix] = this.rules.length - 1;
+        }
     }, this);
 
     // invalidates syntax
@@ -157,10 +163,62 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
  */
 Atomizer.prototype.getSyntax = function ()/*:string*/ {
     var syntax;
+    var helperRegex;
+    var propRegex;
+    var helpersKeys;
+    var rulesKeys;
+    var mainSyntax;
 
     if (this.syntax) {
         return this.syntax;
     } else {
+        // sort prefixes by descending alphabetical order
+        // this is important so "B" doesn't match "Bgc"
+        // e.g. Use (Bgc|B) instead of (B|Bgc)
+        helpersKeys = Object.keys(this.helpersMap).sort(function (a, b) {
+            return a > b ? -1 : 1;
+        }).join('|');
+        rulesKeys = Object.keys(this.rulesMap).sort(function (a, b) {
+            return a > b ? -1 : 1;
+        }).join('|');
+
+        // helpers regex
+        if (helpersKeys.length) {            
+            helperRegex = [
+                // prefix
+                '(?<helper>',
+                    helpersKeys,
+                ')',
+                // value is optional
+                '(?:\\(',
+                    '(?<helperValues>',
+                        GRAMMAR.VALUES,
+                    ')',
+                '\\))?',
+            ].join('');
+            mainSyntax = helperRegex;
+        }
+        // rules regex
+        if (rulesKeys.length) {
+            propRegex = [
+                // prefix
+                '(?<prop>',
+                    rulesKeys,
+                ')',
+                // value is required
+                '(?:\\(',
+                    '(?<values>',
+                        GRAMMAR.VALUES,
+                    ')',
+                '\\))',
+            ].join('');
+            mainSyntax = propRegex;
+        }
+
+        if (helpersKeys.length && rulesKeys.length) {
+            mainSyntax = ['(?:', helperRegex , '|', propRegex,')'].join('');
+        }
+
         syntax = [
             // word boundary
             GRAMMAR.BOUNDARY,
@@ -168,21 +226,7 @@ Atomizer.prototype.getSyntax = function ()/*:string*/ {
             '(?<parentSelector>',
                 GRAMMAR.PARENT_SELECTOR,
             ')?',
-            // prefix
-            '(?<prop>',
-                // sort prefixes by descending alphabetical order
-                // this is important so "B" doesn't match "Bgc"
-                // e.g. Use (Bgc|B) instead of (B|Bgc)
-                Object.keys(this.rulesMap).sort(function (a, b) {
-                    return a > b ? -1 : 1;
-                }).join('|'),
-            ')',
-            // value
-            '(?:\\(',
-                '(?<values>',
-                    GRAMMAR.VALUES,
-                ')',
-            '\\))?',
+            mainSyntax,
             '(?<important>',
                 GRAMMAR.IMPORTANT,
             ')?',
@@ -462,17 +506,19 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
         var ruleIndex;
         var treeo;
         var rgb;
+        var values;
 
         if (!match) {
           return '';
         }
 
-        ruleIndex = match.prop && this.rulesMap[match.prop];
+        ruleIndex = match.prop ? this.rulesMap[match.prop] : this.helpersMap[match.helper];
 
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
         // as it will return the index given an prefix.
         rule = this.rules[ruleIndex];
+
 
         treeo = {
             className: match[0]
@@ -494,9 +540,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
         if (match.parentSep) {
             treeo.parentSep = match.parentSep;
         }
-        if (match.values) {
+        if (match.values || match.helperValues) {
+            values = match.values || match.helperValues;
             // values can be separated by a comma
-            treeo.values = match.values.split(',').map(function (value) {
+            treeo.values = values.split(',').map(function (value) {
                 // parse values
                 var matchVal = XRegExp.exec(value, VALUE_SYNTAXE);
                 var parsedValue = {};
@@ -609,7 +656,6 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
         }
 
         tree[rule.prefix].push(treeo);
-
     }, this);
 
     // throw warnings
