@@ -5,15 +5,15 @@
     "lg": "@media(min-width:1200px)"
   },
   "classNames": [
-    "C-#fff",
-    "D-ib",
-    "Fz-13px",
-    "P-10px",
-    "Bdb-1",
-    "H-100%",
-    "W-500px",
-    "D-b",
-    "Bdt-1"
+    "C(#fff)",
+    "D(ib)",
+    "Fz(13px)",
+    "P(10px)",
+    "Bdb(1)",
+    "H(100%)",
+    "W(500px)",
+    "D(b)",
+    "Bdt(1)"
   ],
   "custom": {
     "1": "1px solid #ccc"

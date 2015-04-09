@@ -52,7 +52,7 @@ module.exports = function(grunt) {
                 options: {
                     namespace: '#atomic',
                     config: {
-                        classNames: ['D-ib']
+                        classNames: ['D(ib)']
                     }
                 },
                 files: [
@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                     namespace: '#atomic',
                     configFile: 'test/fixtures/sample-config.js',
                     config: {
-                        classNames: ['D-ib'],
+                        classNames: ['D(ib)'],
                         custom: {
                             '1': '10px solid #ccc'
                         }
@@ -80,14 +80,14 @@ module.exports = function(grunt) {
                 ]
             },
             // here we test both cases and also parsing the HTML files
-            // Grunt task should warn about 'Bdb-1' missing in config (found in parsing)
+            // Grunt task should warn about 'Bdb(1)' missing in config (found in parsing)
             configBothWithParsing: {
                 options: {
                     namespace: '#atomic',
                     configFile: 'test/fixtures/sample-config.js',
                     configOutput: 'tmp/configOutput.json',
                     config: {
-                        classNames: ['D-b']
+                        classNames: ['D(b)']
                     }
                 },
                 files: [
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
                 ]
             },
             // here we test both cases and also parsing the HTML files
-            // Grunt task should warn about 'Bdb-1' missing in config (found in parsing)
+            // Grunt task should warn about 'Bdb(1)' missing in config (found in parsing)
             customRulesets: {
                 options: {
                     namespace: '#atomic',

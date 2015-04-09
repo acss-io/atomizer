@@ -1,18 +1,18 @@
-.C-\#fff {
+.C\(\#fff\) {
   color: #fff;
 }
-.D-ib {
+.D\(ib\) {
   display: inline-block;
 }
-.Fz-13px {
+.Fz\(13px\) {
   font-size: 13px;
 }
-.H-100\% {
+.H\(100\%\) {
   height: 100%;
 }
-.P-10px {
+.P\(10px\) {
   padding: 10px;
 }
-.W-500px {
+.W\(500px\) {
   width: 500px;
 }
