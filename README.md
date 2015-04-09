@@ -53,18 +53,18 @@ var defaultConfig = {
         "foo": "2px dotted #f00"
     },
     "classNames": [
-        'Bd-1',
-        'Bd-foo',
-        'Bd-foo--sm',
-        'Bd-foo--md',
-        'D-n!'
+        'Bd(1)',
+        'Bd(foo)',
+        'Bd(foo)--sm',
+        'Bd(foo)--md',
+        'D(n)!'
     ]
 };
 
 var atomizer = new Atomizer({verbose: true});
 
 // Parse text to find Atomic CSS classes
-var foundClasses = atomizer.findClassNames('<div class="D-n! P-10px M-20% Bd-1 Bd-foo--sm"></div>');
+var foundClasses = atomizer.findClassNames('<div class="D(n)! P(10px) M(20%) Bd(1) Bd(foo)--sm"></div>');
 
 // Generate Atomizer configuration from an array of Atomic classnames
 var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
@@ -73,6 +73,10 @@ var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
 var css = atomizer.getCSS(finalConfig);
 
 ```
+
+### Plugins
+
+   * Grunt: [grunt-atomizer](https://github.com/yahoo/grunt-atomizer)
 
 ## Developer docs
 
