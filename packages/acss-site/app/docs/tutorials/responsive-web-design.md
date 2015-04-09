@@ -18,37 +18,39 @@
 
 <h3>Atomic classes and Breakpoints</h3>
 
-<p>Append `--<breakpoint name>` to **any** Atomic class to associate that styling to the breakpoint of your choice. For example, `D-b--sm` and `C-#000--md` will create rules in the related media queries:</p>
+<p>Append `--<breakpoint name>` to **any** Atomic class to associate that styling to the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create rules in the related media queries:</p>
 
 ```css
 @media screen and (min-width:380px) {
-    #atomic .D-b--sm {
+    #atomic .D(b)--sm {
         display: block;
     }
 }
 
 @media screen and (min-width:680px) {
-    #atomic .C-\#000--md {
+    #atomic .C(#000)--md {
         color: #000;
     }
 }
 ```
+
+<p class="noteBox info">For the sake of readability, CSS classes on this page *do not* include the escape character (`\`) where it should be needed.</p>
 
 ## Usage
 
 <p>Use different classes to see styles being applied in the context of various breakpoints, for example:</p>
 
 ```html
-   <div class="D-ib--sm W-50%--sm W-25%--lg P-20px Bgc-#ccc">1</div><!--
---><div class="D-ib--sm W-50%--sm W-25%--lg P-20px Bgc-#999">2</div><!--
---><div class="D-ib--sm W-50%--sm W-25%--lg P-20px Bgc-#777">3</div><!--
---><div class="D-ib--sm W-50%--sm W-25%--lg P-20px Bgc-#555">4</div>
+   <div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#ccc)">1</div><!--
+--><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#999)">2</div><!--
+--><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#777)">3</div><!--
+--><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#555)">4</div>
 ```
 
 <ul class="ul-list">
     <li>Below 380px, the boxes are displayed on top of each other (`div` are block-level elements)</li>
-    <li>Above 380px, the boxes are displayed on 2 rows, 2 by 2 (`D-ib--sm` + `W-50%--sm`)</li>
-    <li>Above 900px, the boxes are displayed side-by-side, on a single row (`D-ib--sm` + `W-25%--lg`)</li>
+    <li>Above 380px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)</li>
+    <li>Above 900px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)</li>
 </ul>
 
 <p class="noteBox info">The breakpoints for the Pen below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>

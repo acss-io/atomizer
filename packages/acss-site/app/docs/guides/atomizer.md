@@ -7,19 +7,19 @@ Atomizer creates CSS rules based on Atomic classes it finds in documents. This m
 For example, if your project was a single page containing:
 
 ```html
-<div class="D-b Va-t Fz-20px">Hello World!</div>
+<div class="D(b) Va(t) Fz(20px)">Hello World!</div>
 ```
 
 Atomizer would create a `atomic.css` file containing these rules:
 
 ```css
-.D-b {
+.D(b) {
     display: block;
 }
-.Va-t {
+.Va(t) {
     vertical-align: top;
 }
-.Fz-20px {
+.Fz(20px) {
     font-size: 20px;
 }
 ```
@@ -27,16 +27,16 @@ Atomizer would create a `atomic.css` file containing these rules:
 If, for example, you decided to update the classes like below:
 
 ```html
-<div class="Va-t Fz-18px">Hello World!</div>
+<div class="Va(t) Fz(18px)">Hello World!</div>
 ```
 
-Then Atomizer would update the file (removing `D-b` and replacing `Fz-20px` with `Fz-18px`) to match exactly *what is being used* inside the project:
+Then Atomizer would update the file (removing `D(b)` and replacing `Fz(20px)` with `Fz(18px)`) to match exactly *what is being used* inside the project:
 
 ```css
-.Va-t {
+.Va(t) {
     vertical-align: top;
 }
-.Fz-18px {
+.Fz(18px) {
     font-size: 18px;
 }
 ```
@@ -51,27 +51,29 @@ You can create any custom class you want via the [config object](https://github.
 
 <dl class="dl-list">
     <dt>Contextual class related to *ancestor*</dt>
-    <dd>Use a class attached to *an ancestor*  of the element if you wish to create a contextual style. For example, the class `myBox_D-n` will hide the node if it is a descendant of an element with the class `myBox` applied to it.</dd>
+    <dd>Use a class attached to *an ancestor*  of the element if you wish to create a contextual style. For example, the class `myBox_D(n)` will hide the node if it is a descendant of an element with the class `myBox` applied to it.</dd>
     <dt>Contextual class related to *parent*</dt>
-    <dd>Use a class attached to *the parent* of the element if you wish to create a contextual style. For example, the class `myBox>D-n` will hide the node if it is a child of an element with the class `myBox` applied to it.</dd>
+    <dd>Use a class attached to *the parent* of the element if you wish to create a contextual style. For example, the class `myBox>D(n)` will hide the node if it is a child of an element with the class `myBox` applied to it.</dd>
     <dt>Pseudo classes on ancestor</dt>
-    <dd>Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `myBox:h_Td-u` will underline text when users hover over its ancestor to which the class `.myBox` is applied.</dd>
+    <dd>Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `myBox:h_Td(u)` will underline text when users hover over its ancestor to which the class `.myBox` is applied.</dd>
     <dt>Pseudo classes on value identifier</dt>
-    <dd>Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `Td-u:h` will underline text on mouseover.</dd>
+    <dd>Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `Td(u):h` will underline text on mouseover.</dd>
     <dt>Units in value identifiers</dt>
-    <dd>Use any unit you want (i.e. `W-50%`, `M-20px`, `Fz-1em`, etc.).</dd>
+    <dd>Use any unit you want (i.e. `W(50%)`, `M(20px)`, `Fz(1em)`, etc.).</dd>
     <dt>Unit-less values</dt>
-    <dd>Use unit-less values to set styles like `line-height` (i.e. `Lh-1.5`), `font-weight` (i.e. `Fw-500`), etc.</dd>
+    <dd>Use unit-less values to set styles like `line-height` (i.e. `Lh(1.5)`), `font-weight` (i.e. `Fw(500)`), etc.</dd>
     <dt>Negative values</dt>
-    <dd>Use `neg`, in lieu of `-` (minus sign), in value identifiers to set negative values (i.e. `M-neg20px`)</dd>
+    <dd>Use the minus sign (`-`) to set negative values (i.e. `M(-20px)`)</dd>
+    <dt>Multiple values</dt>
+    <dd>Pass multiple values using commas (`,`) (i.e. `Bgp(20px,50px)`)</dd>
     <dt>Hexadecimal colors</dt>
-    <dd>Use hexadecimal colors (in *uppercase* and *without* the `#`) as value identifier (i.e. `C-#FFF`) and Atomizer will create the declaration for you (`color:#fff`)</dd>
+    <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier (i.e. `C(#fff)`) and Atomizer will create the declaration for you (`color:#fff`)</dd>
     <dt>Hexadecimal colors with alpha</dt>
     <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier followed by the opacity value (i.e. `C-#fff.5`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)</dd>
     <dt>Fractions</dt>
-    <dd>Use any fraction you want (i.e. `W-1/2`) and Atomizer will create the CSS declaration for you (`width:50%`)</dd>
+    <dd>Use any fraction you want (i.e. `W(1/2)`) and Atomizer will create the CSS declaration for you (`width:50%`)</dd>
     <dt>`!important` directive</dt>
-    <dd>Use `!` after the value identifier (i.e. `D-b!`) and Atomizer will add `!important` to the declaration for you (`display:block!important`)</dd>
+    <dd>Use `!` after the value identifier (i.e. `D(b)!`) and Atomizer will add `!important` to the declaration for you (`display:block!important`)</dd>
 </dl>
 
 <div class="noteBox info">The [reference page](/reference) lets you quickly search for properties, values, or class names.</div>
@@ -79,5 +81,5 @@ You can create any custom class you want via the [config object](https://github.
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) This is true for non-custom classes.</li>
+    <li>1. This is true for non-custom classes [\[↩\]](#footnote-1).</li>
 </ul>

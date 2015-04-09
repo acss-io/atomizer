@@ -10,7 +10,7 @@ You use a config object to create the styles you need but you can also *rely on 
 
 ## Simple classes
 
-These classes are the ones Atomizer can make sense of without the need to check the config object; classes like `W-20px` (`width:20px`), `Lh-1.5` (`line-height:1.5`), etc.
+These classes are the ones Atomizer can make sense of without the need to check the config object; classes like `W(20px)` (`width:20px`), `Lh(1.5)` (`line-height:1.5`), etc.
 
 ## Custom classes
 
@@ -18,23 +18,23 @@ The value identifier of these classes is mapped to a custom value set in the con
 
 ```javascript
 'custom': {
-    'Fz-verylarge': '3em',
-    'P-gutter': '10px',
-    'C-primary': 'teal'
+    'Fz(verylarge)': '3em',
+    'P(gutter)': '10px',
+    'C(primary)': 'teal'
 }
 ```
 
 creates 3 classes/declarations:
 
 <ul class="ul-list">
-    <li>`Fz-verylarge` for `font-size: 3em`</li>
-    <li>`P-gutter` for (`padding: 10px`</li>
-    <li>`C-primary` for (`color: teal`</li>
+    <li>`Fz(verylarge)` for `font-size: 3em`</li>
+    <li>`P(gutter)` for `padding: 10px`</li>
+    <li>`C(primary)` for `color: teal`</li>
 </ul>
 
 ## Aliases
 
-Atomic CSS uses aliases whenever they make more sense than the class the regular [Atomic syntax](syntax.html) creates. For example, most `transform` properties have aliases:
+Atomic CSS uses aliases for properties that rely on values using parentheses (i.e. `blur(2px)`). For example, most `transform` properties have aliases:
 
 <table class="Ta-start W-100%">
     <caption class="hidden">Aliases for Atomic classes</caption>
@@ -46,58 +46,58 @@ Atomic CSS uses aliases whenever they make more sense than the class the regular
         </tr>
     </thead>
     <tbody>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfr-90deg`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfr(90deg)`</th>
             <td class="Va-t P-10px">`transform:rotate(90°)`</td>
-            <td class="Va-t P-10px">`Rot-90deg`</td>
+            <td class="Va-t P-10px">`Rot(90deg)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsc-1,2`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsc(1,2)`</th>
             <td class="Va-t P-10px">`transform:scale(1,2)`</td>
-            <td class="Va-t P-10px">`Scale-1,2`</td>
+            <td class="Va-t P-10px">`Scale(1,2)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscx-2`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscx(2)`</th>
             <td class="Va-t P-10px">`transform:scaleX(2)`</td>
-            <td class="Va-t P-10px">`Scalex-2`</td>
+            <td class="Va-t P-10px">`ScaleX(2)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscy-2`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscy(2)`</th>
             <td class="Va-t P-10px">`transform:scaleY(2)`</td>
-            <td class="Va-t P-10px">`Scaley-2`</td>
+            <td class="Va-t P-10px">`ScaleY(2)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfskx-20deg`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfskx(20deg)`</th>
             <td class="Va-t P-10px">`transform:skewX(20°)`</td>
-            <td class="Va-t P-10px">`Skewx-20deg`</td>
+            <td class="Va-t P-10px">`SkewX(20deg)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsky-20deg`</th>
-            <td class="Va-t P-10px">`transform:skewY(20°)`</td>
-            <td class="Va-t P-10px">`Skewy-20deg`</td>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsky(-20deg)`</th>
+            <td class="Va-t P-10px">`transform:skewY(-20°)`</td>
+            <td class="Va-t P-10px">`SkewY(-20deg)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trft-10px,20px`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trft(10px,20px)`</th>
             <td class="Va-t P-10px">`transform:translate(10px,20px)`</td>
-            <td class="Va-t P-10px">`Trans-10px,20px`</td>
+            <td class="Va-t P-10px">`Trans(10px,20px)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trftx-10px`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trftx(10px)`</th>
             <td class="Va-t P-10px">`transform:translateX(10px)`</td>
-            <td class="Va-t P-10px">`Transx-10px`</td>
+            <td class="Va-t P-10px">`TransX(10px)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfty-10px`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfty(10px)`</th>
             <td class="Va-t P-10px">`transform:translateY(10px)`</td>
-            <td class="Va-t P-10px">`Transy-10px`</td>
+            <td class="Va-t P-10px">`TransY(10px)`</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfo-50%`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfo(50%)`</th>
             <td class="Va-t P-10px">`transform-origin:50%`</td>
             <td class="Va-t P-10px">No alias</td>
         </tr>
-        <tr class="Bdt-1">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfs-p3`</th>
+        <tr class="BdT Bdc-#cecece">
+            <th scope="row" class="Va-t Whs-nw P-10px">`Trfs(p3)`</th>
             <td class="Va-t P-10px">`transform-style:preserve-3d(2)`</td>
             <td class="Va-t P-10px">No alias</td>
         </tr>
@@ -114,14 +114,14 @@ custom: {
 }
 ```
 
-Then you can use that value identifier like this:
+Usage:
 
 ```javascript
 <body class="Pt-$headerHeight">
     <header class="Mih-$headerHeight Pos-f T-0 Start-0 End-0">...</header>
 ```
 
-This way, even if the value of `$headerHeight` changes, the padding of `body` is still in sync with the height of the `header`.
+Whenever the value of `$headerHeight` changes, the padding of `body` stays in in sync with the height of the `header`.
 
 Variables are also an easy way to abstract colors:
 
@@ -136,9 +136,9 @@ custom: {
 Such variables can then be used with any properties that set colors, for example:
 
 <ul class="ul-list">
-    <li>`Bgc-$primaryColor` for background color</li>
-    <li>`C-$secondaryColor` for color</li>
-    <li>`Bdc-$tertiaryColor` for border-color</li>
+    <li>`Bgc-$primaryColor` for `background-color`</li>
+    <li>`C-$secondaryColor` for `color`</li>
+    <li>`Bdc-$tertiaryColor` for `border-color`</li>
     <li>etc.</li>
 </ul>
 
@@ -153,35 +153,35 @@ These classes are mostly contextual; they take into consideration ancestor nodes
 You can style a node according to its relationship with its parent or ancestor, for example:
 
 ```html
-<p class="someElement">The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+<p class="someElement">The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
 ```
-<p class="someElement">The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+<p class="someElement">The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
 
 Same class on a node outside the scope of `.someElement`:
 
 ```html
-<p>The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+<p>The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
 ```
 
-<p>The following text is <b class="someElement_C-#0b0">lime</b>.</p>
+<p>The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
 
 <p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page_D-b` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
 
 #### pseudo-classes on ancestors
 
-You can use pseudo-classes with classes relying on contextual selectors, for example `ul-list:h>V-h` hides the direct children of `.ul-list` &mdash; only when users hover over the said list.
+You can use pseudo-classes with classes relying on contextual selectors, for example `ul-list:h>V(h)` hides the direct children of `.ul-list` &mdash; only when users hover over the said list.
 
 ```html
 <ul class="ul-list">
-    <li class="ul-list:h>V-h">List item #1</li>
-    <li class="ul-list:h>V-h">List item #2</li>
+    <li class="ul-list:h>V(h)">List item #1</li>
+    <li class="ul-list:h>V(h)">List item #2</li>
     <li>List item #3</li>
 </ul>
 ```
 
 <ul class="ul-list">
-    <li class="ul-list:h>V-h">List item #1</li>
-    <li class="ul-list:h>V-h">List item #2</li>
+    <li class="ul-list:h>V(h)">List item #1</li>
+    <li class="ul-list:h>V(h)">List item #2</li>
     <li>List item #3</li>
 </ul>
 
@@ -201,6 +201,10 @@ breakPoints: {
 
 <p class="noteBox info">You can choose any name you want for the breakpoints you create via the config object.</p>
 
-The class `P-10--sm` will style a box with a `padding` of `10px` inside the `sm` breakpoint while the class `P-20--lg` will style a box with a `padding` of `20px` inside the `lg` breakpoint.
+The class `P(10px)--sm` will style a box with a `padding` of `10px` inside the `sm` breakpoint while the class `P(20px)--lg` will style a box with a `padding` of `20px` inside the `lg` breakpoint.
 
 More info about [breakpoints and responsive web design](../tutorials/responsive-web-design.html).
+
+## Shorthand notation
+
+Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors.

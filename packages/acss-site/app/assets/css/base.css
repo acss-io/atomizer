@@ -198,7 +198,13 @@ h3 {
 }
 
 h4 {
+    margin: 1.5em 0;
+}
+
+h5 {
     margin: 1.33em 0;
+    font-size: .94em;
+    border-bottom: 1px solid rgba(2, 128, 174, 0.3)
 }
 
 h1 *,
