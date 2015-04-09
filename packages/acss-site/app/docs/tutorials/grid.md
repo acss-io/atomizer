@@ -2,67 +2,69 @@
 
 Atomic is not your everyday CSS solution, it does not come with a _out-of-the-box_ grid system. Instead, you would use any property you want to build grids *the way **you** want*.
 
+
+
 ## Widths
 
 You can choose from creating a unit-base system (i.e. `1/12`), using percentages (i.e. `20%`), or using any arbitrary value you see fit (i.e. `15em`). In other words, the way you apply widths onto boxes is entirely up to you!
 
-<p class="noteBox info">All classes related to `width` start with `W-` &mdash; for example: `W-15em`.</p>
+<p class="noteBox info">All classes related to `width` start with `W` &mdash; for example: `W(15em)`.</p>
 
 ### Fractions
 
-`W-1/12`, `W-2/12`, `W-3/12`, `W-4/12`, `W-5/12`, `W-6/12`, `W-7/12`, etc.
+`W(1/12)`, `W(2/12)`, `W(3/12)`, `W(4/12)`, `W(5/12)`, `W(6/12)`, `W(7/12)`, etc.
 
 If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
 If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object, for example:
 ```json
 'classNames': [
-    'W-1/12',
-    'W-2/12',
-    'W-3/12',
-    'W-4/12',
-    'W-5/12',
-    'W-6/12',
-    'W-7/12',
-    'W-8/12',
-    'W-9/12',
-    'W-10/12',
-    'W-11/12',
-    'W-12/12'
+    'W(1/12),
+    'W(2/12),
+    'W(3/12),
+    'W(4/12),
+    'W(5/12),
+    'W(6/12),
+    'W(7/12),
+    'W(8/12),
+    'W(9/12),
+    'W(10/12)',
+    'W(11/12)',
+    'W(12/12)'
 ]
 ```
 
 
 ### Percentages
 
-`W-10%`, `W-20%`, `W-30%`, `W-40%`, ..., `W-100%`
+`W(10%)`, `W(20%)`, `W(30%)`, `W(40%)`, ..., `W(100%)`
 
 Same as for fractions, if you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
 If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object:
 ```json
 'classNames': [
-    'W-10%',
-    'W-20%',
-    'W-30%',
-    'W-40%',
-    'W-50%',
-    'W-60%',
-    'W-70%',
-    'W-80%',
-    'W-90%',
-    'W-100%'
+    'W(10%)',
+    'W(20%)',
+    'W(30%)',
+    'W(40%)',
+    'W(50%)',
+    'W(60%)',
+    'W(70%)',
+    'W(80%)',
+    'W(90%)',
+    'W(100%)'
 ]
 ```
 
 ### `em` units
 
-`W-10em`, `W-50em`
+`W(10em)`, `W(50em)`
 
 Same as for fractions and percentages, if you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
 If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object:
 ```json
 'classNames': [
-    'W-10em',
-    'W-50em'
+    'W(10em)',
+    'W(50em)'
 ]
 ```
 
@@ -70,22 +72,22 @@ If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must
 
 You can have anything you want:
 
-`W-a`, `W-1/4`, `W-2/4`, `W-3/4`, `W-4/4`, `W-5%`, `W-10em`, `W-200px`
+`W(a)`, `W(1/4)`, `W(2/4)`, `W(3/4)`, `W(4/4)`, `W(5%)`, `W(10em)`, `W(200px)`
 
 Same as for fractions, percentages, `em` units, etc. If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
 If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object:
 
 ```json
 'classNames': [
-    'W-a',
-    'W-inh',
-    'W-1/4',
-    'W-2/4',
-    'W-3/4',
-    'W-4/4',
-    'W-5%',
-    'W-10em',
-    'W-200px'
+    'W(a)',
+    'W(1/4)',
+    'W(2/4)',
+    'W(inh)',
+    'W(3/4)',
+    'W(4/4)',
+    'W(5%)',
+    'W(10em)',
+    'W(200px)'
 ]
 ```
 
@@ -99,21 +101,21 @@ There are many ways to display boxes next to each other... Your pick:
 
 This styling has great browser support [\[1\]](#footnote) and it is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
-When creating inline-block constructs, you should use our helper class (`IbBox()`) instead of `D-ib` because the former gives you old IE support plus vertical-alignment (`top`) for free.
+When creating inline-block constructs, you should use our helper class (`IbBox`) instead of `D(ib)` because the former gives you old IE support plus vertical-alignment (`top`) for free.
 
 #### Example
 
 ```html
 <div>
-   <div class="IbBox W-1/3 P-20px Bgc-#ccc">Box 1</div><!--
---><div class="IbBox W-1/3 P-20px Bgc-#999">Box 2</div><!--
---><div class="IbBox W-1/3 P-20px Bgc-#777">Box 3</div>
+   <div class="IbBox W(1/3) P(20px) Bgc(#ccc)">Box 1</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#999)">Box 2</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#777)">Box 3</div>
 </div>
 <hr />
 <div dir="rtl">
-   <div class="IbBox W-1/3 P-20px Bgc-#ccc">Box 1</div><!--
---><div class="IbBox W-1/3 P-20px Bgc-#999">Box 2</div><!--
---><div class="IbBox W-1/3 P-20px Bgc-#777">Box 3</div>
+   <div class="IbBox W(1/3) P(20px) Bgc(#ccc)">Box 1</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#999)">Box 2</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#777)">Box 3</div>
 </div>
 ```
 
@@ -138,7 +140,7 @@ If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is 
 If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add that class to the config object:
 ```json
 'classNames': [
-    'Fl-start'
+    'Fl(start)'
 ]
 ```
 
@@ -146,8 +148,8 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div>
-   <div class="Fl-start W-50% P-20px Bgc-#ccc">Box 1</div>
-   <div class="Fl-start W-50% P-20px Bgc-#999">Box 2</div>
+   <div class="Fl(start) W(50%) P(20px) Bgc(#ccc)">Box 1</div>
+   <div class="Fl(start) W(50%) P(20px) Bgc(#999)">Box 2</div>
 </div>
 ```
 
@@ -171,10 +173,10 @@ If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is 
 If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add those classes to the config object:
 ```json
 'classNames': [
-    'D-tb',
-    'D-tbc',
-    'Va-m',
-    'Ta-c'
+    'D(tb)',
+    'D(tbc)',
+    'Va(m)',
+    'Ta(c)'
 ]
 ```
 
@@ -182,17 +184,17 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D-tb W-100% Ta-c">
-    <div class="D-tbc Va-m P-20px Bgc-#ccc">Box <br />Number <br />1</div>
-    <div class="D-tbc Va-m P-20px Bgc-#999">Box Number 2</div>
-    <div class="D-tbc Va-m P-20px Bgc-#777">Box Number 3</div>
-    <div class="D-tbc Va-m P-20px Bgc-#555">BoxNumber 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#ccc)">Box <br />Number <br />1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#999)">Box Number 2</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#777)">Box Number 3</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#555)">BoxNumber 4</div>
 </div>
 <hr />
 <div class="D-tb W-100% Va-m Ta-c" dir="rtl">
-    <div class="D-tbc Va-m P-20px Bgc-#ccc">Box <br />Number <br />1</div>
-    <div class="D-tbc Va-m P-20px Bgc-#999">Box Number 2</div>
-    <div class="D-tbc Va-m P-20px Bgc-#777">Box Number 3</div>
-    <div class="D-tbc Va-m P-20px Bgc-#555">BoxNumber 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#ccc)">Box <br />Number <br />1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#999)">Box Number 2</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#777)">Box Number 3</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#555)">BoxNumber 4</div>
 </div>
 ```
 
@@ -203,10 +205,10 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 <p><strong>Tip:</strong> one can also use `table-header-group` and/or `table-footer-group` to swap boxes vertically without removing them from the flow:</p>
 
 ```html
-<div class="D-tb W-100% Ta-c">
-    <div class="D-tbfg Fz-20px Bgc-#ccc">Box Number 1</div>
-    <div class="D-tbc  Fz-20px Bgc-#999">Box Number 2</div>
-    <div class="D-tbhg Fz-20px Bgc-#777">Box Number 3</div>
+<div class="D(tb) W(100%) Ta(c)">
+    <div class="D(tbfg) Fz(20px) Bgc(#ccc)">Box Number 1</div>
+    <div class="D(tbc) Fz(20px) Bgc(#999)">Box Number 2</div>
+    <div class="D(tbhg) Fz(20px) Bgc(#777)">Box Number 3</div>
 </div>
 ```
 
@@ -219,25 +221,25 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <p>Browser support for `flexbox` is [not that great](http://caniuse.com/#search=flexbox) but nonetheless you can use Atomic to leverage its awesomeness.</p>
 
-<p>`D-f`, `Flf-w`, `Jc-sb`</p>
+<p>`D(f)`, `Flf(w)`, `Jc(sb)`</p>
 
 If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the classes above in your markup - where needed - and [Atomizer](https://github.com/yahoo/atomizer) will create the necessary rule for you.<br>
 If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add those classes to the config object:
 ```json
 'classNames': [
-    'D-f',
-    'Flf-w',
-    'Jc-sb'
+    'D(f)',
+    'Flf(w)',
+    'Jc(sb)'
 ]
 ```
 #### Example
 
 ```html
-<div class="D-f Flf-w Jc-sb">
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 1</div>
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 2</div>
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 3</div>
-  <div class="W-100px H-100px Lh-100px Fz-30px Ta-c Bgc-#ccc">Box 3</div>
+<div class="D(f) Flf(w) Jc(sb)">
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 1</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 2</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 3</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 3</div>
 </div>
 ```
 
@@ -248,6 +250,6 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 <hr class="Mt-50px">
 
 <ul id="footnote" class="ul-list">
-    <li>[\[1\]](#footnote-1) Atomic.css provides a patch for oldIE</li>
-    <li>[\[2\]](#footnote-2) Atomic.css relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context.</li>
+    <li>1. Atomic.css provides a patch for oldIE [\[↩\]](#footnote-1).</li>
+    <li>2. Atomic.css relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context [\[↩\]](#footnote-2).</li>
 </ul>

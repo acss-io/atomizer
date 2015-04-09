@@ -12,24 +12,32 @@ Styling elements with a border requires at least 2 properties (border color inhe
 So to make styling via classes a bit less verbose, we have the following helpers that combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
 
 <ul class="ul-list">
-    <li>`Bd` to create a border on all edges of a box</li>
-    <li>`BdX` to create a border on the left and right edges of a box</li>
-    <li>`BdY` to create a border on the top and left edges of a box</li>
-    <li>`BdT` to create a border on the top edge of a box</li>
-    <li>`BdEnd` to create a border on the right edge of a box (in a LTR context)</li>
-    <li>`BdB` to create a border on the bottom edge of a box</li>
-    <li>`BdStart` to create a border on the left edge of a box (in a LTR context)</li>
+    <li>`Bd` creates a `1px` border on all edges of a box</li>
+    <li>`BdX` creates a `1px` border on the left and right edges of a box</li>
+    <li>`BdY` creates a `1px` border on the top and left edges of a box</li>
+    <li>`BdT` creates a `1px` border on the top edge of a box</li>
+    <li>`BdEnd` creates a `1px` border on the right edge of a box (in a LTR context)</li>
+    <li>`BdB` creates a `1px` border on the bottom edge of a box</li>
+    <li>`BdStart` creates a `1px` border on the left edge of a box (in a LTR context)</li>
 </ul>
 
-You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc-#ff6347`) to get a border color different than the text color of the box.
+You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
 
 Example:
 
 ```html
-<p class="Bd Bdc-#ff6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd Bdc(#ff6347) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
 <p class="Bd Bdc-#ff6347 P-10px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+
+<p>We have chosen to set the default `width` of those helpers to be `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either</p>
+<ul class="ul-list">
+    <li>use a granular approach, for example: `Bdw(5px) Bds(s) Bdc(#555)`</li>
+    <li>create a custom class, for example: `Bd(myCustomBorder)` via the config object.</li>
+</ul>
+
+<p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/yahoo/atomizer/blob/master/src/rules.js#L289).</p>
 
 ## `BfcHack` (Block-formatting context)
 
@@ -52,10 +60,10 @@ Use `Ell` to create a one-liner with ellipsis (in browsers that support `text-ov
 Example:
 
 ```html
-<p class="Ell W-300px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Ell W(300px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
-<p class="Ell W-300px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Ell W300px">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 ## Hiding content from sighted users
 
@@ -64,7 +72,7 @@ Use the class `Hidden` if you want to hide content that should be accessible to 
 Example:
 
 ```html
-<p class="Bgc-000">Something is <b class="Hidden">missing</b> here.</p>
+<p class="Bgc(000)">Something is <b class="Hidden">missing</b> here.</p>
 ```
 <p class="Bgc-000">Something is <b class="Hidden">missing</b> here.</p>
 
@@ -80,14 +88,14 @@ vertical-align: top;
 ```
 
 ```html
-   <div class="IbBox W-50% Ta-c Bgc-#ccc">Box-1</div><!--
---><div class="IbBox W-50% Ta-c Bgc-#999">Box-2</div>
+   <div class="IbBox W(50)% Ta(c) Bgc(#ccc)">Box-1</div><!--
+--><div class="IbBox W(50)% Ta(c) Bgc(#999)">Box-2</div>
 ```
 
 Example:
 
-<div class="IbBox W-50% Ta-c Bgc-#ccc">Box-1</div><!--
---><div class="IbBox W-50% Ta-c Bgc-#999">Box-2</div>
+<div class="IbBox W(50%) Ta(c) Bgc(#ccc)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(#999)">Box-2</div>
 
 <p class="noteBox info">Remember to remove the white-space between nodes when creating inline-block constructs.</p>
 
@@ -105,7 +113,7 @@ With the help of Atomizer, you can use a class to "pass" 2 parameters:
 Example:
 
 ```html
-<p class="Fz-18px Lh-1.5 LineClamp(2,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Fz(18px) Lh(1.5) LineClamp(2,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 <p class="Fz-18px Lh-1.5 LineClamp(2,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
@@ -118,7 +126,7 @@ Use the class `Row` to style a box that expands to fill its container, contains 
 Example:
 
 ```html
-<div class="Row Bgc-#0b0">
+<div class="Row Bgc(#0b0)">
     <div class="Fl-start W-300px Ta-c P-10px">Box-1</div>
     <div class="Fl-end W-300px Ta-c P-10px">Box-2</div>
 </div>
@@ -138,8 +146,8 @@ Example:
 
 ```html
 <div class="SpaceBetween">
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#ccc">Box-1</div>
-    <div class="D-ib W-300px Ta-c Mt-30px P-10px Bgc-#999">Box-2</div>
+    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
+    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
 </div>
 ```
 <div class="SpaceBetween">
@@ -164,8 +172,8 @@ left: 0;
 This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.com/article/creating-intrinsic-ratios-for-video). For example:
 
 ```html
-<div class="Pos-r H-0 Pt-10%">
-    <div class="StretchedBox Bgc-#0b0">I am a box with an intrinsic aspect ratio</div>
+<div class="Pos(r) H(0) Pt(10%)">
+    <div class="StretchedBox Bgc(#0b0)">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 <div class="Pos-r H-0 Pt-10%">
