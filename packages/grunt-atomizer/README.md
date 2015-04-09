@@ -39,7 +39,7 @@ An array of additional [Atomizer](/yahoo/atomizer) rulesets passed as file paths
 
 #### options.namespace
 
-A CSS selector used to define scope for the Atomic CSS rules.  (eg, if `options.namespace` is set to `#atomic`, the CSS output will be in the form of `#atomic .P-10px`, etc.)
+A CSS selector used to define scope for the Atomic CSS rules.  (eg, if `options.namespace` is set to `#atomic`, the CSS output will be in the form of `#atomic .P(10px)`, etc.)
 
 #### options.rtl
 
@@ -84,7 +84,7 @@ atomizer: {
         options: {
             namespace: '#atomic',
             config: {
-                classNames: ['D-ib']
+                classNames: ['D(ib)']
             }
         },
         files: [
@@ -102,7 +102,7 @@ atomizer: {
             configFile: 'test/fixtures/sample-config.js',
             // config will override any thing declared in configFile
             config: {
-                classNames: ['D-ib'],
+                classNames: ['D(ib)'],
                 custom: {
                     '1': '10px solid #ccc'
                 }
@@ -123,7 +123,7 @@ atomizer: {
             configFile: 'test/fixtures/sample-config.js',
             // override classNames in the base config file
             config: {
-                classNames: ['D-b']
+                classNames: ['D(b)']
             }
             // the final config file used by the tool will be written
             // in the following file:

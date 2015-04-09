@@ -1,27 +1,27 @@
-#atomic .Bdt-1 {
+#atomic .Bdt\(1\) {
   border-top: 1px solid #ccc;
 }
-#atomic .Bdb-1 {
+#atomic .Bdb\(1\) {
   border-bottom: 1px solid #ccc;
 }
-#atomic .C-\#fff {
+#atomic .C\(\#fff\) {
   color: #fff;
 }
-#atomic .D-ib {
+#atomic .D\(ib\) {
   display: inline-block;
 }
-#atomic .D-b {
+#atomic .D\(b\) {
   display: block;
 }
-#atomic .Fz-13px {
+#atomic .Fz\(13px\) {
   font-size: 13px;
 }
-#atomic .H-100\% {
+#atomic .H\(100\%\) {
   height: 100%;
 }
-#atomic .P-10px {
+#atomic .P\(10px\) {
   padding: 10px;
 }
-#atomic .W-500px {
+#atomic .W\(500px\) {
   width: 500px;
 }
