@@ -23,30 +23,30 @@ module.exports = {
     // have the option to explicitly declare classnames if you find it helpful for your
     // project.
     'classNames': [
-        'H-uh',            // custom 1 (maps to 'custom' key above)
-        'C-primary',       // custom 2 (maps to 'custom' key above)
-        'Td-u',            // normal
-        'Td-u:h',          // pseudo classs
-        'D-b--sm',         // breakpoint 1
-        'foo>W-uh',        // descendent
-        'D-n!',            // important
-        'Op-1!',           // important
-        'Fl-start',        // normal (rtl support)
-        'Fl-end',          // normal (rtl support)
-        'W-1/12',          // fraction
-        'W-2/12',          // fraction
-        'W-3/12',          // fraction
-        'W-4/12',          // fraction
-        'W-5/12',          // fraction
-        'W-6/12',          // fraction
-        'W-7/12',          // fraction
-        'W-8/12',          // fraction
-        'W-9/12',          // fraction
-        'W-10/12',         // fraction
-        'W-11/12',         // fraction
-        'W-12/12',         // fraction
-        'W-1/12--sm',      // fraction with breakpoint
-        'Bgc-#333',        // hex value
-        'Bgc-#fff.8'       // hex value + alpha
+        'H(uh)',            // custom 1 (maps to 'custom' key above)
+        'C(primary)',       // custom 2 (maps to 'custom' key above)
+        'Td(u)',            // normal
+        'Td(u):h',          // pseudo classs
+        'D(b)--sm',         // breakpoint 1
+        'foo>W(uh)',        // descendent
+        'D(n)!',            // important
+        'Op(1)!',           // important
+        'Fl(start)',        // normal (rtl support)
+        'Fl(end)',          // normal (rtl support)
+        'W(1/12)',          // fraction
+        'W(2/12)',          // fraction
+        'W(3/12)',          // fraction
+        'W(4/12)',          // fraction
+        'W(5/12)',          // fraction
+        'W(6/12)',          // fraction
+        'W(7/12)',          // fraction
+        'W(8/12)',          // fraction
+        'W(9/12)',          // fraction
+        'W(10/12)',         // fraction
+        'W(11/12)',         // fraction
+        'W(12/12)',         // fraction
+        'W(1/12)--sm',      // fraction with breakpoint
+        'Bgc(#333)',        // hex value
+        'Bgc(#fff.8)'       // hex value + alpha
     ]
 };
