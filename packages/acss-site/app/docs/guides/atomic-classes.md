@@ -36,70 +36,70 @@ creates 3 classes/declarations:
 
 Atomic CSS uses aliases for properties that rely on values using parentheses (i.e. `blur(2px)`). For example, most `transform` properties have aliases:
 
-<table class="Ta-start W-100%">
-    <caption class="hidden">Aliases for Atomic classes</caption>
+<table class="Ta(start) W(100%)">
+    <caption class="Hidden">Aliases for Atomic classes</caption>
     <thead>
         <tr>
-            <th scope="col" class="P-10px">Atomic classes</th>
-            <th scope="col" class="P-10px">Styles</th>
-            <th scope="col" class="P-10px">Aliases</th>
+            <th scope="col" class="P(10px)">Atomic classes</th>
+            <th scope="col" class="P(10px)">Styles</th>
+            <th scope="col" class="P(10px)">Aliases</th>
         </tr>
     </thead>
     <tbody>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfr(90deg)`</th>
-            <td class="Va-t P-10px">`transform:rotate(90°)`</td>
-            <td class="Va-t P-10px">`Rot(90deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfr(90deg)`</th>
+            <td class="Va(t) P(10px)">`transform:rotate(90°)`</td>
+            <td class="Va(t) P(10px)">`Rot(90deg)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsc(1,2)`</th>
-            <td class="Va-t P-10px">`transform:scale(1,2)`</td>
-            <td class="Va-t P-10px">`Scale(1,2)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfsc(1,2)`</th>
+            <td class="Va(t) P(10px)">`transform:scale(1,2)`</td>
+            <td class="Va(t) P(10px)">`Scale(1,2)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscx(2)`</th>
-            <td class="Va-t P-10px">`transform:scaleX(2)`</td>
-            <td class="Va-t P-10px">`ScaleX(2)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfscx(2)`</th>
+            <td class="Va(t) P(10px)">`transform:scaleX(2)`</td>
+            <td class="Va(t) P(10px)">`ScaleX(2)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfscy(2)`</th>
-            <td class="Va-t P-10px">`transform:scaleY(2)`</td>
-            <td class="Va-t P-10px">`ScaleY(2)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfscy(2)`</th>
+            <td class="Va(t) P(10px)">`transform:scaleY(2)`</td>
+            <td class="Va(t) P(10px)">`ScaleY(2)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfskx(20deg)`</th>
-            <td class="Va-t P-10px">`transform:skewX(20°)`</td>
-            <td class="Va-t P-10px">`SkewX(20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfskx(20deg)`</th>
+            <td class="Va(t) P(10px)">`transform:skewX(20°)`</td>
+            <td class="Va(t) P(10px)">`SkewX(20deg)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfsky(-20deg)`</th>
-            <td class="Va-t P-10px">`transform:skewY(-20°)`</td>
-            <td class="Va-t P-10px">`SkewY(-20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfsky(-20deg)`</th>
+            <td class="Va(t) P(10px)">`transform:skewY(-20°)`</td>
+            <td class="Va(t) P(10px)">`SkewY(-20deg)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trft(10px,20px)`</th>
-            <td class="Va-t P-10px">`transform:translate(10px,20px)`</td>
-            <td class="Va-t P-10px">`Trans(10px,20px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trft(10px,20px)`</th>
+            <td class="Va(t) P(10px)">`transform:translate(10px,20px)`</td>
+            <td class="Va(t) P(10px)">`Trans(10px,20px)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trftx(10px)`</th>
-            <td class="Va-t P-10px">`transform:translateX(10px)`</td>
-            <td class="Va-t P-10px">`TransX(10px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trftx(10px)`</th>
+            <td class="Va(t) P(10px)">`transform:translateX(10px)`</td>
+            <td class="Va(t) P(10px)">`TransX(10px)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfty(10px)`</th>
-            <td class="Va-t P-10px">`transform:translateY(10px)`</td>
-            <td class="Va-t P-10px">`TransY(10px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfty(10px)`</th>
+            <td class="Va(t) P(10px)">`transform:translateY(10px)`</td>
+            <td class="Va(t) P(10px)">`TransY(10px)`</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfo(50%)`</th>
-            <td class="Va-t P-10px">`transform-origin:50%`</td>
-            <td class="Va-t P-10px">No alias</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfo(50%)`</th>
+            <td class="Va(t) P(10px)">`transform-origin:50%`</td>
+            <td class="Va(t) P(10px)">No alias</td>
         </tr>
         <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t Whs-nw P-10px">`Trfs(p3)`</th>
-            <td class="Va-t P-10px">`transform-style:preserve-3d(2)`</td>
-            <td class="Va-t P-10px">No alias</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Trfs(p3)`</th>
+            <td class="Va(t) P(10px)">`transform-style:preserve-3d(2)`</td>
+            <td class="Va(t) P(10px)">No alias</td>
         </tr>
     </tbody>
 </table>
@@ -117,8 +117,8 @@ custom: {
 Usage:
 
 ```javascript
-<body class="Pt-$headerHeight">
-    <header class="Mih-$headerHeight Pos-f T-0 Start-0 End-0">...</header>
+<body class="Pt($headerHeight)">
+    <header class="Mih($headerHeight) Pos(f) T(0) Start(0) End(0)">...</header>
 ```
 
 Whenever the value of `$headerHeight` changes, the padding of `body` stays in in sync with the height of the `header`.
@@ -136,9 +136,9 @@ custom: {
 Such variables can then be used with any properties that set colors, for example:
 
 <ul class="ul-list">
-    <li>`Bgc-$primaryColor` for `background-color`</li>
-    <li>`C-$secondaryColor` for `color`</li>
-    <li>`Bdc-$tertiaryColor` for `border-color`</li>
+    <li>`Bgc($primaryColor)` for `background-color`</li>
+    <li>`C($secondaryColor)` for `color`</li>
+    <li>`Bdc($tertiaryColor)` for `border-color`</li>
     <li>etc.</li>
 </ul>
 
@@ -153,19 +153,19 @@ These classes are mostly contextual; they take into consideration ancestor nodes
 You can style a node according to its relationship with its parent or ancestor, for example:
 
 ```html
-<p class="someElement">The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
+<p class="foo">The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 ```
-<p class="someElement">The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
+<p class="foo">The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 
-Same class on a node outside the scope of `.someElement`:
+Same class on a node outside the scope of `.foo`:
 
 ```html
-<p>The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
+<p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 ```
 
-<p>The following text is <b class="someElement_C(#0b0)">lime</b>.</p>
+<p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 
-<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page_D-b` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
+<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page(D-b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
 
 #### pseudo-classes on ancestors
 
@@ -207,4 +207,4 @@ More info about [breakpoints and responsive web design](../tutorials/responsive-
 
 ## Shorthand notation
 
-Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors.
+Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors in `atomic.css`.

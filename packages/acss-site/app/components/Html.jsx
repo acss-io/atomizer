@@ -41,7 +41,7 @@ var Html = React.createClass({
         }
 
         return (
-            <html id="atomic" className="atomic">
+            <html className="atomic">
                 <head>
                     <meta charSet="utf-8" />
                     <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
@@ -51,7 +51,7 @@ var Html = React.createClass({
                     {ieStylesheet}
                 </head>
                 <body>
-                    <div id="app" className="H-100%" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
+                    <div id="app" className="H(100%)" dangerouslySetInnerHTML={{__html: this.props.markup}}></div>
                     {liveReload}
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>

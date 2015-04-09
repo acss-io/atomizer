@@ -96,7 +96,7 @@ var ReferenceRules = React.createClass({
                             rawSelector: selector,
                             rawValue: value,
                             selector: <b>{recipe.prefix}{ hasConfig ? suffix : <em>{suffix}</em>} </b>,
-                            value: hasConfig ? value : <em className="C-#07f">{value}</em>
+                            value: hasConfig ? value : <em className="C(#07f)">{value}</em>
                         });
                         if (custom[i].breakPoints) {
                             var bp = custom[i].breakPoints;
@@ -167,7 +167,7 @@ var ReferenceRules = React.createClass({
                             showRuleset = true;
                             showRecipeBlock = true;
                         } 
-                        classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov-h M-0 P-0 C-#f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
+                        classDefinitions.push([<dt className={showRuleset ? 'Pend(10px) Fl(start) Cl(start)' : 'D(n)'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov(h) M(0) P(0) C(#f2438c)' : 'D(n)'}>{styledDeclarationBlock}</dd>]);
                     }
                 };
             } else if (recipe.type === 'rule') {
@@ -191,16 +191,16 @@ var ReferenceRules = React.createClass({
                         showRuleset = true;
                         showRecipeBlock = true;
                     }
-                    classDefinitions.push([<dt className={showRuleset ? 'Pend-10px Fl-start Cl-start' : 'D-n'}>{selector}</dt>, <dd className={showRuleset ? 'Ov-h M-0 P-0 C-#f2438c' : 'D-n'}>{styledDeclarationBlock}</dd>]);
+                    classDefinitions.push([<dt className={showRuleset ? 'Pend(10px) Fl(start) Cl(start)' : 'D(n)'}>{selector}</dt>, <dd className={showRuleset ? 'Ov(h) M(0) P(0) C(#f2438c)' : 'D(n)'}>{styledDeclarationBlock}</dd>]);
 
                 }
             }
 
-            var displayclassDefinitions = "Va-t W-50%--sm " + (showRecipeBlock ? "D-ib--sm" : "D-n");
+            var displayclassDefinitions = "Va(t) W(50%)--sm " + (showRecipeBlock ? "D(ib)--sm" : "D(n)");
             return (
                 <div key={'id-' + recipe.prefix} className={displayclassDefinitions}>
-                    <h3 className="M-0 Mt-10px P-10px">{recipe.name}</h3>
-                    <dl className="M-0 P-10px Pt-0 Pend-50px--sm Ff-m">{classDefinitions}</dl>
+                    <h3 className="M(0) Mt(10px) P(10px)">{recipe.name}</h3>
+                    <dl className="M(0) P(10px) Pt(0) Pend(50px)--sm Ff(m)">{classDefinitions}</dl>
                 </div>
             );
 

@@ -54,32 +54,32 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
     <dd>Scope is limited to the element onto which the classes are  applied to and the styling is <em>portable</em> because that styling is <em>not</em> contextual.</dd>
 </dl>
 
-<img class="Va-m Pos-r Mt-30px" alt="Venn diagram showing the difference between Atomic CSS and inline styling" height="400" src="/public/images/atomic-vs-style.gif" />
+<img class="Va(m) Pos(r) Mt(30px)" alt="Venn diagram showing the difference between Atomic CSS and inline styling" height="400" src="/public/images/atomic-vs-style.gif" />
 
-<table cellspacing="0" class="W-100% Ta-start">
+<table cellspacing="0" class="W(100%) Ta(start)">
     <caption class="Hidden">The difference between inline styling and Atomic CSS</caption>
     <thead>
       <tr>
-          <th scope="col" class="P-10px"></th>
-          <th scope="col" class="P-10px Whs-nw ">Inline styling</th>
-          <th scope="col" class="P-10px">Atomic CSS</th>
+          <th scope="col" class="P(10px)"></th>
+          <th scope="col" class="P(10px) Whs(nw)">Inline styling</th>
+          <th scope="col" class="P(10px)">Atomic CSS</th>
       </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t P-10px">Specificity</th>
-            <td class="Va-t P-10px">1.0.0.0</td>
-            <td class="Va-t P-10px">0.0.1.0 [\[1\]](#footnote)<a id="footnote-1" class="D-ib"></a></td>
+        <tr class="BdT">
+            <th scope="row" class="Va(t) P(10px)">Specificity</th>
+            <td class="Va(t) P(10px)">1.0.0.0</td>
+            <td class="Va(t) P(10px)">0.0.1.0 [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a></td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t P-10px">Verbosity</th>
-            <td class="Va-t P-10px">High</td>
-            <td class="Va-t P-10px">Minimal</td>
+        <tr class="BdT">
+            <th scope="row" class="Va(t) P(10px)">Verbosity</th>
+            <td class="Va(t) P(10px)">High</td>
+            <td class="Va(t) P(10px)">Minimal</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Va-t P-10px">Abstraction</th>
-            <td class="Va-t P-10px">None</td>
-            <td class="Va-t P-10px">Fallbacks, tweaks, LTR/RTL support, etc.</td>
+        <tr class="BdT">
+            <th scope="row" class="Va(t) P(10px)">Abstraction</th>
+            <td class="Va(t) P(10px)">None</td>
+            <td class="Va(t) P(10px)">Fallbacks, tweaks, LTR/RTL support, etc.</td>
         </tr>
     </tbody>
 </table>
@@ -126,86 +126,87 @@ versus:
 ```
 
 <p class="noteBox info">For the sake of readability, CSS classes on this page *do not* include the escape character (`\`) where it should be needed.</p>
+
 Such approach produces less of everything:
 
-<table cellspacing="0" class="W-100% Ta-c">
+<table cellspacing="0" class="W(100%) Ta(c)">
     <caption class="Hidden">Table comparing yahoo.com against other web sites</caption>
     <thead>
       <tr class="Bgc-#ececec">
-          <th scope="col" class="P-10px"></th>
-          <th scope="col" class="P-10px Whs-nw ">rules</th>
-          <th scope="col" class="P-10px">selectors</th>
-          <th scope="col" class="P-10px">declarations</th>
-          <th scope="col" class="P-10px">properties</th>
-          <th scope="col" class="P-10px">font-size</th>
-          <th scope="col" class="P-10px"><abbr title="Kilobyte">KB</abbr></th>
+          <th scope="col" class="P(10px)"></th>
+          <th scope="col" class="P(10px) Whs(nw)">rules</th>
+          <th scope="col" class="P(10px)">selectors</th>
+          <th scope="col" class="P(10px)">declarations</th>
+          <th scope="col" class="P(10px)">properties</th>
+          <th scope="col" class="P(10px)">font-size</th>
+          <th scope="col" class="P(10px)"><abbr title="Kilobyte">KB</abbr></th>
       </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">twitter.com</th>
-            <td class="P-10px">6,372 [\[2\]](#footnote)<a id="footnote-2" class="D-ib"></a></td>
-            <td class="P-10px">9,104</td>
-            <td class="P-10px">15,000</td>
-            <td class="P-10px">135</td>
-            <td class="P-10px">755</td>
-            <td class="P-10px">585</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">twitter.com</th>
+            <td class="P(10px)">6,372 [\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></td>
+            <td class="P(10px)">9,104</td>
+            <td class="P(10px)">15,000</td>
+            <td class="P(10px)">135</td>
+            <td class="P(10px)">755</td>
+            <td class="P(10px)">585</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">facebook.com</th>
-            <td class="P-10px">3,316</td>
-            <td class="P-10px">4,018</td>
-            <td class="P-10px">7,947</td>
-            <td class="P-10px">103</td>
-            <td class="P-10px">157</td>
-            <td class="P-10px">281</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">facebook.com</th>
+            <td class="P(10px)">3,316</td>
+            <td class="P(10px)">4,018</td>
+            <td class="P(10px)">7,947</td>
+            <td class="P(10px)">103</td>
+            <td class="P(10px)">157</td>
+            <td class="P(10px)">281</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">medium.com</th>
-            <td class="P-10px">3,090</td>
-            <td class="P-10px">4,030</td>
-            <td class="P-10px">7,321</td>
-            <td class="P-10px">150</td>
-            <td class="P-10px">432</td>
-            <td class="P-10px">282</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">medium.com</th>
+            <td class="P(10px)">3,090</td>
+            <td class="P(10px)">4,030</td>
+            <td class="P(10px)">7,321</td>
+            <td class="P(10px)">150</td>
+            <td class="P(10px)">432</td>
+            <td class="P(10px)">282</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">youtube.com</th>
-            <td class="P-10px">3,530</td>
-            <td class="P-10px">4,684</td>
-            <td class="P-10px">9,005</td>
-            <td class="P-10px">136</td>
-            <td class="P-10px">336</td>
-            <td class="P-10px">352</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">youtube.com</th>
+            <td class="P(10px)">3,530</td>
+            <td class="P(10px)">4,684</td>
+            <td class="P(10px)">9,005</td>
+            <td class="P(10px)">136</td>
+            <td class="P(10px)">336</td>
+            <td class="P(10px)">352</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">tumblr.com</th>
-            <td class="P-10px">5,647 [\[3\]](#footnote)<a id="footnote-3" class="D-ib"></a></td>
-            <td class="P-10px">7,616</td>
-            <td class="P-10px">18,100</td>
-            <td class="P-10px">253</td>
-            <td class="P-10px">499</td>
-            <td class="P-10px">733</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">tumblr.com</th>
+            <td class="P(10px)">5,647 [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
+            <td class="P(10px)">7,616</td>
+            <td class="P(10px)">18,100</td>
+            <td class="P(10px)">253</td>
+            <td class="P(10px)">499</td>
+            <td class="P(10px)">733</td>
         </tr>
-        <tr class="BdT Bdc-#cecece Bgc-#ff0">
-            <th scope="row" class="Ta-start P-10px">yahoo.com</th>
-            <td class="P-10px Fw-b">1,891</td>
-            <td class="P-10px Fw-b">2,311</td>
-            <td class="P-10px Fw-b">4,579</td>
-            <td class="P-10px Fw-b">124</td>
-            <td class="P-10px Fw-b">71</td>
-            <td class="P-10px Fw-b">189</td>
+        <tr class="BdT Bgc-#ff0">
+            <th scope="row" class="Ta(start) P(10px)">yahoo.com</th>
+            <td class="P(10px) Fw(b)">1,891</td>
+            <td class="P(10px) Fw(b)">2,311</td>
+            <td class="P(10px) Fw(b)">4,579</td>
+            <td class="P(10px) Fw(b)">124</td>
+            <td class="P(10px) Fw(b)">71</td>
+            <td class="P(10px) Fw(b)">189</td>
         </tr>
     </tbody>
     <tfoot>
       <tr class="Bgc-#ececec">
-          <th scope="col" class="P-10px"></th>
-          <th scope="col" class="P-10px Whs-nw ">rules</th>
-          <th scope="col" class="P-10px">selectors</th>
-          <th scope="col" class="P-10px">declarations</th>
-          <th scope="col" class="P-10px">properties</th>
-          <th scope="col" class="P-10px">font-size</th>
-          <th scope="col" class="P-10px"><abbr title="Kilobyte">KB</abbr></th>
+          <th scope="col" class="P(10px)"></th>
+          <th scope="col" class="P(10px) Whs(nw)">rules</th>
+          <th scope="col" class="P(10px)">selectors</th>
+          <th scope="col" class="P(10px)">declarations</th>
+          <th scope="col" class="P(10px)">properties</th>
+          <th scope="col" class="P(10px)">font-size</th>
+          <th scope="col" class="P(10px)"><abbr title="Kilobyte">KB</abbr></th>
       </tr>
     </tfoot>
 </table>
@@ -224,7 +225,7 @@ Atomic's "footprint" is limited to what a project uses - meaning there is no "en
 
 <blockquote>
     <div>
-        <p class="Mt-0">
+        <p class="Mt(0)">
         Despite the <a href="http://dev.w3.org/html5/spec/global-attributes.html#classes">HTML5 specification section on classes</a> repeating the assumed “best practice” that…
         </p>
         <blockquote>
@@ -237,7 +238,7 @@ Atomic's "footprint" is limited to what a project uses - meaning there is no "en
     </div>
 </blockquote>
 
-Classes are for developers, they don’t make a document more &quot;semantic&quot; [\[4\]](#footnote)<a id="footnote-4" class="D-ib"></a>.
+Classes are for developers, they don’t make a document more &quot;semantic&quot; [\[4\]](#footnote)<a id="footnote-4" class="D(ib)"></a>.
 
 The main goal of Atomic CSS is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
 
@@ -267,34 +268,34 @@ Unlike a `.carousel` class, all the above classes can be re-used to style any ot
 The table below represents the average number of characters per class attribute on a page.
 Note that Facebook appears to uglify some classes.
 
-<table cellspacing="0" class="Ta-c">
+<table cellspacing="0" class="Ta(c)">
     <caption class="Hidden">Number of characters per class attributes between web sites</caption>
     <thead>
       <tr>
-          <th scope="col" class="P-10px"></th>
-          <th scope="col" class="P-10px Whs-nw ">Number of characters per `@class`</th>
+          <th scope="col" class="P(10px)"></th>
+          <th scope="col" class="P(10px) Whs(nw)">Number of characters per `@class`</th>
       </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">twitter.com</th>
-            <td class="P-10px">28</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">twitter.com</th>
+            <td class="P(10px)">28</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">facebook.com</th>
-            <td class="P-10px">17 [\[5\]](#footnote)<a id="footnote-5" class="D-ib"></a></td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">facebook.com</th>
+            <td class="P(10px)">17 [\[5\]](#footnote)<a id="footnote-5" class="D(ib)"></a></td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">usatoday.com</th>
-            <td class="Va-t P-10px">38</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">usatoday.com</th>
+            <td class="Va(t) P(10px)">38</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start Va-t P-10px">theguardian.com</th>
-            <td class="P-10px">36</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) Va(t) P(10px)">theguardian.com</th>
+            <td class="P(10px)">36</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
-            <th scope="row" class="Ta-start P-10px">yahoo.com</th>
-            <td class="P-10px Fw-b">22</td>
+        <tr class="BdT">
+            <th scope="row" class="Ta(start) P(10px)">yahoo.com</th>
+            <td class="P(10px) Fw(b)">22</td>
         </tr>
     </tbody>
 </table>
@@ -351,7 +352,7 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
 </div>
 ```
 
-The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup [\[6\]](#footnote)<a id="footnote-6" class="D-ib"></a>.
+The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup [\[6\]](#footnote)<a id="footnote-6" class="D(ib)"></a>.
 
 <div class="noteBox info My-1em">
 <p>We like to deal with 5 &quot;specificity&quot; brackets:</p>
@@ -377,10 +378,10 @@ This is because classes such as `C(#fff)` and `C(#FFF)` would not duplicate the 
 
 ### Why are "descendant classes" not relying on the namespace? Why are those styles using `!important`?
 
-Unlike all other Atomic classes, the ones containing descendant selectors are not &quot;sandboxed&quot; via the namespace (if one is set in the config). Instead, Atomizer adds !important to these styles.
+If you have chosen to use a namespace then all Atomic rules rely on that namespace except the ones containing descendant selectors as those are **not** &quot;sandboxed&quot; via that said namespace. Instead, Atomizer adds !important to those styles.
 
 The reason for this is because including the namespace in the selector could make the rule fail to target the node.
-For example this would not work:
+For example this would not work (using `atomic` as the namespace):
 
 ```html
 <html id="atomic" class="open">
@@ -389,7 +390,7 @@ For example this would not work:
 </div>
 ```
 
-This is because, by default, Atomic classes are &quot;sandboxed&quot; via a namespace (eg. `#atomic`) which would create the following rule:
+This is because including the namespace would create the following rule:
 
 ```css
 #atomic .open .open_D(b) {
@@ -397,7 +398,7 @@ This is because, by default, Atomic classes are &quot;sandboxed&quot; via a name
 }
 ```
 
-since `open` is not a descendant of `atomic`, but its sibling, the selector does not target the node thus the style would not apply.
+but since `open` is not a descendant of `atomic`, but its sibling, the selector does not target the node thus the style would not apply.
 
 To prevent this issue we have chosen to add `!important` to contextual classes rather than using the namespace. Hence the rule is written like so:
 
@@ -420,11 +421,10 @@ Also, note that we do not use `left` and `right` but instead `start` and `end`. 
 
 The [syntax](../guides/syntax.html) and [reference](reference) pages are meant to help you with this; and we may have a plugin for your IDE in the near future...
 
-
-<hr class="Mt-50px">
+<hr class="Mt(50px)">
 
 <ul id="footnote" class="ul-list">
-    <li>1. Specificity of Atomic rules can be increased via namespace. You'd use a type selector for `0.0.1.1`, a class for `0.0.2.0`, and an id for `0.1.1.0` [\[↩\]](#footnote-1).</li>
+    <li>1. Specificity of Atomic rules can be increased via namespace. You'd use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` [\[↩\]](#footnote-1).</li>
     <li>2. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[3\]](#footnote-3).</li>
     <li>3. [microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-4).</li>
     <li>4. Thanks to some uglification [\[↩\]](#footnote-5).</li>

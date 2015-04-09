@@ -35,8 +35,8 @@ var Nav = React.createClass({
             var link = links[name];
             var className = cx({
                 'selected': selected === name,
-                'Mstart-10px': index !== 1,
-                'D-ib Va-m Pos-r': true
+                'Mstart(10px)': index !== 1,
+                'D(ib) Va(m) Pos(r)': true
             });
             var navParams = {};
 
@@ -47,8 +47,8 @@ var Nav = React.createClass({
             // skip home since we don't want it to render
             return name !== 'home' ? (
                 <li className={className} key={link.path}>
-                    <NavLink routeName={link.page} context={context} className="D-b C-#fff Td-n:h" navParams={navParams}>
-                        <b className="Pos-r">
+                    <NavLink routeName={link.page} context={context} className="D(b) C(#fff) Td(n):h" navParams={navParams}>
+                        <b className="Pos(r)">
                             {link.label}
                         </b>
                     </NavLink>
@@ -57,11 +57,11 @@ var Nav = React.createClass({
         });
 
         return (
-            <ul role="navigation" className="Va-m M-0 P-0">
+            <ul role="navigation" className="Va(m) M(0) P(0)">
                 {linkHTML}
-                <li className="D-ib Mstart-10px Pos-r">
-                    <a className="D-b C-#fff Td-n:h" href="https://github.com/yahoo/atomizer">
-                        <img className="Va-m Pos-r" alt="GitHub" width="30" src={assets['images/github-logo.png']} />
+                <li className="D(ib) Mstart(10px) Pos(r)">
+                    <a className="D(b) C(#fff) Td(n):h" href="https://github.com/yahoo/atomizer">
+                        <img className="Va(m) Pos(r)" alt="GitHub" width="30" src={assets['images/github-logo.png']} />
                     </a>
                 </li>
             </ul>

@@ -58,9 +58,9 @@ var ConfigBox = React.createClass({
         var hasConfig = !!customConfig;
 
         return (
-            <div className="Mb-50px">
-                <h2 className="Mb-0"><label htmlFor="customconfig">Custom Configuration:</label></h2>
-                <textarea id="customconfig" className="W-100% P-10px" rows="10" placeholder="Configuration must be valid JSON" onChange={this.onConfigChange} value={customConfig}></textarea>
+            <div className="Mb(50px)">
+                <h2 className="Mb(0)"><label htmlFor="customconfig">Custom Configuration:</label></h2>
+                <textarea id="customconfig" className="W(100%) P(10px)" rows="10" placeholder="Configuration must be valid JSON" onChange={this.onConfigChange} value={customConfig}></textarea>
                 <a href="#" onClick={this.populateDefaultConfig}>Use Example Configuration</a>
             </div>
         );

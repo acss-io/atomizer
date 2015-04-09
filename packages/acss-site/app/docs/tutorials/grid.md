@@ -132,7 +132,7 @@ When creating inline-block constructs, you should use our helper class (`IbBox`)
     </ol>
 </div>
 
-### `float` construct <a id="footnote-2" class="D-ib"></a>
+### `float` construct <a id="footnote-2" class="D-(ib)"></a>
 
 This styling has great browser support and [Atomizer](https://github.com/yahoo/atomizer) makes it &quot;direction&quot; agnostic [\[2\]](#footnote).
 
@@ -167,7 +167,7 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <p>This styling has good browser support (IE8+) and is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).</p>
 
-<p>`D-tb`, `D-tbc`, `Va-m`, `Ta-c`</p>
+<p>`D(tb)`, `D(tbc)`, `Va(m)`, `Ta(c)`</p>
 
 If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the classes above in your markup - where needed - and [Atomizer](https://github.com/yahoo/atomizer) will create the necessary rule for you.<br>
 If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add those classes to the config object:
@@ -183,14 +183,14 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 #### Example
 
 ```html
-<div class="D-tb W-100% Ta-c">
+<div class="D(tb) W(100%) Ta(c)">
     <div class="D(tbc) Va(m) P(20px) Bgc(#ccc)">Box <br />Number <br />1</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#999)">Box Number 2</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#777)">Box Number 3</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#555)">BoxNumber 4</div>
 </div>
 <hr />
-<div class="D-tb W-100% Va-m Ta-c" dir="rtl">
+<div class="D(tb) W(100%) Va(m) Ta(c)" dir="rtl">
     <div class="D(tbc) Va(m) P(20px) Bgc(#ccc)">Box <br />Number <br />1</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#999)">Box Number 2</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#777)">Box Number 3</div>
@@ -247,7 +247,7 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <p data-height="155" data-theme-id="12469" data-slug-hash="Jovoem" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/Jovoem/'>Jovoem</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-<hr class="Mt-50px">
+<hr class="Mt(50px)">
 
 <ul id="footnote" class="ul-list">
     <li>1. Atomic.css provides a patch for oldIE [\[↩\]](#footnote-1).</li>
