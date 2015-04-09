@@ -207,7 +207,7 @@ Atomizer.prototype.getSyntax = function ()/*:string*/ {
                 ')',
                 // value is required
                 '(?:\\(',
-                    '(?<values>',
+                    '(?<atomicValues>',
                         GRAMMAR.VALUES,
                     ')',
                 '\\))',
@@ -540,8 +540,9 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
         if (match.parentSep) {
             treeo.parentSep = match.parentSep;
         }
-        if (match.values || match.helperValues) {
-            values = match.values || match.helperValues;
+        if (match.atomicValues || match.helperValues) {
+            values = match.atomicValues || match.helperValues;
+
             // values can be separated by a comma
             treeo.values = values.split(',').map(function (value) {
                 // parse values
