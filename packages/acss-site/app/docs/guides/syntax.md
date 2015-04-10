@@ -381,11 +381,11 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
 
 <hr class="Mt-50px">
 
-<ul id="footnote" class="ul-list">
+<ol id="footnote" class="ol-list">
     <li>1. `Bxs(foo)` is a custom class set in the config object [\[↩\]](#footnote-1).</li>
     <li>2. `$bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P($bar)` for `padding`, `H($bar)` for` height`, etc.) [\[↩\]](#footnote-2).</li>
     <li>3. `start` is mapped to either "left" or "right" depending on the config file [\[↩\]](#footnote-3).</li>
     <li>4. this class is an [alias](atomic-classes.html) [\[↩\]](#footnote-4).</li>
     <li>5. this class is a [helper](helper-classes.html) [\[↩\]](#footnote-5).</li>
     <li>6. Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles [\[↩\]](#footnote-6).</li>
-</ul>
+</ol>

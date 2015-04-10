@@ -49,7 +49,7 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
 
 <dl class="dl-list">
     <dt>Inline styling, the bad parts:</dt>
-    <dd>The high specificity, the verbosity, and the fact that those bytes are not cached.</dd>
+    <dd>High specificity, verbosity, the inability to deal with pseudo-classes or pseudo-elements, and the fact that those bytes are not cached</dd>
     <dt>Inline styling, the good parts:</dt>
     <dd>Scope is limited to the element onto which the classes are  applied to and the styling is <em>portable</em> because that styling is <em>not</em> contextual.</dd>
 </dl>
@@ -181,7 +181,7 @@ Such approach produces less of everything:
         </tr>
         <tr class="BdT">
             <th scope="row" class="Ta(start) P(10px)">tumblr.com</th>
-            <td class="P(10px)">5,647 [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
+            <td class="P(10px)">5,647 [\[2\]](#footnote)<a id="footnote-2b" class="D(ib)"></a></td>
             <td class="P(10px)">7,616</td>
             <td class="P(10px)">18,100</td>
             <td class="P(10px)">253</td>
@@ -238,7 +238,7 @@ Atomic's "footprint" is limited to what a project uses - meaning there is no "en
     </div>
 </blockquote>
 
-Classes are for developers, they don’t make a document more &quot;semantic&quot; [\[4\]](#footnote)<a id="footnote-4" class="D(ib)"></a>.
+The sole purpose of classes is to provide hooks for styling and behavior. They are not exposed to end users, nor parsed by screen-readers or search engines [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a>.
 
 The main goal of Atomic CSS is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
 
@@ -283,7 +283,7 @@ Note that Facebook appears to uglify some classes.
         </tr>
         <tr class="BdT">
             <th scope="row" class="Ta(start) P(10px)">facebook.com</th>
-            <td class="P(10px)">17 [\[5\]](#footnote)<a id="footnote-5" class="D(ib)"></a></td>
+            <td class="P(10px)">17 [\[4\]](#footnote)<a id="footnote-4" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT">
             <th scope="row" class="Ta(start) P(10px)">usatoday.com</th>
@@ -352,7 +352,7 @@ Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily o
 </div>
 ```
 
-The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup [\[6\]](#footnote)<a id="footnote-6" class="D(ib)"></a>.
+The value for `font-weight` in the `.hero-module .button {...}` rule is overwritten by the Atomic class in the markup [\[5\]](#footnote)<a id="footnote-5" class="D(ib)"></a>.
 
 <div class="noteBox info My-1em">
 <p>We like to deal with 5 &quot;specificity&quot; brackets:</p>
@@ -423,10 +423,10 @@ The [syntax](../guides/syntax.html) and [reference](reference) pages are meant t
 
 <hr class="Mt(50px)">
 
-<ul id="footnote" class="ul-list">
+<ol id="footnote" class="ol-list">
     <li>1. Specificity of Atomic rules can be increased via namespace. You'd use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` [\[↩\]](#footnote-1).</li>
-    <li>2. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[3\]](#footnote-3).</li>
-    <li>3. [microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-4).</li>
-    <li>4. Thanks to some uglification [\[↩\]](#footnote-5).</li>
-    <li>5. Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling [\[↩\]](#footnote-6).</li>
-</ul>
+    <li>2. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[↩\]](#footnote-2b).</li>
+    <li>3. [microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-3).</li>
+    <li>4. Thanks to some uglification [\[↩\]](#footnote-4).</li>
+    <li>5. Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling [\[↩\]](#footnote-5).</li>
+</ol>
