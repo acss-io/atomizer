@@ -8,6 +8,7 @@ var Rules = require('atomizer/src/rules');
 var SearchBox = require('./SearchBox');
 var ConfigBox = require('./ConfigBox');
 var ReferenceRules = require('./ReferenceRules');
+var ReferenceHelpers = require('./ReferenceHelpers');
 var AtomicCssOutputBox = require('./AtomicCssOutputBox');
 
 // stores
@@ -50,7 +51,10 @@ var Reference = React.createClass({
         return (
             <div>
                 <SearchBox />
+                <h2>Atomic Classes</h2>
                 <ReferenceRules />
+                <h2>Helper Classes</h2>
+                <ReferenceHelpers />
                 <AtomicCssOutputBox className={hasConfig ? '' : 'D(n)'} />
             </div>
         );
