@@ -186,8 +186,8 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     src: [
-                        '<%= project.build %>/css/atomic.css',
                         '<%= project.app %>/assets/css/base.css',
+                        '<%= project.build %>/css/atomic.css',
                         '<%= project.app %>/assets/css/helpers.css',
                         '<%= project.app %>/assets/css/custom.css',
                         '<%= project.app %>/assets/css/mq.css',

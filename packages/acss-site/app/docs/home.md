@@ -19,8 +19,8 @@ Atomic CSS creates more redundancy in the markup than "semantic" classes; and mo
 Atomic CSS is the perfect solution for common template and component libraries such as:
 
 <div class="SpaceBetween">
-    <img src="/public/images/react.svg" alt="React" width="100" />
-    <img src="/public/images/ember.svg" alt="Ember" width="100" />
-    <img src="/public/images/handlebars.svg" alt="Handlebars" width="100" />
-    <img src="/public/images/dust.svg" alt="Dust" width="100" />
+    <img src="//l.yimg.com/os/acss/images/react.0db208c6.svg" alt="React" width="100" />
+    <img src="//l.yimg.com/os/acss/images/ember.d3987566.svg" alt="Ember" width="100" />
+    <img src="//l.yimg.com/os/acss/images/handlebars.462656ed.svg" alt="Handlebars" width="100" />
+    <img src="//l.yimg.com/os/acss/images/dust.7a19cae5.svg" alt="Dust" width="100" />
 </div>
