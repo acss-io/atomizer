@@ -3,6 +3,9 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 'use strict';
+
+var escapeStringRegexp = require('escape-string-regexp');
+
 var React = require('react');
 var Rules = require('atomizer/src/rules');
 
@@ -35,6 +38,15 @@ var ReferenceRules = React.createClass({
         this.setState(state);
     },
 
+    hasClassUsingPrefix: function (prefix, classnames) {
+        var value;
+        for (var i=0, iLen=classnames.length; iLen; i++) {
+            value = classnames[i];
+            if (value.indexOf(prefix) === 0) { return true; }
+        }
+        return false;
+    },
+
     /**
      * Refer to React documentation render
      *
@@ -42,7 +54,11 @@ var ReferenceRules = React.createClass({
      * @return {Object} HTML head section
      */
     render: function () {
-        var searchRE = this.state.currentQuery ? new RegExp(this.state.currentQuery, 'i') : false;
+        var searchRE = false;
+        if (this.state.currentQuery) {
+            var escapedString = escapeStringRegexp(this.state.currentQuery);
+            searchRE = new RegExp(escapedString, 'i');
+        } 
         var customConfig = this.state.customConfigObj;
         var hasConfig = !!customConfig;
 
@@ -51,7 +67,7 @@ var ReferenceRules = React.createClass({
         }
 
         var items = Rules.map(function (recipe) {
-            var recipeConfig = customConfig[recipe.id],
+            var usingClass = false,
                 values = [],
                 classDefinitions = [],
                 declarationBlock,
@@ -60,11 +76,15 @@ var ReferenceRules = React.createClass({
                 showRecipeBlock = false,
                 custom,
                 value,
-                suffix;
+                suffix,
+                recipeConfig;
+
+            if (customConfig.classNames && customConfig.classNames.length) {
+                usingClass = this.hasClassUsingPrefix(recipe.prefix, customConfig.classNames);
+            }
 
             // If config is provided, filter any rules not used in config
-            if (hasConfig && recipeConfig === undefined) {
-                // console.log(recipe.id + ' not present in config, skipping');
+            if (hasConfig && !usingClass) {
                 return;
             }
 
@@ -76,26 +96,34 @@ var ReferenceRules = React.createClass({
                 // Some entries allow custom values to be provided in configuration
                 if (recipe.allowCustom) {
                     if (!hasConfig) {
-                        custom = [{ 
-                            suffix: "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]", 
-                            values: ['value'] 
-                        }];
-                    } else if (recipeConfig.custom) {
-                        custom = recipeConfig.custom;
-                    } else if (recipe.allowCustomAutoSuffix && recipeConfig['custom-auto-suffix']) {
-                        custom = recipeConfig['custom-auto-suffix'];
+                        // No config provided, show generic info
+                        if (recipe.allowSuffixToValue) {
+                            custom = [{ 
+                                suffix: "[custom suffix|value]",
+                                values: ['custom value|value']
+                            }];
+                        } else {
+                            custom = [{ 
+                                suffix: "[custom suffix]",
+                                values: ['custom value']
+                            }]; 
+                        }
+                    } else if (customConfig.custom) {
+                        // Config provided, show custom values
+                        // custom = ???; filter the customConfig.custom array
+                        // by prefix
+
                     } else {
                         custom = [];
                     }
-                    // var customValue = "[value" + (recipe.allowCustomAutoSuffix ? '|suffix' : '') + "]";
                     for (var i = 0; i < custom.length; i++) {
-                        suffix = custom[i].suffix || 'NEXT-SUFFIX'; // FIXME auto-increment suffix
-                        selector = recipe.prefix + suffix;
+                        suffix = custom[i].suffix;
+                        selector = recipe.prefix + '(' + suffix + ')';
                         value = custom[i].values.join(' ');
                         values.push({
                             rawSelector: selector,
                             rawValue: value,
-                            selector: <b>{recipe.prefix}{ hasConfig ? suffix : <em>{suffix}</em>} </b>,
+                            selector: <b>{recipe.prefix}({ hasConfig ? suffix : <em>{suffix}</em>})</b>,
                             value: hasConfig ? value : <em className="C(#07f)">{value}</em>
                         });
                         if (custom[i].breakPoints) {
@@ -119,7 +147,7 @@ var ReferenceRules = React.createClass({
                     for (var i = 0; i < recipe.rules.length; i++) {
                         var rule = recipe.rules[i];
                         if (!recipeConfig || recipeConfig[rule.suffix]) {
-                            var selector = recipe.prefix + rule.suffix;
+                            var selector = recipe.prefix + '(' + rule.suffix + ')';
                             var value = rule.values.join(' ').replace('__START__', 'left').replace('__END__', 'right');
                             values.push({
                                 rawSelector: selector, 
@@ -170,30 +198,6 @@ var ReferenceRules = React.createClass({
                         classDefinitions.push([<dt className={showRuleset ? 'Pend(10px) Fl(start) Cl(start)' : 'D(n)'}>{v.selector}</dt>, <dd className={showRuleset ? 'Ov(h) M(0) P(0) C(#f2438c)' : 'D(n)'}>{styledDeclarationBlock}</dd>]);
                     }
                 };
-            } else if (recipe.type === 'rule') {
-                declarationBlock = [];
-                for (var selector in recipe.rule) {
-                    var showRuleset = false;
-                    var declarationObj = recipe.rule[selector];
-                    var rawDeclarationBlock = [];
-                    var styledDeclarationBlock = [];
-
-                    for (var property in declarationObj) {
-                        rawDeclarationBlock.push(property + ": " + declarationObj[property] + ";");
-                        styledDeclarationBlock.push(<div>{property}: {declarationObj[property]};</div>);
-                    }
-
-                    // Filter with search
-                    if (!searching || 
-                            searchTitleMatches || 
-                            selector.search(searchRE) > -1 || 
-                            rawDeclarationBlock.join('\n').search(searchRE) > -1) {
-                        showRuleset = true;
-                        showRecipeBlock = true;
-                    }
-                    classDefinitions.push([<dt className={showRuleset ? 'Pend(10px) Fl(start) Cl(start)' : 'D(n)'}>{selector}</dt>, <dd className={showRuleset ? 'Ov(h) M(0) P(0) C(#f2438c)' : 'D(n)'}>{styledDeclarationBlock}</dd>]);
-
-                }
             }
 
             var displayclassDefinitions = "Va(t) W(50%)--sm " + (showRecipeBlock ? "D(ib)--sm" : "D(n)");
