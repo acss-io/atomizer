@@ -120,7 +120,7 @@ var ReferenceRules = React.createClass({
                         var rule = recipe.rules[i];
                         if (!recipeConfig || recipeConfig[rule.suffix]) {
                             var selector = recipe.prefix + rule.suffix;
-                            var value = rule.values.join(' ').replace('$START', 'left').replace('$END', 'right');
+                            var value = rule.values.join(' ').replace('__START__', 'left').replace('__END__', 'right');
                             values.push({
                                 rawSelector: selector, 
                                 rawValue: value,
@@ -154,7 +154,7 @@ var ReferenceRules = React.createClass({
                         var styledDeclarationBlock = [];
 
                         for (var i=0; i < recipe.properties.length; i++) {
-                            var property = recipe.properties[i].replace('$START', 'left').replace('$END', 'right');
+                            var property = recipe.properties[i].replace('__START__', 'left').replace('__END__', 'right');
                             rawDeclarationBlock.push(property + ": " + v.rawValue + ";");
                             styledDeclarationBlock.push(<div>{property}: {v.value};</div>);
                         }
