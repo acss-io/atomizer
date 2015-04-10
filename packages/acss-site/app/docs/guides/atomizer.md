@@ -23,7 +23,7 @@ Atomizer would create a `atomic.css` file containing these rules:
     font-size: 20px;
 }
 ```
-
+<p class="noteBox info">For the sake of readability, CSS classes on this page <em>do not</em> include the escape character (<code>\</code>) where it should be needed.</p>
 If, for example, you decided to update the classes like below:
 
 ```html
@@ -80,6 +80,6 @@ You can create any custom class you want via the [config object](https://github.
 
 <hr class="Mt(50px)">
 
-<ul id="footnote" class="ul-list">
+<ol id="footnote" class="ol-list">
     <li>1. This is true for non-custom classes [\[↩\]](#footnote-1).</li>
-</ul>
+</ol>
