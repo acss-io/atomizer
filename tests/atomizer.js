@@ -491,6 +491,14 @@ describe('Atomizer()', function () {
             console.warn = console.temp;
             expect(result).to.equal(expected);
         });
+        it ('does not fail if no classnames are passed', function () {
+            var atomizer = new Atomizer();
+            var config = {
+            };
+            var expected = '';
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
     });
     // -------------------------------------------------------
     // getPseudo()
