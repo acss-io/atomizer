@@ -448,7 +448,7 @@ module.exports = [
     {
         type: 'pattern',
         name: 'Border start width',
-        prefix: 'Bdsw',
+        prefix: 'Bdstartw',
         properties: ['border-__START__-width'],
         allowCustom: true,
         allowSuffixToValue: true,
