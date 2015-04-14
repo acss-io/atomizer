@@ -206,8 +206,6 @@ Any occurrence of `left` and `right` keywords should be replaced with `start` an
 
 <p class="noteBox info">For any occurrences of `left` and `right` keywords or its abbreviated form in [Emmet](http://docs.emmet.io/cheat-sheet/) `l` and `r`, the `start` and `end` keywords should be used respectively. e.g. `Mend` (`margin-right` in a LTR context), `Pstart` (`padding-left` in a LTR context), etc.</p>
 
-<p class="noteBox warning">Use the first letter of the `start` and `end` keywords when using the `background-position` property, for example `Bgp(start,t)` for `background-position: left top` in a LTR context.</p>
-
 ### &lt;!>
 
 Optional.
@@ -339,7 +337,7 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
             <td class="Va-t P(10px)">This is mapped to `margin-right: 0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bgp(s,t)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bgp(start,t)`</th>
             <td class="Va-t P(10px)">This is mapped to `background-position:left top` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT">
