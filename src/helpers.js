@@ -13,9 +13,14 @@ module.exports = [
                '-webkit-box-orient': 'vertical',
                'overflow': 'hidden'
             },
+            /**
+             * 1. fixes WebKit bug that displays an extra line when the pseudo-element
+             * is by itself on a next line
+             */
             'a[class*=LineClamp]': {
                'display': 'inline-block',
                'display': '-webkit-box',
+               'display': 'flex', /* 1 */
                '*display': 'inline',
                'zoom': 1
             },
