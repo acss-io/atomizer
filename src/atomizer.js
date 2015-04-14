@@ -332,7 +332,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     }, options);
 
     // make sense of the config
-    tree = this.parseConfig(config);
+    tree = this.parseConfig(config, options);
 
     // validate config.breakPoints
     if (config && config.breakPoints) {
@@ -493,7 +493,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 /**
  * parseConfig
  */
-Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
+Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:Tree*/ {
     var tree = {};
     var classNameSyntax = this.getSyntax();
     var parsedValues = [];
@@ -608,7 +608,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/)/*:Tree*/ {
                                             parsedValue.declaration = {};
                                         }
                                         parsedValue.declaration[property] = value;
-                                        if (match.important) {
+                                        if (match.important || (match.parent && options.namespace)) {
                                             parsedValue.declaration[property] += ' !important';
                                         }
                                     });
