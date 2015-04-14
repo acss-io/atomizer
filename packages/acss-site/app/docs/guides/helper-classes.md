@@ -2,14 +2,7 @@
 
 ## `Bd*` (Borders)
 
-Styling elements with a border requires at least 2 properties (border color inherits its value from the `color` property):
-
-<ul class="ul-list">
-    <li>`border-style`</li>
-    <li>`border-width`</li>
-</ul>
-
-So to make styling via classes a bit less verbose, we have the following helpers that combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
+Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> so to make styling via classes a bit less verbose, we have the following helpers that combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
 
 <ul class="ul-list">
     <li>`Bd` creates a `1px` border on all edges of a box</li>
@@ -23,7 +16,15 @@ So to make styling via classes a bit less verbose, we have the following helpers
 
 You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
 
-Example:
+Example with the initial color (and `border-width` set to `1px`):
+
+```html
+<p class="Bd P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+```
+
+<p class="Bd P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+
+Example with a custom color:
 
 ```html
 <p class="Bd Bdc(#ff6347) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
@@ -183,3 +184,9 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 ## `Zoom`
 
 Use the class `Zoom` if you support old IE and needs to [give a box a layout](http://www.satzansatz.de/cssd/onhavinglayout.html).
+
+<hr class="Mt(50px)">
+
+<ol id="footnote" class="ol-list">
+    <li>1. Unless one wants the initial value of `border-width` and `border-color` [\[↩\]](#footnote-1).</li>
+</ol>
