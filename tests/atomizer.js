@@ -290,12 +290,16 @@ describe('Atomizer()', function () {
             var atomizer = new Atomizer();
             var config = {
                 custom: {
+                    '$some-color': '#000000',
                     'brand-color': '#400090',
                     'End(test)': '300px'
                 },
-                classNames: ['C(brand-color)', 'C(custom)', 'End(test)']
+                classNames: ['C($some-color)', 'C(brand-color)', 'C(custom)', 'End(test)']
             };
             var expected = [
+                '.C\\(\\$some-color\\) {',
+                '  color: #000000;',
+                '}',
                 '.C\\(brand-color\\) {',
                 '  color: #400090;',
                 '}',
