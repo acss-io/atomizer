@@ -41,13 +41,14 @@ var Html = React.createClass({
         }
 
         return (
-            <html className="atomic">
+            <html className="atomic" lang="en-US">
                 <head>
-                    <meta charSet="utf-8" />
+                    <meta charSet="UTF-8" />
                     <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="stylesheet" href={assets['css/bundle.css']} />
                     <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" />
+                    <link rel="author" href="humans.txt" />
                     {ieStylesheet}
                 </head>
                 <body>

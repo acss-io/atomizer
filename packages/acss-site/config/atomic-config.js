@@ -7,7 +7,7 @@ module.exports = {
     },
     // custom atomic classes mapped to their values
     'custom': {
-        'Bgc(logo)': '#0262AA',
+        'Bgc(logo)': '#0280AE',
         'Bg(splash)': 'url("../images/splash_background.jpg") no-repeat #0262AA',
         'Bgi(hamburger)': 'url(../images/menu.png)',
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
