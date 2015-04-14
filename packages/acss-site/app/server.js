@@ -58,7 +58,20 @@ server.use(function(req, res, next) {
         var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
 
         var AppComponent = app.getAppComponent();
-        var doctype = '<!DOCTYPE html>';
+        var doctype = '<!DOCTYPE html>' +
+            '<!-- ' + '\n' +
+            '            ___           ___           ___           ___                  ' + '\n' +
+            '           /  /\\         /  /\\         /  /\\         /  /\\             ' + '\n' +
+            '          /  /::\\       /  /:/        /  /:/_       /  /:/_               ' + '\n' +
+            '         /  /:/\\:\\     /  /:/        /  /:/ /\\     /  /:/ /\\           ' + '\n' +
+            '        /  /:/~/::\\   /  /:/  ___   /  /:/ /::\\   /  /:/ /::\\           ' + '\n' +
+            '       /__/:/ /:/\\:\\ /__/:/  /  /\\ /__/:/ /:/\\:\\ /__/:/ /:/\\:\\      ' + '\n' +
+            '       \\  \\:\\/:/__\\/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/ \\  \\:\\/:/~/:/' + '\n' +
+            '        \\  \\::/       \\  \\:\\  /:/   \\  \\::/ /:/   \\  \\::/ /:/     ' + '\n' +
+            '         \\  \\:\\        \\  \\:\\/:/     \\__\\/ /:/     \\__\\/ /:/     ' + '\n' +
+            '          \\  \\:\\        \\  \\::/        /__/:/        /__/:/           ' + '\n' +
+            '           \\__\\/         \\__\\/         \\__\\/         \\__\\/         ' + '\n' +
+            '-->';
         React.withContext(context.getComponentContext(), function () {
             var html = React.renderToStaticMarkup(HtmlComponent({
                 state: exposed,

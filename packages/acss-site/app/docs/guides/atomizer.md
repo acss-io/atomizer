@@ -24,6 +24,7 @@ Atomizer would create a `atomic.css` file containing these rules:
 }
 ```
 <p class="noteBox info">For the sake of readability, CSS classes on this page <em>do not</em> include the escape character (<code>\</code>) where it should be needed.</p>
+
 If, for example, you decided to update the classes like below:
 
 ```html

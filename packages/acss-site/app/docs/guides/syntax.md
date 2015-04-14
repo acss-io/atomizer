@@ -8,7 +8,7 @@ Adopting a *common* syntax favors better collaboration between teams and project
 ## The building blocks
 
 <pre>
-[&lt;ancestor>][:&lt;pseudo-class>][_ || > || +]<strong>&lt;Style></strong>[(<strong>&lt;value>,&lt;value>?,&lt;value>?</strong>!)][<!>][:&lt;pseudo-class>][::&lt;pseudo-element>][--&lt;breakpoint_identifier>]
+[&lt;ancestor>][:&lt;pseudo-class>][_ || > || +]<strong>&lt;Style></strong>[(<strong>&lt;value>,&lt;value>?,&lt;value>?</strong>!)][<!>][:&lt;pseudo-class>][--&lt;breakpoint_identifier>]
 </pre>
 
 <p class="Pt(20px)">Where:</p>
@@ -239,12 +239,6 @@ Example:
 
 <p class="noteBox info">Pseudo-classes *can be chained* (i.e. `Op(1):h:f`).</p>
 
-### &lt;pseudo-element>
-
-Optional.
-
-A suffix indicating that this class applies to [pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) only. This should be all lower-case with no abbreviations. Words should be separated by one dash, exactly like the original pseudo element (e.g. `D(n)::before`).
-
 ### --&lt;breakpoint_identifier>
 
 Optional.
@@ -327,6 +321,14 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
         <tr class="BdT">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bxs(foo):h--lg`</th>
             <td class="Va-t P(10px)">Same styling as above but on mouseover only [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`C(#000)`</th>
+            <td class="Va-t P(10px)">This sets the color to black</td>
+        </tr>
+        <tr class="BdT">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`C(#000.5)`</th>
+            <td class="Va-t P(10px)">This sets the color to black with a 50% opacity</td>
         </tr>
         <tr class="BdT">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`M($bar)`</th>
