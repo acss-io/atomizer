@@ -439,6 +439,15 @@ describe('Atomizer()', function () {
                     properties: ['color']
                 },
                 {
+                    type: 'pattern',
+                    name: 'display',
+                    prefix: 'D',
+                    properties: ['display'],
+                    rules: [
+                        {suffix: 'n', values: ['none']}
+                    ]
+                },
+                {
                     type: 'helper',
                     name: 'foo',
                     prefix: 'Foo',
@@ -451,7 +460,7 @@ describe('Atomizer()', function () {
                 custom: {
                     'brand-color': '#400090'
                 },
-                classNames: ['parent_C(brand-color)', 'C(brand-color)', 'parent_Foo', 'Foo']
+                classNames: ['parent_D(n)', 'D(n)', 'parent_C(brand-color)', 'C(brand-color)', 'parent_Foo', 'Foo']
             };
             // make sure parent selectors and helpers don't have the namespace
             // helpers should have their own namespace and parent should not have any
@@ -461,6 +470,12 @@ describe('Atomizer()', function () {
                 '}',
                 '#atomic .C\\(brand-color\\) {',
                 '  color: #400090;',
+                '}',
+                '.parent .parent_D\\(n\\) {',
+                '  display: none !important;',
+                '}',
+                '#atomic .D\\(n\\) {',
+                '  display: none;',
                 '}',
                 '.parent .parent_Foo, .atomic .Foo {',
                 '  font-weight: bold;',
