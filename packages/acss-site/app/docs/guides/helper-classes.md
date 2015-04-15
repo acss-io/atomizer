@@ -89,8 +89,8 @@ vertical-align: top;
 ```
 
 ```html
-   <div class="IbBox W(50)% Ta(c) Bgc(#ccc)">Box-1</div><!--
---><div class="IbBox W(50)% Ta(c) Bgc(#999)">Box-2</div>
+   <div class="IbBox W(50%) Ta(c) Bgc(#ccc)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(#999)">Box-2</div>
 ```
 
 Example:
