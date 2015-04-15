@@ -501,6 +501,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
     var isVerbose = !!this.verbose;
 
     if (!_.isArray(config.classNames)) { return tree; }
+    options = options || {};
 
     config.classNames.forEach(function (className) {
         var match = XRegExp.exec(className, classNameSyntax);
