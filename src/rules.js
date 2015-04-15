@@ -715,7 +715,7 @@ module.exports = [
      */
     {
         type: 'pattern',
-        name: 'color',
+        name: 'Color',
         prefix: 'C',
         properties: ['color'],
         allowCustom: true,
