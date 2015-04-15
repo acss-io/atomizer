@@ -45,39 +45,39 @@ Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-
         </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(90deg)`</th>
             <td class="Va(t) P(10px)">`transform:rotate(90°)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale(1,2)`</th>
             <td class="Va(t) P(10px)">`transform:scale(1,2)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleX(2)`</th>
             <td class="Va(t) P(10px)">`transform:scaleX(2)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleY(2)`</th>
             <td class="Va(t) P(10px)">`transform:scaleY(2)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewX(20deg)`</th>
             <td class="Va(t) P(10px)">`transform:skewX(20°)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewY(-20deg)`</th>
             <td class="Va(t) P(10px)">`transform:skewY(-20°)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate(10px,20px)`</th>
             <td class="Va(t) P(10px)">`transform:translate(10px,20px)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateX(10px)`</th>
             <td class="Va(t) P(10px)">`transform:translateX(10px)`</td>
         </tr>
-        <tr class="BdT Bdc-#cecece">
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateY(10px)`</th>
             <td class="Va(t) P(10px)">`transform:translateY(10px)`</td>
         </tr>
