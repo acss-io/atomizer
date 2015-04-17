@@ -399,9 +399,13 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     }
                 }
                 if (matchVal.named) {
-                    // first check if the named value matches any of the values
+                    // first check if 'inh' is the value
+                    if (matchVal.named === 'inh') {
+                        value = 'inherit';
+                    }
+                    // check if the named value matches any of the values
                     // registered in arguments.
-                    if (rule.arguments && index <= rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
+                    else if (rule.arguments && index <= rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
                         value = rule.arguments[index][matchVal.named];
                     }
                     // now check if named value was passed in the config
