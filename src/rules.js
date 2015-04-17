@@ -1,2200 +1,1902 @@
 /**
- * ============================================================================
- * SOT: https://code.google.com/p/zen-coding/wiki/ZenCSSPropertiesEn
- *      http://docs.emmet.io/cheat-sheet/
- * ============================================================================
+ * These are the main atomic css rules.
+ * By default, all rules accept "inh" ("inherit").
+ * Please submit a PR if you find any missing rule.
+ * Most abbreviations are based on Emmet:
+ * http://docs.emmet.io/cheat-sheet/
  *
- *  NOTES:
- *
- *  Depending on the selector you use to namespace these rules (id versus class), their style weight will be either 0,1,0,0 or 0,0,1,0. We suggest using an id for the extra specificity.
- *  - look for top/right/bottom/left rules in the "offset" section
- *  - we do *not* use left and right as keywords for class names, instead we use "start" and "end"
- *  - T-Shirt sizes follow http://www.americanapparel.net/sizing/default.asp?chart=mu.shirts
- *  - Rules is written as an array because ORDER is important for the CSS generation
- *
- **/
+ * Read more about abbreviations here:
+ * http://acss.io/guides/syntax.html
+ */
 
 module.exports = [
-/**
- ==================================================================
- ANIMATION
- ==================================================================
- */
     {
-        type: 'pattern',
-        id: 'animation',
-        name: 'Animation',
-        prefix: 'Anim',
-        properties: ['animation'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "id": "animation",
+        "name": "Animation",
+        "matcher": "Anim",
+        "allowParamToValue": true,
+        "styles": {
+            "animation": "$0"
+        }
     },
     {
-        type: 'pattern',
-        id: 'animation-delay',
-        name: 'Animation delay',
-        prefix: 'Animdel',
-        properties: ['animation-delay'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "id": "animation-delay",
+        "name": "Animation delay",
+        "matcher": "Animdel",
+        "allowParamToValue": true,
+        "styles": {
+            "animation-delay": "$0"
+        }
     },
     {
-        type: 'pattern',
-        id: 'animation-direction',
-        name: 'Animation direction',
-        prefix: 'Animdir',
-        properties: ['animation-direction'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'a', values: ['alternate']},
-            {suffix: 'ar', values: ['alternate-reverse']},
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'r', values: ['reverse']}
+        "type": "pattern",
+        "id": "animation-direction",
+        "name": "Animation direction",
+        "matcher": "Animdir",
+        "allowParamToValue": false,
+        "styles": {
+            "animation-direction": "$0"
+        },
+        "arguments": [
+            {
+                "a": "alternate",
+                "ar": "alternate-reverse",
+                "n": "normal",
+                "r": "reverse"
+            }
         ]
     },
     {
-        type: 'pattern',
-        id: 'animation-duration',
-        name: 'Animation duration',
-        prefix: 'Animdur',
-        properties: ['animation-duration'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "id": "animation-duration",
+        "name": "Animation duration",
+        "matcher": "Animdur",
+        "allowParamToValue": true,
+        "styles": {
+            "animation-duration": "$0"
+        }
     },
     {
-        type: 'pattern',
-        id: 'animation-fill-mode',
-        name: 'Animation fill mode',
-        prefix: 'Animfm',
-        properties: ['animation-fill-mode'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'b', values: ['backwards']},
-            {suffix: 'bo', values: ['both']},
-            {suffix: 'f', values: ['forwards']},
-            {suffix: 'n', values: ['none']}
+        "type": "pattern",
+        "id": "animation-fill-mode",
+        "name": "Animation fill mode",
+        "matcher": "Animfm",
+        "allowParamToValue": false,
+        "styles": {
+            "animation-fill-mode": "$0"
+        },
+        "arguments": [
+            {
+                "b": "backwards",
+                "bo": "both",
+                "f": "forwards",
+                "n": "none"
+            }
         ]
     },
     {
-        type: 'pattern',
-        id: 'animation-iteration-count',
-        name: 'Animation iteration count',
-        prefix: 'Animic',
-        properties: ['animation-iteration-count'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'i', values: ['infinite']}
+        "type": "pattern",
+        "id": "animation-iteration-count",
+        "name": "Animation iteration count",
+        "matcher": "Animic",
+        "allowParamToValue": true,
+        "styles": {
+            "animation-iteration-count": "$0"
+        },
+        "arguments": [
+            {
+                "i": "infinite"
+            }
         ]
     },
     {
-        type: 'pattern',
-        id: 'animation-name',
-        name: 'Animation name',
-        prefix: 'Animn',
-        properties: ['animation-name'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'n', values: ['none']}
+        "type": "pattern",
+        "id": "animation-name",
+        "name": "Animation name",
+        "matcher": "Animn",
+        "allowParamToValue": true,
+        "styles": {
+            "animation-name": "$0"
+        },
+        "arguments": [
+            {
+                "n": "none"
+            }
         ]
     },
     {
-        type: 'pattern',
-        id: 'animation-play-state',
-        name: 'Animation play state',
-        prefix: 'Animps',
-        properties: ['animation-play-state'],
-        allowCustom: false,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'p', values: ['paused']},
-            {suffix: 'r', values: ['running']}
+        "type": "pattern",
+        "id": "animation-play-state",
+        "name": "Animation play state",
+        "matcher": "Animps",
+        "allowParamToValue": false,
+        "styles": {
+            "animation-play-state": "$0"
+        },
+        "arguments": [
+            {
+                "p": "paused",
+                "r": "running"
+            }
         ]
     },
     {
-        type: 'pattern',
-        id: 'animation-timing-function',
-        name: 'Animation timing function',
-        prefix: 'Animtf',
-        properties: ['animation-timing-function'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'e', values: ['ease']},
-            {suffix: 'ei', values: ['ease-in']},
-            {suffix: 'eo', values: ['ease-out']},
-            {suffix: 'eio', values: ['ease-in-out']},
-            {suffix: 'l', values: ['linear']},
-            {suffix: 'se', values: ['step-end']},
-            {suffix: 'ss', values: ['step-start']}
+        "type": "pattern",
+        "id": "animation-timing-function",
+        "name": "Animation timing function",
+        "matcher": "Animtf",
+        "allowParamToValue": false,
+        "styles": {
+            "animation-timing-function": "$0"
+        },
+        "arguments": [
+            {
+                "e": "ease",
+                "ei": "ease-in",
+                "eo": "ease-out",
+                "eio": "ease-in-out",
+                "l": "linear",
+                "se": "step-end",
+                "ss": "step-start"
+            }
         ]
     },
-    /**
-     ==================================================================
-     BORDERS
-     ==================================================================
-     */
-    // all edges
     {
-        type: 'pattern',
-        name: 'Border',
-        prefix: 'Bd',
-        properties: ['border'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Border",
+        "matcher": "Bd",
+        "allowParamToValue": false,
+        "styles": {
+            "border": "$0"
+        }
     },
-    // top
     {
-        type: 'pattern',
-        name: 'Border top',
-        prefix: 'Bdt',
-        properties: ['border-top'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Border top",
+        "matcher": "Bdt",
+        "allowParamToValue": false,
+        "styles": {
+            "border-top": "$0"
+        }
     },
-    // end
     {
-        type: 'pattern',
-        name: 'Border end',
-        prefix: 'Bdend',
-        properties: ['border-__END__'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Border end",
+        "matcher": "Bdend",
+        "allowParamToValue": false,
+        "styles": {
+            "border-__END__": "$0"
+        }
     },
-    // bottom
     {
-        type: 'pattern',
-        name: 'Border bottom',
-        prefix: 'Bdb',
-        properties: ['border-bottom'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Border bottom",
+        "matcher": "Bdb",
+        "allowParamToValue": false,
+        "styles": {
+            "border-bottom": "$0"
+        }
     },
-    // start
     {
-        type: 'pattern',
-        name: 'Border start',
-        prefix: 'Bdstart',
-        properties: ['border-__START__'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Border start",
+        "matcher": "Bdstart",
+        "allowParamToValue": false,
+        "styles": {
+            "border-__START__": "$0"
+        }
     },
-    // X axis
     {
-        type: 'pattern',
-        name: 'Border X',
-        prefix: 'Bdx',
-        properties: ['border-__START__', 'border-__END__'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Border X",
+        "matcher": "Bdx",
+        "allowParamToValue": false,
+        "styles": {
+            "border-__START__": "$0",
+            "border-__END__": "$0"
+        }
     },
-    // Y axis
     {
-        type: 'pattern',
-        name: 'Border Y',
-        prefix: 'Bdy',
-        properties: ['border-top', 'border-bottom'],
-        allowCustom: true,
-        allowSuffixToValue: false,
+        "type": "pattern",
+        "name": "Border Y",
+        "matcher": "Bdy",
+        "allowParamToValue": false,
+        "styles": {
+            "border-top": "$0",
+            "border-bottom": "$0"
+        }
     },
-
-    /**
-     ==================================================================
-     BORDER COLOR
-     ==================================================================
-     */
-    // all edges
     {
-        type: 'pattern',
-        name: 'Border color',
-        prefix: 'Bdc',
-        properties: ['border-color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'cc', values: ['currentColor']}
-        ]
+        "type": "pattern",
+        "name": "Border color",
+        "matcher": "Bdc",
+        "allowParamToValue": true,
+        "styles": {
+            "border-color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent",
+            "cc": "currentColor"
+        }]
     },
-    // top
     {
-        type: 'pattern',
-        name: 'Border top color',
-        prefix: 'Bdtc',
-        properties: ['border-top-color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'cc', values: ['currentColor']}
-        ]
+        "type": "pattern",
+        "name": "Border top color",
+        "matcher": "Bdtc",
+        "allowParamToValue": true,
+        "styles": {
+            "border-top-color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent",
+            "cc": "currentColor"
+        }]
     },
-    // end
     {
-        type: 'pattern',
-        name: 'Border end color',
-        prefix: 'Bdendc',
-        properties: ['border-__END__-color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'cc', values: ['currentColor']}
-        ]
+        "type": "pattern",
+        "name": "Border end color",
+        "matcher": "Bdendc",
+        "allowParamToValue": true,
+        "styles": {
+            "border-__END__-color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent",
+            "cc": "currentColor"
+        }]
     },
-    // bottom
     {
-        type: 'pattern',
-        name: 'Border bottom color',
-        prefix: 'Bdbc',
-        properties: ['border-bottom-color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'cc', values: ['currentColor']}
-        ]
+        "type": "pattern",
+        "name": "Border bottom color",
+        "matcher": "Bdbc",
+        "allowParamToValue": true,
+        "styles": {
+            "border-bottom-color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent",
+            "cc": "currentColor"
+        }]
     },
-    // start
     {
-        type: 'pattern',
-        name: 'Border start color',
-        prefix: 'Bdstartc',
-        properties: ['border-__START__-color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'cc', values: ['currentColor']}
-        ]
+        "type": "pattern",
+        "name": "Border start color",
+        "matcher": "Bdstartc",
+        "allowParamToValue": true,
+        "styles": {
+            "border-__START__-color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent",
+            "cc": "currentColor"
+        }]
     },
-
-    /**
-     ==================================================================
-     BORDER STYLE
-     ==================================================================
-     */
-    // all edges
     {
-        type: 'pattern',
-        name: 'Border style',
-        prefix: 'Bds',
-        properties: ['border-style'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'd', values: ['dotted']},
-            {suffix: 'da', values: ['dashed']},
-            {suffix: 'do', values: ['double']},
-            {suffix: 'g', values: ['groove']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 'i', values: ['inset']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'o', values: ['outset']},
-            {suffix: 'r', values: ['ridge']},
-            {suffix: 's', values: ['solid']}
-        ]
+        "type": "pattern",
+        "name": "Border style",
+        "matcher": "Bds",
+        "allowParamToValue": false,
+        "styles": {
+            "border-style": "$0"
+        },
+        "arguments": [{
+            "d": "dotted",
+            "da": "dashed",
+            "do": "double",
+            "g": "groove",
+            "h": "hidden",
+            "i": "inset",
+            "n": "none",
+            "o": "outset",
+            "r": "ridge",
+            "s": "solid"
+        }]
     },
-    // top
     {
-        type: 'pattern',
-        name: 'Border top style',
-        prefix: 'Bdts',
-        properties: ['border-top-style'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'd', values: ['dotted']},
-            {suffix: 'da', values: ['dashed']},
-            {suffix: 'do', values: ['double']},
-            {suffix: 'g', values: ['groove']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 'i', values: ['inset']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'o', values: ['outset']},
-            {suffix: 'r', values: ['ridge']},
-            {suffix: 's', values: ['solid']}
-        ]
+        "type": "pattern",
+        "name": "Border top style",
+        "matcher": "Bdts",
+        "allowParamToValue": false,
+        "styles": {
+            "border-top-style": "$0"
+        },
+        "arguments": [{
+            "d": "dotted",
+            "da": "dashed",
+            "do": "double",
+            "g": "groove",
+            "h": "hidden",
+            "i": "inset",
+            "n": "none",
+            "o": "outset",
+            "r": "ridge",
+            "s": "solid"
+        }]
     },
-    // end
     {
-        type: 'pattern',
-        name: 'Border end style',
-        prefix: 'Bdends',
-        properties: ['border-__END__-style'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'd', values: ['dotted']},
-            {suffix: 'da', values: ['dashed']},
-            {suffix: 'do', values: ['double']},
-            {suffix: 'g', values: ['groove']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 'i', values: ['inset']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'o', values: ['outset']},
-            {suffix: 'r', values: ['ridge']},
-            {suffix: 's', values: ['solid']}
-        ]
+        "type": "pattern",
+        "name": "Border end style",
+        "matcher": "Bdends",
+        "allowParamToValue": false,
+        "styles": {
+            "border-__END__-style": "$0"
+        },
+        "arguments": [{
+            "d": "dotted",
+            "da": "dashed",
+            "do": "double",
+            "g": "groove",
+            "h": "hidden",
+            "i": "inset",
+            "n": "none",
+            "o": "outset",
+            "r": "ridge",
+            "s": "solid"
+        }]
     },
-    // bottom
     {
-        type: 'pattern',
-        name: 'Border bottom style',
-        prefix: 'Bdbs',
-        properties: ['border-bottom-style'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'd', values: ['dotted']},
-            {suffix: 'da', values: ['dashed']},
-            {suffix: 'do', values: ['double']},
-            {suffix: 'g', values: ['groove']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 'i', values: ['inset']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'o', values: ['outset']},
-            {suffix: 'r', values: ['ridge']},
-            {suffix: 's', values: ['solid']}
-        ]
+        "type": "pattern",
+        "name": "Border bottom style",
+        "matcher": "Bdbs",
+        "allowParamToValue": false,
+        "styles": {
+            "border-bottom-style": "$0"
+        },
+        "arguments": [{
+            "d": "dotted",
+            "da": "dashed",
+            "do": "double",
+            "g": "groove",
+            "h": "hidden",
+            "i": "inset",
+            "n": "none",
+            "o": "outset",
+            "r": "ridge",
+            "s": "solid"
+        }]
     },
-    // start
     {
-        type: 'pattern',
-        name: 'Border start style',
-        prefix: 'Bdstarts',
-        properties: ['border-__START__-style'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'd', values: ['dotted']},
-            {suffix: 'da', values: ['dashed']},
-            {suffix: 'do', values: ['double']},
-            {suffix: 'g', values: ['groove']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 'i', values: ['inset']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'o', values: ['outset']},
-            {suffix: 'r', values: ['ridge']},
-            {suffix: 's', values: ['solid']}
-        ]
+        "type": "pattern",
+        "name": "Border start style",
+        "matcher": "Bdstarts",
+        "allowParamToValue": false,
+        "styles": {
+            "border-__START__-style": "$0"
+        },
+        "arguments": [{
+            "d": "dotted",
+            "da": "dashed",
+            "do": "double",
+            "g": "groove",
+            "h": "hidden",
+            "i": "inset",
+            "n": "none",
+            "o": "outset",
+            "r": "ridge",
+            "s": "solid"
+        }]
     },
-
-    /**
-     ==================================================================
-     BORDER WIDTH
-     ==================================================================
-     */
-    // all edges
     {
-        type: 'pattern',
-        name: 'Border width',
-        prefix: 'Bdw',
-        properties: ['border-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'm', values: ['medium']},
-            {suffix: 't', values: ['thin']},
-            {suffix: 'th', values: ['thick']}
-        ]
+        "type": "pattern",
+        "name": "Border width",
+        "matcher": "Bdw",
+        "allowParamToValue": true,
+        "styles": {
+            "border-width": "$0"
+        },
+        "arguments": [{
+            "m": "medium",
+            "t": "thin",
+            "th": "thick"
+        }]
     },
-    // top
     {
-        type: 'pattern',
-        name: 'Border top width',
-        prefix: 'Bdtw',
-        properties: ['border-top-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'm', values: ['medium']},
-            {suffix: 't', values: ['thin']},
-            {suffix: 'th', values: ['thick']}
-        ]
+        "type": "pattern",
+        "name": "Border top width",
+        "matcher": "Bdtw",
+        "allowParamToValue": true,
+        "styles": {
+            "border-top-width": "$0"
+        },
+        "arguments": [{
+            "m": "medium",
+            "t": "thin",
+            "th": "thick"
+        }]
     },
-    // end
     {
-        type: 'pattern',
-        name: 'Border end width',
-        prefix: 'Bdendw',
-        properties: ['border-__END__-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'm', values: ['medium']},
-            {suffix: 't', values: ['thin']},
-            {suffix: 'th', values: ['thick']}
-        ]
+        "type": "pattern",
+        "name": "Border end width",
+        "matcher": "Bdendw",
+        "allowParamToValue": true,
+        "styles": {
+            "border-__END__-width": "$0"
+        },
+        "arguments": [{
+            "m": "medium",
+            "t": "thin",
+            "th": "thick"
+        }]
     },
-    // bottom
     {
-        type: 'pattern',
-        name: 'Border bottom width',
-        prefix: 'Bdbw',
-        properties: ['border-bottom-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'm', values: ['medium']},
-            {suffix: 't', values: ['thin']},
-            {suffix: 'th', values: ['thick']}
-        ]
+        "type": "pattern",
+        "name": "Border bottom width",
+        "matcher": "Bdbw",
+        "allowParamToValue": true,
+        "styles": {
+            "border-bottom-width": "$0"
+        },
+        "arguments": [{
+            "m": "medium",
+            "t": "thin",
+            "th": "thick"
+        }]
     },
-    // start
     {
-        type: 'pattern',
-        name: 'Border start width',
-        prefix: 'Bdstartw',
-        properties: ['border-__START__-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'm', values: ['medium']},
-            {suffix: 't', values: ['thin']},
-            {suffix: 'th', values: ['thick']}
-        ]
+        "type": "pattern",
+        "name": "Border start width",
+        "matcher": "Bdstartw",
+        "allowParamToValue": true,
+        "styles": {
+            "border-__START__-width": "$0"
+        },
+        "arguments": [{
+            "m": "medium",
+            "t": "thin",
+            "th": "thick"
+        }]
     },
-
-    /**
-     ==================================================================
-     BORDER RADIUS
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Border radius',
-        prefix: 'Bdrs',
-        properties: ['border-radius'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Border radius",
+        "matcher": "Bdrs",
+        "allowParamToValue": true,
+        "styles": {
+            "border-radius": "$0"
+        }
     },
-    // top-right
     {
-        type: 'pattern',
-        name: 'Border radius top right',
-        prefix: 'Bdrstend',
-        properties: ['border-top-__END__-radius'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Border radius top right",
+        "matcher": "Bdrstend",
+        "allowParamToValue": true,
+        "styles": {
+            "border-top-__END__-radius": "$0"
+        }
     },
-    // bottom-right
     {
-        type: 'pattern',
-        name: 'Border radius bottom right',
-        prefix: 'Bdrsbend',
-        properties: ['border-bottom-__END__-radius'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Border radius bottom right",
+        "matcher": "Bdrsbend",
+        "allowParamToValue": true,
+        "styles": {
+            "border-bottom-__END__-radius": "$0"
+        }
     },
-    // bottom-left
     {
-        type: 'pattern',
-        name: 'Border radius bottom left',
-        prefix: 'Bdrsbstart',
-        properties: ['border-bottom-__START__-radius'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Border radius bottom left",
+        "matcher": "Bdrsbstart",
+        "allowParamToValue": true,
+        "styles": {
+            "border-bottom-__START__-radius": "$0"
+        }
     },
-    // top-left
     {
-        type: 'pattern',
-        name: 'Border radius top left',
-        prefix: 'Bdrststart',
-        properties: ['border-top-__START__-radius'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Border radius top left",
+        "matcher": "Bdrststart",
+        "allowParamToValue": true,
+        "styles": {
+            "border-top-__START__-radius": "$0"
+        }
     },
-
-     /**
-     ==================================================================
-     BACKGROUNDS
-     ==================================================================
-     */
-
-    /* background */
     {
-        type: 'pattern',
-        name: 'Background',
-        prefix: 'Bg',
-        properties: ['background'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Background",
+        "matcher": "Bg",
+        "allowParamToValue": false,
+        "styles": {
+            "background": "$0"
+        },
+        "arguments": [{
+            "n": "none",
+            "t": "transparent"
+        }]
     },
-    /* background-image */
     {
-        type: 'pattern',
-        name: 'Background image',
-        prefix: 'Bgi',
-        properties: ['background-image'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Background image",
+        "matcher": "Bgi",
+        "allowParamToValue": false,
+        "styles": {
+            "background-image": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
     },
-    /* background-color */
     {
-        type: 'pattern',
-        name: 'Background color',
-        prefix: 'Bgc',
-        properties: ['background-color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Background color",
+        "matcher": "Bgc",
+        "allowParamToValue": true,
+        "styles": {
+            "background-color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent"
+        }]
     },
-
-    /* background-clip */
     {
-        type: 'pattern',
-        name: 'Background clip',
-        prefix: 'Bgcp',
-        properties: ['background-clip'],
-        rules: [
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'cb', values: ['content-box']},
-            {suffix: 'pb', values: ['padding-box']}
-        ]
+        "type": "pattern",
+        "name": "Background clip",
+        "matcher": "Bgcp",
+        "allowParamToValue": false,
+        "styles": {
+            "background-clip": "$0"
+        },
+        "arguments": [{
+            "bb": "border-box",
+            "cb": "content-box",
+            "pb": "padding-box"
+        }]
     },
-    /* background-origin */
     {
-        type: 'pattern',
-        name: 'Background origin',
-        prefix: 'Bgo',
-        properties: ['background-origin'],
-        rules: [
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'cb', values: ['content-box']},
-            {suffix: 'pb', values: ['padding-box']}
-        ]
+        "type": "pattern",
+        "name": "Background origin",
+        "matcher": "Bgo",
+        "allowParamToValue": false,
+        "styles": {
+            "background-origin": "$0"
+        },
+        "arguments": [{
+            "bb": "border-box",
+            "cb": "content-box",
+            "pb": "padding-box"
+        }]
     },
-    /* background-size (length would be customized) */
     {
-        type: 'pattern',
-        name: 'Background size',
-        prefix: 'Bgz',
-        properties: ['background-size'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'ct', values: ['contain']},
-            {suffix: 'cv', values: ['cover']}
-        ]
+        "type": "pattern",
+        "name": "Background size",
+        "matcher": "Bgz",
+        "allowParamToValue": false,
+        "styles": {
+            "background-size": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "ct": "contain",
+            "cv": "cover"
+        }]
     },
-    /* background-attachment */
     {
-        type: 'pattern',
-        name: 'Background attachment',
-        prefix: 'Bga',
-        properties: ['background-attachment'],
-        rules: [
-            {suffix: 'f', values: ['fixed']},
-            {suffix: 'l', values: ['local']},
-            {suffix: 's', values: ['scroll']}
-        ]
+        "type": "pattern",
+        "name": "Background attachment",
+        "matcher": "Bga",
+        "allowParamToValue": false,
+        "styles": {
+            "background-attachment": "$0"
+        },
+        "arguments": [{
+            "f": "fixed",
+            "l": "local",
+            "s": "scroll"
+        }]
     },
-    /* background-position *4 corners only* (s=start and e=end) */
     {
-        type: 'pattern',
-        name: 'Background position',
-        prefix: 'Bgp',
-        properties: ['background-position'],
-        rules: [
-            {suffix: 's_t', values: ['__START__ 0']},
-            {suffix: 'e_t', values: ['__END__ 0']},
-            {suffix: 's_b', values: ['__START__ 100%']},
-            {suffix: 'e_b', values: ['__END__ 100%']},
-            {suffix: 's_c', values: ['__START__ center']},
-            {suffix: 'c_t', values: ['center 0']},
-            {suffix: 'c', values: ['center']}
-        ]
+        "type": "pattern",
+        "name": "Background position",
+        "matcher": "Bgp",
+        "allowParamToValue": false,
+        "styles": {
+            "background-position": "$0"
+        },
+        "arguments": [{
+            "start_t": "__START__ 0",
+            "end_t": "__END__ 0",
+            "start_b": "__START__ 100%",
+            "end_b": "__END__ 100%",
+            "start_c": "__START__ center",
+            "c_t": "center 0",
+            "c": "center"
+        }]
     },
-    /* background-repeat */
     {
-        type: 'pattern',
-        name: 'Background repeat',
-        prefix: 'Bgr',
-        properties: ['background-repeat'],
-        rules: [
-            {suffix: 'nr', values: ['no-repeat']},
-            {suffix: 'rx', values: ['repeat-x']},
-            {suffix: 'ry', values: ['repeat-y']},
-            {suffix: 'r', values: ['repeat']},
-            {suffix: 's', values: ['space']},
-            {suffix: 'ro', values: ['round']}
-        ]
+        "type": "pattern",
+        "name": "Background position (X axis)",
+        "matcher": "Bgpx",
+        "allowParamToValue": true,
+        "styles": {
+            "background-position-x": "$0"
+        },
+        "arguments": [{
+            "start": "__START__",
+            "end": "__END__",
+            "c": "50%"
+        }]
     },
-    /**
-     ==================================================================
-     BORDER-COLLAPSE
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Border collapse',
-        prefix: 'Bdcl',
-        properties: ['border-collapse'],
-        rules: [
-            {suffix: 'c', values: ['collapse']},
-            {suffix: 's', values: ['separate']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Background position (Y axis)",
+        "matcher": "Bgpy",
+        "allowParamToValue": true,
+        "styles": {
+            "background-position-y": "$0"
+        },
+        "arguments": [{
+            "t": "0",
+            "b": "100%",
+            "c": "50%"
+        }]
     },
-
-    /**
-     ==================================================================
-     BOX-SIZING
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Box sizing',
-        prefix: 'Bxz',
-        properties: ['box-sizing'],
-        rules: [
-            {suffix: 'cb', values: ['content-box']},
-            {suffix: 'pb', values: ['padding-box']},
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Background repeat",
+        "matcher": "Bgr",
+        "allowParamToValue": false,
+        "styles": {
+            "background-repeat": "$0"
+        },
+        "arguments": [{
+            "nr": "no-repeat",
+            "rx": "repeat-x",
+            "ry": "repeat-y",
+            "r": "repeat",
+            "s": "space",
+            "ro": "round"
+        }]
     },
-
-    /**
-     ==================================================================
-     BOX-SHADOW
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Box shadow',
-        properties: ['box-shadow'],
-        prefix: 'Bxsh',
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'n', values: ['none']}
-        ]
+        "type": "pattern",
+        "name": "Border collapse",
+        "matcher": "Bdcl",
+        "allowParamToValue": false,
+        "styles": {
+            "border-collapse": "$0"
+        },
+        "arguments": [{
+            "c": "collapse",
+            "s": "separate"
+        }]
     },
-
-    /**
-     ==================================================================
-     CLEAR
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Clear',
-        prefix: 'Cl',
-        properties: ['clear'],
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'b', values: ['both']},
-            {suffix: 'start', values: ['__START__']},
-            {suffix: 'end', values: ['__END__']},
-            {suffix: 'inh', values: ['inherit']},
-        ]
+        "type": "pattern",
+        "name": "Box sizing",
+        "matcher": "Bxz",
+        "allowParamToValue": false,
+        "styles": {
+            "box-sizing": "$0"
+        },
+        "arguments": [{
+            "cb": "content-box",
+            "pb": "padding-box",
+            "bb": "border-box"
+        }]
     },
-
-    /**
-     ==================================================================
-     COLOR
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Color',
-        prefix: 'C',
-        properties: ['color'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 't', values: ['transparent']},
-            {suffix: 'cc', values: ['currentColor']}
-        ]
+        "type": "pattern",
+        "name": "Box shadow",
+        "matcher": "Bxsh",
+        "allowParamToValue": false,
+        "styles": {
+            "box-shadow": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
     },
-
-    /**
-     ==================================================================
-     CURSOR
-     TODO: how to deal with URIs? (allowCustom?)
-     ==================================================================
-     */
-     {
-        type: 'pattern',
-        name: 'Cursor',
-        prefix: 'Cur',
-        properties: ['cursor'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'as', values: ['all-scroll']},
-            {suffix: 'c', values: ['cell']},
-            {suffix: 'cr', values: ['col-resize']},
-            {suffix: 'co', values: ['copy']},
-            {suffix: 'cro', values: ['crosshair']},
-            {suffix: 'd', values: ['default']},
-            {suffix: 'er', values: ['e-resize']},
-            {suffix: 'ewr', values: ['ew-resize']},
-            {suffix: 'g', values: ['grab']},
-            {suffix: 'gr', values: ['grabbing']},
-            {suffix: 'h', values: ['help']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'm', values: ['move']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'nd', values: ['no-drop']},
-            {suffix: 'na', values: ['not-allowed']},
-            {suffix: 'nr', values: ['n-resize']},
-            {suffix: 'ner', values: ['ne-resize']},
-            {suffix: 'neswr', values: ['nesw-resize']},
-            {suffix: 'nwser', values: ['nwse-resize']},
-            {suffix: 'nsr', values: ['ns-resize']},
-            {suffix: 'nwr', values: ['nw-resize']},
-            {suffix: 'p', values: ['pointer']},
-            {suffix: 'pr', values: ['progress']},
-            {suffix: 'rr', values: ['row-resize']},
-            {suffix: 'sr', values: ['s-resize']},
-            {suffix: 'ser', values: ['se-resize']},
-            {suffix: 'swr', values: ['sw-resize']},
-            {suffix: 't', values: ['text']},
-            {suffix: 'vt', values: ['vertical-text']},
-            {suffix: 'w', values: ['wait']},
-            {suffix: 'wr', values: ['w-resize']},
-            {suffix: 'zi', values: ['zoom-in']},
-            {suffix: 'zo', values: ['zoom-out']}
-        ]
-    },
-
-    /**
-     ==================================================================
-     DISPLAY
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Display',
-        prefix: 'D',
-        properties: ['display'],
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'b', values: ['block']},
-            {suffix: 'f', values: ['flex']},
-            {suffix: 'i', values: ['inline']},
-            {suffix: 'ib', values: ['inline-block']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'tb', values: ['table']},
-            {suffix: 'tbr', values: ['table-row']},
-            {suffix: 'tbc', values: ['table-cell']},
-            {suffix: 'li', values: ['list-item']},
-            {suffix: 'ri', values: ['run-in']},
-            {suffix: 'cp', values: ['compact']},
-            {suffix: 'itb', values: ['inline-table']},
-            {suffix: 'tbcl', values: ['table-column']},
-            {suffix: 'tbclg', values: ['table-column-group']},
-            {suffix: 'tbhg', values: ['table-header-group']},
-            {suffix: 'tbfg', values: ['table-footer-group']},
-            {suffix: 'tbrg', values: ['table-row-group']}
-        ]
+        "type": "pattern",
+        "name": "Clear",
+        "matcher": "Cl",
+        "allowParamToValue": false,
+        "styles": {
+            "clear": "$0"
+        },
+        "arguments": [{
+            "n": "none",
+            "b": "both",
+            "start": "__START__",
+            "end": "__END__"
+        }]
     },
-
-    /**
-     ==================================================================
-     FLEX
-     ==================================================================
-     */
-     /* FLEX
-     * width values (i.e. 350px) cannot really be set here (as a generic value)
-     */
     {
-        type: 'pattern',
-        name: 'Flex',
-        prefix: 'Flx',
-        properties: ['flex'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'n', values: ['none']}
-        ]
+        "type": "pattern",
+        "name": "Color",
+        "matcher": "C",
+        "allowParamToValue": true,
+        "styles": {
+            "color": "$0"
+        },
+        "arguments": [{
+            "t": "transparent",
+            "cc": "currentColor"
+        }]
     },
-
-    /* FLEX-ALIGN */
-    //
-    // TODO: Seems like 'flex-align' is not a valid property anymore, it was replaced by 'align-self'.
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
-    //   Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    //
-    // {
-    //     type: 'pattern',
-    //     //     name: 'Flex align',
-    //     prefix: 'Fla',
-    //     properties: ['flex-align'],
-    //     rules: [
-    //         {suffix: 's', values: ['start']},
-    //         {suffix: 'e', values: ['end']},
-    //         {suffix: 'c', values: ['center']},
-    //         {suffix: 'b', values: ['baseline']},
-    //         {suffix: 'st', values: ['stretch']}
-    //     ]
-    // },
     {
-        type: 'pattern',
-        name: 'Align self',
-        prefix: 'As',
-        properties: ['align-self'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'fs', values: ['flex-start']},
-            {suffix: 'fe', values: ['flex-end']},
-            {suffix: 'c', values: ['center']},
-            {suffix: 'b', values: ['baseline']},
-            {suffix: 'st', values: ['stretch']}
-        ]
+        "type": "pattern",
+        "name": "Cursor",
+        "matcher": "Cur",
+        "allowParamToValue": false,
+        "styles": {
+            "cursor": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "as": "all-scroll",
+            "c": "cell",
+            "cr": "col-resize",
+            "co": "copy",
+            "cro": "crosshair",
+            "d": "default",
+            "er": "e-resize",
+            "ewr": "ew-resize",
+            "g": "grab",
+            "gr": "grabbing",
+            "h": "help",
+            "m": "move",
+            "n": "none",
+            "nd": "no-drop",
+            "na": "not-allowed",
+            "nr": "n-resize",
+            "ner": "ne-resize",
+            "neswr": "nesw-resize",
+            "nwser": "nwse-resize",
+            "nsr": "ns-resize",
+            "nwr": "nw-resize",
+            "p": "pointer",
+            "pr": "progress",
+            "rr": "row-resize",
+            "sr": "s-resize",
+            "ser": "se-resize",
+            "swr": "sw-resize",
+            "t": "text",
+            "vt": "vertical-text",
+            "w": "wait",
+            "wr": "w-resize",
+            "zi": "zoom-in",
+            "zo": "zoom-out"
+        }]
     },
-
-    /* FLEX-DIRECTION  */
     {
-        type: 'pattern',
-        name: 'Flex direction',
-        prefix: 'Fld',
-        properties: ['flex-direction'],
-        rules: [
-            {suffix: 'r', values: ['row']},
-            {suffix: 'rr', values: ['row-reverse']},
-            {suffix: 'c', values: ['column']},
-            {suffix: 'cr', values: ['column-reverse']}
-        ]
+        "type": "pattern",
+        "name": "Display",
+        "matcher": "D",
+        "allowParamToValue": false,
+        "styles": {
+            "display": "$0"
+        },
+        "arguments": [{
+            "n": "none",
+            "b": "block",
+            "f": "flex",
+            "i": "inline",
+            "ib": "inline-block",
+            "tb": "table",
+            "tbr": "table-row",
+            "tbc": "table-cell",
+            "li": "list-item",
+            "ri": "run-in",
+            "cp": "compact",
+            "itb": "inline-table",
+            "tbcl": "table-column",
+            "tbclg": "table-column-group",
+            "tbhg": "table-header-group",
+            "tbfg": "table-footer-group",
+            "tbrg": "table-row-group"
+        }]
     },
-
-    /* FLEX-FLOW  */
     {
-        type: 'pattern',
-        name: 'Flex flow',
-        prefix: 'Flf',
-        properties: ['flex-flow'],
-        rules: [
-            {suffix: 'r', values: ['row']},
-            {suffix: 'rr', values: ['row-reverse']},
-            {suffix: 'c', values: ['column']},
-            {suffix: 'cr', values: ['column-reverse']},
-            {suffix: 'nw', values: ['nowrap']},
-            {suffix: 'w', values: ['wrap']},
-            {suffix: 'wr', values: ['wrap-reverse']},
-        ]
+        "type": "pattern",
+        "name": "Flex",
+        "matcher": "Flx",
+        "allowParamToValue": false,
+        "styles": {
+            "flex": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "n": "none"
+        }]
     },
-
-    /* FLEX-ITEM-ALIGN */
-    //
-    // TODO: 'flex-align' has been replaced by 'align-items'.
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
-    //   Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    //
-    // {
-    //     type: 'pattern',
-    //     //     name: 'Flex item align',
-    //     prefix: 'Flia',
-    //     properties: ['flex-item-align'],
-    //     rules: [
-    //         {suffix: 'a', values: ['auto']},
-    //         {suffix: 's', values: ['start']},
-    //         {suffix: 'e', values: ['end']},
-    //         {suffix: 'c', values: ['center']},
-    //         {suffix: 'b', values: ['baseline']},
-    //         {suffix: 'st', values: ['stretch']},
-    //     ]
-    // },
     {
-        type: 'pattern',
-        name: 'Align items',
-        prefix: 'Ai',
-        properties: ['align-items'],
-        rules: [
-            // flex-start | flex-end | center | baseline | stretch
-            {suffix: 'fs', values: ['flex-start']},
-            {suffix: 'fe', values: ['flex-end']},
-            {suffix: 'c', values: ['center']},
-            {suffix: 'b', values: ['baseline']},
-            {suffix: 'st', values: ['stretch']}
-        ]
+        "type": "pattern",
+        "name": "Flex grow",
+        "matcher": "Flxg",
+        "allowParamToValue": true,
+        "styles": {
+            "flex-grow": "$0"
+        }
     },
-
-    /* FLEX-LINE-PACK */
-    //
-    // TODO: 'flex-line-pack' has been replaced by 'align-content'.
-    //          Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-line-pack
-    //   Latest version: http://www.w3.org/TR/css3-flexbox/#align-content-property
-    //
-    // {
-    //     type: 'pattern',
-    //     //     name: 'Flex line pack',
-    //     prefix: 'Fllp',
-    //     properties: ['flex-line-pack'],
-    //     rules: [
-    //         {suffix: 's', values: ['start']},
-    //         {suffix: 'e', values: ['end']},
-    //         {suffix: 'c', values: ['center']},
-    //         {suffix: 'j', values: ['justify']},
-    //         {suffix: 'd', values: ['distribute']},
-    //         {suffix: 'st', values: ['stretch']},
-    //     ]
-    // },
     {
-        type: 'pattern',
-        name: 'Align content',
-        prefix: 'Ac',
-        properties: ['align-content'],
-        rules: [
-            {suffix: 'fs', values: ['flex-start']},
-            {suffix: 'fe', values: ['flex-end']},
-            {suffix: 'c', values: ['center']},
-            {suffix: 'sb', values: ['space-between']},
-            {suffix: 'sa', values: ['space-around']},
-            {suffix: 'st', values: ['stretch']}
-        ]
+        "type": "pattern",
+        "name": "Flex",
+        "matcher": "Flxs",
+        "allowParamToValue": true,
+        "styles": {
+            "flex-shrink": "$0"
+        }
     },
-
-    /* FLEX-ORDER  */
-    //
-    // TODO: 'flex-order' has been replaced by 'order'.
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-order
-    //   Latest version: http://www.w3.org/TR/css3-flexbox/#order-property
-    //
-    // {
-    //     type: 'pattern',
-    //     //     name: 'Flex order',
-    //     prefix: 'Flo',
-    //     properties: ['flex-order']
-    // },
     {
-        type: 'pattern',
-        name: 'Order',
-        prefix: 'Or',
-        properties: ['order'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Flex",
+        "matcher": "Flxb",
+        "allowParamToValue": true,
+        "styles": {
+            "flex-basis": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "n": "none"
+        }]
     },
-
-    /* FLEX-PACK  */
-    //
-    // TODO: 'flex-pack' has been replaced by 'justify-content'.
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-pack
-    //   Latest version: http://www.w3.org/TR/css3-flexbox/#justify-content-property
-    //
-    // {
-    //     type: 'pattern',
-    //     //     name: 'Flex pack',
-    //     prefix: 'Flp',
-    //     properties: ['flex-pack'],
-    //     rules: [
-    //         {suffix: 's', values: ['start']},
-    //         {suffix: 'e', values: ['end']},
-    //         {suffix: 'c', values: ['center']},
-    //         {suffix: 'j', values: ['justify']},
-    //         {suffix: 'd', values: ['distribute']}
-    //     ]
-    // },
     {
-        type: 'pattern',
-        name: 'Justify content',
-        prefix: 'Jc',
-        properties: ['justify-content'],
-        rules: [
-            {suffix: 'fs', values: ['flex-start']},
-            {suffix: 'fe', values: ['flex-end']},
-            {suffix: 'c', values: ['center']},
-            {suffix: 'sb', values: ['space-between']},
-            {suffix: 'sa', values: ['space-around']}
-        ]
+        "type": "pattern",
+        "name": "Align self",
+        "matcher": "As",
+        "allowParamToValue": false,
+        "styles": {
+            "align-self": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "fs": "flex-start",
+            "fe": "flex-end",
+            "c": "center",
+            "b": "baseline",
+            "st": "stretch"
+        }]
     },
-
-    /* FLEX-WRAP  */
     {
-        type: 'pattern',
-        name: 'Flex-wrap',
-        prefix: 'Flw',
-        properties: ['flex-wrap'],
-        rules: [
-            {suffix: 'nw', values: ['nowrap']},
-            {suffix: 'w', values: ['wrap']},
-            {suffix: 'wr', values: ['wrap-reverse']}
-        ]
+        "type": "pattern",
+        "name": "Flex direction",
+        "matcher": "Fld",
+        "allowParamToValue": false,
+        "styles": {
+            "flex-direction": "$0"
+        },
+        "arguments": [{
+            "r": "row",
+            "rr": "row-reverse",
+            "c": "column",
+            "cr": "column-reverse"
+        }]
     },
-
-    /**
-     ==================================================================
-     FLOAT
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Float',
-        prefix: 'Fl',
-        properties: ['float'],
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'start', values: ['__START__']},
-            {suffix: 'end', values: ['__END__']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Flex flow",
+        "matcher": "Flf",
+        "allowParamToValue": false,
+        "styles": {
+            "flex-flow": "$0"
+        },
+        "arguments": [{
+            "r": "row",
+            "rr": "row-reverse",
+            "c": "column",
+            "cr": "column-reverse",
+            "nw": "nowrap",
+            "w": "wrap",
+            "wr": "wrap-reverse"
+        }]
     },
-
-    /**
-     ==================================================================
-     FONT FAMILY suffix matches generic font-family
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Font family',
-        prefix: 'Ff',
-        properties: ['font-family'],
-        rules: [
-            {suffix: 'c', values: ['"Monotype Corsiva", "Comic Sans MS", cursive']},
-            {suffix: 'f', values: ['Capitals, Impact, fantasy']},
-            {suffix: 'm', values: ['Monaco, "Courier New", monospace']},
-            {suffix: 's', values: ['Georgia, "Times New Roman", serif']},
-            {suffix: 'ss', values: ['Helvetica, Arial, sans-serif']}
-        ]
+        "type": "pattern",
+        "name": "Align items",
+        "matcher": "Ai",
+        "allowParamToValue": false,
+        "styles": {
+            "align-items": "$0"
+        },
+        "arguments": [{
+            "fs": "flex-start",
+            "fe": "flex-end",
+            "c": "center",
+            "b": "baseline",
+            "st": "stretch"
+        }]
     },
-
-    /**
-     ==================================================================
-     FONT-WEIGHT
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Font weight',
-        prefix: 'Fw',
-        properties: ['font-weight'],
-        rules: [
-            {suffix: '100', values: ['100']},
-            {suffix: '200', values: ['200']},
-            {suffix: '300', values: ['300']},
-            {suffix: '400', values: ['400']},
-            {suffix: '500', values: ['500']},
-            {suffix: '600', values: ['600']},
-            {suffix: '700', values: ['700']},
-            {suffix: '800', values: ['800']},
-            {suffix: '900', values: ['900']},
-            {suffix: 'b', values: ['bold']},
-            {suffix: 'br', values: ['bolder']},
-            {suffix: 'lr', values: ['lighter']},
-            {suffix: 'n', values: ['normal']}
-        ]
+        "type": "pattern",
+        "name": "Align content",
+        "matcher": "Ac",
+        "allowParamToValue": false,
+        "styles": {
+            "align-content": "$0"
+        },
+        "arguments": [{
+            "fs": "flex-start",
+            "fe": "flex-end",
+            "c": "center",
+            "sb": "space-between",
+            "sa": "space-around",
+            "st": "stretch"
+        }]
     },
-
+    {
+        "type": "pattern",
+        "name": "Order",
+        "matcher": "Or",
+        "allowParamToValue": true,
+        "styles": {
+            "order": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Justify content",
+        "matcher": "Jc",
+        "allowParamToValue": false,
+        "styles": {
+            "justify-content": "$0"
+        },
+        "arguments": [{
+            "fs": "flex-start",
+            "fe": "flex-end",
+            "c": "center",
+            "sb": "space-between",
+            "sa": "space-around"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Flex-wrap",
+        "matcher": "Flw",
+        "allowParamToValue": false,
+        "styles": {
+            "flex-wrap": "$0"
+        },
+        "arguments": [{
+            "nw": "nowrap",
+            "w": "wrap",
+            "wr": "wrap-reverse"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Float",
+        "allowParamToValue": false,
+        "matcher": "Fl",
+        "styles": {
+            "float": "$0"
+        },
+        "arguments": [{
+            "n": "none",
+            "start": "__START__",
+            "end": "__END__"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Font family",
+        "matcher": "Ff",
+        "allowParamToValue": false,
+        "styles": {
+            "font-family": "$0"
+        },
+        "arguments": [{
+            "c": "\"Monotype Corsiva\", \"Comic Sans MS\", cursive",
+            "f": "Capitals, Impact, fantasy",
+            "m": "Monaco, \"Courier New\", monospace",
+            "s": "Georgia, \"Times New Roman\", serif",
+            "ss": "Helvetica, Arial, sans-serif"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Font weight",
+        "matcher": "Fw",
+        "allowParamToValue": false,
+        "styles": {
+            "font-weight": "$0"
+        },
+        "arguments": [{
+            "100": "100",
+            "200": "200",
+            "300": "300",
+            "400": "400",
+            "500": "500",
+            "600": "600",
+            "700": "700",
+            "800": "800",
+            "900": "900",
+            "b": "bold",
+            "br": "bolder",
+            "lr": "lighter",
+            "n": "normal"
+        }]
+    },
     /**
      ==================================================================
      FONT-SIZE
      ==================================================================
      */
     {
-        type: 'pattern',
-        name: 'Font size',
-        prefix: 'Fz',
-        properties: ['font-size'],
-        allowCustom: true,
-        allowSuffixToValue: true
+        "type": "pattern",
+        "name": "Font size",
+        "matcher": "Fz",
+        "allowParamToValue": true,
+        "styles": {
+            "font-size": "$0"
+        }
     },
-
     /**
      ==================================================================
      FONT-STYLE
      ==================================================================
      */
     {
-        type: 'pattern',
-        name: 'Font style',
-        prefix: 'Fs',
-        properties: ['font-style'],
-        rules: [
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'i', values: ['italic']},
-            {suffix: 'o', values: ['oblique']}
-        ]
+        "type": "pattern",
+        "name": "Font style",
+        "matcher": "Fs",
+        "allowParamToValue": false,
+        "styles": {
+            "font-style": "$0"
+        },
+        "arguments": [{
+            "n": "normal",
+            "i": "italic",
+            "o": "oblique"
+        }]
     },
-
     /**
-     ==================================================================
-     FONT-VARIANT
-     ==================================================================
-     */
+    ==================================================================
+    FONT-VARIANT
+    ==================================================================
+    */
     // TODO: This rule has a lot more acceptable values.
     // http://dev.w3.org/csswg/css-fonts/#propdef-font-variant
     // https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant
     {
-        type: 'pattern',
-        name: 'Font variant',
-        prefix: 'Fv',
-        properties: ['font-variant'],
-        rules: [
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'sc', values: ['small-caps']}
-        ]
-    },
-
-    /**
-     ==================================================================
-     HEIGHT
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Height',
-        prefix: 'H',
-        properties: ['height'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        allowFraction: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'av', values: ['available']},
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'cb', values: ['content-box']},
-            {suffix: 'fc', values: ['fit-content']},
-            {suffix: 'maxc', values: ['max-content']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     HYPHENS
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Hyphens',
-        prefix: 'Hy',
-        properties: ['hyphens'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'm', values: ['manual']}
-        ]
-    },
-    /**
-     ==================================================================
-     LETTER-SPACING
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Letter spacing',
-        prefix: 'Lts',
-        properties: ['letter-spacing'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'n', values: ['normal']}
-        ]
-    },
-    /**
-     ==================================================================
-     LIST-STYLE-TYPE
-     ==================================================================
-     */
-     {
-        type: 'pattern',
-        name: 'List style type',
-        prefix: 'List',
-        properties: ['list-style-type'],
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'd', values: ['disc']},
-            {suffix: 'c', values: ['circle']},
-            {suffix: 's', values: ['square']},
-            {suffix: 'dc', values: ['decimal']},
-            {suffix: 'dclz', values: ['decimal-leading-zero']},
-            {suffix: 'lr', values: ['lower-roman']},
-            {suffix: 'lg', values: ['lower-greek']},
-            {suffix: 'll', values: ['lower-latin']},
-            {suffix: 'ur', values: ['upper-roman']},
-            {suffix: 'ul', values: ['upper-latin']},
-            {suffix: 'a', values: ['armenian']},
-            {suffix: 'g', values: ['georgian']},
-            {suffix: 'la', values: ['lower-alpha']},
-            {suffix: 'ua', values: ['upper-alpha']}
-        ]
-    },
-
-    /**
-     ==================================================================
-     LIST-STYLE-IMAGE
-     ==================================================================
-     */
-    // TODO: Validate URI
-    {
-        type: 'pattern',
-        name: 'List style image',
-        prefix: 'Lisi',
-        properties: ['list-style-image'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-
-    /**
-     ==================================================================
-     LINE-HEIGHT
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Line height',
-        prefix: 'Lh',
-        properties: ['line-height'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'n', values: ['normal']}
-        ]
-    },
-
-    /**
-     ==================================================================
-     MARGINS
-     ==================================================================
-     */
-    // all edges
-    {
-        type: 'pattern',
-        name: 'Margin (all edges)',
-        prefix: 'M',
-        properties: ['margin'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
-        ]
-    },
-    // top
-    {
-        type: 'pattern',
-        name: 'Margin top',
-        prefix: 'Mt',
-        properties: ['margin-top'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
-        ]
-    },
-    // end
-    {
-        type: 'pattern',
-        name: 'Margin end',
-        prefix: 'Mend',
-        properties: ['margin-__END__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
-        ]
-    },
-    // bottom
-    {
-        type: 'pattern',
-        name: 'Margin bottom',
-        prefix: 'Mb',
-        properties: ['margin-bottom'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
-        ]
-    },
-    // start
-    {
-        type: 'pattern',
-        name: 'Margin start',
-        prefix: 'Mstart',
-        properties: ['margin-__START__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: '0', values: [0]}
-        ]
-    },
-    // X axis
-    {
-        type: 'pattern',
-        name: 'Margin (X axis)',
-        prefix: 'Mx',
-        properties: ['margin-__START__', 'margin-__END__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto', 'auto']},
-            {suffix: 'inh', values: ['inherit', 'inherit']},
-            {suffix: '0', values: [0, 0]}
-        ]
-    },
-    // Y axis
-    {
-        type: 'pattern',
-        name: 'Margin (Y axis)',
-        prefix: 'My',
-        properties: ['margin-top', 'margin-bottom'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto', 'auto']},
-            {suffix: 'inh', values: ['inherit', 'inherit']},
-            {suffix: '0', values: [0, 0]}
-        ]
-    },
-    /**
-     ==================================================================
-     MAX-HEIGHT
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Max height',
-        prefix: 'Mah',
-        properties: ['max-height'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']},
-            {suffix: 'maxc', values: ['max-content']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']}
-        ]
-    },
-    /**
-     ==================================================================
-     MAX-WIDTH
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Max width',
-        prefix: 'Maw',
-        properties: ['max-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']},
-            {suffix: 'maxc', values: ['max-content']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     MIN-HEIGHT
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Min height',
-        prefix: 'Mih',
-        properties: ['min-height'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']},
-            {suffix: 'maxc', values: ['max-content']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     MIN-WIDTH
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Min width',
-        prefix: 'Miw',
-        properties: ['min-width'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'fa', values: ['fill-available']},
-            {suffix: 'fc', values: ['fit-content']},
-            {suffix: 'maxc', values: ['max-content']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OUTLINE
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Outline',
-        prefix: 'O',
-        properties: ['outline'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OFFSETS
-     ==================================================================
-     */
-    // top
-    {
-        type: 'pattern',
-        name: 'Top',
-        prefix: 'T',
-        properties: ['top'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // end
-    {
-        type: 'pattern',
-        name: 'End',
-        prefix: 'End',
-        properties: ['__END__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // bottom
-    {
-        type: 'pattern',
-        name: 'Bottom',
-        prefix: 'B',
-        properties: ['bottom'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // start
-    {
-        type: 'pattern',
-        name: 'Start',
-        prefix: 'Start',
-        properties: ['__START__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OPACITY
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Opacity',
-        prefix: 'Op',
-        properties: ['opacity'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: '1', values: [1]},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OVERFLOW
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Overflow',
-        prefix: 'Ov',
-        properties: ['overflow'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 's', values: ['scroll']},
-            {suffix: 'v', values: ['visible']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OVERFLOW-X
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Overflow (X axis)',
-        prefix: 'Ovx',
-        properties: ['overflow-x'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 's', values: ['scroll']},
-            {suffix: 'v', values: ['visible']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OVERFLOW-Y
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Overflow (Y axis)',
-        prefix: 'Ovy',
-        properties: ['overflow-y'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 's', values: ['scroll']},
-            {suffix: 'v', values: ['visible']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     OVERFLOW-SCROLLING (-webkit-)
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Overflow scrolling',
-        prefix: 'Ovs',
-        properties: ['-webkit-overflow-scrolling'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'touch', values: ['touch']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     PADDING
-     ==================================================================
-     */
-    // all edges
-    {
-        type: 'pattern',
-        name: 'Padding (all edges)',
-        prefix: 'P',
-        properties: ['padding'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // top
-    {
-        type: 'pattern',
-        name: 'Padding top',
-        prefix: 'Pt',
-        properties: ['padding-top'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // end
-    {
-        type: 'pattern',
-        name: 'Padding end',
-        prefix: 'Pend',
-        properties: ['padding-__END__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // bottom
-    {
-        type: 'pattern',
-        name: 'Padding bottom',
-        prefix: 'Pb',
-        properties: ['padding-bottom'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // start
-    {
-        type: 'pattern',
-        name: 'Padding start',
-        prefix: 'Pstart',
-        properties: ['padding-__START__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    // X axis
-    {
-        type: 'pattern',
-        name: 'Padding (X axis)',
-        prefix: 'Px',
-        properties: ['padding-__START__', 'padding-__END__'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0, 0]},
-            {suffix: 'inh', values: ['inherit', 'inherit']}
-        ]
-    },
-    // Y axis
-    {
-        type: 'pattern',
-        name: 'Padding (Y axis)',
-        prefix: 'Py',
-        properties: ['padding-top', 'padding-bottom'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0, 0]},
-            {suffix: 'inh', values: ['inherit', 'inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     POINTER-EVENTS
-     ==================================================================
-     */
-     {
-        type: 'pattern',
-        name: 'Pointer events',
-        prefix: 'Pe',
-        properties: ['pointer-events'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'all', values: ['all']},
-            {suffix: 'f', values: ['fill']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'p', values: ['painted']},
-            {suffix: 's', values: ['stroke']},
-            {suffix: 'v', values: ['visible']},
-            {suffix: 'vf', values: ['visibleFill']},
-            {suffix: 'vp', values: ['visiblePainted']},
-            {suffix: 'vs', values: ['visibleStroke']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     POSITION
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Position',
-        prefix: 'Pos',
-        properties: ['position'],
-        rules: [
-            {suffix: 'a', values: ['absolute']},
-            {suffix: 'f', values: ['fixed']},
-            {suffix: 'r', values: ['relative']},
-            {suffix: 's', values: ['static']},
-            {suffix: 'st', values: ['sticky']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TABLE-LAYOUT (checked)
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Table layout',
-        prefix: 'Tbl',
-        properties: ['table-layout'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'f', values: ['fixed']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-ALIGN
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text align',
-        prefix: 'Ta',
-        properties: ['text-align'],
-        rules: [
-            {suffix: 'c', values: ['center']},
-            {suffix: 'e', values: ['end']},
-            {suffix: 'end', values: ['__END__']},
-            {suffix: 'j', values: ['justify']},
-            {suffix: 'mp', values: ['match-parent']},
-            {suffix: 's', values: ['start']},
-            {suffix: 'start', values: ['__START__']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-ALIGN-LAST
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text align last',
-        prefix: 'Tal',
-        properties: ['text-align-last'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'c', values: ['center']},
-            {suffix: 'e', values: ['end']},
-            {suffix: 'end', values: ['__END__']},
-            {suffix: 'j', values: ['justify']},
-            {suffix: 's', values: ['start']},
-            {suffix: 'start', values: ['__START__']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-DECORATION
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text decoration',
-        prefix: 'Td',
-        properties: ['text-decoration'],
-        rules: [
-            {suffix: 'lt', values: ['line-through']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 'o', values: ['overline']},
-            {suffix: 'u', values: ['underline']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-INDENT
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text indent',
-        prefix: 'Ti',
-        properties: ['text-indent'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-OVERFLOW
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text overflow',
-        prefix: 'Tov',
-        properties: ['text-overflow'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'c', values: ['clip']},
-            {suffix: 'e', values: ['ellipsis']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-RENDERING
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text rendering',
-        prefix: 'Tren',
-        properties: ['text-rendering'],
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'os', values: ['optimizeSpeed']},
-            {suffix: 'ol', values: ['optimizeLegibility']},
-            {suffix: 'gp', values: ['geometricPrecision']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-REPLACE
-     http://www.w3.org/TR/2007/WD-css3-gcpm-20070504/
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text replace',
-        prefix: 'Tr',
-        properties: ['text-replace'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-TRANSFORM
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text transform',
-        prefix: 'Tt',
-        properties: ['text-transform'],
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'c', values: ['capitalize']},
-            {suffix: 'u', values: ['uppercase']},
-            {suffix: 'l', values: ['lowercase']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TEXT-SHADOW
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Text shadow',
-        prefix: 'Tsh',
-        properties: ['text-shadow'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'n', values: ['none']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
-    },
-    /**
-     ==================================================================
-     TRANSFORM
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        id: 'transform',
-        name: 'Transform',
-        prefix: 'Trf',
-        properties: ['transform'],
-        allowCustom: true,
-        allowSuffixToValue: false
-    },
-    // We also need to be able to manage values within value?
-    // For example "Trfr-90deg" -> "transform: rotate(90deg)"
-    // And we need aliases for those as well (i.e. Rot-90deg)
-    /**
-     ==================================================================
-     TRANSITION
-     ==================================================================
-     */
-    {
-        type: 'pattern',
-        name: 'Transition',
-        prefix: 'Trs',
-        properties: ['transition'],
-        allowCustom: true,
-        allowSuffixToValue: false
+        "type": "pattern",
+        "name": "Font variant",
+        "matcher": "Fv",
+        "allowParamToValue": false,
+        "styles": {
+            "font-variant": "$0"
+        },
+        "arguments": [{
+            "n": "normal",
+            "sc": "small-caps"
+        }]
     },
     {
-        type: 'pattern',
-        name: 'Transition delay',
-        prefix: 'Trsde',
-        properties: ['transition-delay'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'i', values: ['initial']}
-        ]
+        "type": "pattern",
+        "name": "Height",
+        "matcher": "H",
+        "allowParamToValue": true,
+        "styles": {
+            "height": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto",
+            "av": "available",
+            "bb": "border-box",
+            "cb": "content-box",
+            "fc": "fit-content",
+            "maxc": "max-content",
+            "minc": "min-content"
+        }]
     },
     {
-        type: 'pattern',
-        name: 'Transition duration',
-        prefix: 'Trsdu',
-        properties: ['transition-duration'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Hyphens",
+        "matcher": "Hy",
+        "allowParamToValue": false,
+        "styles": {
+            "hyphens": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "n": "normal",
+            "m": "manual"
+        }]
     },
     {
-        type: 'pattern',
-        name: 'Transition property',
-        prefix: 'Trsp',
-        properties: ['transition-property'],
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'a', values: ['all']}
-        ]
+        "type": "pattern",
+        "name": "Letter spacing",
+        "matcher": "Lts",
+        "allowParamToValue": true,
+        "styles": {
+            "letter-spacing": "$0"
+        },
+        "arguments": [{
+            "n": "normal"
+        }]
     },
     {
-        type: 'pattern',
-        name: 'Transition timing function',
-        prefix: 'Trstf',
-        properties: ['transition-timing-function'],
-        // for cubic-bezier
-        allowCustom: true,
-        allowSuffixToValue: false,
-        rules: [
-            {suffix: 'e', values: ['ease']},
-            {suffix: 'ei', values: ['ease-in']},
-            {suffix: 'eo', values: ['ease-out']},
-            {suffix: 'eio', values: ['ease-in-out']},
-            {suffix: 'l', values: ['linear']},
-            {suffix: 'ss', values: ['step-start']},
-            {suffix: 'se', values: ['step-end']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "List style type",
+        "matcher": "List",
+        "allowParamToValue": false,
+        "styles": {
+            "list-style-type": "$0"
+        },
+        "arguments": [{
+            "n": "none",
+            "d": "disc",
+            "c": "circle",
+            "s": "square",
+            "dc": "decimal",
+            "dclz": "decimal-leading-zero",
+            "lr": "lower-roman",
+            "lg": "lower-greek",
+            "ll": "lower-latin",
+            "ur": "upper-roman",
+            "ul": "upper-latin",
+            "a": "armenian",
+            "g": "georgian",
+            "la": "lower-alpha",
+            "ua": "upper-alpha"
+        }]
     },
-    /**
-     ==================================================================
-     USER-SELECT
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'User select',
-        prefix: 'Us',
-        properties: ['user-select'],
-        rules: [
-            {suffix: 'a', values: ['all']},
-            {suffix: 'el', values: ['element']},
-            {suffix: 'els', values: ['elements']},
-            {suffix: 'n', values: ['none']},
-            {suffix: 't', values: ['text']},
-            {suffix: 'to', values: ['toggle']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "List style image",
+        "matcher": "Lisi",
+        "allowParamToValue": false,
+        "styles": {
+            "list-style-image": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
     },
-    /**
-     ==================================================================
-     VERTICAL-ALIGN
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Vertical align',
-        prefix: 'Va',
-        properties: ['vertical-align'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'b', values: ['bottom']},
-            {suffix: 'bl', values: ['baseline']},
-            {suffix: 'm', values: ['middle']},
-            {suffix: 'sub', values: ['sub']},
-            {suffix: 'sup', values: ['super']},
-            {suffix: 't', values: ['top']},
-            {suffix: 'tb', values: ['text-bottom']},
-            {suffix: 'tt', values: ['text-top']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Line height",
+        "matcher": "Lh",
+        "allowParamToValue": true,
+        "styles": {
+            "line-height": "$0"
+        },
+        "arguments": [{
+            "n": "normal"
+        }]
     },
-    /**
-     ==================================================================
-     VISIBILITY
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Visibility',
-        prefix: 'V',
-        properties: ['visibility'],
-        rules: [
-            {suffix: 'v', values: ['visible']},
-            {suffix: 'h', values: ['hidden']},
-            {suffix: 'c', values: ['collapse']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin (all edges)",
+        "matcher": "M",
+        "allowParamToValue": true,
+        "styles": {
+            "margin": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
     },
-    /**
-     ==================================================================
-     WHITE-SPACE
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'White space',
-        prefix: 'Whs',
-        properties: ['white-space'],
-        rules: [
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'p', values: ['pre']},
-            {suffix: 'nw', values: ['nowrap']},
-            {suffix: 'pw', values: ['pre-wrap']},
-            {suffix: 'pl', values: ['pre-line']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin top",
+        "matcher": "Mt",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-top": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
     },
-    /**
-     ==================================================================
-     WHITE-SPACE-COLLAPSE
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'White space collapse',
-        prefix: 'Whsc',
-        properties: ['white-space-collapse'],
-        rules: [
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'ka', values: ['keep-all']},
-            {suffix: 'l', values: ['loose']},
-            {suffix: 'bs', values: ['break-strict']},
-            {suffix: 'ba', values: ['break-all']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin end",
+        "matcher": "Mend",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-__END__": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
     },
-    /**
-     ==================================================================
-     WIDTH
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Width',
-        prefix: 'W',
-        properties: ['width'],
-        allowCustom: true,
-        allowFraction: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: '0', values: [0]},
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'bb', values: ['border-box']},
-            {suffix: 'cb', values: ['content-box']},
-            {suffix: 'av', values: ['available']},
-            {suffix: 'minc', values: ['min-content']},
-            {suffix: 'maxc', values: ['max-content']},
-            {suffix: 'fc', values: ['fit-content']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin bottom",
+        "matcher": "Mb",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-bottom": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
     },
-    /**
-     ==================================================================
-     WORD-BREAK
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Word break',
-        prefix: 'Wob',
-        properties: ['word-break'],
-        rules: [
-            {suffix: 'ba', values: ['break-all']},
-            {suffix: 'ka', values: ['keep-all']},
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin start",
+        "matcher": "Mstart",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-__START__": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
     },
-    /**
-     ==================================================================
-     WORD-WRAP (not part of the spec)
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Word wrap',
-        prefix: 'Wow',
-        properties: ['word-wrap'],
-        rules: [
-            {suffix: 'bw', values: ['break-word']},
-            {suffix: 'n', values: ['normal']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin (X axis)",
+        "matcher": "Mx",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-__START__": "$0",
+            "margin-__END__": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto",
+        }]
     },
-    /**
-     ==================================================================
-     Z-INDEX
-     ==================================================================
-     */
     {
-        type: 'pattern',
-        name: 'Z index',
-        prefix: 'Z',
-        properties: ['z-index'],
-        allowCustom: true,
-        allowSuffixToValue: true,
-        rules: [
-            {suffix: 'a', values: ['auto']},
-            {suffix: 'inh', values: ['inherit']}
-        ]
+        "type": "pattern",
+        "name": "Margin (Y axis)",
+        "matcher": "My",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-top": "$0",
+            "margin-bottom": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Max height",
+        "matcher": "Mah",
+        "allowParamToValue": true,
+        "styles": {
+            "max-height": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "maxc": "max-content",
+            "minc": "min-content",
+            "fa": "fill-available",
+            "fc": "fit-content"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Max width",
+        "matcher": "Maw",
+        "allowParamToValue": true,
+        "styles": {
+            "max-width": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "fa": "fill-available",
+            "fc": "fit-content",
+            "maxc": "max-content",
+            "minc": "min-content"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Min height",
+        "matcher": "Mih",
+        "allowParamToValue": true,
+        "styles": {
+            "min-height": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "fa": "fill-available",
+            "fc": "fit-content",
+            "maxc": "max-content",
+            "minc": "min-content"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Min width",
+        "matcher": "Miw",
+        "allowParamToValue": true,
+        "styles": {
+            "min-width": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "fa": "fill-available",
+            "fc": "fit-content",
+            "maxc": "max-content",
+            "minc": "min-content"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Outline",
+        "matcher": "O",
+        "allowParamToValue": false,
+        "styles": {
+            "outline": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "n": "none"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Top",
+        "matcher": "T",
+        "allowParamToValue": true,
+        "styles": {
+            "top": "$0"
+        },
+        "arguments": [{
+            "a": "auto"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "End",
+        "matcher": "End",
+        "allowParamToValue": true,
+        "styles": {
+            "__END__": "$0"
+        },
+        "arguments": [{
+            "a": "auto"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Bottom",
+        "matcher": "B",
+        "allowParamToValue": true,
+        "styles": {
+            "bottom": "$0"
+        },
+        "arguments": [{
+            "a": "auto"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Start",
+        "matcher": "Start",
+        "allowParamToValue": true,
+        "styles": {
+            "__START__": "$0"
+        },
+        "arguments": [{
+            "a": "auto"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Opacity",
+        "matcher": "Op",
+        "allowParamToValue": true,
+        "styles": {
+            "opacity": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "1": "1"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Overflow",
+        "matcher": "Ov",
+        "allowParamToValue": false,
+        "styles": {
+            "overflow": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "h": "hidden",
+            "s": "scroll",
+            "v": "visible"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Overflow (X axis)",
+        "matcher": "Ovx",
+        "allowParamToValue": false,
+        "styles": {
+            "overflow-x": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "h": "hidden",
+            "s": "scroll",
+            "v": "visible"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Overflow (Y axis)",
+        "matcher": "Ovy",
+        "allowParamToValue": false,
+        "styles": {
+            "overflow-y": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "h": "hidden",
+            "s": "scroll",
+            "v": "visible"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Overflow scrolling",
+        "matcher": "Ovs",
+        "allowParamToValue": false,
+        "styles": {
+            "-webkit-overflow-scrolling": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "touch": "touch"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Padding (all edges)",
+        "matcher": "P",
+        "allowParamToValue": true,
+        "styles": {
+            "padding": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Padding top",
+        "matcher": "Pt",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-top": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Padding end",
+        "matcher": "Pend",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-__END__": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Padding bottom",
+        "matcher": "Pb",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-bottom": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Padding start",
+        "matcher": "Pstart",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-__START__": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Padding (X axis)",
+        "matcher": "Px",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-__START__": "$0",
+            "padding-__END__": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Padding (Y axis)",
+        "matcher": "Py",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-top": "$0",
+            "padding-bottom": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Pointer events",
+        "matcher": "Pe",
+        "allowParamToValue": false,
+        "styles": {
+            "pointer-events": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "all": "all",
+            "f": "fill",
+            "n": "none",
+            "p": "painted",
+            "s": "stroke",
+            "v": "visible",
+            "vf": "visibleFill",
+            "vp": "visiblePainted",
+            "vs": "visibleStroke"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Position",
+        "matcher": "Pos",
+        "allowParamToValue": false,
+        "styles": {
+            "position": "$0"
+        },
+        "arguments": [{
+            "a": "absolute",
+            "f": "fixed",
+            "r": "relative",
+            "s": "static",
+            "st": "sticky"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Table layout",
+        "matcher": "Tbl",
+        "allowParamToValue": false,
+        "styles": {
+            "table-layout": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "f": "fixed"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text align",
+        "matcher": "Ta",
+        "allowParamToValue": false,
+        "styles": {
+            "text-align": "$0"
+        },
+        "arguments": [{
+            "c": "center",
+            "e": "end",
+            "end": "__END__",
+            "j": "justify",
+            "mp": "match-parent",
+            "s": "start",
+            "start": "__START__"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text align last",
+        "matcher": "Tal",
+        "allowParamToValue": false,
+        "styles": {
+            "text-align-last": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "c": "center",
+            "e": "end",
+            "end": "__END__",
+            "j": "justify",
+            "s": "start",
+            "start": "__START__"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text decoration",
+        "matcher": "Td",
+        "allowParamToValue": false,
+        "styles": {
+            "text-decoration": "$0"
+        },
+        "arguments": [{
+            "lt": "line-through",
+            "n": "none",
+            "o": "overline",
+            "u": "underline"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text indent",
+        "matcher": "Ti",
+        "allowParamToValue": true,
+        "styles": {
+            "text-indent": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Text overflow",
+        "matcher": "Tov",
+        "allowParamToValue": false,
+        "styles": {
+            "text-overflow": "$0"
+        },
+        "arguments": [{
+            "c": "clip",
+            "e": "ellipsis"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text rendering",
+        "matcher": "Tren",
+        "allowParamToValue": false,
+        "styles": {
+            "text-rendering": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "os": "optimizeSpeed",
+            "ol": "optimizeLegibility",
+            "gp": "geometricPrecision"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text replace",
+        "matcher": "Tr",
+        "allowParamToValue": false,
+        "styles": {
+            "text-replace": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text transform",
+        "matcher": "Tt",
+        "allowParamToValue": false,
+        "styles": {
+            "text-transform": "$0"
+        },
+        "arguments": [{
+            "n": "none",
+            "c": "capitalize",
+            "u": "uppercase",
+            "l": "lowercase"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Text shadow",
+        "matcher": "Tsh",
+        "allowParamToValue": false,
+        "styles": {
+            "text-shadow": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
+    },
+    {
+        "type": "pattern",
+        "id": "transform",
+        "name": "Transform",
+        "matcher": "Trf",
+        "allowParamToValue": false,
+        "styles": {
+            "transform": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Transition",
+        "matcher": "Trs",
+        "allowParamToValue": false,
+        "styles": {
+            "transition": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Transition delay",
+        "matcher": "Trsde",
+        "allowParamToValue": true,
+        "styles": {
+            "transition-delay": "$0"
+        },
+        "arguments": [{
+            "i": "initial"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Transition duration",
+        "matcher": "Trsdu",
+        "allowParamToValue": true,
+        "styles": {
+            "transition-duration": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Transition property",
+        "matcher": "Trsp",
+        "allowParamToValue": false,
+        "styles": {
+            "transition-property": "$0"
+        },
+        "arguments": [{
+            "a": "all"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Transition timing function",
+        "matcher": "Trstf",
+        "allowParamToValue": false,
+        "styles": {
+            "transition-timing-function": "$0"
+        },
+        "arguments": [{
+            "e": "ease",
+            "ei": "ease-in",
+            "eo": "ease-out",
+            "eio": "ease-in-out",
+            "l": "linear",
+            "ss": "step-start",
+            "se": "step-end"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "User select",
+        "matcher": "Us",
+        "allowParamToValue": false,
+        "styles": {
+            "user-select": "$0"
+        },
+        "arguments": [{
+            "a": "all",
+            "el": "element",
+            "els": "elements",
+            "n": "none",
+            "t": "text",
+            "to": "toggle"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Vertical align",
+        "matcher": "Va",
+        "allowParamToValue": false,
+        "styles": {
+            "vertical-align": "$0"
+        },
+        "arguments": [{
+            "b": "bottom",
+            "bl": "baseline",
+            "m": "middle",
+            "sub": "sub",
+            "sup": "super",
+            "t": "top",
+            "tb": "text-bottom",
+            "tt": "text-top"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Visibility",
+        "matcher": "V",
+        "allowParamToValue": false,
+        "styles": {
+            "visibility": "$0"
+        },
+        "arguments": [{
+            "v": "visible",
+            "h": "hidden",
+            "c": "collapse"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "White space",
+        "matcher": "Whs",
+        "allowParamToValue": false,
+        "styles": {
+            "white-space": "$0"
+        },
+        "arguments": [{
+            "n": "normal",
+            "p": "pre",
+            "nw": "nowrap",
+            "pw": "pre-wrap",
+            "pl": "pre-line"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "White space collapse",
+        "matcher": "Whsc",
+        "allowParamToValue": false,
+        "styles": {
+            "white-space-collapse": "$0"
+        },
+        "arguments": [{
+            "n": "normal",
+            "ka": "keep-all",
+            "l": "loose",
+            "bs": "break-strict",
+            "ba": "break-all"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Width",
+        "matcher": "W",
+        "allowParamToValue": true,
+        "styles": {
+            "width": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto",
+            "bb": "border-box",
+            "cb": "content-box",
+            "av": "available",
+            "minc": "min-content",
+            "maxc": "max-content",
+            "fc": "fit-content"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Word break",
+        "matcher": "Wob",
+        "allowParamToValue": false,
+        "styles": {
+            "word-break": "$0"
+        },
+        "arguments": [{
+            "ba": "break-all",
+            "ka": "keep-all",
+            "n": "normal"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Word wrap",
+        "matcher": "Wow",
+        "allowParamToValue": false,
+        "styles": {
+            "word-wrap": "$0"
+        },
+        "arguments": [{
+            "bw": "break-word",
+            "n": "normal"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Z index",
+        "matcher": "Z",
+        "allowParamToValue": true,
+        "styles": {
+            "z-index": "$0"
+        },
+        "arguments": [{
+            "a": "auto"
+        }]
     }
 ];

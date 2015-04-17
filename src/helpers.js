@@ -2,8 +2,8 @@ module.exports = [
     {
         type: 'helper',
         name: 'Line clamp',
-        prefix: 'LineClamp',
-        declaration: {
+        matcher: 'LineClamp',
+        styles: {
             '-webkit-line-clamp': '$0',
             'max-height': '$1'
         },
