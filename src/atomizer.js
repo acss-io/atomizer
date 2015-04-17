@@ -360,11 +360,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             // parse them and return a valid value
             values = values.split(',').map(function (value, index) {
                 var matchVal = XRegExp.exec(value, VALUE_SYNTAXE);
-                var value;
                 var propAndValue;
 
                 if (matchVal.number) {
-                    if (rule.allowParamToValue) {
+                    if (rule.allowParamToValue || rule.type === 'helper') {
                         value = matchVal.number;
                         if (matchVal.unit) {
                             value += matchVal.unit;
@@ -374,14 +373,14 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         matchVal.named = [matchVal.number, matchVal.unit].join('');
                     }
                 }
-                else if (matchVal.fraction) {
+                if (matchVal.fraction) {
                     // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
                     // making clear the steps involved:
                     // percentage: (numerator / denominator * 100)
                     // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
                     value = Math.round(matchVal.numerator / matchVal.denominator * 100 * 10000) / 10000 + '%';
                 }
-                else if (matchVal.hex) {
+                if (matchVal.hex) {
                     if (matchVal.alpha) {
                         rgb = utils.hexToRgb(matchVal.hex);
                         value = [
@@ -399,8 +398,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         value = matchVal.hex;
                     }
                 }
-                // if none of the above was a match then it's a named value
-                else if (matchVal.named) {
+                if (matchVal.named) {
                     // first check if the named value matches any of the values
                     // registered in arguments.
                     if (rule.arguments && index <= rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
@@ -456,7 +454,15 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     }
                 });
             }
-            if (match.important) {
+            // add important for the following cases:
+            //    - `!` was used in the class name
+            //    - rule has a parent class, a namespace was given and the rule is not a helper [1]
+            // [1] rules with a parent class won't have a namespace attached to the selector since
+            //     it prevents people from using the parent class at the root element (<html>). But
+            //     to give it extra specificity (to make sure it has more weight than normal atomic
+            //     classes) we add important to them. Helper classes don't need it because they do
+            //     not share the same namespace.
+            if (match.important || (match.parent && options.namespace && rule.type !== 'helper')) {
                 treeo.declarations[prop] += ' !important';
             }
         }

@@ -109,6 +109,28 @@ describe('Atomizer()', function () {
             expect(syntax).to.not.equal(result);
         });
     });
+    describe('parseConfig()', function () {
+        it('returns the expected parsed tree given a config with no options', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                C: [{
+                    className: 'C($FOO)',
+                    declarations: {
+                        color: 'bar'
+                    }
+                }]
+            };
+            var result = atomizer.parseConfig({
+                custom: {
+                    '$FOO': 'bar'
+                },
+                classNames: [
+                    'C($FOO)'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
+        });
+    });
     describe('getConfig()', function () {
         it ('returns a valid config object when given classes and no config', function () {
             var atomizer = new Atomizer();
@@ -362,7 +384,7 @@ describe('Atomizer()', function () {
                     type: 'helper',
                     name: 'Foo',
                     matcher: 'Foo',
-                    declaration: {
+                    styles: {
                         foo: 'bar'
                     }
                 },
@@ -370,7 +392,7 @@ describe('Atomizer()', function () {
                     type: 'helper',
                     name: 'Bar',
                     matcher: 'Bar',
-                    declaration: {
+                    styles: {
                         bar: '$0'
                     }
                 }
