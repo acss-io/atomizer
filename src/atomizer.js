@@ -405,7 +405,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     }
                     // check if the named value matches any of the values
                     // registered in arguments.
-                    else if (rule.arguments && index <= rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
+                    else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
                         value = rule.arguments[index][matchVal.named];
                     }
                     // now check if named value was passed in the config
