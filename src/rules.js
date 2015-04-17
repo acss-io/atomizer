@@ -2256,7 +2256,7 @@ module.exports = [
         "matcher": "Matrix",
         "allowParamToValue": true,
         "styles": {
-            "transform": "matrix($0,$1,$2,$3,$4,$5)"
+            "transform": "matrix($0)"
         }
     },
     // matrix3d
@@ -2264,9 +2264,9 @@ module.exports = [
         "type": "pattern",
         "name": "Matrix 3d (transform)",
         "matcher": "Matrix3d",
-        "allowParamToValue": true,
+        "allowParamToValue": false,
         "styles": {
-            "transform": "matrix($0,$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)"
+            "transform": "matrix($0)"
         }
     },
     // rotate
