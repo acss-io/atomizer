@@ -10,16 +10,16 @@
  * Read more about abbreviations here:
  * http://acss.io/guides/syntax.html
  *
- *  NOTES:
+ * NOTES:
  *
- *  Depending on the selector you use to namespace these rules (id versus class),
- *  their style weight will be either 0,1,1,0 or 0,0,2,0. We suggest using an id
- *  for the extra specificity.
+ * Depending on the selector you use to namespace these rules (id versus class),
+ * their style weight will be either 0,1,1,0 or 0,0,2,0. We suggest using an id
+ * for the extra specificity.
  *  
- *  - look for top/right/bottom/left rules in the "offset" section.
- *  - we do *not* use left and right as keywords for class names,
- *    instead we use "start" and "end".
- *  - Rules is written as an array because ORDER is important for the CSS generation.
+ * - look for top/right/bottom/left rules in the "offset" section.
+ * - we do *not* use left and right as keywords for class names, instead we use
+ *   "start" and "end".
+ * - Rules is written as an array because ORDER is important for the CSS generation.
  **/
 
 module.exports = [
