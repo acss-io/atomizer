@@ -1,4 +1,10 @@
 /**
+ * ----------------------------------------------------
+ * Copyright (c) 2015, Yahoo Inc. All rights reserved.
+ * Copyrights licensed under the New BSD License.
+ * See the accompanying LICENSE file for terms.
+ * ----------------------------------------------------
+ * 
  * These are the main atomic css rules.
  * By default, all rules accept "inh" ("inherit").
  * 
