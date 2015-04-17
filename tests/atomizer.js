@@ -18,8 +18,10 @@ describe('Atomizer()', function () {
                 type: 'pattern',
                 id: 'border',
                 name: 'Border',
-                prefix: 'Bd',
-                properties: ['border']
+                matcher: 'Bd',
+                styles: {
+                    'border': '$0'
+                }
             }];
             var atomizer = new Atomizer(options, rules);
             expect(atomizer.rules).to.deep.equal(rules);
@@ -39,24 +41,26 @@ describe('Atomizer()', function () {
         it('throws if a rule with the same prefix already exists', function () {
             var rules = [{
                 type: 'pattern',
-                id: 'border',
                 name: 'Border',
-                prefix: 'Bd',
-                properties: ['border']
+                matcher: 'Bd',
+                styles: {
+                    'border': '$0'
+                }
             }];
             var atomizer = new Atomizer(null, rules);
             expect(function() {
-                atomizer.addRules([{prefix: 'Bd'}]);
+                atomizer.addRules([{matcher: 'Bd'}]);
             }).to.throw();
         });
         it('adds a new rule to the atomizer instance and resets the syntax', function () {
             var atomizer = new Atomizer();
             var myRules = [{
                 type: 'pattern',
-                id: 'foo',
                 name: 'foo',
-                prefix: 'Foo',
-                properties: ['foo']
+                matcher: 'Foo',
+                styles: {
+                    'foo': '$0'
+                }
             }];
             atomizer.addRules(myRules);
 
@@ -69,10 +73,11 @@ describe('Atomizer()', function () {
         it('returns the same syntax if syntax has not changed', function () {
             var rules = [{
                 type: 'pattern',
-                id: 'border',
                 name: 'Border',
-                prefix: 'Bd',
-                properties: ['border']
+                matcher: 'Bd',
+                styles: {
+                    'border': '$0'
+                }
             }];
             var atomizer = new Atomizer(null, rules);
             var syntax = atomizer.getSyntax();
@@ -83,10 +88,11 @@ describe('Atomizer()', function () {
         it('returns a new syntax if syntax has changed', function () {
             var rules = [{
                 type: 'pattern',
-                id: 'border',
                 name: 'Border',
-                prefix: 'Bd',
-                properties: ['border']
+                matcher: 'Bd',
+                styles: {
+                    'border': '$0'
+                }
             }];
             var atomizer = new Atomizer(null, rules);
             var syntax = atomizer.getSyntax();
@@ -94,11 +100,35 @@ describe('Atomizer()', function () {
                 type: 'pattern',
                 id: 'foo',
                 name: 'Foo',
-                prefix: 'Foo',
-                properties: ['foo']
+                matcher: 'Foo',
+                styles: {
+                    'foo': '$0'
+                }
             }]);
             var result = atomizer.getSyntax();
             expect(syntax).to.not.equal(result);
+        });
+    });
+    describe('parseConfig()', function () {
+        it('returns the expected parsed tree given a config with no options', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                C: [{
+                    className: 'C($FOO)',
+                    declarations: {
+                        color: 'bar'
+                    }
+                }]
+            };
+            var result = atomizer.parseConfig({
+                custom: {
+                    '$FOO': 'bar'
+                },
+                classNames: [
+                    'C($FOO)'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
         });
     });
     describe('getConfig()', function () {
@@ -207,8 +237,8 @@ describe('Atomizer()', function () {
                 {
                     type: 'helper',
                     name: 'Foo',
-                    prefix: 'Foo',
-                    declaration: {
+                    matcher: 'Foo',
+                    styles: {
                         'param0': '$0',
                         'param1': '$1'
                     },
@@ -222,8 +252,8 @@ describe('Atomizer()', function () {
                 {
                     type: 'helper',
                     name: 'Bar',
-                    prefix: 'Bar',
-                    declaration: {
+                    matcher: 'Bar',
+                    styles: {
                         'bar': 'foo'
                     }
                 },
@@ -231,8 +261,8 @@ describe('Atomizer()', function () {
                 {
                     type: 'helper',
                     name: 'Baz',
-                    prefix: 'Baz',
-                    declaration: {
+                    matcher: 'Baz',
+                    styles: {
                         'baz': 'foo'
                     }
                 }
@@ -268,23 +298,6 @@ describe('Atomizer()', function () {
             ].join('\n');
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
-        });
-        it ('throws if helper class doesn\'t have a declaration', function () {
-            expect(function () {
-                // set rules here so if helper change, we don't fail the test
-                var atomizer = new Atomizer(null, [
-                    // empty
-                    {
-                        type: 'helper',
-                        name: 'Bar',
-                        prefix: 'Bar'
-                    }
-                ]);
-                var config = {
-                    classNames: ['Bar()']
-                };
-                atomizer.getCss(config);
-            }).to.throw();
         });
         it ('returns expected css value declared in custom', function () {
             var atomizer = new Atomizer();
@@ -351,31 +364,35 @@ describe('Atomizer()', function () {
                 {
                     type: 'pattern',
                     name: 'Display',
-                    prefix: 'D',
-                    properties: ['display'],
-                    rules: [
-                        {suffix: 'n', values: ['none']}
-                    ]
+                    matcher: 'D',
+                    styles: {
+                         'display': '$0'
+                    },
+                    arguments: [{
+                        'n': 'none'
+                    }]
                 },
                 {
                     type: 'pattern',
                     name: 'Padding (all edges)',
-                    prefix: 'P',
-                    properties: ['padding']
+                    matcher: 'P',
+                    styles: {
+                        'padding': '$0'
+                    }
                 },
                 {
                     type: 'helper',
                     name: 'Foo',
-                    prefix: 'Foo',
-                    declaration: {
+                    matcher: 'Foo',
+                    styles: {
                         foo: 'bar'
                     }
                 },
                 {
                     type: 'helper',
                     name: 'Bar',
-                    prefix: 'Bar',
-                    declaration: {
+                    matcher: 'Bar',
+                    styles: {
                         bar: '$0'
                     }
                 }
@@ -435,23 +452,27 @@ describe('Atomizer()', function () {
                 {
                     type: 'pattern',
                     name: 'color',
-                    prefix: 'C',
-                    properties: ['color']
+                    matcher: 'C',
+                    styles: {
+                        'color': '$0'
+                    }
                 },
                 {
                     type: 'pattern',
                     name: 'display',
-                    prefix: 'D',
-                    properties: ['display'],
-                    rules: [
-                        {suffix: 'n', values: ['none']}
-                    ]
+                    matcher: 'D',
+                    styles: {
+                        'display': '$0'
+                    },
+                    arguments: [{
+                        'n': 'none'
+                    }]
                 },
                 {
                     type: 'helper',
                     name: 'foo',
-                    prefix: 'Foo',
-                    declaration: {
+                    matcher: 'Foo',
+                    styles: {
                         'font-weight': 'bold'
                     }
                 }
