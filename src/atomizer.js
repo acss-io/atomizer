@@ -139,8 +139,11 @@ function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
 Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
     rules.forEach(function (rule) {
-        if (this.rulesMap.hasOwnProperty(rule.matcher)) {
-            throw new Error('Rule ' + rule.matcher + ' already exists');
+        if (
+            (rule.type === 'pattern' && this.rulesMap.hasOwnProperty(rule.matcher)) ||
+            (rule.type === 'helper' && this.helpersMap.hasOwnProperty(rule.matcher))
+        ) {
+            throw new Error('Rule ' + rule.matcher + ' already exists.');
         }
 
         // push new rule to this.rules and update rulesMap
@@ -183,7 +186,7 @@ Atomizer.prototype.getSyntax = function ()/*:string*/ {
         }).join('|');
 
         // helpers regex
-        if (helpersKeys.length) {            
+        if (helpersKeys.length) {
             helperRegex = [
                 // matcher
                 '(?<helper>',
@@ -216,7 +219,7 @@ Atomizer.prototype.getSyntax = function ()/*:string*/ {
         }
 
         if (helpersKeys.length && rulesKeys.length) {
-            mainSyntax = ['(?:', helperRegex , '|', propRegex,')'].join('');
+            mainSyntax = ['(?:', propRegex, '|', helperRegex,')'].join('');
         }
 
         syntax = [

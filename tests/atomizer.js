@@ -49,7 +49,7 @@ describe('Atomizer()', function () {
             }];
             var atomizer = new Atomizer(null, rules);
             expect(function() {
-                atomizer.addRules([{matcher: 'Bd'}]);
+                atomizer.addRules([{type: 'pattern', matcher: 'Bd'}]);
             }).to.throw();
         });
         it('adds a new rule to the atomizer instance and resets the syntax', function () {
