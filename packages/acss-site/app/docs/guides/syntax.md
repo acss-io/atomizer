@@ -337,7 +337,7 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
             <td class="Va-t P(10px)">This is mapped to `margin-right: 0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bgp(start,t)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bgp(start_t)`</th>
             <td class="Va-t P(10px)">This is mapped to `background-position:left top` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
