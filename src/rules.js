@@ -1,15 +1,39 @@
 /**
- * These are the main atomic css rules.
+ * ----------------------------------------------------
+ * Copyright (c) 2015, Yahoo Inc. All rights reserved.
+ * Copyrights licensed under the New BSD License.
+ * See the accompanying LICENSE file for terms.
+ * ----------------------------------------------------
+ *
+ * These are the main Atomic CSS rules.
  * By default, all rules accept "inh" ("inherit").
+ *
  * Please submit a PR if you find any missing rule.
+ *
  * Most abbreviations are based on Emmet:
  * http://docs.emmet.io/cheat-sheet/
  *
  * Read more about abbreviations here:
  * http://acss.io/guides/syntax.html
- */
+ *
+ * NOTES:
+ *
+ * Depending on the selector you use to namespace these rules (id versus class),
+ * their style weight will be either 0,1,1,0 or 0,0,2,0. We suggest using an id
+ * for the extra specificity.
+ *
+ * - look for top/right/bottom/left rules in the "offset" section.
+ * - we do *not* use left and right as keywords for class names, instead we use
+ *   "start" and "end".
+ * - Rules is written as an array because ORDER is important for the CSS generation.
+ **/
 
 module.exports = [
+    /**
+    ==================================================================
+    ANIMATION
+    ==================================================================
+    */
     {
         "type": "pattern",
         "id": "animation",
@@ -143,6 +167,12 @@ module.exports = [
             }
         ]
     },
+    /**
+    ==================================================================
+    BORDERS
+    ==================================================================
+    */
+    // all edges
     {
         "type": "pattern",
         "name": "Border",
@@ -152,6 +182,7 @@ module.exports = [
             "border": "$0"
         }
     },
+    // top
     {
         "type": "pattern",
         "name": "Border top",
@@ -161,6 +192,7 @@ module.exports = [
             "border-top": "$0"
         }
     },
+    // end
     {
         "type": "pattern",
         "name": "Border end",
@@ -170,6 +202,7 @@ module.exports = [
             "border-__END__": "$0"
         }
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Border bottom",
@@ -179,6 +212,7 @@ module.exports = [
             "border-bottom": "$0"
         }
     },
+    // start
     {
         "type": "pattern",
         "name": "Border start",
@@ -188,6 +222,7 @@ module.exports = [
             "border-__START__": "$0"
         }
     },
+    // X axis
     {
         "type": "pattern",
         "name": "Border X",
@@ -198,6 +233,7 @@ module.exports = [
             "border-__END__": "$0"
         }
     },
+    // Y axis
     {
         "type": "pattern",
         "name": "Border Y",
@@ -208,6 +244,12 @@ module.exports = [
             "border-bottom": "$0"
         }
     },
+    /**
+    ==================================================================
+    BORDER COLOR
+    ==================================================================
+    */
+    // all edges
     {
         "type": "pattern",
         "name": "Border color",
@@ -221,6 +263,7 @@ module.exports = [
             "cc": "currentColor"
         }]
     },
+    // top
     {
         "type": "pattern",
         "name": "Border top color",
@@ -234,6 +277,7 @@ module.exports = [
             "cc": "currentColor"
         }]
     },
+    // end
     {
         "type": "pattern",
         "name": "Border end color",
@@ -247,6 +291,7 @@ module.exports = [
             "cc": "currentColor"
         }]
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Border bottom color",
@@ -260,6 +305,7 @@ module.exports = [
             "cc": "currentColor"
         }]
     },
+    // start
     {
         "type": "pattern",
         "name": "Border start color",
@@ -273,6 +319,12 @@ module.exports = [
             "cc": "currentColor"
         }]
     },
+    /**
+    ==================================================================
+    BORDER STYLE
+    ==================================================================
+    */
+    // all edges
     {
         "type": "pattern",
         "name": "Border style",
@@ -294,6 +346,7 @@ module.exports = [
             "s": "solid"
         }]
     },
+    // top
     {
         "type": "pattern",
         "name": "Border top style",
@@ -315,6 +368,7 @@ module.exports = [
             "s": "solid"
         }]
     },
+    // end
     {
         "type": "pattern",
         "name": "Border end style",
@@ -336,6 +390,7 @@ module.exports = [
             "s": "solid"
         }]
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Border bottom style",
@@ -357,6 +412,7 @@ module.exports = [
             "s": "solid"
         }]
     },
+    // start
     {
         "type": "pattern",
         "name": "Border start style",
@@ -378,6 +434,12 @@ module.exports = [
             "s": "solid"
         }]
     },
+    /**
+    ==================================================================
+    BORDER WIDTH
+    ==================================================================
+    */
+    // all edges
     {
         "type": "pattern",
         "name": "Border width",
@@ -392,6 +454,7 @@ module.exports = [
             "th": "thick"
         }]
     },
+    // top
     {
         "type": "pattern",
         "name": "Border top width",
@@ -406,6 +469,7 @@ module.exports = [
             "th": "thick"
         }]
     },
+    // end
     {
         "type": "pattern",
         "name": "Border end width",
@@ -420,6 +484,7 @@ module.exports = [
             "th": "thick"
         }]
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Border bottom width",
@@ -434,6 +499,7 @@ module.exports = [
             "th": "thick"
         }]
     },
+    // start
     {
         "type": "pattern",
         "name": "Border start width",
@@ -448,6 +514,12 @@ module.exports = [
             "th": "thick"
         }]
     },
+    /**
+    ==================================================================
+    BORDER RADIUS
+    ==================================================================
+    */
+    // all corners
     {
         "type": "pattern",
         "name": "Border radius",
@@ -457,6 +529,7 @@ module.exports = [
             "border-radius": "$0"
         }
     },
+    // top-right
     {
         "type": "pattern",
         "name": "Border radius top right",
@@ -466,6 +539,7 @@ module.exports = [
             "border-top-__END__-radius": "$0"
         }
     },
+    // bottom-right
     {
         "type": "pattern",
         "name": "Border radius bottom right",
@@ -475,6 +549,7 @@ module.exports = [
             "border-bottom-__END__-radius": "$0"
         }
     },
+    // bottom-left
     {
         "type": "pattern",
         "name": "Border radius bottom left",
@@ -484,6 +559,7 @@ module.exports = [
             "border-bottom-__START__-radius": "$0"
         }
     },
+    // top-left
     {
         "type": "pattern",
         "name": "Border radius top left",
@@ -493,6 +569,12 @@ module.exports = [
             "border-top-__START__-radius": "$0"
         }
     },
+    /**
+    ==================================================================
+    BACKGROUNDS
+    ==================================================================
+    */
+    // background
     {
         "type": "pattern",
         "name": "Background",
@@ -506,6 +588,7 @@ module.exports = [
             "t": "transparent"
         }]
     },
+    // background-image
     {
         "type": "pattern",
         "name": "Background image",
@@ -518,6 +601,7 @@ module.exports = [
             "n": "none"
         }]
     },
+    // background-color
     {
         "type": "pattern",
         "name": "Background color",
@@ -530,6 +614,7 @@ module.exports = [
             "t": "transparent"
         }]
     },
+    // background-clip
     {
         "type": "pattern",
         "name": "Background clip",
@@ -544,6 +629,7 @@ module.exports = [
             "pb": "padding-box"
         }]
     },
+    // background-origin
     {
         "type": "pattern",
         "name": "Background origin",
@@ -558,6 +644,7 @@ module.exports = [
             "pb": "padding-box"
         }]
     },
+    // background-size
     {
         "type": "pattern",
         "name": "Background size",
@@ -572,6 +659,7 @@ module.exports = [
             "cv": "cover"
         }]
     },
+    // background-attachment
     {
         "type": "pattern",
         "name": "Background attachment",
@@ -586,6 +674,7 @@ module.exports = [
             "s": "scroll"
         }]
     },
+    // background-position
     {
         "type": "pattern",
         "name": "Background position",
@@ -604,6 +693,7 @@ module.exports = [
             "c": "center"
         }]
     },
+    // background-position-x
     {
         "type": "pattern",
         "name": "Background position (X axis)",
@@ -618,6 +708,7 @@ module.exports = [
             "c": "50%"
         }]
     },
+    // background-position-y
     {
         "type": "pattern",
         "name": "Background position (Y axis)",
@@ -632,6 +723,7 @@ module.exports = [
             "c": "50%"
         }]
     },
+    // background-repeat
     {
         "type": "pattern",
         "name": "Background repeat",
@@ -649,6 +741,11 @@ module.exports = [
             "ro": "round"
         }]
     },
+    /**
+    ==================================================================
+    BORDER-COLLAPSE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Border collapse",
@@ -662,6 +759,11 @@ module.exports = [
             "s": "separate"
         }]
     },
+    /**
+    ==================================================================
+    BOX-SIZING
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Box sizing",
@@ -676,6 +778,11 @@ module.exports = [
             "bb": "border-box"
         }]
     },
+    /**
+    ==================================================================
+    BOX-SHADOW
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Box shadow",
@@ -688,6 +795,11 @@ module.exports = [
             "n": "none"
         }]
     },
+    /**
+    ==================================================================
+    CLEAR
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Clear",
@@ -703,6 +815,11 @@ module.exports = [
             "end": "__END__"
         }]
     },
+    /**
+    ==================================================================
+    COLOR
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Color",
@@ -716,6 +833,11 @@ module.exports = [
             "cc": "currentColor"
         }]
     },
+    /**
+    ==================================================================
+    CURSOR
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Cursor",
@@ -761,6 +883,11 @@ module.exports = [
             "zo": "zoom-out"
         }]
     },
+    /**
+    ==================================================================
+    DISPLAY
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Display",
@@ -789,6 +916,131 @@ module.exports = [
             "tbrg": "table-row-group"
         }]
     },
+    /**
+    ==================================================================
+    FILTER FUNCTIONS
+    http://www.w3.org/TR/filter-effects-1/#FilterProperty
+    ==================================================================
+    */
+    // filter for custom
+    {
+        "type": "pattern",
+        "name": "Filter",
+        "matcher": "Fil",
+        "allowParamToValue": false,
+        "styles": {
+            "filter": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
+    },
+    // blur
+    {
+        "type": "pattern",
+        "name": "Blur (filter)",
+        "matcher": "Blur",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "blur($0)"
+        }
+    },
+    // brightness
+    {
+        "type": "pattern",
+        "name": "Brightness (filter)",
+        "matcher": "Brightness",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "brightness($0)"
+        }
+    },
+    // contrast
+    {
+        "type": "pattern",
+        "name": "Contrast (filter)",
+        "matcher": "Contrast",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "contrast($0)"
+        }
+    },
+    // contrast (only custom)
+    {
+        "type": "pattern",
+        "name": "Drop shadow (filter)",
+        "matcher": "Dropshadow",
+        "allowParamToValue": false,
+        "styles": {
+            "filter": "drop-shadow($0)"
+        }
+    },
+    // grayscale
+    {
+        "type": "pattern",
+        "name": "Grayscale (filter)",
+        "matcher": "Grayscale",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "grayscale($0)"
+        }
+    },
+    // hue-rotate
+    {
+        "type": "pattern",
+        "name": "Hue Rotate (filter)",
+        "matcher": "HueRotate",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "hue-rotate($0)"
+        }
+    },
+    // invert
+    {
+        "type": "pattern",
+        "name": "Invert (filter)",
+        "matcher": "Invert",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "invert($0)"
+        }
+    },
+    // opacity
+    {
+        "type": "pattern",
+        "name": "Opacity (filter)",
+        "matcher": "Opacity",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "opacity($0)"
+        }
+    },
+    // saturate
+    {
+        "type": "pattern",
+        "name": "Saturate (filter)",
+        "matcher": "Saturate",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "saturate($0)"
+        }
+    },
+    // sepia
+    {
+        "type": "pattern",
+        "name": "Sepia (filter)",
+        "matcher": "Sepia",
+        "allowParamToValue": true,
+        "styles": {
+            "filter": "sepia($0)"
+        }
+    },
+    /**
+    ==================================================================
+    FLEX RELATED PROPS
+    ==================================================================
+    */
+    // flex shorthand
     {
         "type": "pattern",
         "name": "Flex",
@@ -802,6 +1054,7 @@ module.exports = [
             "n": "none"
         }]
     },
+    // flex-grow
     {
         "type": "pattern",
         "name": "Flex grow",
@@ -811,6 +1064,7 @@ module.exports = [
             "flex-grow": "$0"
         }
     },
+    // flex-shrink
     {
         "type": "pattern",
         "name": "Flex",
@@ -820,6 +1074,7 @@ module.exports = [
             "flex-shrink": "$0"
         }
     },
+    // flex-basis
     {
         "type": "pattern",
         "name": "Flex",
@@ -833,6 +1088,9 @@ module.exports = [
             "n": "none"
         }]
     },
+    // align-self (previously flex-align)
+    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
+    // Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
     {
         "type": "pattern",
         "name": "Align self",
@@ -850,6 +1108,7 @@ module.exports = [
             "st": "stretch"
         }]
     },
+    // flex-direction
     {
         "type": "pattern",
         "name": "Flex direction",
@@ -865,6 +1124,7 @@ module.exports = [
             "cr": "column-reverse"
         }]
     },
+    // flex-flow
     {
         "type": "pattern",
         "name": "Flex flow",
@@ -883,6 +1143,9 @@ module.exports = [
             "wr": "wrap-reverse"
         }]
     },
+    // align-items (previously flex-item-align)
+    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
+    // Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
     {
         "type": "pattern",
         "name": "Align items",
@@ -899,6 +1162,10 @@ module.exports = [
             "st": "stretch"
         }]
     },
+    // align-content (previously flex-line-pack)
+    // Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
+    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-line-pack
+    // Latest version: http://www.w3.org/TR/css3-flexbox/#align-content-property
     {
         "type": "pattern",
         "name": "Align content",
@@ -916,6 +1183,9 @@ module.exports = [
             "st": "stretch"
         }]
     },
+    // order (previously flex-order)
+    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-order
+    // Latest version: http://www.w3.org/TR/css3-flexbox/#order-property
     {
         "type": "pattern",
         "name": "Order",
@@ -925,6 +1195,9 @@ module.exports = [
             "order": "$0"
         }
     },
+    // justify-content (previously flex-pack)
+    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-pack
+    // Latest version: http://www.w3.org/TR/css3-flexbox/#justify-content-property
     {
         "type": "pattern",
         "name": "Justify content",
@@ -941,6 +1214,7 @@ module.exports = [
             "sa": "space-around"
         }]
     },
+    // flex-wrap
     {
         "type": "pattern",
         "name": "Flex-wrap",
@@ -955,6 +1229,11 @@ module.exports = [
             "wr": "wrap-reverse"
         }]
     },
+    /**
+    ==================================================================
+    FLOAT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Float",
@@ -969,6 +1248,11 @@ module.exports = [
             "end": "__END__"
         }]
     },
+    /**
+    ==================================================================
+    FONT FAMILY param matches generic font-family
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Font family",
@@ -985,6 +1269,11 @@ module.exports = [
             "ss": "Helvetica, Arial, sans-serif"
         }]
     },
+    /**
+    ==================================================================
+    FONT-WEIGHT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Font weight",
@@ -1010,10 +1299,10 @@ module.exports = [
         }]
     },
     /**
-     ==================================================================
-     FONT-SIZE
-     ==================================================================
-     */
+    ==================================================================
+    FONT-SIZE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Font size",
@@ -1063,6 +1352,11 @@ module.exports = [
             "sc": "small-caps"
         }]
     },
+    /**
+    ==================================================================
+    HEIGHT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Height",
@@ -1082,6 +1376,11 @@ module.exports = [
             "minc": "min-content"
         }]
     },
+    /**
+    ==================================================================
+    HYPHENS
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Hyphens",
@@ -1096,6 +1395,11 @@ module.exports = [
             "m": "manual"
         }]
     },
+    /**
+    ==================================================================
+    LETTER-SPACING
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Letter spacing",
@@ -1108,6 +1412,11 @@ module.exports = [
             "n": "normal"
         }]
     },
+    /**
+    ==================================================================
+    LIST-STYLE-TYPE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "List style type",
@@ -1134,6 +1443,11 @@ module.exports = [
             "ua": "upper-alpha"
         }]
     },
+    /**
+    ==================================================================
+    LIST-STYLE-IMAGE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "List style image",
@@ -1146,6 +1460,11 @@ module.exports = [
             "n": "none"
         }]
     },
+    /**
+    ==================================================================
+    LINE-HEIGHT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Line height",
@@ -1158,6 +1477,12 @@ module.exports = [
             "n": "normal"
         }]
     },
+    /**
+    ==================================================================
+    MARGINS
+    ==================================================================
+    */
+    // all edges
     {
         "type": "pattern",
         "name": "Margin (all edges)",
@@ -1171,6 +1496,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // top
     {
         "type": "pattern",
         "name": "Margin top",
@@ -1184,6 +1510,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // end
     {
         "type": "pattern",
         "name": "Margin end",
@@ -1197,6 +1524,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Margin bottom",
@@ -1210,6 +1538,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // start
     {
         "type": "pattern",
         "name": "Margin start",
@@ -1223,6 +1552,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // X axis
     {
         "type": "pattern",
         "name": "Margin (X axis)",
@@ -1237,6 +1567,7 @@ module.exports = [
             "a": "auto",
         }]
     },
+    // Y axis
     {
         "type": "pattern",
         "name": "Margin (Y axis)",
@@ -1251,6 +1582,11 @@ module.exports = [
             "a": "auto"
         }]
     },
+    /**
+    ==================================================================
+    MAX-HEIGHT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Max height",
@@ -1267,6 +1603,11 @@ module.exports = [
             "fc": "fit-content"
         }]
     },
+    /**
+    ==================================================================
+    MAX-WIDTH
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Max width",
@@ -1283,6 +1624,11 @@ module.exports = [
             "minc": "min-content"
         }]
     },
+    /**
+    ==================================================================
+    MIN-HEIGHT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Min height",
@@ -1299,6 +1645,11 @@ module.exports = [
             "minc": "min-content"
         }]
     },
+    /**
+    ==================================================================
+    MIN-WIDTH
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Min width",
@@ -1315,6 +1666,11 @@ module.exports = [
             "minc": "min-content"
         }]
     },
+    /**
+    ==================================================================
+    OUTLINE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Outline",
@@ -1328,6 +1684,12 @@ module.exports = [
             "n": "none"
         }]
     },
+    /**
+    ==================================================================
+    OFFSETS
+    ==================================================================
+    */
+    // top
     {
         "type": "pattern",
         "name": "Top",
@@ -1340,6 +1702,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // end
     {
         "type": "pattern",
         "name": "End",
@@ -1352,6 +1715,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Bottom",
@@ -1364,6 +1728,7 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // start
     {
         "type": "pattern",
         "name": "Start",
@@ -1376,6 +1741,11 @@ module.exports = [
             "a": "auto"
         }]
     },
+    /**
+    ==================================================================
+    OPACITY
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Opacity",
@@ -1389,6 +1759,11 @@ module.exports = [
             "1": "1"
         }]
     },
+    /**
+    ==================================================================
+    OVERFLOW
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Overflow",
@@ -1404,6 +1779,11 @@ module.exports = [
             "v": "visible"
         }]
     },
+    /**
+    ==================================================================
+    OVERFLOW-X
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Overflow (X axis)",
@@ -1419,6 +1799,11 @@ module.exports = [
             "v": "visible"
         }]
     },
+    /**
+    ==================================================================
+    OVERFLOW-Y
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Overflow (Y axis)",
@@ -1434,6 +1819,11 @@ module.exports = [
             "v": "visible"
         }]
     },
+    /**
+    ==================================================================
+    OVERFLOW-SCROLLING (-webkit-)
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Overflow scrolling",
@@ -1447,6 +1837,12 @@ module.exports = [
             "touch": "touch"
         }]
     },
+    /**
+    ==================================================================
+    PADDING
+    ==================================================================
+    */
+    // all edges
     {
         "type": "pattern",
         "name": "Padding (all edges)",
@@ -1456,6 +1852,7 @@ module.exports = [
             "padding": "$0"
         }
     },
+    // top
     {
         "type": "pattern",
         "name": "Padding top",
@@ -1465,6 +1862,7 @@ module.exports = [
             "padding-top": "$0"
         }
     },
+    // end
     {
         "type": "pattern",
         "name": "Padding end",
@@ -1474,6 +1872,7 @@ module.exports = [
             "padding-__END__": "$0"
         }
     },
+    // bottom
     {
         "type": "pattern",
         "name": "Padding bottom",
@@ -1483,6 +1882,7 @@ module.exports = [
             "padding-bottom": "$0"
         }
     },
+    // start
     {
         "type": "pattern",
         "name": "Padding start",
@@ -1492,6 +1892,7 @@ module.exports = [
             "padding-__START__": "$0"
         }
     },
+    // X axis
     {
         "type": "pattern",
         "name": "Padding (X axis)",
@@ -1502,6 +1903,7 @@ module.exports = [
             "padding-__END__": "$0"
         }
     },
+    // Y axis
     {
         "type": "pattern",
         "name": "Padding (Y axis)",
@@ -1512,6 +1914,11 @@ module.exports = [
             "padding-bottom": "$0"
         }
     },
+    /**
+    ==================================================================
+    POINTER-EVENTS
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Pointer events",
@@ -1533,6 +1940,11 @@ module.exports = [
             "vs": "visibleStroke"
         }]
     },
+    /**
+    ==================================================================
+    POSITION
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Position",
@@ -1549,6 +1961,11 @@ module.exports = [
             "st": "sticky"
         }]
     },
+    /**
+    ==================================================================
+    TABLE-LAYOUT (checked)
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Table layout",
@@ -1562,6 +1979,11 @@ module.exports = [
             "f": "fixed"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-ALIGN
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text align",
@@ -1580,6 +2002,11 @@ module.exports = [
             "start": "__START__"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-ALIGN-LAST
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text align last",
@@ -1598,6 +2025,11 @@ module.exports = [
             "start": "__START__"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-DECORATION
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text decoration",
@@ -1613,6 +2045,11 @@ module.exports = [
             "u": "underline"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-INDENT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text indent",
@@ -1622,6 +2059,11 @@ module.exports = [
             "text-indent": "$0"
         }
     },
+    /**
+    ==================================================================
+    TEXT-OVERFLOW
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text overflow",
@@ -1635,6 +2077,11 @@ module.exports = [
             "e": "ellipsis"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-RENDERING
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text rendering",
@@ -1650,6 +2097,12 @@ module.exports = [
             "gp": "geometricPrecision"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-REPLACE
+    http://www.w3.org/TR/2007/WD-css3-gcpm-20070504/
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text replace",
@@ -1662,6 +2115,11 @@ module.exports = [
             "n": "none"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-TRANSFORM
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text transform",
@@ -1677,6 +2135,11 @@ module.exports = [
             "l": "lowercase"
         }]
     },
+    /**
+    ==================================================================
+    TEXT-SHADOW
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Text shadow",
@@ -1689,9 +2152,15 @@ module.exports = [
             "n": "none"
         }]
     },
+    /**
+    ==================================================================
+    TRANSFORM
+    http://www.w3.org/TR/css3-3d-transforms/
+    ==================================================================
+    */
+    // transform for custom
     {
         "type": "pattern",
-        "id": "transform",
         "name": "Transform",
         "matcher": "Trf",
         "allowParamToValue": false,
@@ -1699,6 +2168,289 @@ module.exports = [
             "transform": "$0"
         }
     },
+    // transform-origin
+    {
+        "type": "pattern",
+        "name": "Transform origin",
+        "matcher": "Trfo",
+        "allowParamToValue": true,
+        "styles": {
+            "transform-origin": "$0 $1"
+        },
+        "arguments": [{
+            "t": "top",
+            "end": "__END__",
+            "bottom": "bottom",
+            "start": "__START__",
+            "c": "center"
+        },{
+            "t": "top",
+            "end": "__END__",
+            "bottom": "bottom",
+            "start": "__START__",
+            "c": "center"
+        }]
+    },
+    // transform-style
+    {
+        "type": "pattern",
+        "name": "Transform style",
+        "matcher": "Trfs",
+        "allowParamToValue": false,
+        "styles": {
+            "transform-style": "$0"
+        },
+        "arguments": [{
+            "f": "flat",
+            "p": "preserve-3d"
+        }]
+    },
+    // perspective
+    {
+        "type": "pattern",
+        "name": "Perspective",
+        "matcher": "Prs",
+        "allowParamToValue": true,
+        "styles": {
+            "perspective": "$0"
+        },
+        "arguments": [{
+            "n": "none"
+        }]
+    },
+    // perspective-origin
+    {
+        "type": "pattern",
+        "name": "Perspective origin",
+        "matcher": "Prso",
+        "allowParamToValue": true,
+        "styles": {
+            "perspective-origin": "$0 $1"
+        },
+        "arguments": [{
+            "t": "top",
+            "end": "__END__",
+            "bottom": "bottom",
+            "start": "__START__",
+            "c": "center"
+        },{
+            "t": "top",
+            "end": "__END__",
+            "bottom": "bottom",
+            "start": "__START__",
+            "c": "center"
+        }]
+    },
+    // backface-visibility
+    {
+        "type": "pattern",
+        "name": "Backface visibility",
+        "matcher": "Bfv",
+        "allowParamToValue": false,
+        "styles": {
+            "backface-visibility": "$0"
+        },
+        "arguments": [{
+            "h": "hidden",
+            "v": "visible"
+        }]
+    },
+    // matrix
+    {
+        "type": "pattern",
+        "name": "Matrix (transform)",
+        "matcher": "Matrix",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "matrix($0)"
+        }
+    },
+    // matrix3d
+    {
+        "type": "pattern",
+        "name": "Matrix 3d (transform)",
+        "matcher": "Matrix3d",
+        "allowParamToValue": false,
+        "styles": {
+            "transform": "matrix($0)"
+        }
+    },
+    // rotate
+    {
+        "type": "pattern",
+        "name": "Rotate (transform)",
+        "matcher": "Rotate",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "rotate($0)"
+        }
+    },
+    // rotate3d
+    {
+        "type": "pattern",
+        "name": "Rotate 3d (transform)",
+        "matcher": "Rotate3d",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "rotate3d($0,$1,$2,$3)"
+        }
+    },
+    // rotateX
+    {
+        "type": "pattern",
+        "name": "RotateX (transform)",
+        "matcher": "RotateX",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "rotateX($0)"
+        }
+    },
+    // rotateY
+    {
+        "type": "pattern",
+        "name": "RotateY (transform)",
+        "matcher": "RotateY",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "rotateY($0)"
+        }
+    },
+    // rotateZ
+    {
+        "type": "pattern",
+        "name": "RotateZ (transform)",
+        "matcher": "RotateZ",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "rotateZ($0)"
+        }
+    },
+    // scale
+    {
+        "type": "pattern",
+        "name": "Scale (transform)",
+        "matcher": "Scale",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "scale($0,$1)"
+        }
+    },
+    // scale3d
+    {
+        "type": "pattern",
+        "name": "Scale 3d (transform)",
+        "matcher": "Scale3d",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "scale3d($0,$1,$2)"
+        }
+    },
+    // scaleX
+    {
+        "type": "pattern",
+        "name": "ScaleX (transform)",
+        "matcher": "ScaleX",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "scaleX($0)"
+        }
+    },
+    // scaleY
+    {
+        "type": "pattern",
+        "name": "ScaleY (transform)",
+        "matcher": "ScaleY",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "scaleY($0)"
+        }
+    },
+    // skew
+    {
+        "type": "pattern",
+        "name": "Skew (transform)",
+        "matcher": "Skew",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "skew($0,$1)"
+        }
+    },
+    // skewX
+    {
+        "type": "pattern",
+        "name": "SkewX (transform)",
+        "matcher": "SkewX",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "skewX($0)"
+        }
+    },
+    // skewY
+    {
+        "type": "pattern",
+        "name": "SkewY (transform)",
+        "matcher": "SkewY",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "skewY($0)"
+        }
+    },
+    // translate
+    {
+        "type": "pattern",
+        "name": "Translate (transform)",
+        "matcher": "Translate",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "translate($0,$1)"
+        }
+    },
+    // translate3d
+    {
+        "type": "pattern",
+        "name": "Translate 3d (transform)",
+        "matcher": "Translate3d",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "translate3d($0,$1,$2)"
+        }
+    },
+    // translateX
+    {
+        "type": "pattern",
+        "name": "Translate X (transform)",
+        "matcher": "TranslateX",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "translateX($0)"
+        }
+    },
+    // translateY
+    {
+        "type": "pattern",
+        "name": "Translate Y (transform)",
+        "matcher": "TranslateY",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "translateY($0)"
+        }
+    },
+    // translateZ
+    {
+        "type": "pattern",
+        "name": "Translate Z (transform)",
+        "matcher": "TranslateZ",
+        "allowParamToValue": true,
+        "styles": {
+            "transform": "translateZ($0)"
+        }
+    },
+    /**
+    ==================================================================
+    TRANSITION
+    ==================================================================
+    */
+    // transition shorthand
     {
         "type": "pattern",
         "name": "Transition",
@@ -1708,6 +2460,7 @@ module.exports = [
             "transition": "$0"
         }
     },
+    // transition-delay
     {
         "type": "pattern",
         "name": "Transition delay",
@@ -1720,6 +2473,7 @@ module.exports = [
             "i": "initial"
         }]
     },
+    // transition-duration
     {
         "type": "pattern",
         "name": "Transition duration",
@@ -1729,6 +2483,7 @@ module.exports = [
             "transition-duration": "$0"
         }
     },
+    // transition-property
     {
         "type": "pattern",
         "name": "Transition property",
@@ -1741,6 +2496,7 @@ module.exports = [
             "a": "all"
         }]
     },
+    // transition-timing-function
     {
         "type": "pattern",
         "name": "Transition timing function",
@@ -1759,6 +2515,11 @@ module.exports = [
             "se": "step-end"
         }]
     },
+    /**
+    ==================================================================
+    USER-SELECT
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "User select",
@@ -1776,6 +2537,11 @@ module.exports = [
             "to": "toggle"
         }]
     },
+    /**
+    ==================================================================
+    VERTICAL-ALIGN
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Vertical align",
@@ -1795,6 +2561,11 @@ module.exports = [
             "tt": "text-top"
         }]
     },
+    /**
+    ==================================================================
+    VISIBILITY
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Visibility",
@@ -1809,6 +2580,11 @@ module.exports = [
             "c": "collapse"
         }]
     },
+    /**
+    ==================================================================
+    WHITE-SPACE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "White space",
@@ -1825,6 +2601,11 @@ module.exports = [
             "pl": "pre-line"
         }]
     },
+    /**
+    ==================================================================
+    WHITE-SPACE-COLLAPSE
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "White space collapse",
@@ -1841,6 +2622,11 @@ module.exports = [
             "ba": "break-all"
         }]
     },
+    /**
+    ==================================================================
+    WIDTH
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Width",
@@ -1860,6 +2646,11 @@ module.exports = [
             "fc": "fit-content"
         }]
     },
+    /**
+    ==================================================================
+    WORD-BREAK
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Word break",
@@ -1874,6 +2665,11 @@ module.exports = [
             "n": "normal"
         }]
     },
+    /**
+    ==================================================================
+    WORD-WRAP (not part of the spec)
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Word wrap",
@@ -1887,6 +2683,11 @@ module.exports = [
             "n": "normal"
         }]
     },
+    /**
+    ==================================================================
+    Z-INDEX
+    ==================================================================
+    */
     {
         "type": "pattern",
         "name": "Z index",
