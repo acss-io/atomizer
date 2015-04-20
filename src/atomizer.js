@@ -457,9 +457,11 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     // plug IE hacks for know properties
                     if (options.ie) {
                         // block formatting context on old IE
+                        /* istanbul ignore else  */
                         if ((prop === 'display' && value === 'inline-block') || (prop === 'overflow' && value !== 'visible')) {
                             treeo.declarations.zoom = 1;
                         }
+                        /* istanbul ignore else  */
                         if (prop === 'display' && value === 'inline-block') {
                             treeo.declarations['*display'] = 'inline';
                         }
