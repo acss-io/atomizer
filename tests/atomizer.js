@@ -234,6 +234,33 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('returns expected css if IE option has been passed', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
+            };
+            var expected = [
+                '.D\\(ib\\) {',
+                '  display: inline-block;',
+                '  *display: inline;',
+                '}',
+                '.D\\(ib\\), .Ov\\(h\\), .Ov\\(s\\), .Ov\\(a\\) {',
+                '  zoom: 1;',
+                '}',
+                '.Ov\\(h\\) {',
+                '  overflow: hidden;',
+                '}',
+                '.Ov\\(s\\) {',
+                '  overflow: scroll;',
+                '}',
+                '.Ov\\(a\\) {',
+                '  overflow: auto;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config, {ie: true});
+            expect(result).to.equal(expected);
+        });
         it ('returns expected css of a helper class', function () {
             // set rules here so if helper change, we don't fail the test
             var atomizer = new Atomizer(null, [

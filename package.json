@@ -27,10 +27,10 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "object-assign": "^2.0.0",
-    "minimist": "^1.1.1",
     "chalk": "^1.0.0",
+    "commander": "^2.8.0",
     "lodash": "^3.6.0",
+    "object-assign": "^2.0.0",
     "xregexp": "^2.0.0"
   },
   "devDependencies": {

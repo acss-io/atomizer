@@ -454,6 +454,18 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         for (var prop in treeo.declarations) {
             if (values) {
                 values.forEach(function (value, index) {
+                    // plug IE hacks for know properties
+                    if (options.ie) {
+                        // block formatting context on old IE
+                        /* istanbul ignore else  */
+                        if ((prop === 'display' && value === 'inline-block') || (prop === 'overflow' && value !== 'visible')) {
+                            treeo.declarations.zoom = 1;
+                        }
+                        /* istanbul ignore else  */
+                        if (prop === 'display' && value === 'inline-block') {
+                            treeo.declarations['*display'] = 'inline';
+                        }
+                    }
                     if (value !== null) {
                         treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value);
                     } else {
@@ -523,7 +535,8 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         // morph: null,
         banner: '',
         namespace: null,
-        rtl: false
+        rtl: false,
+        ie: false
     }, options);
 
     // make sense of the config
