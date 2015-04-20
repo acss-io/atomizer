@@ -286,35 +286,6 @@ module.exports = [
     },
     /**
     ==================================================================
-    SpaceBetween
-    Warning: this styling may create line-height issue as we are resetting the
-    value to an "arbitrary" number.
-    Check: http://cssmojo.com/magic_boxes/#things-you-should-know-about
-    ==================================================================
-    */
-    {
-        "type": "helper",
-        "name": "SpaceBetween",
-        "matcher": "SpaceBetween",
-        "styles": {
-            "text-align": "justify",
-            "line-height": 0 /* kill extra white space below the container */
-        },
-        "rules": {
-            ".SpaceBetween:after": {
-                "content": "",
-                "display": "inline-block",
-                "width": "100%",
-                "vertical-align": "middle"
-            },
-            ".SpaceBetween > *": {
-                "display": "inline-block",
-                "vertical-align": "middle"
-            }
-        }
-    },
-    /**
-    ==================================================================
     StretchedBox
     Stretches a box inside its 'containing block'
     ==================================================================
