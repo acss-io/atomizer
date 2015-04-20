@@ -637,14 +637,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 };
 
 /**
- * plugs IE hacks to known rules that need hacks
- */
-Atomizer.plugHacks = function (jss/*:JSS*/)/*:JSS*/ {
-    console.log(jss);
-    return jss;
-};
-
-/**
  * get non abbreviated pseudo class string given abbreviated or non abbreviated form
  */
 Atomizer.getPseudo = function (pseudoName/*:string*/)/*:string*/ {
