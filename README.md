@@ -24,7 +24,20 @@ npm install atomizer -g
 ### CLI
 
 ```
-atomizer [-c|--config=<file>] [-o|--outfile=<file>] [-n namespace] [--rtl] [--help] [--verbose] [ [-R] files_to_parse ...]
+Usage: atomizer [options] [path]
+
+  Options:
+
+    -h, --help                          output usage information
+    -V, --version                       output the version number
+    -R, --recursive                     process all files recursively in the path.
+    -c, --config [file]                 source config file if any.
+    -o, --outfile [file]                destination config file.
+    -n, --namespace [namespace]         adds the given namespace to all generated Atomic CSS selectors.
+    -H, --helpersNamespace [namespace]  adds the given namespace to all helper selectors.
+    --rtl                               swaps `start` and `end` keyword replacements with `right` and `left`.
+    --ie                                adds old IE hacks to the output.
+    --verbose                           show additional log info (warnings).
 ```
 
 Example:
@@ -33,8 +46,6 @@ Example:
 atomizer -o atomic.css ./site/*.html
 atomizer -c config.js -R ./site/ > atomic.css
 atomizer -c config.js -n \#myrootclass > atomic.css
-
-
 ```
 
 ### API

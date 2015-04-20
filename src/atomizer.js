@@ -454,6 +454,16 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         for (var prop in treeo.declarations) {
             if (values) {
                 values.forEach(function (value, index) {
+                    // plug IE hacks for know properties
+                    if (options.ie) {
+                        // block formatting context on old IE
+                        if ((prop === 'display' && value === 'inline-block') || (prop === 'overflow' && value !== 'visible')) {
+                            treeo.declarations.zoom = 1;
+                        }
+                        if (prop === 'display' && value === 'inline-block') {
+                            treeo.declarations['*display'] = 'inline';
+                        }
+                    }
                     if (value !== null) {
                         treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value);
                     } else {
@@ -523,7 +533,8 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         // morph: null,
         banner: '',
         namespace: null,
-        rtl: false
+        rtl: false,
+        ie: false
     }, options);
 
     // make sense of the config
@@ -623,6 +634,14 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     content = Atomizer.replaceConstants(content, options.rtl);
 
     return content;
+};
+
+/**
+ * plugs IE hacks to known rules that need hacks
+ */
+Atomizer.plugHacks = function (jss/*:JSS*/)/*:JSS*/ {
+    console.log(jss);
+    return jss;
 };
 
 /**
