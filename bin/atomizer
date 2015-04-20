@@ -120,7 +120,7 @@ config = atomizer.getConfig(classnames, config);
 content = atomizer.getCss(config, options);
 
 // Output the CSS
-var outfile = program.o || program.outfile;
+var outfile = program.outfile;
 if (outfile) {
     fs.mkdir(path.dirname(outfile), function (err) {
         // Fail silently
