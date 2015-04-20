@@ -33,7 +33,7 @@ program
   .option('--verbose', 'show additional log info (warnings).')
   .parse(process.argv);
 
-if (!process.argv.slice(2).length) {
+if (process.argv.length <= 2) {
     program.outputHelp();
     return;
 }
