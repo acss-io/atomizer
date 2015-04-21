@@ -97,7 +97,6 @@ module.exports = function(grunt) {
                     }
                 ]
             },
-            // here we test both cases and also parsing the HTML files
             // Grunt task should warn about 'Bdb(1)' missing in config (found in parsing)
             customRulesets: {
                 options: {
@@ -111,6 +110,21 @@ module.exports = function(grunt) {
                 files: [
                     {
                         dest: 'tmp/customRuleset.css'
+                    }
+                ]
+            },
+            // grunt should add IE hacks if passed
+            ie: {
+                options: {
+                    namespace: '#atomic',
+                    ie: true,
+                    config: {
+                        classNames: ['D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
+                    }
+                },
+                files: [
+                    {
+                        dest: 'tmp/ie.css'
                     }
                 ]
             }

@@ -2,8 +2,8 @@ module.exports = [
     {
         type: 'helper',
         name: 'Foobar',
-        prefix: 'FooBar',
-        declaration: {
+        matcher: 'FooBar',
+        styles: {
             'display': 'block',
             'width': '300px',
             'height': '100px',

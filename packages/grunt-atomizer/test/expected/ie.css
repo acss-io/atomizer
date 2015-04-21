@@ -1,0 +1,16 @@
+#atomic .D\(ib\) {
+  display: inline-block;
+  *display: inline;
+}
+#atomic .D\(ib\), #atomic .Ov\(h\), #atomic .Ov\(s\), #atomic .Ov\(a\) {
+  zoom: 1;
+}
+#atomic .Ov\(h\) {
+  overflow: hidden;
+}
+#atomic .Ov\(s\) {
+  overflow: scroll;
+}
+#atomic .Ov\(a\) {
+  overflow: auto;
+}
