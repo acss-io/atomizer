@@ -78,6 +78,12 @@ module.exports = function (grunt) {
             }
         }
 
+        if (options.ie) {
+            if (grunt.util.kindOf(options.ie) !== 'boolean') {
+                grunt.fail.warn('`options.ie` must be a boolean.');
+            }
+        }
+
         var atomizer = new Atomizer({ verbose: (grunt.option.flags().indexOf('--verbose') > -1) });
 
         if (options.rules && options.rules.length > 0) {
