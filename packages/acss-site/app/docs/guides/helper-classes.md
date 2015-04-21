@@ -1,5 +1,7 @@
 # Helper classes
 
+These classes are tailored to help with common styling patterns. You can either use the helpers offered through Atomic or create your own set of helper classes.
+
 ## `Bd*` (Borders)
 
 Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> so to make styling via classes a bit less verbose, we have the following helpers that combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
@@ -16,13 +18,13 @@ Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="fo
 
 You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
 
-Example with the initial color (and `border-width` set to `1px`):
+Example with a initial border color (and `border-width` set to `1px`):
 
 ```html
-<p class="Bd P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(#0b0) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
-<p class="Bd P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(#0b0) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 Example with a custom color:
 
@@ -35,7 +37,8 @@ Example with a custom color:
 <p>We have chosen to set the default `width` of those helpers to be `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either</p>
 <ul class="ul-list">
     <li>use a granular approach, for example: `Bdw(5px) Bds(s) Bdc(#555)`</li>
-    <li>create a custom class, for example: `Bd(myCustomBorder)` via the config object.</li>
+    <li>create a custom class, for example: `Bd(myCustomBorder)` via the config object</li>
+    <li>use **the same helper classes** with [different values](helper-classes.htmlthe-special-case-of-border-)</li>
 </ul>
 
 <p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/yahoo/atomizer/blob/master/src/rules.js#L289).</p>
@@ -139,25 +142,6 @@ Example:
 
 The background of the wrapper shows which proves the box contains floats.
 
-## `SpaceBetween`
-
-Use the class `SpaceBetween` whenever you want to separate boxes from each other while allowing them to [wrap on the same side](http://cssmojo.com/magic_boxes/#things-you-should-know-about).
-
-Example:
-
-```html
-<div class="SpaceBetween">
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
-</div>
-```
-<div class="SpaceBetween">
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#ccc)">Box-1</div>
-    <div class="D(ib) W(300px) Ta(c) Mt(30px) P(10px) Bgc(#999)">Box-2</div>
-</div>
-
-<p class="noteBox info">You can resize the viewport to see how the boxes behave when there is not enough room for them to show side-by-side. You can also compare this styling with the one from the `Row` example above, where 2 boxes are floated in opposite direction.</p>
-
 ## `StretchedBox`
 
 Use the class `StretchedBox` to stretch a box inside its 'containing block' as this class is mapped to the following declarations:
@@ -174,11 +158,11 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ```html
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0b0)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc(#0b0) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0b0)"></div>
+    <div class="StretchedBox Bgc(#0b0) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 
 ## `Zoom`
@@ -188,5 +172,5 @@ Use the class `Zoom` if you support old IE and needs to [give a box a layout](ht
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. Unless one wants the initial value of `border-width` and `border-color` [\[↩\]](#footnote-1).</li>
+    <li>Unless one wants the initial value of `border-width` and `border-color` [\[↩\]](#footnote-1).</li>
 </ol>

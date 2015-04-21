@@ -101,7 +101,8 @@ abbr[title] {
 /**
  * Reset UA styling
  */
-b {
+b,
+strong {
     font-weight: normal;
 }
 
@@ -117,13 +118,17 @@ a em {
     color: #0280AE;
 }
 
+strong {
+    color: #000;
+}
+
 /**
  * Address inconsistent and variable font size in all browsers for small.
  * Address odd "em"-unit font size rendering in all browsers for pre..
  */
-pre,
+code,
 small {
-    font-size: 85%;
+    font-size: 14px;
 }
 
 /**

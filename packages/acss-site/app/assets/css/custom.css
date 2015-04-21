@@ -86,20 +86,6 @@ li.selected a {
     right: 0;
 }
 
-/* SPLASH box on home page ========================================== */
-
-#splash {
-    background: #fff  50%;
-    background-size: 80%;
-    transition: background-size 1.5s;
-    min-height: 360px;
-    background-image:url(../images/background.png);
-}
-
-#splash:hover {
-    background-size: 105%;
-}
-
 /* Colors =========================================================== */
 
 /**

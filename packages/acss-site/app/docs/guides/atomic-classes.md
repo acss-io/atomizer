@@ -46,12 +46,85 @@ Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-
     </thead>
     <tbody>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(90deg)`</th>
-            <td class="Va(t) P(10px)">`transform:rotate(90°)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Blur(2px)`</th>
+            <td class="Va(t) P(10px)">`filter:blur(2px)`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale(1,2)`</th>
-            <td class="Va(t) P(10px)">`transform:scale(1,2)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Brightness(.5)`</th>
+            <td class="Va(t) P(10px)">`filter:brightness(.5)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Contrast(200%)`</th>
+            <td class="Va(t) P(10px)">`filter:contrast(200%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Dropshadow(10px,10px,20px,teal)`</th>
+            <td class="Va(t) P(10px)">`filter:drop-shadow(16px,16px,20px,teal)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Grayscale(50%)`</th>
+            <td class="Va(t) P(10px)">`filter:grayscale(50%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Grayscale(2px)`</th>
+            <td class="Va(t) P(10px)">`filter:grayscale(2px)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`HueRotate(90deg)`</th>
+            <td class="Va(t) P(10px)">`filter:hue-rotate(90deg)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Invert(50%)`</th>
+            <td class="Va(t) P(10px)">`filter:invert(50%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Opacity(20%)`</th>
+            <td class="Va(t) P(10px)">`filter:opacity(20%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Saturate(20%)`</th>
+            <td class="Va(t) P(10px)">`filter:saturate(20%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Sepia(50%)`</th>
+            <td class="Va(t) P(10px)">`filter:sepia(50%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Matrix(<custom value>)` <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></b></th>
+            <td class="Va(t) P(10px)">`transform:matrix(1.2,.3,.4,1.5,40,10)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Matrix3d(<custom value>)` <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-3" class="D(ib)"></a></b></th>
+            <td class="Va(t) P(10px)">`transform:matrix(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(90deg)`</th>
+            <td class="Va(t) P(10px)">`transform:rotate(90deg)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate3d(10,20,30,40deg)`</th>
+            <td class="Va(t) P(10px)">`transform:rotate3d(10,20,30,40deg)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`RotateX(20deg)`</th>
+            <td class="Va(t) P(10px)">`transform:rotateX(20deg)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`RotateY(20deg)`</th>
+            <td class="Va(t) P(10px)">`transform:rotateY(20deg)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`RotateZ(20deg)`</th>
+            <td class="Va(t) P(10px)">`transform:rotateZ(20deg)`</td>
+        </tr>
+
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale(-1)`</th>
+            <td class="Va(t) P(10px)">`transform:scale(-1)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale3d(4,2,.5)`</th>
+            <td class="Va(t) P(10px)">`transform:scale3d(4,2,.5)`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleX(2)`</th>
@@ -62,16 +135,24 @@ Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-
             <td class="Va(t) P(10px)">`transform:scaleY(2)`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Skew(20deg,20deg)`</th>
+            <td class="Va(t) P(10px)">`transform:skew(20deg,20deg)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewX(20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:skewX(20°)`</td>
+            <td class="Va(t) P(10px)">`transform:skewX(20deg)`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewY(-20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:skewY(-20°)`</td>
+            <td class="Va(t) P(10px)">`transform:skewY(-20deg)`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate(10px,20px)`</th>
-            <td class="Va(t) P(10px)">`transform:translate(10px,20px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate(50%,50%)`</th>
+            <td class="Va(t) P(10px)">`transform:translate(50%,50%)`</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate3d(10px,20px,30px)`</th>
+            <td class="Va(t) P(10px)">`transform:translate3d(10px,20px,30px)`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateX(10px)`</th>
@@ -81,8 +162,19 @@ Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateY(10px)`</th>
             <td class="Va(t) P(10px)">`transform:translateY(10px)`</td>
         </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateZ(5px)`</th>
+            <td class="Va(t) P(10px)">`transform:translateZ(5px)`</td>
+        </tr>
     </tbody>
 </table>
+
+<div class="noteBox info">It is possible to apply multiple filters at once by creating a custom value/class in the config object:
+<pre class="Fs(n)"><code class="lang-javascript"><span class="hljs-string">'custom'</span>: {
+    <span class="hljs-string">'Fil(myCustomFilter)'</span>: 'contrast(150%) brightness(10%)'
+}
+</code></pre>
+</div>
 
 ## Variables
 
@@ -101,7 +193,7 @@ Usage:
     <header class="Mih($headerHeight) Pos(f) T(0) Start(0) End(0)">...</header>
 ```
 
-Whenever the value of `$headerHeight` changes, the padding of `body` stays in in sync with the height of the `header`.
+Whenever the value of `$headerHeight` changes, the padding of `<body>` stays in sync with the `height` of the `<header>`.
 
 Variables are also an easy way to abstract colors:
 
@@ -145,7 +237,7 @@ Same class on a node outside the scope of `.foo`:
 
 <p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 
-<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page(D-b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
+<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page_D(b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
 
 #### pseudo-classes on ancestors
 
@@ -185,26 +277,9 @@ The class `P(10px)--sm` will style a box with a `padding` of `10px` inside the `
 
 More info about [breakpoints and responsive web design](../tutorials/responsive-web-design.html).
 
-## Shorthand notation
-
-Atomic CSS is all about *optimization*, so we do not offer shorthand notation for the most common properties (i.e. `margin`, `padding`, etc.). The reason for this is that shorthand allows users to express styles in many ways which would create more classes/selectors/declarations in `atomic.css`.
-
-For example, `border-width`, `style`, and `color` can be specified in any order which could lead to classes like these (to style a box with a 1px border):
-
-<ul class="ul-list">
-    <li>`Bd(1px,solid,#000)`</li>
-    <li>`Bd(1px,#000,solid)`</li>
-    <li>`Bd(solid,#000,1px)`</li>
-    <li>`Bd(solid,1px,#000)`</li>
-    <li>`Bd(#000,1px,solid)`</li>
-    <li>`Bd(#000,solid,1px)`</li>
-</ul>
-
-Which would create 6 different rules for the exact same styling.
-
-
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. We use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. `calc()`, `rgba()`, etc. are examples of functions for which we do not have aliases for. [\[↩\]](#footnote-1).</li>
+    <li>We use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, we do not have yet aliases for `calc()`, `rgba()`, etc. [\[↩\]](#footnote-1).</li>
+    <li>Use the config object to set custom values for `Matrix()` and `Matrix3d()`. [\[↩\]](#footnote-2) [\[↩\]](#footnote-3).</li>
 </ol>

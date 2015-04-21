@@ -1,20 +1,5 @@
 @media screen and (max-width: 700px) {
     /**
-     * SPLASH (home page)
-     */
-    #splash {
-        background-size: 200% !important;
-    }
-    #splash h1 {
-        width: 200px !important;
-        min-height: 200px;
-    }
-    #splash img {
-        max-width: none;
-        width: 1500px;
-        top: -20px;
-    }
-    /**
      * menu (slider)
      */
     .menu-on #aside {

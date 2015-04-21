@@ -10,6 +10,13 @@ module.exports = [
                 }
             },
             {
+                label: 'Thinking in Atomic',
+                routeName: 'docs',
+                navParams: {
+                    key: 'thinking-in-atomic'
+                }
+            },
+            {
                 label: 'FAQ',
                 routeName: 'docs',
                 navParams: {
@@ -51,6 +58,14 @@ module.exports = [
                 navParams: {
                     type: 'guides',
                     key: 'syntax'
+                }
+            },
+            {
+                label: 'Shorthand',
+                routeName: 'docs',
+                navParams: {
+                    type: 'guides',
+                    key: 'shorthand-notation'
                 }
             }
         ]
