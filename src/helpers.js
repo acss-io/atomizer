@@ -142,7 +142,7 @@ module.exports = [
         },
         "rules": {
             ".Cf:before, .Cf:after": {
-                "content": " ",
+                "content": "\" \"",
                 "display": "table"
             },
             ".Cf:after": {
@@ -169,7 +169,7 @@ module.exports = [
         },
         "rules": {
             ".Ell:after": {
-                "content": ".",
+                "content": "\".\"",
                 "font-size": 0,
                 "visibility": "hidden",
                 "display": "inline-block",
@@ -252,7 +252,7 @@ module.exports = [
             * 1. removes that hack out of the flow (bug reported by Fonda)
             */
             "a[class*=LineClamp]:after": {
-                "content": ".",
+                "content": "\".\"",
                 "font-size": 0,
                 "visibility": "hidden",
                 "display": "inline-block", /* 1 */
