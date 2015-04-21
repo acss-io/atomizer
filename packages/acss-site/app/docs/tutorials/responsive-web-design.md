@@ -2,7 +2,7 @@
 
 <p>You can set your **own** breakpoints in the config object and then use Atomic classes scoped to media queries tied to those breakpoints.</p>
 
-<p class="noteBox info">Classes bound to media queries contain 2 dashes (`--`) followed by the breakpoint &quot;name&quot; (i.e. `sm`).</p>
+<p class="noteBox info">Classes bound to media queries start with 2 dashes (`--`) followed by the breakpoint &quot;name&quot; (i.e. `sm`).</p>
 
 ## Setting up Breakpoints
 

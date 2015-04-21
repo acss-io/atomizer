@@ -221,21 +221,23 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <p>Browser support for `flexbox` is [not that great](http://caniuse.com/#search=flexbox) but nonetheless you can use Atomic to leverage its awesomeness.</p>
 
-<p>`D(f)`, `Flf(w)`, `Jc(sb)`</p>
+<ul class="ul-list">
+    <li>`D(f)` for `display:flex`</li>
+    <li>`Jc(sb)` for `justify-content:space-between`
+</ul>
 
-If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the classes above in your markup - where needed - and [Atomizer](https://github.com/yahoo/atomizer) will create the necessary rule for you.<br>
+If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the classes above in your markup - where needed - and [Atomizer](https://github.com/yahoo/atomizer) will create the necessary rules for you.<br>
 If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add those classes to the config object:
 ```json
 'classNames': [
     'D(f)',
-    'Flf(w)',
     'Jc(sb)'
 ]
 ```
 #### Example
 
 ```html
-<div class="D(f) Flf(w) Jc(sb)">
+<div class="D(f) Jc(sb)">
   <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 1</div>
   <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 2</div>
   <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 3</div>
@@ -250,6 +252,6 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. Atomic.css provides a patch for oldIE [\[↩\]](#footnote-1).</li>
-    <li>2. Atomic.css relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context [\[↩\]](#footnote-2).</li>
+    <li>Atomizer provides a patch for oldIE [\[↩\]](#footnote-1).</li>
+    <li>Atomizer relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context [\[↩\]](#footnote-2).</li>
 </ol>

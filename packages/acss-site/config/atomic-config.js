@@ -7,8 +7,7 @@ module.exports = {
     },
     // custom atomic classes mapped to their values
     'custom': {
-        'Bgc(logo)': '#0280AE',
-        'Bg(splash)': 'url("../images/splash_background.jpg") no-repeat #0262AA',
+        '$columnWidth': '20px',
         'Bgi(hamburger)': 'url(../images/menu.png)',
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
         'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
@@ -17,7 +16,7 @@ module.exports = {
         'regularBuffer': '8px',
         'relaxBuffer': '16px',
         'backgroundSwap': '#f5f5f5',
-        'colorLogo': '#0280ae',
+        '$brandColor': '#0280ae',
         'Bgc(selected)': '#e5e1ea!important'
     }
 };

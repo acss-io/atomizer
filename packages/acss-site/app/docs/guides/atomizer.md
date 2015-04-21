@@ -82,5 +82,5 @@ You can create any custom class you want via the [config object](https://github.
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. This is true for non-custom classes [\[↩\]](#footnote-1).</li>
+    <li>This is true for non-custom classes [\[↩\]](#footnote-1).</li>
 </ol>

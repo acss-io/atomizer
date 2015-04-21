@@ -124,11 +124,9 @@ Required.
 
 CSS property or [helper class](helper-classes.html). [Capitalized](http://en.wikipedia.org/wiki/Capitalization) following [Emmet](http://docs.emmet.io/cheat-sheet/) syntax with no separator between words such as dashes or new capitals.
 
-### [&lt;value>,&lt;value>?,&lt;value>?] !
+### &lt;value>
 
 Optional for helpers, required for CSS properties.
-
-One or multiple values (depending on styles), separated by commas (`,`) &mdash; *without space between the parentheses*.
 
 Examples:
 
@@ -136,12 +134,12 @@ Examples:
 .Ta(c) {
     text-align: center;
 }
-.Bgp(20px,50px) {
-    background-position: 20px 50px;
+.M(20px) {
+    margin: 20px;
 }
 ```
 
-<p class="noteBox info">For most properties, we do not offer [shorthand notation](atomic-classes.html#shorthand-notation) (i.e. `Bd(1px,s,#555)`.</p>
+<p class="noteBox info">Note that we do not offer [shorthand notation](shorthand-notation.html "Shorthand notation would lead to bloat") for all properties.</p>
 
 #### Value types
 
@@ -337,10 +335,6 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
             <td class="Va-t P(10px)">This is mapped to `margin-right: 0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bgp(start_t)`</th>
-            <td class="Va-t P(10px)">This is mapped to `background-position:left top` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`Ta(start)`</th>
             <td class="Va-t P(10px)">This is mapped to `text-align:left` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
@@ -382,10 +376,10 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
 <hr class="Mt-50px">
 
 <ol id="footnote" class="ol-list">
-    <li>1. `Bxs(foo)` is a custom class set in the config object [\[↩\]](#footnote-1).</li>
-    <li>2. `$bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P($bar)` for `padding`, `H($bar)` for` height`, etc.) [\[↩\]](#footnote-2).</li>
-    <li>3. `start` is mapped to either "left" or "right" depending on the config file [\[↩\]](#footnote-3).</li>
-    <li>4. this class is an [alias](atomic-classes.html) [\[↩\]](#footnote-4).</li>
-    <li>5. this class is a [helper](helper-classes.html) [\[↩\]](#footnote-5).</li>
-    <li>6. Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles [\[↩\]](#footnote-6).</li>
+    <li>`Bxs(foo)` is a custom class set in the config object [\[↩\]](#footnote-1).</li>
+    <li>`$bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P($bar)` for `padding`, `H($bar)` for` height`, etc.) [\[↩\]](#footnote-2).</li>
+    <li>`start` is mapped to either "left" or "right" depending on the config file [\[↩\]](#footnote-3).</li>
+    <li>this class is an [alias](atomic-classes.html) [\[↩\]](#footnote-4).</li>
+    <li>this class is a [helper](helper-classes.html) [\[↩\]](#footnote-5).</li>
+    <li>Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles [\[↩\]](#footnote-6).</li>
 </ol>

@@ -24,6 +24,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#why-do-i-have-to-use-lowercase-for-color-values-">Why do I have to use lowercase for colors?</a></li>
    <li><a href="#why-are-descendant-classes-not-relying-on-the-namespace-why-are-those-styles-using-important-">Why are "descendant classes" not relying on the namespace? Why are those styles using `!important`</a>?</li>
    <li><a href="#how-can-one-remember-atomic-class-names-">How can one remember Atomic class names?</a></li>
+   <li><a href="#how-come-atomizer-is-not-creating-some-classes-for-me-">How come Atomizer is not creating some classes for me?</a></li>
 </ul>
 
 ## Answers related to the Atomic CSS architecture
@@ -421,12 +422,47 @@ Also, note that we do not use `left` and `right` but instead `start` and `end`. 
 
 The [syntax](../guides/syntax.html) and [reference](reference) pages are meant to help you with this; and we may have a plugin for your IDE in the near future...
 
+### How come Atomizer is not creating some classes for me?
+
+Make sure your grunt config is set up to scan all the files onto which Atomic classes are applied. See **&lt;path to files to be scanned>** below:
+
+```javascript
+module.exports = function (grunt) {
+    grunt.config.set('atomizer', {
+        dev: {
+            options: {
+                configFile: './configs/atomizer.json',
+                configOutput: './configs/atomizer.json',
+                namespace: '#Stencil'
+            },
+            files: [{
+                src: ['components/**/*.jsx'],
+                dest: 'build/css/atomic.css'
+            }]
+        },
+        dist: {
+            options: {
+                configFile: './configs/atomizer.json',
+                configOutput: './configs/atomizer.json',
+                namespace: '#atomic'
+            },
+            files: [{
+                src: ['<path to files to be scanned>'],
+                dest: 'build/css/atomic.css'
+            }]
+        }
+    });
+
+    grunt.loadNpmTasks('grunt-atomizer');
+};
+```
+
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>1. Specificity of Atomic rules can be increased via namespace. You'd use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` [\[↩\]](#footnote-1).</li>
-    <li>2. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[↩\]](#footnote-2b).</li>
-    <li>3. [microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-3).</li>
-    <li>4. Thanks to some uglification [\[↩\]](#footnote-4).</li>
-    <li>5. Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling [\[↩\]](#footnote-5).</li>
+    <li>Specificity of Atomic rules can be increased via namespace. You'd use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` [\[↩\]](#footnote-1).</li>
+    <li>Maximum number of rules for IE9: 4,095 (65,534 for IE10+) [\[↩\]](#footnote-2)[\[↩\]](#footnote-2b).</li>
+    <li>[microformats](http://microformats.org/) is a different story [\[↩\]](#footnote-3).</li>
+    <li>Thanks to some uglification [\[↩\]](#footnote-4).</li>
+    <li>Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling [\[↩\]](#footnote-5).</li>
 </ol>
