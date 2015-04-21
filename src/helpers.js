@@ -142,7 +142,7 @@ module.exports = [
         },
         "rules": {
             ".Cf:before, .Cf:after": {
-                "content": " ",
+                "content": "\" \"",
                 "display": "table"
             },
             ".Cf:after": {
@@ -169,7 +169,7 @@ module.exports = [
         },
         "rules": {
             ".Ell:after": {
-                "content": ".",
+                "content": "\".\"",
                 "font-size": 0,
                 "visibility": "hidden",
                 "display": "inline-block",
