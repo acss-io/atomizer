@@ -37,6 +37,14 @@ module.exports = [
                 }
             },
             {
+                label: 'The syntax',
+                routeName: 'docs',
+                navParams: {
+                    type: 'guides',
+                    key: 'syntax'
+                }
+            },
+            {
                 label: 'Atomic classes',
                 routeName: 'docs',
                 navParams: {
@@ -50,14 +58,6 @@ module.exports = [
                 navParams: {
                     type: 'guides',
                     key: 'helper-classes'
-                }
-            },
-            {
-                label: 'The syntax',
-                routeName: 'docs',
-                navParams: {
-                    type: 'guides',
-                    key: 'syntax'
                 }
             },
             {

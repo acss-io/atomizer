@@ -12,6 +12,8 @@ You use a config object to create the styles you need but you can also *rely on 
 
 These classes are the ones Atomizer can make sense of without the need to check the config object; classes like `W(20px)` (`width:20px`), `Lh(1.5)` (`line-height:1.5`), etc.
 
+<div class="noteBox info">Examples of color syntax are on the [Atomizer page](atomizer.html#hexadecimal-colors).</div>
+
 ## Custom classes
 
 The value identifier of these classes is mapped to a custom value set in the config object. For example, the following:

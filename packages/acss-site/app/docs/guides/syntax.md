@@ -347,8 +347,8 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
             <td class="Va-t P(10px)">This is mapped to `border-left-width:0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rot(-90deg)`</th>
-            <td class="Va-t P(10px)">This is an *alias* mapped to `transform: rotate(-90deg)` [\[4\]](#footnote)<a id="footnote-4" class="D(ib)"></a></td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(-90deg)`</th>
+            <td class="Va-t P(10px)">This is an [alias](atomic-classes.html#aliases) mapped to `transform: rotate(-90deg)` [\[4\]](#footnote)<a id="footnote-4" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">`LineClamp(2,50px)`</th>

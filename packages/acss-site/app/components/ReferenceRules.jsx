@@ -88,21 +88,21 @@ var ReferenceRules = React.createClass({
             if (recipe.type === 'pattern') {
 
                 if (!hasConfig) {
-                    suffix = "custom-param";
+                    suffix = "<custom-param>";
                     value = "value";
                     if (recipe.allowParamToValue) {
-                        suffix = "value|" + suffix;
+                        suffix = "<value> or " + suffix;
                     }
                     for (var property in recipe.styles) {
                         value = recipe.styles[property].replace(styleRegex, value);
                         property = replaceRTLTokens(property);
                         rawDeclarationBlock.push(property + ": " + value);
-                        styledDeclarationBlock.push(<div>{property}: <em className="C(#07f)">{value}</em></div>);
+                        styledDeclarationBlock.push(<div>{property}: <b className="C(#07f)">{value}</b></div>);
                     }
                     values.push({
                         rawSelector: prefix + "([" + suffix + "])",
                         rawDeclaration: rawDeclarationBlock,
-                        selector: <b>{prefix}(<em>[{suffix}]</em>)</b>,
+                        selector: <b>{prefix}(<b className="C(#000)">{suffix}</b>)</b>,
                         declaration: styledDeclarationBlock
                     });
 
@@ -170,7 +170,7 @@ var ReferenceRules = React.createClass({
                             showRecipeBlock = true;
                         }
                         var termClasses = 'Pend(10px) Fl(start) Cl(start)';
-                        var defClasses = 'M(0) P(0) C(#f2438c)';
+                        var defClasses = 'Fl(start) M(0) P(0) C(#f2438c)';
                         if (!showRuleset) {
                             termClasses += ' D(n)';
                             defClasses += ' D(n)';
@@ -183,11 +183,11 @@ var ReferenceRules = React.createClass({
                 };
             }
 
-            var displayclassDefinitions = "Va(t) W(50%)--sm " + (showRecipeBlock ? "D(ib)--sm" : "D(n)");
+            var displayclassDefinitions = "Ov(h) " + (showRecipeBlock ? "D(b)" : "D(n)");
             return (
                 <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
-                    <h3 className="M(0) Mt(10px) P(10px)">{recipe.name}</h3>
-                    <dl className="M(0) P(10px) Pt(0) Pend(50px)--sm Ff(m)">{classDefinitions}</dl>
+                    <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px) Ta(end)">{recipe.name}</h3>
+                    <dl className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{classDefinitions}</dl>
                 </div>
             );
 

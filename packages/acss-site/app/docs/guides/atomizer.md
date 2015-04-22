@@ -50,32 +50,53 @@ How cool is that? No bloat, no maintenance, no problem.
 
 You can create any custom class you want via the [config object](https://github.com/yahoo/atomizer/blob/master/examples/example-config.js) but you should follow the <a href="syntax.html">Atomic syntax</a> if you wish Atomizer to recognize the following identifiers and combinators out of the box:
 
-<dl class="dl-list">
-    <dt>Contextual class related to *ancestor*</dt>
-    <dd>Use a class attached to *an ancestor*  of the element if you wish to create a contextual style. For example, the class `myBox_D(n)` will hide the node if it is a descendant of an element with the class `myBox` applied to it.</dd>
-    <dt>Contextual class related to *parent*</dt>
-    <dd>Use a class attached to *the parent* of the element if you wish to create a contextual style. For example, the class `myBox>D(n)` will hide the node if it is a child of an element with the class `myBox` applied to it.</dd>
-    <dt>Pseudo classes on ancestor</dt>
-    <dd>Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `myBox:h_Td(u)` will underline text when users hover over its ancestor to which the class `.myBox` is applied.</dd>
-    <dt>Pseudo classes on value identifier</dt>
-    <dd>Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `Td(u):h` will underline text on mouseover.</dd>
-    <dt>Units in value identifiers</dt>
-    <dd>Use any unit you want (i.e. `W(50%)`, `M(20px)`, `Fz(1em)`, etc.).</dd>
-    <dt>Unit-less values</dt>
-    <dd>Use unit-less values to set styles like `line-height` (i.e. `Lh(1.5)`), `font-weight` (i.e. `Fw(500)`), etc.</dd>
-    <dt>Negative values</dt>
-    <dd>Use the minus sign (`-`) to set negative values (i.e. `M(-20px)`)</dd>
-    <dt>Multiple values</dt>
-    <dd>Pass multiple values using commas (`,`) (i.e. `Bgp(20px,50px)`)</dd>
-    <dt>Hexadecimal colors</dt>
-    <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier (i.e. `C(#fff)`) and Atomizer will create the declaration for you (`color:#fff`)</dd>
-    <dt>Hexadecimal colors with alpha</dt>
-    <dd>Use hexadecimal colors (in *lowercase with the `#`*) as value identifier followed by the opacity value (i.e. `C(#fff.5)`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)</dd>
-    <dt>Fractions</dt>
-    <dd>Use any fraction you want (i.e. `W(1/2)`) and Atomizer will create the CSS declaration for you (`width:50%`)</dd>
-    <dt>`!important` directive</dt>
-    <dd>Use `!` after the value identifier (i.e. `D(b)!`) and Atomizer will add `!important` to the declaration for you (`display:block!important`)</dd>
-</dl>
+### Contextual class related to *ancestor*
+
+Use a class attached to *an ancestor*  of the element if you wish to create a contextual style. For example, the class `myBox_D(n)` will hide the node if it is a descendant of an element with the class `myBox` applied to it.
+
+### Contextual class related to *parent*
+
+Use a class attached to *the parent* of the element if you wish to create a contextual style. For example, the class `myBox>D(n)` will hide the node if it is a child of an element with the class `myBox` applied to it.
+
+### Pseudo classes on ancestor
+
+Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `myBox:h_Td(u)` will underline text when users hover over its ancestor to which the class `.myBox` is applied.
+
+### Pseudo classes on value identifier
+
+Use a pseudo-class abbreviation to bind your style to that pseudo-class. For example, the class `Td(u):h` will underline text on mouseover.
+
+### Units in value identifiers
+
+Use any unit you want (i.e. `W(50%)`, `M(20px)`, `Fz(1em)`, etc.).
+
+### Unit-less values
+
+Use unit-less values to set styles like `line-height` (i.e. `Lh(1.5)`), `font-weight` (i.e. `Fw(500)`), etc.
+
+### Negative values
+
+Use the minus sign (`-`) to set negative values (i.e. `M(-20px)`)
+
+### Multiple values
+
+Pass multiple values using commas (`,`) (i.e. `Bgp(20px,50px)`)
+
+### Hexadecimal colors
+
+Use hexadecimal colors (in *lowercase with the `#`*) as value identifier (i.e. `C(#fff)`) and Atomizer will create the declaration for you (`color:#fff`)
+
+### Hexadecimal colors with alpha
+
+Use hexadecimal colors (in *lowercase with the `#`*) as value identifier followed by the opacity value (i.e. `C(#fff.5)`) and Atomizer will create the declaration for you (`color:rgba(255,255,255,.5)`)
+
+### Fractions
+
+Use any fraction you want (i.e. `W(1/2)`) and Atomizer will create the CSS declaration for you (`width:50%`)
+
+### `!important` directive
+
+Use `!` after the value identifier (i.e. `D(b)!`) and Atomizer will add `!important` to the declaration for you (`display:block!important`)
 
 <div class="noteBox info">The [reference page](/reference) lets you quickly search for properties, values, or class names.</div>
 
