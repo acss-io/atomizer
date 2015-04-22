@@ -27,7 +27,7 @@
     "lint"
   ],
   "dependencies": {
-    "atomizer": "^3.0.0-alpha.4",
+    "atomizer": "^3.0.0-alpha.5",
     "body-parser": "^1.9.3",
     "debug": "^2.1.1",
     "escape-string-regexp": "^1.0.0",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-atomizer": "^3.0.0-alpha.2",
+    "grunt-atomizer": "^3.0.0-alpha.3",
     "grunt-cli": "^0.1.13",
     "grunt-concurrent": "^1.0.0",
     "grunt-contrib-clean": "^0.6.0",
