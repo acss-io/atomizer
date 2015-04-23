@@ -38,7 +38,7 @@
     "express": "^4.10.4",
     "express-state": "^1.2.0",
     "flux-router-component": "^0.6.0",
-    "fluxible": "0.4.3",
+    "fluxible": "^0.4.6",
     "fluxible-plugin-fetchr": "^0.3.0",
     "fluxible-plugin-routr": "~0.3.0",
     "highlight.js": "^8.4.0",
