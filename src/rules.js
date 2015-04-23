@@ -649,7 +649,7 @@ module.exports = [
         "type": "pattern",
         "name": "Background size",
         "matcher": "Bgz",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "background-size": "$0"
         },
