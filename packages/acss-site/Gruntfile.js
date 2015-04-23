@@ -281,7 +281,7 @@ module.exports = function(grunt) {
                 },
                 module: {
                     loaders: [
-                        { test: /\.jsx$/, loader: 'jsx-loader' },
+                        { test: /\.jsx?$/, exclude: /node_modules/, loader: require.resolve('babel-loader') },
                         { test: /\.json$/, loader: 'json-loader'}
                     ]
                 },
