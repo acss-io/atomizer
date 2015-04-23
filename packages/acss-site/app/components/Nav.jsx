@@ -2,63 +2,27 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react/addons');
-var NavLink = require('flux-router-component').NavLink;
-var assets = require('../utils/assets');
 
-/**
- * Main navigation component
- *
- * @class Nav
- * @constructor
- */
-var Nav = React.createClass({
-    getInitialState: function() {
-        return {
-            selected: 'home',
-            links: {}
-        };
-    },
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
-    render: function() {
-        var cx = React.addons.classSet;
-        var selected = this.props.selected || this.state.selected;
-        var links = this.props.links || this.state.links;
-        var context = this.props.context;
-        var linkHTML = Object.keys(links).map(function (name, index) {
-            var link = links[name];
-            var className = cx({
-                'selected': selected === name,
-                'Mstart(10px)': index !== 1,
-                'D(ib) Va(m) Pos(r)': true
-            });
-            var navParams = {};
+// external packages
+import React from 'react';
+import cx from 'classnames';
+import {NavLink} from 'flux-router-component';
 
-            if (name === 'docs') {
-                navParams = {key: 'quick-start'};
-            }
+// other dependencies
+import assets from '../utils/assets';
 
-            // skip home since we don't want it to render
-            return name !== 'home' ? (
-                <li className={className} key={link.path}>
-                    <NavLink routeName={link.page} context={context} className="D(b) C(#fff) Td(n):h" navParams={navParams}>
-                        <b className="Pos(r)">
-                            {link.label}
-                        </b>
-                    </NavLink>
-                </li>
-            ) : '';
-        });
+class Nav extends React.Component {
+    render() {
+        let selected = this.props.selected;
 
         return (
             <ul role="navigation" className="Va(m) M(0) P(0)">
-                {linkHTML}
+                <li className={cx({'selected': selected !== 'reference' && selected !== 'home', 'D(ib) Va(m) Pos(r)': true})}>
+                    <NavLink routeName="quickStart" className="D(b) C(#fff) Td(n):h">Docs</NavLink>
+                </li>
+                <li className={cx({'selected': selected === 'reference', 'D(ib) Va(m) Pos(r) Mstart(10px)': true})}>
+                    <NavLink routeName="reference" className="D(b) C(#fff) Td(n):h">Reference</NavLink>
+                </li>
                 <li className="D(ib) Mstart(10px) Pos(r)">
                     <a className="D(b) C(#fff) Td(n):h" href="https://github.com/yahoo/atomizer">
                         <img className="Va(m) Pos(r)" alt="GitHub" width="30" src={assets['images/github-logo.png']} />
@@ -67,6 +31,6 @@ var Nav = React.createClass({
             </ul>
         );
     }
-});
+}
 
-module.exports = Nav;
+export default Nav;

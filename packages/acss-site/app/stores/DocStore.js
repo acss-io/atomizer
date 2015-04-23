@@ -2,19 +2,17 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var createStore = require('fluxible/utils/createStore');
 
-module.exports = createStore({
-    storeName: 'DocsStore',
-    initialize: function () {
+import {BaseStore} from 'fluxible/addons';
+
+class DocStore extends BaseStore {
+    constructor(dispatcher) {
+        super(dispatcher);
         this.docs = {};
         this.current = {};
-    },
-    handlers: {
-        'RECEIVE_DOC_SUCCESS': '_receiveDoc'
-    },
-    _receiveDoc: function (doc) {
+    }
+
+    _receiveDoc(doc) {
         if (!doc || !doc.hasOwnProperty('key')) {
             return;
         }
@@ -22,24 +20,36 @@ module.exports = createStore({
         this.docs[doc.key] = doc;
         this.current = doc;
         this.emitChange();
-    },
-    get: function (key) {
+    }
+
+    get(key) {
         return this.docs[key];
-    },
-    getAll: function () {
+    }
+
+    getAll() {
         return this.docs;
-    },
-    getCurrent: function () {
+    }
+
+    getCurrent() {
         return this.current;
-    },
-    dehydrate: function () {
+    }
+
+    dehydrate() {
         return {
             docs: this.docs,
             current: this.current
         };
-    },
-    rehydrate: function (state) {
+    }
+
+    rehydrate(state) {
         this.docs = state.docs;
         this.current = state.current;
     }
-});
+}
+
+DocStore.storeName = 'DocsStore';
+DocStore.handlers = {
+    'RECEIVE_DOC_SUCCESS': '_receiveDoc'
+};
+
+export default DocStore;

@@ -1,9 +1,15 @@
-'use strict';
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
 
-var objectAssign = require('object-assign');
+// external packages
+import objectAssign from 'object-assign';
 
-var assets = require('../build/assets.json');
-var images = require('../build/images.json');
-var manifest = objectAssign(assets, images);
+// other dependencies
+import assets from '../build/assets.json';
+import images from '../build/images.json';
 
-module.exports = manifest;
+const MANIFEST = objectAssign(assets, images);
+
+export default MANIFEST;

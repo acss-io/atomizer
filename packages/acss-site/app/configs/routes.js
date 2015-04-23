@@ -2,42 +2,127 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-var showDoc = require('../actions/showDoc');
 
-module.exports = {
+import showDoc from '../actions/showDoc';
+import showPage from '../actions/showPage';
+import PageHome from '../components/PageHome';
+import PageDocs from '../components/PageDocs';
+import PageReference from '../components/PageReference';
+
+export default {
+    // home
     home: {
         path: '/',
         method: 'get',
-        page: 'home',
-        label: 'Home',
-        action: function (context, payload, done) {
-            var params = {
-                resource: 'docs',
-                key: '/docs/home.md',
-                pageTitle: 'Atomic CSS | A collection of single purpose styling units for maximum reuse'
-            };
-            context.executeAction(showDoc, params, done);
-        }
+        component: PageHome,
+        githubPath: '/docs/home.md',
+        action: showDoc,
+        pageTitle: 'Atomic CSS',
+        page: 'home'
     },
-    docs: {
-        path: '/:type(tutorials|guides)?/:key.html',
+
+    // docs - root
+    quickStart: {
+        path: '/quick-start.html',
         method: 'get',
-        page: 'docs',
-        label: 'Docs',
-        action: function (context, payload, done) {
-            var params = {
-                resource: 'docs',
-                key: '/docs/' +
-                    (payload.params.type ? payload.params.type + '/' : '') +
-                    payload.params.key + '.md'
-            };
-            context.executeAction(showDoc, params, done);
-        }
+        component: PageDocs,
+        githubPath: '/docs/quick-start.md',
+        action: showDoc,
+        pageTitlePrefix: 'Quick Start',
+        page: 'docs'
     },
+    thinkingInAtomic: {
+        path: '/thinking-in-atomic.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/thinking-in-atomic.md',
+        action: showDoc,
+        pageTitlePrefix: 'Thinking in Atomic',
+        page: 'docs'
+    },
+    faq: {
+        path: '/frequently-asked-questions.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/frequently-asked-questions.md',
+        action: showDoc,
+        pageTitlePrefix: 'FAQ',
+        page: 'docs'
+    },
+
+    // docs - guides
+    atomizer: {
+        path: '/guides/atomizer.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/atomizer.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Atomizer Tool',
+        page: 'docs'
+    },
+    syntax: {
+        path: '/guides/syntax.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/syntax.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Thinking in Atomic',
+        page: 'docs'
+    },
+    atomicClasses: {
+        path: '/guides/atomic-classes.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/atomic-classes.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Atomic classes',
+        page: 'docs'
+    },
+    helperClasses: {
+        path: '/guides/helper-classes.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/helper-classes.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Helper classes',
+        page: 'docs'
+    },
+    shorthand: {
+        path: '/guides/shorthand.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/shorthand-notation.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Shorthand',
+        page: 'docs'
+    },
+    // docs - tutorials
+    grid: {
+        path: '/tutorials/grid-system.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/tutorials/grid.md',
+        action: showDoc,
+        pageTitlePrefix: 'Tutorials: Shorthand',
+        page: 'docs'
+    },
+    rwd: {
+        path: '/tutorials/responsive-web-design.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/tutorials/responsive-web-design.md',
+        action: showDoc,
+        pageTitlePrefix: 'Tutorials: RWD',
+        page: 'docs'
+    },
+
+    // reference
     reference: {
         path: '/reference',
         method: 'get',
-        page: 'reference',
-        label: 'Reference'
+        component: PageReference,
+        action: showPage,
+        pageTitlePrefix: 'Reference',
+        page: 'reference'
     }
 };

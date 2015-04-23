@@ -2,28 +2,24 @@
  * Copyright 2015, Yahoo Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react');
-var Rules = require('atomizer/src/rules');
-var SearchBox = require('./SearchBox');
-var ConfigBox = require('./ConfigBox');
-var ReferenceRules = require('./ReferenceRules');
-var ReferenceHelpers = require('./ReferenceHelpers');
-var AtomicCssOutputBox = require('./AtomicCssOutputBox');
+
+// external packages
+import React from 'react';
+import Rules from 'atomizer/src/rules';
+
+// components
+import SearchBox from './SearchBox';
+import ConfigBox from './ConfigBox';
+import ReferenceRules from './ReferenceRules';
+import ReferenceHelpers from './ReferenceHelpers';
+import AtomicCssOutputBox from './AtomicCssOutputBox';
 
 // stores
-var ReferenceStore = require('../stores/ReferenceStore');
+import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
-var FluxibleMixin = require('fluxible').Mixin;
+import {FluxibleMixin} from 'fluxible/addons';
 
-
-/**
- * Searchable reference docs
- *
- * @class Reference
- * @constructor
- */
 var Reference = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -40,12 +36,6 @@ var Reference = React.createClass({
         this.setState(state);
     },
 
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
     render: function () {
         var hasConfig = !!this.state.customConfig;
         return (
@@ -61,4 +51,4 @@ var Reference = React.createClass({
     }
 });
 
-module.exports = Reference;
+export default Reference;

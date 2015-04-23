@@ -2,18 +2,21 @@
  * Copyright 2015, Yahoo Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react');
-var defaultConfig = require('../../build/atomizer.json');
+
+// external packages
+import React from 'react';
+
+// config
+import defaultConfig from '../../build/atomizer.json';
 
 // actions
-var addCustomConfig = require('../actions/addCustomConfig');
+import addCustomConfig from '../actions/addCustomConfig';
 
 // stores
-var ReferenceStore = require('../stores/ReferenceStore');
+import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
-var FluxibleMixin = require('fluxible').Mixin;
+import {FluxibleMixin} from 'fluxible/addons';
 
 /**
  * ConfigBox
@@ -67,4 +70,4 @@ var ConfigBox = React.createClass({
     }
 });
 
-module.exports = ConfigBox;
+export default ConfigBox;

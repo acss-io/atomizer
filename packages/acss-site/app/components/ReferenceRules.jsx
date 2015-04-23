@@ -2,23 +2,24 @@
  * Copyright 2015, Yahoo Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
 
-var escapeStringRegexp = require('escape-string-regexp');
+// external packages
+import React from 'react';
+import Rules from 'atomizer/src/rules';
+import Atomizer from 'atomizer';
+import escapeStringRegexp from 'escape-string-regexp';
 
-var React = require('react');
-var Rules = require('atomizer/src/rules');
-
-var Atomizer = require('atomizer');
+// instantiate
 var atomizer = new Atomizer();
 
 // stores
-var ReferenceStore = require('../stores/ReferenceStore');
+import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
-var FluxibleMixin = require('fluxible').Mixin;
+import {FluxibleMixin} from 'fluxible/addons';
 
-var styleRegex = new RegExp(/\$(\d+?)/g);
+// constants
+const styleRegex = new RegExp(/\$(\d+?)/g);
 
 function replaceRTLTokens(str) {
     return str.replace('__START__', 'left').replace('__END__', 'right');
@@ -46,12 +47,6 @@ var ReferenceRules = React.createClass({
         this.setState(state);
     },
 
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
     render: function () {
         var searchRE = false,
             customConfig = this.state.customConfigObj || {},
@@ -201,4 +196,4 @@ var ReferenceRules = React.createClass({
     }
 });
 
-module.exports = ReferenceRules;
+export default ReferenceRules;

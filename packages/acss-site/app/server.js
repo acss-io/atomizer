@@ -2,31 +2,59 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-require('node-jsx').install({ extension: '.jsx' });
 
-// package dependencies
-var express = require('express');
-var favicon = require('serve-favicon');
-var serialize = require('serialize-javascript');
-var bodyParser = require('body-parser');
-var React = require('react');
-var UAParser = require('ua-parser-js');
+// external packages
+import express from 'express';
+import favicon from 'serve-favicon';
+import serialize from 'serialize-javascript';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import csrf from 'csurf';
+import React from 'react';
+import UAParser from 'ua-parser-js';
+import {navigateAction} from 'flux-router-component';
+import show404 from './actions/show404';
+import show500 from './actions/show500';
+
+// components
+import Html from './components/Html';
 
 // other dependencies
-var navigateAction = require('flux-router-component').navigateAction;
-var HtmlComponent = React.createFactory(require('./components/Html.jsx'));
-var app = require('./app');
+import app from './app';
 
-// some options to start the server
-var argv = require('minimist')(process.argv.slice(2));
-var port = argv.port || process.env.PORT || 3000;
-var dev = argv.dev || false;
+// some options to start the SERVER
+import argv from 'minimist';
 
-var server = express();
-server.set('state namespace', 'App');
-server.use(favicon(__dirname + '/../favicon.ico'));
-server.use('/public', express.static(__dirname + '/build'));
-server.use(bodyParser.json());
+// constants
+const ARGS = argv(process.argv.slice(2));
+const HTML = React.createFactory(Html);
+const SERVER = express();
+const PORT = argv.port || process.env.PORT || 3000;
+const DEV = argv.dev || false;
+const DOC_TYPE = [
+      '<!DOCTYPE html>',
+      '<!-- ',
+      '            ___           ___           ___           ___                  ',
+      '           /  /\\         /  /\\         /  /\\         /  /\\             ',
+      '          /  /::\\       /  /:/        /  /:/_       /  /:/_               ',
+      '         /  /:/\\:\\     /  /:/        /  /:/ /\\     /  /:/ /\\           ',
+      '        /  /:/~/::\\   /  /:/  ___   /  /:/ /::\\   /  /:/ /::\\           ',
+      '       /__/:/ /:/\\:\\ /__/:/  /  /\\ /__/:/ /:/\\:\\ /__/:/ /:/\\:\\      ',
+      '       \\  \\:\\/:/__\\/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/ \\  \\:\\/:/~/:/',
+      '        \\  \\::/       \\  \\:\\  /:/   \\  \\::/ /:/   \\  \\::/ /:/     ',
+      '         \\  \\:\\        \\  \\:\\/:/     \\__\\/ /:/     \\__\\/ /:/     ',
+      '          \\  \\:\\        \\  \\::/        /__/:/        /__/:/           ',
+      '           \\__\\/         \\__\\/         \\__\\/         \\__\\/         ',
+      '-->'
+].join('\n');
+
+// set up the server
+SERVER.set('state namespace', 'App');
+SERVER.use(favicon(__dirname + '/../favicon.ico'));
+SERVER.use('/public', express.static(__dirname + '/build'));
+SERVER.use(cookieParser());
+SERVER.use(bodyParser.json());
+SERVER.use(csrf({cookie: true}));
 
 // Get access to the fetchr plugin instance
 var fetchrPlugin = app.getPlugin('FetchrPlugin');
@@ -35,57 +63,54 @@ var fetchrPlugin = app.getPlugin('FetchrPlugin');
 fetchrPlugin.registerService(require('./services/docs'));
 
 // Set up the fetchr middleware
-server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
+SERVER.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
+
+// Render the app
+function renderApp(req, res, context) {
+    const renderedApp = React.renderToString(context.createElement());
+    const exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
+    const componentContext = context.getComponentContext();
+    const ua = new UAParser().setUA(req.headers['user-agent']).getResult();
+    const html = React.renderToStaticMarkup(HTML({
+        context: componentContext,
+        state: exposed,
+        ua: ua,
+        dev: DEV,
+        markup: renderedApp
+    }));
+    res.send(DOC_TYPE + html);
+}
 
 // Every other request gets the app bootstrap
-server.use(function(req, res, next) {
+SERVER.use(function (req, res, next) {
+    const context = app.createContext({
+        req: req, // The fetchr plugin depends on this
+        xhrContext: {
+            _csrf: req.csrfToken() // Make sure all XHR requests have the CSRF token
+        }
+    });
 
-    var context = app.createContext();
-    var ua = new UAParser().setUA(req.headers['user-agent']).getResult();
-
-    context.executeAction(navigateAction, {
-        url: req.url
-    }, function (err) {
+    context.executeAction(navigateAction, { url: req.url }, function (err) {
         if (err) {
-            if (err.status && err.status === 404) {
-                next();
-            } else {
-                next(err);
+            if (err.status === 404 || err.statusCode === 404) {
+                res.status(404);
+                context.executeAction(show404, { err: err }, function () {
+                    renderApp(req, res, context);
+                });
             }
+            else {
+                res.status(500);
+                context.executeAction(show500, { err: err }, function () {
+                    console.log(err.stack || err);
+                    renderApp(req, res, context);
+                });
+            }
+
             return;
         }
-
-        var exposed = 'window.App=' + serialize(app.dehydrate(context)) + ';';
-
-        var AppComponent = app.getAppComponent();
-        var doctype = '<!DOCTYPE html>' +
-            '<!-- ' + '\n' +
-            '            ___           ___           ___           ___                  ' + '\n' +
-            '           /  /\\         /  /\\         /  /\\         /  /\\             ' + '\n' +
-            '          /  /::\\       /  /:/        /  /:/_       /  /:/_               ' + '\n' +
-            '         /  /:/\\:\\     /  /:/        /  /:/ /\\     /  /:/ /\\           ' + '\n' +
-            '        /  /:/~/::\\   /  /:/  ___   /  /:/ /::\\   /  /:/ /::\\           ' + '\n' +
-            '       /__/:/ /:/\\:\\ /__/:/  /  /\\ /__/:/ /:/\\:\\ /__/:/ /:/\\:\\      ' + '\n' +
-            '       \\  \\:\\/:/__\\/ \\  \\:\\ /  /:/ \\  \\:\\/:/~/:/ \\  \\:\\/:/~/:/' + '\n' +
-            '        \\  \\::/       \\  \\:\\  /:/   \\  \\::/ /:/   \\  \\::/ /:/     ' + '\n' +
-            '         \\  \\:\\        \\  \\:\\/:/     \\__\\/ /:/     \\__\\/ /:/     ' + '\n' +
-            '          \\  \\:\\        \\  \\::/        /__/:/        /__/:/           ' + '\n' +
-            '           \\__\\/         \\__\\/         \\__\\/         \\__\\/         ' + '\n' +
-            '-->';
-        React.withContext(context.getComponentContext(), function () {
-            var html = React.renderToStaticMarkup(HtmlComponent({
-                state: exposed,
-                ua: ua,
-                dev: dev,
-                markup: React.renderToString(AppComponent({
-                    context: context.getComponentContext()
-                }))
-            }));
-            res.send(doctype + html);
-        });
-
+        renderApp(req, res, context);
     });
 });
 
-server.listen(port);
-console.log('Listening on port ' + port + (dev ? ' - dev mode' : ''));
+SERVER.listen(PORT);
+console.log('Listening on port ' + PORT + (DEV ? ' - dev mode' : ''));

@@ -2,38 +2,38 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react');
+
+// external packages
+import React from 'react';
 
 // components
-var Nav = require('./Nav');
-var PageHome = require('./PageHome');
-var PageDocs = require('./PageDocs');
-var PageReference = require('./PageReference');
-var NavLink = require('flux-router-component').NavLink;
+import Nav from './Nav';
+import PageHome from './PageHome';
+import PageDocs from './PageDocs';
+import PageReference from './PageReference';
+import Status500 from './Status500.jsx';
+import Status404 from './Status404.jsx';
 
 // stores
-var ApplicationStore = require('../stores/ApplicationStore');
-var DocStore = require('../stores/DocStore');
+import ApplicationStore from '../stores/ApplicationStore';
+import DocStore from '../stores/DocStore';
 
 // mixins
-var RouterMixin = require('flux-router-component').RouterMixin;
-var FluxibleMixin = require('fluxible').Mixin;
+import {RouterMixin} from 'flux-router-component';
+import {NavLink} from 'flux-router-component';
+import {FluxibleMixin} from 'fluxible/addons';
 
-/**
- * The app
- *
- * @class App
- * @constructor
- */
 var App = React.createClass({
     mixins: [RouterMixin, FluxibleMixin],
+
     statics: {
         storeListeners: [ApplicationStore]
     },
+
     getInitialState: function () {
         return this.getState();
     },
+
     getState: function () {
         var appStore = this.getStore(ApplicationStore);
         var docStore = this.getStore(DocStore);
@@ -41,33 +41,21 @@ var App = React.createClass({
             currentDoc: docStore.getCurrent() || {},
             currentPageName: appStore.getCurrentPageName(),
             pageTitle: appStore.getPageTitle(),
-            pages: appStore.getPages(),
-            route: appStore.getCurrentRoute()
+            route: appStore.getCurrentRoute() || {}
         };
     },
+
     onChange: function () {
         this.setState(this.getState());
     },
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
-    render: function () {
-        var page = '';
 
-        switch (this.state.currentPageName) {
-            case 'home':
-                page = <PageHome assets={this.props.assets} content={this.state.currentDoc.content} />;
-                break;
-            case 'docs':
-                var docsConfig = require('./../configs/docs');
-                page = <PageDocs menu={docsConfig} doc={this.state.currentDoc} />;
-                break;
-            case 'reference':
-                page = <PageReference />;
-                break;
+    render: function () {
+        var Component = this.state.route && this.state.route.config && this.state.route.config.component;
+
+        if ('500' === this.state.currentPageName) {
+            Component = Status500;
+        } else if ('404' === this.state.currentPageName) {
+            Component = Status404;
         }
 
         // Keep <a> and <Nav> in the same line to enforce white-space between them
@@ -76,10 +64,12 @@ var App = React.createClass({
                 <div className="wrapper Bxz(bb) Mih(100%)">
                     <div id="header" role="header" className="P(10px) Ov(h) Z(7) Pos(r) Bgc($brandColor) optLegibility">
                         <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
-                            <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h home-page_V(h) V(h)!--xs" routeName="home">Atomic CSS</NavLink> <Nav selected={this.state.currentPageName} links={this.state.pages} context={this.props.context}/>
+                            <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h home-page_V(h) V(h)!--xs" routeName="home">
+                                Atomic CSS
+                            </NavLink> <Nav selected={this.state.route.name} />
                         </div>
                     </div>
-                    {page}
+                    <Component doc={this.state.currentDoc} currentRoute={this.state.route} />
                 </div>
                 <div id="footer" className="Py(16px) Px(20px) BdT Bdc(#0280ae.3)" role="footer">
                     <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
@@ -92,12 +82,16 @@ var App = React.createClass({
     componentDidUpdate: function (prevProps, prevState) {
         var newState = this.state;
 
+        // update class in html
+        document.documentElement.className = document.documentElement.className.replace(prevState.currentPageName, newState.currentPageName);
+
         if (newState.pageTitle === prevState.pageTitle) {
             return;
         }
 
+        // update page title
         document.title = newState.pageTitle;
      }
 });
 
-module.exports = App;
+export default App;
