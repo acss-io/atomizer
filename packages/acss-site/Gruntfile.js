@@ -94,7 +94,7 @@ module.exports = function(grunt) {
                         PORT: '3000'
                     },
                     ext: 'js,md',
-                    ignore: ['node_modules/**'],
+                    ignore: ['node_modules/**', 'build/**'],
                     watch: 'app',
                     delay: 1000,
                     callback: function(nodemon) {
