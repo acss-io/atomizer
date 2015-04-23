@@ -2,37 +2,41 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react');
-var ApplicationStore = require('../stores/ApplicationStore');
-var FluxibleMixin = require('fluxible').Mixin;
-var assets = require('../utils/assets');
 
-/**
- * React class to handle the rendering of the HTML head section
- *
- * @class Html
- * @constructor
- */
+// external packages
+import React from 'react';
+
+// other dependencies
+import assets from '../utils/assets';
+
+// stores
+import ApplicationStore from '../stores/ApplicationStore';
+
+// mixins
+import {FluxibleMixin} from 'fluxible/addons';
+import {RouterMixin} from 'flux-router-component';
+
 var Html = React.createClass({
-    mixins: [ FluxibleMixin ],
+    mixins: [RouterMixin, FluxibleMixin],
 
-    getDefaultProps: function () {
+    getInitialState: function () {
+        return this.getState();
+    },
+
+    getState: function () {
+        var appStore = this.getStore(ApplicationStore);
+
         return {
-            ua: {},
-            dev: false
+            currentPageName: appStore.getCurrentPageName(),
+            pageTitle: appStore.getPageTitle(),
+            route: appStore.getCurrentRoute() || {}
         };
     },
 
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
     render: function() {
-        var liveReload = this.props.dev ? (<script src={"//localhost:35729/livereload.js"}></script>) : '',
-            ieStylesheet;
+        let liveReload = this.props.dev ? (<script src={"//localhost:35729/livereload.js"}></script>) : '';
+        let ieStylesheet;
+        let className = ['atomic', this.state.currentPageName].join(' ');
 
         // yes, browser sniffing isn't a good idea, but we're taking the pragmatic approach
         // for old IE for server-side rendering.
@@ -41,10 +45,10 @@ var Html = React.createClass({
         }
 
         return (
-            <html className="atomic" lang="en-US">
+            <html className={className} lang="en-US">
                 <head>
                     <meta charSet="UTF-8" />
-                    <title>{this.getStore(ApplicationStore).getPageTitle()}</title>
+                    <title>{this.props.context.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="stylesheet" href={assets['css/bundle.css']} />
                     <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" />
@@ -64,4 +68,4 @@ var Html = React.createClass({
     }
 });
 
-module.exports = Html;
+export default Html;

@@ -1,8 +1,14 @@
-var marked = require('marked');
-var renderer = new marked.Renderer();
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
 
-renderer.heading = function (text, level) {
-    var escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
+import marked from 'marked';
+
+const RENDERER = new marked.Renderer();
+
+RENDERER.heading = function (text, level) {
+    let escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
 
     return (
         '<h' + level + '>' +
@@ -13,4 +19,4 @@ renderer.heading = function (text, level) {
     );
 };
 
-module.exports = renderer;
+export default RENDERER;

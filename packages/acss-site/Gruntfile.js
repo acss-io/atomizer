@@ -11,8 +11,6 @@ function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 }
 
-
-
 module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
@@ -89,24 +87,19 @@ module.exports = function(grunt) {
         // nodemon to restart server if files change
         nodemon: {
             dev: {
-                script: '<%= project.app %>/server.js',
+                script: './start.js',
                 options: {
                     args: ['--dev'],
                     env: {
                         PORT: '3000'
                     },
                     ext: 'js,md',
+                    ignore: ['node_modules/**'],
+                    watch: 'app',
+                    delay: 1000,
                     callback: function(nodemon) {
                         nodemon.on('log', function(event) {
                             console.log(event.colour);
-                        });
-
-                        // opens browser on initial server start
-                        nodemon.on('config:update', function() {
-                            // Delay before server listens on port
-                            setTimeout(function() {
-                                require('open')('http://localhost:3000');
-                            }, 1000);
                         });
 
                         // refreshes browser when server reboots
@@ -142,7 +135,7 @@ module.exports = function(grunt) {
         atomizer: {
             app: {
                 options: {
-                    namespace: '',
+                    ie: true,
                     configFile: './config/atomic-config.js',
                     configOutput: './build/atomizer.json'
                 },
@@ -260,11 +253,12 @@ module.exports = function(grunt) {
                 },
                 module: {
                     loaders: [
-                        { test: /\.jsx$/, loader: 'jsx-loader' },
+                        { test: /\.jsx?$/, exclude: /node_modules/, loader: require.resolve('babel-loader') },
                         { test: /\.json$/, loader: 'json-loader'}
                     ]
                 },
                 plugins: [
+                    new webpack.IgnorePlugin(/vertx/),
                     new webpack.optimize.CommonsChunkPlugin('common.js', undefined, 2),
                     new webpack.NormalModuleReplacementPlugin(/^react(\/addons)?$/, require.resolve('react/addons'))
                 ],

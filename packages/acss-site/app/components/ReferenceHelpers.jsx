@@ -2,28 +2,22 @@
  * Copyright 2015, Yahoo Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
 
-var escapeStringRegexp = require('escape-string-regexp');
-
-var React = require('react');
-var Rules = require('atomizer/src/helpers');
-var Atomizer = require('atomizer');
+// external packages
+import React from 'react';
+import Rules from 'atomizer/src/helpers';
+import Atomizer from 'atomizer';
+import escapeStringRegexp from 'escape-string-regexp';
 
 // stores
-var ReferenceStore = require('../stores/ReferenceStore');
+import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
-var FluxibleMixin = require('fluxible').Mixin;
+import {FluxibleMixin} from 'fluxible/addons';
 
+// instantiate
 var atomizer = new Atomizer();
 
-/**
- * Reference docs for the helper ruleset
- *
- * @class ReferenceHelpers
- * @constructor
- */
 var ReferenceRules = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -40,21 +34,15 @@ var ReferenceRules = React.createClass({
         this.setState(state);
     },
 
-    hasClassUsingPrefix: function (prefix, classnames) {
+    hasClassUsingMatcher: function (matcher, classnames) {
         var value;
         for (var i=0, iLen=classnames.length; iLen; i++) {
             value = classnames[i];
-            if (value.indexOf(prefix) === 0) { return true; }
+            if (value.indexOf(matcher) === 0) { return true; }
         }
         return false;
     },
 
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
     render: function () {
         var searchRE = false;
         if (this.state.currentQuery) {
@@ -81,7 +69,7 @@ var ReferenceRules = React.createClass({
                 suffix;
 
             if (customConfig.classNames && customConfig.classNames.length) {
-                usingClass = this.hasClassUsingPrefix(recipe.prefix, customConfig.classNames);
+                usingClass = this.hasClassUsingMatcher(recipe.matcher, customConfig.classNames);
             }
 
             // If config is provided, filter any rules not used in config
@@ -120,7 +108,7 @@ var ReferenceRules = React.createClass({
 
             var displayclassDefinitions = "Ov(h) " + (showRecipeBlock ? "D(b)" : "D(n)");
             return (
-                <div key={'id-' + recipe.prefix} className={displayclassDefinitions}>
+                <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
                     <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px) Ta(end)">{recipe.name}</h3>
                     <dl className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{classDefinitions}</dl>
                 </div>
@@ -136,4 +124,4 @@ var ReferenceRules = React.createClass({
     }
 });
 
-module.exports = ReferenceRules;
+export default ReferenceRules;

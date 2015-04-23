@@ -4,23 +4,19 @@
  */
 'use strict';
 
-var React = require('react');
-var Atomizer = require('atomizer');
-var atomizer = new Atomizer();
+// external packages
+import React from 'react';
+import Atomizer from 'atomizer';
 
 // stores
-var ReferenceStore = require('../stores/ReferenceStore');
+import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
-var FluxibleMixin = require('fluxible').Mixin;
+import {FluxibleMixin} from 'fluxible/addons';
 
+// instantiate
+var atomizer = new Atomizer();
 
-/**
- * Outputs Atomic CSS when configuration is supplied
- *
- * @class AtomicCssOutputBox
- * @constructor
- */
 var AtomicCssOutputBox = React.createClass({
     mixins: [FluxibleMixin],
     statics: {
@@ -67,4 +63,4 @@ var AtomicCssOutputBox = React.createClass({
     }
 });
 
-module.exports = AtomicCssOutputBox;
+export default AtomicCssOutputBox;

@@ -2,27 +2,23 @@
  * Copyright 2015, Yahoo Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react');
+
+// external packages
+import React from 'react';
 
 // actions
-var SearchAction = require('../actions/searchReference');
+import SearchAction from '../actions/searchReference';
 
 // stores
-var ReferenceStore = require('../stores/ReferenceStore');
+import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
-var FluxibleMixin = require('fluxible').Mixin;
+import {FluxibleMixin} from 'fluxible/addons';
 
-/**
- * SearchBox
- *
- * @class SearchBox
- * @constructor
- */
+
 var SearchBox = React.createClass({
-
     mixins: [FluxibleMixin],
+
     statics: {
         storeListeners: [ReferenceStore]
     },
@@ -41,12 +37,6 @@ var SearchBox = React.createClass({
         this.executeAction(SearchAction, e.target.value);
     },
 
-    /**
-     * Refer to React documentation render
-     *
-     * @method render
-     * @return {Object} HTML head section
-     */
     render: function () {
         return (
             <div>
@@ -57,4 +47,4 @@ var SearchBox = React.createClass({
     }
 });
 
-module.exports = SearchBox;
+export default SearchBox;

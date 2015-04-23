@@ -3,10 +3,13 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var React = require('react');
-var navigateAction = require('flux-router-component').navigateAction;
-var DOCS_URL = 'https://github.com/yahoo/acss-site/tree/master/app';
+
+// external packages
+import React from 'react';
+import {navigateAction} from 'flux-router-component';
+
+// constants
+const DOCS_URL = 'https://github.com/yahoo/acss-site/tree/master/app';
 
 function isLeftClickEvent (e) {
     return e.button === 0;
@@ -15,43 +18,56 @@ function isModifiedEvent (e) {
     return !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
 }
 
-var Component = React.createClass({
-    onClick: function (e) {
-        var target = e.target;
+class Doc extends React.Component {
+    onClick(e) {
+        let target = e.target;
+
         if ('A' === target.nodeName && '/' === target.getAttribute('href').substr(0, 1)) {
             if (isModifiedEvent(e) || !isLeftClickEvent(e)) {
                 return;
             }
-            this.executeAction(navigateAction, {
+
+            this.context.executeAction(navigateAction, {
                 url: target.getAttribute('href')
             });
+
             e.preventDefault();
         }
-    },
-    componentDidUpdate: function () {
+    }
+
+    componentDidUpdate() {
         if (typeof CodePenEmbed !== 'undefined') {
             CodePenEmbed.showCodePenEmbeds();
         }
-    },
-    render: function () {
-        var editEl = '';
+    }
 
-        // only output on docs pages
-        if (this.props.slug && this.props.slug.indexOf('docs') !== -1) {
-            editEl = (<a href={DOCS_URL + this.props.slug} className="D(ib) Va(m) Mt(30px)" target='_blank'>Edit on Github</a>)
+    render() {
+        let editEl = '';
+        let title = this.props.title ? (<div className="SpaceBetween"><h1 className="D(ib) Va(m) Fz(30px)">{this.props.title}</h1> {editEl}</div>) : '';
+
+        if (this.props.currentRoute && this.props.currentRoute.config.githubPath !== -1) {
+            editEl = (
+                <a href={DOCS_URL + this.props.currentRoute.config.githubPath} className="D(ib) Va(m) Mt(30px)" target='_blank'>
+                    Edit on Github
+                </a>
+            )
         }
 
         return (
             <div id="main" role="main" className="D(tbc)--sm home-page_D(b)! Px(10px)">
-                <div className="SpaceBetween">
-                    <h1 className="D(ib) Va(m) Fz(30px)">
-                        {this.props.title}
-                    </h1> {editEl}
-                </div>
+                {title}
                 <div onClick={this.onClick} dangerouslySetInnerHTML={{__html: this.props.content}}></div>
             </div>
         );
     }
-});
+}
 
-module.exports = Component;
+Doc.defaultProps = {
+    content: ''
+};
+
+Doc.contextTypes = {
+    executeAction: React.PropTypes.func
+};
+
+export default Doc;

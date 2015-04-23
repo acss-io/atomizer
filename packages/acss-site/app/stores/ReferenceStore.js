@@ -2,22 +2,19 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-'use strict';
-var createStore = require('fluxible/utils/createStore');
 
-var ReferenceStore = createStore({
-    storeName: 'ReferenceStore',
-    handlers: {
-        'CHANGE_SEARCH_TERM': 'handleSearch',
-        'CHANGE_CUSTOM_CONFIG': 'handleCustomConfig'
-    },
-    initialize: function () {
+import {BaseStore} from 'fluxible/addons';
+
+class ReferenceStore extends BaseStore {
+    constructor(dispatcher) {
+        super(dispatcher);
         this.currentQuery = '';
         this.customConfig = undefined;
         this.customConfigObj = undefined;
-    },
-    handleSearch: function (payload) {
-        var query = payload.query;
+    }
+
+    handleSearch(payload) {
+        let query = payload.query;
         // Don't update if query hasn't changed, or 
         // there's a query but the query is nothing but spaces
         if (query === this.getCurrentQuery() || (query && query.trim() === '')) {
@@ -25,10 +22,11 @@ var ReferenceStore = createStore({
         }
         this.currentQuery = query;
         this.emitChange();
-    },
-    handleCustomConfig: function (payload) {
-        var config = payload.config,
-            configObj;
+    }
+
+    handleCustomConfig(payload) {
+        let config = payload.config;
+        let configObj;
 
         if (config === this.customConfig) { 
             return;
@@ -41,26 +39,35 @@ var ReferenceStore = createStore({
         this.customConfig = config;
         this.customConfigObj = configObj;
         this.emitChange();
-    },
-    getCurrentQuery: function () {
+    }
+
+    getCurrentQuery() {
         return this.currentQuery;
-    },
-    getState: function () {
+    }
+
+    getState() {
         return {
             currentQuery: this.currentQuery,
             customConfig: this.customConfig,
             customConfigObj: this.customConfigObj
         };
-    },
-    dehydrate: function () {
+    }
+
+    dehydrate() {
         return this.getState();
-    },
-    rehydrate: function (state) {
+    }
+
+    rehydrate(state) {
         this.currentQuery = state.currentQuery;
         this.customConfig = state.customConfig;
         this.customConfigObj = state.customConfigObj;
     }
-});
+}
 
+ReferenceStore.storeName = 'ReferenceStore';
+ReferenceStore.handlers = {
+    'CHANGE_SEARCH_TERM': 'handleSearch',
+    'CHANGE_CUSTOM_CONFIG': 'handleCustomConfig'
+};
 
-module.exports = ReferenceStore;
+export default ReferenceStore;
