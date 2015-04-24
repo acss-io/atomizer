@@ -43,7 +43,7 @@ class Doc extends React.Component {
 
     render() {
         let editEl = '';
-        let title = this.props.title ? (<div className="SpaceBetween"><h1 className="D(ib) Va(m) Fz(30px)">{this.props.title}</h1> {editEl}</div>) : '';
+        let title = '';
 
         if (this.props.currentRoute && this.props.currentRoute.config.githubPath !== -1) {
             editEl = (
@@ -51,6 +51,14 @@ class Doc extends React.Component {
                     Edit on Github
                 </a>
             )
+        }
+
+        if (this.props.title) {
+            title = (
+                <div className="SpaceBetween">
+                    <h1 className="D(ib) Va(m) Fz(30px)">{this.props.title}</h1> {editEl}
+                </div>
+            );
         }
 
         return (
