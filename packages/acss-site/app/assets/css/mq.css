@@ -22,13 +22,13 @@
     @keyframes bounce {
         0% {
             transform:translateY(-100%);
-          filter: blur(5px);
+            filter: blur(5px);
          }
         40% {
             transform:translateY(0);
         }
         60% {
-            transform:translateY(-20%);
+            transform:translateY(-10%);
          }
         100% {
             transform:translateY(0);

@@ -181,7 +181,7 @@ var ReferenceRules = React.createClass({
             var displayclassDefinitions = "Ov(h) " + (showRecipeBlock ? "D(b)" : "D(n)");
             return (
                 <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
-                    <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px) Ta(end)">{recipe.name}</h3>
+                    <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">{recipe.name}</h3>
                     <dl className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{classDefinitions}</dl>
                 </div>
             );

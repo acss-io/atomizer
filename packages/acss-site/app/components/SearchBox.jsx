@@ -41,7 +41,7 @@ var SearchBox = React.createClass({
         return (
             <div>
                 <h2 className="Mb(0)"><label htmlFor="searchbox">Search:</label></h2>
-                <input id="searchbox" type="search" role="search" className="W(100%) P(10px)" size="50" placeholder="Type classname or CSS declaration here..." title="Type classname or CSS declaration here..." autoFocus onChange={this.onQueryChange} value={this.state.currentQuery}></input>
+                <input id="searchbox" type="search" role="search" className="W(100%) P(10px) Fz(30px) C($brandColor) Fw(b)" size="50" placeholder="Type classname or CSS declaration here..." title="Type classname or CSS declaration here..." autoFocus onChange={this.onQueryChange} value={this.state.currentQuery}></input>
             </div>
         );
     }
