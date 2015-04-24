@@ -6,6 +6,9 @@
 // external packages
 import React from 'react';
 
+// other dependencies
+import assets from '../utils/assets';
+
 // components
 import Nav from './Nav';
 import PageHome from './PageHome';
@@ -62,10 +65,12 @@ var App = React.createClass({
         return (
             <div className="H(100%)">
                 <div className="wrapper Bxz(bb) Mih(100%)">
-                    <div id="header" role="header" className="P(10px) Ov(h) Z(7) Pos(r) Bgc($brandColor) optLegibility">
+                    <div id="header" role="header" className="P(10px) Ov(h) home_Ov(v) Z(7) Pos(r) Bgc($brandColor) optLegibility">
                         <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
-                            <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h home-page_V(h) V(h)!--xs" routeName="home">
-                                Atomic CSS
+                            <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h" routeName="home">
+                                <b className="D(n)--xs home_D(b) home_Cur(d)">Atomic CSS</b>
+                                <img id="logo" className="H(30px) Mt(1px) D(n)--sm home_D(n) docs_Mstart(40px)" alt='atomic css' src={assets['images/atomic-css-logo.png']} />
+
                             </NavLink> <Nav selected={this.state.route.name} />
                         </div>
                     </div>

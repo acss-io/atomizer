@@ -9,7 +9,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#how-is-atomic-css-different-than-using-inline-styles-">How is Atomic CSS different than using inline styles?</a></li>
    <li><a href="#what-are-the-benefits-of-atomic-css-">What are the benefits of Atomic CSS?</a></li>
    <li><a href="#how-does-atomic-css-compare-to-bootstrap-purecss-or-other-css-framework-">How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
-   <li><a href="#i-was-always-told-to-use-classes-related-to-content-not-to-presentation-isn-t-atomic-css-promoting-bad-practice-">I was always told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?</a></li>
+   <li><a href="#i-have-always-been-told-to-use-classes-related-to-content-not-to-presentation-isn-t-atomic-css-promoting-bad-practice-">I have always been told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?</a></li>
    <li><a href="#isn-t-atomic-css-moving-bloat-from-style-sheets-to-html-">Isn't Atomic CSS moving bloat from style sheets to HTML?</a></li>
    <li><a href="#how-can-you-distribute-presentation-changes-without-asking-everyone-to-change-their-markup-">How can you distribute presentation changes without asking everyone to change their markup?</a></li>
    <li><a href="#how-does-atomic-css-work-with-abbr-title-responsive-web-design-rwd-abbr-">How does Atomic CSS work with Responsive Web Design (RWD)?</a></li>
@@ -222,7 +222,7 @@ Atomic CSS is not a framework; it does not contain UI components nor a grid syst
 
 Atomic's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
 
-### I was always told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?
+### I have always been told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?
 
 <blockquote>
     <div>

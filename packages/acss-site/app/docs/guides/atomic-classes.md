@@ -239,7 +239,7 @@ Same class on a node outside the scope of `.foo`:
 
 <p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
 
-<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home-page_D(b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
+<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home_D(b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
 
 #### pseudo-classes on ancestors
 
