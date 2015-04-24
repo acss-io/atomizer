@@ -7,6 +7,8 @@
 import React from 'react';
 import cx from 'classnames';
 import {NavLink} from 'flux-router-component';
+
+// other dependencies
 import docsConfig from './../configs/menu';
 
 class Menu extends React.Component {
