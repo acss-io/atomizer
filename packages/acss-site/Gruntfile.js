@@ -93,7 +93,7 @@ module.exports = function(grunt) {
                     env: {
                         PORT: '3000'
                     },
-                    ext: 'js,md',
+                    ext: 'jsx,js,md',
                     ignore: ['node_modules/**', 'build/**'],
                     watch: 'app',
                     delay: 1000,
