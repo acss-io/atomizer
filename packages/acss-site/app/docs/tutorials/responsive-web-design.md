@@ -41,10 +41,10 @@
 <p>Use different classes to see styles being applied in the context of various breakpoints, for example:</p>
 
 ```html
-   <div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#ccc)">1</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#999)">2</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#777)">3</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#555)">4</div>
+   <div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.5)">1</div><!--
+--><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.6)">2</div><!--
+--><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.8)">3</div><!--
+--><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae)">4</div>
 ```
 
 <ul class="ul-list">

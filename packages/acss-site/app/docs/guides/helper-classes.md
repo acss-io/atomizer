@@ -21,10 +21,10 @@ You can combine one of the class above with a `border-color` of your choice (i.e
 Example with a initial border color (and `border-width` set to `1px`):
 
 ```html
-<p class="Bd C(#0b0) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(#0280ae) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 ```
 
-<p class="Bd C(#0b0) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(#0280ae) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 Example with a custom color:
 
@@ -92,14 +92,14 @@ vertical-align: top;
 ```
 
 ```html
-   <div class="IbBox W(50%) Ta(c) Bgc(#ccc)">Box-1</div><!--
---><div class="IbBox W(50%) Ta(c) Bgc(#999)">Box-2</div>
+   <div class="IbBox W(50%) Ta(c) Bgc(#0280ae.5) C(#fff)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(#0280ae) C(#fff)">Box-2</div>
 ```
 
 Example:
 
-<div class="IbBox W(50%) Ta(c) Bgc(#ccc)">Box-1</div><!--
---><div class="IbBox W(50%) Ta(c) Bgc(#999)">Box-2</div>
+<div class="IbBox W(50%) Ta(c) Bgc(#0280ae.5) C(#fff)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(#0280ae) C(#fff)">Box-2</div>
 
 <p class="noteBox info">Remember to remove the white-space between nodes when creating inline-block constructs.</p>
 
@@ -130,12 +130,12 @@ Use the class `Row` to style a box that expands to fill its container, contains 
 Example:
 
 ```html
-<div class="Row Bgc(#0b0)">
+<div class="Row Bgc(#0280ae) C(#fff)">
     <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
     <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
 ```
-<div class="Row Bgc(#0b0)">
+<div class="Row Bgc(#0280ae) C(#fff)">
     <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
     <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
@@ -158,11 +158,11 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ```html
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0b0) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc(#0280ae) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0b0) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc(#0280ae) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 
 ## `Zoom`

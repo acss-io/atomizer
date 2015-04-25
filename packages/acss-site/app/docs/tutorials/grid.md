@@ -107,15 +107,15 @@ When creating inline-block constructs, you should use our helper class (`IbBox`)
 
 ```html
 <div>
-   <div class="IbBox W(1/3) P(20px) Bgc(#ccc)">Box 1</div><!--
---><div class="IbBox W(1/3) P(20px) Bgc(#999)">Box 2</div><!--
---><div class="IbBox W(1/3) P(20px) Bgc(#777)">Box 3</div>
+   <div class="IbBox W(1/3) P(20px) Bgc(#0280ae.5)">Box 1</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#0280ae.8)">Box 2</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#0280ae">Box 3</div>
 </div>
 <hr />
 <div dir="rtl">
-   <div class="IbBox W(1/3) P(20px) Bgc(#ccc)">Box 1</div><!--
---><div class="IbBox W(1/3) P(20px) Bgc(#999)">Box 2</div><!--
---><div class="IbBox W(1/3) P(20px) Bgc(#777)">Box 3</div>
+   <div class="IbBox W(1/3) P(20px) Bgc(#0280ae.5)">Box 1</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#0280ae.8)">Box 2</div><!--
+--><div class="IbBox W(1/3) P(20px) Bgc(#0280ae)">Box 3</div>
 </div>
 ```
 
@@ -148,8 +148,8 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div>
-   <div class="Fl(start) W(50%) P(20px) Bgc(#ccc)">Box 1</div>
-   <div class="Fl(start) W(50%) P(20px) Bgc(#999)">Box 2</div>
+   <div class="Fl(start) W(50%) P(20px) Bgc(#0280ae.5)">Box 1</div>
+   <div class="Fl(start) W(50%) P(20px) Bgc(#0280ae)">Box 2</div>
 </div>
 ```
 
@@ -184,17 +184,17 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D(tb) W(100%) Ta(c)">
-    <div class="D(tbc) Va(m) P(20px) Bgc(#ccc)">Box <br />Number <br />1</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#999)">Box Number 2</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#777)">Box Number 3</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#555)">BoxNumber 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">BoxNumber 4</div>
 </div>
 <hr />
 <div class="D(tb) W(100%) Va(m) Ta(c)" dir="rtl">
-    <div class="D(tbc) Va(m) P(20px) Bgc(#ccc)">Box <br />Number <br />1</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#999)">Box Number 2</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#777)">Box Number 3</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#555)">BoxNumber 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">BoxNumber 4</div>
 </div>
 ```
 
@@ -206,15 +206,15 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D(tb) W(100%) Ta(c)">
-    <div class="D(tbfg) Fz(20px) Bgc(#ccc)">Box Number 1</div>
-    <div class="D(tbc) Fz(20px) Bgc(#999)">Box Number 2</div>
-    <div class="D(tbhg) Fz(20px) Bgc(#777)">Box Number 3</div>
+    <div class="D(tbfg) Fz(20px) Bgc(#0280ae.5)">Box Number 1</div>
+    <div class="D(tbc) Fz(20px) Bgc(#0280ae.8)">Box Number 2</div>
+    <div class="D(tbhg) Fz(20px) Bgc(#0280ae)">Box Number 3</div>
 </div>
 ```
 
 <h4 class="penResult">Result</h4>
 
-<p data-height="105" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="115" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 
 <h3>`flexbox` construct</h3>
@@ -238,10 +238,10 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 ```html
 <div class="D(f) Jc(sb)">
-  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 1</div>
-  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 2</div>
-  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 3</div>
-  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#ccc)">Box 3</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 1</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 2</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
+  <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
 </div>
 ```
 
