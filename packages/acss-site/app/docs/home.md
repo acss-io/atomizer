@@ -17,13 +17,13 @@
         Colors are set using hexadecimal values. Alpha transparency is created by appending the opacity value to the `hex` color.
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-css">&lt;div class="Bgc(#<span class="hljs-number">000</span>.<span class="hljs-number">5</span>) C(#fff) P(<span class="hljs-number">20</span>px)"&gt;
+<pre><code class="lang-css">&lt;div class="Bgc(#<span class="hljs-number">0280ae</span>.<span class="hljs-number">5</span>) C(#fff) P(<span class="hljs-number">20</span>px)"&gt;
     <span class="hljs-comment">Lorem ipsum</span>
 &lt;/div&gt;
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bgc(#000.5) C(#fff) P(20px)">
+        <div class="Bgc(#0280ae.5) C(#fff) P(20px)">
             Lorem ipsum
         </div>
     </div>
@@ -66,25 +66,25 @@
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#ccc) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#999) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">hr</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"foo"</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#ccc) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#999) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div>
-            <div class="Bgc(#ccc) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
-         --><div class="Bgc(#999) H(90px) IbBox W(50%) foo_W(100%)"></div>
+            <div class="Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"></div>
         </div>
         <hr>
         <div class="foo">
-            <div class="Bgc(#ccc) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
-         --><div class="Bgc(#999) H(90px) IbBox W(50%) foo_W(100%)"></div>
+            <div class="Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"></div>
         </div>
     </div>
 </div>
@@ -97,25 +97,25 @@
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="Bd Bgc($brandColor):h C(#fff):h P(<span class="hljs-number">20</span>px)"&gt;
+<pre><code class="lang-html">&lt;div class="Bd Bgc($brandColor):h C($brandColor):h P(<span class="hljs-number">20</span>px)"&gt;
     <span class="hljs-comment">Lorem ipsum</span>
 &lt;/div&gt;
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bd Bgc($brandColor):h C(#fff):h P(20px)">
+        <div class="Bd Bgc($brandColor):h C($brandColor) C(#fff):h P(20px)">
             Lorem ipsum
         </div>
     </div>
     <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs">You can also combine descendant selectors with pseudo-classes. In this example, we reveal the nested box when a user hovers over **its parent**:</p>
         <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="foo Bd Ta(c)"&gt;
+<pre><code class="lang-html">&lt;div class="foo Bd C($brandColor) Ta(c)"&gt;
     &lt;p class="Op(<span class="hljs-number">0</span>) foo:h&gt;Op(<span class="hljs-number">1</span>)"&gt;<span class="hljs-comment">Lorem ipsum</span>&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
         </div>
         <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-            <div class="foo Bd Ta(c)">
+            <div class="foo Bd C($brandColor) Ta(c)">
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
@@ -130,28 +130,28 @@
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#ccc) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#999) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(f)"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#999) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#ccc) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib) W(50%) Bgc(#ccc) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib) W(50%) Bgc(#999) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib) W(50%) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib) W(50%) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
-            <div class="Fl(start) W(1/2) Bgc(#ccc) H(90px)"></div>
-            <div class="Fl(start) W(1/2) Bgc(#999) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(#0280ae) H(90px)"></div>
         </div>
         <div class="D(f)">
-            <div class=" Flxg(1) Bgc(#999) H(90px)"></div>
-            <div class=" Flxg(1) Bgc(#ccc) H(90px)"></div>
+            <div class=" Flxg(1) Bgc(#0280ae) H(90px)"></div>
+            <div class=" Flxg(1) Bgc(#0280ae.5) H(90px)"></div>
         </div>
-        <div class="D(ib) W(50%) Bgc(#ccc) H(90px)"></div><!--
-     --><div class="D(ib) W(50%) Bgc(#999) H(90px)"></div>
+        <div class="D(ib) W(50%) Bgc(#0280ae.5) H(90px)"></div><!--
+     --><div class="D(ib) W(50%) Bgc(#0280ae) H(90px)"></div>
     </div>
 </div>
 
@@ -167,17 +167,17 @@
     <span class="hljs-string">'sm'</span>: <span class="hljs-string">'@media screen and (min-width:700px)'</span>
 }
 </code></pre>
-<pre><code class="lang-javascript">   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#ccc) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#999) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#ccc) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#999) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<pre><code class="lang-javascript">   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bgc(#ccc) H(90px) D(ib)--sm W(25%)--sm"></div><!--
-        --><div class="Bgc(#999) H(90px) D(ib)--sm W(25%)--sm"></div><!--
-        --><div class="Bgc(#ccc) H(90px) D(ib)--sm W(25%)--sm"></div><!--
-        --><div class="Bgc(#999) H(90px) D(ib)--sm W(25%)--sm"></div>
+        <div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div><!--
+        --><div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div><!--
+        --><div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div><!--
+        --><div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
     </div>
 </div>
 
