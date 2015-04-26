@@ -121,7 +121,7 @@ function getSortedKeys(map) {
     }).join('|');
 }
 
-function getRegex(map, keyEx, valEx) {
+function buildRegex(map, keyEx, valEx) {
     var keys = getSortedKeys(map);
 
     return keys.length && [
@@ -140,8 +140,8 @@ function getRegex(map, keyEx, valEx) {
 
 function Grammar(rulesMap, helpersMap) {
     this.mainSyntax = [];
-    this.addSyntaxRegex(getRegex(rulesMap, 'prop', 'atomicValues'));
-    this.addSyntaxRegex(getRegex(helpersMap, 'helper', 'helperValues'));
+    this.addSyntaxRegex(buildRegex(rulesMap, 'prop', 'atomicValues'));
+    this.addSyntaxRegex(buildRegex(helpersMap, 'helper', 'helperValues'));
 }
 
 /**
