@@ -110,11 +110,6 @@ var VALUE_SYNTAXE = XRegExp([
     ')',
 ].join(''));
 
-function Grammar(rulesMap, helpersMap) {
-    this.rulesMap = rulesMap;
-    this.helpersMap = helpersMap;
-}
-
 /**
  * sort matchers by descending alphabetical order
  * this is important so "B" doesn't match "Bgc"
@@ -143,7 +138,13 @@ function getRegex(map, keyEx, valEx) {
     ].join('');
 }
 
-Grammar.getPseudo = function getPseudo(pseudoName/*:string*/)/*:string*/ {
+function Grammar(rulesMap, helpersMap) {
+    this.mainSyntax = [];
+    this.addSyntaxRegex(getRegex(rulesMap, 'prop', 'atomicValues'));
+    this.addSyntaxRegex(getRegex(helpersMap, 'helper', 'helperValues'));
+}
+
+Grammar.getPseudo = function getPseudo(pseudoName)/*:string*/ {
     return PSEUDOS[pseudoName] ? pseudoName : PSEUDOS_INVERTED[pseudoName];
 };
 
@@ -151,14 +152,17 @@ Grammar.matchValue = function matchValue(value) {
     return XRegExp.exec(value, VALUE_SYNTAXE);
 };
 
+Grammar.prototype.addSyntaxRegex = function addRegex(regex)/*:string*/ {
+    regex && this.mainSyntax.push(regex);
+};
+
+Grammar.prototype.getMainSyntax = function getMainSyntax()/*:string*/ {
+    return this.mainSyntax.length > 1 ?
+        '(?:' + this.mainSyntax.join('|') + ')' :
+        this.mainSyntax[0];
+};
+
 Grammar.prototype.getSyntax = function getSyntax()/*:string*/ {
-    var helpersRegex = getRegex(this.helpersMap, 'helper', 'helperValues');
-    var rulesRegex = getRegex(this.rulesMap, 'prop', 'atomicValues');
-
-    var mainSyntax = (helpersRegex && rulesRegex) ?
-        ['(?:', rulesRegex, '|', helpersRegex,')'].join(''):
-        helpersRegex || rulesRegex;
-
     var syntax = [
         // word boundary
         GRAMMAR.BOUNDARY,
@@ -166,7 +170,7 @@ Grammar.prototype.getSyntax = function getSyntax()/*:string*/ {
         '(?<parentSelector>',
             GRAMMAR.PARENT_SELECTOR,
         ')?',
-        mainSyntax,
+        this.getMainSyntax(),
         '(?<important>',
             GRAMMAR.IMPORTANT,
         ')?',
