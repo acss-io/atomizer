@@ -402,7 +402,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 if (treeo.parentSelector) {
                     selector = [
                         Atomizer.escapeSelector(treeo.parent),
-                        Atomizer.getPseudo(treeo.parentPseudo),
+                        Grammar.getPseudo(treeo.parentPseudo),
                         treeo.parentSep === '_' ? ' ' : [' ', treeo.parentSep, ' '].join(''),
                         '.',
                         selector
@@ -413,7 +413,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                 if (treeo.valuePseudo) {
                     selector = [
                         selector,
-                        Atomizer.getPseudo(treeo.valuePseudo)
+                        Grammar.getPseudo(treeo.valuePseudo)
                     ].join('');
                 }
 
@@ -456,13 +456,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     content = Atomizer.replaceConstants(content, options.rtl);
 
     return content;
-};
-
-/**
- * get non abbreviated pseudo class string given abbreviated or non abbreviated form
- */
-Atomizer.getPseudo = function (pseudoName/*:string*/)/*:string*/ {
-    return Grammar.getPseudo(pseudoName);
 };
 
 /**

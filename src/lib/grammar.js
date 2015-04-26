@@ -144,6 +144,9 @@ function Grammar(rulesMap, helpersMap) {
     this.addSyntaxRegex(getRegex(helpersMap, 'helper', 'helperValues'));
 }
 
+/**
+ * get non abbreviated pseudo class string given abbreviated or non abbreviated form
+ */
 Grammar.getPseudo = function getPseudo(pseudoName)/*:string*/ {
     return PSEUDOS[pseudoName] ? pseudoName : PSEUDOS_INVERTED[pseudoName];
 };
