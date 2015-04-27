@@ -2,7 +2,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var JSS = require('../src/jss');
+var JSS = require('../../src/lib/jss');
 
 describe('JSS', function () {
     describe('flattenSelectors()', function () {

@@ -575,23 +575,6 @@ describe('Atomizer()', function () {
         });
     });
     // -------------------------------------------------------
-    // getPseudo()
-    // -------------------------------------------------------
-    describe('getPseudo()', function () {
-        it('returns undefined if undefined has been passed', function () {
-            // execute and assert
-            expect(Atomizer.getPseudo()).to.be.undefined;
-        });
-        it('returns non abbreviated form if abbreviated form has been passed', function () {
-            // execute and assert
-            expect(Atomizer.getPseudo(':h')).to.equal(':hover');
-        });
-        it('returns non abbreviated form if non abbreviated form has been passed', function () {
-            // execute and assert
-            expect(Atomizer.getPseudo(':hover')).to.equal(':hover');
-        });
-    });
-    // -------------------------------------------------------
     // escapeSelector()
     // -------------------------------------------------------
     describe('escapeSelector()', function () {

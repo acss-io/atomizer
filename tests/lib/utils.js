@@ -2,7 +2,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var utils = require('../src/utils');
+var utils = require('../../src/lib/utils');
 
 describe('utils', function () {
     describe('hexToRgb()', function () {
