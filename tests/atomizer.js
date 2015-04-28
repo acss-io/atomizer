@@ -172,6 +172,74 @@ describe('Atomizer()', function () {
         });
     });
     describe('getCss()', function () {
+        it ('returns expected css for custom classes with break points', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: {
+                    sm: '@media screen and (min-width:700px)',
+                    md: '@media screen and (min-width:999px)',
+                    lg: '@media screen and (min-width:1200px)'
+                },
+                custom: {
+                    'P($gutter)': {
+                        default: '10px',
+                        sm: '16px',
+                        md: '20px',
+                        lg: '24px'
+                    }
+                },
+                classNames: ['P($gutter)']
+            };
+            var expected = [
+                '.P\\(\\$gutter\\) {',
+                '  padding: 10px;',
+                '}',
+                '@media screen and (min-width:700px) {',
+                '  .P\\(\\$gutter\\) {',
+                '    padding: 16px;',
+                '  }',
+                '}',
+                '@media screen and (min-width:999px) {',
+                '  .P\\(\\$gutter\\) {',
+                '    padding: 20px;',
+                '  }',
+                '}',
+                '@media screen and (min-width:1200px) {',
+                '  .P\\(\\$gutter\\) {',
+                '    padding: 24px;',
+                '  }',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config, {ie: true});
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css for custom classes with break points with missing breakPoints', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: {
+                    sm: '@media screen and (min-width:700px)'
+                },
+                custom: {
+                    'P($gutter)': {
+                        sm: '16px',
+                        md: '20px',
+                        lg: '24px'
+                    }
+                },
+                classNames: ['P($gutter)']
+            };
+            var expected = [
+                '@media screen and (min-width:700px) {',
+                '  .P\\(\\$gutter\\) {',
+                '    padding: 16px;',
+                '  }',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config, {ie: true});
+            expect(result).to.equal(expected);
+        });
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {

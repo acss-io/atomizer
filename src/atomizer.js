@@ -287,7 +287,35 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         }
                     }
                     if (value !== null) {
-                        treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value);
+                        // value could be an object for custom classes with breakPoints
+                        // e.g.
+                        // 'custom': {
+                        //     'P($gutter)': {
+                        //         default: '10px',
+                        //         sm: '12px',
+                        //         md: '14px',
+                        //         lg: '20px'
+                        //     }
+                        // }
+                        if (_.isObject(value)) {
+                            Object.keys(value).forEach(function (bp) {
+                                // don't continue if we can't find the breakPoint in the declaration
+                                if (!config.hasOwnProperty('breakPoints') || !config.breakPoints.hasOwnProperty(bp)) {
+                                    return;
+                                }
+                                treeo.declarations[config.breakPoints[bp]] = {};
+                                treeo.declarations[config.breakPoints[bp]][prop] = treeo.declarations[prop].replace('$' + index, value[bp]);
+                            });
+                            // handle default value in the custom class
+                            if (!value.hasOwnProperty('default')) {
+                                // default has not been passed, make sure we delete it
+                                delete treeo.declarations[prop];
+                            } else {
+                                treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value.default);
+                            }
+                        } else {
+                            treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value);
+                        }
                     } else {
                         treeo.declarations = null;
                     }
@@ -359,9 +387,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         ie: false
     }, options);
 
-    // make sense of the config
-    tree = this.parseConfig(config, options);
-
     // validate config.breakPoints
     if (config && config.breakPoints) {
         if (!_.isObject(config.breakPoints)) {
@@ -378,6 +403,9 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
             }
         }
     }
+
+    // make sense of the config
+    tree = this.parseConfig(config, options);
 
     // write JSS
     // start by iterating rules (we need to follow the order that the rules were declared)
