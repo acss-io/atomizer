@@ -129,12 +129,13 @@ function buildRegex(map, keyEx, valEx) {
         '(?<' + keyEx + '>',
             keys,
         ')',
-        // value is optional
         '(?:\\(',
             '(?<' + valEx + '>',
                 GRAMMAR.VALUES,
             ')',
-        '\\))?',
+        '\\))',
+        // value is optional only for helper
+        keyEx === 'helper' ? '?' : ''
     ].join('');
 }
 

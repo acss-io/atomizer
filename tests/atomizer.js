@@ -240,6 +240,34 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config, {ie: true});
             expect(result).to.equal(expected);
         });
+        it ('returns css if coliding helper and atomic rule is used at the same time', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    '$custom': '1px solid #000'
+                },
+                classNames: ['Bd($custom)', 'Bd', 'BdT']
+            };
+            var expected = [
+                '.Bd\\(\\$custom\\) {',
+                '  border: 1px solid #000;',
+                '}',
+                '.Bd {',
+                '  border-width: 1px;',
+                '}',
+                '.Bd, .BdT {',
+                '  border-style: solid;',
+                '}',
+                '.BdT {',
+                '  border-top-width: 1px;',
+                '  border-right-width: 0;',
+                '  border-bottom-width: 0;',
+                '  border-left-width: 0;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
