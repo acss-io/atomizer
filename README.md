@@ -81,7 +81,7 @@ var foundClasses = atomizer.findClassNames('<div class="D(n)! P(10px) M(20%) Bd(
 var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
 
 // Generate Atomic CSS from configuration
-var css = atomizer.getCSS(finalConfig);
+var css = atomizer.getCss(finalConfig);
 
 ```
 
