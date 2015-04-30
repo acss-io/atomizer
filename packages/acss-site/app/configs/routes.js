@@ -51,24 +51,6 @@ export default {
     },
 
     // docs - guides
-    atomizer: {
-        path: '/guides/atomizer.html',
-        method: 'get',
-        component: PageDocs,
-        githubPath: '/docs/guides/atomizer.md',
-        action: showDoc,
-        pageTitlePrefix: 'Guides: Atomizer Tool',
-        page: 'docs'
-    },
-    syntax: {
-        path: '/guides/syntax.html',
-        method: 'get',
-        component: PageDocs,
-        githubPath: '/docs/guides/syntax.md',
-        action: showDoc,
-        pageTitlePrefix: 'Guides: Thinking in Atomic',
-        page: 'docs'
-    },
     atomicClasses: {
         path: '/guides/atomic-classes.html',
         method: 'get',
@@ -94,6 +76,24 @@ export default {
         githubPath: '/docs/guides/shorthand-notation.md',
         action: showDoc,
         pageTitlePrefix: 'Guides: Shorthand',
+        page: 'docs'
+    },
+    syntax: {
+        path: '/guides/syntax.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/syntax.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Thinking in Atomic',
+        page: 'docs'
+    },
+    atomizer: {
+        path: '/guides/atomizer.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/guides/atomizer.md',
+        action: showDoc,
+        pageTitlePrefix: 'Guides: Atomizer Tool',
         page: 'docs'
     },
     // docs - tutorials

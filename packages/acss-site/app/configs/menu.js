@@ -20,14 +20,6 @@ export default [
         category: 'GUIDES',
         children: [
             {
-                label: 'Atomizer tool',
-                routeName: 'atomizer'
-            },
-            {
-                label: 'The syntax',
-                routeName: 'syntax'
-            },
-            {
                 label: 'Atomic classes',
                 routeName: 'atomicClasses'
             },
@@ -38,6 +30,14 @@ export default [
             {
                 label: 'Shorthand',
                 routeName: 'shorthand'
+            },
+            {
+                label: 'The syntax',
+                routeName: 'syntax'
+            },
+            {
+                label: 'Atomizer tool',
+                routeName: 'atomizer'
             }
         ]
     },

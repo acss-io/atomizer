@@ -12,7 +12,7 @@ You use a config object to create the styles you need but you can also *rely on 
 
 These classes are the ones Atomizer can make sense of without the need to check the config object; classes like `W(20px)` (`width:20px`), `Lh(1.5)` (`line-height:1.5`), etc.
 
-<div class="noteBox info">Examples of color syntax are on the [Atomizer page](atomizer.html#hexadecimal-colors).</div>
+<div class="noteBox info">Examples of color syntax are on the [Atomizer page](/guides/atomizer.html#hexadecimal-colors).</div>
 
 ## Custom classes
 
@@ -220,7 +220,7 @@ Changing any value in the config changes all occurrences in the style sheet.
 
 ## Advanced classes
 
-These classes are mostly contextual; they take into consideration ancestor nodes or media queries.
+These classes are mostly contextual; they take into consideration **ancestor nodes** or **media queries**.
 
 ### Descendant selectors
 
@@ -263,6 +263,8 @@ You can use pseudo-classes with classes relying on contextual selectors, for exa
 
 ### Breakpoints
 
+#### Classes bound to a single breakpoint
+
 Use the config object to create breakpoints then append a modifier (`--<breakpoint name>`) to your Atomic classes so their styling comes into play only within the breakpoint they relate to.
 
 ```javascript
@@ -276,6 +278,29 @@ breakPoints: {
 <p class="noteBox info">You can choose any name you want for the breakpoints you create via the config object.</p>
 
 The class `P(10px)--sm` will style a box with a `padding` of `10px` inside the `sm` breakpoint while the class `P(20px)--lg` will style a box with a `padding` of `20px` inside the `lg` breakpoint.
+
+#### Classes bound to multiple breakpoints
+
+Use the config object to create breakpoints then associate a custom class to multiple breakpoints so its styling varies within those breakpoints.
+
+```javascript
+'custom': {
+    'P($gutter)': {
+        'default': '10px',
+        'sm': '12px',
+        'md': '14px',
+        'lg': '20px'
+    }
+}
+```
+
+The class `P($gutter)` will style a box with a `padding` of `10px` below the first breakpoint, but then this padding will become:
+
+<ul class="ul-list">
+    <li>`12px` inside the `sm` breakpoint</li>
+    <li>`14px` inside the `md` breakpoint</li>
+    <li>`20px` inside the `lg` breakpoint</li>
+</ul>
 
 More info about [breakpoints and responsive web design](../tutorials/responsive-web-design.html).
 

@@ -361,7 +361,6 @@ textarea {
     resize: vertical; /* 1 */
 }
 
-code,
 pre,
 textarea,
 .textarea,
@@ -370,10 +369,28 @@ input[type=search] {
     border-radius: 3px;
     border: 0;
 }
-
-pre code {
+code {
     box-shadow: none;
+    border: 1px solid rgba(2, 128, 174, .2);
+    border-radius: 3px;
+    white-space: nowrap;
 }
+pre {
+    position: relative;
+}
+pre code {
+    border: 0;
+    white-space: pre;
+}
+pre:before {
+    content: 'example';
+    position: absolute;
+    left: 9px;
+    top: 5px;
+    font-size: 12px;
+    color: #0280AE;
+}
+
 
 /**
  * =============================================================================

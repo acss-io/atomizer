@@ -25,6 +25,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
    <li><a href="#why-are-descendant-classes-not-relying-on-the-namespace-why-are-those-styles-using-important-">Why are "descendant classes" not relying on the namespace? Why are those styles using `!important`</a>?</li>
    <li><a href="#how-can-one-remember-atomic-class-names-">How can one remember Atomic class names?</a></li>
    <li><a href="#how-come-atomizer-is-not-creating-some-classes-for-me-">How come Atomizer is not creating some classes for me?</a></li>
+   <li><a href="#how-come-atomizer-does-not-add-vendor-prefixes-where-needed-">How come Atomizer does not add vendor prefixes where needed?</a></li>
 </ul>
 
 ## Answers related to the Atomic CSS architecture
@@ -220,7 +221,7 @@ Such approach produces less of everything:
 
 Atomic CSS is not a framework; it does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** while preventing bloat.
 
-Atomic's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](atomizer.html) in your project does not add any bytes to your pages.
+Atomic's "footprint" is limited to what a project uses - meaning there is no "entry cost". Simply installing [Atomizer](/guides/atomizer.html) in your project does not add any bytes to your pages.
 
 ### I have always been told to use classes related to content, *not to presentation*. Isn't Atomic CSS promoting bad practice?
 
@@ -456,6 +457,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-atomizer');
 };
 ```
+
+### How come Atomizer does not add vendor prefixes where needed?
+
+We didn't want to reinvent the wheel as there are tools out there that do this very well (i.e. [autoprefixer](https://github.com/postcss/autoprefixer)).
 
 <hr class="Mt(50px)">
 

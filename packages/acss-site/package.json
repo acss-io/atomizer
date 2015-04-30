@@ -27,7 +27,7 @@
     "lint"
   ],
   "dependencies": {
-    "atomizer": "^3.0.0-alpha.5",
+    "atomizer": "^3.0.0-alpha.7",
     "babel": "^5.1.11",
     "body-parser": "^1.9.3",
     "classnames": "^1.2.0",

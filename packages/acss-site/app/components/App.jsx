@@ -68,7 +68,7 @@ var App = React.createClass({
                     <div id="header" role="header" className="P(10px) Ov(h) home_Ov(v) Z(7) Pos(r) Bgc($brandColor) optLegibility">
                         <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
                             <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h" routeName="home">
-                                <b className="D(n)--xs home_D(b) home_Cur(d)">Atomic CSS</b>
+                                <b className="D(n)--xs home_D(b) home_Cur(t)">Atomic CSS</b>
                                 <img id="logo" className="H(30px) Mt(1px) D(n)--sm home_D(n) docs_Mstart(40px)" alt='atomic css' src={assets['images/atomic-css-logo.png']} />
 
                             </NavLink> <Nav selected={this.state.route.name} />
