@@ -285,6 +285,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         if (prop === 'display' && value === 'inline-block') {
                             treeo.declarations['*display'] = 'inline';
                         }
+                        /* istanbul ignore else  */
+                        if (prop === 'opacity') {
+                            treeo.declarations.filter = 'alpha(opacity=' + parseFloat(value, 10) * 100 + ')';
+                        }
                     }
                     if (value !== null) {
                         // value could be an object for custom classes with breakPoints

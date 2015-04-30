@@ -211,7 +211,7 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {ie: true});
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css for custom classes with break points with missing breakPoints', function () {
@@ -237,7 +237,7 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {ie: true});
+            var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns css if coliding helper and atomic rule is used at the same time', function () {
@@ -337,7 +337,7 @@ describe('Atomizer()', function () {
             // set rules here so if helper change, we don't fail the test
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
+                classNames: ['Op(.33)', 'D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
             };
             var expected = [
                 '.D\\(ib\\) {',
@@ -346,6 +346,10 @@ describe('Atomizer()', function () {
                 '}',
                 '.D\\(ib\\), .Ov\\(h\\), .Ov\\(s\\), .Ov\\(a\\) {',
                 '  zoom: 1;',
+                '}',
+                '.Op\\(\\.33\\) {',
+                '  opacity: .33;',
+                '  filter: alpha(opacity=33);',
                 '}',
                 '.Ov\\(h\\) {',
                 '  overflow: hidden;',
