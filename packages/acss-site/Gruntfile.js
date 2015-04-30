@@ -117,7 +117,7 @@ module.exports = function(grunt) {
         // ------------------------------------------------------------------------------
         // PROD/DEV ---------------------------------------------------------------------
         // ------------------------------------------------------------------------------
-        
+
         copy: {
             images: {
                 files: [{
@@ -193,6 +193,26 @@ module.exports = function(grunt) {
                 }]
             },
         },
+
+        postcss: {
+            app: {
+               options: {
+                   processors: [
+                       require('autoprefixer-core')({
+                           browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'iOS 5']
+                       }).postcss
+                   ]
+               },
+               files: [{
+                   src: ['<%= project.build %>/css/bundle.css'],
+                   dest: '<%= project.build %>/css/bundle.css'
+               }, {
+                   src: ['<%= project.app %>/assets/css/ie.css'],
+                   dest: '<%= project.build %>/css/ie.css'
+               }]
+           }
+        },
+
 
         // has files for caching on cdn
         hash: {
@@ -325,7 +345,7 @@ module.exports = function(grunt) {
                     src = grunt.file.read(filePath);
                     // replace
                     for (var image in images) {
-                        if (images.hasOwnProperty(image)) {                            
+                        if (images.hasOwnProperty(image)) {
                             src = src.replace(new RegExp(escapeRegex(image), 'g'), images[image]);
                         }
                     }
@@ -387,6 +407,7 @@ module.exports = function(grunt) {
         'copy:images',
         'atomizer:app',
         'cssmin:dev',
+        'postcss:app',
         'devmanifest',
         'webpack:dev',
         'devmanifest',
@@ -398,6 +419,7 @@ module.exports = function(grunt) {
         'clean:build',
         'atomizer:app',
         'cssmin:prod',
+        'postcss:app',
         'copy:images',
         'hash:images',
         'clean:cdnimagestrash',
