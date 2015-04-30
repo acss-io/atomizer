@@ -52,6 +52,7 @@ const DOC_TYPE = [
 SERVER.set('state namespace', 'App');
 SERVER.use(favicon(__dirname + '/../favicon.ico'));
 SERVER.use('/public', express.static(__dirname + '/build'));
+SERVER.use('/humans.txt', express.static(__dirname + '/assets/humans.txt'));
 SERVER.use(cookieParser());
 SERVER.use(bodyParser.json());
 SERVER.use(csrf({cookie: true}));
