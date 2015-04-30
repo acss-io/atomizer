@@ -41,7 +41,8 @@
 }
 
 .dl-list dt {
-    font-weight: bold;
+    color: #000;
+    font-weight: 400;
 }
 
 .dl-list dd {

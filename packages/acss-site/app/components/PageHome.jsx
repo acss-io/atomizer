@@ -19,8 +19,8 @@ class PageHome extends React.Component {
             <div>
                 <div id='splash' className='D(tb) W(100%) BdB Bdc(#0280ae.3) Bgc($brandColor)'>
                     <div className='D(tbc) Ta(c) Va(m)'>
-                        <h1 className='Mx(a) W(50%) Pos(r) Ov(h)'>
-                            <img id="logo" alt='atomic css' height="202" src={assets['images/atomic-css-logo.png']} />
+                        <h1 className='Mx(a) W(50%) Pos(r)'>
+                            <img className='Pos(r) Z(7) Mt(-40px)--sm' id="logo" alt='atomic css' height="130" src={assets['images/atomic-css-logo.png']} />
                         </h1>
                         <p>
                             <NavLink className='M(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#fff.3) Bdrs(2px) Bxsh(light) Tsh(1) Fw(b) Td(n):h' routeName='quickStart'>Get Started</NavLink>

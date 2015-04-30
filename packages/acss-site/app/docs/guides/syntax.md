@@ -8,7 +8,7 @@ Adopting a *common* syntax favors better collaboration between teams and project
 ## The building blocks
 
 <pre>
-[&lt;ancestor>][:&lt;pseudo-class>][_ || > || +]<strong>&lt;Style></strong>[(<strong>&lt;value>,&lt;value>?,&lt;value>?</strong>!)][<!>][:&lt;pseudo-class>][--&lt;breakpoint_identifier>]
+[<b class="hljs-type">&lt;ancestor></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">_</b> || <b class="hljs-type">></b> || <b class="hljs-type">+</b>]<b class="Fw(b)">&lt;Style></b>[(<b class="hljs-string">&lt;value>,&lt;value>?,&lt;value>?!</b>)][<b class="hljs-type"><!></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">--&lt;breakpoint_identifier></b>]
 </pre>
 
 <p class="Pt(20px)">Where:</p>
@@ -31,8 +31,6 @@ A suffix mapped to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/W
     <li>`h` for `:hover`</li>
     <li>etc.</li>
 </ul>
-
-Example:
 
 ```html
 <div class="foo">
@@ -60,7 +58,6 @@ Optional.
 
 Use this to create a contextual style based on the [descendant combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/descendant)
 
-Example:
 
 ```html
 <div class="foo">
@@ -271,99 +268,87 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
     </thead>
     <tbody>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`D(n)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b class="hljs-string">n</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `display: none`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`D(n)!`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b class="hljs-string">n</b>)<b class="hljs-type">!</b></code></th>
             <td class="Va-t P(10px)">This is mapped to `display: none !important`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Fz(1em)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b class="hljs-string">1em</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `font-size: 1em`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Fz(18px)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b class="hljs-string">18px</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `font-size: 18px`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Td(u):h`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b class="hljs-string">u</b>)<b class="hljs-type">:h</b></code></th>
             <td class="Va-t P(10px)">This underlines text on mouseover</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Td(u):h:f`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b class="hljs-string">u</b>)<b class="hljs-type">:h:f</b></code></th>
             <td class="Va-t P(10px)">This underlines text on mouseover **and** on focus</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Td(u)::first-letter`</th>
-            <td class="Va-t P(10px)">This underlines the first letter</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Td(u)::first-line`</th>
-            <td class="Va-t P(10px)">This underlines the first line</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Td(u)::selection`</th>
-            <td class="Va-t P(10px)">This underlines selected text</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bxs(n)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">n</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `box-shadow: none`</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bxs(foo)--lg`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">foo</b>)<b class="hljs-type">--lg</b></code></th>
             <td class="Va-t P(10px)">This applies a custom box-shadow inside the "lg" breakpoint [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bxs(foo):h--lg`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">foo</b>)<b class="hljs-type">:h--lg</b></code></th>
             <td class="Va-t P(10px)">Same styling as above but on mouseover only [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`C(#000)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b class="hljs-string">#000</b>)</code></th>
             <td class="Va-t P(10px)">This sets the color to black</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`C(#000.5)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b class="hljs-string">#000.5</b>)</code></th>
             <td class="Va-t P(10px)">This sets the color to black with a 50% opacity</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`M($bar)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b class="hljs-string">$bar</b>)</code></th>
             <td class="Va-t P(10px)">This applies a "global" value to `margin` [\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Mend(0)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Mend(<b class="hljs-string">0</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `margin-right: 0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Ta(start)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Ta(<b class="hljs-string">start</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `text-align:left` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Cl(start)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Cl(<b class="hljs-string">start</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `clear:left` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Bdstartw(0)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bdstartw(<b class="hljs-string">0</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to `border-left-width:0` in a LTR context [\[3\]](#footnote)<a id="footnote-3" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(-90deg)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b class="hljs-string">-90deg</b>)</code></th>
             <td class="Va-t P(10px)">This is an [alias](atomic-classes.html#aliases) mapped to `transform: rotate(-90deg)` [\[4\]](#footnote)<a id="footnote-4" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`LineClamp(2,50px)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>LineClamp(<b class="hljs-string">2,50px</b>)</code></th>
             <td class="Va-t P(10px)">This is a *helper* which truncates text after 2 lines [\[5\]](#footnote)<a id="footnote-5" class="D(ib)"></a>.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`list_D(ib)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">list\_</b>D(<b class="hljs-string">ib</b>)</code></th>
             <td class="Va-t P(10px)">This element is styled with `display:inline-block` when it is a descendant of a node to which the class`list` is applied [\[6\]](#footnote)<a id="footnote-6" class="D(ib)"></a>.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`list>D(ib)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">list></b>D(<b class="hljs-string">ib</b>)</code></th>
             <td class="Va-t P(10px)">This element is styled with `display:inline-block` when it is a direct child of a node to which the class `list` is applied to [\[6\]](#footnote)<a id="footnote-6" class="D(ib)"></a>.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`box:h_D(n)`</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">box:h\_</b>D(<b class="hljs-string">n</b>)</code></th>
             <td class="Va-t P(10px)">This element is hidden when users hover over its ancestor with the class `.box` [\[6\]](#footnote)<a id="footnote-6" class="D(ib)"></a>.</td>
         </tr>
     </tbody>

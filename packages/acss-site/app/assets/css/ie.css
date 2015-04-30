@@ -1,60 +1,61 @@
 /**
  * "justify" fails so display both as floats (left/right)
  */
-#atomic #header #home {
+#header #home {
     float: left;
 }
 
-#atomic #header ul {
+#header ul {
     float: right;
 }
 
 /**
  * IE7 only
  */
-#atomic #header li {
+#header li {
     *margin-left: 15px;
 }
 
 /**
  * IE8 bug (would not reveal the image because of max-width)
  */
-#atomic #header li img {
+#header li img {
     max-width: none;
 }
 
 /**
  * only relevant for small viewport
  */
-#atomic #toggleMenuButton {
+#toggleMenuButton {
     display: none;
 }
-
-#atomic .innerwrapper {
+#searchbox {
+    border: 1px solid #ccc;
+}
+.innerwrapper {
+    overflow: hidden;
     width: 800px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 0;
 }
 
 /**
  * IE7 only
  */
-#atomic #aside,
-#atomic #main {
-    display: table-cell;
-    *display: inline !important;
-    *zoom: 1;
+#aside,
+#main {
+    float: left;
 }
 
-#atomic #aside {
+#aside {
     padding-left: 0;
+    position: relative;
     width: 150px !important;
     padding-right: 50px;
 }
 
-#atomic #main {
+#main {
     padding-right: 0;
     padding-left: 0;
     width: 600px !important;
@@ -64,18 +65,13 @@
 /**
  * "justify" fails so display both lines as blocks
  */
-#atomic #footer small {
+#footer small {
     display: block !important;
 }
 
 /**
  * LOGO
  */
-#splash  h1 {
-    width: 640px !important;
-    height: 92px;
-    background-image:url(../images/atomic-css-logo.png);
-}
-#logo {
+#header #logo {
     display: none;
 }

@@ -147,11 +147,13 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 #### Example
 
 ```html
-<div>
+<div class="Cf">
    <div class="Fl(start) W(50%) P(20px) Bgc(#0280ae.5)">Box 1</div>
    <div class="Fl(start) W(50%) P(20px) Bgc(#0280ae)">Box 2</div>
 </div>
 ```
+
+<p class="noteBox info">We are using the class `Cf` (for &quot;clearfix&quot;) to contain the floats, but we also have a [`Row` helper](/guides/helper-classes.html-row-) to better deal with floats across browsers.</p>
 
 <h4 class="penResult">Result</h4>
 
@@ -183,14 +185,14 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 #### Example
 
 ```html
-<div class="D(tb) W(100%) Ta(c)">
+<div class="D(tb) W(100%) Ta(c)" role="presentation">
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">BoxNumber 4</div>
 </div>
 <hr />
-<div class="D(tb) W(100%) Va(m) Ta(c)" dir="rtl">
+<div class="D(tb) W(100%) Va(m) Ta(c)" dir="rtl" role="presentation">
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
@@ -200,22 +202,21 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <h4 class="penResult">Result</h4>
 
-<p data-height="250" data-theme-id="12469" data-slug-hash="GgdgMa" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/GgdgMa/'>GgdgMa</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<p data-height="260" data-theme-id="12469" data-slug-hash="GgdgMa" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/GgdgMa/'>GgdgMa</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 <p><strong>Tip:</strong> one can also use `table-header-group` and/or `table-footer-group` to swap boxes vertically without removing them from the flow:</p>
 
 ```html
-<div class="D(tb) W(100%) Ta(c)">
+<div class="D(tb) W(100%) Ta(c)" role="presentation">
     <div class="D(tbfg) Fz(20px) Bgc(#0280ae.5)">Box Number 1</div>
     <div class="D(tbc) Fz(20px) Bgc(#0280ae.8)">Box Number 2</div>
-    <div class="D(tbhg) Fz(20px) Bgc(#0280ae)">Box Number 3</div>
+    <div class="D(tbhg) Fz(20px)">Box Number 3</div>
 </div>
 ```
 
 <h4 class="penResult">Result</h4>
 
 <p data-height="115" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
 
 <h3>`flexbox` construct</h3>
 
