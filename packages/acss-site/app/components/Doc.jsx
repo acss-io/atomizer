@@ -62,7 +62,7 @@ class Doc extends React.Component {
         }
 
         return (
-            <div id="main" role="main" className="D(tbc)--sm home_D(b)! Px(10px)">
+            <div id="main" role="main" className="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
                 {title}
                 <div onClick={this.onClick} dangerouslySetInnerHTML={{__html: this.props.content}}></div>
             </div>

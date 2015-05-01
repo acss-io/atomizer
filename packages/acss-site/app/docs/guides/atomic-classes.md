@@ -10,7 +10,7 @@ You use a config object to create the styles you need but you can also *rely on 
 
 ## Simple classes
 
-These classes are the ones Atomizer can make sense of without the need to check the config object; classes like `W(20px)` (`width:20px`), `Lh(1.5)` (`line-height:1.5`), etc.
+These classes are the ones Atomizer can make sense of without the need to check the config object; classes like <code>W(<b class="hljs-string">20px</b>)</code> (`width:20px`), <code>Lh(<b class="hljs-string">1.5</b>)</code> (`line-height:1.5`), etc.
 
 <div class="noteBox info">Examples of color syntax are on the [Atomizer page](/guides/atomizer.html#hexadecimal-colors).</div>
 
@@ -29,9 +29,9 @@ The value identifier of these classes is mapped to a custom value set in the con
 creates 3 classes/declarations:
 
 <ul class="ul-list">
-    <li>`Fz(verylarge)` for `font-size: 3em`</li>
-    <li>`P(gutter)` for `padding: 10px`</li>
-    <li>`C(primary)` for `color: teal`</li>
+    <li><code>Fz(<b class="hljs-string">verylarge</b>)</code> for `font-size: 3em`</li>
+    <li><code>P(<b class="hljs-string">gutter</b>)</code> for `padding: 10px`</li>
+    <li><code>C(<b class="hljs-string">primary</b>)</code> for `color: teal`</li>
 </ul>
 
 ## Aliases
@@ -48,125 +48,124 @@ Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-
     </thead>
     <tbody>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Blur(2px)`</th>
-            <td class="Va(t) P(10px)">`filter:blur(2px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Blur(<b class="hljs-string">2px</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:blur(2px)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Brightness(.5)`</th>
-            <td class="Va(t) P(10px)">`filter:brightness(.5)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Brightness(<b class="hljs-string">.5</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:brightness(.5)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Contrast(200%)`</th>
-            <td class="Va(t) P(10px)">`filter:contrast(200%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Contrast(<b class="hljs-string">200%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:contrast(200%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Dropshadow(10px,10px,20px,teal)`</th>
-            <td class="Va(t) P(10px)">`filter:drop-shadow(16px,16px,20px,teal)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Dropshadow(<b class="hljs-string">10px,10px,20px,teal</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:drop-shadow(16px,16px,20px,teal)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Grayscale(50%)`</th>
-            <td class="Va(t) P(10px)">`filter:grayscale(50%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Grayscale(<b class="hljs-string">50%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:grayscale(50%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Grayscale(2px)`</th>
-            <td class="Va(t) P(10px)">`filter:grayscale(2px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Grayscale(<b class="hljs-string">2px</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:grayscale(2px)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`HueRotate(90deg)`</th>
-            <td class="Va(t) P(10px)">`filter:hue-rotate(90deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>HueRotate(<b class="hljs-string">90deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:hue-rotate(90deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Invert(50%)`</th>
-            <td class="Va(t) P(10px)">`filter:invert(50%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Invert(<b class="hljs-string">50%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:invert(50%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Opacity(20%)`</th>
-            <td class="Va(t) P(10px)">`filter:opacity(20%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Opacity(<b class="hljs-string">20%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:opacity(20%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Saturate(20%)`</th>
-            <td class="Va(t) P(10px)">`filter:saturate(20%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Saturate(<b class="hljs-string">20%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:saturate(20%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Sepia(50%)`</th>
-            <td class="Va(t) P(10px)">`filter:sepia(50%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Sepia(<b class="hljs-string">50%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>filter:sepia(50%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Matrix(<custom value>)` <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></b></th>
-            <td class="Va(t) P(10px)">`transform:matrix(1.2,.3,.4,1.5,40,10)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix(<b class="hljs-string">&lt;custom value></b>)</code> <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></b></th>
+            <td class="Va(t) P(10px)"><code>transform:matrix(1.2,.3,.4,1.5,40,10)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Matrix3d(<custom value>)` <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-3" class="D(ib)"></a></b></th>
-            <td class="Va(t) P(10px)">`transform:matrix(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix3d(<b class="hljs-string">&lt;custom value></b>)</code> <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-3" class="D(ib)"></a></b></th>
+            <td class="Va(t) P(10px)"><code>transform:matrix(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate(90deg)`</th>
-            <td class="Va(t) P(10px)">`transform:rotate(90deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b class="hljs-string">90deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:rotate(90deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Rotate3d(10,20,30,40deg)`</th>
-            <td class="Va(t) P(10px)">`transform:rotate3d(10,20,30,40deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate3d(<b class="hljs-string">10,20,30,40deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:rotate3d(10,20,30,40deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`RotateX(20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:rotateX(20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>RotateX(<b class="hljs-string">20deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:rotateX(20deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`RotateY(20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:rotateY(20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>RotateY(<b class="hljs-string">20deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:rotateY(20deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`RotateZ(20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:rotateZ(20deg)`</td>
-        </tr>
-
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale(-1)`</th>
-            <td class="Va(t) P(10px)">`transform:scale(-1)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>RotateZ(<b class="hljs-string">20deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:rotateZ(20deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Scale3d(4,2,.5)`</th>
-            <td class="Va(t) P(10px)">`transform:scale3d(4,2,.5)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Scale(<b class="hljs-string">-1</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:scale(-1)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleX(2)`</th>
-            <td class="Va(t) P(10px)">`transform:scaleX(2)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Scale3d(<b class="hljs-string">4,2,.5</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:scale3d(4,2,.5)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`ScaleY(2)`</th>
-            <td class="Va(t) P(10px)">`transform:scaleY(2)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>ScaleX(<b class="hljs-string">2</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:scaleX(2)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Skew(20deg,20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:skew(20deg,20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>ScaleY(<b class="hljs-string">2</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:scaleY(2)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewX(20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:skewX(20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Skew(<b class="hljs-string">20deg,20deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:skew(20deg,20deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`SkewY(-20deg)`</th>
-            <td class="Va(t) P(10px)">`transform:skewY(-20deg)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>SkewX(<b class="hljs-string">20deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:skewX(20deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate(50%,50%)`</th>
-            <td class="Va(t) P(10px)">`transform:translate(50%,50%)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>SkewY(<b class="hljs-string">-20deg</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:skewY(-20deg)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`Translate3d(10px,20px,30px)`</th>
-            <td class="Va(t) P(10px)">`transform:translate3d(10px,20px,30px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Translate(<b class="hljs-string">50%,50%</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:translate(50%,50%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateX(10px)`</th>
-            <td class="Va(t) P(10px)">`transform:translateX(10px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Translate3d(<b class="hljs-string">10px,20px,30px</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:translate3d(10px,20px,30px)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateY(10px)`</th>
-            <td class="Va(t) P(10px)">`transform:translateY(10px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>TranslateX(<b class="hljs-string">10px</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:translateX(10px)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">`TranslateZ(5px)`</th>
-            <td class="Va(t) P(10px)">`transform:translateZ(5px)`</td>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>TranslateY(<b class="hljs-string">10px</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:translateY(10px)</code></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>TranslateZ(<b class="hljs-string">5px</b>)</code></th>
+            <td class="Va(t) P(10px)"><code>transform:translateZ(5px)</code></td>
         </tr>
     </tbody>
 </table>

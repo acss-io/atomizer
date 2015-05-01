@@ -24,6 +24,13 @@
 }
 
 /**
+ * broken in IE so better to hide it
+ */
+#search-section {
+    display: none;
+}
+
+/**
  * only relevant for small viewport
  */
 #toggleMenuButton {
