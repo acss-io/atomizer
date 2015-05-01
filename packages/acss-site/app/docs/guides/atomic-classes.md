@@ -217,6 +217,36 @@ Such variables can then be used with any properties that set colors, for example
 
 Changing any value in the config changes all occurrences in the style sheet.
 
+### Computed values
+
+The config is a JS file, so you can rely on JavaScript to do some math:
+
+```javascript
+var widthOfNav   = 200,
+    widthOfMain  = 600,
+    widthOfRail  = 300,
+    widthOfGutter = 10;
+module.exports = {
+    'custom': {
+        '$nav-width': widthOfNav + 'px',
+        '$main-width': widthOfMain + 'px',
+        '$rail-width': widthOfRail + 'px',
+        '$gutter-width': widthOfGutter + 'px',
+        '$wrapper-width': widthOfNav + widthOfMain + widthOfRail + 2 * widthOfGutter + 'px'
+    }
+};
+```
+
+```html
+<div class="wrapper W($wrapper-width) Mx(a)">
+    <div class="nav W($nav-width) Fl(start)">...</div>
+    <div class="main W($main-width) Fl(start) Mx($gutter-width)">...</div>
+    <div class="rail W($rail-width) Fl(start)">...</div>
+</div>
+```
+
+
+
 ## Advanced classes
 
 These classes are mostly contextual; they take into consideration **ancestor nodes** or **media queries**.
