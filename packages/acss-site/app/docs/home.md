@@ -56,6 +56,35 @@
     </div>
 </div>
 
+### Computed values
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+        <p>You can also rely on the config file to do some math for you:</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> widthOfNav   = <span class="hljs-number">200</span>,
+    widthOfMain  = <span class="hljs-number">600</span>,
+    widthOfRail  = <span class="hljs-number">300</span>,
+    widthOfGutter = <span class="hljs-number">10</span>;
+<span class="hljs-module"><span class="hljs-keyword">module</span>.exports = </span>{
+    <span class="hljs-string">'custom'</span>: {
+        <span class="hljs-string">'$nav-width'</span>: widthOfNav + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'$main-width'</span>: widthOfMain + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'$rail-width'</span>: widthOfRail + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'$gutter-width'</span>: widthOfGutter + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'$wrapper-width'</span>: widthOfNav + widthOfMain + widthOfRail + <span class="hljs-number">2</span> * widthOfGutter + <span class="hljs-string">'px'</span>
+    }
+};
+</code></pre>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"wrapper W($wrapper-width) Mx(a)"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+    <!-- no example -->
+    </div>
+</div>
+
 ## Contextual selectors
 
 <div class="Row">
