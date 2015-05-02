@@ -8,7 +8,7 @@ module.exports = {
     // custom atomic classes mapped to their values
     'custom': {
         '$columnWidth': '20px',
-        'Bgi(hamburger)': 'url(../images/menu.png)',
+        'Bgi(hamburger)': 'url(http://l.yimg.com/os/acss/images/menu.d6610eea.png)',
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
         'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
         '$brandColor': '#0280ae',

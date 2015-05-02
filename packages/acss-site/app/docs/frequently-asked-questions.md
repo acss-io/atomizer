@@ -56,7 +56,7 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
     <dd>Scope is limited to the element onto which the classes are  applied to and the styling is <em>portable</em> because that styling is <em>not</em> contextual.</dd>
 </dl>
 
-<img class="Va(m) Pos(r) Mt(30px)" alt="Venn diagram showing the difference between Atomic CSS and inline styling" height="400" src="/public/images/atomic-vs-style.gif" />
+<img class="Va(m) Pos(r) Mt(30px)" alt="Venn diagram showing the difference between Atomic CSS and inline styling" height="400" src="http://l.yimg.com/os/acss/images/atomic-vs-style.207423c1.gif" />
 
 <table cellspacing="0" class="W(100%) Ta(start)">
     <caption class="Hidden">The difference between inline styling and Atomic CSS</caption>
