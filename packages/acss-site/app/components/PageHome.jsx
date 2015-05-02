@@ -25,7 +25,7 @@ class PageHome extends React.Component {
                         <p>
                             <NavLink className='M(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#fff.3) Bdrs(2px) Bxsh(light) Tsh(1) Fw(b) Td(n):h' routeName='quickStart'>Get Started</NavLink>
                         </p>
-                        <p className="Tt(u) C(#fff) M(0) Fz(12px) Py(5px) BdT Bdc(#fff.2) Lts(2px) Fw(400)"><b className="Fw(400)">TL;DR:</b> the style sheet of this web site is about 4KB (Gzipped).</p>
+                        <p className="Tt(u) C(#fff) M(0) Fz(12px) Py(5px) BdT Bdc(#fff.2) Lts(2px) Fw(400)"><b className="Fw(400)">TL;DR:</b> the style sheet of this web site is about 5KB (Gzipped).</p>
                     </div>
                 </div>
                 <div className='innerwrapper Bxz(bb) Pt(40px) Px(10px) Mb(50px) Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)'>
