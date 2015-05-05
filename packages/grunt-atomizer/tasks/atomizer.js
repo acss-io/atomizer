@@ -8,6 +8,7 @@
 var Atomizer = require('atomizer');
 var path = require('path');
 var _ = require('lodash');
+var crypto = require('crypto');
 
 /**
  * helper function to handle merging array of objects
@@ -15,7 +16,7 @@ var _ = require('lodash');
  * @param  {mixed} b Data of the second merge param
  * @return {mixed}   The merged object
  */
-var handleMergeArrays = function (a, b) {
+function handleMergeArrays (a, b) {
     if (_.isArray(a) && _.isArray(b)) {
         a.forEach(function(item){
             if(_.findIndex(b, item) === -1) {
@@ -24,7 +25,12 @@ var handleMergeArrays = function (a, b) {
         });
         return b;
     }
-};
+}
+
+function hash(config, options) {
+    var src = JSON.stringify(config) + JSON.stringify(options);
+    return crypto.createHash('sha1').update(src, 'utf8').digest('hex');
+}
 
 module.exports = function (grunt) {
 
@@ -48,6 +54,7 @@ module.exports = function (grunt) {
         var options = this.options();
         var gruntConfig = {}; // the config if passed directly via the grunt task
         var configFile;
+        var cacheFile = path.join('./.atomic-cache/', this.target || 'atomic');
 
         if (options.rules && options.rules.length > 0) {
             options.rules = grunt.file.expand(options.rules);
@@ -95,9 +102,11 @@ module.exports = function (grunt) {
         this.files.forEach(function (f) {
             var config = {};
             var content;
+            var cacheContent;
 
             if (f.src) {
                 var classNames = [];
+                grunt.log.writeln('Finding classes...');
                 f.src.forEach(function (filePath) {
                     classNames = _.union(classNames, atomizer.findClassNames(grunt.file.read(filePath)));
                 });
@@ -108,17 +117,38 @@ module.exports = function (grunt) {
                 config = gruntConfig;
             }
 
-            // run atomizer with the config we got
-            content = atomizer.getCss(config, options);
+            // cacheContent is a hash of config and options
+            cacheContent = hash(config, options);
 
-            // write file
-            if (options.configOutput) {
-                grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
-                grunt.log.oklns('Config file ' + options.configOutput + ' successfully created.');
+            // run atomizer with the config we got
+            // first check if we already know the output of this file in cache
+            if (options.cache && grunt.file.exists(cacheFile) && grunt.file.read(cacheFile) === cacheContent) {
+                grunt.log.oklns('Skipping CSS generation because nothing has changed.');
+                return;
+            } else {
+                grunt.log.writeln('Creating CSS...');
+                content = atomizer.getCss(config, options);
+
+                // write file
+                if (options.configOutput) {
+                    grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
+                    grunt.log.oklns('Config file ' + options.configOutput + ' successfully created.');
+                }
+                grunt.file.write(f.dest, content);
+                grunt.log.oklns('File ' + f.dest + ' successfully created.');
+
+                // cache it
+                if (options.cache) {
+                    // clean cache file
+                    if (grunt.file.exists(cacheFile)) {
+                        grunt.file.delete(cacheFile);
+                    }
+                    // write
+                    grunt.file.write(cacheFile, cacheContent);
+                    grunt.log.oklns('Cache file: ' + cacheFile + ' successfully created.');
+                }
             }
-            grunt.file.write(f.dest, content);
-            grunt.log.oklns('File ' + f.dest + ' successfully created.');
-        });
+        }, this);
 
         done();
     });
