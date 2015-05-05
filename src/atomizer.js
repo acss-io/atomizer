@@ -21,6 +21,7 @@ var RULES = require('./rules.js').concat(require('./helpers.js'));
 function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
     this.verbose = options && options.verbose || false;
     this.rules = [];
+    // we have two different objects to avoid name collision
     this.rulesMap = {};
     this.helpersMap = {};
 
@@ -53,19 +54,24 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 
     // invalidates syntax
     this.syntax = null;
+    this.syntaxSimple = null;
 };
 
 /**
  * getClassNameSyntax()
  * @private
  */
-Atomizer.prototype.getSyntax = function ()/*:string*/ {
-    if (!this.syntax) {
+Atomizer.prototype.getSyntax = function (isSimple)/*:string*/ {
+
+    if (isSimple && !this.syntaxSimple) {
+        this.syntaxSimple = new Grammar(this.rulesMap, this.helpersMap).getSyntax(true);
+    }
+    if (!isSimple && !this.syntax) {
        // All Grammar and syntax parsing  should be in the Grammar class
        this.syntax =  new Grammar(this.rulesMap, this.helpersMap).getSyntax();
     }
 
-    return this.syntax;
+    return isSimple ? this.syntaxSimple : this.syntax;
 };
 
 /**
@@ -125,7 +131,7 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
  */
 Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:Tree*/ {
     var tree = {};
-    var classNameSyntax = this.getSyntax();
+    var classNameSyntax = this.getSyntax(true);
     var parsedValues = [];
     var warnings = [];
     var isVerbose = !!this.verbose;
@@ -141,17 +147,16 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         var rgb;
         var values;
 
-        if (!match) {
+        if (!match || !match.prop) {
           return '';
         }
 
-        ruleIndex = match.prop ? this.rulesMap[match.prop] : this.helpersMap[match.helper];
+        ruleIndex = this.rulesMap[match.prop] || this.helpersMap[match.prop] || this.helpersMap[match.helperProp];
 
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
         // as it will return the index given a matcher.
         rule = this.rules[ruleIndex];
-
 
         treeo = {
             className: match[0],
@@ -176,8 +181,8 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         }
 
         // given values, return their valid form
-        if (match.atomicValues || match.helperValues) {
-            values = match.atomicValues || match.helperValues;
+        if (match.atomicValues) {
+            values = match.atomicValues;
 
             // values can be separated by a comma
             // parse them and return a valid value
