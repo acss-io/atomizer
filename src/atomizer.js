@@ -153,11 +153,20 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         }
 
         // check where this rule belongs to
+        // atomicSelector is the class name before the params: e.g. className(param)
+        // selector is the class name if params is not required
+        // we look both in rules and in helpers where this class belongs to
         if (this.rulesMap.hasOwnProperty(match.atomicSelector)) {
             ruleIndex = this.rulesMap[match.atomicSelector];
-        } else if (this.helpersMap.hasOwnProperty(match.atomicSelector)) {
+        }
+        // the atomicSelector can also be a helper that requires params
+        else if (this.helpersMap.hasOwnProperty(match.atomicSelector)) {
             ruleIndex = this.helpersMap[match.atomicSelector];
-        } else if (this.helpersMap.hasOwnProperty(match.selector)) {
+        }
+        // or it can be just a class with no params required
+        // this is only possible for helper classes as param is required for
+        // all atomic classes in rulesMap.
+        else if (this.helpersMap.hasOwnProperty(match.selector)) {
             ruleIndex = this.helpersMap[match.selector];
         } else {
             // not a valid class, no op
