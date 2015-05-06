@@ -130,6 +130,16 @@ describe('Atomizer()', function () {
             });
             expect(result).to.deep.equal(expected);
         });
+        it('returns empty object if invalid class names have been passed', function () {
+            var atomizer = new Atomizer();
+            var expected = {};
+            var result = atomizer.parseConfig({
+                classNames: [
+                    'RandomInvalidClass'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
+        });
     });
     describe('getConfig()', function () {
         it ('returns a valid config object when given classes and no config', function () {
@@ -387,6 +397,7 @@ describe('Atomizer()', function () {
                     type: 'helper',
                     name: 'Bar',
                     matcher: 'Bar',
+                    noParams: true,
                     styles: {
                         'bar': 'foo'
                     }
@@ -396,6 +407,7 @@ describe('Atomizer()', function () {
                     type: 'helper',
                     name: 'Baz',
                     matcher: 'Baz',
+                    noParams: true,
                     styles: {
                         'baz': 'foo'
                     }
@@ -518,6 +530,7 @@ describe('Atomizer()', function () {
                     type: 'helper',
                     name: 'Foo',
                     matcher: 'Foo',
+                    noParams: true,
                     styles: {
                         foo: 'bar'
                     }
@@ -587,6 +600,7 @@ describe('Atomizer()', function () {
                     type: 'pattern',
                     name: 'color',
                     matcher: 'C',
+                    noParams: true,
                     styles: {
                         'color': '$0'
                     }
@@ -595,6 +609,7 @@ describe('Atomizer()', function () {
                     type: 'pattern',
                     name: 'display',
                     matcher: 'D',
+                    noParams: true,
                     styles: {
                         'display': '$0'
                     },
@@ -606,6 +621,7 @@ describe('Atomizer()', function () {
                     type: 'helper',
                     name: 'foo',
                     matcher: 'Foo',
+                    noParams: true,
                     styles: {
                         'font-weight': 'bold'
                     }
