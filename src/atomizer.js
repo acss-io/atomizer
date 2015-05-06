@@ -64,11 +64,11 @@ Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
 Atomizer.prototype.getSyntax = function (isSimple)/*:string*/ {
 
     if (isSimple && !this.syntaxSimple) {
-        this.syntaxSimple = new Grammar(this.rulesMap, this.helpersMap).getSyntax(true);
+        this.syntaxSimple = new Grammar(this.rules).getSyntax(true);
     }
     if (!isSimple && !this.syntax) {
        // All Grammar and syntax parsing  should be in the Grammar class
-       this.syntax =  new Grammar(this.rulesMap, this.helpersMap).getSyntax();
+       this.syntax = new Grammar(this.rules).getSyntax();
     }
 
     return isSimple ? this.syntaxSimple : this.syntax;
@@ -147,11 +147,22 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         var rgb;
         var values;
 
-        if (!match || !match.prop) {
-          return '';
+        if (!match || (!match.atomicSelector && !match.selector)) {
+          // no match, no op
+          return;
         }
 
-        ruleIndex = this.rulesMap[match.prop] || this.helpersMap[match.prop] || this.helpersMap[match.helperProp];
+        // check where this rule belongs to
+        if (this.rulesMap.hasOwnProperty(match.atomicSelector)) {
+            ruleIndex = this.rulesMap[match.atomicSelector];
+        } else if (this.helpersMap.hasOwnProperty(match.atomicSelector)) {
+            ruleIndex = this.helpersMap[match.atomicSelector];
+        } else if (this.helpersMap.hasOwnProperty(match.selector)) {
+            ruleIndex = this.helpersMap[match.selector];
+        } else {
+            // not a valid class, no op
+            return;
+        }
 
         // get the rule that this class name belongs to.
         // this is why we created the dictionary
@@ -238,7 +249,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     }
                     // now check if named value was passed in the config
                     else {
-                        propAndValue = [match.prop, '(', matchVal.named, ')'].join('');
+                        propAndValue = [match.atomicSelector, '(', matchVal.named, ')'].join('');
 
                         // no custom, warn it
                         if (!config.custom) {

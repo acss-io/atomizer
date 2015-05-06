@@ -51,6 +51,8 @@ var GRAMMAR = {
     'BOUNDARY'      : '(?:^|\\s|"|\'|\{)',
     'PARENT'        : '[a-zA-Z][-_a-zA-Z0-9]+?',
     'PARENT_SEP'    : '[>_+]',
+    // all characters allowed to be a prop
+    'PROP'          : '[A-Za-z]+',
     // all character allowed to be in values
     'VALUES'        : '[-_,.#$/%0-9a-zA-Z]+',
     'FRACTION'      : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
@@ -131,33 +133,37 @@ var VALUE_SYNTAXE = XRegExp([
  * this is important so "B" doesn't match "Bgc"
  * e.g. Use (Bgc|B) instead of (B|Bgc)
  */
-function getSortedKeys(map) {
-    return Object.keys(map).sort(function (a, b) {
+function getSortedKeys(arr) {
+    return arr.length > 1 ? arr.sort(function (a, b) {
         return a > b ? -1 : 1;
-    }).join('|');
+    }).join('|') : arr.toString();
 }
 
-function buildRegex(map, isParamRequired) {
-    var keys = getSortedKeys(map);
-
-    return keys.length && [
-        // matcher
-        '(?<prop>',
-            keys,
-        ')',
-        '(?:\\(',
-            '(?<atomicValues>',
-                GRAMMAR.VALUES,
-            ')',
-        '\\))',
-        isParamRequired ? '?' : ''
-    ].join('');
+function buildRegex(matchersParams, matchersNoParams) {
+    matchersParams = matchersParams ? '(?<atomicSelector>' + matchersParams + ')\\((?<atomicValues>' + GRAMMAR.VALUES + ')\\)' : '';
+    matchersNoParams = matchersNoParams ? '(?<selector>' + matchersNoParams + ')' : '';
+    return '(?:' + [matchersParams, matchersNoParams].join('|') + ')';
 }
 
-function Grammar(rulesMap, helpersMap) {
-    this.mainSyntax = [];
-    this.addSyntaxRegex(buildRegex(rulesMap));
-    this.addSyntaxRegex(buildRegex(helpersMap, false));
+function Grammar(rules) {
+    var matchersParams = [];
+    var matchersNoParams = [];
+    var matchersParamsStr;
+    var matchersNoParamsStr;
+
+    rules.forEach(function (rule) {
+        if (rule.noParams) {
+            matchersNoParams.push(rule.matcher);
+        } else {
+            matchersParams.push(rule.matcher);
+        }
+    });
+
+    matchersParamsStr = getSortedKeys(matchersParams);
+    matchersNoParamsStr = getSortedKeys(matchersNoParams);
+
+    this.simpleSyntax = buildRegex(GRAMMAR.PROP, matchersNoParamsStr);
+    this.complexSyntax = buildRegex(matchersParamsStr, matchersNoParamsStr);
 }
 
 /**
@@ -171,26 +177,6 @@ Grammar.matchValue = function matchValue(value) {
     return XRegExp.exec(value, VALUE_SYNTAXE);
 };
 
-Grammar.prototype.addSyntaxRegex = function addRegex(regex)/*:string*/ {
-    regex && this.mainSyntax.push(regex);
-};
-
-Grammar.prototype.getMainSyntax = function getMainSyntax(isSimple)/*:string*/ {
-    // simple regex makes the search faster
-    // we don't care if the prop is valid on a simple case
-    // we just care that the syntax is correct and we capture each group
-    if (isSimple) {
-        return [
-            '(?:',
-                '(?<prop>[A-Za-z]+)',
-                '\\((?<atomicValues>', GRAMMAR.VALUES, ')\\)',
-            ')',
-        ].join('');
-    } else {
-        return this.mainSyntax.length > 1 ? '(?:' + this.mainSyntax.join('|') + ')' : this.mainSyntax[0];
-    }
-};
-
 Grammar.prototype.getSyntax = function getSyntax(isSimple)/*:string*/ {
     var syntax = [
         // word boundary
@@ -199,7 +185,8 @@ Grammar.prototype.getSyntax = function getSyntax(isSimple)/*:string*/ {
         '(?<parentSelector>',
             isSimple ? GRAMMAR.PARENT_SELECTOR_SIMPLE : GRAMMAR.PARENT_SELECTOR,
         ')?',
-        this.getMainSyntax(isSimple),
+        // the main syntax
+        isSimple ? this.simpleSyntax : this.complexSyntax,
         '(?<important>',
             GRAMMAR.IMPORTANT,
         ')?',

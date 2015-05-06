@@ -26,6 +26,7 @@ module.exports = [
         "type": "helper",
         "name": "Border",
         "matcher": "Bd",
+        "noParams": true,
         "styles": {
             "border-width": "1px",
             "border-style": "solid"
@@ -36,6 +37,7 @@ module.exports = [
         "type": "helper",
         "name": "Border X 1px solid",
         "matcher": "BdX",
+        "noParams": true,
         "styles": {
             "border-top-width": 0,
             "border-right-width": "1px",
@@ -49,6 +51,7 @@ module.exports = [
         "type": "helper",
         "name": "Border Y 1px solid",
         "matcher": "BdY",
+        "noParams": true,
         "styles": {
             "border-top-width": "1px",
             "border-right-width": 0,
@@ -63,6 +66,7 @@ module.exports = [
         "type": "helper",
         "name": "Border Top 1px solid",
         "matcher": "BdT",
+        "noParams": true,
         "styles": {
             "border-top-width": "1px",
             "border-right-width": 0,
@@ -76,6 +80,7 @@ module.exports = [
         "type": "helper",
         "name": "Border End 1px solid",
         "matcher": "BdEnd",
+        "noParams": true,
         "styles": {
             "border-top-width": 0,
             "border-__END__-width": "1px",
@@ -89,6 +94,7 @@ module.exports = [
         "type": "helper",
         "name": "Border Bottom 1px solid",
         "matcher": "BdB",
+        "noParams": true,
         "styles": {
             "border-top-width": 0,
             "border-right-width": 0,
@@ -102,6 +108,7 @@ module.exports = [
         "type": "helper",
         "name": "Border Start 1px solid",
         "matcher": "BdStart",
+        "noParams": true,
         "styles": {
             "border-top-width": 0,
             "border-__END__-width": 0,
@@ -121,6 +128,7 @@ module.exports = [
         "type": "helper",
         "name": "BfcHack",
         "matcher": "BfcHack",
+        "noParams": true,
         "styles": {
             "display": "table-cell",
             "width": "1600px", /* 1 */
@@ -137,6 +145,7 @@ module.exports = [
         "type": "helper",
         "name": "Clearfix",
         "matcher": "Cf",
+        "noParams": true,
         "styles": {
             "zoom": 1
         },
@@ -160,6 +169,7 @@ module.exports = [
         "type": "helper",
         "name": "Ellipsis",
         "matcher": "Ell",
+        "noParams": true,
         "styles": {
             "max-width": "100%",
             "white-space": "nowrap",
@@ -189,6 +199,7 @@ module.exports = [
         "type": "helper",
         "name": "Hidden",
         "matcher": "Hidden",
+        "noParams": true,
         "styles": {
             "position": "absolute !important",
             "clip": "rect(1px 1px 1px 1px)",
@@ -210,6 +221,7 @@ module.exports = [
         "type": "helper",
         "name": "IbBox",
         "matcher": "IbBox",
+        "noParams": true,
         "styles": {
             "display": "inline-block",
             "*display": "inline",
@@ -273,6 +285,7 @@ module.exports = [
         "type": "helper",
         "name": "Row",
         "matcher": "Row",
+        "noParams": true,
         "styles": {
             "clear": "both",
             "display": "inline-block",
@@ -294,6 +307,7 @@ module.exports = [
         "type": "helper",
         "name": "StretchedBox",
         "matcher": "StretchedBox",
+        "noParams": true,
         "styles": {
             "position": "absolute",
             "top": 0,
@@ -312,6 +326,7 @@ module.exports = [
         "type": "helper",
         "name": "Zoom",
         "matcher": "Zoom",
+        "noParams": true,
         "styles": {
             "zoom": "1"
         }
