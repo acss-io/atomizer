@@ -9,7 +9,7 @@ Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="fo
 <ul class="ul-list">
     <li>`Bd` creates a `1px` border on all edges of a box</li>
     <li>`BdX` creates a `1px` border on the left and right edges of a box</li>
-    <li>`BdY` creates a `1px` border on the top and left edges of a box</li>
+    <li>`BdY` creates a `1px` border on the top and bottom edges of a box</li>
     <li>`BdT` creates a `1px` border on the top edge of a box</li>
     <li>`BdEnd` creates a `1px` border on the right edge of a box (in a LTR context)</li>
     <li>`BdB` creates a `1px` border on the bottom edge of a box</li>
