@@ -66,7 +66,7 @@ var GRAMMAR = {
     'NAMED'         : '([\\w$]+(?:(?:-(?!\\-))?\\w*)*)',
     'PSEUDO'        : PSEUDO_REGEX,
     'PSEUDO_SIMPLE' : ':[a-z]+',
-    'BREAKPOINT'    : '--(?<breakPoint>[a-z]+)'
+    'BREAKPOINT'    : '--(?<breakPoint>[a-z0-9]+)'
 };
 
 GRAMMAR.PARENT_SELECTOR = [
