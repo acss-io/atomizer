@@ -549,9 +549,10 @@ describe('Atomizer()', function () {
                     "foo": "10px"
                 },
                 breakPoints: {
+                    '2xs': '@media(min-width:300px)',
                     sm: '@media(min-width:400px)'
                 },
-                classNames: ['D(n)--sm', 'P(foo)--sm', 'Foo--sm', 'Bar(10px)--sm']
+                classNames: ['D(n)--sm', 'P(foo)--sm', 'Foo--2xs', 'Bar(10px)--sm']
             };
             var expected = [
                 '@media(min-width:400px) {',
@@ -561,11 +562,13 @@ describe('Atomizer()', function () {
                 '  .P\\(foo\\)--sm {',
                 '    padding: 10px;',
                 '  }',
-                '  .Foo--sm {',
-                '    foo: bar;',
-                '  }',
                 '  .Bar\\(10px\\)--sm {',
                 '    bar: 10px;',
+                '  }',
+                '}',
+                '@media(min-width:300px) {',
+                '  .Foo--2xs {',
+                '    foo: bar;',
                 '  }',
                 '}\n'
             ].join('\n');
