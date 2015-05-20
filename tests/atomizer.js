@@ -565,7 +565,7 @@ describe('Atomizer()', function () {
                 '  .Bar\\(10px\\)--sm {',
                 '    bar: 10px;',
                 '  }',
-                '}\n',
+                '}',
                 '@media(min-width:300px) {',
                 '  .Foo--2xs {',
                 '    foo: bar;',
