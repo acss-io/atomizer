@@ -132,14 +132,18 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
 Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:CSSOptions*/)/*:Tree*/ {
     var tree = {};
     var classNameSyntax = this.getSyntax(true);
-    var parsedValues = [];
     var warnings = [];
     var isVerbose = !!this.verbose;
+    var classNames = config.classNames;
 
     if (!_.isArray(config.classNames)) { return tree; }
     options = options || {};
 
-    config.classNames.forEach(function (className) {
+    if ('exclude' in config) {
+        classNames = _.difference(classNames, config.exclude);
+    }
+
+    classNames.forEach(function (className) {
         var match = XRegExp.exec(className, classNameSyntax);
         var rule;
         var ruleIndex;
@@ -450,7 +454,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     return;
                 }
 
-                breakPoint = breakPoints && breakPoints[treeo.breakPoint]
+                breakPoint = breakPoints && breakPoints[treeo.breakPoint];
 
                 // this is where we start writing the selector
                 selector = Atomizer.escapeSelector(treeo.className);

@@ -130,6 +130,27 @@ describe('Atomizer()', function () {
             });
             expect(result).to.deep.equal(expected);
         });
+        it('returns the expected parsed tree given a config with the exclude key', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                Fl: [{
+                    className: 'Fl(start)',
+                    declarations: {
+                        float: '__START__'
+                    }
+                }]
+            };
+            var result = atomizer.parseConfig({
+                classNames: [
+                    'Fl(end)',
+                    'Fl(start)'
+                ],
+                exclude: [
+                    'Fl(end)'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
+        });
         it('returns empty object if invalid class names have been passed', function () {
             var atomizer = new Atomizer();
             var expected = {};
