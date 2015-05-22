@@ -202,7 +202,7 @@ module.exports = [
         "noParams": true,
         "styles": {
             "position": "absolute !important",
-            "clip": "rect(1px 1px 1px 1px)",
+            "*clip": "rect(1px 1px 1px 1px)",
             "clip": "rect(1px,1px,1px,1px)",
             "padding": "0 !important",
             "border": "0 !important",
@@ -254,7 +254,7 @@ module.exports = [
             },
             "a[class*=LineClamp]": {
                 "display": "inline-block",
-                "display": "-webkit-box",
+                "display ": "-webkit-box",
                 "*display": "inline",
                 "zoom": 1
             },

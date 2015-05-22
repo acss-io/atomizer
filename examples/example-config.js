@@ -48,5 +48,12 @@ module.exports = {
         'W(1/12)--sm',      // fraction with breakpoint
         'Bgc(#333)',        // hex value
         'Bgc(#fff.8)'       // hex value + alpha
+    ],
+    // this is the opposite of the above. There are cases that you may want to tell
+    // atomizer to ignore class names already defined in `classNames`.
+    // This is useful when classes are automatically added by the parser or when 
+    // you want to create different atomic css files from the same set of classNames.
+    'exclude': [
+        'Fl(end)'
     ]
 };
