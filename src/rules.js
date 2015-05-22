@@ -28,6 +28,8 @@
  * - Rules is written as an array because ORDER is important for the CSS generation.
  **/
 
+var colors = require('./colors');
+
 module.exports = [
     /**
     ==================================================================
@@ -258,10 +260,7 @@ module.exports = [
         "styles": {
             "border-color": "$0"
         },
-        "arguments": [{
-            "t": "transparent",
-            "cc": "currentColor"
-        }]
+        "arguments": [colors]
     },
     // top
     {
@@ -272,10 +271,7 @@ module.exports = [
         "styles": {
             "border-top-color": "$0"
         },
-        "arguments": [{
-            "t": "transparent",
-            "cc": "currentColor"
-        }]
+        "arguments": [colors]
     },
     // end
     {
@@ -286,10 +282,7 @@ module.exports = [
         "styles": {
             "border-__END__-color": "$0"
         },
-        "arguments": [{
-            "t": "transparent",
-            "cc": "currentColor"
-        }]
+        "arguments": [colors]
     },
     // bottom
     {
@@ -300,10 +293,7 @@ module.exports = [
         "styles": {
             "border-bottom-color": "$0"
         },
-        "arguments": [{
-            "t": "transparent",
-            "cc": "currentColor"
-        }]
+        "arguments": [colors]
     },
     // start
     {
@@ -314,10 +304,7 @@ module.exports = [
         "styles": {
             "border-__START__-color": "$0"
         },
-        "arguments": [{
-            "t": "transparent",
-            "cc": "currentColor"
-        }]
+        "arguments": [colors]
     },
     /**
     ==================================================================
@@ -610,9 +597,7 @@ module.exports = [
         "styles": {
             "background-color": "$0"
         },
-        "arguments": [{
-            "t": "transparent"
-        }]
+        "arguments": [colors]
     },
     // background-clip
     {
@@ -828,10 +813,7 @@ module.exports = [
         "styles": {
             "color": "$0"
         },
-        "arguments": [{
-            "t": "transparent",
-            "cc": "currentColor"
-        }]
+        "arguments": [colors]
     },
     /**
     ==================================================================
