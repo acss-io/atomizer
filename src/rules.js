@@ -2242,7 +2242,7 @@ module.exports = [
         "type": "pattern",
         "name": "Matrix (transform)",
         "matcher": "Matrix",
-        "allowParamToValue": true,
+        "allowParamToValue": false,
         "styles": {
             "transform": "matrix($0)"
         }
