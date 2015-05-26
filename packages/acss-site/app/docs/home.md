@@ -2,7 +2,7 @@
 
 <div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">Style with &quot;class&quot;</h2>
-<p>Build whatever you want, the way you want it.<br> Adopting a [Atomic CSS architecture](frequently-asked-questions.html#what-are-the-benefits-of-atomic-css-) guarantees to lower payload, reduce style scope, remove dependencies, leverage cache, and facilitate LTR/RTL interfaces switch.</p>
+<p>Build whatever you want, the way you want it.<br> Adopting an [Atomic CSS architecture](frequently-asked-questions.html#what-are-the-benefits-of-atomic-css-) guarantees lower payload, reduced style scope, fewer dependencies, leveraged cache, and facilitates LTR/RTL interfaces switch.</p>
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pstart(20px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0)">&quot;Pay&quot; as you go</h2>
