@@ -1,5 +1,7 @@
 # Atomizer
 
+[![Join the chat at https://gitter.im/yahoo/atomizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yahoo/atomizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 [![npm version](https://badge.fury.io/js/atomizer.svg)](http://badge.fury.io/js/atomizer)
 [![Build Status](https://travis-ci.org/yahoo/atomizer.svg?branch=master)](https://travis-ci.org/yahoo/atomizer)
 [![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer)
