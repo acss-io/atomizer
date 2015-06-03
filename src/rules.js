@@ -2470,7 +2470,7 @@ module.exports = [
         "type": "pattern",
         "name": "Transition property",
         "matcher": "Trsp",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "transition-property": "$0"
         },
