@@ -302,9 +302,15 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['C(red)', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)']
+                classNames: ['Bd(0)', 'Bd(n)', 'C(red)', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)']
             };
             var expected = [
+                '.Bd\\(0\\) {',
+                '  border: 0;',
+                '}',
+                '.Bd\\(n\\) {',
+                '  border: none;',
+                '}',
                 '.Bgc\\(\\#fff\\.4\\) {',
                 '  background-color: rgba(255,255,255,.4);',
                 '}',

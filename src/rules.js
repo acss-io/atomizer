@@ -182,7 +182,13 @@ module.exports = [
         "allowParamToValue": false,
         "styles": {
             "border": "$0"
-        }
+        },
+        "arguments": [
+            {
+                "0": 0,
+                "n": "none"
+            }
+        ]
     },
     // top
     {
