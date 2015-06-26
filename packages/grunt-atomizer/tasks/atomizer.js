@@ -95,6 +95,7 @@ module.exports = function (grunt) {
 
         if (options.rules && options.rules.length > 0) {
             options.rules.forEach(function (ruleFile) {
+                grunt.log.writeln('Adding rules found in ' + ruleFile);
                 atomizer.addRules(require(path.resolve(ruleFile)));
             });
         }
