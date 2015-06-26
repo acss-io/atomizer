@@ -180,7 +180,7 @@ Changing the value of `$gutter` in the config object would change the value of b
 
 ##### Defined
 
-This is the *abbreviation* of a **defined value**. Defined values are valid keywords for any given property. For example `inherited` (`inh`), `auto` (`a`), etc. Atomizer knows about defined values so there is no need to edit the config object before using such value.
+This is the *abbreviation* of a **defined value**. Defined values are valid keywords for any given property. For example `inherit` (`inh`), `auto` (`a`), etc. Atomizer knows about defined values so there is no need to edit the config object before using such value.
 
 ##### Literal
 
