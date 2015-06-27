@@ -302,6 +302,8 @@ Note that Facebook appears to uglify some classes.
     </tbody>
 </table>
 
+<p>The table above uses yahoo.com for reference as this site uses an early version of Atomic CSS.</p>
+
 #### Gzip loves Atomic CSS
 
 If we put Gzip into the picture, then things look even better. That’s because a lot of repetitions means a better compression ratio.
