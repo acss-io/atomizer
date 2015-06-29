@@ -190,6 +190,28 @@ module.exports = [
             }
         ]
     },
+    // X axis
+    {
+        "type": "pattern",
+        "name": "Border X",
+        "matcher": "Bdx",
+        "allowParamToValue": false,
+        "styles": {
+            "border-__START__": "$0",
+            "border-__END__": "$0"
+        }
+    },
+    // Y axis
+    {
+        "type": "pattern",
+        "name": "Border Y",
+        "matcher": "Bdy",
+        "allowParamToValue": false,
+        "styles": {
+            "border-top": "$0",
+            "border-bottom": "$0"
+        }
+    },
     // top
     {
         "type": "pattern",
@@ -228,28 +250,6 @@ module.exports = [
         "allowParamToValue": false,
         "styles": {
             "border-__START__": "$0"
-        }
-    },
-    // X axis
-    {
-        "type": "pattern",
-        "name": "Border X",
-        "matcher": "Bdx",
-        "allowParamToValue": false,
-        "styles": {
-            "border-__START__": "$0",
-            "border-__END__": "$0"
-        }
-    },
-    // Y axis
-    {
-        "type": "pattern",
-        "name": "Border Y",
-        "matcher": "Bdy",
-        "allowParamToValue": false,
-        "styles": {
-            "border-top": "$0",
-            "border-bottom": "$0"
         }
     },
     /**
@@ -1484,6 +1484,36 @@ module.exports = [
             "a": "auto"
         }]
     },
+    // X axis
+    {
+        "type": "pattern",
+        "name": "Margin (X axis)",
+        "matcher": "Mx",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-__START__": "$0",
+            "margin-__END__": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto",
+        }]
+    },
+    // Y axis
+    {
+        "type": "pattern",
+        "name": "Margin (Y axis)",
+        "matcher": "My",
+        "allowParamToValue": true,
+        "styles": {
+            "margin-top": "$0",
+            "margin-bottom": "$0"
+        },
+        "arguments": [{
+            "0": "0",
+            "a": "auto"
+        }]
+    },
     // top
     {
         "type": "pattern",
@@ -1534,36 +1564,6 @@ module.exports = [
         "allowParamToValue": true,
         "styles": {
             "margin-__START__": "$0"
-        },
-        "arguments": [{
-            "0": "0",
-            "a": "auto"
-        }]
-    },
-    // X axis
-    {
-        "type": "pattern",
-        "name": "Margin (X axis)",
-        "matcher": "Mx",
-        "allowParamToValue": true,
-        "styles": {
-            "margin-__START__": "$0",
-            "margin-__END__": "$0"
-        },
-        "arguments": [{
-            "0": "0",
-            "a": "auto",
-        }]
-    },
-    // Y axis
-    {
-        "type": "pattern",
-        "name": "Margin (Y axis)",
-        "matcher": "My",
-        "allowParamToValue": true,
-        "styles": {
-            "margin-top": "$0",
-            "margin-bottom": "$0"
         },
         "arguments": [{
             "0": "0",
@@ -1840,6 +1840,28 @@ module.exports = [
             "padding": "$0"
         }
     },
+    // X axis
+    {
+        "type": "pattern",
+        "name": "Padding (X axis)",
+        "matcher": "Px",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-__START__": "$0",
+            "padding-__END__": "$0"
+        }
+    },
+    // Y axis
+    {
+        "type": "pattern",
+        "name": "Padding (Y axis)",
+        "matcher": "Py",
+        "allowParamToValue": true,
+        "styles": {
+            "padding-top": "$0",
+            "padding-bottom": "$0"
+        }
+    },
     // top
     {
         "type": "pattern",
@@ -1878,28 +1900,6 @@ module.exports = [
         "allowParamToValue": true,
         "styles": {
             "padding-__START__": "$0"
-        }
-    },
-    // X axis
-    {
-        "type": "pattern",
-        "name": "Padding (X axis)",
-        "matcher": "Px",
-        "allowParamToValue": true,
-        "styles": {
-            "padding-__START__": "$0",
-            "padding-__END__": "$0"
-        }
-    },
-    // Y axis
-    {
-        "type": "pattern",
-        "name": "Padding (Y axis)",
-        "matcher": "Py",
-        "allowParamToValue": true,
-        "styles": {
-            "padding-top": "$0",
-            "padding-bottom": "$0"
         }
     },
     /**
