@@ -36,10 +36,14 @@ function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
 Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
     rules.forEach(function (rule) {
         if (
-            (rule.type === 'pattern' && this.rulesMap.hasOwnProperty(rule.matcher)) ||
-            (rule.type === 'helper' && this.helpersMap.hasOwnProperty(rule.matcher))
+            (rule.type === 'pattern'
+                && this.rulesMap.hasOwnProperty(rule.matcher)
+                && !_.isEqual(this.rules[this.rulesMap[rule.matcher]], rule)) ||
+            (rule.type === 'helper'
+                && this.helpersMap.hasOwnProperty(rule.matcher)
+                && !_.isEqual(this.rules[this.helpersMap[rule.matcher]], rule))
         ) {
-            throw new Error('Rule ' + rule.matcher + ' already exists.');
+            throw new Error('Rule ' + rule.matcher + ' already exists with a different defintion.');
         }
 
         // push new rule to this.rules and update rulesMap
