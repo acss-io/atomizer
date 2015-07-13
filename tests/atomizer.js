@@ -44,7 +44,7 @@ describe('Atomizer()', function () {
         });
     });
     describe('addRules()', function () {
-        it('throws if a rule with the same prefix already exists', function () {
+        it('throws if a rule with a different definition already exists', function () {
             var rules = [{
                 type: 'pattern',
                 name: 'Border',
@@ -55,8 +55,36 @@ describe('Atomizer()', function () {
             }];
             var atomizer = new Atomizer(null, rules);
             expect(function() {
-                atomizer.addRules([{type: 'pattern', matcher: 'Bd'}]);
+                atomizer.addRules([{
+                    type: 'pattern',
+                    name: 'Border',
+                    matcher: 'Bd',
+                    styles: {
+                        'background-color': '$0'
+                    }
+                }]);
             }).to.throw();
+        });
+        it('doesn\'t throw if a rule with the same definition already exists', function () {
+            var rules = [{
+                type: 'pattern',
+                name: 'Border',
+                matcher: 'Bd',
+                styles: {
+                    'border': '$0'
+                }
+            }];
+            var atomizer = new Atomizer(null, rules);
+            expect(function() {
+                atomizer.addRules([{
+                    type: 'pattern',
+                    name: 'Border',
+                    matcher: 'Bd',
+                    styles: {
+                        'border': '$0'
+                    }
+                }]);
+            }).to.not.throw();
         });
         it('adds a new rule to the atomizer instance and resets the syntax', function () {
             var atomizer = new Atomizer();
