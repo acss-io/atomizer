@@ -86,7 +86,7 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
 
     while (match !== null) {
         // strip boundary character
-        className = match[0].substr(1);
+        className = match[0].trim();
 
         // assign to classNamesObj as key and give it a counter
         classNamesObj[className] = (classNamesObj[className] || 0) + 1;
