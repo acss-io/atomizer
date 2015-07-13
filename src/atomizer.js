@@ -86,7 +86,7 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
 
     while (match !== null) {
         // strip boundary character
-        className = match[0].substr(1);
+        className = match[1];
 
         // assign to classNamesObj as key and give it a counter
         classNamesObj[className] = (classNamesObj[className] || 0) + 1;
@@ -183,7 +183,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         rule = this.rules[ruleIndex];
 
         treeo = {
-            className: match[0],
+            className: match[1],
             declarations: _.cloneDeep(rule.styles)
         };
 

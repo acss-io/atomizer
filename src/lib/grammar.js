@@ -181,6 +181,7 @@ Grammar.prototype.getSyntax = function getSyntax(isSimple)/*:string*/ {
     var syntax = [
         // word boundary
         GRAMMAR.BOUNDARY,
+        '(',
         // optional parent
         '(?<parentSelector>',
             isSimple ? GRAMMAR.PARENT_SELECTOR_SIMPLE : GRAMMAR.PARENT_SELECTOR,
@@ -197,7 +198,8 @@ Grammar.prototype.getSyntax = function getSyntax(isSimple)/*:string*/ {
         // optional modifier
         '(?:',
             GRAMMAR.BREAKPOINT,
-        ')?'
+        ')?',
+        ')'
     ].join('');
 
     return XRegExp(syntax, 'g');
