@@ -36,6 +36,12 @@ describe('Atomizer()', function () {
             var expected = ['sibling:c+D(n)', 'Pos(r)', 'Ov(h)', 'H(0)', 'test:h>Op(1):h', 'test-open_Ov(v)', 'test-open_H(a)'];
             expect(result).to.deep.equal(expected);
         });
+        it('returns an array of valid atomic class names even if there\'s no boundary character for the first found classname', function () {
+            var atomizer = new Atomizer();
+            var result = atomizer.findClassNames("Pos(r) Ov(h) H(0)");
+            var expected = ['Pos(r)', 'Ov(h)', 'H(0)'];
+            expect(result).to.deep.equal(expected);
+        });
     });
     describe('addRules()', function () {
         it('throws if a rule with the same prefix already exists', function () {
