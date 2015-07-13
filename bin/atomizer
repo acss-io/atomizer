@@ -30,7 +30,7 @@ program
   .usage('[options] [path]')
   .option('-R, --recursive', 'process all files recursively in the path')
   .option('-c, --config [file]', 'source config file')
-  .option('-r, --rules [file]', 'custom rules file', collect, [])
+  .option('-r, --rules [file]', 'custom rules file (argument may be passed multiple times)', collect, [])
   .option('-o, --outfile [file]', 'destination config file')
   .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
   .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors')
