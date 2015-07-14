@@ -2695,7 +2695,7 @@ module.exports = [
     */
     {
         "type": "pattern",
-        "name": "fill",
+        "name": "Fill (SVG)",
         "matcher": "Fill",
         "allowParamToValue": true,
         "styles": {
@@ -2705,7 +2705,7 @@ module.exports = [
     },
     {
         "type": "pattern",
-        "name": "stroke",
+        "name": "Stroke (SVG)",
         "matcher": "Stk",
         "allowParamToValue": true,
         "styles": {
@@ -2715,11 +2715,11 @@ module.exports = [
     },
     {
         "type": "pattern",
-        "name": "stroke",
+        "name": "Stroke width (SVG)",
         "matcher": "Stkw",
         "allowParamToValue": true,
         "styles": {
-            "stroke": "$0"
+            "stroke-width": "$0"
         },
         "arguments": [{
             "i": "inherit"
@@ -2727,9 +2727,9 @@ module.exports = [
     },
     {
         "type": "pattern",
-        "name": "stroke-linecap",
+        "name": "Stroke linecap (SVG)",
         "matcher": "Stklc",
-        "allowParamToValue": true,
+        "allowParamToValue": false,
         "styles": {
             "stroke-linecap": "$0"
         },
@@ -2742,9 +2742,9 @@ module.exports = [
     },
     {
         "type": "pattern",
-        "name": "stroke-linejoin",
+        "name": "Stroke linejoin (SVG)",
         "matcher": "Stklj",
-        "allowParamToValue": true,
+        "allowParamToValue": false,
         "styles": {
             "stroke-linejoin": "$0"
         },
