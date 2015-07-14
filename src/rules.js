@@ -2687,5 +2687,72 @@ module.exports = [
         "arguments": [{
             "a": "auto"
         }]
+    },
+    /**
+    ==================================================================
+    SVG
+    ==================================================================
+    */
+    {
+        "type": "pattern",
+        "name": "fill",
+        "matcher": "Fill",
+        "allowParamToValue": true,
+        "styles": {
+            "fill": "$0"
+        },
+        "arguments": [colors]
+    },
+    {
+        "type": "pattern",
+        "name": "stroke",
+        "matcher": "Stk",
+        "allowParamToValue": true,
+        "styles": {
+            "stroke": "$0"
+        },
+        "arguments": [colors]
+    },
+    {
+        "type": "pattern",
+        "name": "stroke",
+        "matcher": "Stkw",
+        "allowParamToValue": true,
+        "styles": {
+            "stroke": "$0"
+        },
+        "arguments": [{
+            "i": "inherit"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "stroke-linecap",
+        "matcher": "Stklc",
+        "allowParamToValue": true,
+        "styles": {
+            "stroke-linecap": "$0"
+        },
+        "arguments": [{
+            "i": "inherit",
+            "b": "butt",
+            "r": "round",
+            "s": "square"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "stroke-linejoin",
+        "matcher": "Stklj",
+        "allowParamToValue": true,
+        "styles": {
+            "stroke-linejoin": "$0"
+        },
+        "arguments": [{
+            "i": "inherit",
+            "b": "bevel",
+            "r": "round",
+            "m": "miter"
+        }]
     }
 ];
