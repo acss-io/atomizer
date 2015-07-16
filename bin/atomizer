@@ -20,17 +20,23 @@ var content = '';
 var config = {};
 var classnames = [];
 
+function collect(val, memo) {
+  memo.push(val);
+  return memo;
+}
+
 program
   .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
   .usage('[options] [path]')
-  .option('-R, --recursive', 'process all files recursively in the path.')
-  .option('-c, --config [file]', 'source config file if any.')
-  .option('-o, --outfile [file]', 'destination config file.')
-  .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors.')
-  .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors.')
-  .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`.')
-  .option('--ie', 'adds old IE hacks to the output.')
-  .option('--verbose', 'show additional log info (warnings).')
+  .option('-R, --recursive', 'process all files recursively in the path')
+  .option('-c, --config [file]', 'source config file')
+  .option('-r, --rules [file]', 'custom rules file (argument may be passed multiple times)', collect, [])
+  .option('-o, --outfile [file]', 'destination config file')
+  .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
+  .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors')
+  .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
+  .option('--ie', 'adds old IE hacks to the output')
+  .option('--verbose', 'show additional log info (warnings)')
   .parse(process.argv);
 
 if (process.argv.length <= 2) {
@@ -93,6 +99,19 @@ if (typeof program.helpersNamespace !== 'undefined') {
 // Options: IE
 if (typeof program.ie !== 'undefined') {
     options.ie = true;
+}
+
+// Custom rulesets
+var rulesFiles = program.rules;
+if (rulesFiles) {
+    rulesFiles.forEach(function (rulesFile) {
+        if (!fs.existsSync(rulesFile)) {
+            throw new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.');
+            return false;
+        }
+        console.warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
+        atomizer.addRules(require(path.resolve(rulesFile)));
+    });
 }
 
 // Static config should contain the general 'config' options, along with any

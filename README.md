@@ -34,6 +34,7 @@ Usage: atomizer [options] [path]
     -V, --version                       output the version number
     -R, --recursive                     process all files recursively in the path.
     -c, --config [file]                 source config file if any.
+    -r, --rules [file]                  custom rules file (argument may be passed multiple times)
     -o, --outfile [file]                destination config file.
     -n, --namespace [namespace]         adds the given namespace to all generated Atomic CSS selectors.
     -H, --helpersNamespace [namespace]  adds the given namespace to all helper selectors.
