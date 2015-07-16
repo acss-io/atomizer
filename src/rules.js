@@ -2697,7 +2697,7 @@ module.exports = [
         "type": "pattern",
         "name": "Fill (SVG)",
         "matcher": "Fill",
-        "allowParamToValue": true,
+        "allowParamToValue": false,
         "styles": {
             "fill": "$0"
         },
@@ -2707,7 +2707,7 @@ module.exports = [
         "type": "pattern",
         "name": "Stroke (SVG)",
         "matcher": "Stk",
-        "allowParamToValue": true,
+        "allowParamToValue": false,
         "styles": {
             "stroke": "$0"
         },
