@@ -2687,5 +2687,72 @@ module.exports = [
         "arguments": [{
             "a": "auto"
         }]
+    },
+    /**
+    ==================================================================
+    SVG
+    ==================================================================
+    */
+    {
+        "type": "pattern",
+        "name": "Fill (SVG)",
+        "matcher": "Fill",
+        "allowParamToValue": false,
+        "styles": {
+            "fill": "$0"
+        },
+        "arguments": [colors]
+    },
+    {
+        "type": "pattern",
+        "name": "Stroke (SVG)",
+        "matcher": "Stk",
+        "allowParamToValue": false,
+        "styles": {
+            "stroke": "$0"
+        },
+        "arguments": [colors]
+    },
+    {
+        "type": "pattern",
+        "name": "Stroke width (SVG)",
+        "matcher": "Stkw",
+        "allowParamToValue": true,
+        "styles": {
+            "stroke-width": "$0"
+        },
+        "arguments": [{
+            "i": "inherit"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Stroke linecap (SVG)",
+        "matcher": "Stklc",
+        "allowParamToValue": false,
+        "styles": {
+            "stroke-linecap": "$0"
+        },
+        "arguments": [{
+            "i": "inherit",
+            "b": "butt",
+            "r": "round",
+            "s": "square"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Stroke linejoin (SVG)",
+        "matcher": "Stklj",
+        "allowParamToValue": false,
+        "styles": {
+            "stroke-linejoin": "$0"
+        },
+        "arguments": [{
+            "i": "inherit",
+            "b": "bevel",
+            "r": "round",
+            "m": "miter"
+        }]
     }
 ];

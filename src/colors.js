@@ -1,6 +1,7 @@
 module.exports = {
     "t": "transparent",
     "cc": "currentColor",
+    "n": "none",
     "aliceblue": "aliceblue",
     "antiquewhite": "antiquewhite",
     "aqua": "aqua",
