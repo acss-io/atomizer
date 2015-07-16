@@ -35,20 +35,23 @@ function Atomizer(options/*:AtomizerOptions*/, rules/*:AtomizerRules*/) {
  */
 Atomizer.prototype.addRules = function(rules/*:AtomizerRules*/)/*:void*/ {
     rules.forEach(function (rule) {
-        if (
-            (rule.type === 'pattern' && this.rulesMap.hasOwnProperty(rule.matcher)) ||
-            (rule.type === 'helper' && this.helpersMap.hasOwnProperty(rule.matcher))
-        ) {
-            throw new Error('Rule ' + rule.matcher + ' already exists.');
+        var ruleFound = rule.type === 'pattern' && this.rulesMap.hasOwnProperty(rule.matcher);
+        var helperFound = rule.type === 'helper' && this.helpersMap.hasOwnProperty(rule.matcher);
+
+        if ((ruleFound && !_.isEqual(this.rules[this.rulesMap[rule.matcher]], rule)) ||
+                (helperFound && !_.isEqual(this.rules[this.helpersMap[rule.matcher]], rule))) {
+            throw new Error('Rule ' + rule.matcher + ' already exists with a different defintion.');
         }
 
-        // push new rule to this.rules and update rulesMap
-        this.rules.push(rule);
+        if (!ruleFound && !helperFound) {
+            // push new rule to this.rules and update rulesMap
+            this.rules.push(rule);
 
-        if (rule.type === 'pattern') {
-            this.rulesMap[rule.matcher] = this.rules.length - 1;
-        } else {
-            this.helpersMap[rule.matcher] = this.rules.length - 1;
+            if (rule.type === 'pattern') {
+                this.rulesMap[rule.matcher] = this.rules.length - 1;
+            } else {
+                this.helpersMap[rule.matcher] = this.rules.length - 1;
+            }
         }
     }, this);
 
