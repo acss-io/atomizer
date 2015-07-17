@@ -321,6 +321,12 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         if (prop === 'opacity') {
                             treeo.declarations.filter = 'alpha(opacity=' + parseFloat(value, 10) * 100 + ')';
                         }
+                        /* istanbul ignore else  */
+                        if (prop === 'background-color' && value && value.match(/^rgba/)) {
+                            treeo.declarations['background-color'] = 'rgb(' +
+                            value.match(/\d+/g).splice(0,3).join(',') +
+                            '); background-color: ' + value;
+                        }
                     }
                     if (value !== null) {
                         // value could be an object for custom classes with breakPoints
