@@ -764,8 +764,8 @@ describe('Atomizer()', function () {
             var expected = [
                 '.Skew\\(90\\) {',
                 '  transform: skew(90);',
-                '}\n',
-                '.Skew\\(90,45\\) {',
+                '}',
+                '.Skew\\(90\\,45\\) {',
                 '  transform: skew(90,45);',
                 '}\n'
             ].join('\n');
