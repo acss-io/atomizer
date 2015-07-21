@@ -756,6 +756,22 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('properly handles classnames with optional arguments', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['Skew(90deg)', 'Skew(90deg,45deg)']
+            };
+            var expected = [
+                '.Skew\\(90deg\\) {',
+                '  transform: skew(90deg);',
+                '}',
+                '.Skew\\(90deg\\,45deg\\) {',
+                '  transform: skew(90deg,45deg);',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
     });
     // -------------------------------------------------------
     // escapeSelector()

@@ -356,7 +356,12 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         treeo.declarations = null;
                     }
                 });
+                // If any of the arguments in the declaration weren't replaced, then we need to clean them up
+                if (treeo.declarations && treeo.declarations[prop] && treeo.declarations[prop].indexOf('$') >= 0) {
+                    treeo.declarations[prop] = treeo.declarations[prop].replace(/[,\s]?\$\d+/g, '');
+                }
             }
+
             // add important for the following cases:
             //    - `!` was used in the class name
             //    - rule has a parent class, a namespace was given and the rule is not a helper [1]
