@@ -34,21 +34,23 @@ A suffix mapped to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/W
 
 ```html
 <div class="foo">
-    <div class="foo:h_d(n)"></div>
+    <div class="foo:h_D(n)"></div>
 </div>
 ```
 
 The above creates the following rule:
 
 ```css
-.foo:h .foo:h_D(n) {
-    display: none;
+.foo:hover .foo\:h_D\(n\) {
+  display: none;
 }
 ```
 
 In other words, this class hides the element whenever its ancestor (`div.foo`) is hovered over.
 
-<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviation in [atomizer.js](https://github.com/yahoo/atomizer/blob/master/src/atomizer.js#L29)</p>
+<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in [grammar.js](https://github.com/yahoo/atomizer/blob/master/src/lib/grammar.js#L6)</p>
+
+<p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it's not possible to use the pseudo-class syntax with these browsers.</p>
 
 ### &lt;combinators>
 
@@ -61,7 +63,7 @@ Use this to create a contextual style based on the [descendant combinator](http:
 
 ```html
 <div class="foo">
-    <div class="foo_d(n)"></div>
+    <div class="foo_D(n)"></div>
 </div>
 ```
 
@@ -75,7 +77,7 @@ Example:
 
 ```html
 <div class="foo">
-    <div class="foo>d(n)"></div>
+    <div class="foo>D(n)"></div>
 </div>
 ```
 
@@ -89,7 +91,7 @@ Example:
 
 ```html
 <div class="foo">
-    <div class="foo+d(n)"></div>
+    <div class="foo+D(n)"></div>
     <div class="one"></div>
     <div class="two"></div>
     <div class="three"></div>
@@ -106,7 +108,7 @@ Example:
 
 ```html
 <div class="foo">
-    <div class="foo~d(n)"></div>
+    <div class="foo~D(n)"></div>
     <div class="one"></div>
     <div class="two"></div>
     <div class="three"></div>
