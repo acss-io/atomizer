@@ -687,9 +687,9 @@ module.exports = [
         "type": "pattern",
         "name": "Background position",
         "matcher": "Bgp",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
-            "background-position": "$0"
+            "background-position": "$0 $1"
         },
         "arguments": [{
             "start_t": "__START__ 0",
