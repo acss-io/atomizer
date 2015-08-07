@@ -70,7 +70,7 @@ atomizer: {
     example1: {
         files: [
             {
-                src: ['test/fixtures/*.html']
+                src: ['test/fixtures/*.html'],
                 dest: 'tmp/configFileOnly.css'
             }
         ]
