@@ -3,7 +3,7 @@ Webpack loader for compiling atomic css
 
 ## Install
 ```
-$ ynpm i atomic-loader --save-dev
+$ npm i atomic-loader --save-dev
 ```
 
 ## Usage
