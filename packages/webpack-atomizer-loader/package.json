@@ -1,7 +1,7 @@
 {
   "name": "atomic-loader",
   "version": "0.0.12",
-  "description": "Webpack loader for compiling atom css",
+  "description": "Webpack loader for compiling atomic css",
   "main": "index.js",
   "scripts": {
     "test": "jenkins-mocha tests/ --recursive"
