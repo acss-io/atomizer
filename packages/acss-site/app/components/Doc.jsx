@@ -36,8 +36,8 @@ class Doc extends React.Component {
     }
 
     componentDidUpdate() {
-        if (typeof CodePenEmbed !== 'undefined') {
-            CodePenEmbed.showCodePenEmbeds();
+        if (typeof CodePenEmbed !== 'undefined' && CodePenEmbed._showCodePenEmbeds) {
+            CodePenEmbed._showCodePenEmbeds();
         }
     }
 
