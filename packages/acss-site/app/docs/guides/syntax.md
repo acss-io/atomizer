@@ -85,37 +85,16 @@ This class hides the element if its parent has the class `foo` attached to it.
 
 #### The plus sign (`+`)
 
-Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style the following sibling of an element
+Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style only if the sibling of an particular element
 
 Example:
 
 ```html
-<div class="foo">
-    <div class="foo+D(n)"></div>
-    <div class="one"></div>
-    <div class="two"></div>
-    <div class="three"></div>
-</div>
+<div class="foo"></div>
+<div class="foo+D(n)"></div>
 ```
 
-This class hides the next sibling of the element (`div.one`).
-
-#### The tilde (`~`)
-
-Use the [General sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/general) to style all following siblings of an element
-
-Example:
-
-```html
-<div class="foo">
-    <div class="foo~D(n)"></div>
-    <div class="one"></div>
-    <div class="two"></div>
-    <div class="three"></div>
-</div>
-```
-
-This class hides the following siblings of the element (`div.one`, `div.two`, `div.three`).
+This class hides the element if its previous sibling has the class `foo` attached to it.
 
 ### &lt;Style>
 
@@ -138,7 +117,7 @@ Examples:
 }
 ```
 
-<p class="noteBox info">Note that we do not offer [shorthand notation](shorthand-notation.html "Shorthand notation would lead to bloat") for all properties.</p>
+<p class="noteBox info">Note that [shorthand notation](shorthand-notation.html "Shorthand notation would lead to bloat") is not offered for all properties.</p>
 
 #### Value types
 
