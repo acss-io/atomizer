@@ -370,7 +370,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             //     to give it extra specificity (to make sure it has more weight than normal atomic
             //     classes) we add important to them. Helper classes don't need it because they do
             //     not share the same namespace.
-            if (match.important || (match.parent && options.namespace && rule.type !== 'helper')) {
+            if (treeo.declarations && (match.important || (match.parent && options.namespace && rule.type !== 'helper'))) {
                 treeo.declarations[prop] += ' !important';
             }
         }
