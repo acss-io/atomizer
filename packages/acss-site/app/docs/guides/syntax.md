@@ -85,7 +85,7 @@ This class hides the element if its parent has the class `foo` attached to it.
 
 #### The plus sign (`+`)
 
-Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style only if the sibling of an particular element
+Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style the element only if its the sibling of a specified element
 
 Example:
 
