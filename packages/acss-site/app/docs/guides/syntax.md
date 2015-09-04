@@ -8,16 +8,16 @@ Adopting a *common* syntax favors better collaboration between teams and project
 ## The building blocks
 
 <pre>
-[<b class="hljs-type">&lt;ancestor></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">_</b> || <b class="hljs-type">></b> || <b class="hljs-type">+</b>]<b class="Fw(b)">&lt;Style></b>[(<b class="hljs-string">&lt;value>,&lt;value>?,&lt;value>?!</b>)][<b class="hljs-type"><!></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">--&lt;breakpoint_identifier></b>]
+[<b class="hljs-type">&lt;context></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">_</b> || <b class="hljs-type">></b> || <b class="hljs-type">+</b>]<b class="Fw(b)">&lt;Style></b>[(<b class="hljs-string">&lt;value>,&lt;value>?,&lt;value>?!</b>)][<b class="hljs-type"><!></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">--&lt;breakpoint_identifier></b>]
 </pre>
 
 <p class="Pt(20px)">Where:</p>
 
-<h3 class="Bdw(0) Mt(0)">&lt;ancestor></h3>
+<h3 class="Bdw(0) Mt(0)">&lt;context></h3>
 
 Optional.
 
-A **class** applied to an ancestor of the node (see [examples](#examples-)).
+A **class** applied to an ancestor or sibling of the node, depending on the combinator used (see [examples](#examples-)).
 
 ### &lt;pseudo-class>
 
