@@ -1,5 +1,6 @@
 'use strict';
 
+var path = require('path');
 var Atomizer = require('atomizer');
 var parseQuery = require('loader-utils').parseQuery;
 var ensureFolderExists = require('./ensureFolderExists');
@@ -19,13 +20,12 @@ var writeCssFile = function (cssDest, cssString) {
     }
 };
 
-var usingDefaultCssDest = function () {
-    if (ensureFolderExists('./build')) {
-        if (ensureFolderExists('./build/css')) {
-            return true;
-        }
-    }
-    return false;
+var ensureExists = function(p) {
+    var dirs = path.dirname(p).split(path.sep)
+    if (dirs[0] === '') { dirs[0] = path.sep; }
+    dirs.forEach(function (_, i, p) {
+        ensureFolderExists(path.join.apply(null, p.slice(0, i+1)));
+    });
 };
 
 var firstTrigger = true;
@@ -51,11 +51,9 @@ module.exports = function (source, map) {
     var foundClasses = atomizer.findClassNames(source);
     var cssDest = configObject.cssDest;
     if (!cssDest) {
-        if (!usingDefaultCssDest()) {
-            return source;
-        }
         cssDest = DEFAULT_CSS_DEST;
     }
+    ensureExists(cssDest);
 
     var finalConfig = atomizer.getConfig(foundClasses, configObject.configs || {});
     var cssString = atomizer.getCss(finalConfig, configObject.options || {});
