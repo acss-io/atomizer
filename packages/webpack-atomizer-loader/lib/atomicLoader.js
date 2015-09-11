@@ -6,6 +6,7 @@ var parseQuery = require('loader-utils').parseQuery;
 var ensureFolderExists = require('./ensureFolderExists');
 
 var DEFAULT_CSS_DEST = './build/css/atomic.css';
+var PATH_SEP = '/';
 
 var fs = require('fs');
 var atomizer = new Atomizer({verbose: true});
@@ -20,12 +21,20 @@ var writeCssFile = function (cssDest, cssString) {
     }
 };
 
-var ensureExists = function(p) {
-    var dirs = path.dirname(p).split(path.sep)
-    if (dirs[0] === '') { dirs[0] = path.sep; }
+var ensureExists = function(filePath) {
+    var dirs = path.dirname(filePath).split(PATH_SEP);
+    var result = true;
+    var currentPath;
+    if (dirs[0] === '') {
+        dirs[0] = path.sep;
+    }
     dirs.forEach(function (_, i, p) {
-        ensureFolderExists(path.join.apply(null, p.slice(0, i+1)));
+        currentPath = path.join.apply(null, p.slice(0, i+1));
+        if (!ensureFolderExists(currentPath)) {
+            result = false;
+        };
     });
+    return result;
 };
 
 var firstTrigger = true;
@@ -53,12 +62,18 @@ module.exports = function (source, map) {
     if (!cssDest) {
         cssDest = DEFAULT_CSS_DEST;
     }
-    ensureExists(cssDest);
 
-    var finalConfig = atomizer.getConfig(foundClasses, configObject.configs || {});
-    var cssString = atomizer.getCss(finalConfig, configObject.options || {});
+    var finalConfig;
+    var cssString;
+    if (!ensureExists(cssDest)) {
+        console.warn('[atomic loader] create css failed.');
+        return source;
+    } else {
+        finalConfig = atomizer.getConfig(foundClasses, configObject.configs || {});
+        cssString = atomizer.getCss(finalConfig, configObject.options || {});
 
-    writeCssFile(cssDest, cssString);
+        writeCssFile(cssDest, cssString);        
+    };
     
     return source;
 };
