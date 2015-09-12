@@ -1,6 +1,6 @@
 # Quick Start
 
-This page is here to help you quickly set up a web site powered by [Atomizer](/guides/atomizer.html) (aka &quot;Atomic CSS on steroids&quot;).
+This page is here to help you quickly set up an example site powered by [Atomizer](/guides/atomizer.html).
 
 ## Playground
 
@@ -34,25 +34,8 @@ The browser should reload the page, displaying all your changes. Check the [atom
 
 Give the config a try! Open this file (which is inside `/examples/`) and edit the value of the custom class it contains. You can also check the [home page](/) for examples of how to use the config to create *breakpoints*, *variables*, and *more*.
 
-## `Gruntfile.js`
+## Next Steps
 
-Edit `Gruntfile.js` (in the root of &quot;atomizer-examples&quot;) to set which files to watch:
-
-```javascript
-// watch for changes and run tasks
-watch: {
-    dev: {
-        options: {
-            livereload: true
-        },
-        files: [
-            './examples/**/*.html'
-        ],
-        tasks: ['atomizer']
-    }
-}
-```
-
-From here, we recommend learning about [Atomic CSS Architecture](/thinking-in-atomic.html), reading our [FAQ](/frequently-asked-questions.html), checking [Atomic classes](/guides/atomic-classes.html) and their [syntax](/guides/syntax.html).
+From here, learn about [Atomic CSS Architecture](/thinking-in-atomic.html), read the [FAQ](/frequently-asked-questions.html), learn more about [Atomic classes](/guides/atomic-classes.html) and their [syntax](/guides/syntax.html).
 
 Please visit the [Atomizer](https://github.com/yahoo/atomizer) and [grunt-atomizer](https://github.com/yahoo/grunt-atomizer) repositories for more information.
