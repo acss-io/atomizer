@@ -1,3 +1,4 @@
+![travis build state](https://travis-ci.org/tom76kimo/atomic-loader.svg?branch=master)
 # atomic-loader
 Webpack loader for compiling atomic css
 
