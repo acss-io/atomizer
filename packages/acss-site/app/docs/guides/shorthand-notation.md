@@ -1,6 +1,6 @@
 # Shorthand notation
 
-**We do not offer shorthand notation** (i.e. `M(5px,0,0,0)`) because this would increase the number of selectors or declarations in the style sheet (create bloat).
+**Atomic CSS generally does not offer shorthand notation** (e.g., `M(5px,0,0,0)`) because this would increase the number of selectors or declarations in the style sheet (i.e., create bloat.)
 
 For example, `border-width/style/color` can be specified in any order:
 
@@ -13,7 +13,7 @@ For example, `border-width/style/color` can be specified in any order:
     <li>`Bd(#000,solid,1px)`</li>
 </ul>
 
-The above creates 6 different rules for the exact same styling (a *solid 1px black* border). Yes, we could be smart about it and assign all those classes to the **same** declaration.
+The above creates 6 different rules for the exact same styling (a *solid 1px black* border). While the tool could be smart and assign all those classes to the **same** declaration, you'd still end up with more bytes than is necessary:
 
 ```css
 .Bd(1px,solid,#000),
@@ -26,9 +26,7 @@ The above creates 6 different rules for the exact same styling (a *solid 1px bla
 }
 ```
 
-<p class="noteBox info">For the sake of readability, CSS classes on this page *do not* include the escape character (`\`) where it should be needed.</p>
-
-We could also enforce order (i.e. `width/style/color`) to prevent such duplication but we could still have a lot of redundancy, for example classes such as these:
+It would also be possible to enforce order (i.e., `width,style,color`) to prevent such duplication, but you'd still end up with a lot of redundancy. For example:
 
 <ul class="ul-list">
     <li>`Bd(1px,solid,#000)`</li>
@@ -42,12 +40,12 @@ We could also enforce order (i.e. `width/style/color`) to prevent such duplicati
 Would result in:
 
 <ul class="ul-list">
-    <li>4 dupe declarations for `border-width`</li>
-    <li>5 dupe declarations for `border-style`</li>
-    <li>4 dupe declarations for `border-color`</li>
+    <li>4 duplicate declarations for `border-width`</li>
+    <li>5 duplicate declarations for `border-style`</li>
+    <li>4 duplicate declarations for `border-color`</li>
 </ul>
 
-Either dupe declarations or selector grouping:
+...either through duplicate declarations or selector grouping:
 
 ```css
 .Bd(1px,solid,#000),
@@ -73,24 +71,24 @@ Either dupe declarations or selector grouping:
 }
 ```
 
-In our opinion, the extra bytes do not warrant allowing this syntax.
+## Convenience and helper classes
 
-## Kinda shorthand
+### `X`/`Y` notation
 
-Even though we do not allow shorthand notation, many Atomic classes support &quot;`x/y` notation&quot; which applies the same styling on opposite edges. For example:
+Even though Atomic CSS does not allow shorthand notation, many Atomic classes support &quot;`x`/`y` notation&quot; which applies the same styling on opposite edges. For example:
 
 <ul class="ul-list">
     <li>`Mx(a)` for `margin-left:auto; margin-right:auto;`</li>
     <li>`Py(5px)` for `padding-top:5px; padding-bottom:5px;`</li>
 </ul>
 
-## The special case of `border`
+### Border helper classes
 
-When it comes to border styling, initial values exist for `width` and `color` but many authors may still want to set all 3 values: `width`, `color`, and `style`. To make things a bit less verbose, we have a set of [helpers classes for `border`](helper-classes.html#-bd-borders-) that set `style` to `solid` and `width` to `1px` (as a default).
+When it comes to border styling, initial values exist for `width` and `color` but many authors may still want to set all 3 values: `width`, `color`, and `style`. To make things a bit less verbose, Atomic CSS offers a set of [helper classes for borders](helper-classes.html#-bd-borders-) which set `style` to `solid` and `width` to `1px` (as a default).
 
-This allows to use a single class to create a single pixel border that &quot;inherits&quot; text color, or to mix a helper class with a Atomic class for border-color (i.e. `Bd Bdc(#fff)`).
+This allows you to use a single class to create a single pixel border that either &quot;inherits&quot; text color or can be combined with an Atomic class for border-color (e.g., `Bd Bdc(#fff)`).
 
-In case `solid` and `1px` are not the styles of your liking, but you still want to use the same helper classes, then you can simply overwrite those values in your own style sheet &mdash; using the rules below:
+In case `solid` and `1px` are not the default style you'd prefer, but you still want to use the border helper classes, you can simply redefine those classes in your own style sheet, using the rules below:
 
 ```css
 .Bd,
@@ -127,4 +125,4 @@ In case `solid` and `1px` are not the styles of your liking, but you still want 
 }
 ```
 
-<p class="noteBox info">Make sure to add the namespace to those rules in case you have chosen to set one up in your config.</p>
+<p class="noteBox info">If you've chosen to namespace your Atomic classes, be sure to add the namespace to the above rules.</p>

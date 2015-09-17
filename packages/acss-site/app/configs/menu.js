@@ -28,15 +28,20 @@ export default [
                 routeName: 'helperClasses'
             },
             {
-                label: 'Shorthand',
-                routeName: 'shorthand'
-            },
-            {
-                label: 'The syntax',
+                label: 'Class syntax',
                 routeName: 'syntax'
             },
             {
-                label: 'Atomizer tool',
+                label: 'Shorthand',
+                routeName: 'shorthand'
+            }
+        ]
+    },
+    {
+        category: 'TOOLS',
+        children: [
+            {
+                label: 'Atomizer',
                 routeName: 'atomizer'
             }
         ]

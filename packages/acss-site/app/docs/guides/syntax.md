@@ -1,29 +1,41 @@
-# The syntax
+# Class syntax
 
-Following a *strict* syntax facilitates the task of parsing tools which in turn helps create richer features.<br>
-Adopting a *common* syntax favors better collaboration between teams and projects.
+Atomic and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.
 
-<p class="noteBox info">For the sake of readability, CSS classes on this page *do not* include the escape character (`\`) where it should be needed.</p>
-
-## The building blocks
+## The syntax
 
 <pre>
-[<b class="hljs-type">&lt;context></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">_</b> || <b class="hljs-type">></b> || <b class="hljs-type">+</b>]<b class="Fw(b)">&lt;Style></b>[(<b class="hljs-string">&lt;value>,&lt;value>?,&lt;value>?!</b>)][<b class="hljs-type"><!></b>][<b class="hljs-type">:&lt;pseudo-class></b>][<b class="hljs-type">--&lt;breakpoint_identifier></b>]
+[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-">&lt;pseudo></a></b>]<b class="hljs-type"><a href="#-lt-combinator-">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-">:&lt;pseudo></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
 </pre>
 
-<p class="Pt(20px)">Where:</p>
+At its core, an Atomic or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. 
 
-<h3 class="Bdw(0) Mt(0)">&lt;context></h3>
+Atomic classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-">`LineClamp()`</a> accepts two.)  Helper classess may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.
+
+Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context></a> class and <a href="#-lt-combinator-">&lt;combinator></a>. The context class may optionally include a <a href="#-lt-pseudo-">&lt;pseudo></a>.
+
+You may also optionally suffix the style with <a href="#-lt-">&lt;!></a> (for `!important`), a <a href="#-lt-pseudo-">&lt;pseudo></a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a>.
+
+### RTL/LTR
+
+Any occurrence of `left` and `right` keywords or their abbreviated form ala [Emmet](http://docs.emmet.io/cheat-sheet/) (i.e., `l` and `r`) in <a href="#-lt-style-">&lt;Style&gt;</a> or <a href="#-lt-value-">&lt;value&gt;</a>  must be replaced with the keywords `start` and `end`.  Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.
+
+For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margin-left: 2px` in an RTL context, and `Pstart(1em)` would map to `padding-left: 1em` in a LTR context, etc.
+
+## Syntax Definitions 
+
+### &lt;context>
 
 Optional.
 
-A **class** applied to an ancestor or sibling of the node, depending on the combinator used (see [examples](#examples-)).
+A **class** applied to an ancestor or sibling of the node (see [examples](#examples-)).
 
-### &lt;pseudo-class>
+### &lt;pseudo>
 
 Optional.
 
-A suffix mapped to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), for example:
+A suffix mapped to a [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), for example:
+
 <ul>
     <li>`a` for `:active`</li>
     <li>`c` for `:checked`</li>
@@ -31,6 +43,32 @@ A suffix mapped to a [pseudo-classes](https://developer.mozilla.org/en-US/docs/W
     <li>`h` for `:hover`</li>
     <li>etc.</li>
 </ul>
+
+<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in [Atomizer's grammar library](https://github.com/yahoo/atomizer/blob/master/src/lib/grammar.js#L6).</p>
+
+Pseudo-classes may be applied to any regular class or &lt;context&gt; class. For example:
+
+
+#### Regular class
+
+```html
+<div class="foo">
+    <div class="D(n):h"></div>
+</div>
+```
+
+The above creates the following rule:
+
+```css
+.D\(n\)\:h:hover {
+  display: none;
+}
+```
+
+This causes the `display:none` style to be applied to the current element when hovered over.
+
+
+#### Context class
 
 ```html
 <div class="foo">
@@ -46,19 +84,19 @@ The above creates the following rule:
 }
 ```
 
-In other words, this class hides the element whenever its ancestor (`div.foo`) is hovered over.
+This class hides the current element whenever its ancestor (`.foo`) is hovered over.
 
-<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in [grammar.js](https://github.com/yahoo/atomizer/blob/master/src/lib/grammar.js#L6)</p>
+<p class="noteBox info">Pseudo-classes can be chained, eg., `Op(1):h:f`.</p>
 
 <p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it's not possible to use the pseudo-class syntax with these browsers.</p>
 
-### &lt;combinators>
+### &lt;combinator>
 
-Optional.
+Required if &lt;context&gt; is provided. One of the following may be used:
 
 #### The underscore character (`_`)
 
-Use this to create a contextual style based on the [descendant combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/descendant)
+Use this to create a contextual style based on the [descendant combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/descendant).
 
 
 ```html
@@ -71,7 +109,7 @@ This class hides the element whenever one of its ancestor has the class `foo` at
 
 #### The right angle bracket character (`>`)
 
-Use this to create a contextual style based on the [child combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/child)
+Use this to create a contextual style based on the [child combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/child).
 
 Example:
 
@@ -85,7 +123,7 @@ This class hides the element if its parent has the class `foo` attached to it.
 
 #### The plus sign (`+`)
 
-Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style the element only if its the sibling of a specified element
+Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style only if the sibling of an particular element.
 
 Example:
 
@@ -100,87 +138,97 @@ This class hides the element if its previous sibling has the class `foo` attache
 
 Required.
 
-CSS property or [helper class](helper-classes.html). [Capitalized](http://en.wikipedia.org/wiki/Capitalization) following [Emmet](http://docs.emmet.io/cheat-sheet/) syntax with no separator between words such as dashes or new capitals.
+CSS property or [helper class](helper-classes.html). [Capitalized](http://en.wikipedia.org/wiki/Capitalization) with no separator between words such as dashes or new capitals. 
+
+<p class="noteBox info">Atomic classes generally follow the [Emmet](http://docs.emmet.io/cheat-sheet/) syntax for their naming convention.</p>
 
 ### &lt;value>
 
-Optional for helpers, required for CSS properties.
+Optional for helper classes, required for Atomic classes.
 
 Examples:
 
 ```css
-.Ta(c) {
+.Ta\(c\) {
     text-align: center;
 }
-.M(20px) {
+.M\(20px\) {
     margin: 20px;
 }
 ```
 
-<p class="noteBox info">Note that [shorthand notation](shorthand-notation.html "Shorthand notation would lead to bloat") is not offered for all properties.</p>
+There are three value types: Defined, Literal and Variable
 
-#### Value types
+#### Defined values
 
-There are 4 value types:
+This is the *abbreviation* of a **defined value**. Defined values are valid keywords for any given property. (For example, `inherit` (`inh`), `auto` (`a`), etc.)  Defined values attempt to follow [Emmet syntax](http://docs.emmet.io/cheat-sheet/) as closely as possible.
 
-##### Custom
+ Defined values are enumerated in Atomizer's ruleset, so there is no need to define such values in Atomizer configuration before using such values. 
 
-This is a string of your choosing (i.e. `large`, `title`, etc.). The mapping of such custom class is done via the config object.
-
-Example:
-
-```javascript
-'custom': {
-    'Fz(title)': 'font-size:18px'
-}
-```
-
-Usage:
-
-```html
-<h1 class="Fz(title)"></h1>
-```
-
-##### Variable
-
-A "variable" is mapped to a global value set in the config object. It is different than a custom value as it is *not bound to a property*, for example:
-
-```javascript
-'custom': {
-    '$gutter': '20px'
-}
-```
-
-Usage:
-
-```html
-<div class="M(#gutter) P(#gutter)"></div>
-```
-
-Changing the value of `$gutter` in the config object would change the value of both the `margin` and `padding` &mdash; *as well as the value of any other class using `$gutter`*.
-
-##### Defined
-
-This is the *abbreviation* of a **defined value**. Defined values are valid keywords for any given property. For example `inherit` (`inh`), `auto` (`a`), etc. Atomizer knows about defined values so there is no need to edit the config object before using such value.
-
-##### Literal
-
-Those are strings meant to be used verbatim. `5px`, `20%`, `1/2`, and `#fff` are examples of literals.
-
-<p class="noteBox important">`hex` values for colors must be written in lowercase (i.e. `#0b0`, not `#0B0`).</p>
-
-Any occurrence of `left` and `right` keywords should be replaced with `start` and `end`. <br>
-**Values that are not present in Emmet** should be named using the rules below:
+**Defined values that are not present in Emmet** are named according to the rules below:
 
 <ul class="ul-list">
     <li>Value should be abbreviated with the first letter of the value.</li>
-    <li>If two values share the same initial letter then the next value in alphabetical order is [abbreviated](http://en.wikipedia.org/wiki/Abbreviation), sometimes in [contracted](http://en.wikipedia.org/wiki/Contraction_%28grammar%29) form with no general rule for when it is in this form, it should just follow the same [Emmet CSS Syntax style guide](http://docs.emmet.io/css-abbreviations/).</li>
+    <li>If two values share the same initial letter, then the next value in alphabetical order is [abbreviated](http://en.wikipedia.org/wiki/Abbreviation) in [contracted](http://en.wikipedia.org/wiki/Contraction_%28grammar%29) form.</li>
     <li>If **one value** is composed by two or more words (e.g. `inline-block`) then the first letter of each word should be used with no separator between them (e.g. `inline-block` becomes `ib`, `space-between` becomes `sb`).</li>
-    <li>Valid CSS **number values** should always be followed by its unit if any (e.g. `100%` and `100px`). These numbers can also be represented as keywords such as `top` and `bottom` if it makes sense in the context of the property. Fraction values should be represented with a forward-slash between the numbers as in `1/12` (the forward slash is escaped in CSS).</li>
-    <li>The `inherit` value should always use the keyword `inh` as a special exception because it is available almost globally.</li>
+    <li>The `inherit` value will always use the keyword `inh` as a special exception because it is available almost globally.</li>
 </ul>
 
-<p class="noteBox info">For any occurrences of `left` and `right` keywords or its abbreviated form in [Emmet](http://docs.emmet.io/cheat-sheet/) `l` and `r`, the `start` and `end` keywords should be used respectively. e.g. `Mend` (`margin-right` in a LTR context), `Pstart` (`padding-left` in a LTR context), etc.</p>
+#### Literal values
+
+Literals are strings whose values are not defined in configuration, but rather can be machine-interpreted. `1em`, `5px`, `20%`, `1/2`, and `#fff` are examples of literals.
+
+##### Units in literal values
+
+Use any unit you want (e.g., `W(50%)`, `M(20px)`, `Fz(1em)`).
+
+Valid CSS **number values** must always be followed by its unit if applicable (e.g. `100%` and `100px`). These numbers can also be represented as keywords such as `top` and `bottom` if it makes sense in the context of the property.
+
+##### Unit-less values
+
+Use unit-less values to set styles like `line-height` (e.g., `Lh(1.5)`), `font-weight` (e.g., `Fw(500)`), etc.
+
+##### Negative values
+
+Use the minus sign (`-`) to set negative values (e.g., `M(-20px)`)
+
+##### Hexadecimal colors
+
+Use 3 or 6 character hexadecimal colors with a `#` prefix as a value identifier (e.g., `C(#fff)`).
+
+<p class="noteBox important">`hex` values for colors must be written in lowercase (i.e. `#ccc`, not `#CCC`).</p>
+
+##### Hexadecimal colors with alpha
+
+Use hexadecimal colors as value identifier followed by an opacity suffix (e.g., `C(#fff.5)`).
+
+##### Fractions
+
+Use any fraction you want (e.g., `W(1/2)`) and Atomizer will create the proper CSS declaration for you (e.g., `width: 50%`)
+
+##### Multiple values
+
+Pass multiple values separated by commas (`,`) when supported (e.g., `Bgp(20px,50px)`).
+
+<p class="noteBox important">Remember, this is a CSS class, not a programming language, so you can't leave a space before or after commas!</p>
+
+#### Variable values
+
+A "variable" is mapped to a global value set in the config object. It is different than a custom class as it is *not bound to a property*, for example:
+
+```javascript
+'custom': {
+    'gutter': '20px'
+}
+```
+
+Usage:
+
+```html
+<div class="M(gutter) P(gutter)"></div>
+```
+
+Changing the value of `gutter` in the config object would change the value of both the `margin` and `padding` &mdash; *as well as the value of any other class using `gutter`*.
 
 ### &lt;!>
 
@@ -191,29 +239,15 @@ The `!` character adds `!important` to the style.
 Example:
 
 ```css
-.D(b) {
+.D\(b\) {
     display: block;
 }
-.D(b)! {
+.D\(b\)\! {
     display: block !important;
 }
 ```
 
-### &lt;pseudo-class>
-
-Optional.
-
-A suffix indicating that this class applies to a [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes) only. This should be abbreviated as shown in [atomizer.js](https://github.com/yahoo/atomizer/blob/master/src/atomizer.js#L29).
-
-Example:
-
-```html
-<a href="#" class="Op(0) Op(1):h">...</a>
-```
-
-<p class="noteBox info">Pseudo-classes *can be chained* (i.e. `Op(1):h:f`).</p>
-
-### --&lt;breakpoint_identifier>
+### &lt;breakpoint_identifier>
 
 Optional.
 
@@ -293,7 +327,7 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
             <td class="Va-t P(10px)">This sets the color to black with a 50% opacity</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b class="hljs-string">$bar</b>)</code></th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b class="hljs-string">bar</b>)</code></th>
             <td class="Va-t P(10px)">This applies a "global" value to `margin` [\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
@@ -337,15 +371,13 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
 
 <div class="noteBox info">The [reference page](/reference) lets you quickly search for properties, values, or class names.</div>
 
-<p class="noteBox info">CSS class selectors contain proper escape character where needed (i.e. `.Td\(u\)\:h`).</p>
-
 <hr class="Mt-50px">
 
 <ol id="footnote" class="ol-list">
-    <li>`Bxs(foo)` is a custom class set in the config object [\[↩\]](#footnote-1).</li>
-    <li>`$bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P($bar)` for `padding`, `H($bar)` for` height`, etc.) [\[↩\]](#footnote-2).</li>
+    <li>`Bxs(foo)` uses a custom variable `foo` set in the config object [\[↩\]](#footnote-1).</li>
+    <li>`bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P(bar)` for `padding`, `H(bar)` for` height`, etc.) [\[↩\]](#footnote-2).</li>
     <li>`start` is mapped to either "left" or "right" depending on the config file [\[↩\]](#footnote-3).</li>
     <li>this class is an [alias](atomic-classes.html) [\[↩\]](#footnote-4).</li>
     <li>this class is a [helper](helper-classes.html) [\[↩\]](#footnote-5).</li>
-    <li>Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles [\[↩\]](#footnote-6).</li>
+    <li>Unlike all other Atomic classes, those containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles [\[↩\]](#footnote-6).</li>
 </ol>
