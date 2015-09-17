@@ -1,42 +1,20 @@
 # Atomic classes
 
-Atomic classes ultimately increase the speed of development as they follow a consistent and easy to remember syntax. The inspiration comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
+Atomic classes are simple, single-purpose units of styling.  Much like inline styles, Atomic styles only apply a single style declaration.  Unlike inline styles, Atomic styles have a lower specificity, making them easier to override, and can be modified through the use of pseudo-classes, media queries, and more.  
 
-It might take you a short time to get familiar with these class names but as soon as you start using them you'll be at full speed in no time.
+The inspiration for Atomic syntax comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
 
-<div class="noteBox info">The [reference page](/reference) lets you quickly search for properties, values, or class names.</div>
+Simple Atomic classes are easily interpreted, since they take a simple value as an parameter.  For example, <code>W(<b class="hljs-string">20px</b>)</code> clearly maps to `width: 20px`, and <code>Lh(<b class="hljs-string">1.5</b>)</code> clearly maps to `line-height: 1.5`.
 
-You use a config object to create the styles you need but you can also *rely on the tool to create many of these styles for you* (to some extend).
+Complex Atomic classes make use of custom identifiers known as "variables", which allow values to be defined in a central location (i.e., the Atomizer configuration file) and reused across styles.  For example, if the variable `foo` is set to `20px`, then `P(foo)` and `M(foo)` would map to `padding: 20px` and `margin: 20px`, respectively.
 
-## Simple classes
+For more on the syntax of Atomic classes and their value parameters, see [the Class Syntax guide](/guides/syntax.html).
 
-These classes are the ones Atomizer can make sense of without the need to check the config object; classes like <code>W(<b class="hljs-string">20px</b>)</code> (`width:20px`), <code>Lh(<b class="hljs-string">1.5</b>)</code> (`line-height:1.5`), etc.
-
-<div class="noteBox info">Examples of color syntax are on the [Atomizer page](/guides/atomizer.html#hexadecimal-colors).</div>
-
-## Custom classes
-
-The value identifier of these classes is mapped to a custom value set in the config object. For example, the following:
-
-```javascript
-'custom': {
-    'Fz(verylarge)': '3em',
-    'P(gutter)': '10px',
-    'C(primary)': 'teal'
-}
-```
-
-creates 3 classes/declarations:
-
-<ul class="ul-list">
-    <li><code>Fz(<b class="hljs-string">verylarge</b>)</code> for `font-size: 3em`</li>
-    <li><code>P(<b class="hljs-string">gutter</b>)</code> for `padding: 10px`</li>
-    <li><code>C(<b class="hljs-string">primary</b>)</code> for `color: teal`</li>
-</ul>
+<div class="noteBox info">The [searchable reference page](/reference) gives you a complete listing of Atomic classes and their supported values.</div>
 
 ## Aliases
 
-Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> that rely on [Functional Notation](http://www.w3.org/TR/css3-values/#functional-notation). Those are the type of component value that can represent more complex types (or invoke special processing).
+Atomic CSS provides aliases for most properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> that rely on [Functional Notation](http://www.w3.org/TR/css3-values/#functional-notation):
 
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Aliases for values based on functional notation</caption>
@@ -170,172 +148,17 @@ Atomic CSS uses aliases for "most" properties [\[1\]](#footnote)<a id="footnote-
     </tbody>
 </table>
 
-<div class="noteBox info">It is possible to apply multiple filters at once by creating a custom value/class in the config object:
+<div class="noteBox info">It is possible to apply multiple filters at once by creating a custom value or class in Atomizer's configuration.  For example:
+
 <pre class="Fs(n)"><code class="lang-javascript"><span class="hljs-string">'custom'</span>: {
     <span class="hljs-string">'Fil(myCustomFilter)'</span>: 'contrast(150%) brightness(10%)'
 }
 </code></pre>
 </div>
 
-## Variables
-
-You can use custom value identifiers to be used as &quot;variables&quot; across different styles. You set such values via the config object, for example:
-
-```javascript
-custom: {
-    "$headerHeight": "20px"
-}
-```
-
-Usage:
-
-```javascript
-<body class="Pt($headerHeight)">
-    <header class="Mih($headerHeight) Pos(f) T(0) Start(0) End(0)">...</header>
-```
-
-Whenever the value of `$headerHeight` changes, the padding of `<body>` stays in sync with the `height` of the `<header>`.
-
-Variables are also an easy way to abstract colors:
-
-```javascript
-custom: {
-    "$primaryColor": "blue",
-    "$secondaryColor": "orange",
-    "$tertiaryColor": "tomato"
-}
-```
-
-Such variables can then be used with any properties that set colors, for example:
-
-<ul class="ul-list">
-    <li>`Bgc($primaryColor)` for `background-color`</li>
-    <li>`C($secondaryColor)` for `color`</li>
-    <li>`Bdc($tertiaryColor)` for `border-color`</li>
-    <li>etc.</li>
-</ul>
-
-Changing any value in the config changes all occurrences in the style sheet.
-
-### Computed values
-
-The config is a JS file, so you can rely on JavaScript to do some math:
-
-```javascript
-var widthOfNav   = 200,
-    widthOfMain  = 600,
-    widthOfRail  = 300,
-    widthOfGutter = 10;
-module.exports = {
-    'custom': {
-        '$nav-width': widthOfNav + 'px',
-        '$main-width': widthOfMain + 'px',
-        '$rail-width': widthOfRail + 'px',
-        '$gutter-width': widthOfGutter + 'px',
-        '$wrapper-width': widthOfNav + widthOfMain + widthOfRail + 2 * widthOfGutter + 'px'
-    }
-};
-```
-
-```html
-<div class="wrapper W($wrapper-width) Mx(a)">
-    <div class="nav W($nav-width) Fl(start)">...</div>
-    <div class="main W($main-width) Fl(start) Mx($gutter-width)">...</div>
-    <div class="rail W($rail-width) Fl(start)">...</div>
-</div>
-```
-
-
-
-## Advanced classes
-
-These classes are mostly contextual; they take into consideration **ancestor nodes** or **media queries**.
-
-### Descendant selectors
-
-You can style a node according to its relationship with its parent or ancestor, for example:
-
-```html
-<p class="foo">The following text is <b class="foo_C(#0b0)">lime</b>.</p>
-```
-<p class="foo">The following text is <b class="foo_C(#0b0)">lime</b>.</p>
-
-Same class on a node outside the scope of `.foo`:
-
-```html
-<p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
-```
-
-<p>The following text is <b class="foo_C(#0b0)">lime</b>.</p>
-
-<p class="noteBox info"><strong>Practical example</strong>:<br> we use the class `home_D(b)` to style `#main` differently on  [acss.io](http://www.acss.io) home page.</p>
-
-#### pseudo-classes on ancestors
-
-You can use pseudo-classes with classes relying on contextual selectors, for example `ul-list:h>V(h)` hides the direct children of `.ul-list` &mdash; only when users hover over the said list.
-
-```html
-<ul class="ul-list">
-    <li class="ul-list:h>V(h)">List item #1</li>
-    <li class="ul-list:h>V(h)">List item #2</li>
-    <li>List item #3</li>
-</ul>
-```
-
-<ul class="ul-list">
-    <li class="ul-list:h>V(h)">List item #1</li>
-    <li class="ul-list:h>V(h)">List item #2</li>
-    <li>List item #3</li>
-</ul>
-
-<p class="noteBox important">Unlike all other Atomic classes, the ones containing descendant selectors are **not** sandboxed via the namespace (if one is set in the config). Instead, Atomizer adds `!important` to these styles.</p>
-
-### Breakpoints
-
-#### Classes bound to a single breakpoint
-
-Use the config object to create breakpoints then append a modifier (`--<breakpoint name>`) to your Atomic classes so their styling comes into play only within the breakpoint they relate to.
-
-```javascript
-breakPoints: {
-    'sm': '@media(min-width:500px)', // breakpoint 1
-    'md': '@media(min-width:900px)', // breakpoint 2
-    'lg': '@media(min-width:1200px)' // breakpoint 3
-}
-```
-
-<p class="noteBox info">You can choose any name you want for the breakpoints you create via the config object.</p>
-
-The class `P(10px)--sm` will style a box with a `padding` of `10px` inside the `sm` breakpoint while the class `P(20px)--lg` will style a box with a `padding` of `20px` inside the `lg` breakpoint.
-
-#### Classes bound to multiple breakpoints
-
-Use the config object to create breakpoints then associate a custom class to multiple breakpoints so its styling varies within those breakpoints.
-
-```javascript
-'custom': {
-    'P($gutter)': {
-        'default': '10px',
-        'sm': '12px',
-        'md': '14px',
-        'lg': '20px'
-    }
-}
-```
-
-The class `P($gutter)` will style a box with a `padding` of `10px` below the first breakpoint, but then this padding will become:
-
-<ul class="ul-list">
-    <li>`12px` inside the `sm` breakpoint</li>
-    <li>`14px` inside the `md` breakpoint</li>
-    <li>`20px` inside the `lg` breakpoint</li>
-</ul>
-
-More info about [breakpoints and responsive web design](../tutorials/responsive-web-design.html).
-
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>We use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, we do not have yet aliases for `calc()`, `rgba()`, etc. [\[↩\]](#footnote-1).</li>
-    <li>Use the config object to set custom values for `Matrix()` and `Matrix3d()`. [\[↩\]](#footnote-2) [\[↩\]](#footnote-3).</li>
+    <li>Aliases use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, there are not yet aliases for `calc()`, `rgba()`, etc. [\[↩\]](#footnote-1).</li>
+    <li>Use the Atomizer config object to set custom values for `Matrix()` and `Matrix3d()`. [\[↩\]](#footnote-2).</li>
 </ol>

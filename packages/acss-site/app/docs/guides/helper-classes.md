@@ -1,10 +1,12 @@
 # Helper classes
 
-These classes are tailored to help with common styling patterns. You can either use the helpers offered through Atomic or create your own set of helper classes.
+Helper classes are provided to help with common styling patterns. [Atomizer](/guides/atomizer.html) provides the following set of helper classes, and you can define your own through custom Atomizer rulesets.
+
+Unlike [Atomic classes](/guides/atomic-classes.html), helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.
 
 ## `Bd*` (Borders)
 
-Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> so to make styling via classes a bit less verbose, we have the following helpers that combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
+Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> so to make styling via classes a bit less verbose, the following helpers combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
 
 <ul class="ul-list">
     <li>`Bd` creates a `1px` border on all edges of a box</li>
@@ -16,7 +18,7 @@ Styling elements with a border requires 3 properties [\[1\]](#footnote)<a id="fo
     <li>`BdStart` creates a `1px` border on the left edge of a box (in a LTR context)</li>
 </ul>
 
-You can combine one of the class above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
+You can combine one of the classes above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
 
 Example with a initial border color (and `border-width` set to `1px`):
 
@@ -34,10 +36,10 @@ Example with a custom color:
 
 <p class="Bd Bdc(#ff6347) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
-<p>We have chosen to set the default `width` of those helpers to be `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either</p>
+<p>The default `width` of these helpers is `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either</p>
 <ul class="ul-list">
-    <li>use a granular approach, for example: `Bdw(5px) Bds(s) Bdc(#555)`</li>
-    <li>create a custom class, for example: `Bd(myCustomBorder)` via the config object</li>
+    <li>use standard Atomic classes, for example: `Bdw(5px) Bds(s) Bdc(#555)`</li>
+    <li>create a custom class via config, for example: `Bd(myCustomBorder)`</li>
     <li>use **the same helper classes** with [different values](helper-classes.htmlthe-special-case-of-border-)</li>
 </ul>
 
@@ -47,7 +49,7 @@ Example with a custom color:
 
 Most authors use `overflow:hidden` to create [block-formatting contexts](http://yuiblog.com/blog/2010/05/19/css-101-block-formatting-contexts/) but such styling may come [with side-effects](http://yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/).
 
-For this reason, we have a helper class called `BfcHack` which creates a block-formatting context that does not &quot;shrinkwrap&quot;. This is something [Nicole Sullivan and Nan Gao](http://www.stubbornella.org/content/2010/12/09/the-hacktastic-zoom-fix/#comment-18394) came up with.
+For this reason, the helper class called `BfcHack` creates a block-formatting context that does not &quot;shrinkwrap&quot;. This is an approach introduced by [Nicole Sullivan and Nan Gao](http://www.stubbornella.org/content/2010/12/09/the-hacktastic-zoom-fix/#comment-18394).
 
 <p class="noteBox warning">Note that this is a hack and may break if the content of the box is too large or if the box is next to floats.</p>
 
@@ -71,7 +73,7 @@ Example:
 
 ## Hiding content from sighted users
 
-Use the class `Hidden` if you want to hide content that should be accessible to screen-readers:
+Use the class `Hidden` if you want to hide content that should still be accessible to screen-readers:
 
 Example:
 
@@ -82,7 +84,7 @@ Example:
 
 ## `IbBox`
 
-Boxes that are part of inline-block constructs must be styled with multiple styles so rather than seting all of those yourself, you can simply use `IbBox` as a "shorthand" for:
+Boxes that are part of inline-block constructs must be styled with multiple styles. Rather than setting all of those yourself, you can simply use `IbBox` as a "shorthand" for:
 
 ```css
 display: inline-block;
@@ -105,9 +107,9 @@ Example:
 
 ## `LineClamp()`
 
-Truncating multiple line of text across browsers is not an easy feat. Authors usually start with `-webkit-line-clamp` + flexbox and then go from there; addressing [weird bug](https://twitter.com/thierrykoblentz/status/443899465842176000) along the way.
+Truncating multiple lines of text in a way that works across browsers is not an easy feat. Authors usually start with `-webkit-line-clamp` + flexbox and then go from there, addressing [weird bugs](https://twitter.com/thierrykoblentz/status/443899465842176000) along the way.
 
-With the help of Atomizer, you can use a class to "pass" 2 parameters:
+With the help of Atomizer, you can use the `LineClamp()` class to "pass" 2 parameters:
 
 <ul class="ul-list">
     <li>the number of lines you want to display</li>
@@ -140,11 +142,11 @@ Example:
     <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
 
-The background of the wrapper shows which proves the box contains floats.
+The background of the wrapper is visible, which proves the box contains floats.
 
 ## `StretchedBox`
 
-Use the class `StretchedBox` to stretch a box inside its 'containing block' as this class is mapped to the following declarations:
+Use the class `StretchedBox` to stretch a box inside its 'containing block'. This class is mapped to the following declarations:
 
 ```css
 position: absolute;
@@ -167,7 +169,7 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ## `Zoom`
 
-Use the class `Zoom` if you support old IE and needs to [give a box a layout](http://www.satzansatz.de/cssd/onhavinglayout.html).
+Use the class `Zoom` if you support old versions of IE and need to [give a box a layout](http://www.satzansatz.de/cssd/onhavinglayout.html).
 
 <hr class="Mt(50px)">
 

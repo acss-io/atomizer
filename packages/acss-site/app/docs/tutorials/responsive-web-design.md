@@ -1,12 +1,11 @@
 # Responsive Web Design
 
-<p>You can set your **own** breakpoints in the config object and then use Atomic classes scoped to media queries tied to those breakpoints.</p>
-
-<p class="noteBox info">Classes bound to media queries start with 2 dashes (`--`) followed by the breakpoint &quot;name&quot; (i.e. `sm`).</p>
+You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomic classes through [the breakpoint suffix](/guides/syntax.html#-lt-breakpoint_identifier-) or automatic breakpoints.
 
 ## Setting up Breakpoints
 
-<p>Pick the names and media queries you want, for example:</p>
+Pick the breakpoint names and media queries you want, for example:
+
 
 ```json
 'breakPoints': {
@@ -16,9 +15,15 @@
 }
 ```
 
-<h3>Atomic classes and Breakpoints</h3>
+Breakpoints may be named anything you want, as long as the characters are valid for use in  classnames.
 
-<p>Append `--<breakpoint name>` to **any** Atomic class to associate that styling to the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create rules in the related media queries:</p>
+## Usage
+
+There are two ways to make use of breakpoints in your Atomic classes: explicitly and automatically.
+
+### Explicit Breakpoints
+
+Append `--<breakpoint name>` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create the following rules in the related media queries:
 
 ```css
 @media screen and (min-width:380px) {
@@ -34,11 +39,40 @@
 }
 ```
 
-<p class="noteBox info">For the sake of readability, CSS classes on this page *do not* include the escape character (`\`) where it should be needed.</p>
+### Automatic Breakpoints
 
-## Usage
+[Variable values](/guides/syntax.html#variable-values) and [custom classes](/guides/atomic-classes.html#custom-classes) may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the [breakpoint identifier](/guides/syntax.html#-lt-breakpoint_identifier-) suffix on your class.
 
-<p>Use different classes to see styles being applied in the context of various breakpoints, for example:</p>
+Simply set the value of your variable or custom class identifier to an object containing breakpoint names as the keys:
+
+```javascript
+'custom': {
+    'P(logo)': {
+        'default': '10px',
+        'sm': '12px',
+        'md': '14px',
+        'lg': '20px'
+    },
+    'gutter': {
+        'default': '1em',
+        'sm': '3em'
+    }
+}
+```
+
+In this example, the class `P(logo)` will style a box with a `padding` of `10px` below the first breakpoint, but then this padding will become:
+
+<ul class="ul-list">
+    <li>`12px` inside the `sm` breakpoint</li>
+    <li>`14px` inside the `md` breakpoint</li>
+    <li>`20px` inside the `lg` breakpoint</li>
+</ul>
+
+Likewise, any class that uses the variable `gutter` will receive different values depending on the currently active breakpoint.
+
+## Examples
+
+When using explicit breakpoints, use multiple classes to have styles applied in the context of various breakpoints, for example:
 
 ```html
    <div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.5)">1</div><!--
@@ -53,7 +87,7 @@
     <li>Above 900px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)</li>
 </ul>
 
-<p class="noteBox info">The breakpoints for the Pen below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>
+<p class="noteBox info">The breakpoints for the example below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>
 
 <h3 class="penResult">Result</h3>
 
