@@ -17,7 +17,7 @@ class PageHome extends React.Component {
     render() {
         return (
             <div>
-                <div id='splash' className='D(tb) W(100%) BdB Bdc(#0280ae.3) Bgc($brandColor)'>
+                <div id='splash' className='D(tb) W(100%) BdB Bdc(#0280ae.3) Bgc(brandColor)'>
                     <div className='D(tbc) Ta(c) Va(m)'>
                         <h1 className='Mx(a) W(50%) Pos(r) C(#fff)'>
                             <img className='Pos(r) Z(7) Mt(-40px)--sm' id="logo" alt='atomic css' height="130" src={assets['images/atomic-css-logo.png']} />
