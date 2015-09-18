@@ -36,8 +36,8 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>&quot;[Variables](/guides/atomic-classes.html#variables)&quot; are useful for theming and the like but they can also be used to share a common value across declarations.</p>
-        <p>In this example, `brandColor` is responsible for setting the text color, the background color, and the border color, while `columnWidth` dictates the width of the 1st box and the left offset of its sibling.</p>
+        <p>&quot;[Variables](/guides/syntax.html#variable-values)&quot; are useful for theming but they can also be used to share a common value across style declarations.</p>
+        <p>In this example, `brandColor` is responsible for setting the text color, background color and border color, while `columnWidth` dictates the width of the first box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-javascript"><span class="hljs-comment">// config object</span>
