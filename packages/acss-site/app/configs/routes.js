@@ -49,6 +49,15 @@ export default {
         pageTitlePrefix: 'FAQ',
         page: 'docs'
     },
+    support: {
+        path: '/support.html',
+        method: 'get',
+        component: PageDocs,
+        githubPath: '/docs/support.md',
+        action: showDoc,
+        pageTitlePrefix: 'Support',
+        page: 'docs'
+    },
 
     // docs - guides
     atomicClasses: {

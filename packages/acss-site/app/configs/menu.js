@@ -13,6 +13,10 @@ export default [
             {
                 label: 'FAQ',
                 routeName: 'faq'
+            },
+            {
+                label: 'Support',
+                routeName: 'support'
             }
         ]
     },
