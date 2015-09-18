@@ -37,24 +37,24 @@
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
         <p>&quot;[Variables](/guides/atomic-classes.html#variables)&quot; are useful for theming and the like but they can also be used to share a common value across declarations.</p>
-        <p>In this example, `$brandColor` is responsible for setting the text color, the background color, and the border color, while `$columnWidth` dictates the width of the 1st box and the left offset of its sibling.</p>
+        <p>In this example, `brandColor` is responsible for setting the text color, the background color, and the border color, while `columnWidth` dictates the width of the 1st box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-javascript"><span class="hljs-comment">// config object</span>
 <span class="hljs-string">'custom'</span>: {
-    <span class="hljs-string">'$brandColor'</span>: <span class="hljs-string">'#0280ae'</span>,
-    <span class="hljs-string">'$columnWidth'</span>: <span class="hljs-string">'20px'</span>
+    <span class="hljs-string">'brandColor'</span>: <span class="hljs-string">'#0280ae'</span>,
+    <span class="hljs-string">'columnWidth'</span>: <span class="hljs-string">'20px'</span>
 }
 </code></pre>
-<pre><code class="lang-html">&lt;div class="Pos(a) Bgc($brandColor) W($columnWidth) H(90px)"&gt;&lt;/div&gt;
-&lt;div class="C($brandColor) BdB Bdc($brandColor) Mstart($columnWidth) P(10px)"&gt;
+<pre><code class="lang-html">&lt;div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"&gt;&lt;/div&gt;
+&lt;div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)"&gt;
      <span class="hljs-comment">Lorem ipsum</span>
 &lt;/div&gt;
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Pos(a) Bgc($brandColor) W($columnWidth) H(90px)"></div>
-        <div class="C($brandColor) BdB Bdc($brandColor) Mstart($columnWidth) P(10px)">
+        <div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"></div>
+        <div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)">
             Lorem ipsum
         </div>
     </div>
@@ -71,17 +71,18 @@
     widthOfMain  = <span class="hljs-number">600</span>,
     widthOfRail  = <span class="hljs-number">300</span>,
     widthOfGutter = <span class="hljs-number">10</span>;
+    
 <span class="hljs-module"><span class="hljs-keyword">module</span>.exports = </span>{
     <span class="hljs-string">'custom'</span>: {
-        <span class="hljs-string">'$nav-width'</span>: widthOfNav + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'$main-width'</span>: widthOfMain + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'$rail-width'</span>: widthOfRail + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'$gutter-width'</span>: widthOfGutter + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'$wrapper-width'</span>: widthOfNav + widthOfMain + widthOfRail + <span class="hljs-number">2</span> * widthOfGutter + <span class="hljs-string">'px'</span>
+        <span class="hljs-string">'nav-width'</span>: widthOfNav + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'main-width'</span>: widthOfMain + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'rail-width'</span>: widthOfRail + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'gutter-width'</span>: widthOfGutter + <span class="hljs-string">'px'</span>,
+        <span class="hljs-string">'wrapper-width'</span>: widthOfNav + widthOfMain + widthOfRail + <span class="hljs-number">2</span> * widthOfGutter + <span class="hljs-string">'px'</span>
     }
 };
 </code></pre>
-<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"wrapper W($wrapper-width) Mx(a)"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"wrapper W(wrapper-width) Mx(a)"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
@@ -129,25 +130,25 @@
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="Bd Bgc($brandColor):h C($brandColor):h P(20px)"&gt;
+<pre><code class="lang-html">&lt;div class="Bd Bgc(brandColor):h C(brandColor):h P(20px)"&gt;
     <span class="hljs-comment">Lorem ipsum</span>
 &lt;/div&gt;
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bd Bgc($brandColor):h C($brandColor) C(#fff):h P(20px)">
+        <div class="Bd Bgc(brandColor):h C(brandColor) C(#fff):h P(20px)">
             Lorem ipsum
         </div>
     </div>
     <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs">You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over **its parent**:</p>
         <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="foo Bd C($brandColor) Ta(c)"&gt;
+<pre><code class="lang-html">&lt;div class="foo Bd C(brandColor) Ta(c)"&gt;
     &lt;p class="Op(0) foo:h&gt;Op(1)"&gt;<span class="hljs-comment">Lorem ipsum</span>&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
         </div>
         <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-            <div class="foo Bd C($brandColor) Ta(c)">
+            <div class="foo Bd C(brandColor) Ta(c)">
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
@@ -233,17 +234,17 @@
         <p>Classes may have different values associated with different breakpoints; meaning the same class applies different styles depending on media queries.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html"><span class="hljs-string">'Fz($RWD-fontSize)'</span>: {
+<pre><code class="lang-html"><span class="hljs-string">'Fz(RWD-fontSize)'</span>: {
     <span class="hljs-string">'xs'</span>: <span class="hljs-string">'12px'</span>,
     <span class="hljs-string">'sm'</span>: <span class="hljs-string">'22px'</span>,
     <span class="hljs-string">'md'</span>: <span class="hljs-string">'32px'</span>,
     <span class="hljs-string">'lg'</span>: <span class="hljs-string">'42px'</span>
 }</code></pre>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"Fz($RWD-fontSize)"</span>&gt;Responsive font-size&lt;/<span class="hljs-keyword">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"Fz(RWD-fontSize)"</span>&gt;Responsive font-size&lt;/<span class="hljs-keyword">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Fz($RWD-fontSize)">Responsive font-size</div>
+        <div class="Fz(RWD-fontSize)">Responsive font-size</div>
     </div>
 </div>
 
