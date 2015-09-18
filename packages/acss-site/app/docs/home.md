@@ -20,9 +20,9 @@
         Colors are set using hexadecimal values. Alpha transparency is created by appending the opacity value to the `hex` color.
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="Bgc(<span class="hljs-number">#0280ae</span>.<span class="hljs-number">5</span>) C(<span class="hljs-number">#fff</span>) P(20px)"&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae.5) C(#fff) P(20px)"</span>&gt;</span>
     <span class="hljs-comment">Lorem ipsum</span>
-&lt;/div&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
@@ -46,10 +46,10 @@
     <span class="hljs-string">'columnWidth'</span>: <span class="hljs-string">'20px'</span>
 }
 </code></pre>
-<pre><code class="lang-html">&lt;div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"&gt;&lt;/div&gt;
-&lt;div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)"&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)"</span>&gt;</span>
      <span class="hljs-comment">Lorem ipsum</span>
-&lt;/div&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
@@ -60,52 +60,22 @@
     </div>
 </div>
 
-### Computed values
-
-<div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>You can also rely on the config file to do some math:</p>
-    </div>
-    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> widthOfNav   = <span class="hljs-number">200</span>,
-    widthOfMain  = <span class="hljs-number">600</span>,
-    widthOfRail  = <span class="hljs-number">300</span>,
-    widthOfGutter = <span class="hljs-number">10</span>;
-    
-<span class="hljs-module"><span class="hljs-keyword">module</span>.exports = </span>{
-    <span class="hljs-string">'custom'</span>: {
-        <span class="hljs-string">'nav-width'</span>: widthOfNav + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'main-width'</span>: widthOfMain + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'rail-width'</span>: widthOfRail + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'gutter-width'</span>: widthOfGutter + <span class="hljs-string">'px'</span>,
-        <span class="hljs-string">'wrapper-width'</span>: widthOfNav + widthOfMain + widthOfRail + <span class="hljs-number">2</span> * widthOfGutter + <span class="hljs-string">'px'</span>
-    }
-};
-</code></pre>
-<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"wrapper W(wrapper-width) Mx(a)"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
-</code></pre>
-    </div>
-    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-    <!-- no example -->
-    </div>
-</div>
-
 ## Contextual selectors
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
         <p>Atomic syntax allows you to style elements [depending on their ancestors or siblings](/guides/atomic-classes.html#descendant-selectors).</p>
-        <p>In this example, the same 2 boxes (same markup) are styled differently depending on which element they are nested into. They show side by side unless they are nested in an element with the class `foo` applied to it.</p>
+        <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">hr</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"foo"</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"foo"</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
@@ -130,25 +100,25 @@
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="Bd Bgc(brandColor):h C(brandColor):h P(20px)"&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bd Bgc(#0280ae):h C(#0280ae):h P(20px)"</span>&gt;</span>
     <span class="hljs-comment">Lorem ipsum</span>
-&lt;/div&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bd Bgc(brandColor):h C(brandColor) C(#fff):h P(20px)">
+        <div class="Bd Bgc(#0280ae):h C(#0280ae) C(#fff):h P(20px)">
             Lorem ipsum
         </div>
     </div>
     <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs">You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over **its parent**:</p>
         <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;div class="foo Bd C(brandColor) Ta(c)"&gt;
-    &lt;p class="Op(0) foo:h&gt;Op(1)"&gt;<span class="hljs-comment">Lorem ipsum</span>&lt;/p&gt;
-&lt;/div&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"foo Bd C(#0280ae) Ta(c)"</span>&gt;</span>
+    <span class="hljs-tag">&lt;p <span class="hljs-attribute">class</span>=<span class="hljs-string">"Op(0) foo:h&gt;Op(1)"</span>&gt;<span class="hljs-comment">Lorem ipsum</span>&lt;/p&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
         </div>
         <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-            <div class="foo Bd C(brandColor) Ta(c)">
+            <div class="foo Bd C(#0280ae) Ta(c)">
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
@@ -159,25 +129,24 @@
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you fancy? Floats? Flexbox? Inline-block? CSS table? [Atomic supports it all](/tutorials/grid-system.html#layouts), and you can use [any measurement style you want](/tutorials/grid-system.html#widths) (fraction, percentage, em, rem, px, etc.)</p>
+        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? [Atomic supports it all](/tutorials/grid-system.html#layouts), and you can use [any measurement style you want](/tutorials/grid-system.html#widths) (fraction, percentage, em, rem, px, etc.)</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Row"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Fl(start) W(1/2) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Row"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Fl(start) W(1/2) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(tb) W(100%)"</span> <span class="hljs-attribute">role</span>=<span class="hljs-value">"presentation"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" D(tbc) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" D(tbc) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"D(tb) W(100%)"</span> <span class="hljs-attribute">role</span>=<span class="hljs-string">"presentation"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"D(tbc) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"D(tbc) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"IbBox W(50%) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"IbBox W(50%) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(f)"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">" Flxg(1) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"IbBox W(50%) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"IbBox W(50%) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"D(f)"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Flxg(1) Bgc(#0280ae) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Flxg(1) Bgc(#0280ae.5) H(90px)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
-<p class="noteBox info"><abbr title="Accessibility">A11Y</abbr> tip: Use `role="presentation"` on &quot;CSS tables&quot; to prevent their semantics from being mapped to the accessibility API.</p>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
@@ -199,22 +168,24 @@
 
 ## Responsive Web Design (RWD)
 
-### Classes mapped to a single breakpoint
-
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Define your responsive "breakpoints" in configuration using standard media query syntax.  Then, reference your breakpoints in your classnames using a double-dash suffix (eg, `--sm`).</p>
-        <p>In this example, the 4 boxes are styled as `inline-block`, with a `width` of `25%` when the viewport is more than `700px` wide.</p>
+        <p>Define your responsive "breakpoints" in configuration using standard media query syntax. Then, reference those breakpoints in your Atomic classes or configuration.</p>
+
+        <h3> Classes mapped to a single breakpoint</h3>
+
+        <p>Reference your breakpoints in your classnames using a double-dash suffix (eg, `--sm`).</p>
+        <p>In this example, the four boxes are styled as `inline-block`, with a `width` of `25%` when the viewport is more than `700px` wide.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-javascript"><span class="hljs-string">'breakPoints'</span>: {
     <span class="hljs-string">'sm'</span>: <span class="hljs-string">'@media screen and (min-width:700px)'</span>
 }
 </code></pre>
-<pre><code class="lang-html">   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
---&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<pre><code class="lang-html">   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
@@ -223,24 +194,22 @@
         --><div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div><!--
         --><div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
     </div>
-</div>
-
-<p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Bxz(bb) noteBox info">Note that *any style* can be attached to a breakpoint (i.e. `C(#fff)--sm`).</p>
-
-### Classes mapped to multiple breakpoints
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+
+        <h3>Classes mapped to multiple breakpoints</h3>
+
         <p>Classes may have different values associated with different breakpoints; meaning the same class applies different styles depending on media queries.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html"><span class="hljs-string">'Fz(RWD-fontSize)'</span>: {
+<pre><code class="lang-html"><span class="hljs-string">'RWD-fontSize'</span>: {
     <span class="hljs-string">'xs'</span>: <span class="hljs-string">'12px'</span>,
     <span class="hljs-string">'sm'</span>: <span class="hljs-string">'22px'</span>,
     <span class="hljs-string">'md'</span>: <span class="hljs-string">'32px'</span>,
     <span class="hljs-string">'lg'</span>: <span class="hljs-string">'42px'</span>
 }</code></pre>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"Fz(RWD-fontSize)"</span>&gt;Responsive font-size&lt;/<span class="hljs-keyword">div</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"Fz(RWD-fontSize)"</span>&gt;<span class="hljs-comment">Responsive font-size</span>&lt;/<span class="hljs-keyword">div</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
@@ -256,9 +225,9 @@
         <p>For example `LineClamp()`, which takes two parameters:</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html">&lt;p class="Fz(<span class="hljs-number">12</span>px) Lh(<span class="hljs-number">1</span>.<span class="hljs-number">5</span>) LineClamp(<span class="hljs-number">3</span>,<span class="hljs-number">54</span>px)"&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">p</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Fz(12px) Lh(1.5) LineClamp(3,54px)"</span>&gt;</span>
     <span class="hljs-comment">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</span>
-&lt;/p&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-title">p</span>&gt;</span>
 </code></pre>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">

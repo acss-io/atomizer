@@ -65,7 +65,7 @@ var App = React.createClass({
         return (
             <div className="H(100%)">
                 <div className="wrapper Bxz(bb) Mih(100%)">
-                    <div id="header" role="header" className="P(10px) Ov(h) home_Ov(v) Z(7) Pos(r) Bgc($brandColor) optLegibility">
+                    <div id="header" role="header" className="P(10px) Ov(h) home_Ov(v) Z(7) Pos(r) Bgc(brandColor) optLegibility">
                         <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
                             <NavLink className="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h" routeName="home">
                                 <b className="D(n)--xs home_D(b) home_Cur(t)">Atomic CSS</b>
