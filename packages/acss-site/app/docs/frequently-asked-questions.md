@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-This section is intended to answer common questions related to Atomic CSS. Do not hesitate to reach out if nothing on this page answers your question.
+This section is intended to answer common questions related to Atomic CSS and Atomizer. If you're unable to find an answer to your question, [you can find support here](/support.html).
 
 ## Questions related to the Atomic CSS architecture
 
@@ -32,14 +32,7 @@ This section is intended to answer common questions related to Atomic CSS. Do no
 
 ### What is Atomic CSS?
 
-Atomic CSS is a &quot;CSS architecture&quot; that has the ambition to solve 2 main challenges:
-
-<ul class="ul-list">
-   <li>bloat</li>
-   <li>maintenance</li>
-</ul>
-
-The library is a collection of single purpose styling units (*single responsibility principle for maximum reuse*) that fits well with components in templated frameworks such as [React](https://github.com/facebook/react), [Ember](https://github.com/emberjs/ember.js/), or [Angular](https://github.com/angular/angular.js).
+Atomic CSS is a collection of single purpose styling units (*single responsibility principle for maximum reuse*) that fits well with components in templated frameworks such as [React](https://github.com/facebook/react), [Ember](https://github.com/emberjs/ember.js/), or [Angular](https://github.com/angular/angular.js).
 
 Atomic classes and their associated styling are **immutable**, meaning you'd use the same classes whatever the project you're working on or the team you're working with. In other words, Atomic CSS is a common &quot;vocabulary&quot; meant to style documents *regardless of context or content*.
 

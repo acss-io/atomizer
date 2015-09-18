@@ -1,107 +1,23 @@
 # Grid system
 
-Atomic is not your everyday CSS solution, it does not come with a _out-of-the-box_ grid system. Instead, you would use any property you want to build grids *the way **you** want*.
-
+Atomic CSS does not come with an _out-of-the-box_ grid system. Instead, you use any property you want to build grids *the way **you** want*.
 
 
 ## Widths
 
-You can choose from creating a unit-base system (i.e. `1/12`), using percentages (i.e. `20%`), or using any arbitrary value you see fit (i.e. `15em`). In other words, the way you apply widths onto boxes is entirely up to you!
+You can choose from creating a unit-base system using fractions (i.e. `1/12`), using percentages (i.e. `20%`), or using any arbitrary measurement value (i.e. `15em`). In other words, the way you apply widths onto boxes is entirely up to you.
 
 <p class="noteBox info">All classes related to `width` start with `W` &mdash; for example: `W(15em)`.</p>
 
-### Fractions
-
-`W(1/12)`, `W(2/12)`, `W(3/12)`, `W(4/12)`, `W(5/12)`, `W(6/12)`, `W(7/12)`, etc.
-
-If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
-If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object, for example:
-```json
-'classNames': [
-    'W(1/12),
-    'W(2/12),
-    'W(3/12),
-    'W(4/12),
-    'W(5/12),
-    'W(6/12),
-    'W(7/12),
-    'W(8/12),
-    'W(9/12),
-    'W(10/12)',
-    'W(11/12)',
-    'W(12/12)'
-]
-```
-
-
-### Percentages
-
-`W(10%)`, `W(20%)`, `W(30%)`, `W(40%)`, ..., `W(100%)`
-
-Same as for fractions, if you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
-If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object:
-```json
-'classNames': [
-    'W(10%)',
-    'W(20%)',
-    'W(30%)',
-    'W(40%)',
-    'W(50%)',
-    'W(60%)',
-    'W(70%)',
-    'W(80%)',
-    'W(90%)',
-    'W(100%)'
-]
-```
-
-### `em` units
-
-`W(10em)`, `W(50em)`
-
-Same as for fractions and percentages, if you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
-If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object:
-```json
-'classNames': [
-    'W(10em)',
-    'W(50em)'
-]
-```
-
-### Mixing values
-
-You can have anything you want:
-
-`W(a)`, `W(1/4)`, `W(2/4)`, `W(3/4)`, `W(4/4)`, `W(5%)`, `W(10em)`, `W(200px)`
-
-Same as for fractions, percentages, `em` units, etc. If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the above classes in your markup - where needed - and Atomizer will create all the necessary rules for you.<br>
-If you do *not* run [Atomizer](https://github.com/yahoo/atomizer), you then must add the classes you want to the config object:
-
-```json
-'classNames': [
-    'W(a)',
-    'W(1/4)',
-    'W(2/4)',
-    'W(inh)',
-    'W(3/4)',
-    'W(4/4)',
-    'W(5%)',
-    'W(10em)',
-    'W(200px)'
-]
-```
-
-<p class="noteBox info">The suffix `inh` for `inherit` is the <strong>same for all properties</strong>.</p>
-
 ## Layouts
 
-There are many ways to display boxes next to each other... Your pick:
+There are many ways to display boxes next to each other, it's up to you to decide which method fits your needs best.
 
 ### `inline-block` construct <a id="footnote-1" class="D-ib"></a>
 
 This styling has great browser support [\[1\]](#footnote) and it is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
-When creating inline-block constructs, you should use our helper class (`IbBox`) instead of `D(ib)` because the former gives you old IE support plus vertical-alignment (`top`) for free.
+When creating inline-block constructs, you should use the helper class (`IbBox`) instead of `D(ib)` because the former gives you old-IE support plus vertical-alignment (`top`) for free.
 
 #### Example
 
@@ -128,21 +44,13 @@ When creating inline-block constructs, you should use our helper class (`IbBox`)
     <ol class="ol-list">
        <li>white-space between nodes in the markup creates space between boxes, so make sure to address this by either removing that space altogether, using html comments (`<!-- -->`), or implementing some other trick like the one used by [PureCSS](http://purecss.io/grids/).</li>
        <li>`vertical-align:top` is needed to make sure all boxes are top aligned (`IbBox` takes care of #2 and #3).</li>
-       <li>IE7 <em>doesn't support</em> `display:inline-block` but Atomizer takes care of this behind the scene [\[1\]](#footnote).</li>
+       <li>IE7 <em>doesn't support</em> `display:inline-block` but Atomizer takes care of this behind the scenes [\[1\]](#footnote).</li>
     </ol>
 </div>
 
 ### `float` construct <a id="footnote-2" class="D-(ib)"></a>
 
-This styling has great browser support and [Atomizer](https://github.com/yahoo/atomizer) makes it &quot;direction&quot; agnostic [\[2\]](#footnote).
-
-If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the class `Fl-start` in your markup - where needed - and Atomizer will create the necessary rule for you.<br>
-If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add that class to the config object:
-```json
-'classNames': [
-    'Fl(start)'
-]
-```
+This styling has great browser support and [Atomizer](https://github.com/yahoo/atomizer) makes it &quot;direction&quot; agnostic [\[2\]](#footnote).  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
 #### Example
 
@@ -153,7 +61,7 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 </div>
 ```
 
-<p class="noteBox info">We are using the class `Cf` (for &quot;clearfix&quot;) to contain the floats, but we also have a [`Row` helper](/guides/helper-classes.html-row-) to better deal with floats across browsers.</p>
+<p class="noteBox info">In this example, the class `Cf` (for &quot;clearfix&quot;) is used to contain the floats, but there is also a [`Row` helper class](/guides/helper-classes.html-row-) to better deal with floats across browsers.</p>
 
 <h4 class="penResult">Result</h4>
 
@@ -165,22 +73,11 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <p class="noteBox info">[Atomizer](https://github.com/yahoo/atomizer) can also auto-generate `background-color` and `color`.</p>
 
-<h3> `table` and `table-cell` construct</h3>
+### `table` and `table-cell` construct
 
 <p>This styling has good browser support (IE8+) and is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).</p>
 
-<p>`D(tb)`, `D(tbc)`, `Va(m)`, `Ta(c)`</p>
-
-If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the classes above in your markup - where needed - and [Atomizer](https://github.com/yahoo/atomizer) will create the necessary rule for you.<br>
-If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add those classes to the config object:
-```json
-'classNames': [
-    'D(tb)',
-    'D(tbc)',
-    'Va(m)',
-    'Ta(c)'
-]
-```
+In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with `vertical-align` and `text-align` classes (`Va(m)` and `Ta(c)`):
 
 #### Example
 
@@ -218,7 +115,8 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
 
 <p data-height="115" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-<h3>`flexbox` construct</h3>
+
+### `flexbox` construct
 
 <p>Browser support for `flexbox` is [not that great](http://caniuse.com/#search=flexbox) but nonetheless you can use Atomic to leverage its awesomeness.</p>
 
@@ -227,14 +125,6 @@ If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must a
     <li>`Jc(sb)` for `justify-content:space-between`
 </ul>
 
-If you run [Atomizer](https://github.com/yahoo/atomizer), all you need to do is to use the classes above in your markup - where needed - and [Atomizer](https://github.com/yahoo/atomizer) will create the necessary rules for you.<br>
-If you do not run [Atomizer](https://github.com/yahoo/atomizer), you then must add those classes to the config object:
-```json
-'classNames': [
-    'D(f)',
-    'Jc(sb)'
-]
-```
 #### Example
 
 ```html
