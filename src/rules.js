@@ -697,6 +697,7 @@ module.exports = [
             "start_b": "__START__ 100%",
             "end_b": "__END__ 100%",
             "start_c": "__START__ center",
+            "c_b": "center 100%",
             "c_t": "center 0",
             "c": "center"
         }]
