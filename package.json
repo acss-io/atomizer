@@ -30,13 +30,13 @@
     "chalk": "^1.0.0",
     "commander": "^2.8.0",
     "lodash": "^3.6.0",
-    "object-assign": "^3.0.0",
-    "xregexp": "^2.0.0"
+    "object-assign": "^4.0.0",
+    "xregexp": "^3.0.0"
   },
   "devDependencies": {
-    "chai": "^2.1.2",
+    "chai": "^3.4.0",
     "coveralls": "^2.11.2",
-    "istanbul": "^0.3.11",
+    "istanbul": "^0.4.0",
     "jshint": "^2.6.3",
     "mocha": "^2.2.1"
   },
