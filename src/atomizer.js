@@ -293,8 +293,12 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             });
         }
 
-        if (match.valuePseudo) {
-            treeo.valuePseudo = match.valuePseudo;
+        if (match.valuePseudoClass) {
+            treeo.valuePseudoClass = match.valuePseudoClass;
+        }
+
+        if (match.valuePseudoElement) {
+            treeo.valuePseudoElement = match.valuePseudoElement;
         }
 
         if (match.breakPoint) {
@@ -478,11 +482,19 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     ].join('');
                 }
 
-                // handle pseudo in values
-                if (treeo.valuePseudo) {
+                // handle pseudo class in values
+                if (treeo.valuePseudoClass) {
                     selector = [
                         selector,
-                        Grammar.getPseudo(treeo.valuePseudo)
+                        Grammar.getPseudo(treeo.valuePseudoClass)
+                    ].join('');
+                }
+
+                // handle pseudo element in values
+                if (treeo.valuePseudoElement) {
+                    selector = [
+                        selector,
+                        Grammar.getPseudo(treeo.valuePseudoElement)
                     ].join('');
                 }
 
