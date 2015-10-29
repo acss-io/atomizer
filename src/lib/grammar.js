@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var XRegExp = require('xregexp').XRegExp;
+var objectAssign = require('object-assign');
 
 var PSEUDO_CLASSES = {
     ':active':          ':a',
@@ -45,22 +46,17 @@ var PSEUDO_ELEMENTS = {
     '::first-line':     '::fli'
 };
 
-var PSEUDO_CLASSES_INVERTED = _.invert(PSEUDO_CLASSES);
-var PSEUDO_CLASS_REGEX = [];
-for (var pseudo in PSEUDO_CLASSES) {
-    PSEUDO_CLASS_REGEX.push(pseudo);
-    PSEUDO_CLASS_REGEX.push(PSEUDO_CLASSES[pseudo]);
-}
-PSEUDO_CLASS_REGEX = '(?:' + PSEUDO_CLASS_REGEX.join('|') + ')(?![a-z])';
+var PSEUDOS = objectAssign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
+var PSEUDOS_INVERTED = _.invert(PSEUDOS);
 
-var PSEUDO_ELEMENTS_INVERTED = _.invert(PSEUDO_ELEMENTS);
-var PSEUDO_ELEMENT_REGEX = [];
-for (var pseudo in PSEUDO_ELEMENTS) {
-    PSEUDO_ELEMENT_REGEX.push(pseudo);
-    PSEUDO_ELEMENT_REGEX.push(PSEUDO_ELEMENTS[pseudo]);
+function flatten(obj) {
+    var flat = [];
+    for (var key in obj) {
+        flat.push(key);
+        flat.push(obj[key]);
+    }
+    return flat;
 }
-PSEUDO_ELEMENT_REGEX = '(?:' + PSEUDO_ELEMENT_REGEX.join('|') + ')(?![a-z])';
-
 
 // regular grammar to match valid atomic classes
 var GRAMMAR = {
@@ -81,8 +77,8 @@ var GRAMMAR = {
     // https://regex101.com/r/mM2vT9/8
     'NAMED'         : '([\\w$]+(?:(?:-(?!\\-))?\\w*)*)',
     'BREAKPOINT'    : '--(?<breakPoint>[a-z0-9]+)',
-    'PSEUDO_CLASS'  : PSEUDO_CLASS_REGEX,
-    'PSEUDO_ELEMENT': PSEUDO_ELEMENT_REGEX,
+    'PSEUDO_CLASS'  : '(?:' + flatten(PSEUDO_CLASSES).join('|') + ')(?![a-z])',
+    'PSEUDO_ELEMENT': '(?:' + flatten(PSEUDO_ELEMENTS).join('|') + ')(?![a-z])',
     'PSEUDO_CLASS_SIMPLE'   : ':[a-z]+',
     'PSEUDO_ELEMENT_SIMPLE' : '::[a-z]+'
 };
@@ -188,7 +184,7 @@ function Grammar(rules) {
  * get non abbreviated pseudo class string given abbreviated or non abbreviated form
  */
 Grammar.getPseudo = function getPseudo(pseudoName)/*:string*/ {
-    return (PSEUDO_CLASSES[pseudoName] || PSEUDO_ELEMENTS[pseudoName]) ? pseudoName : (PSEUDO_CLASSES_INVERTED[pseudoName] || PSEUDO_ELEMENTS_INVERTED[pseudoName]);
+    return PSEUDOS[pseudoName] ? pseudoName : PSEUDOS_INVERTED[pseudoName];
 };
 
 Grammar.matchValue = function matchValue(value) {
