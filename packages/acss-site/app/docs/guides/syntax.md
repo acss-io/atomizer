@@ -5,16 +5,16 @@ Atomic and Helper classes follow a strict syntax, which makes the classnames eas
 ## The syntax
 
 <pre>
-[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-">&lt;pseudo></a></b>]<b class="hljs-type"><a href="#-lt-combinator-">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-">:&lt;pseudo></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
+[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#-lt-combinator-">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-el">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
 </pre>
 
 At its core, an Atomic or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. 
 
 Atomic classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-">`LineClamp()`</a> accepts two.)  Helper classess may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.
 
-Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context></a> class and <a href="#-lt-combinator-">&lt;combinator></a>. The context class may optionally include a <a href="#-lt-pseudo-">&lt;pseudo></a>.
+Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context></a> class and <a href="#-lt-combinator-">&lt;combinator></a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class></a>.
 
-You may also optionally suffix the style with <a href="#-lt-">&lt;!></a> (for `!important`), a <a href="#-lt-pseudo-">&lt;pseudo></a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a>.
+You may also optionally suffix the style with <a href="#-lt-">&lt;!></a> (for `!important`), a <a href="#-lt-pseudo-class-">&lt;pseudo-class></a>, a <a href="#-lt-pseudo-element-">&lt;pseudo-element></a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a>.
 
 ### RTL/LTR
 
@@ -30,7 +30,7 @@ Optional.
 
 A **class** applied to an ancestor or sibling of the node (see [examples](#examples-)).
 
-### &lt;pseudo>
+### &lt;pseudo-class>
 
 Optional.
 
@@ -86,9 +86,22 @@ The above creates the following rule:
 
 This class hides the current element whenever its ancestor (`.foo`) is hovered over.
 
-<p class="noteBox info">Pseudo-classes can be chained, eg., `Op(1):h:f`.</p>
-
 <p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it's not possible to use the pseudo-class syntax with these browsers.</p>
+
+### &lt;pseudo-element>
+
+Optional.
+
+A suffix mapped to a [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements). The following pseudo-elements are supported:
+
+<ul>
+    <li>`b` for `::before`</li>
+    <li>`a` for `::after`</li>
+    <li>`fl` for `::first-letter`</li>
+    <li>`fli` for `::first-line`</li>
+</ul>
+
+<p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it's not possible to use the pseudo-element syntax with these browsers.</p>
 
 ### &lt;combinator>
 
