@@ -2,8 +2,9 @@
 
 var _ = require('lodash');
 var XRegExp = require('xregexp').XRegExp;
+var objectAssign = require('object-assign');
 
-var PSEUDOS = {
+var PSEUDO_CLASSES = {
     ':active':          ':a',
     ':checked':         ':c',
     ':default':         ':d',
@@ -38,13 +39,24 @@ var PSEUDOS = {
     ':visited':         ':vi'
 };
 
+var PSEUDO_ELEMENTS = {
+    '::before':         '::b',
+    '::after':          '::a',
+    '::first-letter':   '::fl',
+    '::first-line':     '::fli'
+};
+
+var PSEUDOS = objectAssign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
 var PSEUDOS_INVERTED = _.invert(PSEUDOS);
-var PSEUDO_REGEX = [];
-for (var pseudo in PSEUDOS) {
-    PSEUDO_REGEX.push(pseudo);
-    PSEUDO_REGEX.push(PSEUDOS[pseudo]);
+
+function flatten(obj) {
+    var flat = [];
+    for (var key in obj) {
+        flat.push(key);
+        flat.push(obj[key]);
+    }
+    return flat;
 }
-PSEUDO_REGEX = '(?:' + PSEUDO_REGEX.join('|') + ')(?![a-z])';
 
 // regular grammar to match valid atomic classes
 var GRAMMAR = {
@@ -64,9 +76,11 @@ var GRAMMAR = {
     'IMPORTANT'     : '!',
     // https://regex101.com/r/mM2vT9/8
     'NAMED'         : '([\\w$]+(?:(?:-(?!\\-))?\\w*)*)',
-    'PSEUDO'        : PSEUDO_REGEX,
-    'PSEUDO_SIMPLE' : ':[a-z]+',
-    'BREAKPOINT'    : '--(?<breakPoint>[a-z0-9]+)'
+    'BREAKPOINT'    : '--(?<breakPoint>[a-z0-9]+)',
+    'PSEUDO_CLASS'  : '(?:' + flatten(PSEUDO_CLASSES).join('|') + ')(?![a-z])',
+    'PSEUDO_ELEMENT': '(?:' + flatten(PSEUDO_ELEMENTS).join('|') + ')(?![a-z])',
+    'PSEUDO_CLASS_SIMPLE'   : ':[a-z]+',
+    'PSEUDO_ELEMENT_SIMPLE' : '::[a-z]+'
 };
 
 GRAMMAR.PARENT_SELECTOR = [
@@ -76,7 +90,7 @@ GRAMMAR.PARENT_SELECTOR = [
     ')',
     // followed by optional pseudo class
     '(?<parentPseudo>',
-        GRAMMAR.PSEUDO,
+        GRAMMAR.PSEUDO_CLASS,
     ')?',
     // followed by either a descendant or direct symbol
     '(?<parentSep>',
@@ -91,7 +105,7 @@ GRAMMAR.PARENT_SELECTOR_SIMPLE = [
     ')',
     // followed by optional pseudo class
     '(?<parentPseudo>',
-        GRAMMAR.PSEUDO_SIMPLE,
+        GRAMMAR.PSEUDO_CLASS_SIMPLE,
     ')?',
     // followed by either a descendant or direct symbol
     '(?<parentSep>',
@@ -191,9 +205,12 @@ Grammar.prototype.getSyntax = function getSyntax(isSimple)/*:string*/ {
         '(?<important>',
             GRAMMAR.IMPORTANT,
         ')?',
-        // optional pseudo
-        '(?<valuePseudo>',
-            isSimple ? GRAMMAR.PSEUDO_SIMPLE : GRAMMAR.PSEUDO,
+        // optional pseudos
+        '(?<valuePseudoClass>',
+            isSimple ? GRAMMAR.PSEUDO_CLASS_SIMPLE : GRAMMAR.PSEUDO_CLASS,
+        ')?',
+        '(?<valuePseudoElement>',
+            isSimple ? GRAMMAR.PSEUDO_ELEMENT_SIMPLE : GRAMMAR.PSEUDO_ELEMENT,
         ')?',
         // optional modifier
         '(?:',

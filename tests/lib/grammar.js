@@ -17,10 +17,12 @@ describe('Grammar()', function () {
         it('returns non abbreviated form if abbreviated form has been passed', function () {
             // execute and assert
             expect(Grammar.getPseudo(':h')).to.equal(':hover');
+            expect(Grammar.getPseudo('::b')).to.equal('::before');
         });
         it('returns non abbreviated form if non abbreviated form has been passed', function () {
             // execute and assert
             expect(Grammar.getPseudo(':hover')).to.equal(':hover');
+            expect(Grammar.getPseudo('::before')).to.equal('::before');
         });
     });
 });
