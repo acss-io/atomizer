@@ -93,7 +93,7 @@ export default {
         component: PageDocs,
         githubPath: '/docs/guides/syntax.md',
         action: showDoc,
-        pageTitlePrefix: 'Guides: Thinking in Atomic',
+        pageTitlePrefix: 'Guides: Syntax',
         page: 'docs'
     },
     atomizer: {
