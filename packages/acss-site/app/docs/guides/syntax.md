@@ -5,7 +5,7 @@ Atomic and Helper classes follow a strict syntax, which makes the classnames eas
 ## The syntax
 
 <pre>
-[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#-lt-combinator-">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-el">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
+[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#-lt-combinator-">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-element-">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
 </pre>
 
 At its core, an Atomic or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. 
