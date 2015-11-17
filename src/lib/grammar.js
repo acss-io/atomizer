@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var XRegExp = require('xregexp').XRegExp;
+var XRegExp = require('xregexp');
 var objectAssign = require('object-assign');
 
 var PSEUDO_CLASSES = {

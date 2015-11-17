@@ -11,7 +11,7 @@ var utils = require('./lib/utils');
 var JSS = require('./lib/jss');
 var Grammar = require('./lib/grammar');
 var objectAssign = require('object-assign');
-var XRegExp = require('xregexp').XRegExp;
+var XRegExp = require('xregexp');
 
 var RULES = require('./rules.js').concat(require('./helpers.js'));
 
