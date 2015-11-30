@@ -1664,7 +1664,7 @@ module.exports = [
             "max-width": "$0"
         },
         "arguments": [{
-            "a": "auto",
+            "n": "none",
             "fa": "fill-available",
             "fc": "fit-content",
             "maxc": "max-content",
