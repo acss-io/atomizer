@@ -69,7 +69,7 @@ module.exports = function (source, map) {
         console.warn('[atomic loader] create css failed.');
         return source;
     } else {
-        finalConfig = atomizer.getConfig(foundClasses, configObject || {});
+        finalConfig = atomizer.getConfig(foundClasses, configObject.configs || {});
         cssString = atomizer.getCss(finalConfig, configObject.options || {});
 
         writeCssFile(cssDest, cssString);        
