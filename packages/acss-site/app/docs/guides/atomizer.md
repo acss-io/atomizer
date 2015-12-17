@@ -46,7 +46,15 @@ Then Atomizer would update the style sheet (removing `D(b)` and replacing `Fz(20
 
 So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other build system you like.
 
-For example, if you're using the [Grunt](http://gruntjs.com/) task runner, you can use [grunt-atomizer](http://github.com/yahoo/grunt-atomizer) to configure and execute Atomizer:
+Here's a few open source projects we know about:
+
+  * Grunt: [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) (Created by the Atomizer team)
+  * Webpack: [atomic-loader](https://www.npmjs.com/package/atomic-loader)
+  * Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
+
+### Example: Grunt
+
+If you're using the [Grunt](http://gruntjs.com/) task runner, you can use [grunt-atomizer](http://github.com/yahoo/grunt-atomizer) to configure and execute Atomizer:
 
 ```javascript
 // use grunt-contrib-watch for changes and run tasks
