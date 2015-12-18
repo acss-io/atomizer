@@ -22,7 +22,23 @@ import {FluxibleMixin} from 'fluxible/addons';
 const styleRegex = new RegExp(/\$(\d+?)/g);
 
 function replaceRTLTokens(str) {
-    return str.replace('__START__', 'left').replace('__END__', 'right');
+    return str.replace(/__START__/g, 'left').replace(/__END__/g, 'right');
+}
+
+function replacePlaceholders(str, values) {
+    if (!Array.isArray(values)) {
+        values = [values];
+    }
+    // Map each value to a placeholder
+    for (var i = 0; i < values.length; i++) {
+        str = str.replace('$'+i, values[i]);
+    }
+    // Use regex to clean up any leftover placeholders
+    return str.replace(styleRegex, '');
+}
+
+function getValueCount(str) {
+    return str.match(styleRegex).length;
 }
 
 /**
@@ -83,17 +99,30 @@ var ReferenceRules = React.createClass({
             if (recipe.type === 'pattern') {
 
                 if (!hasConfig) {
-                    suffix = "<custom-param>";
-                    value = "value";
-                    if (recipe.allowParamToValue) {
-                        suffix = "<value> or " + suffix;
-                    }
+                    var hasMultiValues = false;
                     for (var property in recipe.styles) {
-                        value = recipe.styles[property].replace(styleRegex, value);
+                        var propertyStyle = recipe.styles[property];
+                        var valueCount = getValueCount(propertyStyle);
+                        if (valueCount > 1) {
+                            hasMultiValues = true;
+                            value = [];
+                            for (var vc = 1; vc <= valueCount; vc++) {
+                                value.push('value' + vc);
+                            }
+                        } else {
+                            value = 'value';
+                        }
+                        propertyStyle = replaceRTLTokens(replacePlaceholders(propertyStyle, value));
                         property = replaceRTLTokens(property);
-                        rawDeclarationBlock.push(property + ": " + value);
-                        styledDeclarationBlock.push(<div>{property}: <b className="C(#07f)">{value}</b></div>);
+                        rawDeclarationBlock.push(property + ": " + propertyStyle);
+                        styledDeclarationBlock.push(<div>{property}: <span className="C(#07f)">{propertyStyle}</span></div>);
                     }
+
+                    suffix = "<custom-param>";
+                    if (recipe.allowParamToValue) {
+                        suffix = "<value>" + (hasMultiValues ? "+" : "") + " or " + suffix;
+                    }
+
                     values.push({
                         rawSelector: prefix + "([" + suffix + "])",
                         rawDeclaration: rawDeclarationBlock,
@@ -102,26 +131,39 @@ var ReferenceRules = React.createClass({
                     });
 
                     if (recipe.arguments) {
-                        // We're cheating for now and assuming only a single set of arguments
-                        // for however many params are present.  We currently aren't supporting
-                        // multiple value params in any of our rules, though that could change
-                        // someday.  If that happens, we'll need to rethink how we render the docs
-                        // since we won't want to output every possible combination of valid param
-                        var args = recipe.arguments[0];
+                        
+                        // Reduce the arguments array down to a single object
+                        // containing all possible permutations
+                        var args = recipe.arguments.reduce(function (prevValue, currentValue, currentIndex) {
+                            var obj = {};
+                            for (var p in prevValue) {
+                                obj[p] = prevValue[p];
+                                for (var c in currentValue) {
+                                    var key = p + ',' + c;
+                                    obj[key] = [prevValue[p], currentValue[c]]
+                                        .reduce(function(a, b) {
+                                      return a.concat(b);
+                                    }, []);
+                                }
+                            }
+                            return obj;
+                        });
+
                         for (var paramKey in args) {
                             var selector = prefix + '(' + paramKey + ')';
                             var value = args[paramKey];
                             rawDeclarationBlock = [];
-                            // styledDeclarationBlock = [];
+                            styledDeclarationBlock = [];
                             for (var property in recipe.styles) {
-                                declaration = property + ": " + recipe.styles[property].replace(styleRegex, value);
-                                rawDeclarationBlock.push(replaceRTLTokens(declaration));
+                                declaration = replaceRTLTokens(property + ": " + replacePlaceholders(recipe.styles[property], value));
+                                rawDeclarationBlock.push(declaration);
+                                styledDeclarationBlock.push(<div>{declaration}</div>);
                             }
                             values.push({
                                 rawSelector: selector, 
                                 rawDeclaration: rawDeclarationBlock,
                                 selector: <b>{selector}</b>, 
-                                declaration: rawDeclarationBlock
+                                declaration: styledDeclarationBlock
                             });
                         }
                     }
@@ -135,7 +177,7 @@ var ReferenceRules = React.createClass({
 
                             if (valueObj && valueObj.declaration) {
                                 for (var property in valueObj.declaration) {
-                                    declaration = replaceRTLTokens(property) + ": " + valueObj.declaration[property];
+                                    declaration = replaceRTLTokens(property + ": " + valueObj.declaration[property]);
                                     rawDeclarationBlock.push(declaration);
                                     styledDeclarationBlock.push(<div>{declaration}</div>);
                                 }
