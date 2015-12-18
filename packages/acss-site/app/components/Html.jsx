@@ -60,6 +60,7 @@ var Html = React.createClass({
                     {liveReload}
                 </body>
                 <script dangerouslySetInnerHTML={{__html: this.props.state}}></script>
+                <script src="https://polyfills.yahooapis.com/polyfill.js?features=es5&version=2.1.21"></script>
                 <script src={assets['js/common.js']}></script>
                 <script src={assets['js/main.js']}></script>
                 <script src="https://assets.codepen.io/assets/embed/ei.js" async></script>
