@@ -1,3 +1,7 @@
+
+
+![Atomizer Logo](https://raw.githubusercontent.com/RichardBray/atomizer/master/atomizer-logo.png)
+
 # Atomizer
 
 [![Join the chat at https://gitter.im/yahoo/atomizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yahoo/atomizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
