@@ -929,6 +929,7 @@ module.exports = [
             "n": "none",
             "b": "block",
             "f": "flex",
+            "if": "inline-flex",
             "i": "inline",
             "ib": "inline-block",
             "tb": "table",
