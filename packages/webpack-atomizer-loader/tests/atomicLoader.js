@@ -1,4 +1,4 @@
-/* global describe,before,it */
+/* global describe, before, it */
 var expect = require('chai').expect;
 var atomicLoader = require('../lib/atomicLoader');
 var fs = require('fs');
