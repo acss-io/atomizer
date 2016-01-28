@@ -5,7 +5,7 @@ Webpack loader for compiling atomic css
 
 ## Install
 ```
-$ npm install atomic-loader --save
+$ npm install atomic-loader --save-dev
 ```
 
 ## Usage
