@@ -42,9 +42,11 @@ Then Atomizer would update the style sheet (removing `D(b)` and replacing `Fz(20
 }
 ```
 
-## Build Integration
+## Integrations
 
-So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other build system you like.
+### Build
+
+So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other task runner/build system you'd like.
 
 Here's a few open source projects we know about:
 
@@ -52,7 +54,9 @@ Here's a few open source projects we know about:
   * Webpack: [atomic-loader](https://www.npmjs.com/package/atomic-loader)
   * Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
 
-### Example: Grunt
+If you create your own, please [let us know!](/support.html)
+
+#### Example: Grunt
 
 If you're using the [Grunt](http://gruntjs.com/) task runner, you can use [grunt-atomizer](http://github.com/yahoo/grunt-atomizer) to configure and execute Atomizer:
 
@@ -95,6 +99,9 @@ atomizer: {
 }
 ```
 
+### Web Tools
+
+For a simple web interface to help you learn about Atomizer and Atomic CSS, check out <a href="https://pankajparashar.com/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or Atomic classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
 
 <hr class="Mt(50px)">
 
