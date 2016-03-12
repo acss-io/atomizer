@@ -91,6 +91,7 @@ var css = atomizer.getCss(finalConfig);
 ### Plugins
 
    * Grunt: [grunt-atomizer](https://github.com/yahoo/grunt-atomizer)
+   * Gulp: [gulp-atomizer](https://github.com/whmountains/gulp-atomizer)
 
 ## Developer docs
 
