@@ -1,17 +1,17 @@
 'use strict';
 
-var path = require('path');
-var Atomizer = require('atomizer');
-var parseQuery = require('loader-utils').parseQuery;
-var ensureFolderExists = require('./ensureFolderExists');
+import fs from 'fs';
+import path from 'path';
+import Atomizer from 'atomizer';
+import { parseQuery } from 'loader-utils';
+import ensureFolderExists from './ensureFolderExists';
 
-var DEFAULT_CSS_DEST = './build/css/atomic.css';
-var PATH_SEP = '/';
+const DEFAULT_CSS_DEST = './build/css/atomic.css';
+const PATH_SEP = '/';
 
-var fs = require('fs');
-var atomizer = new Atomizer({verbose: true});
+const atomizer = new Atomizer({verbose: true});
 
-var writeCssFile = function (cssDest, cssString) {
+const writeCssFile = (cssDest, cssString) => {
     try {
         fs.writeFileSync(cssDest, cssString);
     } catch (err) {
@@ -21,14 +21,16 @@ var writeCssFile = function (cssDest, cssString) {
     }
 };
 
-var ensureExists = function(filePath) {
-    var dirs = path.dirname(filePath).split(PATH_SEP);
-    var result = true;
-    var currentPath;
+const ensureExists = (filePath) => {
+    let dirs = path.dirname(filePath).split(PATH_SEP);
+    let result = true;
+    let currentPath;
+
     if (dirs[0] === '') {
         dirs[0] = path.sep;
     }
-    dirs.forEach(function (_, i, p) {
+
+    dirs.forEach((_, i, p) => {
         currentPath = path.join.apply(null, p.slice(0, i+1));
         if (!ensureFolderExists(currentPath)) {
             result = false;
@@ -37,19 +39,20 @@ var ensureExists = function(filePath) {
     return result;
 };
 
-var firstTrigger = true;
-var configObject = {
+let firstTrigger = true;
+let configObject = {
     configs: {
         classNames: []
     }
 };
 
-module.exports = function (source, map) {
+const atomicLoader = function (source, map) {
     if (this.cacheable) {
         this.cacheable();
     }
-    var query = parseQuery(this.query);
-    var configPath;
+
+    const query = parseQuery(this.query);
+    let configPath;
 
     if (firstTrigger) {
         configPath = query.configPath;
@@ -57,14 +60,14 @@ module.exports = function (source, map) {
         firstTrigger = false;
     }
 
-    var foundClasses = atomizer.findClassNames(source);
-    var cssDest = configObject.cssDest;
+    const foundClasses = atomizer.findClassNames(source);
+    let cssDest = configObject.cssDest;
     if (!cssDest) {
         cssDest = DEFAULT_CSS_DEST;
     }
 
-    var finalConfig;
-    var cssString;
+    let finalConfig;
+    let cssString;
     if (!ensureExists(cssDest)) {
         console.warn('[atomic loader] create css failed.');
         return source;
@@ -72,8 +75,11 @@ module.exports = function (source, map) {
         finalConfig = atomizer.getConfig(foundClasses, configObject.configs || {});
         cssString = atomizer.getCss(finalConfig, configObject.options || {});
 
-        writeCssFile(cssDest, cssString);        
+        writeCssFile(cssDest, cssString);
     };
-    
+
     return source;
 };
+
+// export default atomicLoader;
+module.exports = atomicLoader;

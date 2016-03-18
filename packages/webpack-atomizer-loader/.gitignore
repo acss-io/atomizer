@@ -3,3 +3,4 @@ node_modules/
 example/main.css
 example/bundle.js
 coverage/
+dist/

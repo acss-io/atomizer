@@ -1,3 +1,3 @@
-var atomLoader = require('./lib/atomicLoader.js');
+var atomLoader = require('./dist/atomicLoader.js');
 
 module.exports = atomLoader;
