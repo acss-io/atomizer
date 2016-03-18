@@ -1,7 +1,7 @@
-var fs = require('fs');
+import fs from 'fs';
 
-module.exports = function ensureFolderExists(path, mask) {
-    mask = mask || 0777;
+const ensureFolderExists = (path, mask) => {
+    mask = mask || '0777';
     try {
         fs.mkdirSync(path, mask);
         return true;
@@ -13,3 +13,5 @@ module.exports = function ensureFolderExists(path, mask) {
         }
     }
 };
+
+export default ensureFolderExists;

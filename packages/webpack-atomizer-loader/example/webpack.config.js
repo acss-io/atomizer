@@ -1,5 +1,5 @@
 module.exports = {
-    entry: './index.js',
+    entry: __dirname + '/index.js',
     output: {
         path: __dirname,
         filename: 'bundle.js',
@@ -9,7 +9,15 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                loader: '../lib/atomicLoader?configPath=' + __dirname + '/atomCssConfig.js!babel-loader',
+                loader: '../dist/atomicLoader?configPath=' + __dirname + '/atomCssConfig.js'
+            },
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'es2015']
+                }
             }
         ]
     }
