@@ -1,12 +1,12 @@
 # Atomizer
 
-[![Join the chat at https://gitter.im/yahoo/atomizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yahoo/atomizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/acss-io/atomizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/acss-io/atomizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![npm version](https://badge.fury.io/js/atomizer.svg)](http://badge.fury.io/js/atomizer)
-[![Build Status](https://travis-ci.org/yahoo/atomizer.svg?branch=master)](https://travis-ci.org/yahoo/atomizer)
-[![Dependency Status](https://david-dm.org/yahoo/atomizer.svg)](https://david-dm.org/yahoo/atomizer)
-[![devDependency Status](https://david-dm.org/yahoo/atomizer/dev-status.svg)](https://david-dm.org/yahoo/atomizer#info=devDependencies)
-[![Coverage Status](https://coveralls.io/repos/yahoo/atomizer/badge.svg)](https://coveralls.io/r/yahoo/atomizer)
+[![Build Status](https://travis-ci.org/acss-io/atomizer.svg?branch=master)](https://travis-ci.org/acss-io/atomizer)
+[![Dependency Status](https://david-dm.org/acss-io/atomizer.svg)](https://david-dm.org/acss-io/atomizer)
+[![devDependency Status](https://david-dm.org/acss-io/atomizer/dev-status.svg)](https://david-dm.org/acss-io/atomizer#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/acss-io/atomizer/badge.svg)](https://coveralls.io/r/acss-io/atomizer)
 
 
 ## Overview
@@ -90,18 +90,18 @@ var css = atomizer.getCss(finalConfig);
 
 ### Plugins
 
-   * Grunt: [grunt-atomizer](https://github.com/yahoo/grunt-atomizer)
-   * Gulp: [gulp-atomizer](https://github.com/whmountains/gulp-atomizer)
+   * Grunt: [grunt-atomizer](https://github.com/acss-io/grunt-atomizer)
+   * Gulp: [gulp-atomizer](https://github.com/acss-io/gulp-atomizer)
 
 ## Developer docs
 
-We have [wiki](https://github.com/yahoo/atomizer/wiki) docs for contributors who want to help with the maintenance and development of this tool.
+We have [wiki](https://github.com/acss-io/atomizer/wiki) docs for contributors who want to help with the maintenance and development of this tool.
 
 ## License
 
 This software is free to use under the Yahoo Inc. BSD license.
 See the [LICENSE file][] for license text and copyright information.
 
-[LICENSE file]: https://github.com/yahoo/atomizer/blob/master/LICENSE.md
+[LICENSE file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
 
-Third-party open source code used are listed in our [package.json file]( https://github.com/yahoo/atomizer/blob/master/package.json).
+Third-party open source code used are listed in our [package.json file]( https://github.com/acss-io/atomizer/blob/master/package.json).
