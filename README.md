@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/acss-io/atomizer.svg?branch=master)](https://travis-ci.org/acss-io/atomizer)
 [![Dependency Status](https://david-dm.org/acss-io/atomizer.svg)](https://david-dm.org/acss-io/atomizer)
 [![devDependency Status](https://david-dm.org/acss-io/atomizer/dev-status.svg)](https://david-dm.org/acss-io/atomizer#info=devDependencies)
-[![Coverage Status](https://coveralls.io/repos/acss-io/atomizer/badge.svg)](https://coveralls.io/r/acss-io/atomizer)
+[![Coverage Status](https://coveralls.io/repos/github/acss-io/atomizer/badge.svg?branch=master)](https://coveralls.io/github/acss-io/atomizer?branch=master)
 
 
 ## Overview
