@@ -71,7 +71,7 @@ var GRAMMAR = {
     'PARAMS'        : '\\((?<params>[^)]*)\\)',
     'NUMBER'        : '-?[0-9]+(?:\.[0-9]+)?|\\.[0-9]+',
     'UNIT'          : '[a-zA-Z%]+',
-    'HEX'           : '#[0-9a-f]{3}(?:[0-9a-f]{3})?',
+    'HEX'           : '#[0-9a-fA-F]{3}(?:[0-9a-fA-F]{3})?',
     'ALPHA'         : '\\.\\d{1,2}',
     'IMPORTANT'     : '!',
     // https://regex101.com/r/mM2vT9/8

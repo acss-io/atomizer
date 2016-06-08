@@ -236,7 +236,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     value = Math.round(matchVal.numerator / matchVal.denominator * 100 * 10000) / 10000 + '%';
                 }
                 if (matchVal.hex) {
-                    if (matchVal.alpha) {
+                    if (matchVal.hex !== matchVal.hex.toLowerCase()) {
+                        console.warn('Warning: Only lowercase hex digits are accepted. No rules will be generated for `' + matchVal.input + '`');
+                        value = null;
+                    } else if (matchVal.alpha) {
                         rgb = utils.hexToRgb(matchVal.hex);
                         value = [
                             'rgba(',
