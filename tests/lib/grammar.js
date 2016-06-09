@@ -25,4 +25,10 @@ describe('Grammar()', function () {
             expect(Grammar.getPseudo('::before')).to.equal('::before');
         });
     });
+    describe('matchValue()', function () {
+        it('parses uppercase and lowercase hex', function () {
+            expect(Grammar.matchValue('#abc123')['hex']).to.equal('#abc123');
+            expect(Grammar.matchValue('#ABC123')['hex']).to.equal('#ABC123');
+        });
+    });
 });

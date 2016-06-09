@@ -342,7 +342,7 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Translate3d(0,0,0)', 'Bd(0)', 'Bd(n)', 'C(red)', 'Cnt(cq):h::b', 'Cnt(oq)::b', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)']
+                classNames: ['Translate3d(0,0,0)', 'Bd(0)', 'Bd(n)', 'C(red)', 'Cnt(cq):h::b', 'Cnt(oq)::b', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)', 'C(#FFF)']
             };
             var expected = [
                 '.Bd\\(0\\) {',
