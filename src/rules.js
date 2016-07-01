@@ -1710,6 +1710,7 @@ module.exports = [
             "a": "auto",
             "fa": "fill-available",
             "fc": "fit-content",
+            "ini": "initial",
             "maxc": "max-content",
             "minc": "min-content"
         }]
