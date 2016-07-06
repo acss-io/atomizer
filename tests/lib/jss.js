@@ -281,6 +281,7 @@ describe('JSS', function () {
             ].join('\n');
             expect(result).to.equal(expected);
         });
+
         it('should return CSS with combined selectors given a CSS Object', function () {
             var result = JSS.jssToCss({
                 'body': {
@@ -329,6 +330,30 @@ describe('JSS', function () {
                 '  }',
                 '  #atomic .test6 {',
                 '    background: black;',
+                '  }',
+                '}\n'
+            ].join('\n');
+            expect(result).to.equal(expected);
+        });
+
+        it('should return CSS with media query blocks placed after the main block', function () {
+            var result = JSS.jssToCss({
+                '.W\(100\%\)--sm': {
+                    '@media screen and (max-width: 900px)': {
+                        width: '100%'
+                    }
+                },
+                '.W\(1\/3\)': {
+                    width: '33.3333%'
+                }
+            });
+            var expected = [
+                '.W\(1\/3\) {',
+                '  width: 33.3333%;',
+                '}',
+                '@media screen and (max-width: 900px) {',
+                '  .W\(100\%\)--sm {',
+                '    width: 100%;',
                 '  }',
                 '}\n'
             ].join('\n');
