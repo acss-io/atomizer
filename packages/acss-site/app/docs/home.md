@@ -100,7 +100,7 @@
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bd Bgc(#0280ae):h C(#0280ae):h P(20px)"</span>&gt;</span>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">"Bd Bgc(#0280ae):h C(#0280ae) C(#fff):h P(20px)"</span>&gt;</span>
     <span class="hljs-comment">Lorem ipsum</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 </code></pre>
