@@ -126,7 +126,6 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     var extracted/*:Extracted*/;
     var stylesheet/*:Stylesheet*/;
     var tab = options && options.tabWidth && utils.repeatString(' ', parseInt(options.tabWidth, 10)) || utils.repeatString(' ', 2);
-    var ruleTab = '';
 
     // flatten nested selectors
     jss = JSS.flattenSelectors({}, jss);
@@ -141,19 +140,13 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     stylesheet = JSS.extractedToStylesheet(extracted);
 
     // finally, write css
+    // First write the main block
+    JSS.writeBlockToCSS(css, stylesheet.main, tab);
+    // Next write any media query blocks
     for (var block in stylesheet) {
         if (block !== 'main') {
-            ruleTab = tab;
             css.push(block + ' {');
-        }
-        for (var selector in stylesheet[block]) {
-            css.push(ruleTab + selector + ' {');
-            for (var prop in stylesheet[block][selector]) {
-                css.push(ruleTab + tab + prop + ': ' + stylesheet[block][selector][prop] + ';');
-            }
-            css.push(ruleTab + '}');
-        }
-        if (block !== 'main') {
+            JSS.writeBlockToCSS(css, stylesheet[block], tab, tab);
             css.push('}');
         }
     }
@@ -161,6 +154,17 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     css = css.length > 0 ? css.join('\n') + '\n' : '';
 
     return css;
+};
+
+JSS.writeBlockToCSS = function (css, block, tab, indent) {
+    indent = indent || '';
+    for (var selector in block) {
+        css.push(indent + selector + ' {');
+        for (var prop in block[selector]) {
+            css.push(indent + tab + prop + ': ' + block[selector][prop] + ';');
+        }
+        css.push(indent + '}');
+    }
 };
 
 module.exports = JSS;
