@@ -4,6 +4,7 @@
   "description": "Webpack loader for compiling atomic css",
   "main": "index.js",
   "scripts": {
+    "example": "cd example && webpack && open index.html && cd ..",
     "test": "jenkins-mocha tests/ --recursive",
     "build": "babel lib --out-dir dist/",
     "prepublish": "npm run build"
@@ -30,6 +31,7 @@
     "chai": "^3.2.0",
     "jenkins-mocha": "~2.2.0",
     "mocha": "^2.2.5",
-    "react": "^0.14.7"
+    "react": "^0.14.7",
+    "webpack": "^1.13.1"
   }
 }
