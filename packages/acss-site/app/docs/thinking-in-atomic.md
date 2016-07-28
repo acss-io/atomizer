@@ -95,7 +95,7 @@ This table suggests the namespace to use depending on the weight of your other r
     </tbody>
 </table>
 
-<p class="noteBox info">You can set up a namespace in [grunt-atomizer](https://github.com/yahoo/grunt-atomizer#examples) or via [the Atomizer command line](https://github.com/yahoo/atomizer#cli).</p>
+<p class="noteBox info">You can set up a namespace in [grunt-atomizer](https://github.com/acss-io/grunt-atomizer#examples) or via [the Atomizer command line](https://github.com/acss-io/atomizer#cli).</p>
 
 ### Style sheets organization
 
