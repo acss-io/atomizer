@@ -78,7 +78,7 @@ var App = React.createClass({
                 </div>
                 <div id="footer" className="Py(16px) Px(20px) BdT Bdc(#0280ae.3)" role="footer">
                     <div className="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
-                        <small>All code on this site is licensed under the <a href="https://github.com/yahoo/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small>© 2015 Yahoo! Inc. All rights reserved.</small>
+                        <small>All code on this site is licensed under the <a href="https://github.com/acss-io/acss-site/blob/master/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.</small> <small>© 2015 Yahoo! Inc. All rights reserved.</small>
                     </div>
                 </div>
             </div>
