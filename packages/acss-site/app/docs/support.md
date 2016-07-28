@@ -1,13 +1,13 @@
 # Get Help with Atomic CSS
 
-Atomic CSS is developed and supported by engineers at [Yahoo](https://www.yahoo.com).  If you have questions, suggestions or ideas about how to use or improve Atomic CSS or Atomizer, please reach out to us!
+Atomic CSS was originally developed by engineers at [Yahoo](https://www.yahoo.com).  If you have questions, suggestions or ideas about how to use or improve Atomic CSS or Atomizer, please reach out to us!
 
 ## GitHub
 
 You can find our repositories on GitHub, and contact us through GitHub Issues for each project:
 
-   * Atomizer: https://github.com/yahoo/atomizer
-   * This website: https://github.com/yahoo/acss-site
+   * Atomizer: https://github.com/acss-io/atomizer
+   * This website: https://github.com/acss-io/acss-site
 
 ## Gitter
 
