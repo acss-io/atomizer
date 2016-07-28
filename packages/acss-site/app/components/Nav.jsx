@@ -27,7 +27,7 @@ class Nav extends React.Component {
                     <NavLink routeName="support" className="D(b) C(#fff) Td(n):h">Support</NavLink>
                 </li>
                 <li className="D(ib) Mstart(15px) Pos(r)">
-                    <a className="D(b) C(#fff) Td(n):h" href="https://github.com/yahoo/atomizer">
+                    <a className="D(b) C(#fff) Td(n):h" href="https://github.com/acss-io/atomizer">
                         <img className="Va(m) Pos(r)" alt="GitHub" width="30" src={assets['images/github-logo.png']} />
                     </a>
                 </li>
