@@ -9,7 +9,7 @@ import React from 'react';
 import {navigateAction} from 'flux-router-component';
 
 // constants
-const DOCS_URL = 'https://github.com/yahoo/acss-site/tree/master/app';
+const DOCS_URL = 'https://github.com/acss-io/acss-site/tree/master/app';
 
 function isLeftClickEvent (e) {
     return e.button === 0;
