@@ -10,7 +10,7 @@
 </div><!--
 --><div class="Mx(a) Mt(10px) Bxz(bb) Va(t) W(100%) W(65%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">Meet Atomizer</h2>
-<p>[Atomizer](https://github.com/yahoo/atomizer) is a tool for creating Atomic CSS. Generate an Atomic stylesheet dynamically from the Atomic classes you're actually using in your project (no unused styles!), or predeclare styles in configuration - it's up to you. Atomizer is not opinionated, brings no CSS of its own, and integrates nicely with your favorite task runner.</p>
+<p>[Atomizer](https://github.com/acss-io/atomizer) is a tool for creating Atomic CSS. Generate an Atomic stylesheet dynamically from the Atomic classes you're actually using in your project (no unused styles!), or predeclare styles in configuration - it's up to you. Atomizer is not opinionated, brings no CSS of its own, and integrates nicely with your favorite task runner.</p>
 </div>
 
 ## Colors
