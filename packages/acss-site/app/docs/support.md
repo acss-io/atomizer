@@ -11,7 +11,7 @@ You can find our repositories on GitHub, and contact us through GitHub Issues fo
 
 ## Gitter
 
-You can find us on [Gitter](http://gitter.im) on most working days: https://gitter.im/yahoo/atomizer
+You can find us on [Gitter](http://gitter.im) on most working days: https://gitter.im/acss-io/atomizer
 
 ## Twitter
 
