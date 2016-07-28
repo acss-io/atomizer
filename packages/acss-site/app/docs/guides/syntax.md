@@ -44,7 +44,7 @@ A suffix mapped to a [pseudo-class](https://developer.mozilla.org/en-US/docs/Web
     <li>etc.</li>
 </ul>
 
-<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in [Atomizer's grammar library](https://github.com/yahoo/atomizer/blob/master/src/lib/grammar.js#L6).</p>
+<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in [Atomizer's grammar library](https://github.com/acss-io/atomizer/blob/master/src/lib/grammar.js#L6).</p>
 
 Pseudo-classes may be applied to any regular class or &lt;context&gt; class. For example:
 
