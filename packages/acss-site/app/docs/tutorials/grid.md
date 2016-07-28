@@ -50,7 +50,7 @@ When creating inline-block constructs, you should use the helper class (`IbBox`)
 
 ### `float` construct <a id="footnote-2" class="D-(ib)"></a>
 
-This styling has great browser support and [Atomizer](https://github.com/yahoo/atomizer) makes it &quot;direction&quot; agnostic [\[2\]](#footnote).  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
+This styling has great browser support and [Atomizer](https://github.com/acss-io/atomizer) makes it &quot;direction&quot; agnostic [\[2\]](#footnote).  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
 #### Example
 
@@ -71,7 +71,7 @@ This styling has great browser support and [Atomizer](https://github.com/yahoo/a
 
 <p data-height="110" data-theme-id="12469" data-slug-hash="OPZPjL" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/OPZPjL/'>OPZPjL</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-<p class="noteBox info">[Atomizer](https://github.com/yahoo/atomizer) can also auto-generate `background-color` and `color`.</p>
+<p class="noteBox info">[Atomizer](https://github.com/acss-io/atomizer) can also auto-generate `background-color` and `color`.</p>
 
 ### `table` and `table-cell` construct
 
