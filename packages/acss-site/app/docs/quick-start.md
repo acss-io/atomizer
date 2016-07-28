@@ -4,10 +4,10 @@ This page is here to help you quickly set up an example site powered by [Atomize
 
 ## Playground
 
-To create a basic Atomic project, clone the [atomizer-examples](https://github.com/yahoo/atomizer-examples) repo:
+To create a basic Atomic project, clone the [atomizer-examples](https://github.com/acss-io/atomizer-examples) repo:
 
 ```bash
-git clone git@github.com:yahoo/atomizer-examples.git
+git clone git@github.com:acss-io/atomizer-examples.git
 ```
 
 then start:
@@ -38,4 +38,4 @@ Give the config a try! Open this file (which is inside `/examples/`) and edit th
 
 From here, learn about [Atomic CSS Architecture](/thinking-in-atomic.html), read the [FAQ](/frequently-asked-questions.html), learn more about [Atomic classes](/guides/atomic-classes.html) and their [syntax](/guides/syntax.html).
 
-Please visit the [Atomizer](https://github.com/yahoo/atomizer) and [grunt-atomizer](https://github.com/yahoo/grunt-atomizer) repositories for more information.
+Please visit the [Atomizer](https://github.com/acss-io/atomizer) and [grunt-atomizer](https://github.com/acss-io/grunt-atomizer) repositories for more information.
