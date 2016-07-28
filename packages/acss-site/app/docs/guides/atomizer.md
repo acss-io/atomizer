@@ -1,6 +1,6 @@
 # Atomizer tool
 
-[Atomizer](https://github.com/yahoo/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/yahoo/atomizer)) for generating Atomic CSS stylesheets.
+[Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating Atomic CSS stylesheets.
 
 Atomizer creates CSS style declarations based on Atomic classes it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a>.
 
@@ -58,7 +58,7 @@ If you create your own, please [let us know!](/support.html)
 
 #### Example: Grunt
 
-If you're using the [Grunt](http://gruntjs.com/) task runner, you can use [grunt-atomizer](http://github.com/yahoo/grunt-atomizer) to configure and execute Atomizer:
+If you're using the [Grunt](http://gruntjs.com/) task runner, you can use [grunt-atomizer](http://github.com/acss-io/grunt-atomizer) to configure and execute Atomizer:
 
 ```javascript
 // use grunt-contrib-watch for changes and run tasks
