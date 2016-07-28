@@ -43,7 +43,7 @@ Example with a custom color:
     <li>use **the same helper classes** with [different values](helper-classes.htmlthe-special-case-of-border-)</li>
 </ul>
 
-<p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/yahoo/atomizer/blob/master/src/rules.js#L289).</p>
+<p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/acss-io/atomizer/blob/master/src/rules.js#L289).</p>
 
 ## `BfcHack` (Block-formatting context)
 
