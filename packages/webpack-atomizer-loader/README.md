@@ -5,7 +5,7 @@ Webpack loader for compiling atomic css
 
 ## Install
 ```
-$ npm install atomic-loader --save-dev
+$ npm install webpack-atomizer-loader --save-dev
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ $ npm install atomic-loader --save-dev
 In your webpack config:
 
 1. find the babel-loader or jsx-loader setting
-2. insert the atomic-loader before it
+2. insert the `webpack-atomizer-loader` before it
 3. example 
 
   ```javascript
@@ -21,7 +21,7 @@ In your webpack config:
           {
               test: /\.jsx?$/,
               exclude: /(node_modules)/,
-              loader: 'atomic-loader?configPath=./atomicCssConfig.js!babel-loader',
+              loader: 'webpack-atomizer-loader?configPath=./atomicCssConfig.js!babel-loader',
           }
       ]
   ```
