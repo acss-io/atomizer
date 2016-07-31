@@ -49,5 +49,5 @@ In your webpack config:
   
   To assign the output destination, the extra parameter `cssDest` in atomic's config should be set, if bypass `configPath`, the default `cssDest` is `./build/css/atomic.css`.
   
-  Please visit [yahoo/atomizer](https://github.com/yahoo/atomizer) for more information.
+  Please visit [acss-io/atomizer](https://github.com/acss-io/atomizer) for more information.
   
