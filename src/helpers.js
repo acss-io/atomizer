@@ -250,7 +250,10 @@ module.exports = [
             "[class*=LineClamp]": {
                 "display": "-webkit-box",
                 "-webkit-box-orient": "vertical",
-                "overflow": "hidden"
+                "overflow": "hidden",
+                "@supports (display:-moz-box)": {
+                    "display": "block"
+                }
             },
             "a[class*=LineClamp]": {
                 "display": "inline-block",

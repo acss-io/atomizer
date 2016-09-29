@@ -20,7 +20,7 @@ JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/)
             // prop is not a prop
             if (typeof value === 'object') {
                 // prop is a media query
-                if (/^@media/.test(prop)) {
+                if (/^@media|@supports/.test(prop)) {
                     if (!newJss[prop]) {
                         newJss[prop] = {};
                     }
@@ -53,7 +53,7 @@ JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, bloc
     for (var selector in jss) {
         props = jss[selector];
         // if selector is a media query
-        if (/^@media/.test(selector)) {
+        if (/^@media|@supports/.test(selector)) {
             JSS.extractProperties(extracted, props, selector);
         } else {
             for (prop in props) {
