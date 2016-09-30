@@ -42,6 +42,21 @@ describe('Atomizer()', function () {
             var expected = ['Pos(r)', 'Ov(h)', 'H(0)'];
             expect(result).to.deep.equal(expected);
         });
+        it('properly resolves custom classnames with hyphen, in custom rules.js', function () {
+            var rules = [{
+                type: 'pattern',
+                name: 'Font Size',
+                matcher: 'f-z',
+                styles: {
+                    'font-size': '$0'
+                }
+            }];
+            var atomizer = new Atomizer();
+            atomizer.addRules(rules);
+            var result = atomizer.findClassNames('<div class="Fz(RWD-fontSize) f-z(RWD-fontSize)"></div>');
+            var expected = ['Fz(RWD-fontSize)', 'f-z(RWD-fontSize)'];
+            expect(result).to.deep.equal(expected);
+        });
         it('properly finds Atomic classnames inside Dust template conditionals', function () {
             var atomizer = new Atomizer();
             var result = atomizer.findClassNames('<div class="Pos(r) Ov(h) H(0) {?foo}D(n){/foo}"></div>');
