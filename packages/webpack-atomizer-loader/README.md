@@ -21,7 +21,7 @@ In your webpack config:
           {
               test: /\.jsx?$/,
               exclude: /(node_modules)/,
-              loader: 'webpack-atomizer-loader?configPath=./atomicCssConfig.js!babel-loader',
+              loader: 'webpack-atomizer-loader?configPath=' + __dirname + '/atomCssConfig.js!babel-loader',
           }
       ]
   ```
