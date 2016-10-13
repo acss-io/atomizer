@@ -64,7 +64,7 @@ var GRAMMAR = {
     'PARENT'        : '[a-zA-Z][-_a-zA-Z0-9]+?',
     'PARENT_SEP'    : '[>_+]',
     // all characters allowed to be a prop
-    'PROP'          : '[A-Za-z0-9]+',
+    'PROP'          : '[-A-Za-z0-9]+',
     // all character allowed to be in values
     'VALUES'        : '[-_,.#$/%0-9a-zA-Z]+',
     'FRACTION'      : '(?<numerator>[0-9]+)\\/(?<denominator>[1-9](?:[0-9]+)?)',
