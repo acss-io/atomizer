@@ -22,7 +22,7 @@ module.exports = function(grunt) {
             app: './app',
             build: '<%= project.app %>/build',
             public: '/public',
-            cdnPath: 'http://l.yimg.com/os/acss/'
+            cdnPath: 'https://s.yimg.com/os/acss/'
         },
 
         // clean build
@@ -295,7 +295,7 @@ module.exports = function(grunt) {
                 entry: '<%= project.app %>/client.js',
                 output: {
                     path: '<%= project.build %>/js',
-                    publicPath: 'http://l.yimg.com/os/acss/js/',
+                    publicPath: 'https://s.yimg.com/os/acss/js/',
                     filename: '[name].js',
                     chunkFilename: '[name].js'
                 },
