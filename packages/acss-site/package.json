@@ -105,5 +105,8 @@
     },
     "lint": "yhint",
     "profile": "td-app"
+  },
+  "yhint": {
+    "excludes": "app/"
   }
 }
