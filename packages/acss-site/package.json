@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "description": "Atomic CSS website",
   "main": "start.js",
+  "author": "Thierry Koblentz <thierryk@yahoo-inc.com>",
   "contributors": [
     {
       "name": "Renato Iwashima",
@@ -12,10 +13,6 @@
     {
       "name": "Steve Carlson",
       "email": "yasteve@yahoo-inc.com"
-    },
-    {
-      "name": "Thierry Koblentz",
-      "email": "thierryk@yahoo-inc.com"
     }
   ],
   "scripts": {
