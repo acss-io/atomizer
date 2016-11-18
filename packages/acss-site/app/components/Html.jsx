@@ -51,7 +51,7 @@ var Html = React.createClass({
                     <title>{this.props.context.getStore(ApplicationStore).getPageTitle()}</title>
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <link rel="stylesheet" href={assets['css/bundle.css']} />
-                    <link href="http://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" />
+                    <link href="https://fonts.googleapis.com/css?family=Nobile" rel="stylesheet" />
                     <link rel="author" href="humans.txt" />
                     {ieStylesheet}
                 </head>
