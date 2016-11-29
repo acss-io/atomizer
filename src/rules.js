@@ -177,7 +177,7 @@ module.exports = [
     {
         "type": "pattern",
         "name": "Appearance",
-        "matcher": "App",
+        "matcher": "Ap",
         "allowParamToValue": false,
         "styles": {
             "appearance": "$0"
