@@ -17,6 +17,7 @@
   ],
   "scripts": {
     "dev": "grunt",
+    "functional": "exit 0",
     "lint": "grunt jshint",
     "prod": "grunt prod",
     "test": "jenkins-mocha tests/unit --recursive --timeout 10000"
