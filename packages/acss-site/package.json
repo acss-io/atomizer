@@ -18,7 +18,8 @@
   "scripts": {
     "dev": "grunt",
     "lint": "grunt jshint",
-    "prod": "grunt prod"
+    "prod": "grunt prod",
+    "test": "jenkins-mocha tests/unit --recursive --timeout 10000"
   },
   "precommit": [
     "lint"
@@ -52,6 +53,7 @@
   "devDependencies": {
     "autoprefixer-core": "^5.1.11",
     "babel-loader": "5.0.0",
+    "chai": "^2.0.0",
     "grunt": "~0.4.5",
     "grunt-atomizer": "^3.0.0",
     "grunt-cli": "^0.1.13",
@@ -66,9 +68,11 @@
     "grunt-nodemon": "~0.3.0",
     "grunt-postcss": "^0.3.0",
     "grunt-webpack": "^1.0.8",
+    "jenkins-mocha": "^2.5.0",
     "json-loader": "^0.5.1",
     "jsx-loader": "~0.12.2",
     "load-grunt-tasks": "^1.0.0",
+    "mocha": "^2.4.5",
     "open": "0.0.5",
     "precommit-hook": "^1.0.7",
     "script-loader": "~0.6.1",
