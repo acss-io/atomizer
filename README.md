@@ -58,9 +58,9 @@ var Atomizer = require('atomizer');
 
 var defaultConfig = {
     "breakPoints": {
-        'sm': '@media(min-width=750px)',
-        'md': '@media(min-width=1000px)',
-        'lg': '@media(min-width=1200px)'
+        'sm': '@media(min-width:750px)',
+        'md': '@media(min-width:1000px)',
+        'lg': '@media(min-width:1200px)'
     },
     "custom": {
         "1": "1px solid #000",
