@@ -1,7 +1,7 @@
 {
   "name": "grunt-atomizer",
   "description": "Grunt task for Atomizer",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "main": "index.js",
   "contributors": [
     {
@@ -41,13 +41,14 @@
     "grunt-atomizer",
     "atomic-css"
   ],
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/yahoo/grunt-atomizer/issues"
   },
   "homepage": "https://github.com/yahoo/grunt-atomizer",
   "devDependencies": {
-    "grunt-contrib-clean": "^0.6.0",
+    "grunt": "^0.4.0",
+    "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-jshint": "^0.11.0",
     "grunt-contrib-nodeunit": "^0.4.1"
   }

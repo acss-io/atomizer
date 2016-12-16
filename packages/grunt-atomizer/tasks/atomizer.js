@@ -7,6 +7,7 @@
 
 var Atomizer = require('atomizer');
 var path = require('path');
+var fs = require('fs');
 var _ = require('lodash');
 var crypto = require('crypto');
 
@@ -56,6 +57,8 @@ module.exports = function (grunt) {
         var configFile;
         var cacheFile = path.join('./.atomic-cache/', this.target || 'atomic');
 
+        grunt.log.writeln('[start] ' + grunt.task.current.name);
+
         if (options.rules && options.rules.length > 0) {
             options.rules = grunt.file.expand(options.rules);
         }
@@ -104,11 +107,13 @@ module.exports = function (grunt) {
             var config = {};
             var content;
             var cacheContent;
+            var contentLength = 0;
 
             if (f.src) {
                 var classNames = [];
-                grunt.log.writeln('Finding classes...');
+                grunt.log.writeln('Parsing files for Atomic classes:');
                 f.src.forEach(function (filePath) {
+                    grunt.log.writeln('+ ' + filePath);
                     classNames = _.union(classNames, atomizer.findClassNames(grunt.file.read(filePath)));
                 });
 
@@ -133,10 +138,14 @@ module.exports = function (grunt) {
                 // write file
                 if (options.configOutput) {
                     grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
-                    grunt.log.oklns('Config file ' + options.configOutput + ' successfully created.');
+                    grunt.log.oklns('Writing configuration to ' + options.configOutput);
                 }
                 grunt.file.write(f.dest, content);
-                grunt.log.oklns('File ' + f.dest + ' successfully created.');
+                var stats = fs.statSync(f.dest);
+                if (stats.size > 0) {
+                    contentLength = (stats.size / 1024).toFixed(2);
+                }
+                grunt.log.oklns('Writing Atomic CSS to ' + f.dest + ' (' + contentLength + ' kb)');
 
                 // cache it
                 if (options.cache) {
