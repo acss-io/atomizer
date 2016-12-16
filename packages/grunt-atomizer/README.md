@@ -1,13 +1,13 @@
 # grunt-atomizer 
 
 [![npm version](https://badge.fury.io/js/grunt-atomizer.svg)](http://badge.fury.io/js/grunt-atomizer)
-[![Build Status](https://travis-ci.org/yahoo/grunt-atomizer.svg?branch=master)](https://travis-ci.org/yahoo/grunt-atomizer)
-[![Dependency Status](https://david-dm.org/yahoo/grunt-atomizer.svg)](https://david-dm.org/yahoo/grunt-atomizer)
-[![devDependency Status](https://david-dm.org/yahoo/grunt-atomizer/dev-status.svg)](https://david-dm.org/yahoo/grunt-atomizer#info=devDependencies)
+[![Build Status](https://travis-ci.org/acss-io/grunt-atomizer.svg?branch=master)](https://travis-ci.org/acss-io/grunt-atomizer)
+[![Dependency Status](https://david-dm.org/acss-io/grunt-atomizer.svg)](https://david-dm.org/acss-io/grunt-atomizer)
+[![devDependency Status](https://david-dm.org/acss-io/grunt-atomizer/dev-status.svg)](https://david-dm.org/acss-io/grunt-atomizer#info=devDependencies)
 
 ## Overview
 
-A grunt task for running [Atomizer](http://github.com/yahoo/atomizer)
+A grunt task for running [Atomizer](http://github.com/acss-io/atomizer)
 
 ## Install
 
@@ -19,7 +19,7 @@ npm install grunt-atomizer --save-dev
 
 ### Options
 
-None of the options are required. Make sure you understand [atomic configs](https://github.com/yahoo/atomizer/blob/master/examples/example-config.js) in order to properly use the config options below.
+None of the options are required. Make sure you understand [atomic configs](https://github.com/acss-io/atomizer/blob/master/examples/example-config.js) in order to properly use the config options below.
 
 #### options.cache
 
@@ -27,11 +27,11 @@ Caches the output of the task target by saving it to `.atomic-cache` at the root
 
 #### options.config
 
-The [Atomizer](http://github.com/yahoo/atomizer) config passed directly to the grunt task. See examples below.
+The [Atomizer](http://github.com/acss-io/atomizer) config passed directly to the grunt task. See examples below.
 
 #### options.configFile
 
-The [Atomizer](http://github.com/yahoo/atomizer) config passed as a file. This option can be used as an alternative to `options.config` or in conjunction with it. See examples below.
+The [Atomizer](http://github.com/acss-io/atomizer) config passed as a file. This option can be used as an alternative to `options.config` or in conjunction with it. See examples below.
 
 #### options.configOutput
 
@@ -51,7 +51,7 @@ Process the rules for right-to-left output. False by default.
 
 #### options.rules
 
-An array of additional [Atomizer](http://github.com/yahoo/atomizer) rulesets passed as file paths. 
+An array of additional [Atomizer](http://github.com/acss-io/atomizer) rulesets passed as file paths. 
 
 #### files.src
 
@@ -154,6 +154,6 @@ atomizer: {
 This software is free to use under the Yahoo! Inc. BSD license.
 See the [LICENSE file][] for license text and copyright information.
 
-[LICENSE file]: https://github.com/yahoo/grunt-atomizer/blob/master/LICENSE.md
+[LICENSE file]: https://github.com/acss-io/grunt-atomizer/blob/master/LICENSE.md
 
-Third-pary open source code used are listed in our [package.json file]( https://github.com/yahoo/grunt-atomizer/blob/master/package.json).
+Third-pary open source code used are listed in our [package.json file]( https://github.com/acss-io/grunt-atomizer/blob/master/package.json).
