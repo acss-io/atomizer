@@ -92,6 +92,7 @@ var css = atomizer.getCss(finalConfig);
 
    * Grunt: [grunt-atomizer](https://github.com/acss-io/grunt-atomizer)
    * Gulp: [gulp-atomizer](https://github.com/acss-io/gulp-atomizer)
+   * Metalsmith: [metalsmith-atomizer](https://github.com/tests-always-included/metalsmith-atomizer)
 
 ## Developer docs
 
