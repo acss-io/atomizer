@@ -111,11 +111,13 @@ module.exports = function (grunt) {
 
             if (f.src) {
                 var classNames = [];
-                grunt.log.writeln('Parsing files for Atomic classes:');
+                grunt.log.writeln('Parsing ' + f.src.length + ' files for Atomic classes');
                 f.src.forEach(function (filePath) {
-                    grunt.log.writeln('+ ' + filePath);
-                    classNames = _.union(classNames, atomizer.findClassNames(grunt.file.read(filePath)));
+                    var foundClasses = atomizer.findClassNames(grunt.file.read(filePath));
+                    classNames = _.union(classNames, foundClasses);
+                    grunt.log.debug('+ ' + filePath + ' (' + foundClasses.length + ' classes found)');
                 });
+                grunt.log.writeln(classNames.length + ' unique classes found');
 
                 // get the config object given an array of atomic class names
                 config = atomizer.getConfig(classNames, gruntConfig);
