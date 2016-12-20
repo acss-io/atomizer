@@ -243,7 +243,7 @@ describe('Atomizer()', function () {
                 custom: {
                     heading: '80px'
                 },
-                classNames: ['P(55px)', 'D(b)', 'M(10px)', 'D(ib)']
+                classNames: ['D(b)', 'D(ib)', 'M(10px)', 'P(55px)']
             };
             var result = atomizer.getConfig(classNames, existingConfig);
             expect(result).to.deep.equal(expected);

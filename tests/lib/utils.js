@@ -73,7 +73,7 @@ describe('utils', function () {
                 classNames: ['C-#333', 'D-ib']
             };
             var expected = {
-                classNames: ['D-ib', 'Bd-foo', 'D-n!', 'C-#333']
+                classNames: ['Bd-foo', 'C-#333', 'D-ib', 'D-n!']
             };
             var result = utils.mergeConfigs([config1, config2, config3]);
 

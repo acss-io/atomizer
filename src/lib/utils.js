@@ -27,7 +27,7 @@ utils.hexToRgb = function (hex/*:string*/)/*:Rgb*/ {
  */
 utils.handleMergeArrays = function (a, b) {
     if (_.isArray(a) && _.isArray(b)) {
-        return _.union(a, b);
+        return _.union(a, b).sort();
     }
 };
 
