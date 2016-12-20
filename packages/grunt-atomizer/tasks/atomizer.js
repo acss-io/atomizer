@@ -10,23 +10,7 @@ var path = require('path');
 var fs = require('fs');
 var _ = require('lodash');
 var crypto = require('crypto');
-
-/**
- * helper function to handle merging array of objects
- * @param  {mixed} a Data of the first merge param
- * @param  {mixed} b Data of the second merge param
- * @return {mixed}   The merged object
- */
-function handleMergeArrays (a, b) {
-    if (_.isArray(a) && _.isArray(b)) {
-        a.forEach(function(item){
-            if(_.findIndex(b, item) === -1) {
-                b.push(item);
-            }
-        });
-        return b;
-    }
-}
+var utils = require('atomizer/src/lib/utils');
 
 function hash(config, options) {
     var src = JSON.stringify(config) + JSON.stringify(options);
@@ -75,7 +59,7 @@ module.exports = function (grunt) {
 
         if (options.config) {
             validateConfig(options.config, 'options.config');
-            gruntConfig = _.merge(gruntConfig, options.config, handleMergeArrays);
+            gruntConfig = utils.mergeConfigs([gruntConfig, options.config]);
         }
 
         if (options.namespace && grunt.util.kindOf(options.namespace) !== 'string') {

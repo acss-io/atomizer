@@ -5,7 +5,8 @@ module.exports = {
         'lg': '@media(min-width:1200px)'
     },
     classNames: [
-        'D(b)', 'Bdt(1)'
+        'D(b)',
+        'Bdt(1)'
     ],
     custom: {
         '1': '1px solid #ccc'
