@@ -7,11 +7,11 @@
 #atomic .C\(\#fff\) {
   color: #fff;
 }
-#atomic .D\(ib\) {
-  display: inline-block;
-}
 #atomic .D\(b\) {
   display: block;
+}
+#atomic .D\(ib\) {
+  display: inline-block;
 }
 #atomic .Fz\(13px\) {
   font-size: 13px;
