@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "example": "cd example && webpack && open index.html && cd ..",
-    "test": "jenkins-mocha tests/ --recursive",
+    "test": "npm run build && jenkins-mocha tests/ --recursive",
     "build": "babel lib --out-dir dist/",
     "prepublish": "npm run build"
   },
