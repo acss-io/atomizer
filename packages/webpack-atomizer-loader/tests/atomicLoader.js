@@ -1,6 +1,6 @@
 /* global describe, before, it */
 var expect = require('chai').expect;
-var atomicLoader = require('../lib/atomicLoader');
+var atomicLoader = require('../dist/atomicLoader');
 var fs = require('fs');
 
 describe('atomic loader', function () {
