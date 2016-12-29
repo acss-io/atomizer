@@ -43,7 +43,8 @@ var PSEUDO_ELEMENTS = {
     '::before':         '::b',
     '::after':          '::a',
     '::first-letter':   '::fl',
-    '::first-line':     '::fli'
+    '::first-line':     '::fli',
+    '::placeholder':    '::ph'
 };
 
 var PSEUDOS = objectAssign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
