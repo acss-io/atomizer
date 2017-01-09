@@ -99,6 +99,7 @@ A suffix mapped to a [pseudo-element](https://developer.mozilla.org/en-US/docs/W
     <li>`a` for `::after`</li>
     <li>`fl` for `::first-letter`</li>
     <li>`fli` for `::first-line`</li>
+    <li>`pl` for `::placeholder`</li>
 </ul>
 
 <p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it's not possible to use the pseudo-element syntax with these browsers.</p>
