@@ -5,6 +5,7 @@
 
 // external packages
 import express from 'express';
+import compression from 'compression';
 import favicon from 'serve-favicon';
 import serialize from 'serialize-javascript';
 import cookieParser from 'cookie-parser';
@@ -50,8 +51,9 @@ const DOC_TYPE = [
 
 // set up the server
 SERVER.set('state namespace', 'App');
+SERVER.use(compression());
 SERVER.use(favicon(__dirname + '/../favicon.ico'));
-SERVER.use('/public', express.static(__dirname + '/build'));
+SERVER.use('/public', express.static(__dirname + '/build', {maxAge: DEV ? 0 : '1y'}));
 SERVER.use('/humans.txt', express.static(__dirname + '/assets/humans.txt'));
 SERVER.use(cookieParser());
 SERVER.use(bodyParser.json());

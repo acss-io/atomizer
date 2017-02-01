@@ -19,8 +19,9 @@
     "dev": "grunt",
     "functional": "exit 0",
     "lint": "grunt jshint",
-    "prod": "grunt prod",
-    "test": "jenkins-mocha tests/unit --recursive --timeout 10000"
+    "test": "jenkins-mocha tests/unit --recursive --timeout 10000",
+    "now-build": "grunt build",
+    "now-start": "NODE_ENV=production node start.js"
   },
   "precommit": [
     "lint"
@@ -30,6 +31,7 @@
     "babel": "^4.7.8",
     "body-parser": "^1.9.3",
     "classnames": "^1.2.0",
+    "compression": "^1.6.2",
     "cookie-parser": "^1.3.4",
     "csurf": "^1.8.0",
     "debug": "^2.1.1",
@@ -75,7 +77,6 @@
     "load-grunt-tasks": "^1.0.0",
     "mocha": "^2.4.5",
     "open": "0.0.5",
-    "precommit-hook": "^1.0.7",
     "script-loader": "~0.6.1",
     "webpack": "^1.4.12",
     "webpack-dev-server": "^1.6.5"

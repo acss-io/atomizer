@@ -21,8 +21,7 @@ module.exports = function(grunt) {
         project: {
             app: './app',
             build: '<%= project.app %>/build',
-            public: '/public',
-            cdnPath: 'https://s.yimg.com/os/acss/'
+            public: '/public'
         },
 
         // clean build
@@ -295,7 +294,7 @@ module.exports = function(grunt) {
                 entry: '<%= project.app %>/client.js',
                 output: {
                     path: '<%= project.build %>/js',
-                    publicPath: 'https://s.yimg.com/os/acss/js/',
+                    publicPath: '/public/js/',
                     filename: '[name].js',
                     chunkFilename: '[name].js'
                 },
@@ -379,20 +378,20 @@ module.exports = function(grunt) {
 
     grunt.registerTask('prodmanifest', function () {
         var build = grunt.config.get('project.build'),
-            cdnPath = grunt.config.get('project.cdnPath'),
+            public = grunt.config.get('project.public'),
             images = grunt.file.readJSON('./app/build/images.json'),
             assets = grunt.file.readJSON('./app/build/assets.json'),
             key;
 
         for (key in images) {
             if (images.hasOwnProperty(key)) {
-                images[key] = images[key].indexOf(cdnPath) === -1 ? cdnPath + images[key] : images[key];
+                images[key] = images[key].indexOf(public) === -1 ? public + '/' + images[key] : images[key];
             }
         }
 
         for (key in assets) {
             if (assets.hasOwnProperty(key)) {
-                assets[key] = assets[key].indexOf(cdnPath) === -1 ? cdnPath + assets[key] : assets[key];
+                assets[key] = assets[key].indexOf(public) === -1 ? public + '/' + assets[key] : assets[key];
             }
         }
 
