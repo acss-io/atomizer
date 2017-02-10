@@ -300,6 +300,98 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('returns expected css for custom classes with break points (Py)', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: {
+                    sm: '@media screen and (min-width:700px)',
+                    md: '@media screen and (min-width:999px)',
+                    lg: '@media screen and (min-width:1200px)'
+                },
+                custom: {
+                    'Py($gutter)': {
+                        default: '10px',
+                        sm: '16px',
+                        md: '20px',
+                        lg: '24px'
+                    }
+                },
+                classNames: ['Py($gutter)']
+            };
+            var expected = [
+                '.Py\\(\\$gutter\\) {',
+                '  padding-top: 10px;',
+                '  padding-bottom: 10px;',
+                '}',
+                '@media screen and (min-width:700px) {',
+                '  .Py\\(\\$gutter\\) {',
+                '    padding-top: 16px;',
+                '    padding-bottom: 16px;',
+                '  }',
+                '}',
+                '@media screen and (min-width:999px) {',
+                '  .Py\\(\\$gutter\\) {',
+                '    padding-top: 20px;',
+                '    padding-bottom: 20px;',
+                '  }',
+                '}',
+                '@media screen and (min-width:1200px) {',
+                '  .Py\\(\\$gutter\\) {',
+                '    padding-top: 24px;',
+                '    padding-bottom: 24px;',
+                '  }',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it ('returns expected css for custom classes with break points (Px)', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: {
+                    sm: '@media screen and (min-width:700px)',
+                    md: '@media screen and (min-width:999px)',
+                    lg: '@media screen and (min-width:1200px)'
+                },
+                custom: {
+                    'Px($gutter)': {
+                        default: '10px',
+                        sm: '16px',
+                        md: '20px',
+                        lg: '24px'
+                    }
+                },
+                classNames: ['Px($gutter)']
+            };
+            var expected = [
+                '.Px\\(\\$gutter\\) {',
+                '  padding-left: 10px;',
+                '  padding-right: 10px;',
+                '}',
+                '@media screen and (min-width:700px) {',
+                '  .Px\\(\\$gutter\\) {',
+                '    padding-left: 16px;',
+                '    padding-right: 16px;',
+                '  }',
+                '}',
+                '@media screen and (min-width:999px) {',
+                '  .Px\\(\\$gutter\\) {',
+                '    padding-left: 20px;',
+                '    padding-right: 20px;',
+                '  }',
+                '}',
+                '@media screen and (min-width:1200px) {',
+                '  .Px\\(\\$gutter\\) {',
+                '    padding-left: 24px;',
+                '    padding-right: 24px;',
+                '  }',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
         it ('returns expected css for custom classes with break points with missing breakPoints', function () {
             // set rules here so if helper change, we don't fail the test
             var atomizer = new Atomizer();
