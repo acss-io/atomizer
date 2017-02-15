@@ -346,7 +346,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                                 if (!config.hasOwnProperty('breakPoints') || !config.breakPoints.hasOwnProperty(bp)) {
                                     return;
                                 }
-                                treeo.declarations[config.breakPoints[bp]] = {};
+                                treeo.declarations[config.breakPoints[bp]] = treeo.declarations[config.breakPoints[bp]] || {};
                                 treeo.declarations[config.breakPoints[bp]][prop] = treeo.declarations[prop].replace('$' + index, value[bp]);
                             });
                             // handle default value in the custom class
