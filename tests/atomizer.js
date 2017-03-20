@@ -750,6 +750,11 @@ describe('Atomizer()', function () {
                 classNames: ['D(n)--sm', 'P(foo)--sm', 'Foo--2xs', 'Bar(10px)--sm']
             };
             var expected = [
+                '@media(min-width:300px) {',
+                '  .Foo--2xs {',
+                '    foo: bar;',
+                '  }',
+                '}',
                 '@media(min-width:400px) {',
                 '  .D\\(n\\)--sm {',
                 '    display: none;',
@@ -759,11 +764,6 @@ describe('Atomizer()', function () {
                 '  }',
                 '  .Bar\\(10px\\)--sm {',
                 '    bar: 10px;',
-                '  }',
-                '}',
-                '@media(min-width:300px) {',
-                '  .Foo--2xs {',
-                '    foo: bar;',
                 '  }',
                 '}\n'
             ].join('\n');

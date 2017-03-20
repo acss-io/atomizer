@@ -31,13 +31,13 @@ describe('JSS', function () {
                 '#atomic': {
                     '.test10': {
                         'display': 'block',
-                        '@media(min-width:400px)': {
+                        '@media screen and (min-width:400px)': {
                             'background': 'black'
                         }
                     },
                     '.test11': {
                         'display': 'none',
-                        '@media(min-width:400px)': {
+                        '@media screen and (min-width:400px)': {
                             'color': 'white'
                         }
                     }
@@ -59,7 +59,7 @@ describe('JSS', function () {
                 '#atomic .test10': {
                     'display': 'block'
                 },
-                '@media(min-width:400px)': {
+                '@media screen and (min-width:400px)': {
                     '#atomic .test10': {
                         background: 'black'
                     },
@@ -92,7 +92,7 @@ describe('JSS', function () {
                 '#atomic .test10': {
                     'display': 'block'
                 },
-                '@media(min-width:400px)': {
+                '@media screen and (min-width:400px)': {
                     '#atomic .test10': {
                         background: 'black'
                     },
@@ -137,7 +137,7 @@ describe('JSS', function () {
                         value: 'none'
                     }
                 ],
-                '@media(min-width:400px)': [
+                '@media screen and (min-width:400px)': [
                     {
                         selector: '#atomic .test10',
                         prop: 'background',
@@ -168,7 +168,7 @@ describe('JSS', function () {
                         value: 'white'
                     }
                 ],
-                '@media(min-width:400px)': [
+                '@media screen and (min-width:400px)': [
                     {
                         selector: '.test1',
                         prop: 'background',
@@ -182,7 +182,7 @@ describe('JSS', function () {
                 ]
             });
             var expected = {
-                '@media(min-width:400px)': [
+                '@media screen and (min-width:400px)': [
                     {
                         selector: '.test1, #atomic .test11',
                         prop: 'background',
@@ -213,7 +213,7 @@ describe('JSS', function () {
     describe('extractedToStylesheet()', function () {
         it('should return a stylesheet object given an extracted object', function () {
             var result = JSS.extractedToStylesheet({
-                '@media(min-width:400px)': [
+                '@media screen and (min-width:400px)': [
                     {
                         selector: '.test1, #atomic .test11',
                         prop: 'background',
@@ -239,7 +239,7 @@ describe('JSS', function () {
                 ]
             });
             var expected = {
-                '@media(min-width:400px)': {
+                '@media screen and (min-width:400px)': {
                     '.test1, #atomic .test11': {
                         background: 'black'
                     }
@@ -261,20 +261,25 @@ describe('JSS', function () {
                     'color': 'red',
                     'font-size': '10px'
                 },
-                '.bar': {
-                    '@media(min-width:400px)': {
+                '.bar--sm': {
+                    '@media screen and (min-width:400px)': {
                         'background': 'white'
                     }
                 }
-            }, {tabWidth: 4});
+            }, {
+                tabWidth: 4,
+                breakPoints: {
+                    sm: '@media screen and (min-width:400px)'
+                }
+            });
             var expected = [
                 '.foo {',
                 '    background: black;',
                 '    color: red;',
                 '    font-size: 10px;',
                 '}',
-                '@media(min-width:400px) {',
-                '    .bar {',
+                '@media screen and (min-width:400px) {',
+                '    .bar--sm {',
                 '        background: white;',
                 '    }',
                 '}\n'
@@ -296,7 +301,7 @@ describe('JSS', function () {
                     'background': 'white'
                 },
                 '.test3': {
-                    '@media(min-width:400px)': {
+                    '@media screen and (min-width:400px)': {
                         'background': 'white'
                     }
                 },
@@ -307,10 +312,14 @@ describe('JSS', function () {
                 },
                 '#atomic': {
                     '.test6': {
-                        '@media(min-width:400px)': {
+                        '@media screen and (min-width:400px)': {
                             'background': 'black'
                         }
                     },
+                }
+            }, {
+                breakPoints: {
+                    sm: '@media screen and (min-width:400px)'
                 }
             });
             var expected = [
@@ -324,7 +333,7 @@ describe('JSS', function () {
                 '.test2 {',
                 '  background: white;',
                 '}',
-                '@media(min-width:400px) {',
+                '@media screen and (min-width:400px) {',
                 '  .test3 {',
                 '    background: white;',
                 '  }',
@@ -346,6 +355,10 @@ describe('JSS', function () {
                 '.W\(1\/3\)': {
                     width: '33.3333%'
                 }
+            }, {
+                breakPoints: {
+                    sm: '@media screen and (max-width: 900px)'
+                }
             });
             var expected = [
                 '.W\(1\/3\) {',
@@ -356,6 +369,47 @@ describe('JSS', function () {
                 '    width: 100%;',
                 '  }',
                 '}\n'
+            ].join('\n');
+            expect(result).to.equal(expected);
+        });
+
+        it('should return CSS with media query blocks ordered by media query not by property name', function () {
+            var result = JSS.jssToCss({
+                '.C\(#000\)--md': {
+                    '@media screen and \(min-width: 1000px\)': {
+                        color: '#000'
+                    },
+                },
+                '.W\(100px\)--sm': {
+                    '@media screen and \(min-width: 600px\)': {
+                        width: '100px',
+                    },
+                },
+                '.W\(200px\)--md': {
+                    '@media screen and \(min-width: 1000px\)': {
+                        width: '200px',
+                    },
+                },
+            }, {
+                breakPoints: {
+                    'sm': '@media screen and (min-width: 600px)',
+                    'md': '@media screen and (min-width: 1000px)',
+                }
+            });
+            var expected = [
+                '@media screen and (min-width: 600px) {',
+                '  .W\(100px\)--sm {',
+                '    width: 100px;',
+                '  }',
+                '}',
+                '@media screen and (min-width: 1000px) {',
+                '  .C\(#000\)--md {',
+                '    color: #000;',
+                '  }',
+                '  .W\(200px\)--md {',
+                '    width: 200px;',
+                '  }',
+                '}\n',
             ].join('\n');
             expect(result).to.equal(expected);
         });
