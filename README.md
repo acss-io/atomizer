@@ -94,7 +94,7 @@ var css = atomizer.getCss(finalConfig);
    * Gulp       : [gulp-atomizer](https://github.com/acss-io/gulp-atomizer)
    * Metalsmith : [metalsmith-atomizer](https://github.com/tests-always-included/metalsmith-atomizer)
    * Webpack    : [webpack-atomizer-loader](https://github.com/acss-io/webpack-atomizer-loader)
-   * Boot-task  : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
+   * Boot-clj   : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
 
 
 ## Developer docs
