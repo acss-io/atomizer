@@ -62,7 +62,7 @@ JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, bloc
                 }
                 extracted[block].push({
                     selector: selector,
-                    prop: prop, 
+                    prop: prop,
                     value: props[prop]
                 });
             }
@@ -143,12 +143,11 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     // First write the main block
     JSS.writeBlockToCSS(css, stylesheet.main, tab);
     // Next write any media query blocks
-    for (var block in stylesheet) {
-        if (block !== 'main') {
-            css.push(block + ' {');
-            JSS.writeBlockToCSS(css, stylesheet[block], tab, tab);
-            css.push('}');
-        }
+    for (var label in options.breakPoints) {
+        var block = options.breakPoints[label];
+        css.push(block + ' {');
+        JSS.writeBlockToCSS(css, stylesheet[block], tab, tab);
+        css.push('}');
     }
 
     css = css.length > 0 ? css.join('\n') + '\n' : '';
