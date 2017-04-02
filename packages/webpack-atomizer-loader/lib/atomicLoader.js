@@ -3,7 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import Atomizer from 'atomizer';
-import { parseQuery } from 'loader-utils';
+import { getOptions } from 'loader-utils';
 import ensureFolderExists from './ensureFolderExists';
 
 const DEFAULT_CSS_DEST = './build/css/atomic.css';
@@ -39,44 +39,50 @@ const ensureExists = (filePath) => {
     return result;
 };
 
-let firstTrigger = true;
+// Hash to keep track of config loaded by path
 let configObject = {
-    configs: {
-        classNames: []
+    default: {
+        configs: {
+            classNames: []
+        }
     }
 };
+
+const parseAndGenerateFile = function (configPath, source) {
+    const firstTrigger = configObject[configPath] || true;
+
+    if (firstTrigger && configPath) {
+        configObject[configPath] = require(require.resolve(configPath));
+    }
+
+    const pathConfig = configObject[configPath] || configObject.default;
+    const foundClasses = atomizer.findClassNames(source);
+    let cssDest = pathConfig.cssDest || DEFAULT_CSS_DEST;
+
+    if (!ensureExists(cssDest)) {
+        console.warn('[atomic loader] create css failed.')
+        return;
+    }
+
+    const finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
+    const cssString = atomizer.getCss(finalConfig, pathConfig.options || {});
+    writeCssFile(cssDest, cssString);
+
+    return;
+}
 
 const atomicLoader = function (source, map) {
     if (this.cacheable) {
         this.cacheable();
     }
 
-    const query = parseQuery(this.query);
-    let configPath;
-
-    if (firstTrigger) {
-        configPath = query.configPath;
-        configObject = configPath ? require(require.resolve(configPath)) : configObject;
-        firstTrigger = false;
+    const query = getOptions(this) || {};
+    let configPaths = query.configPath;
+    if (!Array.isArray(configPaths)) {
+        configPaths = [configPaths];
     }
 
-    const foundClasses = atomizer.findClassNames(source);
-    let cssDest = configObject.cssDest;
-    if (!cssDest) {
-        cssDest = DEFAULT_CSS_DEST;
-    }
-
-    let finalConfig;
-    let cssString;
-    if (!ensureExists(cssDest)) {
-        console.warn('[atomic loader] create css failed.');
-        return source;
-    } else {
-        finalConfig = atomizer.getConfig(foundClasses, configObject.configs || {});
-        cssString = atomizer.getCss(finalConfig, configObject.options || {});
-
-        writeCssFile(cssDest, cssString);
-    };
+    configPaths.forEach(configPath => parseAndGenerateFile(configPath, source));
 
     return source;
 };

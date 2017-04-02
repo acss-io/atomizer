@@ -1,5 +1,5 @@
 node_modules/
 .DS_Store
-example/main.css
-example/bundle.js
+example/
 coverage/
+tests/

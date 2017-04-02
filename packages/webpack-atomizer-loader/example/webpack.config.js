@@ -9,7 +9,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                loader: '../dist/atomicLoader?configPath=' + __dirname + '/atomCssConfig.js'
+                loader: '../dist/atomicLoader?configPath[]=' + __dirname + '/atomCssConfig.js&configPath[]=' + __dirname + '/atomCssConfig2.js'
             },
             {
                 test: /\.jsx?$/,

@@ -1,6 +1,7 @@
 node_modules/
 .DS_Store
-example/main.css
+example/*.css
 example/bundle.js
 coverage/
 dist/
+build/
