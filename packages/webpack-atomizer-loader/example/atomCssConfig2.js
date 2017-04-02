@@ -1,7 +1,7 @@
 module.exports = {
-    cssDest: './main.css',
+    cssDest: './main2.css',
     options: {
-        namespace: '#atomic',
+        namespace: '#atomic-blue',
     },
     configs: {
         breakPoints: {
@@ -10,7 +10,7 @@ module.exports = {
             lg: '@media(min-width=1200px)'
         },
         custom: {
-            'primary-bg': 'yellow'
+            'primary-bg': 'blue',
         },
         classNames: []
     }
