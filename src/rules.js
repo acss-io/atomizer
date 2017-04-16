@@ -2616,7 +2616,12 @@ module.exports = [
         "matcher": "Us",
         "allowParamToValue": false,
         "styles": {
-            "user-select": "$0"
+            "user-select": "$0",
+            "-webkit-touch-callout": "$0",
+            "-webkit-user-select": "$0",
+            "-khtml-user-select": "$0",
+            "-moz-user-select": "$0",
+            "-ms-user-select": "$0"
         },
         "arguments": [{
             "a": "all",
