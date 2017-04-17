@@ -1384,6 +1384,65 @@ module.exports = [
         }
     },
     /**
+    ==================================================================
+    FONT-SMOOTH
+    Warning: This feature is non-standard and varies by UA. Use with caution.
+    https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'id': 'font-smooth',
+        'name': 'Font smoothing',
+        'matcher': 'Fsm',
+        'allowParamToValue': true,
+        'styles': {
+            'font-smooth': '$0'
+        },
+        'arguments': [
+            {
+                'a': 'auto',
+                'n': 'never',
+                'aw': 'always'
+            }
+        ]
+    },
+    {
+        'type': 'pattern',
+        'id': 'font-smooth-webkit',
+        'name': 'Font smoothing - Webkit',
+        'matcher': 'Fsmw',
+        'allowParamToValue': false,
+        'styles': {
+            '-webkit-font-smoothing': '$0'
+        },
+        'arguments': [
+            {
+                'n': 'none',
+                'a': 'antialiased',
+                's': 'subpixel-antialiased'
+            }
+        ]
+    },
+    {
+        'type': 'pattern',
+        'id': 'font-smooth-moz',
+        'name': 'Font smoothing - Mozilla',
+        'matcher': 'Fsmm',
+        'allowParamToValue': false,
+        'styles': {
+            '-moz-osx-font-smoothing': '$0'
+        },
+        'arguments': [
+            {
+                'a': 'auto',
+                'i': 'inherit',
+                'g': 'grayscale',
+                'u': 'unset'
+            }
+        ]
+    },
+    /**
      ==================================================================
      FONT-STYLE
      ==================================================================
