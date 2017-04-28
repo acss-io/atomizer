@@ -53,6 +53,7 @@ Here's a few open source projects we know about:
   * Grunt: [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) (Created by the Atomizer team)
   * Webpack: [atomic-loader](https://www.npmjs.com/package/atomic-loader)
   * Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
+  * Clojure : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) ([Boot-Task](https://github.com/boot-clj/boot) for clojurescript )
 
 If you create your own, please [let us know!](/support.html)
 
@@ -89,7 +90,7 @@ atomizer: {
     },
     files: [
         {
-            // parse your project's html files to automatically add 
+            // parse your project's html files to automatically add
             // found Atomic classes to your config
             src: ['./src/*.html'],
             // generate the css in the file below
