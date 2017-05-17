@@ -430,7 +430,7 @@ describe('JSS', function () {
                 '@media screen and (min-width: 1000px) {',
                 '  .C\(#000\)--md {',
                 '    color: #000;',
-                '  }'
+                '  }',
                 '}'
             ].join('\n');
             expect(result).to.equal(expected);
