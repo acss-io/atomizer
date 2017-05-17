@@ -431,7 +431,7 @@ describe('JSS', function () {
                 '  .C\(#000\)--md {',
                 '    color: #000;',
                 '  }'
-                '}\n',
+                '}',
             ].join('\n');
             expect(result).to.equal(expected);
         });
