@@ -418,7 +418,7 @@ describe('JSS', function () {
                 '.C\(#000\)--md': {
                     '@media screen and \(min-width: 1000px\)': {
                         color: '#000'
-                    },
+                    }
                 }
             }, {
                 breakPoints: {
