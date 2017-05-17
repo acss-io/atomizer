@@ -413,5 +413,27 @@ describe('JSS', function () {
             ].join('\n');
             expect(result).to.equal(expected);
         });
+        it('should generate media query CSS only if matches found', function () {
+            var result = JSS.jssToCss({
+                '.C\(#000\)--md': {
+                    '@media screen and \(min-width: 1000px\)': {
+                        color: '#000'
+                    },
+                }
+            }, {
+                breakPoints: {
+                    'sm': '@media screen and (min-width: 600px)',
+                    'md': '@media screen and (min-width: 1000px)',
+                }
+            });
+            var expected = [
+                '@media screen and (min-width: 1000px) {',
+                '  .C\(#000\)--md {',
+                '    color: #000;',
+                '  }'
+                '}\n',
+            ].join('\n');
+            expect(result).to.equal(expected);
+        });
     });
 });
