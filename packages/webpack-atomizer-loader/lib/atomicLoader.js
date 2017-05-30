@@ -63,6 +63,14 @@ const parseAndGenerateFile = function (configPath, source) {
         console.warn('[atomic loader] create css failed.')
         return;
     }
+    
+    // custom rules file
+    if (pathConfig.options && pathConfig.options.rules) {
+        var customRules = require(require.resolve(pathConfig.options.rules));
+        if (customRules) {
+            atomizer.addRules(customRules);
+        }
+    }
 
     const finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
     const cssString = atomizer.getCss(finalConfig, pathConfig.options || {});
