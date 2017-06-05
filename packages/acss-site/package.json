@@ -83,7 +83,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/yahoo/acss-site.git"
+    "url": "git://github.com/acss-io/acss-site.git"
   },
   "keywords": [
     "atomic",
@@ -95,21 +95,7 @@
   ],
   "license": "BSD",
   "bugs": {
-    "url": "https://github.com/yahoo/acss-site/issues"
+    "url": "https://github.com/acss-io/acss-site/issues"
   },
-  "homepage": "https://github.com/yahoo/acss-site",
-  "yahoo": {
-    "bugzilla": {
-      "component": "General",
-      "product": "General"
-    },
-    "custodian": {
-      "email": "stencil@yahoo-inc.com"
-    },
-    "lint": "yhint",
-    "profile": "td-app"
-  },
-  "yhint": {
-    "excludes": "app/"
-  }
+  "homepage": "https://github.com/acss-io/acss-site"
 }
