@@ -1,7 +1,7 @@
 {
   "name": "acss-site",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Atomic CSS website",
   "main": "start.js",
   "author": "Thierry Koblentz <thierryk@yahoo-inc.com>",
