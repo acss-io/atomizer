@@ -143,7 +143,7 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     // First write the main block
     JSS.writeBlockToCSS(css, stylesheet.main, tab);
     // Next write any media query blocks
-    if (typeof options.breakPoints === 'object') {
+    if (options && typeof options.breakPoints === 'object') {
         for (var label in options.breakPoints) {
             var block = options.breakPoints[label];
             if (block && stylesheet[block]) {
