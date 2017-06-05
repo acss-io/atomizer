@@ -41,8 +41,6 @@ module.exports = function (grunt) {
         var configFile;
         var cacheFile = path.join('./.atomic-cache/', this.target || 'atomic');
 
-        grunt.log.writeln('[start] ' + grunt.task.current.name);
-
         if (options.rules && options.rules.length > 0) {
             options.rules = grunt.file.expand(options.rules);
         }
