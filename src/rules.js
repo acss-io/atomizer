@@ -213,7 +213,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border X",
         "matcher": "Bdx",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "border-__START__": "$0",
             "border-__END__": "$0"
@@ -224,7 +224,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border Y",
         "matcher": "Bdy",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "border-top": "$0",
             "border-bottom": "$0"
@@ -235,7 +235,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border top",
         "matcher": "Bdt",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "border-top": "$0"
         }
@@ -245,7 +245,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border end",
         "matcher": "Bdend",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "border-__END__": "$0"
         }
@@ -255,7 +255,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border bottom",
         "matcher": "Bdb",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "border-bottom": "$0"
         }
@@ -265,7 +265,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border start",
         "matcher": "Bdstart",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "border-__START__": "$0"
         }
