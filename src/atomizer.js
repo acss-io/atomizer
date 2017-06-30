@@ -425,6 +425,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     var tree;
     var content = '';
     var breakPoints;
+    var hasIEFlag = options && typeof options.ie !== 'undefined' ? true : false;
 
     options = objectAssign({}, {
         // require: [],
@@ -536,7 +537,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     // convert JSS to CSS
     content = options.banner + JSS.jssToCss(jss, {
       breakPoints: breakPoints,
-      ie: options.ie
+      ie: hasIEFlag ? options.ie : true
     });
 
     // fix the comma problem in Absurd
