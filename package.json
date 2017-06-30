@@ -29,7 +29,7 @@
   "dependencies": {
     "chalk": "^1.0.0",
     "commander": "^2.8.0",
-    "lodash": "^3.6.0",
+    "lodash": "^4.0.0",
     "object-assign": "^4.0.0",
     "xregexp": "^3.0.0"
   },

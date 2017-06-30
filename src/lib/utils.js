@@ -34,7 +34,7 @@ utils.handleMergeArrays = function (a, b) {
 // merge atomizer configs into a single config
 utils.mergeConfigs = function (configs/*:Config[]*/)/*:Config*/ {
     // TODO: Offer option to warn on conflicts
-    return _.merge.apply(null, configs.concat(utils.handleMergeArrays));
+    return _.mergeWith.apply(null, configs.concat(utils.handleMergeArrays));
 };
 
 // returns a repeated string by X amount
