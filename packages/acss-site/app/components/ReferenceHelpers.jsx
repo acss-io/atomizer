@@ -80,7 +80,7 @@ var ReferenceRules = React.createClass({
             return (
                 <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
                     <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">{recipe.matcher} <span className="C(#ccc)">({recipe.name})</span></h3>
-                    <p className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{recipe.description} [<a href={recipe.link}>More <b className="Hidden">about {recipe.matcher}</b></a>]</p>
+                    <p className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{recipe.description} [<a href={recipe.link}>More<b className="Hidden"> about {recipe.matcher}</b></a>]</p>
                 </div>
             );
 
