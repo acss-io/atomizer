@@ -76,17 +76,18 @@ JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, bloc
 JSS.combineSelectors = function (extracted/*:Extracted*/, options/*:Options*/)/*:Extracted*/ {
     var extracts;
     var ie = options && options.ie;
+    var supportIE = typeof ie !== 'undefined' ? ie : true;
 
     for (var block in extracted) {
         extracts = extracted[block];
         for (var i = 0, l = extracts.length; i < l; i += 1) {
             // If this selector has an escaped colon, we can't safely combine it
             // with another selector since it will break in IE < 8
-            if (ie && extracts[i].selector && extracts[i].selector.indexOf('\:') > -1) { continue; }
+            if (supportIE && extracts[i].selector && extracts[i].selector.indexOf('\:') > -1) { continue; }
             for (var j = i + 1; j < l; j += 1) {
                 // If this selector has an escaped colon, we can't safely combine it
                 // with another selector since it will break in IE < 8
-                if (ie && extracts[j].selector && extracts[j].selector.indexOf('\:') > -1) { continue; }
+                if (supportIE && extracts[j].selector && extracts[j].selector.indexOf('\:') > -1) { continue; }
                 // combine if prop and value match
                 if (extracts[i].prop === extracts[j].prop && extracts[i].value === extracts[j].value) {
                     if (extracts[j].selector) {
@@ -128,7 +129,6 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     var extracted/*:Extracted*/;
     var stylesheet/*:Stylesheet*/;
     var tab = options && options.tabWidth && utils.repeatString(' ', parseInt(options.tabWidth, 10)) || utils.repeatString(' ', 2);
-    var ie = options && options.ie;
 
     // flatten nested selectors
     jss = JSS.flattenSelectors({}, jss);

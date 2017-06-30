@@ -482,5 +482,26 @@ describe('JSS', function () {
 
           expect(result).to.equal(result);
         });
+        it('should not combine pseudo selectors if ie options is not passed', function () {
+          var result = JSS.jssToCss({
+            '.C\(#fff\)': {
+              color: '#fff'
+            },
+            '.C\(#fff\)\:h': {
+              color: '#fff'
+            }
+          });
+
+          var result = [
+            '.C\(#fff\)',
+            '  color: #fff;',
+            '}',
+            '.C\(#fff\):\h',
+            '  color: #fff;',
+            '}\n'
+          ].join('\n');
+
+          expect(result).to.equal(result);
+        });
     });
 });
