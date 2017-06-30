@@ -922,7 +922,7 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config, { ie: false });
             expect(result).to.equal(expected);
         });
-        it ('returns pseudo selector as seperate rules by default', function () {
+        it ('returns pseudo selector as seperated rules by default', function () {
             var atomizer = new Atomizer();
             var config = {
                 classNames: ['C(#fff)', 'C(#fff):h']
