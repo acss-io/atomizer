@@ -25,6 +25,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border",
+        "description": "Creates a 1px border on all edges of a box",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "Bd",
         "noParams": true,
         "styles": {
@@ -36,6 +38,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border X 1px solid",
+        "description": "Creates a 1px border on the left and right edges of a box",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "BdX",
         "noParams": true,
         "styles": {
@@ -50,6 +54,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border Y 1px solid",
+        "description": "Creates a 1px border on the top and bottom edges of a box",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "BdY",
         "noParams": true,
         "styles": {
@@ -65,6 +71,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border Top 1px solid",
+        "description": "Creates a 1px border on the top edge of a box",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "BdT",
         "noParams": true,
         "styles": {
@@ -79,6 +87,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border End 1px solid",
+        "description": "Creates a 1px border on the right edge of a box (in a LTR context)",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "BdEnd",
         "noParams": true,
         "styles": {
@@ -93,6 +103,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border Bottom 1px solid",
+        "description": "Creates a 1px border on the bottom edge of a box",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "BdB",
         "noParams": true,
         "styles": {
@@ -107,6 +119,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Border Start 1px solid",
+        "description": "Creates a 1px border on the left edge of a box (in a LTR context)",
+        "link": "https://acss.io/guides/helper-classes.html#-bd-borders-",
         "matcher": "BdStart",
         "noParams": true,
         "styles": {
@@ -126,7 +140,9 @@ module.exports = [
     */
     {
         "type": "helper",
-        "name": "BfcHack",
+        "name": "Block-formatting context",
+        "description": "Creates a block-formatting context",
+        "link": "https://acss.io/guides/helper-classes.html#-bfchack-block-formatting-context-",
         "matcher": "BfcHack",
         "noParams": true,
         "styles": {
@@ -144,6 +160,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Clearfix",
+        "description": "Allows an element to clear its child elements",
+        "link": "https://acss.io/guides/helper-classes.html#-cf-clearfix-",
         "matcher": "Cf",
         "noParams": true,
         "styles": {
@@ -168,6 +186,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Ellipsis",
+        "description": "Use to create a one-liner with ellipsis (in browsers that support text-overflow:ellipsis).",
+        "link": "https://acss.io/guides/helper-classes.html#-ell-ellipsis-",
         "matcher": "Ell",
         "noParams": true,
         "styles": {
@@ -197,7 +217,9 @@ module.exports = [
     */
     {
         "type": "helper",
-        "name": "Hidden",
+        "name": "Hiding content from sighted users",
+        "description": "Hides content from sighted users but leaves it accessible to screen readers",
+        "link": "https://acss.io/guides/helper-classes.html#hiding-content-from-sighted-users",
         "matcher": "Hidden",
         "noParams": true,
         "styles": {
@@ -219,7 +241,9 @@ module.exports = [
     */
     {
         "type": "helper",
-        "name": "IbBox",
+        "name": "Inline-block box",
+        "description": "Shorthand for styling inline-block constructs cross-browser",
+        "link": "https://acss.io/guides/helper-classes.html#-ibbox-",
         "matcher": "IbBox",
         "noParams": true,
         "styles": {
@@ -241,6 +265,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Line clamp",
+        "description": "Truncates long lines of text to a max number of lines",
+        "link": "https://acss.io/guides/helper-classes.html#-ibbox-",
         "matcher": "LineClamp",
         "styles": {
             "-webkit-line-clamp": "$0",
@@ -287,6 +313,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Row",
+        "description": "Styles a box that expands to fill its container, contains floats, and more",
+        "link": "https://acss.io/guides/helper-classes.html#-row-",
         "matcher": "Row",
         "noParams": true,
         "styles": {
@@ -308,7 +336,9 @@ module.exports = [
     */
     {
         "type": "helper",
-        "name": "StretchedBox",
+        "name": "Stretched box",
+        "description": "Stretches a box inside its containing block",
+        "link": "https://acss.io/guides/helper-classes.html#-stretchedbox-",
         "matcher": "StretchedBox",
         "noParams": true,
         "styles": {
@@ -328,6 +358,8 @@ module.exports = [
     {
         "type": "helper",
         "name": "Zoom",
+        "description": "Gives a box 'layout' in old versions of Internet Explorer",
+        "link": "https://acss.io/guides/helper-classes.html#-zoom-",
         "matcher": "Zoom",
         "noParams": true,
         "styles": {
