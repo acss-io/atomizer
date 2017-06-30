@@ -425,7 +425,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     var tree;
     var content = '';
     var breakPoints;
-    var hasIEFlag = options && typeof options.ie !== 'undefined' ? true : false;
+    var hasIEFlag = options && (typeof options.ie !== 'undefined');
 
     options = objectAssign({}, {
         // require: [],

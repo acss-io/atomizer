@@ -909,6 +909,35 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('returns combined pseudo selector if ie flag is false', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['C(#fff)', 'C(#fff):h']
+            };
+            var expected = [
+                '.C\\(\\#fff\\), .C\\(\\#fff\\)\\:h:hover {',
+                '  color: #fff;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config, { ie: false });
+            expect(result).to.equal(expected);
+        });
+        it ('returns pseudo selector as seperate rules by default', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['C(#fff)', 'C(#fff):h']
+            };
+            var expected = [
+                '.C\\(\\#fff\\) {',
+                '  color: #fff;',
+                '}',
+                '.C\\(\\#fff\\)\\:h:hover {',
+                '  color: #fff;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
     });
     // -------------------------------------------------------
     // escapeSelector()
