@@ -5,12 +5,13 @@
 
 // external packages
 import React from 'react';
-import Rules from 'atomizer/src/rules';
+// import Rules from 'atomizer/src/rules';
 
 // components
 import SearchBox from './SearchBox';
 import ConfigBox from './ConfigBox';
 import ReferenceRules from './ReferenceRules';
+import ReferenceHelpers from './ReferenceHelpers';
 import AtomicCssOutputBox from './AtomicCssOutputBox';
 
 // stores
@@ -40,8 +41,12 @@ var Reference = React.createClass({
         return (
             <div>
                 <SearchBox />
-                <h2>Atomic Classes</h2>
+                <h2 id="atomic-classes">Atomic Classes</h2>
                 <ReferenceRules />
+
+                <h2 id="helper-classes">Helper Classes</h2>
+                <ReferenceHelpers />
+
                 <AtomicCssOutputBox className={hasConfig ? '' : 'D(n)'} />
             </div>
         );

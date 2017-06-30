@@ -58,15 +58,8 @@ var ReferenceRules = React.createClass({
 
         var items = Rules.map(function (recipe) {
             var usingClass = false,
-                values = [],
-                classDefinitions = [],
-                declarationBlock,
                 searching = !!this.state.currentQuery,
-                searchTitleMatches = null,
-                showRecipeBlock = false,
-                custom,
-                value,
-                suffix;
+                searchMatches = null;
 
             if (customConfig.classNames && customConfig.classNames.length) {
                 usingClass = this.hasClassUsingMatcher(recipe.matcher, customConfig.classNames);
@@ -78,39 +71,16 @@ var ReferenceRules = React.createClass({
             }
 
             if (searching) {
-                searchTitleMatches = (recipe.name.search(searchRE) > -1);
+                searchMatches = (recipe.name.search(searchRE) > -1 || recipe.matcher.search(searchRE) > -1);
             }
 
-            if (recipe.type === 'helper') {
-                declarationBlock = [];
-                for (var selector in recipe.rules) {
-                    var showRuleset = false;
-                    var declarationObj = recipe.rules[selector];
-                    var rawDeclarationBlock = [];
-                    var styledDeclarationBlock = [];
+            var showHelper = (!searching || searchMatches);
 
-                    for (var property in declarationObj) {
-                        rawDeclarationBlock.push(property + ": " + declarationObj[property] + ";");
-                        styledDeclarationBlock.push(<div>{property}: {declarationObj[property]};</div>);
-                    }
-
-                    // Filter with search
-                    if (!searching || 
-                            searchTitleMatches || 
-                            selector.search(searchRE) > -1 || 
-                            rawDeclarationBlock.join('\n').search(searchRE) > -1) {
-                        showRuleset = true;
-                        showRecipeBlock = true;
-                    }
-                    classDefinitions.push([<dt className={showRuleset ? 'Pend(10px) Fl(start) Cl(start)' : 'D(n)'}>{selector}</dt>, <dd className={showRuleset ? 'Fl(start) M(0) P(0) C(#f2438c)' : 'D(n)'}>{styledDeclarationBlock}</dd>]);
-                }
-            }
-
-            var displayclassDefinitions = "Ov(h) " + (showRecipeBlock ? "D(b)" : "D(n)");
+            var displayclassDefinitions = "Ov(h) " + (showHelper ? "D(b)" : "D(n)");
             return (
                 <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
-                    <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">{recipe.name}</h3>
-                    <dl className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{classDefinitions}</dl>
+                    <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">{recipe.matcher} <span className="C(#ccc)">({recipe.name})</span></h3>
+                    <p className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{recipe.description} [<a href={recipe.link}>More <b className="Hidden">about {recipe.matcher}</b></a>]</p>
                 </div>
             );
 
