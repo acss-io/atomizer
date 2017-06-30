@@ -537,6 +537,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
     // convert JSS to CSS
     content = options.banner + JSS.jssToCss(jss, {
       breakPoints: breakPoints,
+      // set default as true for BC
       ie: hasIEFlag ? options.ie : true
     });
 
