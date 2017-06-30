@@ -435,5 +435,41 @@ describe('JSS', function () {
             ].join('\n');
             expect(result).to.equal(expected);
         });
+        it('should combine pseudo selectors if ie options is off', function () {
+          var result = JSS.jssToCss({
+            '.C\(#fff\)': {
+              color: '#fff'
+            },
+            '.C\(#fff\)\:h': {
+              color: '#fff'
+            }
+          }, { ie: true });
+
+          var result = [
+            '.C\(#fff\)',
+            '  color: #fff;',
+            '}',
+            '.C\(#fff\):\h',
+            '  color: #fff;',
+            '}\n'
+          ].join('\n');
+
+          var combinedResult = [
+            '.C\(#fff\), .C\(#fff\):h {',
+            '  color: #fff;',
+            '}\n'
+          ].join('\n');
+
+          expect(result).to.equal(result);
+          result = JSS.jssToCss({
+            '.C\(#fff\)': {
+              color: '#fff'
+            },
+            '.C\(#fff\)\:h': {
+              color: '#fff'
+            }
+          }, { ie: false });
+          expect(result).to.equal(combinedResult);
+        });
     });
 });

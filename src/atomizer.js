@@ -535,7 +535,8 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 
     // convert JSS to CSS
     content = options.banner + JSS.jssToCss(jss, {
-      breakPoints: breakPoints
+      breakPoints: breakPoints,
+      ie: options.ie
     });
 
     // fix the comma problem in Absurd
