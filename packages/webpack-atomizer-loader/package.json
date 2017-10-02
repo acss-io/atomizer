@@ -1,6 +1,6 @@
 {
     "name": "webpack-atomizer-loader",
-    "version": "0.2.1",
+    "version": "0.4.0",
     "description": "Webpack loader for compiling atomic css",
     "main": "index.js",
     "scripts": {
@@ -8,13 +8,7 @@
         "build": "babel lib --out-dir dist/",
         "prepublish": "npm run build"
     },
-    "keywords": [
-        "atomizer",
-        "atomic",
-        "css",
-        "loader",
-        "webpack"
-    ],
+    "keywords": ["atomizer", "atomic", "css", "loader", "webpack"],
     "author": "tom76kimo <tom76kimo@gmail.com> ",
     "license": "MIT",
     "dependencies": {
