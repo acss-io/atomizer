@@ -1,34 +1,39 @@
 {
-  "name": "webpack-atomizer-loader",
-  "version": "0.2.1",
-  "description": "Webpack loader for compiling atomic css",
-  "main": "index.js",
-  "scripts": {
-    "example": "cd example && webpack && open index.html && cd ..",
-    "build": "babel lib --out-dir dist/",
-    "prepublish": "npm run build"
-  },
-  "keywords": [
-    "atomizer",
-    "atomic",
-    "css",
-    "loader",
-    "webpack"
-  ],
-  "author": "tom76kimo <tom76kimo@gmail.com> ",
-  "license": "MIT",
-  "dependencies": {
-    "atomizer": "^3.3.8",
-    "loader-utils": "^1.0.2"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "babel-core": "^6.7.2",
-    "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-react": "^6.5.0",
-    "chai": "^3.2.0",
-    "react": "^0.14.7",
-    "webpack": "^2.3.1"
-  }
+    "name": "webpack-atomizer-loader",
+    "version": "0.2.1",
+    "description": "Webpack loader for compiling atomic css",
+    "main": "index.js",
+    "scripts": {
+        "example": "cd example && webpack && open index.html && cd ..",
+        "build": "babel lib --out-dir dist/",
+        "prepublish": "npm run build"
+    },
+    "keywords": [
+        "atomizer",
+        "atomic",
+        "css",
+        "loader",
+        "webpack"
+    ],
+    "author": "tom76kimo <tom76kimo@gmail.com> ",
+    "license": "MIT",
+    "dependencies": {
+        "atomizer": "^3.3.8",
+        "cssnano": "^3.10.0",
+        "loader-utils": "^1.0.2",
+        "postcss": "^6.0.12"
+    },
+    "devDependencies": {
+        "autoprefixer": "^7.1.4",
+        "babel-cli": "^6.6.5",
+        "babel-core": "^6.7.2",
+        "babel-loader": "^6.2.4",
+        "babel-preset-es2015": "^6.6.0",
+        "babel-preset-react": "^6.5.0",
+        "chai": "^3.2.0",
+        "create-react-class": "^15.6.2",
+        "react": "16",
+        "react-dom": "^16.0.0",
+        "webpack": "^2.3.1"
+    }
 }

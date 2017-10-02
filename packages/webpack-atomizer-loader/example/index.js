@@ -1,5 +1,7 @@
 // jshint ignore: start
 var React = require('react');
+var ReactDOM = require('react-dom');
+
 var Application = require('./Application');
 
-React.render(<Application />, document.body);
+ReactDOM.render(<Application />, document.querySelector('#main'));
