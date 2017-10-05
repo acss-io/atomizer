@@ -63,7 +63,7 @@ function flatten(obj) {
 var GRAMMAR = {
     'BOUNDARY'      : '(?:^|\\s|"|\'|\{|\})',
     'PARENT'        : '[a-zA-Z][-_a-zA-Z0-9]+?',
-    'PARENT_SEP'    : '[>_+]',
+    'PARENT_SEP'    : '[>_+~]',
     // all characters allowed to be a prop
     'PROP'          : '[-A-Za-z0-9]+',
     // all character allowed to be in values
