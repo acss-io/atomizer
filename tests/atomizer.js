@@ -32,8 +32,8 @@ describe('Atomizer()', function () {
         it('returns an array of valid atomic class names', function () {
             var atomizer = new Atomizer();
             // duplicate Pos(r) to make sure we get only one
-            var result = atomizer.findClassNames("<div className={classNames('sibling:c+D(n) Pos(r) Pos(r) Ov(h) H(0) test:h>Op(1):h test:test>Op(1)', 'test-open_Ov(v) test-open_H(a) Cnt(hello)::b Cnt(goodbye)::a}>");
-            var expected = ['sibling:c+D(n)', 'Pos(r)', 'Ov(h)', 'H(0)', 'test:h>Op(1):h', 'test-open_Ov(v)', 'test-open_H(a)', 'Cnt(hello)::b', 'Cnt(goodbye)::a'];
+            var result = atomizer.findClassNames("<div className={classNames('sibling:c+D(n) sibling:c~D(i) Pos(r) Pos(r) Ov(h) H(0) test:h>Op(1):h test:test>Op(1)', 'test-open_Ov(v) test-open_H(a) Cnt(hello)::b Cnt(goodbye)::a}>");
+            var expected = ['sibling:c+D(n)', 'sibling:c~D(i)','Pos(r)', 'Ov(h)', 'H(0)', 'test:h>Op(1):h', 'test-open_Ov(v)', 'test-open_H(a)', 'Cnt(hello)::b', 'Cnt(goodbye)::a'];
             expect(result).to.deep.equal(expected);
         });
         it('returns an array of valid atomic class names even if there\'s no boundary character for the first found classname', function () {
@@ -449,7 +449,7 @@ describe('Atomizer()', function () {
         it ('returns css by reading an array of class names', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Translate3d(0,0,0)', 'Bd(0)', 'Bd(n)', 'C(red)', 'Cnt(cq):h::b', 'Cnt(oq)::b', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)', 'C(#FFF)']
+                classNames: ['Translate3d(0,0,0)', 'Bd(0)', 'Bd(n)', 'C(red)', 'Cnt(cq):h::b', 'Cnt(oq)::b', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'sibling:c~D(i)','End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)', 'C(#FFF)']
             };
             var expected = [
                 '.Bd\\(0\\) {',
@@ -484,6 +484,9 @@ describe('Atomizer()', function () {
                 '}',
                 '.sibling:checked + .sibling\\:c\\+D\\(n\\) {',
                 '  display: none;',
+                '}',
+                '.sibling:checked ~ .sibling\\:c\\~D\\(i\\) {',
+                '  display: inline;',
                 '}',
                 '.D\\(n\\)\\! {',
                 '  display: none !important;',
