@@ -1122,6 +1122,7 @@ module.exports = [
         },
         "arguments": [{
             "a": "auto",
+            "ini": "initial",
             "n": "none"
         }]
     },

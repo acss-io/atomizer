@@ -915,14 +915,37 @@ describe('Atomizer()', function () {
         it ('properly handles the flex property', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Flx(1)', 'Flx(3)']
+                classNames: [
+                    'Flx(a)',
+                    'Flx(inh)',
+                    'Flx(ini)',
+                    'Flx(n)',
+                    'Flx(2)',
+                    'Flx(10em)',
+                    'Flx(30px)',
+                ]
             };
             var expected = [
-                '.Flx\\(1\\) {',
-                '  flex: 1;',
+                '.Flx\\(a\\) {',
+                '  flex: auto;',
                 '}',
-                '.Flx\\(3\\) {',
-                '  flex: 3;',
+                '.Flx\\(inh\\) {',
+                '  flex: inherit;',
+                '}',
+                '.Flx\\(ini\\) {',
+                '  flex: initial;',
+                '}',
+                '.Flx\\(n\\) {',
+                '  flex: none;',
+                '}',
+                '.Flx\\(2\\) {',
+                '  flex: 2;',
+                '}',
+                '.Flx\\(10em\\) {',
+                '  flex: 10em;',
+                '}',
+                '.Flx\\(30px\\) {',
+                '  flex: 30px;',
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(config);
