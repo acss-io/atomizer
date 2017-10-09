@@ -1,4 +1,4 @@
-/*globals describe,it,afterEach */
+/*globals describe,it */
 'use strict';
 
 var expect = require('chai').expect;
@@ -907,6 +907,45 @@ describe('Atomizer()', function () {
                 '}',
                 '.Skew\\(90deg\\,45deg\\) {',
                 '  transform: skew(90deg,45deg);',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it ('properly handles the flex property', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: [
+                    'Flx(a)',
+                    'Flx(inh)',
+                    'Flx(ini)',
+                    'Flx(n)',
+                    'Flx(2)',
+                    'Flx(10em)',
+                    'Flx(30px)',
+                ]
+            };
+            var expected = [
+                '.Flx\\(a\\) {',
+                '  flex: auto;',
+                '}',
+                '.Flx\\(inh\\) {',
+                '  flex: inherit;',
+                '}',
+                '.Flx\\(ini\\) {',
+                '  flex: initial;',
+                '}',
+                '.Flx\\(n\\) {',
+                '  flex: none;',
+                '}',
+                '.Flx\\(2\\) {',
+                '  flex: 2;',
+                '}',
+                '.Flx\\(10em\\) {',
+                '  flex: 10em;',
+                '}',
+                '.Flx\\(30px\\) {',
+                '  flex: 30px;',
                 '}\n'
             ].join('\n');
             var result = atomizer.getCss(config);

@@ -46,7 +46,6 @@ JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/)
 JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, block/*:string*/)/*:Extracted*/ {
     var props;
     var prop;
-    var extract;
 
     block = block || 'main';
 

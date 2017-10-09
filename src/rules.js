@@ -1116,12 +1116,13 @@ module.exports = [
         "type": "pattern",
         "name": "Flex",
         "matcher": "Flx",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "flex": "$0"
         },
         "arguments": [{
             "a": "auto",
+            "ini": "initial",
             "n": "none"
         }]
     },
