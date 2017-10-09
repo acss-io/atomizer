@@ -912,6 +912,22 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('properly handles the flex property', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['Flx(1)', 'Flx(3)']
+            };
+            var expected = [
+                '.Flx\\(1\\) {',
+                '  flex: 1;',
+                '}',
+                '.Flx\\(3\\) {',
+                '  flex: 3;',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
     });
     // -------------------------------------------------------
     // escapeSelector()

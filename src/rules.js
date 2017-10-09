@@ -1116,7 +1116,7 @@ module.exports = [
         "type": "pattern",
         "name": "Flex",
         "matcher": "Flx",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "flex": "$0"
         },
