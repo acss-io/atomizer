@@ -1138,7 +1138,7 @@ module.exports = [
     // flex-shrink
     {
         "type": "pattern",
-        "name": "Flex",
+        "name": "Flex shrink",
         "matcher": "Flxs",
         "allowParamToValue": true,
         "styles": {
@@ -1148,7 +1148,7 @@ module.exports = [
     // flex-basis
     {
         "type": "pattern",
-        "name": "Flex",
+        "name": "Flex basis",
         "matcher": "Flxb",
         "allowParamToValue": true,
         "styles": {
