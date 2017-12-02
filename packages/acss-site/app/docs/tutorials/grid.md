@@ -25,7 +25,7 @@ When creating inline-block constructs, you should use the helper class (`IbBox`)
 <div>
    <div class="IbBox W(1/3) P(20px) Bgc(#0280ae.5)">Box 1</div><!--
 --><div class="IbBox W(1/3) P(20px) Bgc(#0280ae.8)">Box 2</div><!--
---><div class="IbBox W(1/3) P(20px) Bgc(#0280ae">Box 3</div>
+--><div class="IbBox W(1/3) P(20px) Bgc(#0280ae)">Box 3</div>
 </div>
 <hr />
 <div dir="rtl">
