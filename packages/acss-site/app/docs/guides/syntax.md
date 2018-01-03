@@ -10,7 +10,7 @@ Atomic and Helper classes follow a strict syntax, which makes the classnames eas
 
 At its core, an Atomic or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. 
 
-Atomic classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-">`LineClamp()`</a> accepts two.)  Helper classess may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.
+Atomic classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-">`LineClamp()`</a> accepts two.)  Helper classes may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.
 
 Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context></a> class and <a href="#-lt-combinator-">&lt;combinator></a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class></a>.
 
