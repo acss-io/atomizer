@@ -61,7 +61,7 @@ function flatten(obj) {
 
 // regular grammar to match valid atomic classes
 var GRAMMAR = {
-    'BOUNDARY'      : '(?:^|\\s|"|\'|\{|\})',
+    'BOUNDARY'      : '(?:^|\\s|"|\'|\`|\{|\})',
     'PARENT'        : '[a-zA-Z][-_a-zA-Z0-9]+?',
     'PARENT_SEP'    : '[>_+~]',
     // all characters allowed to be a prop
