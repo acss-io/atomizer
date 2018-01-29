@@ -1114,8 +1114,21 @@ module.exports = [
     // flex shorthand
     {
         "type": "pattern",
-        "name": "Flex",
+        "name": "Flex (deprecated)",
         "matcher": "Flx",
+        "allowParamToValue": false,
+        "styles": {
+            "flex": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "n": "none"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Flex",
+        "matcher": "Fx",
         "allowParamToValue": false,
         "styles": {
             "flex": "$0"
@@ -1128,8 +1141,17 @@ module.exports = [
     // flex-grow
     {
         "type": "pattern",
-        "name": "Flex grow",
+        "name": "Flex grow (deprecated)",
         "matcher": "Flxg",
+        "allowParamToValue": true,
+        "styles": {
+            "flex-grow": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Flex grow",
+        "matcher": "Fxg",
         "allowParamToValue": true,
         "styles": {
             "flex-grow": "$0"
@@ -1138,8 +1160,17 @@ module.exports = [
     // flex-shrink
     {
         "type": "pattern",
-        "name": "Flex shrink",
+        "name": "Flex shrink (deprecated)",
         "matcher": "Flxs",
+        "allowParamToValue": true,
+        "styles": {
+            "flex-shrink": "$0"
+        }
+    },
+    {
+        "type": "pattern",
+        "name": "Flex shrink",
+        "matcher": "Fxs",
         "allowParamToValue": true,
         "styles": {
             "flex-shrink": "$0"
@@ -1148,8 +1179,21 @@ module.exports = [
     // flex-basis
     {
         "type": "pattern",
-        "name": "Flex basis",
+        "name": "Flex basis (deprecated)",
         "matcher": "Flxb",
+        "allowParamToValue": true,
+        "styles": {
+            "flex-basis": "$0"
+        },
+        "arguments": [{
+            "a": "auto",
+            "n": "none"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Flex basis",
+        "matcher": "Fxb",
         "allowParamToValue": true,
         "styles": {
             "flex-basis": "$0"
@@ -1182,8 +1226,23 @@ module.exports = [
     // flex-direction
     {
         "type": "pattern",
-        "name": "Flex direction",
+        "name": "Flex direction (deprecated)",
         "matcher": "Fld",
+        "allowParamToValue": false,
+        "styles": {
+            "flex-direction": "$0"
+        },
+        "arguments": [{
+            "r": "row",
+            "rr": "row-reverse",
+            "c": "column",
+            "cr": "column-reverse"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Flex direction",
+        "matcher": "Fxd",
         "allowParamToValue": false,
         "styles": {
             "flex-direction": "$0"
@@ -1198,8 +1257,26 @@ module.exports = [
     // flex-flow
     {
         "type": "pattern",
-        "name": "Flex flow",
+        "name": "Flex flow (deprecated)",
         "matcher": "Flf",
+        "allowParamToValue": false,
+        "styles": {
+            "flex-flow": "$0"
+        },
+        "arguments": [{
+            "r": "row",
+            "rr": "row-reverse",
+            "c": "column",
+            "cr": "column-reverse",
+            "nw": "nowrap",
+            "w": "wrap",
+            "wr": "wrap-reverse"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Flex flow",
+        "matcher": "Fxf",
         "allowParamToValue": false,
         "styles": {
             "flex-flow": "$0"
@@ -1288,8 +1365,22 @@ module.exports = [
     // flex-wrap
     {
         "type": "pattern",
-        "name": "Flex-wrap",
+        "name": "Flex-wrap (deprecated)",
         "matcher": "Flw",
+        "allowParamToValue": false,
+        "styles": {
+            "flex-wrap": "$0"
+        },
+        "arguments": [{
+            "nw": "nowrap",
+            "w": "wrap",
+            "wr": "wrap-reverse"
+        }]
+    },
+    {
+        "type": "pattern",
+        "name": "Flex-wrap",
+        "matcher": "Fxw",
         "allowParamToValue": false,
         "styles": {
             "flex-wrap": "$0"
