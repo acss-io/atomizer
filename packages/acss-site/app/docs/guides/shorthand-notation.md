@@ -5,12 +5,12 @@
 For example, `border-width/style/color` can be specified in any order:
 
 <ul class="ul-list">
-    <li>`Bd(1px,solid,#000)`</li>
-    <li>`Bd(1px,#000,solid)`</li>
-    <li>`Bd(solid,#000,1px)`</li>
-    <li>`Bd(solid,1px,#000)`</li>
-    <li>`Bd(#000,1px,solid)`</li>
-    <li>`Bd(#000,solid,1px)`</li>
+    <li>*Bd(1px,solid,#000)*</li>
+    <li>*Bd(1px,#000,solid)*</li>
+    <li>*Bd(solid,#000,1px)*</li>
+    <li>*Bd(solid,1px,#000)*</li>
+    <li>*Bd(#000,1px,solid)*</li>
+    <li>*Bd(#000,solid,1px)*</li>
 </ul>
 
 The above creates 6 different rules for the exact same styling (a *solid 1px black* border). While the tool could be smart and assign all those classes to the **same** declaration, you'd still end up with more bytes than is necessary:
@@ -29,12 +29,12 @@ The above creates 6 different rules for the exact same styling (a *solid 1px bla
 It would also be possible to enforce order (i.e., `width,style,color`) to prevent such duplication, but you'd still end up with a lot of redundancy. For example:
 
 <ul class="ul-list">
-    <li>`Bd(1px,solid,#000)`</li>
-    <li>`Bd(1px,solid,#ccc)`</li>
-    <li>`Bd(1px,solid,#555)`</li>
-    <li>`Bd(2px,solid,#000)`</li>
-    <li>`Bd(3px,solid,#000)`</li>
-    <li>`Bd(1px,dotted,#000)`</li>
+    <li>*Bd(1px,solid,#000)*</li>
+    <li>*Bd(1px,solid,#ccc)*</li>
+    <li>*Bd(1px,solid,#555)*</li>
+    <li>*Bd(2px,solid,#000)*</li>
+    <li>*Bd(3px,solid,#000)*</li>
+    <li>*Bd(1px,dotted,#000)*</li>
 </ul>
 
 Would result in:
