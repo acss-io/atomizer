@@ -124,8 +124,36 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
  */
 Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:AtomizerConfig*/)/*:AtomizerConfig*/ {
     config = config || { classNames: [] };
+
+    // https://github.com/acss-io/atomizer/issues/316
+    function sortPseudoClasses (className1, className2) {
+        var orderedSuffixes = [
+            ':li',
+            ':v',
+            ':h',
+            ':a'
+        ];
+
+        var suffix1 = '';
+        var suffix2 = '';
+
+        orderedSuffixes.forEach(function (item) {
+            var regex = new RegExp('[^:]' + item);
+
+            if (className1.match(regex)) {
+                suffix1 = item;
+            }
+            if (className2.match(regex)) {
+                suffix2 = item;
+            }
+        })
+
+        return orderedSuffixes.indexOf(suffix1) - orderedSuffixes.indexOf(suffix2);
+    }
+
     // merge classnames with config
-    config.classNames = _.union(classNames || [], config.classNames).sort();
+    config.classNames = _.union(classNames || [], config.classNames).sort().sort(sortPseudoClasses);
+
     return config;
 };
 
