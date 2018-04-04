@@ -1,21 +1,16 @@
 /* global describe, before, it */
+var fs = require('fs');
 var expect = require('chai').expect;
 var atomicLoader = require('../dist/atomicLoader');
-var fs = require('fs');
 
-describe('atomic loader', function () {
-    before(function () {
-
-    });
-
-    it('can generate correct css', function (done) {
-        new atomicLoader('<div class="Bgc(yellow)"></div>');
-        expect(1).to.equal(1);
-        fs.readFile('./build/css/atomic.css', 'utf-8', function (err, data) {
-            var cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
-            expect(cssReg.test(data)).to.equal(true);
-            done();
-            fs.unlink('./build/css/atomic.css');
-        });
-    });
+describe('atomic loader', () => {
+  it('can generate correct css', (done) => {
+    this.async = () => (err, source) => {
+      var cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
+      const cssFile = fs.readFileSync('./build/css/atomic.css');
+      expect(cssReg.test(cssFile)).to.equal(true);
+      done();
+    };
+    atomicLoader.call(this, '<div class="Bgc(yellow)"></div>');
+  });
 });
