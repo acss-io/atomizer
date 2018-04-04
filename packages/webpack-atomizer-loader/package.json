@@ -6,9 +6,17 @@
     "scripts": {
         "example": "cd example && webpack && open index.html && cd ..",
         "build": "babel lib --out-dir dist/",
-        "prepublish": "npm run build"
+        "prepublish": "npm run build",
+        "pretest": "npm run build",
+        "test": "mocha tests"
     },
-    "keywords": ["atomizer", "atomic", "css", "loader", "webpack"],
+    "keywords": [
+        "atomizer",
+        "atomic",
+        "css",
+        "loader",
+        "webpack"
+    ],
     "author": "tom76kimo <tom76kimo@gmail.com> ",
     "license": "MIT",
     "dependencies": {
@@ -26,7 +34,8 @@
         "babel-preset-react": "^6.5.0",
         "chai": "^3.2.0",
         "create-react-class": "^15.6.2",
-        "react": "16",
+        "mocha": "^5.0.5",
+        "react": "^16",
         "react-dom": "^16.0.0",
         "webpack": "^2.3.1"
     }

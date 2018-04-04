@@ -12,6 +12,9 @@ const DEFAULT_CSS_DEST = './build/css/atomic.css';
 const PATH_SEP = '/';
 const DEFAULT_POSTCSS_PLUGIN_LIST = [];
 
+// cached response to prevent unnecessary update
+let cachedResponse = '';
+
 const atomizer = new Atomizer({ verbose: true });
 
 const writeCssFile = (cssDest, cssString) => {
@@ -93,8 +96,16 @@ const parseAndGenerateFile = function(
 
         pipeline.process(cssString).then(result => {
             const { css = '' } = result;
+
+            if (css === cachedResponse) {
+              return resolve();
+            }
+
             writeCssFile(cssDest, css)
-                .then(() => resolve())
+                .then(() => {
+                  cachedResponse = css;
+                  return resolve();
+                })
                 .catch(err => reject(err));
         });
     });
