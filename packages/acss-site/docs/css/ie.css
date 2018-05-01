@@ -1,0 +1,84 @@
+/**
+ * "justify" fails so display both as floats (left/right)
+ */
+#header #home {
+    float: left;
+}
+
+#header ul {
+    float: right;
+}
+
+/**
+ * IE7 only
+ */
+#header li {
+    *margin-left: 15px;
+}
+
+/**
+ * IE8 bug (would not reveal the image because of max-width)
+ */
+#header li img {
+    max-width: none;
+}
+
+/**
+ * broken in IE so better to hide it
+ */
+#search-section {
+    display: none;
+}
+
+/**
+ * only relevant for small viewport
+ */
+#toggleMenuButton {
+    display: none;
+}
+#searchbox {
+    border: 1px solid #ccc;
+}
+.innerwrapper {
+    overflow: hidden;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0;
+}
+
+/**
+ * IE7 only
+ */
+#aside,
+#main {
+    float: left;
+}
+
+#aside {
+    padding-left: 0;
+    position: relative;
+    width: 150px !important;
+    padding-right: 50px;
+}
+
+#main {
+    padding-right: 0;
+    padding-left: 0;
+    width: 600px !important;
+    *width: 580px !important;
+}
+
+/**
+ * "justify" fails so display both lines as blocks
+ */
+#footer small {
+    display: block !important;
+}
+
+/**
+ * LOGO
+ */
+#header #logo {
+    display: none;
+}
