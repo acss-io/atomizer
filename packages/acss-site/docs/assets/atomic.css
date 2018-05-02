@@ -307,7 +307,7 @@
 .Mstart\(20px\), .Mstart\(columnWidth\) {
   margin-left: 20px;
 }
-.docs .docs_Mstart\(40px\) {
+.docs .docs_Mstart\(40px\), .support .support_Mstart\(40px\) {
   margin-left: 40px;
 }
 .Mih\(100\%\) {
