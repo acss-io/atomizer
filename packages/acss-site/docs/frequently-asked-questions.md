@@ -1,3 +1,8 @@
+---
+section: docs
+layout: docs
+---
+
 # Frequently Asked Questions
 
 This section is intended to answer common questions related to Atomic CSS and Atomizer. If you're unable to find an answer to your question, [you can find support here](/support.html).

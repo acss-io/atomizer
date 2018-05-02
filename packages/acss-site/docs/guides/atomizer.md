@@ -1,3 +1,8 @@
+---
+section: docs
+layout: docs
+---
+
 # Atomizer tool
 
 [Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating Atomic CSS stylesheets.
