@@ -1,9 +1,8 @@
 ---
 section: docs
 layout: docs
+title: Helper classes
 ---
-
-# Helper classes
 
 Helper classes are provided to help with common styling patterns. [Atomizer](/guides/atomizer.html) provides the following set of helper classes, and you can define your own through custom Atomizer rulesets.
 

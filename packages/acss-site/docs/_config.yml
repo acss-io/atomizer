@@ -1,3 +1,10 @@
 title: Atomic CSS
 description: ""
 theme: minima
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      githubDocsPath: "https://github.com/acss-io/acss-site/tree/master/docs/"
