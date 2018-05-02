@@ -1,9 +1,8 @@
 ---
 section: docs
 layout: docs
+title: Atomic classes
 ---
-
-# Atomic classes
 
 Atomic classes are simple, single-purpose units of styling.  Much like inline styles, Atomic styles only apply a single style declaration.  Unlike inline styles, Atomic styles have a lower specificity, making them easier to override, and can be modified through the use of pseudo-classes, media queries, and more.  
 

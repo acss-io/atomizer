@@ -11,7 +11,7 @@ layout: default
     </div>
     <div id="main" role="main" className="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
         <div class="SpaceBetween">
-            <h1 class="D(ib) Va(m) Fz(30px)">{{ page.title }}</h1> <a href="#" class="D(ib) Va(m) Mt(30px)" target='_blank'>Edit on Github</a>
+            <h1 class="D(ib) Va(m) Fz(30px)">{{ page.title }}</h1> <a href="{{ page.githubDocsPath }}{{ page.path }}" class="D(ib) Va(m) Mt(30px)" target='_blank'>Edit on Github</a>
         </div>
         <div>{{ content }}</div>
     </div>
