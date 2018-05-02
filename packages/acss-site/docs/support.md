@@ -1,3 +1,8 @@
+---
+section: support
+layout: docs
+---
+
 # Get Help with Atomic CSS
 
 Atomic CSS was originally developed by engineers at [Yahoo](https://www.yahoo.com).  If you have questions, suggestions or ideas about how to use or improve Atomic CSS or Atomizer, please reach out to us!

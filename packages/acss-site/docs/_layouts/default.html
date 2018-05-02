@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- 
+            ___           ___           ___           ___                  
+           /  /\         /  /\         /  /\         /  /\             
+          /  /::\       /  /:/        /  /:/_       /  /:/_               
+         /  /:/\:\     /  /:/        /  /:/ /\     /  /:/ /\           
+        /  /:/~/::\   /  /:/  ___   /  /:/ /::\   /  /:/ /::\           
+       /__/:/ /:/\:\ /__/:/  /  /\ /__/:/ /:/\:\ /__/:/ /:/\:\      
+       \  \:\/:/__\/ \  \:\ /  /:/ \  \:\/:/~/:/ \  \:\/:/~/:/
+        \  \::/       \  \:\  /:/   \  \::/ /:/   \  \::/ /:/     
+         \  \:\        \  \:\/:/     \__\/ /:/     \__\/ /:/     
+          \  \:\        \  \::/        /__/:/        /__/:/           
+           \__\/         \__\/         \__\/         \__\/         
+-->
+<html class="atomic {{page.section}}" lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+    <div id="app" class="H(100%)">
+      <div class="H(100%)">
+        <div class="wrapper Bxz(bb) Mih(100%)">
+
+    {%- include header.html -%}
+
+    {{ content }}
+
+    {%- include footer.html -%}
+
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

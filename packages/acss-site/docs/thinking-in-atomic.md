@@ -1,3 +1,8 @@
+---
+section: docs
+layout: docs
+---
+
 # Thinking in Atomic
 
 &quot;**Atomic CSS**&quot; is a [CSS architecture](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/). It is not opinionated; it simply defines a set of classes representing single-purpose styling units.

@@ -1,4 +1,6 @@
-##
+---
+section: home
+---
 
 <div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(50%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">CSS is painful</h2>
