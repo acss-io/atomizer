@@ -9,10 +9,8 @@ import React from 'react';
 
 // components
 import SearchBox from './SearchBox';
-import ConfigBox from './ConfigBox';
 import ReferenceRules from './ReferenceRules';
 import ReferenceHelpers from './ReferenceHelpers';
-import AtomicCssOutputBox from './AtomicCssOutputBox';
 
 // stores
 import ReferenceStore from '../stores/ReferenceStore';
@@ -37,7 +35,6 @@ var Reference = React.createClass({
     },
 
     render: function () {
-        var hasConfig = !!this.state.customConfig;
         return (
             <div>
                 <SearchBox />
@@ -46,8 +43,6 @@ var Reference = React.createClass({
 
                 <h2 id="helper-classes">Helper Classes</h2>
                 <ReferenceHelpers />
-
-                <AtomicCssOutputBox className={hasConfig ? '' : 'D(n)'} />
             </div>
         );
     }

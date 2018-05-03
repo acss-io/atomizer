@@ -12,5 +12,5 @@ You can also <a href="{{'/guides/syntax.html' | relative_url }}">learn about the
 
 <div id="reference-app"></div>
 
-<script src="https://polyfills.yahooapis.com/polyfill.js?features=es5&version=2.1.21"></script>
+<script type="application/javascript" src="https://polyfills.yahooapis.com/polyfill.js?features=es5&version=2.1.21"></script>
 <script src="{{'/assets/js/main.js' | relative_url }}"></script>
