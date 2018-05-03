@@ -6,11 +6,7 @@
 // external packages
 import React from 'react';
 import Rules from 'atomizer/src/rules';
-import Atomizer from 'atomizer';
 import escapeStringRegexp from 'escape-string-regexp';
-
-// instantiate
-var atomizer = new Atomizer();
 
 // stores
 import ReferenceStore from '../stores/ReferenceStore';
@@ -65,9 +61,9 @@ var ReferenceRules = React.createClass({
 
     render: function () {
         var searchRE = false,
-            customConfig = this.state.customConfigObj || {},
-            hasConfig = !!this.state.customConfigObj,
-            parsedConfig = atomizer.parseConfig(customConfig);
+            // customConfig = this.state.customConfigObj || {},
+            hasConfig = !!this.state.customConfigObj;
+            // parsedConfig = atomizer.parseConfig(customConfig);
 
         if (this.state.currentQuery) {
             searchRE = new RegExp(escapeStringRegexp(this.state.currentQuery), 'i');
@@ -85,7 +81,8 @@ var ReferenceRules = React.createClass({
                 value,
                 suffix,
                 prefix = recipe.matcher,
-                usesClass = parsedConfig[prefix];
+                usesClass = false;
+                // usesClass = parsedConfig[prefix];
 
             // If config is provided, filter any rules not used in config
             if (hasConfig && !usesClass) {

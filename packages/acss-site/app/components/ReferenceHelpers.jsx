@@ -6,7 +6,6 @@
 // external packages
 import React from 'react';
 import Rules from 'atomizer/src/helpers';
-import Atomizer from 'atomizer';
 import escapeStringRegexp from 'escape-string-regexp';
 
 // stores
@@ -14,9 +13,6 @@ import ReferenceStore from '../stores/ReferenceStore';
 
 // mixins
 import {FluxibleMixin} from 'fluxible/addons';
-
-// instantiate
-var atomizer = new Atomizer();
 
 var ReferenceRules = React.createClass({
     mixins: [FluxibleMixin],
