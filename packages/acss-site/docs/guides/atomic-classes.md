@@ -4,22 +4,15 @@ layout: docs
 title: Atomic classes
 ---
 
-Atomic classes are simple, single-purpose units of styling.  Much like inline styles, Atomic styles only apply a single style declaration.  Unlike inline styles, Atomic styles have a lower specificity, making them easier to override, and can be modified through the use of pseudo-classes, media queries, and more.  
+<p>Atomic classes are simple, single-purpose units of styling.  Much like inline styles, Atomic styles only apply a single style declaration.  Unlike inline styles, Atomic styles have a lower specificity, making them easier to override, and can be modified through the use of pseudo-classes, media queries, and more.  </p>
+<p>The inspiration for Atomic syntax comes from <a href="http://emmet.io/">Emmet</a>, a plugin for many popular text editors which greatly improves HTML &amp; CSS workflow.</p>
+<p>Simple Atomic classes are easily interpreted, since they take a simple value as an parameter.  For example, <code>W(<b class="hljs-string">20px</b>)</code> clearly maps to <code>width: 20px</code>, and <code>Lh(<b class="hljs-string">1.5</b>)</code> clearly maps to <code>line-height: 1.5</code>.</p>
+<p>Complex Atomic classes make use of custom identifiers known as &quot;variables&quot;, which allow values to be defined in a central location (i.e., the Atomizer configuration file) and reused across styles.  For example, if the variable <code>foo</code> is set to <code>20px</code>, then <code>P(foo)</code> and <code>M(foo)</code> would map to <code>padding: 20px</code> and <code>margin: 20px</code>, respectively.</p>
+<p>For more on the syntax of Atomic classes and their value parameters, see <a href="/guides/syntax.html">the Class Syntax guide</a>.</p>
+<div class="noteBox info">The <a href="/reference">searchable reference page</a> gives you a complete listing of Atomic classes and their supported values.</div>
 
-The inspiration for Atomic syntax comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML & CSS workflow.
-
-Simple Atomic classes are easily interpreted, since they take a simple value as an parameter.  For example, <code>W(<b class="hljs-string">20px</b>)</code> clearly maps to `width: 20px`, and <code>Lh(<b class="hljs-string">1.5</b>)</code> clearly maps to `line-height: 1.5`.
-
-Complex Atomic classes make use of custom identifiers known as "variables", which allow values to be defined in a central location (i.e., the Atomizer configuration file) and reused across styles.  For example, if the variable `foo` is set to `20px`, then `P(foo)` and `M(foo)` would map to `padding: 20px` and `margin: 20px`, respectively.
-
-For more on the syntax of Atomic classes and their value parameters, see [the Class Syntax guide](/guides/syntax.html).
-
-<div class="noteBox info">The [searchable reference page](/reference) gives you a complete listing of Atomic classes and their supported values.</div>
-
-## Aliases
-
-Atomic CSS provides aliases for most properties [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a> that rely on [Functional Notation](http://www.w3.org/TR/css3-values/#functional-notation):
-
+<h2 id="aliases">Aliases</h2>
+<p>Atomic CSS provides aliases for most properties <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a> that rely on <a href="http://www.w3.org/TR/css3-values/#functional-notation">Functional Notation</a>:</p>
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Aliases for values based on functional notation</caption>
     <thead>
@@ -74,11 +67,11 @@ Atomic CSS provides aliases for most properties [\[1\]](#footnote)<a id="footnot
             <td class="Va(t) P(10px)"><code>filter:sepia(50%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix(<b class="hljs-string">&lt;custom value></b>)</code> <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-2" class="D(ib)"></a></b></th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix(<b class="hljs-string">&lt;custom value&gt;</b>)</code> <b class="Fw(n)"><a href="#footnote">[2]</a><a id="footnote-2" class="D(ib)"></a></b></th>
             <td class="Va(t) P(10px)"><code>transform:matrix(1.2,.3,.4,1.5,40,10)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix3d(<b class="hljs-string">&lt;custom value></b>)</code> <b class="Fw(n)">[\[2\]](#footnote)<a id="footnote-3" class="D(ib)"></a></b></th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix3d(<b class="hljs-string">&lt;custom value&gt;</b>)</code> <b class="Fw(n)"><a href="#footnote">[2]</a><a id="footnote-3" class="D(ib)"></a></b></th>
             <td class="Va(t) P(10px)"><code>transform:matrix(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
@@ -152,10 +145,10 @@ Atomic CSS provides aliases for most properties [\[1\]](#footnote)<a id="footnot
     </tbody>
 </table>
 
-<div class="noteBox info">It is possible to apply multiple filters at once by creating a custom value or class in Atomizer's configuration.  For example:
+<div class="noteBox info">It is possible to apply multiple filters at once by creating a custom value or class in Atomizer&#39;s configuration.  For example:
 
-<pre class="Fs(n)"><code class="lang-javascript"><span class="hljs-string">'custom'</span>: {
-    <span class="hljs-string">'Fil(myCustomFilter)'</span>: 'contrast(150%) brightness(10%)'
+<pre class="Fs(n)"><code class="lang-javascript"><span class="hljs-string">&#39;custom&#39;</span>: {
+    <span class="hljs-string">&#39;Fil(myCustomFilter)&#39;</span>: &#39;contrast(150%) brightness(10%)&#39;
 }
 </code></pre>
 </div>
@@ -163,6 +156,6 @@ Atomic CSS provides aliases for most properties [\[1\]](#footnote)<a id="footnot
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>Aliases use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, there are not yet aliases for `calc()`, `rgba()`, etc. [\[↩\]](#footnote-1).</li>
-    <li>Use the Atomizer config object to set custom values for `Matrix()` and `Matrix3d()`. [\[↩\]](#footnote-2).</li>
+    <li>Aliases use the function name whenever it is bound to a <code>property</code>; for example <code>Rotate()</code> for <code>transform</code> or <code>Blur()</code> for <code>filter</code>. However, there are not yet aliases for <code>calc()</code>, <code>rgba()</code>, etc. <a href="#footnote-1">[↩]</a>.</li>
+    <li>Use the Atomizer config object to set custom values for <code>Matrix()</code> and <code>Matrix3d()</code>. <a href="#footnote-2">[↩]</a>.</li>
 </ol>

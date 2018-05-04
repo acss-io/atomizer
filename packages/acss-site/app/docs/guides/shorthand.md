@@ -1,4 +1,8 @@
-# Shorthand notation
+---
+section: docs
+layout: docs
+title: Shorthand notation
+---
 
 **Atomic CSS generally does not offer shorthand notation** (e.g., `M(5px,0,0,0)`) because this would increase the number of selectors or declarations in the style sheet (i.e., create bloat.)
 

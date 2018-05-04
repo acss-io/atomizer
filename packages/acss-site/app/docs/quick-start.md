@@ -1,4 +1,8 @@
-# Quick Start
+---
+section: docs
+layout: docs
+title: Quick Start
+---
 
 This page is here to help you quickly set up an example site powered by [Atomizer](/guides/atomizer.html).
 

@@ -4,112 +4,89 @@ layout: docs
 title: Atomizer tool
 ---
 
-[Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating Atomic CSS stylesheets.
-
-Atomizer creates CSS style declarations based on Atomic classes it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* [\[1\]](#footnote)<a id="footnote-1" class="D(ib)"></a>.
-
-For example, if your project was a single page containing:
-
-```html
-<div class="D(b) Va(t) Fz(20px)">Hello World!</div>
-```
-
-Atomizer would create a style sheet containing these rules:
-
-```css
-.D(b) {
-    display: block;
-}
-.Va(t) {
-    vertical-align: top;
-}
-.Fz(20px) {
-    font-size: 20px;
-}
-```
+<p><a href="https://github.com/acss-io/atomizer">Atomizer</a> is a tool (<a href="https://www.npmjs.com/package/atomizer">npm</a>, <a href="https://github.com/acss-io/atomizer">github</a>) for generating Atomic CSS stylesheets.</p>
+<p>Atomizer creates CSS style declarations based on Atomic classes it finds in your project. This means that your style sheets are always up-to-date <em>without the need for writing a single CSS declaration manually</em> <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a>.</p>
+<p>For example, if your project was a single page containing:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"D(b) Va(t) Fz(20px)"</span>&gt;Hello World!&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p>Atomizer would create a style sheet containing these rules:</p>
+<pre><code class="lang-css"><span class="hljs-class">.D</span>(<span class="hljs-tag">b</span>) <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+}</span>
+<span class="hljs-class">.Va</span>(<span class="hljs-tag">t</span>) <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">vertical-align</span>:<span class="hljs-value"> top</span></span>;
+}</span>
+<span class="hljs-class">.Fz</span>(20<span class="hljs-tag">px</span>) <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">20px</span></span></span>;
+}</span>
+</code></pre>
 <p class="noteBox info">For the sake of readability, CSS classes on this page <em>do not</em> include the escape character (<code>\</code>) where it should be needed.</p>
 
-If, for example, you decided to update the classes like below:
-
-```html
-<div class="Va(t) Fz(18px)">Hello World!</div>
-```
-
-Then Atomizer would update the style sheet (removing `D(b)` and replacing `Fz(20px)` with `Fz(18px)`) to match exactly *what is being used* inside the project:
-
-```css
-.Va(t) {
-    vertical-align: top;
-}
-.Fz(18px) {
-    font-size: 18px;
-}
-```
-
-## Integrations
-
-### Build
-
-So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other task runner/build system you'd like.
-
-Here's a few open source projects we know about:
-
-  * Grunt: [grunt-atomizer](https://www.npmjs.com/package/grunt-atomizer) (Created by the Atomizer team)
-  * Webpack: [atomic-loader](https://www.npmjs.com/package/atomic-loader)
-  * Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
-  * Clojure : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) ([Boot-Task](https://github.com/boot-clj/boot) for clojurescript )
-
-If you create your own, please [let us know!](/support.html)
-
-#### Example: Grunt
-
-If you're using the [Grunt](http://gruntjs.com/) task runner, you can use [grunt-atomizer](http://github.com/acss-io/grunt-atomizer) to configure and execute Atomizer:
-
-```javascript
-// use grunt-contrib-watch for changes and run tasks
+<p>If, for example, you decided to update the classes like below:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"Va(t) Fz(18px)"</span>&gt;Hello World!&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p>Then Atomizer would update the style sheet (removing <code>D(b)</code> and replacing <code>Fz(20px)</code> with <code>Fz(18px)</code>) to match exactly <em>what is being used</em> inside the project:</p>
+<pre><code class="lang-css"><span class="hljs-class">.Va</span>(<span class="hljs-tag">t</span>) <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">vertical-align</span>:<span class="hljs-value"> top</span></span>;
+}</span>
+<span class="hljs-class">.Fz</span>(18<span class="hljs-tag">px</span>) <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">font-size</span>:<span class="hljs-value"> <span class="hljs-number">18px</span></span></span>;
+}</span>
+</code></pre>
+<h2 id="integrations">Integrations</h2>
+<h3 id="build">Build</h3>
+<p>So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other task runner/build system you&#39;d like.</p>
+<p>Here&#39;s a few open source projects we know about:</p>
+<ul>
+<li>Grunt: <a href="https://www.npmjs.com/package/grunt-atomizer">grunt-atomizer</a> (Created by the Atomizer team)</li>
+<li>Webpack: <a href="https://www.npmjs.com/package/atomic-loader">atomic-loader</a></li>
+<li>Gulp: <a href="https://www.npmjs.com/package/gulp-atomizer">gulp-atomizer</a></li>
+<li>Clojure : <a href="https://github.com/azizzaeny/boot-atomizer">boot-atomizer</a> (<a href="https://github.com/boot-clj/boot">Boot-Task</a> for clojurescript )</li>
+</ul>
+<p>If you create your own, please <a href="/support.html">let us know!</a></p>
+<h4 id="example-grunt">Example: Grunt</h4>
+<p>If you&#39;re using the <a href="http://gruntjs.com/">Grunt</a> task runner, you can use <a href="http://github.com/acss-io/grunt-atomizer">grunt-atomizer</a> to configure and execute Atomizer:</p>
+<pre><code class="lang-javascript">// use grunt-contrib-watch <span class="hljs-keyword">for</span> changes <span class="hljs-operator">and</span> run tasks
 watch: {
     dev: {
         options: {
-            livereload: true
+            livereload: <span class="hljs-constant">true</span>
         },
-        files: [
-            './examples/**/*.html'
+        <span class="hljs-built_in">files</span>: [
+            <span class="hljs-string">'./examples/**/*.html'</span>
         ],
-        tasks: ['atomizer']
+        tasks: [<span class="hljs-string">'atomizer'</span>]
     }
 },
 atomizer: {
     options: {
-        // set a context to increase specificity
-        namespace: '#atomic',
-        // pass a base config file
-        configFile: './config/manual-config.js',
-        // augment classNames in the base config file
+       <span class="hljs-comment"> // set a context to increase specificity</span>
+        namespace: <span class="hljs-string">'#atomic'</span>,
+       <span class="hljs-comment"> // pass a base config file</span>
+        configFile: <span class="hljs-string">'./config/manual-config.js'</span>,
+       <span class="hljs-comment"> // augment classNames in the base config file</span>
         config: {
-            classNames: ['D(b)']
+            classNames: [<span class="hljs-string">'D(b)'</span>]
         }
-        // the final config file used by the tool will be written
-        // in the following file:
-        configOutput: 'tmp/config.json',
+       <span class="hljs-comment"> // the final config file used by the tool will be written</span>
+       <span class="hljs-comment"> // in the following file:</span>
+        configOutput: <span class="hljs-string">'tmp/config.json'</span>,
     },
-    files: [
+    <span class="hljs-built_in">files</span>: [
         {
-            // parse your project's html files to automatically add
-            // found Atomic classes to your config
-            src: ['./src/*.html'],
-            // generate the css in the file below
-            dest: './atomic.css'
+           <span class="hljs-comment"> // parse your project's html files to automatically add</span>
+           <span class="hljs-comment"> // found Atomic classes to your config</span>
+            src: [<span class="hljs-string">'./src/*.html'</span>],
+           <span class="hljs-comment"> // generate the css in the file below</span>
+            dest: <span class="hljs-string">'./atomic.css'</span>
         }
     ]
 }
-```
-
-### Web Tools
-
-For a simple web interface to help you learn about Atomizer and Atomic CSS, check out <a href="https://pankajparashar.com/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or Atomic classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
-
+</code></pre>
+<h3 id="web-tools">Web Tools</h3>
+<p>For a simple web interface to help you learn about Atomizer and Atomic CSS, check out <a href="https://pankajparashar.com/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or Atomic classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>This is true for non-custom classes [\[↩\]](#footnote-1).</li>
+    <li>This is true for non-custom classes <a href="#footnote-1">[↩]</a>.</li>
 </ol>
