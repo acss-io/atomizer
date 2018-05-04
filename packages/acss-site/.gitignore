@@ -39,3 +39,7 @@ grasshopper.json
 .rebooted
 .idea
 .DS_Store
+
+# github pages
+/docs/_site
+

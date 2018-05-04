@@ -642,6 +642,9 @@ a[class*=LineClamp]:after {
   .W\(25\%\)--sm {
     width: 25%;
   }
+  .W\(49\%\)--sm {
+    width: 49%;
+  }
   .W\(50\%\)--sm {
     width: 50%;
   }
