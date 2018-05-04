@@ -4,91 +4,67 @@ layout: docs
 title: Responsive Web Design
 ---
 
-You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomic classes through [the breakpoint suffix](/guides/syntax.html#-lt-breakpoint_identifier-) or automatic breakpoints.
-
-## Setting up Breakpoints
-
-Pick the breakpoint names and media queries you want, for example:
-
-
-```json
-'breakPoints': {
-    'sm': '@media screen and (min-width: 380px)',
-    'md': '@media screen and (min-width: 600px)',
-    'lg': '@media screen and (min-width: 900px)'
+<p>You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomic classes through <a href="/guides/syntax.html#-lt-breakpoint_identifier-">the breakpoint suffix</a> or automatic breakpoints.</p>
+<h2 id="setting-up-breakpoints">Setting up Breakpoints</h2>
+<p>Pick the breakpoint names and media queries you want, for example:</p>
+<pre><code class="lang-json"><span class="hljs-string">'breakPoints'</span>: {
+    <span class="hljs-string">'sm'</span>: <span class="hljs-string">'@media screen and (min-width: 380px)'</span>,
+    <span class="hljs-string">'md'</span>: <span class="hljs-string">'@media screen and (min-width: 600px)'</span>,
+    <span class="hljs-string">'lg'</span>: <span class="hljs-string">'@media screen and (min-width: 900px)'</span>
 }
-```
-
-Breakpoints may be named anything you want, as long as the characters are valid for use in  classnames.
-
-## Usage
-
-There are two ways to make use of breakpoints in your Atomic classes: explicitly and automatically.
-
-### Explicit Breakpoints
-
-Append `--<breakpoint name>` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create the following rules in the related media queries:
-
-```css
-@media screen and (min-width:380px) {
-    #atomic .D(b)--sm {
-        display: block;
-    }
+</code></pre>
+<p>Breakpoints may be named anything you want, as long as the characters are valid for use in  classnames.</p>
+<h2 id="usage">Usage</h2>
+<p>There are two ways to make use of breakpoints in your Atomic classes: explicitly and automatically.</p>
+<h3 id="explicit-breakpoints">Explicit Breakpoints</h3>
+<p>Append <code>--&lt;breakpoint name&gt;</code> to any Atomic class to associate that styling with the breakpoint of your choice. For example, <code>D(b)--sm</code> and <code>C(#000)--md</code> will create the following rules in the related media queries:</p>
+<pre><code class="lang-css"><span class="hljs-at_rule">@<span class="hljs-keyword">media</span> screen and (min-width:<span class="hljs-number">380px</span>) </span>{
+    <span class="hljs-id">#atomic</span> <span class="hljs-class">.D</span>(<span class="hljs-tag">b</span>)<span class="hljs-tag">--sm</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> block</span></span>;
+    }</span>
 }
 
-@media screen and (min-width:680px) {
-    #atomic .C(#000)--md {
-        color: #000;
-    }
+<span class="hljs-at_rule">@<span class="hljs-keyword">media</span> screen and (min-width:<span class="hljs-number">680px</span>) </span>{
+    <span class="hljs-id">#atomic</span> <span class="hljs-class">.C</span>(<span class="hljs-id">#000</span>)<span class="hljs-tag">--md</span> <span class="hljs-rules">{
+        <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-hexcolor">#000</span></span></span>;
+    }</span>
 }
-```
-
-### Automatic Breakpoints
-
-[Variable values](/guides/syntax.html#variable-values) and [custom classes](/guides/atomic-classes.html#custom-classes) may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the [breakpoint identifier](/guides/syntax.html#-lt-breakpoint_identifier-) suffix on your class.
-
-Simply set the value of your variable or custom class identifier to an object containing breakpoint names as the keys:
-
-```javascript
-'custom': {
-    'P(logo)': {
-        'default': '10px',
-        'sm': '12px',
-        'md': '14px',
-        'lg': '20px'
+</code></pre>
+<h3 id="automatic-breakpoints">Automatic Breakpoints</h3>
+<p><a href="/guides/syntax.html#variable-values">Variable values</a> and <a href="/guides/atomic-classes.html#custom-classes">custom classes</a> may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the <a href="/guides/syntax.html#-lt-breakpoint_identifier-">breakpoint identifier</a> suffix on your class.</p>
+<p>Simply set the value of your variable or custom class identifier to an object containing breakpoint names as the keys:</p>
+<pre><code class="lang-javascript"><span class="hljs-string">'custom'</span>: {
+    <span class="hljs-string">'P(logo)'</span>: {
+        <span class="hljs-string">'default'</span>: <span class="hljs-string">'10px'</span>,
+        <span class="hljs-string">'sm'</span>: <span class="hljs-string">'12px'</span>,
+        <span class="hljs-string">'md'</span>: <span class="hljs-string">'14px'</span>,
+        <span class="hljs-string">'lg'</span>: <span class="hljs-string">'20px'</span>
     },
-    'gutter': {
-        'default': '1em',
-        'sm': '3em'
+    <span class="hljs-string">'gutter'</span>: {
+        <span class="hljs-string">'default'</span>: <span class="hljs-string">'1em'</span>,
+        <span class="hljs-string">'sm'</span>: <span class="hljs-string">'3em'</span>
     }
 }
-```
-
-In this example, the class `P(logo)` will style a box with a `padding` of `10px` below the first breakpoint, but then this padding will become:
-
+</code></pre>
+<p>In this example, the class <code>P(logo)</code> will style a box with a <code>padding</code> of <code>10px</code> below the first breakpoint, but then this padding will become:</p>
 <ul class="ul-list">
-    <li>`12px` inside the `sm` breakpoint</li>
-    <li>`14px` inside the `md` breakpoint</li>
-    <li>`20px` inside the `lg` breakpoint</li>
+    <li><code>12px</code> inside the <code>sm</code> breakpoint</li>
+    <li><code>14px</code> inside the <code>md</code> breakpoint</li>
+    <li><code>20px</code> inside the <code>lg</code> breakpoint</li>
 </ul>
 
-Likewise, any class that uses the variable `gutter` will receive different values depending on the currently active breakpoint.
-
-## Examples
-
-When using explicit breakpoints, use multiple classes to have styles applied in the context of various breakpoints, for example:
-
-```html
-   <div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.5)">1</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.6)">2</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.8)">3</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae)">4</div>
-```
-
+<p>Likewise, any class that uses the variable <code>gutter</code> will receive different values depending on the currently active breakpoint.</p>
+<h2 id="examples">Examples</h2>
+<p>When using explicit breakpoints, use multiple classes to have styles applied in the context of various breakpoints, for example:</p>
+<pre><code class="lang-html">   <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.5)"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.6)"</span>&gt;</span>2<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.8)"</span>&gt;</span>3<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span><span class="hljs-comment">&lt;!--
+--&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae)"</span>&gt;</span>4<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
 <ul class="ul-list">
-    <li>Below 380px, the boxes are displayed on top of each other (`div` are block-level elements)</li>
-    <li>Above 380px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)</li>
-    <li>Above 900px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)</li>
+    <li>Below 380px, the boxes are displayed on top of each other (<code>div</code> are block-level elements)</li>
+    <li>Above 380px, the boxes are displayed on 2 rows, 2 by 2 (<code>D(ib)--sm</code> + <code>W(50%)--sm</code>)</li>
+    <li>Above 900px, the boxes are displayed side-by-side, on a single row (<code>D(ib)--sm</code> + <code>W(25%)--lg</code>)</li>
 </ul>
 
 <p class="noteBox info">The breakpoints for the example below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>

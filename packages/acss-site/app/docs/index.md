@@ -1,10 +1,13 @@
-##
+---
+section: home
+layout: home
+---
 
-<div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(50%)--sm">
+<div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(49%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">CSS is painful</h2>
 <p>CSS is a critical piece of the frontend toolkit, but it's hard to manage, especially in large projects. Styles are written in a global scope, which is narrowed through complex selectors. Specificity issues, redundancy, bloat, and maintenance can become a nightmare. And modular, component-based projects only add to the complexity. Atomic CSS enables you to style directly in your components, avoiding the headache of managing stylesheets.</p>
 </div><!--
---><div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(50%)--sm">
+--><div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(49%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">Style with class</h2>
 <p>Most approaches to styling inside components rely on inline styles, which are limiting. Atomic CSS, like inline styles, offers single-purpose units of style, but applied via *classes*. This allows for the use of handy things such as media queries, contextual styling and pseudo-classes. The lower specificity of classes also allows for easier overrides. And the short, predictable classnames are highly reusable and compress well.</p>
 </div><!--
@@ -122,7 +125,6 @@
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
-
 </div>
 
 ## Grids

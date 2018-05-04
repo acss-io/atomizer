@@ -1,4 +1,8 @@
-# Grid system
+---
+section: docs
+layout: docs
+title: Grid system
+---
 
 Atomic CSS does not come with an _out-of-the-box_ grid system. Instead, you use any property you want to build grids *the way **you** want*.
 

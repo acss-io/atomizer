@@ -1,4 +1,8 @@
-# Responsive Web Design
+---
+section: docs
+layout: docs
+title: Responsive Web Design
+---
 
 You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomic classes through [the breakpoint suffix](/guides/syntax.html#-lt-breakpoint_identifier-) or automatic breakpoints.
 

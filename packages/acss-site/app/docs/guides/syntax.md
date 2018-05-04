@@ -1,4 +1,8 @@
-# Class syntax
+---
+section: docs
+layout: docs
+title: Class syntax
+--- 
 
 Atomic and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.
 
