@@ -8,7 +8,6 @@ var webpack = require('webpack');
 module.exports = function(grunt) {
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
-    grunt.loadTasks('./grunt/tasks');
 
     grunt.initConfig({
 
@@ -47,7 +46,11 @@ module.exports = function(grunt) {
                 },
                 files: [
                     {
-                        src: ['./app/components/*.jsx', './app/docs/**/*.md', './docs/**/*.md', './docs/_layouts/**/*', './docs/_includes/**/*'],
+                        src: [
+                            './app/components/**/*.jsx',
+                            './docs/**/*.md',
+                            './docs/**/*.html'
+                        ],
                         dest: '<%= project.docs %>/assets/atomic.css'
                     }
                 ]
@@ -77,16 +80,6 @@ module.exports = function(grunt) {
                     dest: '<%= project.docs %>/assets/ie.css'
                 }]
             },
-        },
-
-        mark: {
-            docs: {
-                options: {
-                    filterPath: './app/docs'
-                },
-                src: ['./app/docs/**/*.md'],
-                dest: './docs'
-            }
         },
 
         postcss: {
@@ -184,7 +177,6 @@ module.exports = function(grunt) {
 
     // dev
     grunt.registerTask('default', [
-        'mark',
         'atomizer:docs',
         'cssmin:docs',
         'postcss:docs',
@@ -192,7 +184,6 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('build', [
-        'mark',
         'atomizer:docs',
         'cssmin:docs',
         'postcss:docs',

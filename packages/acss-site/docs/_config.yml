@@ -7,4 +7,4 @@ defaults:
       path: ""
       type: "pages"
     values:
-      githubDocsPath: "https://github.com/acss-io/acss-site/tree/master/app/docs/"
+      githubDocsPath: "https://github.com/acss-io/acss-site/tree/master/docs/"
