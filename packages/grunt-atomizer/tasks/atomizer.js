@@ -26,7 +26,7 @@ module.exports = function (grunt) {
      * @void
      */
     function validateConfig(config, configObjPath) {
-        if (grunt.util.kindOf(config) !== 'object') {            
+        if (grunt.util.kindOf(config) !== 'object') {
             grunt.fail.warn('`' + configObjPath + '` must be an object.');
         }
     }
@@ -52,7 +52,7 @@ module.exports = function (grunt) {
         if (options.configFile && grunt.file.exists(options.configFile)) {
             configFile = require(path.resolve(options.configFile));
             validateConfig(configFile, 'options.configFile');
-            gruntConfig = _.clone(configFile, true);
+            gruntConfig = _.cloneDeep(configFile);
         }
 
         if (options.config) {
