@@ -95,6 +95,7 @@ var css = atomizer.getCss(finalConfig);
    * Metalsmith : [metalsmith-atomizer](https://github.com/tests-always-included/metalsmith-atomizer)
    * Webpack    : [webpack-atomizer-loader](https://github.com/acss-io/webpack-atomizer-loader)
    * Boot-clj   : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
+   * Ember      : [ember-cli-atomizer](https://github.com/nag5000/ember-cli-atomizer)
 
 
 ## Developer docs
