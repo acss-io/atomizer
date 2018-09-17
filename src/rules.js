@@ -2747,7 +2747,7 @@ module.exports = [
         "type": "pattern",
         "name": "Vertical align",
         "matcher": "Va",
-        "allowParamToValue": false,
+        "allowParamToValue": true,
         "styles": {
             "vertical-align": "$0"
         },
