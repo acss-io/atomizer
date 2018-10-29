@@ -67,7 +67,7 @@ title: Class syntax
     <li><code>a</code> for <code>::after</code></li>
     <li><code>fl</code> for <code>::first-letter</code></li>
     <li><code>fli</code> for <code>::first-line</code></li>
-    <li><code>pl</code> for <code>::placeholder</code></li>
+    <li><code>ph</code> for <code>::placeholder</code></li>
 </ul>
 
 <p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it&#39;s not possible to use the pseudo-element syntax with these browsers.</p>
