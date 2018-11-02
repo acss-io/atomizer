@@ -215,6 +215,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             // parse them and return a valid value
             values = values.split(',').map(function (value, index) {
                 var matchVal = Grammar.matchValue(value);
+                if (matchVal == null) {
+                    console.warn('Error: Invalid value "' + value + '".');
+                    return null;
+                }
                 var propAndValue;
 
                 if (matchVal.number) {
