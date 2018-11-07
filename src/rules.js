@@ -41,6 +41,7 @@ module.exports = [
         "id": "animation",
         "name": "Animation",
         "matcher": "Anim",
+        "shorthand": true,
         "allowParamToValue": true,
         "styles": {
             "animation": "$0"
@@ -197,6 +198,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border",
         "matcher": "Bd",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "border": "$0"
@@ -235,6 +237,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border top",
         "matcher": "Bdt",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "border-top": "$0"
@@ -245,6 +248,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border end",
         "matcher": "Bdend",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "border-__END__": "$0"
@@ -255,6 +259,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border bottom",
         "matcher": "Bdb",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "border-bottom": "$0"
@@ -265,6 +270,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border start",
         "matcher": "Bdstart",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "border-__START__": "$0"
@@ -280,6 +286,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border color",
         "matcher": "Bdc",
+        "shorthand": true,
         "allowParamToValue": true,
         "styles": {
             "border-color": "$0"
@@ -357,6 +364,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border style",
         "matcher": "Bds",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "border-style": "$0"
@@ -472,6 +480,7 @@ module.exports = [
         "type": "pattern",
         "name": "Border width",
         "matcher": "Bdw",
+        "shorthand": true,
         "allowParamToValue": true,
         "styles": {
             "border-width": "$0"
@@ -553,6 +562,7 @@ module.exports = [
         "name": "Border radius",
         "matcher": "Bdrs",
         "allowParamToValue": true,
+        "shorthand": true,
         "styles": {
             "border-radius": "$0"
         }
@@ -607,6 +617,7 @@ module.exports = [
         "type": "pattern",
         "name": "Background",
         "matcher": "Bg",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "background": "$0"
@@ -1116,6 +1127,7 @@ module.exports = [
         "type": "pattern",
         "name": "Flex (deprecated)",
         "matcher": "Flx",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "flex": "$0"
@@ -1129,6 +1141,7 @@ module.exports = [
         "type": "pattern",
         "name": "Flex",
         "matcher": "Fx",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "flex": "$0"
@@ -1259,6 +1272,7 @@ module.exports = [
         "type": "pattern",
         "name": "Flex flow (deprecated)",
         "matcher": "Flf",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "flex-flow": "$0"
@@ -1667,6 +1681,7 @@ module.exports = [
         "type": "pattern",
         "name": "Margin (all edges)",
         "matcher": "M",
+        "shorthand": true,
         "allowParamToValue": true,
         "styles": {
             "margin": "$0"
@@ -1856,6 +1871,7 @@ module.exports = [
         "type": "pattern",
         "name": "Outline",
         "matcher": "O",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "outline": "$0"
@@ -1949,6 +1965,7 @@ module.exports = [
         "type": "pattern",
         "name": "Overflow",
         "matcher": "Ov",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "overflow": "$0"
@@ -2028,6 +2045,7 @@ module.exports = [
         "type": "pattern",
         "name": "Padding (all edges)",
         "matcher": "P",
+        "shorthand": true,
         "allowParamToValue": true,
         "styles": {
             "padding": "$0"
@@ -2235,6 +2253,7 @@ module.exports = [
         "type": "pattern",
         "name": "Text decoration",
         "matcher": "Td",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "text-decoration": "$0"
@@ -2656,6 +2675,7 @@ module.exports = [
         "type": "pattern",
         "name": "Transition",
         "matcher": "Trs",
+        "shorthand": true,
         "allowParamToValue": false,
         "styles": {
             "transition": "$0"
