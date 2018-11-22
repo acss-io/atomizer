@@ -7,6 +7,8 @@
 [![Dependency Status](https://david-dm.org/acss-io/atomizer.svg)](https://david-dm.org/acss-io/atomizer)
 [![devDependency Status](https://david-dm.org/acss-io/atomizer/dev-status.svg)](https://david-dm.org/acss-io/atomizer#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/acss-io/atomizer/badge.svg?branch=master)](https://coveralls.io/github/acss-io/atomizer?branch=master)
+[![Code Quality: Javascript](https://img.shields.io/lgtm/grade/javascript/g/acss-io/atomizer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/acss-io/atomizer/context:javascript)
+[![Total Alerts](https://img.shields.io/lgtm/alerts/g/acss-io/atomizer.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/acss-io/atomizer/alerts)
 
 
 ## Overview
