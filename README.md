@@ -34,6 +34,7 @@ Usage: atomizer [options] [path]
     -V, --version                       output the version number
     -R, --recursive                     process all files recursively in the path.
     -c, --config [file]                 source config file if any.
+    -e, --exclude [pattern]             pattern to exclude file to be scanned
     -r, --rules [file]                  custom rules file (argument may be passed multiple times)
     -o, --outfile [file]                destination config file.
     -n, --namespace [namespace]         adds the given namespace to all generated Atomic CSS selectors.
@@ -47,6 +48,7 @@ Example:
 
 ```
 atomizer -o atomic.css ./site/*.html
+atomizer -o atomic.css ./site/*.html -e *-0.html
 atomizer -c config.js -R ./site/ > atomic.css
 atomizer -c config.js -n \#myrootclass > atomic.css
 ```
