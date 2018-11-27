@@ -51,6 +51,10 @@ if (process.argv.length <= 2) {
 
 var atomizer = new Atomizer({ verbose: !!program.verbose });
 
+function warn(output) {
+  if (!program.quiet) console.warn(outout);
+}
+
 function parseFiles (files, recursive, dir) {
     var classNames = [];
 
@@ -78,18 +82,18 @@ function parseFile (file, recursive, dir) {
             if (program.exclude) {
               isExcluded = some(program.exclude, function excludeFile(value) {
                 return minimatch(filepath, value, { matchBase: true });
-              })
+              });
             }
             if (!isExcluded) {
-              if (!program.quiet) console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+              warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
               fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
               classNames = atomizer.findClassNames(fileContents);
             } else {
-              if (!program.quiet) console.warn('Excluding file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+              warn('Excluding file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
             }
         } else if (stat.isDirectory()) {
             if (!dir || dir && recursive) {
-                if (!program.quiet) console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
+                warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
                 classNames = parseFiles(fs.readdirSync(filepath), recursive, filepath);
             }
         }
@@ -124,7 +128,7 @@ if (rulesFiles) {
             throw new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.');
             return false;
         }
-        if (!program.quiet) console.warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
+        warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
         atomizer.addRules(require(path.resolve(rulesFile)));
     });
 }
