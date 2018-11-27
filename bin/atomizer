@@ -10,12 +10,14 @@
 
 process.title = 'atomizer';
 
-var path = require('path');
-var fs = require('fs');
 var chalk = require('chalk');
+var fs = require('fs');
+var minimatch = require('minimatch');
+var path = require('path');
 var program = require('commander');
-var Atomizer = require('../src/atomizer');
-var _ = require('lodash');
+var some = require('lodash/some');
+var union = require('lodash/union');
+
 var content = '';
 var config = {};
 var classnames = [];
@@ -30,6 +32,7 @@ program
   .usage('[options] [path]')
   .option('-R, --recursive', 'process all files recursively in the path')
   .option('-c, --config [file]', 'source config file')
+  .option('-e, --exclude [pattern]', 'excluded file pattern', collect, [])
   .option('-r, --rules [file]', 'custom rules file (argument may be passed multiple times)', collect, [])
   .option('-o, --outfile [file]', 'destination config file')
   .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
@@ -69,9 +72,19 @@ function parseFile (file, recursive, dir) {
         stat = fs.statSync(filepath);
 
         if (stat.isFile()) {
-            console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
-            fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
-            classNames = atomizer.findClassNames(fileContents);
+            var isExcluded = false;
+            if (program.exclude) {
+              isExcluded = some(program.exclude, function excludeFile(value) {
+                return minimatch(filepath, value, { matchBase: true });
+              })
+            }
+            if (!isExcluded) {
+              console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+              fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
+              classNames = atomizer.findClassNames(fileContents);
+            } else {
+              console.warn('Excluding file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+            }
         } else if (stat.isDirectory()) {
             if (!dir || dir && recursive) {
                 console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
