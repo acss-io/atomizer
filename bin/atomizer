@@ -59,7 +59,7 @@ function parseFiles (files, recursive, dir) {
     var classNames = [];
 
     for (var i=0, iLen=files.length; i < iLen; i++) {
-        classNames = _.union(classNames, parseFile(files[i], recursive, dir));
+        classNames = union(classNames, parseFile(files[i], recursive, dir));
     }
 
     return classNames;
