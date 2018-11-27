@@ -51,8 +51,8 @@ if (process.argv.length <= 2) {
 
 var atomizer = new Atomizer({ verbose: !!program.verbose });
 
-function warn(output) {
-  if (!program.quiet) console.warn(outout);
+function warn() {
+  if (!program.quiet) console.warn.apply(console, arguments);
 }
 
 function parseFiles (files, recursive, dir) {
