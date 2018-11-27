@@ -18,6 +18,7 @@ var program = require('commander');
 var some = require('lodash/some');
 var union = require('lodash/union');
 
+var Atomizer = require('../src/atomizer');
 var content = '';
 var config = {};
 var classnames = [];
