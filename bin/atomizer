@@ -10,12 +10,15 @@
 
 process.title = 'atomizer';
 
-var path = require('path');
-var fs = require('fs');
 var chalk = require('chalk');
+var fs = require('fs');
+var minimatch = require('minimatch');
+var path = require('path');
 var program = require('commander');
+var some = require('lodash/some');
+var union = require('lodash/union');
+
 var Atomizer = require('../src/atomizer');
-var _ = require('lodash');
 var content = '';
 var config = {};
 var classnames = [];
@@ -34,6 +37,7 @@ program
   .option('-o, --outfile [file]', 'destination config file')
   .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
   .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors')
+  .option('--exclude [pattern]', 'excluded file pattern', collect, [])
   .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
   .option('--ie', 'adds old IE hacks to the output')
   .option('--verbose', 'show additional log info (warnings)')
@@ -47,11 +51,15 @@ if (process.argv.length <= 2) {
 
 var atomizer = new Atomizer({ verbose: !!program.verbose });
 
+function warn() {
+  if (!program.quiet) console.warn.apply(console, arguments);
+}
+
 function parseFiles (files, recursive, dir) {
     var classNames = [];
 
     for (var i=0, iLen=files.length; i < iLen; i++) {
-        classNames = _.union(classNames, parseFile(files[i], recursive, dir));
+        classNames = union(classNames, parseFile(files[i], recursive, dir));
     }
 
     return classNames;
@@ -70,12 +78,22 @@ function parseFile (file, recursive, dir) {
         stat = fs.statSync(filepath);
 
         if (stat.isFile()) {
-            if (!program.quiet) console.warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
-            fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
-            classNames = atomizer.findClassNames(fileContents);
+            var isExcluded = false;
+            if (program.exclude && program.exclude.length) {
+              isExcluded = some(program.exclude, function excludeFile(value) {
+                return minimatch(filepath, value, {matchBase: true});
+              });
+            }
+            if (!isExcluded) {
+              warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+              fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
+              classNames = atomizer.findClassNames(fileContents);
+            } else {
+              warn('Excluding file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
+            }
         } else if (stat.isDirectory()) {
             if (!dir || dir && recursive) {
-                if (!program.quiet) console.warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
+                warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
                 classNames = parseFiles(fs.readdirSync(filepath), recursive, filepath);
             }
         }
@@ -110,7 +128,7 @@ if (rulesFiles) {
             throw new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.');
             return false;
         }
-        if (!program.quiet) console.warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
+        warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
         atomizer.addRules(require(path.resolve(rulesFile)));
     });
 }

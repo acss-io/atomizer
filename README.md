@@ -40,6 +40,7 @@ Usage: atomizer [options] [path]
     -H, --helpersNamespace [namespace]  adds the given namespace to all helper selectors.
     --rtl                               swaps `start` and `end` keyword replacements with `right` and `left`.
     --ie                                adds old IE hacks to the output.
+    --exclude [pattern]                 pattern to exclude file to be scanned
     --verbose                           show additional log info (warnings).
 ```
 
@@ -47,6 +48,7 @@ Example:
 
 ```
 atomizer -o atomic.css ./site/*.html
+atomizer -o atomic.css ./site/*.html --exclude=*-0.html
 atomizer -c config.js -R ./site/ > atomic.css
 atomizer -c config.js -n \#myrootclass > atomic.css
 ```
