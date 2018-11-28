@@ -81,7 +81,7 @@ function parseFile (file, recursive, dir) {
             var isExcluded = false;
             if (program.exclude && program.exclude.length) {
               isExcluded = some(program.exclude, function excludeFile(value) {
-                return minimatch(filepath.trim(), value, {matchBase: true});
+                return minimatch(filepath, value, {matchBase: true});
               });
             }
             if (!isExcluded) {
