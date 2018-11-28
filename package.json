@@ -30,12 +30,12 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "chalk": "^1.0.0",
+    "chalk": "^2.0.0",
     "commander": "^2.19.0",
     "lodash": "^4.17.11",
-    "minimatch": "^3.0.0",
+    "minimatch": "^3.0.4",
     "object-assign": "^4.0.0",
-    "xregexp": "^3.0.0"
+    "xregexp": "^4.0.0"
   },
   "devDependencies": {
     "chai": "^3.4.0",
