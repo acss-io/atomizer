@@ -133,22 +133,22 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
  * return sorted rule
  */
 Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
-  // 1. sort by alphabetical order
-  classNames = classNames.sort();
+    // 1. sort by alphabetical order
+    classNames = classNames.sort();
 
-  // 2. pseudo class: link > visited > focus > hover > active.
-  var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
-  function sortPseudoClassNames(a, b) {
-    function getMatchedIndex(value) {
-      return _.findIndex(pseudoStyleOrder, function findMatched(pseudoClass) {
-        return _.includes(value, pseudoClass);
-      });
+    // 2. pseudo class: link > visited > focus > hover > active.
+    var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
+    function sortPseudoClassNames(a, b) {
+        function getMatchedIndex(value) {
+            return _.findIndex(pseudoStyleOrder, function findMatched(pseudoClass) {
+                return _.includes(value, pseudoClass);
+            });
+          }
+        return getMatchedIndex(a) - getMatchedIndex(b);
     }
-    return getMatchedIndex(a) - getMatchedIndex(b);
-  }
-  classNames = classNames.sort(sortPseudoClassNames);
+    classNames = classNames.sort(sortPseudoClassNames);
 
-  return classNames;
+    return classNames;
 };
 
 /**
