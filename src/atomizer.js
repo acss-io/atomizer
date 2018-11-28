@@ -132,18 +132,19 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
 /**
  * return sorted rule
  */
-Atomizer.prototype.sortCSS = function(classNames /*string[]*/) {
-  function sortPseudoClassNames(a, b) {
+Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
+  function sortPseudoClassNames (a, b) {
     // pseudo element rule link > visited > focus > hover > active.
     var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
     var pseudoRegex = new RegExp('(' + pseudoStyleOrder.join('|') + ')');
 
+    // sort by alphabetical order if not found
     if (!pseudoRegex.test(a) && !pseudoRegex.test(b)) {
       return a.localeCompare(b);
     }
 
     function getMatchedIndex(value) {
-      return _.findIndex(pseudoStyleOrder, function(pseudoClass) {
+      return _.findIndex(pseudoStyleOrder, function findMatched(pseudoClass) {
         return value.indexOf(pseudoClass) > -1;
       });
     }
