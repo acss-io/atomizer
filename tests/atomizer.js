@@ -8,7 +8,7 @@ describe('Atomizer()', function () {
     describe('constructor()', function () {
         it('instantiate without any params', function () {
             var atomizer = new Atomizer();
-            expect(atomizer).to.be.an.Object;
+            expect(atomizer).to.be.an('object');
         });
         it('instantiate with the assigned params', function () {
             var options = {
