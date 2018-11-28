@@ -999,7 +999,7 @@ describe('Atomizer()', function () {
             ]);
         });
 
-        it('if two same pseudo clasme found, sort by alphabetical order', function () {
+        it('if two same pseudo class name found, sort by alphabetical order', function () {
             var atomizer = new Atomizer();
             var classNames = [
               'T(0):f',
