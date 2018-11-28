@@ -25,21 +25,24 @@
   "bin": {
     "atomizer": "./bin/atomizer"
   },
+  "engines" : {
+    "node" : ">=4.0"
+  },
   "preferGlobal": true,
   "dependencies": {
     "chalk": "^1.0.0",
-    "commander": "^2.8.0",
-    "lodash": "^4.0.0",
+    "commander": "^2.19.0",
+    "lodash": "^4.17.11",
     "minimatch": "^3.0.0",
     "object-assign": "^4.0.0",
     "xregexp": "^3.0.0"
   },
   "devDependencies": {
     "chai": "^3.4.0",
-    "coveralls": "^2.11.2",
+    "coveralls": "^3.0.2",
     "istanbul": "^0.4.0",
-    "jshint": "^2.6.3",
-    "mocha": "^2.2.1"
+    "jshint": "^2.9.6",
+    "mocha": "^5.2.0"
   },
   "repository": {
     "type": "git",
