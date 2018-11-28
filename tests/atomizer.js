@@ -975,7 +975,7 @@ describe('Atomizer()', function () {
     describe('sortCSS', function () {
         it('should return correct pseudo class name order', function () {
             var atomizer = new Atomizer();
-            const classNames = [
+            var classNames = [
               'D(b)',
               'C(#fff):li',
               'Op(1):h',
