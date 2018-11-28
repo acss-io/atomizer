@@ -79,7 +79,6 @@ function parseFile (file, recursive, dir) {
 
         if (stat.isFile()) {
             var isExcluded = false;
-            var isExcluded = false;
             if (program.exclude && program.exclude.length) {
               isExcluded = some(program.exclude, function excludeFile(value) {
                 return minimatch(filepath.trim(), value, {matchBase: true});
