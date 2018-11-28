@@ -125,8 +125,31 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
 Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:AtomizerConfig*/)/*:AtomizerConfig*/ {
     config = config || { classNames: [] };
     // merge classnames with config
-    config.classNames = _.union(classNames || [], config.classNames).sort();
+    config.classNames = this.sortCSS(_.union(classNames || [], config.classNames));
     return config;
+};
+
+/**
+ * return sorted rule
+ */
+Atomizer.prototype.sortCSS = function(classNames /*string[]*/) {
+  function sortPseudoClassNames(a, b) {
+    // pseudo element rule link > visited > focus > hover > active.
+    var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
+    var pseudoRegex = new RegExp('(' + pseudoStyleOrder.join('|') + ')');
+
+    if (!pseudoRegex.test(a) && !pseudoRegex.test(b)) {
+      return a.localeCompare(b);
+    }
+
+    function getMatchedIndex(value) {
+      return _.findIndex(pseudoStyleOrder, function(pseudoClass) {
+        return value.indexOf(pseudoClass) > -1;
+      });
+    }
+    return getMatchedIndex(a) - getMatchedIndex(b);
+  }
+  return classNames.sort(sortPseudoClassNames);
 };
 
 /**

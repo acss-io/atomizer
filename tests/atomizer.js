@@ -969,4 +969,34 @@ describe('Atomizer()', function () {
             expect(Atomizer.replaceConstants('test-__START__-__END__', true)).equal('test-right-left');
         });
     });
+    // -------------------------------------------------------
+    // sortCSS()
+    // -------------------------------------------------------
+    describe('sortCSS', function () {
+        it('should return correct pseudo class name order', function () {
+            var atomizer = new Atomizer();
+            const classNames = [
+              'D(b)',
+              'C(#fff):li',
+              'Op(1):h',
+              'C(#000):a',
+              'C(#123):vi',
+              'P(20px)',
+              'Mb(10px)',
+              'T(0)',
+              'Scale(200%):f'
+            ];
+            expect(atomizer.sortCSS(classNames)).to.deep.equal([
+              'D(b)',
+              'Mb(10px)',
+              'P(20px)',
+              'T(0)',
+              'C(#fff):li',
+              'C(#123):vi',
+              'Scale(200%):f',
+              'Op(1):h',
+              'C(#000):a'
+            ]);
+        });
+    });
 });
