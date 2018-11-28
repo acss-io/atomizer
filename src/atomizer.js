@@ -133,7 +133,7 @@ Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:Atomi
  * return sorted rule
  */
 Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
-  function sortPseudoClassNames (a, b) {
+  function sortPseudoClassNames(a, b) {
     // pseudo element rule link > visited > focus > hover > active.
     var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
     var pseudoRegex = new RegExp('(' + pseudoStyleOrder.join('|') + ')');
