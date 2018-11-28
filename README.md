@@ -48,7 +48,7 @@ Example:
 
 ```
 atomizer -o atomic.css ./site/*.html
-atomizer -o atomic.css ./site/*.html --exclude *-0.html
+atomizer -o atomic.css ./site/*.html --exclude=*-0.html
 atomizer -c config.js -R ./site/ > atomic.css
 atomizer -c config.js -n \#myrootclass > atomic.css
 ```
