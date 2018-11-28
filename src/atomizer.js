@@ -136,20 +136,19 @@ Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
   // 1. sort by alphabetical order
   classNames = classNames.sort();
 
-  // 2. pseudo class
+  // 2. pseudo class: link > visited > focus > hover > active.
+  var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
   function sortPseudoClassNames(a, b) {
-    // pseudo element rule link > visited > focus > hover > active.
-    var pseudoStyleOrder = [':li', ':vi', ':f', ':h', ':a'];
-
     function getMatchedIndex(value) {
       return _.findIndex(pseudoStyleOrder, function findMatched(pseudoClass) {
-        return value.indexOf(pseudoClass) > -1;
+        return _.includes(value, pseudoClass);
       });
     }
-
     return getMatchedIndex(a) - getMatchedIndex(b);
   }
-  return classNames.sort(sortPseudoClassNames);
+  classNames = classNames.sort(sortPseudoClassNames);
+
+  return classNames;
 };
 
 /**
