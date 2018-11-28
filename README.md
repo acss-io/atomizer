@@ -33,14 +33,14 @@ Usage: atomizer [options] [path]
     -h, --help                          output usage information
     -V, --version                       output the version number
     -R, --recursive                     process all files recursively in the path.
-    -c, --config [file]                 source config file if any.
-    -r, --rules [file]                  custom rules file (argument may be passed multiple times)
-    -o, --outfile [file]                destination config file.
-    -n, --namespace [namespace]         adds the given namespace to all generated Atomic CSS selectors.
-    -H, --helpersNamespace [namespace]  adds the given namespace to all helper selectors.
+    -c, --config=[file]                 source config file if any.
+    -r, --rules=[file]                  custom rules file (argument may be passed multiple times)
+    -o, --outfile=[file]                destination config file.
+    -n, --namespace=[namespace]         adds the given namespace to all generated Atomic CSS selectors.
+    -H, --helpersNamespace=[namespace]  adds the given namespace to all helper selectors.
     --rtl                               swaps `start` and `end` keyword replacements with `right` and `left`.
     --ie                                adds old IE hacks to the output.
-    --exclude [pattern]                 pattern to exclude file to be scanned
+    --exclude=[pattern]                 pattern to exclude file to be scanned
     --verbose                           show additional log info (warnings).
 ```
 
