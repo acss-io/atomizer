@@ -25,6 +25,9 @@
   "bin": {
     "atomizer": "./bin/atomizer"
   },
+  "engines" : {
+    "node" : ">=4.0"
+  },
   "preferGlobal": true,
   "dependencies": {
     "chalk": "^1.0.0",
