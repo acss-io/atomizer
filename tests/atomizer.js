@@ -998,5 +998,17 @@ describe('Atomizer()', function () {
               'C(#000):a'
             ]);
         });
+
+        it('if two same pseudo clasme found, sort by alphabetical order', function () {
+            var atomizer = new Atomizer();
+            var classNames = [
+              'T(0):f',
+              'C(#fff):f'
+            ];
+            expect(atomizer.sortCSS(classNames)).to.deep.equal([
+              'C(#fff):f',
+              'T(0):f'
+            ]);
+        });
     });
 });
