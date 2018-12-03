@@ -1,54 +1,26 @@
 'use strict';
 
-import fs from 'fs';
-import path from 'path';
-import Atomizer from 'atomizer';
-import cssnano from 'cssnano';
+import * as Atomizer from 'atomizer';
+import * as cssnano from 'cssnano';
 import { getOptions } from 'loader-utils';
-import postcss from 'postcss';
-import ensureFolderExists from './ensureFolderExists';
+import * as postcss from 'postcss';
 
-const DEFAULT_CSS_DEST = './build/css/atomic.css';
-const PATH_SEP = '/';
-const DEFAULT_POSTCSS_PLUGIN_LIST = [];
+import { writeCssFile, ensureExists } from './utils';
+
+const DEFAULT_CSS_DEST: string = './build/css/atomic.css';
+const DEFAULT_POSTCSS_PLUGIN_LIST: string[] = [];
 
 // cached response to prevent unnecessary update
-let cachedResponse = '';
+let cachedResponse: string = '';
 
-const atomizer = new Atomizer({ verbose: true });
+const atomizer: any = new Atomizer({ verbose: true });
 
-const writeCssFile = (cssDest, cssString) => {
-    return new Promise((resolve, reject) => {
-        fs.writeFile(cssDest, cssString, err => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve();
-            }
-        });
-    });
-};
-
-const ensureExists = filePath => {
-    let dirs = path.dirname(filePath).split(PATH_SEP);
-    let result = true;
-    let currentPath;
-
-    if (dirs[0] === '') {
-        dirs[0] = path.sep;
-    }
-
-    dirs.forEach((_, i, p) => {
-        currentPath = path.join.apply(null, p.slice(0, i + 1));
-        if (!ensureFolderExists(currentPath)) {
-            result = false;
-        }
-    });
-    return result;
-};
+interface ConfigObject {
+    default: object;
+}
 
 // Hash to keep track of config loaded by path
-let configObject = {
+let configObject: ConfigObject = {
     default: {
         configs: {
             classNames: []
@@ -56,20 +28,30 @@ let configObject = {
     }
 };
 
+interface PathConfigOption {
+    rules: string;
+}
+
+interface PathConfig {
+    configs: object;
+    cssDest: string;
+    options: PathConfigOption;
+}
+
 const parseAndGenerateFile = function(
-    configPath,
-    source,
+    configPath: string,
+    source: string,
     validPostcssPlugins = [],
-    minimize = false
-) {
+    minimize: boolean = false
+): Promise<Function> {
     return new Promise((resolve, reject) => {
-        const firstTrigger = configObject[configPath] || true;
+        const firstTrigger: boolean = configObject[configPath] || true;
 
         if (firstTrigger && configPath) {
             configObject[configPath] = require(require.resolve(configPath));
         }
 
-        const pathConfig = configObject[configPath] || configObject.default;
+        const pathConfig: PathConfig = configObject[configPath] || configObject.default;
         const foundClasses = atomizer.findClassNames(source);
         let cssDest = pathConfig.cssDest || DEFAULT_CSS_DEST;
 
@@ -87,7 +69,7 @@ const parseAndGenerateFile = function(
         }
 
         const finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
-        const cssString = atomizer.getCss(finalConfig, pathConfig.options || {});
+        const cssString: string = atomizer.getCss(finalConfig, pathConfig.options || {});
 
         const pipeline = postcss(validPostcssPlugins);
         if (minimize) {
@@ -98,13 +80,13 @@ const parseAndGenerateFile = function(
             const { css = '' } = result;
 
             if (css === cachedResponse) {
-              return resolve();
+                return resolve();
             }
 
             writeCssFile(cssDest, css)
                 .then(() => {
-                  cachedResponse = css;
-                  return resolve();
+                    cachedResponse = css;
+                    return resolve();
                 })
                 .catch(err => reject(err));
         });
@@ -128,7 +110,7 @@ const atomicLoader = function(source, map) {
         configPaths = [configPaths];
     }
 
-    const tasks = configPaths.map(configPath => {
+    const tasks: Promise<Function>[] = configPaths.map(configPath => {
         return parseAndGenerateFile(configPath, source, validPostcssPlugins, minimize);
     });
 
@@ -141,5 +123,5 @@ const atomicLoader = function(source, map) {
         });
 };
 
-// export default atomicLoader;
+// export default atomicLoader
 module.exports = atomicLoader;

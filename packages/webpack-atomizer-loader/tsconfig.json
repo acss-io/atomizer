@@ -1,0 +1,14 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "outDir": "./dist",
+        "lib": ["esnext"]
+    },
+    "declaration": true,
+    "exclude": ["node_modules"],
+    "include": ["lib/**/*"],
+    "inlineSourceMap": true,
+    "strict": true,
+    "target": "es5"
+}
