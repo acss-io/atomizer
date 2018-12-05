@@ -144,7 +144,17 @@ Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
                 return _.includes(value, pseudoClass);
             });
           }
-        return getMatchedIndex(a) - getMatchedIndex(b);
+        const aMatches = Grammar.matchValue(a);
+        const bMatches = Grammar.matchValue(b)
+        const aIndex = getMatchedIndex(a);
+        const bIndex = getMatchedIndex(b);
+
+        // remain same default sort logic
+        if (aMatches.named !== bMatches.named) {
+          return a.localeCompare(b);
+        }
+
+        return aIndex - bIndex;
     }
     classNames = classNames.sort(sortPseudoClassNames);
 
