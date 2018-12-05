@@ -976,38 +976,87 @@ describe('Atomizer()', function () {
         it('should return correct pseudo class name order', function () {
             var atomizer = new Atomizer();
             var classNames = [
-              'D(b)',
-              'C(#fff):li',
-              'Op(1):h',
-              'C(#000):a',
-              'C(#123):vi',
-              'P(20px)',
-              'Mb(10px)',
-              'T(0)',
-              'Scale(200%):f'
+                'D(b)',
+                'C(#fff):li',
+                'Op(1):h',
+                'C(#000):a',
+                'C(#123):vi',
+                'P(20px)',
+                'Mb(10px)',
+                'T(0)',
+                'Scale(200%):f'
             ];
+
             expect(atomizer.sortCSS(classNames)).to.deep.equal([
-              'D(b)',
-              'Mb(10px)',
-              'P(20px)',
-              'T(0)',
-              'C(#fff):li',
-              'C(#123):vi',
-              'Scale(200%):f',
-              'Op(1):h',
-              'C(#000):a'
+                'C(#fff):li',
+                'C(#123):vi',
+                'C(#000):a',
+                'D(b)',
+                'Mb(10px)',
+                'Op(1):h',
+                'P(20px)',
+                'Scale(200%):f',
+                'T(0)'
             ]);
         });
 
         it('if two same pseudo class name found, sort by alphabetical order', function () {
             var atomizer = new Atomizer();
             var classNames = [
-              'T(0):f',
-              'C(#fff):f'
+                'T(0):f',
+                'C(#fff):f'
             ];
             expect(atomizer.sortCSS(classNames)).to.deep.equal([
-              'C(#fff):f',
-              'T(0):f'
+                'C(#fff):f',
+                'T(0):f'
+            ]);
+        });
+
+        it('class without pseduo class should sort by by alphabetical order', function () {
+            var atomizer = new Atomizer();
+            var classNames = [
+                'active_D(f)',
+                'active_D(n)',
+                'active_Op(0)',
+                'active_Op(1)',
+                'active_Ta(start)',
+                'foo:h_Fill(#fff)',
+                'c_Bgi(n)!',
+                'h_TranslateY(-100%)--s',
+                'l:h_Fill($c-disabled)',
+                'm:h_Op(1)',
+                'm:f_Op(1)',
+                'o_Pe(a)',
+                'p:h_Fill(#fff)',
+                'p:h_Fill(#000)',
+                'pc:h_Fill(#fff)',
+                'p_Bdbc(t)',
+                'p:h>Bdbc(pink)',
+                'p:h>C(pink)',
+                'r_Z(0)',
+                's:h_Fill(#fff)'
+            ];
+            expect(atomizer.sortCSS(classNames)).to.deep.equal([
+                'active_D(f)',
+                'active_D(n)',
+                'active_Op(0)',
+                'active_Op(1)',
+                'active_Ta(start)',
+                'c_Bgi(n)!',
+                'foo:h_Fill(#fff)',
+                'h_TranslateY(-100%)--s',
+                'l:h_Fill($c-disabled)',
+                'm:f_Op(1)',
+                'm:h_Op(1)',
+                'o_Pe(a)',
+                'p_Bdbc(t)',
+                'p:h>Bdbc(pink)',
+                'p:h>C(pink)',
+                'p:h_Fill(#000)',
+                'p:h_Fill(#fff)',
+                'pc:h_Fill(#fff)',
+                'r_Z(0)',
+                's:h_Fill(#fff)'
             ]);
         });
     });
