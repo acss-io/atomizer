@@ -170,6 +170,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
     var warnings = [];
     var isVerbose = !!this.verbose;
     var classNames = config.classNames;
+    var alphaInName = '';
 
     if (!_.isArray(config.classNames)) { return tree; }
     options = options || {};
@@ -315,6 +316,24 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         // as value
                         else if (config.custom.hasOwnProperty(matchVal.named)) {
                             value = config.custom[matchVal.named];
+
+                            if (Grammar.matchValue(value).hex === value && matchVal.named !== matchVal.input) {
+                                alphaInName = matchVal.input.replace(matchVal.named, '');
+                                if (alphaInName && alphaInName.match(/\.\d{1,2}/)) {
+                                    rgb = utils.hexToRgb(value);
+                                    value = [
+                                        'rgba(',
+                                        rgb.r,
+                                        ',',
+                                        rgb.g,
+                                        ',',
+                                        rgb.b,
+                                        ',',
+                                        alphaInName,
+                                        ')'
+                                    ].join('');
+                                }
+                            }
                         }
                         // we have custom but we could not find the named class name there
                         else {

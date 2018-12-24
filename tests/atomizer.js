@@ -306,6 +306,27 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('returns expected css for custom classes with alpha transparency only for hex values', function () {
+            // set rules here so if helper change, we don't fail the test
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    'black': '#000',
+                    'space': '4px'
+                },
+                classNames: ['Bg(black.15)', 'P(space.15)']
+            };
+            var expected = [
+                '.Bg\\(black\\.15\\) {',
+                '  background: rgba(0,0,0,.15);',
+                '}',
+                '.P\\(space\\.15\\) {',
+                '  padding: 4px;',
+                '}\n',
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
         it ('returns expected css for custom classes with break points (Py)', function () {
             // set rules here so if helper change, we don't fail the test
             var atomizer = new Atomizer();
