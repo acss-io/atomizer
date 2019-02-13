@@ -160,12 +160,18 @@ content = atomizer.getCss(config, options);
 // Output the CSS
 var outfile = program.outfile;
 if (outfile) {
-    fs.mkdir(path.dirname(outfile), function (err) {
-        // Fail silently
-        fs.writeFile(path.resolve(outfile), content, function (err) {
-            if (err) throw err;
-            console.log('File ' + chalk.cyan(outfile) + ' created.');
-        });
+    fs.readFile(outfile, {encoding: 'utf-8'}, function(err, data) {
+        if (data === content) {
+            console.log('Content of ' + chalk.cyan(outfile) + ' has not changed.');
+        } else {
+            fs.mkdir(path.dirname(outfile), function (err) {
+                // Fail silently
+                fs.writeFile(path.resolve(outfile), content, function (err) {
+                    if (err) throw err;
+                    console.log('File ' + chalk.cyan(outfile) + ' created.');
+                });
+            });
+        }
     });
 } else {
     process.stdout.write("\n" + content);
