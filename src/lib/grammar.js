@@ -16,6 +16,7 @@ var PSEUDO_CLASSES = {
     ':first-of-type':   ':fot',
     ':fullscreen':      ':fs',
     ':focus':           ':f',
+    ':focus-within':    ':fw',
     ':hover':           ':h',
     ':indeterminate':   ':ind',
     ':in-range':        ':ir',
