@@ -11,6 +11,7 @@
 process.title = 'atomizer';
 
 var chalk = require('chalk');
+var chokidar = require('chokidar');
 var fs = require('fs');
 var minimatch = require('minimatch');
 var path = require('path');
@@ -37,6 +38,7 @@ program
   .option('-o, --outfile [file]', 'destination config file')
   .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
   .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors')
+  .option('-w, --watch [target]', 'rebuilds when changes are detected in the file, directory, or glob (argument may be passed multiple times and are parsed for Atomic CSS classes)', collect, [])
   .option('--exclude [pattern]', 'excluded file pattern', collect, [])
   .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
   .option('--ie', 'adds old IE hacks to the output')
@@ -101,6 +103,90 @@ function parseFile (file, recursive, dir) {
     return classNames;
 }
 
+function buildAtomicCss(additionalFiles, done) {
+    // Custom rulesets
+    var rulesFiles = program.rules;
+    if (rulesFiles) {
+        rulesFiles.forEach(function (rulesFile) {
+            if (!fs.existsSync(rulesFile)) {
+                donw(new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.'));
+                return false;
+            }
+            warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
+            atomizer.addRules(require(path.resolve(rulesFile)));
+        });
+    }
+
+    // Static config should contain the general 'config' options, along with any
+    // statically defined configuration. It is required.
+    var configFile = program.config;
+    if (configFile) {
+        if (!fs.existsSync(configFile)) {
+            done(new Error('Configuration file ' + chalk.cyan(configFile) + ' not found.'));
+            return false;
+        }
+        config = require(path.resolve(configFile));
+    }
+
+    // Generate config from parsed src files
+
+    var filesToParse = additionalFiles.concat(program.args || []);
+    if (filesToParse.length) {
+        classnames = parseFiles(filesToParse, !!program.recursive);
+    }
+
+    // Finalize the config
+    config = atomizer.getConfig(classnames, config);
+
+    // Create the CSS
+    content = atomizer.getCss(config, options);
+
+    // Output the CSS
+    var outfile = program.outfile;
+    if (outfile) {
+        fs.readFile(outfile, {encoding: 'utf-8'}, function(err, data) {
+            if (data === content) {
+                console.log('Content of ' + chalk.cyan(outfile) + ' has not changed.');
+                done();
+            } else {
+                fs.mkdir(path.dirname(outfile), function (err) {
+                    // Fail silently
+                    fs.writeFile(path.resolve(outfile), content, function (err) {
+                        if (!err) {
+                            console.log('File ' + chalk.cyan(outfile) + ' created.');
+                        }
+                        done(err);
+                    });
+                });
+            }
+        });
+    } else {
+        process.stdout.write("\n" + content);
+        done();
+    }
+}
+
+function triggerBuild(state) {
+    // Ensure only one build happens at a time.
+    if (state.building) {
+        state.queued = true;
+
+        return;
+    }
+
+    state.building = true;
+    buildAtomicCss(Object.keys(state.files), function (err) {
+        if (err) {
+            throw err;
+        }
+        state.building = false;
+        if (state.queued) {
+            state.queued = false;
+            triggerBuild(state);
+        }
+    });
+}
+
 var options = {
     rtl: program.rtl
 };
@@ -120,59 +206,22 @@ if (typeof program.ie !== 'undefined') {
     options.ie = true;
 }
 
-// Custom rulesets
-var rulesFiles = program.rules;
-if (rulesFiles) {
-    rulesFiles.forEach(function (rulesFile) {
-        if (!fs.existsSync(rulesFile)) {
-            throw new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.');
-            return false;
-        }
-        warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
-        atomizer.addRules(require(path.resolve(rulesFile)));
+if (program.watch.length) {
+    var buildTriggerState = { files: {} };
+    var watcher = chokidar.watch(program.watch)
+    watcher.on('add', function (path) {
+        buildTriggerState.files[path] = true;
     });
-}
-
-// Static config should contain the general 'config' options, along with any
-// statically defined configuration. It is required.
-var configFile = program.config;
-if (configFile) {
-    if (!fs.existsSync(configFile)) {
-        throw new Error('Configuration file ' + chalk.cyan(configFile) + ' not found.');
-        return false;
-    }
-    config = require(path.resolve(configFile));
-}
-
-// Generate config from parsed src files
-
-var filesToParse = program.args || [];
-if (filesToParse.length) {
-    classnames = parseFiles(filesToParse, !!program.recursive);
-}
-
-// Finalize the config
-config = atomizer.getConfig(classnames, config);
-
-// Create the CSS
-content = atomizer.getCss(config, options);
-
-// Output the CSS
-var outfile = program.outfile;
-if (outfile) {
-    fs.readFile(outfile, {encoding: 'utf-8'}, function(err, data) {
-        if (data === content) {
-            console.log('Content of ' + chalk.cyan(outfile) + ' has not changed.');
-        } else {
-            fs.mkdir(path.dirname(outfile), function (err) {
-                // Fail silently
-                fs.writeFile(path.resolve(outfile), content, function (err) {
-                    if (err) throw err;
-                    console.log('File ' + chalk.cyan(outfile) + ' created.');
-                });
-            });
-        }
+    watcher.on('unlink', function (path) {
+        delete buildTriggerState.files[path];
+    });
+    watcher.on('ready', function () {
+        triggerBuild(buildTriggerState);
+        watcher.on('all', function (n, p) {
+            triggerBuild(buildTriggerState);
+        });
     });
 } else {
-    process.stdout.write("\n" + content);
+    buildAtomicCss([], function () {});
 }
+
