@@ -38,6 +38,8 @@ Usage: atomizer [options] [path]
     -o, --outfile=[file]                destination config file.
     -n, --namespace=[namespace]         adds the given namespace to all generated Atomic CSS selectors.
     -H, --helpersNamespace=[namespace]  adds the given namespace to all helper selectors.
+    -w, --watch=[target]                rebuilds when changes are detected in the file, directory, or glob (argument may be passed multiple times and is parsed for Atomic CSS classes)
+
     --rtl                               swaps `start` and `end` keyword replacements with `right` and `left`.
     --ie                                adds old IE hacks to the output.
     --exclude=[pattern]                 pattern to exclude file to be scanned
