@@ -76,7 +76,7 @@ const parseAndGenerateFile = function(
             pipeline.use(cssnano());
         }
 
-        pipeline.process(cssString).then(result => {
+        pipeline.process(cssString, { from: undefined }).then(result => {
             const { css = '' } = result;
 
             if (css === cachedResponse) {
