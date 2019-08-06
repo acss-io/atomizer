@@ -1,6 +1,6 @@
 {
     "name": "webpack-atomizer-loader",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Webpack loader for compiling atomic css",
     "main": "index.js",
     "scripts": {
