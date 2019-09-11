@@ -1369,11 +1369,16 @@ module.exports = [
             "justify-content": "$0"
         },
         "arguments": [{
+            /* Positional alignment */
             "fs": "flex-start",
             "fe": "flex-end",
             "c": "center",
+            
+            /* Distributed alignment */
             "sb": "space-between",
-            "sa": "space-around"
+            "sa": "space-around",
+            "se": "space-evenly",
+            "s":  "stretch"
         }]
     },
     // flex-wrap
