@@ -1526,7 +1526,7 @@ module.exports = [
         "matcher": "Fv",
         "allowParamToValue": false,
         "styles": {
-            "font-variant": "$0"
+            "font-variant": "$0 $1"
         },
         "arguments": [{
             "n": "normal",
