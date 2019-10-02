@@ -899,7 +899,11 @@ describe('Atomizer()', function () {
         it ('properly handles classnames with optional arguments', function () {
             var atomizer = new Atomizer();
             var config = {
-                classNames: ['Skew(90deg)', 'Skew(90deg,45deg)', 'Bdsp(1em)', 'Bdsp(2em,33%)']
+                custom: {
+                    'sc': 'small-caps',
+                    'slz': 'slashed-zero'
+                },
+                classNames: ['Skew(90deg)', 'Skew(90deg,45deg)', 'Bdsp(1em)', 'Bdsp(2em,33%)', 'Fv(sc,slz)']
             };
             var expected = [
                 '.Bdsp\\(1em\\) {',
@@ -907,6 +911,9 @@ describe('Atomizer()', function () {
                 '}',
                 '.Bdsp\\(2em\\,33\\%\\) {',
                 '  border-spacing: 2em 33%;',
+                '}',
+                '.Fv\\(sc\\,slz\\) {',
+                '  font-variant: small-caps slashed-zero;',
                 '}',
                 '.Skew\\(90deg\\) {',
                 '  transform: skew(90deg);',
