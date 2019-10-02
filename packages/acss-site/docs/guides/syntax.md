@@ -210,10 +210,6 @@ title: Class syntax
             <td class="Va-t P(10px)">This underlines text on mouseover</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b class="hljs-string">u</b>)<b class="hljs-type">:h:f</b></code></th>
-            <td class="Va-t P(10px)">This underlines text on mouseover <strong>and</strong> on focus</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">n</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>box-shadow: none</code></td>
         </tr>
