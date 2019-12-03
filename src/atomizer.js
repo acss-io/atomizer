@@ -249,6 +249,11 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                 var matchVal = Grammar.matchValue(value);
                 var propAndValue;
 
+                if (!matchVal) {
+                    // In cases like: End(-), matchVal will be null.
+                    return null;
+                }
+
                 if (matchVal.number) {
                     if (rule.allowParamToValue || rule.type === 'helper') {
                         value = matchVal.number;
