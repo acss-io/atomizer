@@ -84,7 +84,7 @@ atomizer: {
 }
 </code></pre>
 <h3 id="web-tools">Web Tools</h3>
-<p>For a simple web interface to help you learn about Atomizer and Atomic CSS, check out <a href="https://pankajparashar.com/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or Atomic classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
+<p>For a simple web interface to help you learn about Atomizer and Atomic CSS, check out <a href="https://pankajparashar-zz.github.io/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or Atomic classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
