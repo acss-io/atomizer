@@ -372,6 +372,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         //         lg: '20px'
                         //     }
                         // }
+                        var placeholderPattern = new RegExp('\\$' + index, 'g');
                         if (_.isObject(value)) {
                             Object.keys(value).forEach(function (bp) {
                                 // don't continue if we can't find the breakPoint in the declaration
@@ -379,17 +380,17 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                                     return;
                                 }
                                 treeo.declarations[config.breakPoints[bp]] = treeo.declarations[config.breakPoints[bp]] || {};
-                                treeo.declarations[config.breakPoints[bp]][prop] = treeo.declarations[prop].replace('$' + index, value[bp]);
+                                treeo.declarations[config.breakPoints[bp]][prop] = treeo.declarations[prop].replace(placeholderPattern, value[bp]);
                             });
                             // handle default value in the custom class
                             if (!value.hasOwnProperty('default')) {
                                 // default has not been passed, make sure we delete it
                                 delete treeo.declarations[prop];
                             } else {
-                                treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value.default);
+                                treeo.declarations[prop] = treeo.declarations[prop].replace(placeholderPattern, value.default);
                             }
                         } else {
-                            treeo.declarations[prop] = treeo.declarations[prop].replace('$' + index, value);
+                            treeo.declarations[prop] = treeo.declarations[prop].replace(placeholderPattern, value);
                         }
                     } else {
                         treeo.declarations = null;

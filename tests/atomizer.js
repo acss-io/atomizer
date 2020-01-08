@@ -222,6 +222,32 @@ describe('Atomizer()', function () {
             });
             expect(result).to.deep.equal(expected);
         });
+        it('replaces all instances of a given argument', function () {
+            var atomizer = new Atomizer({}, [
+                {
+                    type: "pattern",
+                    name: "Foo",
+                    matcher: "Foo",
+                    allowParamToValue: true,
+                    styles: {
+                        "foo": "$0 $0 $1 $1"
+                    }
+                }
+            ]);
+            var result = atomizer.parseConfig({
+                classNames: [
+                    "Foo(1px,2px)"
+                ]
+            });
+            expect(result).to.deep.equal({
+                Foo: [{
+                    className: "Foo(1px,2px)",
+                    declarations: {
+                        "foo": "1px 1px 2px 2px"
+                    }
+                }]
+            });
+        });
     });
     describe('getConfig()', function () {
         it ('returns a valid config object when given classes and no config', function () {
