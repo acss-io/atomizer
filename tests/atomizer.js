@@ -222,6 +222,26 @@ describe('Atomizer()', function () {
             });
             expect(result).to.deep.equal(expected);
         });
+        it('allows commas in custom-params', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                Tsh: [{
+                    className: 'Tsh(sm,gray300)',
+                    declarations: {
+                        'text-shadow': '1px 1px #ccc'
+                    }
+                }]
+            };
+            var result = atomizer.parseConfig({
+                custom: {
+                    'Tsh(sm,gray300)': '1px 1px #ccc'
+                },
+                classNames: [
+                    'Tsh(sm,gray300)'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
+        });
     });
     describe('getConfig()', function () {
         it ('returns a valid config object when given classes and no config', function () {

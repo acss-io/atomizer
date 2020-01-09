@@ -243,89 +243,89 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         if (match.atomicValues) {
             values = match.atomicValues;
 
-            // values can be separated by a comma
-            // parse them and return a valid value
-            values = values.split(',').map(function (value, index) {
-                var matchVal = Grammar.matchValue(value);
-                var propAndValue;
+            var propAndValues = [match.atomicSelector, '(', values, ')'].join('');
 
-                if (matchVal.number) {
-                    if (rule.allowParamToValue || rule.type === 'helper') {
-                        value = matchVal.number;
-                        if (matchVal.unit) {
-                            value += matchVal.unit;
+            if (config.custom && config.custom.hasOwnProperty(propAndValues)) {
+                values = [config.custom[propAndValues]];
+            } else {
+                // values can be separated by a comma
+                // parse them and return a valid value
+                values = values.split(',').map(function (value, index) {
+                    var matchVal = Grammar.matchValue(value);
+                    var propAndValue;
+
+                    if (matchVal.number) {
+                        if (rule.allowParamToValue || rule.type === 'helper') {
+                            value = matchVal.number;
+                            if (matchVal.unit) {
+                                value += matchVal.unit;
+                            }
+                        } else {
+                            // treat as if we matched a named value
+                            matchVal.named = [matchVal.number, matchVal.unit].join('');
                         }
-                    } else {
-                        // treat as if we matched a named value
-                        matchVal.named = [matchVal.number, matchVal.unit].join('');
                     }
-                }
-                if (matchVal.fraction) {
-                    // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
-                    // making clear the steps involved:
-                    // percentage: (numerator / denominator * 100)
-                    // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
-                    value = Math.round(matchVal.numerator / matchVal.denominator * 100 * 10000) / 10000 + '%';
-                }
-                if (matchVal.hex) {
-                    if (matchVal.hex !== matchVal.hex.toLowerCase()) {
-                        console.warn('Warning: Only lowercase hex digits are accepted. No rules will be generated for `' + matchVal.input + '`');
-                        value = null;
-                    } else if (matchVal.alpha) {
-                        rgb = utils.hexToRgb(matchVal.hex);
-                        value = [
-                            'rgba(',
-                            rgb.r,
-                            ',',
-                            rgb.g,
-                            ',',
-                            rgb.b,
-                            ',',
-                            matchVal.alpha,
-                            ')'
-                        ].join('');
-                    } else {
-                        value = matchVal.hex;
+                    if (matchVal.fraction) {
+                        // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
+                        // making clear the steps involved:
+                        // percentage: (numerator / denominator * 100)
+                        // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
+                        value = Math.round(matchVal.numerator / matchVal.denominator * 100 * 10000) / 10000 + '%';
                     }
-                }
-                if (matchVal.named) {
-                    // first check if 'inh' is the value
-                    if (matchVal.named === 'inh') {
-                        value = 'inherit';
-                    }
-                    // check if the named value matches any of the values
-                    // registered in arguments.
-                    else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
-                        value = rule.arguments[index][matchVal.named];
-                    }
-                    // now check if named value was passed in the config
-                    else {
-                        propAndValue = [match.atomicSelector, '(', matchVal.named, ')'].join('');
-
-                        // no custom, warn it
-                        if (!config.custom) {
-                            warnings.push(propAndValue);
-                            // set to null so we don't write it to the css
+                    if (matchVal.hex) {
+                        if (matchVal.hex !== matchVal.hex.toLowerCase()) {
+                            console.warn('Warning: Only lowercase hex digits are accepted. No rules will be generated for `' + matchVal.input + '`');
                             value = null;
+                        } else if (matchVal.alpha) {
+                            rgb = utils.hexToRgb(matchVal.hex);
+                            value = [
+                                'rgba(',
+                                rgb.r,
+                                ',',
+                                rgb.g,
+                                ',',
+                                rgb.b,
+                                ',',
+                                matchVal.alpha,
+                                ')'
+                            ].join('');
+                        } else {
+                            value = matchVal.hex;
                         }
-                        // as prop + value
-                        else if (config.custom.hasOwnProperty(propAndValue)) {
-                            value = config.custom[propAndValue];
+                    }
+                    if (matchVal.named) {
+                        // first check if 'inh' is the value
+                        if (matchVal.named === 'inh') {
+                            value = 'inherit';
                         }
-                        // as value
-                        else if (config.custom.hasOwnProperty(matchVal.named)) {
-                            value = config.custom[matchVal.named];
+                        // check if the named value matches any of the values
+                        // registered in arguments.
+                        else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
+                            value = rule.arguments[index][matchVal.named];
                         }
-                        // we have custom but we could not find the named class name there
+                        // now check if named value was passed in the config
                         else {
-                            warnings.push(propAndValue);
-                            // set to null so we don't write it to the css
-                            value = null;
+                            // no custom, warn it
+                            if (!config.custom) {
+                                warnings.push(propAndValues);
+                                // set to null so we don't write it to the css
+                                value = null;
+                            }
+                            // as value
+                            else if (config.custom.hasOwnProperty(matchVal.named)) {
+                                value = config.custom[matchVal.named];
+                            }
+                            // we have custom but we could not find the named class name there
+                            else {
+                                warnings.push(propAndValues);
+                                // set to null so we don't write it to the css
+                                value = null;
+                            }
                         }
                     }
-                }
-                return value;
-            });
+                    return value;
+                });
+            }
         }
 
         if (match.valuePseudoClass) {
