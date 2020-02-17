@@ -29,7 +29,7 @@ var PSEUDO_CLASSES = {
     ':only-of-type':      ':oot',
     ':optional':          ':o',
     ':out-of-range':      ':oor',
-    ':placeholder-shown': 'ps',
+    ':placeholder-shown': ':ps',
     ':read-only':         ':ro',
     ':read-write':        ':rw',
     ':required':          ':req',
