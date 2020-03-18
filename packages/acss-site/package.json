@@ -46,8 +46,7 @@
     "object-assign": "^2.0.0",
     "react": "^0.13.0",
     "script-loader": "~0.6.1",
-    "webpack": "^1.4.12",
-    "webpack-dev-server": "^1.6.5"
+    "webpack": "^1.4.12"
   },
   "repository": {
     "type": "git",
