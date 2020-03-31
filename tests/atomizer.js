@@ -222,6 +222,22 @@ describe('Atomizer()', function () {
             });
             expect(result).to.deep.equal(expected);
         });
+
+        it('returns proper object with null declarations if invalid class value have been passed', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                "End": [{
+                    "className": "End(-)",
+                    "declarations": null
+                }]
+            };
+            var result = atomizer.parseConfig({
+                classNames: [
+                    'End(-)'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
+        });
     });
     describe('getConfig()', function () {
         it ('returns a valid config object when given classes and no config', function () {
