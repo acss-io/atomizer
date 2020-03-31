@@ -361,7 +361,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                             treeo.declarations.filter = 'alpha(opacity=' + parseFloat(value, 10) * 100 + ')';
                         }
                     }
-                    if (value !== null) {
+                    if (value !== null && treeo.declarations) {
                         // value could be an object for custom classes with breakPoints
                         // e.g.
                         // 'custom': {
