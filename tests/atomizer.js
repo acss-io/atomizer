@@ -871,6 +871,15 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('ignores classnames with invalid arguments', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['P(F,0,V)']
+            };
+            var expected = '';
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
         it ('warns the user if an ambiguous class is provided and verbose flag is true', function (done) {
             var atomizer = new Atomizer({verbose: true});
             var config = {
