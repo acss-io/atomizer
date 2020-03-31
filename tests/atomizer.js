@@ -222,6 +222,7 @@ describe('Atomizer()', function () {
             });
             expect(result).to.deep.equal(expected);
         });
+
         it('replaces all instances of a given argument', function () {
             var atomizer = new Atomizer({}, [
                 {
@@ -247,6 +248,22 @@ describe('Atomizer()', function () {
                     }
                 }]
             });
+        });
+
+        it('returns proper object with null declarations if invalid class value have been passed', function () {
+            var atomizer = new Atomizer();
+            var expected = {
+                "End": [{
+                    "className": "End(-)",
+                    "declarations": null
+                }]
+            };
+            var result = atomizer.parseConfig({
+                classNames: [
+                    'End(-)'
+                ]
+            });
+            expect(result).to.deep.equal(expected);
         });
     });
     describe('getConfig()', function () {
@@ -892,6 +909,15 @@ describe('Atomizer()', function () {
             var atomizer = new Atomizer();
             var config = {
                 classNames: ['XXXXX(1)']
+            };
+            var expected = '';
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it ('ignores classnames with invalid arguments', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                classNames: ['P(F,0,V)']
             };
             var expected = '';
             var result = atomizer.getCss(config);

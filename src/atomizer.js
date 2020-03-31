@@ -249,6 +249,11 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                 var matchVal = Grammar.matchValue(value);
                 var propAndValue;
 
+                if (!matchVal) {
+                    // In cases like: End(-), matchVal will be null.
+                    return null;
+                }
+
                 if (matchVal.number) {
                     if (rule.allowParamToValue || rule.type === 'helper') {
                         value = matchVal.number;
@@ -361,7 +366,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                             treeo.declarations.filter = 'alpha(opacity=' + parseFloat(value, 10) * 100 + ')';
                         }
                     }
-                    if (value !== null) {
+                    if (value !== null && treeo.declarations) {
                         // value could be an object for custom classes with breakPoints
                         // e.g.
                         // 'custom': {
