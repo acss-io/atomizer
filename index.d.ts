@@ -1,6 +1,6 @@
 declare module 'atomizer' {
     export interface AtomizerConfig {
-        custom?: Record<string, string>;
+        custom?: Record<string, string | Record<string, string>>;
         breakPoints?: Record<string, string>;
         classNames?: string[];
     }
