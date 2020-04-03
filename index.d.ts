@@ -10,14 +10,7 @@ declare module 'atomizer' {
     }
 
     export interface AtomizerRule {
-        allowParamToValue: boolean;
-        arguments?: Record<string, string>[];
-        id?: string;
-        matcher: string;
-        name: string;
-        shorthand?: boolean;
-        styles: Record<string, string>;
-        type: string;
+        [key: string]: any;
     }
 
     export interface CSSOptions {
