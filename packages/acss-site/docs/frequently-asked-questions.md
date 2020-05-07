@@ -326,7 +326,7 @@ For example this would not work (using <code>atomic</code> as the namespace):</p
 <pre><code class="lang-html">&lt;html <span class="hljs-property">id</span>=<span class="hljs-string">"atomic"</span> <span class="hljs-type">class</span>=<span class="hljs-string">"open"</span>&gt;
     ...
     &lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"open_D(b)"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
-&lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;/<span class="hljs-keyword">html</span>&gt;
 </code></pre>
 <p>This is because including the namespace would create the following rule:</p>
 <pre><code class="lang-css"><span class="hljs-id">#atomic</span> <span class="hljs-class">.open</span> <span class="hljs-class">.open_D</span>(<span class="hljs-tag">b</span>) <span class="hljs-rules">{
