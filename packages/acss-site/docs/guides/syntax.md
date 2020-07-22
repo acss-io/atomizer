@@ -7,12 +7,12 @@ title: Class syntax
 <p>Atomic and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.</p>
 <h2 id="the-syntax">The syntax</h2>
 <pre>
-[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#-lt-combinator-">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-element-">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
+[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-element-">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
 </pre>
 
 <p>At its core, an Atomic or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. </p>
 <p>Atomic classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-"><code>LineClamp()</code></a> accepts two.)  Helper classes may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.</p>
-<p>Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context&gt;</a> class and <a href="#-lt-combinator-">&lt;combinator&gt;</a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>.</p>
+<p>Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context&gt;</a> class and <a href="#combinator">&lt;combinator&gt;</a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>.</p>
 <p>You may also optionally suffix the style with <a href="#-lt-">&lt;!&gt;</a> (for <code>!important</code>), a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>, a <a href="#-lt-pseudo-element-">&lt;pseudo-element&gt;</a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier&gt;</a>.</p>
 <h3 id="rtl-ltr">RTL/LTR</h3>
 <p>Any occurrence of <code>left</code> and <code>right</code> keywords or their abbreviated form ala <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> (i.e., <code>l</code> and <code>r</code>) in <a href="#-lt-style-">&lt;Style&gt;</a> or <a href="#-lt-value-">&lt;value&gt;</a>  must be replaced with the keywords <code>start</code> and <code>end</code>.  Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.</p>
@@ -74,6 +74,7 @@ title: Class syntax
 
 <h3 id="combinator">&lt;combinator&gt;</h3>
 <p>Required if &lt;context&gt; is provided. One of the following may be used:</p>
+
 <h4 id="the-underscore-character-_-">The underscore character (<code>_</code>)</h4>
 <p>Use this to create a contextual style based on the <a href="http://www.w3.org/wiki/CSS/Selectors/combinators/descendant">descendant combinator</a>.</p>
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo"</span>&gt;
@@ -81,6 +82,7 @@ title: Class syntax
 &lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
 <p>This class hides the element whenever one of its ancestor has the class <code>foo</code> attached to it.</p>
+
 <h4 id="the-right-angle-bracket-character-">The right angle bracket character (<code>&gt;</code>)</h4>
 <p>Use this to create a contextual style based on the <a href="http://www.w3.org/wiki/CSS/Selectors/combinators/child">child combinator</a>.</p>
 <p>Example:</p>
@@ -89,13 +91,24 @@ title: Class syntax
 &lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
 <p>This class hides the element if its parent has the class <code>foo</code> attached to it.</p>
+
 <h4 id="the-plus-sign-">The plus sign (<code>+</code>)</h4>
-<p>Use the <a href="http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent">adjacent sibling combinator</a> to style only if the sibling of an particular element.</p>
+<p>Use the <a href="http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent">adjacent sibling combinator</a> to style only if the immediate next sibling of an particular element.</p>
 <p>Example:</p>
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
 &lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo+D(n)"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
-<p>This class hides the element if its previous sibling has the class <code>foo</code> attached to it.</p>
+<p>This class hides the element if its immediate previous sibling has the class <code>foo</code> attached to it.</p>
+
+<h4 id="the-tilde-sign-">The tilde sign (<code>~</code>)</h4>
+<p>Use the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator">general sibling combinator</a> to style only if the sibling of an particular element.</p>
+<p>Example:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"bar"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"foo~D(n)"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p>This class hides the element if one of its previous siblings has the class <code>foo</code> attached to it.</p>
+
 <h3 id="style">&lt;Style&gt;</h3>
 <p>Required.</p>
 <p>CSS property or <a href="helper-classes.html">helper class</a>. <a href="http://en.wikipedia.org/wiki/Capitalization">Capitalized</a> with no separator between words such as dashes or new capitals. </p>
