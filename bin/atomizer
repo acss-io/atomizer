@@ -109,7 +109,7 @@ function buildAtomicCss(additionalFiles, done) {
     if (rulesFiles) {
         rulesFiles.forEach(function (rulesFile) {
             if (!fs.existsSync(rulesFile)) {
-                donw(new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.'));
+                done(new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.'));
                 return false;
             }
             warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
