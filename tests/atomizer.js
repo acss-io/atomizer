@@ -74,7 +74,13 @@ describe('Atomizer()', function () {
             var result = atomizer.findClassNames('<div class=D(n)/>');
             var expected = ['D(n)'];
             expect(result).to.deep.equal(expected);
-        })
+        });
+        it('able not match = unless preceded by class', function () {
+            var atomizer = new Atomizer();
+            var result = atomizer.findClassNames('foo=D(b);class=D(n)');
+            var expected = ['D(n)'];
+            expect(result).to.deep.equal(expected);
+        });
     });
     describe('addRules()', function () {
         it('throws if a rule with a different definition already exists', function () {
