@@ -2,3 +2,8 @@ node_modules/
 artifacts/
 npm-debug.log
 dist/
+.vscode/
+.travis.yml
+.coveralls.yml
+.jshintrc
+.npmrc

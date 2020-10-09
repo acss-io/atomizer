@@ -3,3 +3,5 @@ artifacts/
 npm-debug.log
 dist/
 *.log
+.npmrc
+.vscode
