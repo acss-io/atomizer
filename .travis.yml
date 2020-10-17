@@ -5,9 +5,6 @@ matrix:
 node_js:
   - "11"
   - "10"
-  - "8"
-  - "6"
-  - "4"
 after_success:
   - "npm run cover"
   - "cat artifacts/lcov.info | ./node_modules/coveralls/bin/coveralls.js"

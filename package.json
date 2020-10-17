@@ -27,7 +27,7 @@
     "atomizer": "./bin/atomizer"
   },
   "engines": {
-    "node": ">=5.0"
+    "node": ">=10.0"
   },
   "preferGlobal": true,
   "dependencies": {
