@@ -19,15 +19,15 @@
     }
   ],
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/ --recursive --reporter spec",
-    "cover": "node node_modules/istanbul/lib/cli.js cover --dir artifacts -- ./node_modules/mocha/bin/_mocha tests/ --recursive --reporter spec",
+    "test": "mocha tests/ --recursive --reporter spec",
+    "cover": "nyc --report-dir artifacts -- mocha tests/ --recursive --reporter spec",
     "lint": "./node_modules/.bin/jshint src tests"
   },
   "bin": {
     "atomizer": "./bin/atomizer"
   },
   "engines": {
-    "node": ">=4.0"
+    "node": ">=5.0"
   },
   "preferGlobal": true,
   "dependencies": {
@@ -36,15 +36,14 @@
     "commander": "^2.19.0",
     "lodash": "^4.17.11",
     "minimatch": "^3.0.4",
-    "object-assign": "^4.0.0",
     "xregexp": "^4.0.0"
   },
   "devDependencies": {
-    "chai": "^4.0.0",
+    "chai": "^4.2.0",
     "coveralls": "^3.0.2",
-    "istanbul": "^0.4.0",
-    "jshint": "^2.9.6",
-    "mocha": "^5.2.0"
+    "nyc": "^15.1.0",
+    "jshint": "^2.12.0",
+    "mocha": "^8.2.0"
   },
   "repository": {
     "type": "git",
