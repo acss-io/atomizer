@@ -5,3 +5,4 @@ dist/
 *.log
 .npmrc
 .vscode
+.nyc_output

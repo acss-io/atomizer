@@ -2,7 +2,6 @@
 
 var _ = require('lodash');
 var XRegExp = require('xregexp');
-var objectAssign = require('object-assign');
 
 var PSEUDO_CLASSES = {
     ':active':            ':a',
@@ -50,7 +49,7 @@ var PSEUDO_ELEMENTS = {
     '::placeholder':    '::ph'
 };
 
-var PSEUDOS = objectAssign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
+var PSEUDOS = Object.assign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
 var PSEUDOS_INVERTED = _.invert(PSEUDOS);
 
 function flatten(obj) {
