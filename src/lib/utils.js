@@ -1,6 +1,7 @@
 var _ = require('lodash');
 
 var utils = {};
+var customValueTokenRegex = /\#\{(.+?)\}/g;
 
 // hex value to rgb object
 utils.hexToRgb = function (hex/*:string*/)/*:Rgb*/ {
@@ -50,6 +51,23 @@ utils.repeatString = function (pattern/*:string*/, count/*:integer*/) {
         count >>= 1, pattern += pattern;
     }
     return result + pattern;
+};
+
+// replaces custom value tokens found in a string
+utils.replaceCustomValueTokens = function (config/*:Config*/, value/*:string*/, depth/*:integer*/)/*:string*/ {
+    depth = depth || 1;
+    if (typeof value !== 'string' || value.indexOf('#{') === -1 || !config || !config.custom) {
+        return value;
+    }
+    // Don't allow for infinite loops!
+    if (depth > 10) {
+        throw new Error('Infinite loop detected while substituting custom value tokens. Make sure your custom values don\'t contain tokens that reference one another. Aborting.');
+    }
+
+    return value.replace(customValueTokenRegex, (token, name) => {
+        var value = config.custom[name] || '';
+        return this.replaceCustomValueTokens(config, value, ++depth);
+    });
 };
 
 module.exports = utils;

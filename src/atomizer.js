@@ -328,7 +328,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         }
                     }
                 }
-                return value;
+                return utils.replaceCustomValueTokens(config, value);
             });
         }
 
