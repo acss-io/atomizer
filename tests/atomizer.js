@@ -479,7 +479,7 @@ describe('Atomizer()', function () {
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
-        it ('returns css if coliding helper and atomic rule is used at the same time', function () {
+        it ('returns css if colliding helper and atomic rule is used at the same time', function () {
             var atomizer = new Atomizer();
             var config = {
                 custom: {
@@ -763,6 +763,56 @@ describe('Atomizer()', function () {
             ].join('\n');
             var result = atomizer.getCss(config);
             expect(result).to.equal(expected);
+        });
+        it('returns expected css value declared in custom with variable substitution', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    '$main-color': '#000000',
+                    'brand-color': '#400090',
+                    'my-gradient': 'linear-gradient(to bottom, #{$main-color}, #{brand-color})'
+                },
+                classNames: ['Bg(my-gradient)']
+            };
+            var expected = [
+                '.Bg\\(my-gradient\\) {',
+                '  background: linear-gradient(to bottom, #000000, #400090);',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it('returns expected css value declared in custom with nested variable substitution', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    'black': '#000000',
+                    '$main-color': '#{black}',
+                    'brand-color': '#400090',
+                    'my-gradient': 'linear-gradient(to bottom, #{$main-color}, #{brand-color})'
+                },
+                classNames: ['Bg(my-gradient)']
+            };
+            var expected = [
+                '.Bg\\(my-gradient\\) {',
+                '  background: linear-gradient(to bottom, #000000, #400090);',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+        it('avoids infinite loops in custom with nested variable substitution', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                custom: {
+                    'black': '#{$main-color}',
+                    '$main-color': '#{black}',
+                    'brand-color': '#400090',
+                    'my-gradient': 'linear-gradient(to bottom, #{$main-color}, #{brand-color})'
+                },
+                classNames: ['Bg(my-gradient)']
+            };
+            expect(function () { atomizer.getCss(config) }).to.throw();
         });
         it ('returns expected css value with breakpoints', function () {
             var atomizer = new Atomizer(null, [
