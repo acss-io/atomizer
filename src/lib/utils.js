@@ -79,7 +79,7 @@ utils.getCustomValue = function (config/*:Config*/, currentName/*:string*/, name
     // Expectation is that 20 should be a more than reasonble depth
     // to assume something is wrong
     if (nameStack.length > 20) {
-        throw new Error('Infinite loop detected while substituting custom value tokens. Make sure your custom values don\'t contain tokens that reference one another. Aborting. Custom value trace: ' + nameStack.join(' > '));
+        throw new Error('Depth limit reached while substituting custom value tokens. Ensure your custom values don\'t contain tokens that reference one another, leading to an infinite loop.\n\nCustom value trace: ' + nameStack.join(' > '));
     }
 
     return value.replace(customValueTokenRegex, (token, name) => {
