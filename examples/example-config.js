@@ -2,10 +2,15 @@ module.exports = {
     // 'custom' maps custom suffixes to values and it is specially useful for theming
     // or things that you need to change globally in many different atomic classes.
     // these key/value pairs map to the custom suffixes in 'classNames'.
-    // i.e. H-uh will get height: 79px and C-primary will get color: #f6a1e1
+    // i.e. H(uh) will get height: 79px and C(primary) will get color: #f6a1e1
+    // Custom values may also be substituted into one
+    // another via the #{ } syntax, which are resolved 
+    // recursively
     'custom': {
         uh: '79px',             // custom 1 (see classNames below)
-        primary: '#f6a1e1'      // custom 2 (see classNames below)
+        primary: '#f6a1e1',     // custom 2 (see classNames below)
+        standardPadding: '10px',
+        padding: '#{standardPadding} 5px #{standardPadding} 20px' // custom value substition is supported via #{} syntax
     },
     // breakpoints define media queries and is used to contain the style of a class
     // only when that media query is active.
