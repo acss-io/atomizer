@@ -53,20 +53,37 @@ utils.repeatString = function (pattern/*:string*/, count/*:integer*/) {
     return result + pattern;
 };
 
-// replaces custom value tokens found in a string
-utils.replaceCustomValueTokens = function (config/*:Config*/, value/*:string*/, depth/*:integer*/)/*:string*/ {
-    depth = depth || 1;
-    if (typeof value !== 'string' || value.indexOf('#{') === -1 || !config || !config.custom) {
+// Performs a lookup of custom value tokens, recursively replacing
+//  any custom value tokens found within each custom value
+utils.getCustomValue = function (config/*:Config*/, currentName/*:string*/, nameStack/*:string[]*/)/*:string*/ {
+    nameStack = nameStack || [];
+
+    if (typeof currentName !== 'string' || !config || !config.custom) {
+        return null;
+    }
+
+    // If not found, return null, which will prevent the rule
+    // from being written to CSS
+    value = config.custom[currentName] || null;
+
+    // Short circuit if value isn't a string, or doesn't contain
+    // any tokens that need to be replaced
+    if (typeof value !== 'string' || value.indexOf('#{') === -1) {
         return value;
     }
-    // Don't allow for infinite loops!
-    if (depth > 10) {
-        throw new Error('Infinite loop detected while substituting custom value tokens. Make sure your custom values don\'t contain tokens that reference one another. Aborting.');
+
+    // Add this custom value name to our breadcrumb trail
+    nameStack.push(currentName);
+
+    // Limit the depth of recursion to help avoid infinite loops
+    // Expectation is that 20 should be a more than reasonble depth
+    // to assume something is wrong
+    if (nameStack.length > 20) {
+        throw new Error('Infinite loop detected while substituting custom value tokens. Make sure your custom values don\'t contain tokens that reference one another. Aborting. Custom value trace: ' + nameStack.join(' > '));
     }
 
     return value.replace(customValueTokenRegex, (token, name) => {
-        var value = config.custom[name] || '';
-        return this.replaceCustomValueTokens(config, value, ++depth);
+        return this.getCustomValue(config, name, nameStack);
     });
 };
 

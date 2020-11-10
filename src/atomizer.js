@@ -305,30 +305,28 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     // now check if named value was passed in the config
                     else {
                         propAndValue = [match.atomicSelector, '(', matchVal.named, ')'].join('');
+                        var name;
 
                         // no custom, warn it
                         if (!config.custom) {
                             warnings.push(propAndValue);
-                            // set to null so we don't write it to the css
-                            value = null;
                         }
                         // as prop + value
                         else if (config.custom.hasOwnProperty(propAndValue)) {
-                            value = config.custom[propAndValue];
+                            name = propAndValue;
                         }
                         // as value
                         else if (config.custom.hasOwnProperty(matchVal.named)) {
-                            value = config.custom[matchVal.named];
+                            name = matchVal.named;
                         }
                         // we have custom but we could not find the named class name there
                         else {
                             warnings.push(propAndValue);
-                            // set to null so we don't write it to the css
-                            value = null;
                         }
+                        value = utils.getCustomValue(config, name);
                     }
                 }
-                return utils.replaceCustomValueTokens(config, value);
+                return value;
             });
         }
 
