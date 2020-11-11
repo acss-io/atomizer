@@ -13,6 +13,7 @@ module.exports = {
         'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
         'brandColor': '#0280ae',
         'Bgc(selected)': '#e5e1ea!important',
+        'primaryFontColor': '#{brandColor}',
         'Fz(RWD-fontSize)': {
             'xs': '40px',
             'sm': '19px',
