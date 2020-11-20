@@ -1,9 +1,7 @@
-/* globals describe,it */
-
 'use strict';
 
-var expect = require('chai').expect;
-var Grammar = require('../../src/lib/grammar');
+const {expect} = require('chai');
+const Grammar = require('../../src/lib/grammar');
 
 describe('Grammar()', function () {
     // -------------------------------------------------------

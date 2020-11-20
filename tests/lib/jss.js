@@ -1,13 +1,13 @@
-/*globals describe,it,afterEach */
+/* eslint-disable no-useless-escape*/
 'use strict';
 
-var expect = require('chai').expect;
-var JSS = require('../../src/lib/jss');
+const {expect} = require('chai');
+const JSS = require('../../src/lib/jss');
 
 describe('JSS', function () {
     describe('flattenSelectors()', function () {
         it('should flatten selectors given a css object', function () {
-            var result = JSS.flattenSelectors({}, {
+            const result = JSS.flattenSelectors({}, {
                 'body': {
                     'background': 'white'
                 },
@@ -43,7 +43,7 @@ describe('JSS', function () {
                     }
                 }
             });
-            var expected = {
+            const expected = {
                 'body': {
                     background: 'white'
                 },
@@ -76,7 +76,7 @@ describe('JSS', function () {
     });
     describe('extractProperties()', function () {
         it('should extract CSS properties given a flat CSS object', function () {
-            var result = JSS.extractProperties({}, {
+            const result = JSS.extractProperties({}, {
                 'body': {
                     background: 'white'
                 },
@@ -104,7 +104,7 @@ describe('JSS', function () {
                     'display': 'none'
                 }
             });
-            var expected = {
+            const expected = {
                 main: [
                     {
                         selector: 'body',
@@ -155,7 +155,7 @@ describe('JSS', function () {
     });
     describe('combineSelectors()', function () {
         it('should combine selectors given an extracted object', function () {
-            var result = JSS.combineSelectors({
+            const result = JSS.combineSelectors({
                 main: [
                     {
                         selector: 'body',
@@ -181,7 +181,7 @@ describe('JSS', function () {
                     }
                 ]
             });
-            var expected = {
+            const expected = {
                 '@media screen and (min-width:400px)': [
                     {
                         selector: '.test1, #atomic .test11',
@@ -212,7 +212,7 @@ describe('JSS', function () {
     });
     describe('extractedToStylesheet()', function () {
         it('should return a stylesheet object given an extracted object', function () {
-            var result = JSS.extractedToStylesheet({
+            const result = JSS.extractedToStylesheet({
                 '@media screen and (min-width:400px)': [
                     {
                         selector: '.test1, #atomic .test11',
@@ -238,7 +238,7 @@ describe('JSS', function () {
                     }
                 ]
             });
-            var expected = {
+            const expected = {
                 '@media screen and (min-width:400px)': {
                     '.test1, #atomic .test11': {
                         background: 'black'
@@ -255,7 +255,7 @@ describe('JSS', function () {
     });
     describe('jssToCss()', function () {
         it('should return CSS with the specified tab width', function () {
-            var result = JSS.jssToCss({
+            const result = JSS.jssToCss({
                 '.foo': {
                     'background': 'black',
                     'color': 'red',
@@ -272,7 +272,7 @@ describe('JSS', function () {
                     sm: '@media screen and (min-width:400px)'
                 }
             });
-            var expected = [
+            const expected = [
                 '.foo {',
                 '    background: black;',
                 '    color: red;',
@@ -288,7 +288,7 @@ describe('JSS', function () {
         });
 
         it('should return CSS with combined selectors given a CSS Object', function () {
-            var result = JSS.jssToCss({
+            const result = JSS.jssToCss({
                 'body': {
                     'background': 'black',
                     'color': 'red',
@@ -315,14 +315,14 @@ describe('JSS', function () {
                         '@media screen and (min-width:400px)': {
                             'background': 'black'
                         }
-                    },
+                    }
                 }
             }, {
                 breakPoints: {
                     sm: '@media screen and (min-width:400px)'
                 }
             });
-            var expected = [
+            const expected = [
                 'body, .test, .test4 .test5 {',
                 '  background: black;',
                 '}',
@@ -346,7 +346,7 @@ describe('JSS', function () {
         });
 
         it('should return CSS with media query blocks placed after the main block', function () {
-            var result = JSS.jssToCss({
+            const result = JSS.jssToCss({
                 '.W\(100\%\)--sm': {
                     '@media screen and (max-width: 900px)': {
                         width: '100%'
@@ -360,7 +360,7 @@ describe('JSS', function () {
                     sm: '@media screen and (max-width: 900px)'
                 }
             });
-            var expected = [
+            const expected = [
                 '.W\(1\/3\) {',
                 '  width: 33.3333%;',
                 '}',
@@ -374,29 +374,29 @@ describe('JSS', function () {
         });
 
         it('should return CSS with media query blocks ordered by media query not by property name', function () {
-            var result = JSS.jssToCss({
+            const result = JSS.jssToCss({
                 '.C\(#000\)--md': {
                     '@media screen and \(min-width: 1000px\)': {
                         color: '#000'
-                    },
+                    }
                 },
                 '.W\(100px\)--sm': {
                     '@media screen and \(min-width: 600px\)': {
-                        width: '100px',
-                    },
+                        width: '100px'
+                    }
                 },
                 '.W\(200px\)--md': {
                     '@media screen and \(min-width: 1000px\)': {
-                        width: '200px',
-                    },
-                },
+                        width: '200px'
+                    }
+                }
             }, {
                 breakPoints: {
                     'sm': '@media screen and (min-width: 600px)',
-                    'md': '@media screen and (min-width: 1000px)',
+                    'md': '@media screen and (min-width: 1000px)'
                 }
             });
-            var expected = [
+            const expected = [
                 '@media screen and (min-width: 600px) {',
                 '  .W\(100px\)--sm {',
                 '    width: 100px;',
@@ -409,12 +409,12 @@ describe('JSS', function () {
                 '  .W\(200px\)--md {',
                 '    width: 200px;',
                 '  }',
-                '}\n',
+                '}\n'
             ].join('\n');
             expect(result).to.equal(expected);
         });
         it('should generate media query CSS only if matches found', function () {
-            var result = JSS.jssToCss({
+            const result = JSS.jssToCss({
                 '.C\(#000\)--md': {
                     '@media screen and \(min-width: 1000px\)': {
                         color: '#000'
@@ -423,10 +423,10 @@ describe('JSS', function () {
             }, {
                 breakPoints: {
                     'sm': '@media screen and (min-width: 600px)',
-                    'md': '@media screen and (min-width: 1000px)',
+                    'md': '@media screen and (min-width: 1000px)'
                 }
             });
-            var expected = [
+            const expected = [
                 '@media screen and (min-width: 1000px) {',
                 '  .C\(#000\)--md {',
                 '    color: #000;',

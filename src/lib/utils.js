@@ -1,18 +1,16 @@
-var _ = require('lodash');
+const _ = require('lodash');
 
-var utils = {};
-var customValueTokenRegex = /\#\{(.+?)\}/g;
+const utils = {};
+const customValueTokenRegex = /#\{(.+?)\}/g;
 
 // hex value to rgb object
 utils.hexToRgb = function (hex/*:string*/)/*:Rgb*/ {
-    var result;
-
     // shorthand to full form
     hex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
         return r + r + g + g + b + b;
     });
 
-    result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
         r: parseInt(result[1], 16),
         g: parseInt(result[2], 16),
@@ -40,7 +38,7 @@ utils.mergeConfigs = function (configs/*:Config[]*/)/*:Config*/ {
 
 // returns a repeated string by X amount
 utils.repeatString = function (pattern/*:string*/, count/*:integer*/) {
-    var result = '';
+    let result = '';
     if (count < 1) {
         return result;
     }
@@ -64,7 +62,7 @@ utils.getCustomValue = function (config/*:Config*/, currentName/*:string*/, name
 
     // If not found, return null, which will prevent the rule
     // from being written to CSS
-    value = config.custom[currentName] || null;
+    const value = config.custom[currentName] || null;
 
     // Short circuit if value isn't a string, or doesn't contain
     // any tokens that need to be replaced
@@ -79,7 +77,7 @@ utils.getCustomValue = function (config/*:Config*/, currentName/*:string*/, name
     // Expectation is that 20 should be a more than reasonble depth
     // to assume something is wrong
     if (nameStack.length > 20) {
-        throw new Error('Depth limit reached while substituting custom value tokens. Ensure your custom values don\'t contain tokens that reference one another, leading to an infinite loop.\n\nCustom value trace: ' + nameStack.join(' > '));
+        throw new Error(`Depth limit reached while substituting custom value tokens. Ensure your custom values don't contain tokens that reference one another, leading to an infinite loop.\n\nCustom value trace: ${  nameStack.join(' > ')}`);
     }
 
     return value.replace(customValueTokenRegex, (token, name) => {

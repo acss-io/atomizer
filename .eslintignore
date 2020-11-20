@@ -1,0 +1,5 @@
+node_nodules
+**/*.json
+bin
+artifacts
+.nyc_output

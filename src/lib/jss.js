@@ -1,21 +1,23 @@
+/* eslint-disable no-useless-escape */
+'use strict';
 /**
  * Utility functions to handle JSS objects (JS literal objects with similar CSS structure)
  */
-var utils = require('./utils');
-var JSS = {};
+const utils = require('./utils');
+const JSS = {};
 
 // returns a new JSS with flattened selectors
 JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/) {
-    var props;
-    var value;
-    var selector;
+    let props;
+    let value;
+    let selector;
 
     parent = parent || '';
     selector = parent;
 
-    for (var rule in jss) {
+    for (const rule in jss) {
         props = jss[rule];
-        for (var prop in props) {
+        for (const prop in props) {
             value = props[prop];
             // prop is not a prop
             if (typeof value === 'object') {
@@ -24,14 +26,14 @@ JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/)
                     if (!newJss[prop]) {
                         newJss[prop] = {};
                     }
-                    newJss[prop][parent ? parent + ' ' + rule : rule] = value;
+                    newJss[prop][parent ? `${parent  } ${  rule}` : rule] = value;
                 } else {
-                    JSS.flattenSelectors(newJss, props, parent ? parent + ' ' + rule : rule);
+                    JSS.flattenSelectors(newJss, props, parent ? `${parent  } ${  rule}` : rule);
                 }
             }
             // prop is prop
             else /*if (typeof value === 'string' || typeof value === 'number')*/ {
-                selector = parent ? parent + ' ' + rule : rule;
+                selector = parent ? `${parent  } ${  rule}` : rule;
                 if (!newJss[selector]) {
                     newJss[selector] = {};
                 }
@@ -44,13 +46,12 @@ JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/)
 
 // read a flat JSS and build an Extracted object
 JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, block/*:string*/)/*:Extracted*/ {
-    var props;
-    var prop;
-    var extract;
+    let props;
+    let prop;
 
     block = block || 'main';
 
-    for (var selector in jss) {
+    for (const selector in jss) {
         props = jss[selector];
         // if selector is a media query
         if (/^@media|@supports/.test(selector)) {
@@ -74,21 +75,21 @@ JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, bloc
 
 // combine selectors in an extracted object
 JSS.combineSelectors = function (extracted/*:Extracted*/)/*:Extracted*/ {
-    var extracts;
-    for (var block in extracted) {
+    let extracts;
+    for (const block in extracted) {
         extracts = extracted[block];
-        for (var i = 0, l = extracts.length; i < l; i += 1) {
+        for (let i = 0, l = extracts.length; i < l; i += 1) {
             // If this selector has an escaped colon, we can't safely combine it
             // with another selector since it will break in IE < 8
             if (extracts[i].selector && extracts[i].selector.indexOf('\:') > -1) { continue; }
-            for(var j = i + 1; j < l; j += 1) {
+            for(let j = i + 1; j < l; j += 1) {
                 // If this selector has an escaped colon, we can't safely combine it
                 // with another selector since it will break in IE < 8
                 if (extracts[j].selector && extracts[j].selector.indexOf('\:') > -1) { continue; }
                 // combine if prop and value match
                 if(extracts[i].prop === extracts[j].prop && extracts[i].value === extracts[j].value) {
                     if (extracts[j].selector) {
-                        extracts[i].selector += ', ' + extracts[j].selector;
+                        extracts[i].selector += `, ${  extracts[j].selector}`;
                     } else {
                         extracts[i].selector = false;
                     }
@@ -101,9 +102,9 @@ JSS.combineSelectors = function (extracted/*:Extracted*/)/*:Extracted*/ {
 };
 
 JSS.extractedToStylesheet = function (extracted/*:Extracted*/)/*:Stylesheet*/ {
-    var stylesheet = {};
+    const stylesheet = {};
 
-    for (var block in extracted) {
+    for (const block in extracted) {
         extracted[block].forEach(function (extracts) {
             if (extracts.selector) {
                 if (!stylesheet[block]) {
@@ -122,10 +123,9 @@ JSS.extractedToStylesheet = function (extracted/*:Extracted*/)/*:Stylesheet*/ {
 
 // transforms jss to css
 JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
-    var css = [];
-    var extracted/*:Extracted*/;
-    var stylesheet/*:Stylesheet*/;
-    var tab = options && options.tabWidth && utils.repeatString(' ', parseInt(options.tabWidth, 10)) || utils.repeatString(' ', 2);
+    let css = [];
+    let extracted/*:Extracted*/;
+    const tab = options && options.tabWidth && utils.repeatString(' ', parseInt(options.tabWidth, 10)) || utils.repeatString(' ', 2);
 
     // flatten nested selectors
     jss = JSS.flattenSelectors({}, jss);
@@ -137,36 +137,36 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     extracted = JSS.combineSelectors(extracted);
 
     // build stylesheet object from extract
-    stylesheet = JSS.extractedToStylesheet(extracted);
+    const stylesheet = JSS.extractedToStylesheet(extracted)/*:Stylesheet*/;
 
     // finally, write css
     // First write the main block
     JSS.writeBlockToCSS(css, stylesheet.main, tab);
     // Next write any media query blocks
     if (options && typeof options.breakPoints === 'object') {
-        for (var label in options.breakPoints) {
-            var block = options.breakPoints[label];
+        for (const label in options.breakPoints) {
+            const block = options.breakPoints[label];
             if (block && stylesheet[block]) {
-                css.push(block + ' {');
+                css.push(`${block  } {`);
                 JSS.writeBlockToCSS(css, stylesheet[block], tab, tab);
                 css.push('}');
             }
         }
     }
 
-    css = css.length > 0 ? css.join('\n') + '\n' : '';
+    css = css.length > 0 ? `${css.join('\n')  }\n` : '';
 
     return css;
 };
 
 JSS.writeBlockToCSS = function (css, block, tab, indent) {
     indent = indent || '';
-    for (var selector in block) {
-        css.push(indent + selector + ' {');
-        for (var prop in block[selector]) {
-            css.push(indent + tab + prop + ': ' + block[selector][prop] + ';');
+    for (const selector in block) {
+        css.push(`${indent + selector  } {`);
+        for (const prop in block[selector]) {
+            css.push(`${indent + tab + prop  }: ${  block[selector][prop]  };`);
         }
-        css.push(indent + '}');
+        css.push(`${indent  }}`);
     }
 };
 

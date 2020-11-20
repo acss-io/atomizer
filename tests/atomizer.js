@@ -1,20 +1,19 @@
-/*globals describe,it,afterEach */
 'use strict';
 
-var expect = require('chai').expect;
-var Atomizer = require('../src/atomizer');
+const { expect } = require('chai');
+const Atomizer = require('../src/atomizer');
 
 describe('Atomizer()', function () {
     describe('constructor()', function () {
         it('instantiate without any params', function () {
-            var atomizer = new Atomizer();
+            const atomizer = new Atomizer();
             expect(atomizer).to.be.an('object');
         });
         it('instantiate with the assigned params', function () {
-            var options = {
+            const options = {
                 verbose: true
             };
-            var rules = [{
+            const rules = [{
                 type: 'pattern',
                 id: 'border',
                 name: 'Border',
@@ -23,27 +22,27 @@ describe('Atomizer()', function () {
                     'border': '$0'
                 }
             }];
-            var atomizer = new Atomizer(options, rules);
+            const atomizer = new Atomizer(options, rules);
             expect(atomizer.rules).to.deep.equal(rules);
             expect(atomizer.verbose).to.equal(true);
         });
     });
     describe('findClassNames()', function () {
         it('returns an array of valid atomic class names', function () {
-            var atomizer = new Atomizer();
+            const atomizer = new Atomizer();
             // duplicate Pos(r) to make sure we get only one
-            var result = atomizer.findClassNames("<div className={classNames('sibling:c+D(n) sibling:c~D(i) Pos(r) Pos(r) Ov(h) H(0) test:h>Op(1):h test:test>Op(1)', 'test-open_Ov(v) test-open_H(a) Cnt(hello)::b Cnt(goodbye)::a}>");
-            var expected = ['sibling:c+D(n)', 'sibling:c~D(i)','Pos(r)', 'Ov(h)', 'H(0)', 'test:h>Op(1):h', 'test-open_Ov(v)', 'test-open_H(a)', 'Cnt(hello)::b', 'Cnt(goodbye)::a'];
+            const result = atomizer.findClassNames("<div className={classNames('sibling:c+D(n) sibling:c~D(i) Pos(r) Pos(r) Ov(h) H(0) test:h>Op(1):h test:test>Op(1)', 'test-open_Ov(v) test-open_H(a) Cnt(hello)::b Cnt(goodbye)::a}>");
+            const expected = ['sibling:c+D(n)', 'sibling:c~D(i)', 'Pos(r)', 'Ov(h)', 'H(0)', 'test:h>Op(1):h', 'test-open_Ov(v)', 'test-open_H(a)', 'Cnt(hello)::b', 'Cnt(goodbye)::a'];
             expect(result).to.deep.equal(expected);
         });
         it('returns an array of valid atomic class names even if there\'s no boundary character for the first found classname', function () {
-            var atomizer = new Atomizer();
-            var result = atomizer.findClassNames("Pos(r) Ov(h) H(0)");
-            var expected = ['Pos(r)', 'Ov(h)', 'H(0)'];
+            const atomizer = new Atomizer();
+            const result = atomizer.findClassNames('Pos(r) Ov(h) H(0)');
+            const expected = ['Pos(r)', 'Ov(h)', 'H(0)'];
             expect(result).to.deep.equal(expected);
         });
         it('properly resolves custom classnames with hyphen, in custom rules.js', function () {
-            var rules = [{
+            const rules = [{
                 type: 'pattern',
                 name: 'Font Size',
                 matcher: 'f-z',
@@ -51,40 +50,40 @@ describe('Atomizer()', function () {
                     'font-size': '$0'
                 }
             }];
-            var atomizer = new Atomizer();
+            const atomizer = new Atomizer();
             atomizer.addRules(rules);
-            var result = atomizer.findClassNames('<div class="Fz(RWD-fontSize) f-z(RWD-fontSize)"></div>');
-            var expected = ['Fz(RWD-fontSize)', 'f-z(RWD-fontSize)'];
+            const result = atomizer.findClassNames('<div class="Fz(RWD-fontSize) f-z(RWD-fontSize)"></div>');
+            const expected = ['Fz(RWD-fontSize)', 'f-z(RWD-fontSize)'];
             expect(result).to.deep.equal(expected);
         });
         it('properly finds Atomic classnames inside Dust template conditionals', function () {
-            var atomizer = new Atomizer();
-            var result = atomizer.findClassNames('<div class="Pos(r) Ov(h) H(0) {?foo}D(n){/foo}"></div>');
-            var expected = ['Pos(r)', 'Ov(h)', 'H(0)', 'D(n)'];
+            const atomizer = new Atomizer();
+            const result = atomizer.findClassNames('<div class="Pos(r) Ov(h) H(0) {?foo}D(n){/foo}"></div>');
+            const expected = ['Pos(r)', 'Ov(h)', 'H(0)', 'D(n)'];
             expect(result).to.deep.equal(expected);
         });
         it('able to finds classnames in template literals', function () {
-          var atomizer = new Atomizer();
-          var result = atomizer.findClassNames('<div class=`Pos(r) Ov(h) H(0) ${foo}`></div>');
-          var expected = ['Pos(r)', 'Ov(h)', 'H(0)'];
+          const atomizer = new Atomizer();
+          const result = atomizer.findClassNames('<div class=`Pos(r) Ov(h) H(0) ${foo}`></div>');
+          const expected = ['Pos(r)', 'Ov(h)', 'H(0)'];
           expect(result).to.deep.equal(expected);
         });
         it('able to find classnames when unquoted', function () {
-            var atomizer = new Atomizer();
-            var result = atomizer.findClassNames('<div class=D(n)/>');
-            var expected = ['D(n)'];
+            const atomizer = new Atomizer();
+            const result = atomizer.findClassNames('<div class=D(n)/>');
+            const expected = ['D(n)'];
             expect(result).to.deep.equal(expected);
         });
         it('able not match = unless preceded by class', function () {
-            var atomizer = new Atomizer();
-            var result = atomizer.findClassNames('foo=D(b);class=D(n)');
-            var expected = ['D(n)'];
+            const atomizer = new Atomizer();
+            const result = atomizer.findClassNames('foo=D(b);class=D(n)');
+            const expected = ['D(n)'];
             expect(result).to.deep.equal(expected);
         });
     });
     describe('addRules()', function () {
         it('throws if a rule with a different definition already exists', function () {
-            var rules = [{
+            const rules = [{
                 type: 'pattern',
                 name: 'Border',
                 matcher: 'Bd',
@@ -92,7 +91,7 @@ describe('Atomizer()', function () {
                     'border': '$0'
                 }
             }];
-            var atomizer = new Atomizer(null, rules);
+            const atomizer = new Atomizer(null, rules);
             expect(function() {
                 atomizer.addRules([{
                     type: 'pattern',
@@ -105,7 +104,7 @@ describe('Atomizer()', function () {
             }).to.throw();
         });
         it('doesn\'t throw if a rule with the same definition already exists', function () {
-            var rules = [{
+            const rules = [{
                 type: 'pattern',
                 name: 'Border',
                 matcher: 'Bd',
@@ -113,7 +112,7 @@ describe('Atomizer()', function () {
                     'border': '$0'
                 }
             }];
-            var atomizer = new Atomizer(null, rules);
+            const atomizer = new Atomizer(null, rules);
             expect(function() {
                 atomizer.addRules([{
                     type: 'pattern',
@@ -126,8 +125,8 @@ describe('Atomizer()', function () {
             }).to.not.throw();
         });
         it('adds a new rule to the atomizer instance and resets the syntax', function () {
-            var atomizer = new Atomizer();
-            var myRules = [{
+            const atomizer = new Atomizer();
+            const myRules = [{
                 type: 'pattern',
                 name: 'foo',
                 matcher: 'Foo',
@@ -144,7 +143,7 @@ describe('Atomizer()', function () {
     });
     describe('getSyntax()', function () {
         it('returns the same syntax if syntax has not changed', function () {
-            var rules = [{
+            const rules = [{
                 type: 'pattern',
                 name: 'Border',
                 matcher: 'Bd',
@@ -152,14 +151,14 @@ describe('Atomizer()', function () {
                     'border': '$0'
                 }
             }];
-            var atomizer = new Atomizer(null, rules);
-            var syntax = atomizer.getSyntax();
-            var result = atomizer.getSyntax();
+            const atomizer = new Atomizer(null, rules);
+            const syntax = atomizer.getSyntax();
+            const result = atomizer.getSyntax();
 
             expect(syntax).to.equal(result);
         });
         it('returns a new syntax if syntax has changed', function () {
-            var rules = [{
+            const rules = [{
                 type: 'pattern',
                 name: 'Border',
                 matcher: 'Bd',
@@ -167,8 +166,8 @@ describe('Atomizer()', function () {
                     'border': '$0'
                 }
             }];
-            var atomizer = new Atomizer(null, rules);
-            var syntax = atomizer.getSyntax();
+            const atomizer = new Atomizer(null, rules);
+            const syntax = atomizer.getSyntax();
             atomizer.addRules([{
                 type: 'pattern',
                 id: 'foo',
@@ -178,14 +177,14 @@ describe('Atomizer()', function () {
                     'foo': '$0'
                 }
             }]);
-            var result = atomizer.getSyntax();
+            const result = atomizer.getSyntax();
             expect(syntax).to.not.equal(result);
         });
     });
     describe('parseConfig()', function () {
         it('returns the expected parsed tree given a config with no options', function () {
-            var atomizer = new Atomizer();
-            var expected = {
+            const atomizer = new Atomizer();
+            const expected = {
                 C: [{
                     className: 'C($FOO)',
                     declarations: {
@@ -193,7 +192,7 @@ describe('Atomizer()', function () {
                     }
                 }]
             };
-            var result = atomizer.parseConfig({
+            const result = atomizer.parseConfig({
                 custom: {
                     '$FOO': 'bar'
                 },
@@ -204,8 +203,8 @@ describe('Atomizer()', function () {
             expect(result).to.deep.equal(expected);
         });
         it('returns the expected parsed tree given a config with the exclude key', function () {
-            var atomizer = new Atomizer();
-            var expected = {
+            const atomizer = new Atomizer();
+            const expected = {
                 Fl: [{
                     className: 'Fl(start)',
                     declarations: {
@@ -213,7 +212,7 @@ describe('Atomizer()', function () {
                     }
                 }]
             };
-            var result = atomizer.parseConfig({
+            const result = atomizer.parseConfig({
                 classNames: [
                     'Fl(end)',
                     'Fl(start)'
@@ -225,9 +224,9 @@ describe('Atomizer()', function () {
             expect(result).to.deep.equal(expected);
         });
         it('returns empty object if invalid class names have been passed', function () {
-            var atomizer = new Atomizer();
-            var expected = {};
-            var result = atomizer.parseConfig({
+            const atomizer = new Atomizer();
+            const expected = {};
+            const result = atomizer.parseConfig({
                 classNames: [
                     'RandomInvalidClass'
                 ]
@@ -236,41 +235,41 @@ describe('Atomizer()', function () {
         });
 
         it('replaces all instances of a given argument', function () {
-            var atomizer = new Atomizer({}, [
+            const atomizer = new Atomizer({}, [
                 {
-                    type: "pattern",
-                    name: "Foo",
-                    matcher: "Foo",
+                    type: 'pattern',
+                    name: 'Foo',
+                    matcher: 'Foo',
                     allowParamToValue: true,
                     styles: {
-                        "foo": "$0 $0 $1 $1"
+                        'foo': '$0 $0 $1 $1'
                     }
                 }
             ]);
-            var result = atomizer.parseConfig({
+            const result = atomizer.parseConfig({
                 classNames: [
-                    "Foo(1px,2px)"
+                    'Foo(1px,2px)'
                 ]
             });
             expect(result).to.deep.equal({
                 Foo: [{
-                    className: "Foo(1px,2px)",
+                    className: 'Foo(1px,2px)',
                     declarations: {
-                        "foo": "1px 1px 2px 2px"
+                        'foo': '1px 1px 2px 2px'
                     }
                 }]
             });
         });
 
         it('returns proper object with null declarations if invalid class value have been passed', function () {
-            var atomizer = new Atomizer();
-            var expected = {
-                "End": [{
-                    "className": "End(-)",
-                    "declarations": null
+            const atomizer = new Atomizer();
+            const expected = {
+                'End': [{
+                    'className': 'End(-)',
+                    'declarations': null
                 }]
             };
-            var result = atomizer.parseConfig({
+            const result = atomizer.parseConfig({
                 classNames: [
                     'End(-)'
                 ]
@@ -280,49 +279,49 @@ describe('Atomizer()', function () {
     });
     describe('getConfig()', function () {
         it ('returns a valid config object when given classes and no config', function () {
-            var atomizer = new Atomizer();
-            var classNames = ['P(55px)'];
-            var expected = {
+            const atomizer = new Atomizer();
+            const classNames = ['P(55px)'];
+            const expected = {
                 classNames: ['P(55px)']
             };
-            var result = atomizer.getConfig(classNames);
+            let result = atomizer.getConfig(classNames);
             expect(result).to.deep.equal(expected);
 
             result = atomizer.getConfig(classNames, {});
             expect(result).to.deep.equal(expected);
         });
         it ('returns a valid config object when given classes and existing config', function () {
-            var atomizer = new Atomizer();
-            var classNames = ['P(55px)', 'D(b)'];
-            var existingConfig = {
+            const atomizer = new Atomizer();
+            const classNames = ['P(55px)', 'D(b)'];
+            const existingConfig = {
                 custom: {
                     heading: '80px'
                 },
                 classNames: ['M(10px)', 'D(ib)']
             };
-            var expected = {
+            const expected = {
                 custom: {
                     heading: '80px'
                 },
                 classNames: ['D(b)', 'D(ib)', 'M(10px)', 'P(55px)']
             };
-            var result = atomizer.getConfig(classNames, existingConfig);
+            const result = atomizer.getConfig(classNames, existingConfig);
             expect(result).to.deep.equal(expected);
         });
         it ('returns a valid config object when given no arguments', function () {
-            var atomizer = new Atomizer();
-            var expected = {
+            const atomizer = new Atomizer();
+            const expected = {
                 classNames: []
             };
-            var result = atomizer.getConfig();
+            const result = atomizer.getConfig();
             expect(result).to.deep.equal(expected);
         });
     });
     describe('getCss()', function () {
         it ('returns expected css for custom classes with break points', function () {
             // set rules here so if helper change, we don't fail the test
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: {
                     sm: '@media screen and (min-width:700px)',
                     md: '@media screen and (min-width:999px)',
@@ -338,7 +337,7 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['P($gutter)']
             };
-            var expected = [
+            const expected = [
                 '.P\\(\\$gutter\\) {',
                 '  padding: 10px;',
                 '}',
@@ -358,13 +357,13 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css for custom classes with break points (Py)', function () {
             // set rules here so if helper change, we don't fail the test
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: {
                     sm: '@media screen and (min-width:700px)',
                     md: '@media screen and (min-width:999px)',
@@ -380,7 +379,7 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['Py($gutter)']
             };
-            var expected = [
+            const expected = [
                 '.Py\\(\\$gutter\\) {',
                 '  padding-top: 10px;',
                 '  padding-bottom: 10px;',
@@ -404,13 +403,13 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css for custom classes with break points (Px)', function () {
             // set rules here so if helper change, we don't fail the test
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: {
                     sm: '@media screen and (min-width:700px)',
                     md: '@media screen and (min-width:999px)',
@@ -426,7 +425,7 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['Px($gutter)']
             };
-            var expected = [
+            const expected = [
                 '.Px\\(\\$gutter\\) {',
                 '  padding-left: 10px;',
                 '  padding-right: 10px;',
@@ -450,13 +449,13 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css for custom classes with break points with missing breakPoints', function () {
             // set rules here so if helper change, we don't fail the test
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: {
                     sm: '@media screen and (min-width:700px)'
                 },
@@ -469,25 +468,25 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['P($gutter)']
             };
-            var expected = [
+            const expected = [
                 '@media screen and (min-width:700px) {',
                 '  .P\\(\\$gutter\\) {',
                 '    padding: 16px;',
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns css if colliding helper and atomic rule is used at the same time', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     '$custom': '1px solid #000'
                 },
                 classNames: ['Bd($custom)', 'Bd', 'BdT']
             };
-            var expected = [
+            const expected = [
                 '.Bd\\(\\$custom\\) {',
                 '  border: 1px solid #000;',
                 '}',
@@ -504,15 +503,15 @@ describe('Atomizer()', function () {
                 '  border-left-width: 0;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns css by reading an array of class names', function () {
-            var atomizer = new Atomizer();
-            var config = {
-                classNames: ['Translate3d(0,0,0)', 'Bd(0)', 'Bd(n)', 'C(red)', 'Cnt(cq):h::b', 'Cnt(oq)::b', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'sibling:c~D(i)','End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)', 'C(#FFF)']
+            const atomizer = new Atomizer();
+            const config = {
+                classNames: ['Translate3d(0,0,0)', 'Bd(0)', 'Bd(n)', 'C(red)', 'Cnt(cq):h::b', 'Cnt(oq)::b', 'Px(inh)', 'Trsdu(.3s)', 'sibling:c+D(n)', 'sibling:c~D(i)', 'End(0)', 'Ta(start)', 'Ta(end)', 'Bgc(#fff.4)', 'Bgc(#fff)', 'P(55px)', 'H(100%)', 'M(a)', 'test:h>Op(1):h', 'test:h_Op(1):h', 'Op(1)', 'Op(1)!', 'D(n)!', 'C(#333)', 'C(#333):li', 'Mt(-10px)', 'W(1/3)', 'Bgz(45px)', 'C(#FFF)']
             };
-            var expected = [
+            const expected = [
                 '.Bd\\(0\\) {',
                 '  border: 0;',
                 '}',
@@ -599,16 +598,16 @@ describe('Atomizer()', function () {
                 '  width: 33.3333%;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css if IE option has been passed', function () {
             // set rules here so if helper change, we don't fail the test
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 classNames: ['Op(.33)', 'D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
             };
-            var expected = [
+            const expected = [
                 '.D\\(ib\\) {',
                 '  display: inline-block;',
                 '  *display: inline;',
@@ -630,12 +629,12 @@ describe('Atomizer()', function () {
                 '  overflow: auto;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {ie: true});
+            const result = atomizer.getCss(config, {ie: true});
             expect(result).to.equal(expected);
         });
         it ('returns expected css of a helper class', function () {
             // set rules here so if helper change, we don't fail the test
-            var atomizer = new Atomizer(null, [
+            const atomizer = new Atomizer(null, [
                 // params
                 {
                     type: 'helper',
@@ -672,10 +671,10 @@ describe('Atomizer()', function () {
                     }
                 }
             ]);
-            var config = {
+            const config = {
                 classNames: ['Foo(1,10px)', 'Foo(2,30px)', 'Foo(2,30px)!', 'Bar', 'Bar!', 'Baz']
             };
-            var expected = [
+            const expected = [
                 'rule {',
                 '  foo: bar;',
                 '}',
@@ -701,12 +700,12 @@ describe('Atomizer()', function () {
                 '  baz: foo;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css value declared in custom', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     '$some-color': '#000000',
                     'brand-color': '#400090',
@@ -714,7 +713,7 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['C($some-color)', 'C(brand-color)', 'C(custom)', 'End(test)']
             };
-            var expected = [
+            const expected = [
                 '.C\\(\\$some-color\\) {',
                 '  color: #000000;',
                 '}',
@@ -725,19 +724,19 @@ describe('Atomizer()', function () {
                 '  right: 300px;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css value declared in custom as prop + value', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     'C(brand-color)': '#400090',
                     'Bgc(brand-color)': '#000000'
                 },
                 classNames: ['C(brand-color)', 'Bgc(brand-color)']
             };
-            var expected = [
+            const expected = [
                 '.Bgc\\(brand-color\\) {',
                 '  background-color: #000000;',
                 '}',
@@ -745,28 +744,28 @@ describe('Atomizer()', function () {
                 '  color: #400090;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('returns expected css value declared in custom when using numeric keys', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     '1': '10px solid #ccc'
                 },
                 classNames: ['Bdt(1)']
             };
-            var expected = [
+            const expected = [
                 '.Bdt\\(1\\) {',
                 '  border-top: 10px solid #ccc;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it('returns expected css value declared in custom with variable substitution', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     '$main-color': '#000000',
                     'brand-color': '#400090',
@@ -774,17 +773,17 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['Bg(my-gradient)']
             };
-            var expected = [
+            const expected = [
                 '.Bg\\(my-gradient\\) {',
                 '  background: linear-gradient(to bottom, #000000, #400090);',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it('returns expected css value declared in custom with nested variable substitution', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     'black': '#000000',
                     '$main-color': '#{black}',
@@ -793,17 +792,17 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['Bg(my-gradient)']
             };
-            var expected = [
+            const expected = [
                 '.Bg\\(my-gradient\\) {',
                 '  background: linear-gradient(to bottom, #000000, #400090);',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it('avoids infinite loops in custom with nested variable substitution', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 custom: {
                     'black': '#{$main-color}',
                     '$main-color': '#{black}',
@@ -812,10 +811,10 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['Bg(my-gradient)']
             };
-            expect(function () { atomizer.getCss(config) }).to.throw();
+            expect(function () { atomizer.getCss(config); }).to.throw();
         });
         it ('returns expected css value with breakpoints', function () {
-            var atomizer = new Atomizer(null, [
+            const atomizer = new Atomizer(null, [
                 {
                     type: 'pattern',
                     name: 'Display',
@@ -853,9 +852,9 @@ describe('Atomizer()', function () {
                     }
                 }
             ]);
-            var config = {
+            const config = {
                 custom: {
-                    "foo": "10px"
+                    'foo': '10px'
                 },
                 breakPoints: {
                     '2xs': '@media(min-width:300px)',
@@ -863,7 +862,7 @@ describe('Atomizer()', function () {
                 },
                 classNames: ['D(n)--sm', 'P(foo)--sm', 'Foo--2xs', 'Bar(10px)--sm']
             };
-            var expected = [
+            const expected = [
                 '@media(min-width:300px) {',
                 '  .Foo--2xs {',
                 '    foo: bar;',
@@ -881,12 +880,12 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('throws if breakpoints aren\'t valid', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: {
                     sm: '400px'
                 },
@@ -897,8 +896,8 @@ describe('Atomizer()', function () {
             }).to.throw();
         });
         it ('throws if breakpoints aren\'t passed as an object', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: '400px',
                 classNames: ['D(n)--sm']
             };
@@ -907,7 +906,7 @@ describe('Atomizer()', function () {
             }).to.throw();
         });
         it ('returns namespaced css when a namespace is specified in options', function () {
-            var atomizer = new Atomizer(null, [
+            const atomizer = new Atomizer(null, [
                 {
                     type: 'pattern',
                     name: 'color',
@@ -939,7 +938,7 @@ describe('Atomizer()', function () {
                     }
                 }
             ]);
-            var config = {
+            const config = {
                 custom: {
                     'brand-color': '#400090'
                 },
@@ -947,7 +946,7 @@ describe('Atomizer()', function () {
             };
             // make sure parent selectors and helpers don't have the namespace
             // helpers should have their own namespace and parent should not have any
-            var expected = [
+            const expected = [
                 '.parent .parent_C\\(brand-color\\) {',
                 '  color: #400090 !important;',
                 '}',
@@ -964,58 +963,58 @@ describe('Atomizer()', function () {
                 '  font-weight: bold;',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {namespace: '#atomic', helpersNamespace: '.atomic'});
+            const result = atomizer.getCss(config, {namespace: '#atomic', helpersNamespace: '.atomic'});
             expect(result).to.equal(expected);
         });
         it ('ignores invalid classnames', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 classNames: ['XXXXX(1)']
             };
-            var expected = '';
-            var result = atomizer.getCss(config);
+            const expected = '';
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('ignores classnames with invalid arguments', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 classNames: ['P(F,0,V)']
             };
-            var expected = '';
-            var result = atomizer.getCss(config);
+            const expected = '';
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('warns the user if an ambiguous class is provided and verbose flag is true', function (done) {
-            var atomizer = new Atomizer({verbose: true});
-            var config = {
+            const atomizer = new Atomizer({verbose: true});
+            const config = {
                 classNames: ['C(foo)']
             };
-            var expected = '';
+            const expected = '';
             // mock console.warn
             console.temp = console.warn;
             console.warn = function (text) {
-                var expected = "Class `C(foo)` is ambiguous";
+                const expected = 'Class `C(foo)` is ambiguous';
                 expect(text).to.contain(expected);
                 done();
             };
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             console.warn = console.temp;
             expect(result).to.equal(expected);
         });
         it ('does not fail if no classnames are passed', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
             };
-            var expected = '';
-            var result = atomizer.getCss(config);
+            const expected = '';
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
         it ('properly handles classnames with optional arguments', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 classNames: ['Skew(90deg)', 'Skew(90deg,45deg)', 'Bdsp(1em)', 'Bdsp(2em,33%)']
             };
-            var expected = [
+            const expected = [
                 '.Bdsp\\(1em\\) {',
                 '  border-spacing: 1em;',
                 '}',
@@ -1029,7 +1028,7 @@ describe('Atomizer()', function () {
                 '  transform: skew(90deg,45deg);',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config);
+            const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
     });
@@ -1060,8 +1059,8 @@ describe('Atomizer()', function () {
     // -------------------------------------------------------
     describe('replaceConstants()', function () {
         it('returns the original string if the param is not a string', function () {
-            var obj = {};
-            var arr = [];
+            const obj = {};
+            const arr = [];
             // execute and assert
             expect(Atomizer.replaceConstants(123)).to.equal(123);
             expect(Atomizer.replaceConstants(obj)).to.equal(obj);
@@ -1088,8 +1087,8 @@ describe('Atomizer()', function () {
     // -------------------------------------------------------
     describe('sortCSS', function () {
         it('should return correct pseudo class name order', function () {
-            var atomizer = new Atomizer();
-            var classNames = [
+            const atomizer = new Atomizer();
+            const classNames = [
                 'D(b)',
                 'C(#fff):li',
                 'Op(1):h',
@@ -1115,8 +1114,8 @@ describe('Atomizer()', function () {
         });
 
         it('if two same pseudo class name found, sort by alphabetical order', function () {
-            var atomizer = new Atomizer();
-            var classNames = [
+            const atomizer = new Atomizer();
+            const classNames = [
                 'T(0):f',
                 'C(#fff):f'
             ];
@@ -1127,8 +1126,8 @@ describe('Atomizer()', function () {
         });
 
         it('class without pseduo class should sort by by alphabetical order', function () {
-            var atomizer = new Atomizer();
-            var classNames = [
+            const atomizer = new Atomizer();
+            const classNames = [
                 'active_D(f)',
                 'active_D(n)',
                 'active_Op(0)',
