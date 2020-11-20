@@ -1,9 +1,10 @@
+/* eslint-disable no-useless-escape */
 'use strict';
 
-var _ = require('lodash');
-var XRegExp = require('xregexp');
+const _ = require('lodash');
+const XRegExp = require('xregexp');
 
-var PSEUDO_CLASSES = {
+const PSEUDO_CLASSES = {
     ':active':            ':a',
     ':checked':           ':c',
     ':default':           ':d',
@@ -41,7 +42,7 @@ var PSEUDO_CLASSES = {
     ':visited':           ':vi'
 };
 
-var PSEUDO_ELEMENTS = {
+const PSEUDO_ELEMENTS = {
     '::before':         '::b',
     '::after':          '::a',
     '::first-letter':   '::fl',
@@ -49,12 +50,12 @@ var PSEUDO_ELEMENTS = {
     '::placeholder':    '::ph'
 };
 
-var PSEUDOS = Object.assign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
-var PSEUDOS_INVERTED = _.invert(PSEUDOS);
+const PSEUDOS = Object.assign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
+const PSEUDOS_INVERTED = _.invert(PSEUDOS);
 
 function flatten(obj) {
-    var flat = [];
-    for (var key in obj) {
+    const flat = [];
+    for (const key in obj) {
         flat.push(key);
         flat.push(obj[key]);
     }
@@ -62,7 +63,7 @@ function flatten(obj) {
 }
 
 // regular grammar to match valid atomic classes
-var GRAMMAR = {
+const GRAMMAR = {
     'BOUNDARY'      : '(?:^|\\s|class=|"|\'|\`|\{|\})',
     'PARENT'        : '[a-zA-Z][-_a-zA-Z0-9]+?',
     'PARENT_SEP'    : '[>_+~]',
@@ -80,8 +81,8 @@ var GRAMMAR = {
     // https://regex101.com/r/mM2vT9/8
     'NAMED'         : '([\\w$]+(?:(?:-(?!\\-))?\\w*)*)',
     'BREAKPOINT'    : '--(?<breakPoint>[a-zA-Z0-9]+)',
-    'PSEUDO_CLASS'  : '(?:' + flatten(PSEUDO_CLASSES).join('|') + ')(?![a-z])',
-    'PSEUDO_ELEMENT': '(?:' + flatten(PSEUDO_ELEMENTS).join('|') + ')(?![a-z])',
+    'PSEUDO_CLASS'  : `(?:${  flatten(PSEUDO_CLASSES).join('|')  })(?![a-z])`,
+    'PSEUDO_ELEMENT': `(?:${  flatten(PSEUDO_ELEMENTS).join('|')  })(?![a-z])`,
     'PSEUDO_CLASS_SIMPLE'   : ':[a-z]+',
     'PSEUDO_ELEMENT_SIMPLE' : '::[a-z]+'
 };
@@ -116,7 +117,7 @@ GRAMMAR.PARENT_SELECTOR_SIMPLE = [
     ')'
 ].join('');
 
-var VALUE_SYNTAXE = XRegExp([
+const VALUE_SYNTAXE = XRegExp([
     '(?<fraction>',
         GRAMMAR.FRACTION,
     ')',
@@ -142,7 +143,7 @@ var VALUE_SYNTAXE = XRegExp([
     '|',
     '(?<named>',
         GRAMMAR.NAMED,
-    ')',
+    ')'
 ].join(''));
 
 /**
@@ -157,16 +158,14 @@ function getSortedKeys(arr) {
 }
 
 function buildRegex(matchersParams, matchersNoParams) {
-    matchersParams = matchersParams ? '(?<atomicSelector>' + matchersParams + ')\\((?<atomicValues>' + GRAMMAR.VALUES + ')\\)' : '';
-    matchersNoParams = matchersNoParams ? '(?<selector>' + matchersNoParams + ')' : '';
-    return '(?:' + [matchersParams, matchersNoParams].join('|') + ')';
+    matchersParams = matchersParams ? `(?<atomicSelector>${  matchersParams  })\\((?<atomicValues>${  GRAMMAR.VALUES  })\\)` : '';
+    matchersNoParams = matchersNoParams ? `(?<selector>${  matchersNoParams  })` : '';
+    return `(?:${  [matchersParams, matchersNoParams].join('|')  })`;
 }
 
 function Grammar(rules) {
-    var matchersParams = [];
-    var matchersNoParams = [];
-    var matchersParamsStr;
-    var matchersNoParamsStr;
+    const matchersParams = [];
+    const matchersNoParams = [];
 
     rules.forEach(function (rule) {
         if (rule.noParams) {
@@ -176,8 +175,8 @@ function Grammar(rules) {
         }
     });
 
-    matchersParamsStr = getSortedKeys(matchersParams);
-    matchersNoParamsStr = getSortedKeys(matchersNoParams);
+    const matchersParamsStr = getSortedKeys(matchersParams);
+    const matchersNoParamsStr = getSortedKeys(matchersNoParams);
 
     this.simpleSyntax = buildRegex(GRAMMAR.PROP, matchersNoParamsStr);
     this.complexSyntax = buildRegex(matchersParamsStr, matchersNoParamsStr);
@@ -195,7 +194,7 @@ Grammar.matchValue = function matchValue(value) {
 };
 
 Grammar.prototype.getSyntax = function getSyntax(isSimple)/*:string*/ {
-    var syntax = [
+    const syntax = [
         // word boundary
         GRAMMAR.BOUNDARY,
         '(',
