@@ -10,7 +10,7 @@ module.exports = {
         uh: '79px',             // custom 1 (see classNames below)
         primary: '#f6a1e1',     // custom 2 (see classNames below)
         standardPadding: '10px',
-        padding: '#{standardPadding} 5px #{standardPadding} 20px' // custom value substition is supported via #{} syntax
+        padding: '#{standardPadding} 5px #{standardPadding} 20px' // custom value substitution is supported via #{} syntax
     },
     // breakpoints define media queries and is used to contain the style of a class
     // only when that media query is active.
