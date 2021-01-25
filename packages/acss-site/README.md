@@ -1,6 +1,6 @@
 acss-site
 =========
 
-Atomic CSS website
+ACSS website
 
 http://acss.io
