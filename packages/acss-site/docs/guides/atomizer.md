@@ -4,8 +4,8 @@ layout: docs
 title: Atomizer tool
 ---
 
-<p><a href="https://github.com/acss-io/atomizer">Atomizer</a> is a tool (<a href="https://www.npmjs.com/package/atomizer">npm</a>, <a href="https://github.com/acss-io/atomizer">github</a>) for generating Atomic CSS stylesheets.</p>
-<p>Atomizer creates CSS style declarations based on Atomic classes it finds in your project. This means that your style sheets are always up-to-date <em>without the need for writing a single CSS declaration manually</em> <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a>.</p>
+<p><a href="https://github.com/acss-io/atomizer">Atomizer</a> is a tool (<a href="https://www.npmjs.com/package/atomizer">npm</a>, <a href="https://github.com/acss-io/atomizer">github</a>) for generating <b class="Fw(b)">ACSS</b> stylesheets.</p>
+<p>Atomizer creates CSS style declarations based on <b class="Fw(b)">ACSS</b> classes it finds in your project. This means that your style sheets are always up-to-date <em>without the need for writing a single CSS declaration manually</em> <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a>.</p>
 <p>For example, if your project was a single page containing:</p>
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"D(b) Va(t) Fz(20px)"</span>&gt;Hello World!&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
@@ -75,7 +75,7 @@ atomizer: {
     <span class="hljs-built_in">files</span>: [
         {
            <span class="hljs-comment"> // parse your project's html files to automatically add</span>
-           <span class="hljs-comment"> // found Atomic classes to your config</span>
+           <span class="hljs-comment"> // found ACSS classes to your config</span>
             src: [<span class="hljs-string">'./src/*.html'</span>],
            <span class="hljs-comment"> // generate the css in the file below</span>
             dest: <span class="hljs-string">'./atomic.css'</span>
@@ -84,7 +84,7 @@ atomizer: {
 }
 </code></pre>
 <h3 id="web-tools">Web Tools</h3>
-<p>For a simple web interface to help you learn about Atomizer and Atomic CSS, check out <a href="https://pankajparashar-zz.github.io/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or Atomic classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
+<p>For a simple web interface to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, check out <a href="https://pankajparashar-zz.github.io/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or <b class="Fw(b)">ACSS</b> classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">

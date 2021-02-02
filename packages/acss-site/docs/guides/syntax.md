@@ -4,14 +4,14 @@ layout: docs
 title: Class syntax
 ---
 
-<p>Atomic and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.</p>
+<p><b class="Fw(b)">ACSS</b> and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.</p>
 <h2 id="the-syntax">The syntax</h2>
 <pre>
 [<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-element-">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
 </pre>
 
-<p>At its core, an Atomic or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. </p>
-<p>Atomic classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-"><code>LineClamp()</code></a> accepts two.)  Helper classes may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.</p>
+<p>At its core, a <b class="Fw(b)">ACSS</b> or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. </p>
+<p><b class="Fw(b)">ACSS</b> classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-"><code>LineClamp()</code></a> accepts two.)  Helper classes may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.</p>
 <p>Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context&gt;</a> class and <a href="#combinator">&lt;combinator&gt;</a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>.</p>
 <p>You may also optionally suffix the style with <a href="#-lt-">&lt;!&gt;</a> (for <code>!important</code>), a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>, a <a href="#-lt-pseudo-element-">&lt;pseudo-element&gt;</a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier&gt;</a>.</p>
 <h3 id="rtl-ltr">RTL/LTR</h3>
@@ -112,10 +112,10 @@ title: Class syntax
 <h3 id="style">&lt;Style&gt;</h3>
 <p>Required.</p>
 <p>CSS property or <a href="helper-classes.html">helper class</a>. <a href="http://en.wikipedia.org/wiki/Capitalization">Capitalized</a> with no separator between words such as dashes or new capitals. </p>
-<p class="noteBox info">Atomic classes generally follow the <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> syntax for their naming convention.</p>
+<p class="noteBox info"><b class="Fw(b)">ACSS</b> classes generally follow the <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> syntax for their naming convention.</p>
 
 <h3 id="value">&lt;value&gt;</h3>
-<p>Optional for helper classes, required for Atomic classes.</p>
+<p>Optional for helper classes, required for <b class="Fw(b)">ACSS</b> classes.</p>
 <p>Examples:</p>
 <pre><code class="lang-css"><span class="hljs-class">.Ta</span>\(<span class="hljs-tag">c</span>\) <span class="hljs-rules">{
     <span class="hljs-rule"><span class="hljs-attribute">text-align</span>:<span class="hljs-value"> center</span></span>;
@@ -295,5 +295,5 @@ title: Class syntax
     <li><code>start</code> is mapped to either &quot;left&quot; or &quot;right&quot; depending on the config file <a href="#footnote-3">[↩]</a>.</li>
     <li>this class is an <a href="atomic-classes.html">alias</a> <a href="#footnote-4">[↩]</a>.</li>
     <li>this class is a <a href="helper-classes.html">helper</a> <a href="#footnote-5">[↩]</a>.</li>
-    <li>Unlike all other Atomic classes, those containing descendant selectors are <strong>not</strong> sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds <code>!important</code> to these styles <a href="#footnote-6">[↩]</a>.</li>
+    <li>Unlike all other <b class="Fw(b)">ACSS</b> classes, those containing descendant selectors are <strong>not</strong> sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds <code>!important</code> to these styles <a href="#footnote-6">[↩]</a>.</li>
 </ol>

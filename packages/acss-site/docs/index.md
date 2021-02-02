@@ -5,7 +5,7 @@ layout: home
 
 <div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(49%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">CSS is painful</h2>
-<p>CSS is a critical piece of the frontend toolkit, but it&#39;s hard to manage, especially in large projects. Styles are written in a global scope, which is narrowed through complex selectors. Specificity issues, redundancy, bloat, and maintenance can become a nightmare. And modular, component-based projects only add to the complexity. Atomic CSS enables you to style directly in your components, avoiding the headache of managing stylesheets.</p>
+<p>CSS is a critical piece of the frontend toolkit, but it&#39;s hard to manage, especially in large projects. Styles are written in a global scope, which is narrowed through complex selectors. Specificity issues, redundancy, bloat, and maintenance can become a nightmare. And modular, component-based projects only add to the complexity. <b class="Fw(b)">ACSS</b> enables you to style directly in your components, avoiding the headache of <i class="Fs(i)">writing</i> and <i class="Fs(i)">managing</i> stylesheets.</p>
 </div><!--
 --><div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(49%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">Style with class</h2>
@@ -13,7 +13,7 @@ layout: home
 </div><!--
 --><div class="Mx(a) Mt(10px) Bxz(bb) Va(t) W(100%) W(65%)--sm">
 <h2 class="Bdw(0)! P(0) M(0) Ta(c)">Meet Atomizer</h2>
-<p><a href="https://github.com/acss-io/atomizer">Atomizer</a> is a tool for creating Atomic CSS. Generate an Atomic stylesheet dynamically from the Atomic classes you&#39;re actually using in your project (no unused styles!), or predeclare styles in configuration - it&#39;s up to you. Atomizer is not opinionated, brings no CSS of its own, and integrates nicely with your favorite task runner.</p>
+<p><b class="Fw(b)">ACSS</b> stands for <em>Atomized CSS</em>. <b class="Fw(b)">ACSS</b> relies on <a href="https://github.com/acss-io/atomizer">Atomizer</a> to dynamically generate an Atomic stylesheet from the <b class="Fw(b)">ACSS</b> classes you&#39;re actually using in your project (no unused styles!), or predeclare styles in configuration - it&#39;s up to you. <b class="Fw(b)">ACSS</b> is not opinionated, brings no CSS of its own, and integrates nicely with your favorite task runner.</p>
 </div>
 
 <h2 id="colors">Colors</h2>
@@ -64,7 +64,7 @@ layout: home
 <h2 id="contextual-selectors">Contextual selectors</h2>
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomic syntax allows you to style elements <a href="/guides/atomic-classes.html#descendant-selectors">depending on their ancestors or siblings</a>.</p>
+        <p><b class="Fw(b)">ACSS</b> syntax allows you to style elements <a href="/guides/atomic-classes.html#descendant-selectors">depending on their ancestors or siblings</a>.</p>
         <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -126,7 +126,7 @@ layout: home
 <h2 id="grids">Grids</h2>
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="/tutorials/grid-system.html#layouts">Atomic supports it all</a>, and you can use <a href="/tutorials/grid-system.html#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
+        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="/tutorials/grid-system.html#layouts"><b class="Fw(b)">ACSS</b> supports it all</a>, and you can use <a href="/tutorials/grid-system.html#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-string">&quot;Row&quot;</span>&gt;</span>
@@ -166,7 +166,7 @@ layout: home
 <h2 id="responsive-web-design-rwd-">Responsive Web Design (RWD)</h2>
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Define your responsive &quot;breakpoints&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomic classes or configuration.</p>
+        <p>Define your responsive &quot;breakpoints&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your <b class="Fw(b)">ACSS</b> classes or configuration.</p>
 
         <h3> Classes mapped to a single breakpoint</h3>
 
@@ -216,7 +216,7 @@ layout: home
 <h2 id="helpers">Helpers</h2>
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomizer offers a selection of <a href="/guides/helper-classes.html">helper classes</a> for common styling, such &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="guides/helper-classes.html#-bd-borders-">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
+        <p><b class="Fw(b)">ACSS</b> offers a selection of <a href="/guides/helper-classes.html">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="guides/helper-classes.html#-bd-borders-">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
         <p>For example <code>LineClamp()</code>, which takes two parameters:</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">

@@ -5,7 +5,7 @@ title: Helper classes
 ---
 
 <p>Helper classes are provided to help with common styling patterns. <a href="/guides/atomizer.html">Atomizer</a> provides the following set of helper classes, and you can define your own through custom Atomizer rulesets.</p>
-<p>Unlike <a href="/guides/atomic-classes.html">Atomic classes</a>, helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.</p>
+<p>Unlike <a href="/guides/acss-classes.html">ACSS classes</a>, helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.</p>
 <h2 id="bd-borders-"><code>Bd*</code> (Borders)</h2>
 <p>Styling elements with a border requires 3 properties <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a> so to make styling via classes a bit less verbose, the following helpers combine <code>border-style</code> (set to <code>solid</code>) and <code>border-width</code> (set to <code>1px</code>):</p>
 <ul class="ul-list">
@@ -31,7 +31,7 @@ title: Helper classes
 
 <p>The default <code>width</code> of these helpers is <code>1px</code> as it is the most common use case. If you want to use a different <code>width</code> or <code>style</code> value, then you can either</p>
 <ul class="ul-list">
-    <li>use standard Atomic classes, for example: <code>Bdw(5px) Bds(s) Bdc(#555)</code></li>
+    <li>use standard <b class="Fw(b)">ACSS</b> classes, for example: <code>Bdw(5px) Bds(s) Bdc(#555)</code></li>
     <li>create a custom class via config, for example: <code>Bd(myCustomBorder)</code></li>
     <li>use <strong>the same helper classes</strong> with <a href="helper-classes.htmlthe-special-case-of-border-">different values</a></li>
 </ul>
