@@ -4,24 +4,24 @@ layout: docs
 title: Frequently Asked Questions
 ---
 
-<p>This section is intended to answer common questions related to Atomic CSS and Atomizer. If you&#39;re unable to find an answer to your question, <a href="/support.html">you can find support here</a>.</p>
+<p>This section is intended to answer common questions related to Atomic CSS, <b class="Fw(b)">ACSS</b>, and Atomizer. If you&#39;re unable to find an answer to your question, <a href="/support.html">you can find support here</a> or <a href="https://github.com/acss-io/acss-site/discussions">start a discussion here</a>.</p>
 <h2 id="questions-related-to-the-atomic-css-architecture">Questions related to the Atomic CSS architecture</h2>
 <ul class="ul-list">
    <li><a href="#what-is-atomic-css-">What is Atomic CSS?</a></li>
    <li><a href="#how-is-atomic-css-different-than-using-inline-styles-">How is Atomic CSS different than using inline styles?</a></li>
    <li><a href="#what-are-the-benefits-of-atomic-css-">What are the benefits of Atomic CSS?</a></li>
-   <li><a href="#how-does-atomic-css-compare-to-bootstrap-purecss-or-other-css-framework-">How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
+   <li><a href="#should-i-style-everything-using-atomic-classes-">Should I style everything using atomic classes?</a></li>
    <li><a href="#i-have-always-been-told-to-use-classes-related-to-content-not-to-presentation-isn-t-atomic-css-promoting-bad-practice-">I have always been told to use classes related to content, <em>not to presentation</em>. Isn&#39;t Atomic CSS promoting bad practice?</a></li>
    <li><a href="#isn-t-atomic-css-moving-bloat-from-style-sheets-to-html-">Isn&#39;t Atomic CSS moving bloat from style sheets to HTML?</a></li>
    <li><a href="#how-can-you-distribute-presentation-changes-without-asking-everyone-to-change-their-markup-">How can you distribute presentation changes without asking everyone to change their markup?</a></li>
    <li><a href="#how-does-atomic-css-work-with-abbr-title-responsive-web-design-rwd-abbr-">How does Atomic CSS work with Responsive Web Design (RWD)?</a></li>
 </ul>
 
-<h2 id="questions-related-to-atomizer">Questions related to Atomizer</h2>
+<h2 id="questions-related-to-atomizer">Questions related to <b class="Fw(b)">ACSS</b> and Atomizer</h2>
 <ul class="ul-list">
-   <li><a href="#should-i-quot-atomize-quot-everything-should-i-style-everything-using-atomic-classes-">Should I &quot;<em>atomize</em>&quot; everything? Should I style everything using atomic classes?</a></li>
+   <li><a href="#how-does-atomic-css-compare-to-bootstrap-purecss-or-other-css-framework-">How does <b class="Fw(b)">ACSS</b> compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
    <li><a href="#do-i-need-to-specify-a-namespace-and-if-yes-what-should-i-use-">Do I need to specify a namespace? And if yes, what should I use?</a></li>
-   <li><a href="#why-are-atomic-classes-capitalized-as-far-as-i-know-no-other-framework-does-that-">Why are Atomic classes capitalized? As far as I know, no other framework does that?</a></li>
+   <li><a href="#why-are-acss-classes-capitalized-as-far-as-i-know-no-other-framework-does-that-">Why are <b class="Fw(b)">ACSS</b> classes capitalized? As far as I know, no other framework does that?</a></li>
    <li><a href="#why-do-i-have-to-use-lowercase-for-color-values-">Why do I have to use lowercase for colors?</a></li>
    <li><a href="#why-are-descendant-classes-not-relying-on-the-namespace-why-are-those-styles-using-important-">Why are &quot;descendant classes&quot; not relying on the namespace? Why are those styles using <code>!important</code></a>?</li>
    <li><a href="#how-can-one-remember-atomic-class-names-">How can one remember Atomic class names?</a></li>
@@ -191,11 +191,10 @@ title: Frequently Asked Questions
 </table>
 
 <p><small>Source: <a href="http://cssstats.com">cssstats.com</a></small></p>
-<p>The table above uses yahoo.com for reference as this site uses an early version of Atomic CSS.</p>
-
-<h3 id="how-does-atomic-css-compare-to-bootstrap-purecss-or-other-css-framework-">How does Atomic CSS compare to Bootstrap, PureCSS, or other CSS framework?</h3>
-<p>Atomic CSS is not a framework; it does not contain UI components nor a grid system. It is a solution that allows you to to create <strong>your own UI</strong> while preventing bloat.</p>
-<p>Atomic&#39;s &quot;footprint&quot; is limited to what a project uses - meaning there is no &quot;entry cost&quot;. Simply installing <a href="/guides/atomizer.html">Atomizer</a> in your project does not add any bytes to your pages.</p>
+<p>The table above uses yahoo.com for reference as this site used&mdash;at the time this was published&mdash;a static Atomic CSS library.</p>
+<h3 id="should-i-style-everything-using-atomic-classes-">Should I &quot;atomize&quot; everything? Should I style everything using atomic classes?</h3>
+<p>If changing some styling requires you to edit multiple files, then you should use the classic CSS approach: apply a &quot;meaningful&quot; class to the element you want to style and use that hook to write rules in a style sheet. But if changing a given style across the board can be done in one place&mdash;other than a style sheet&mdash;then you should go with Atomic CSS.</p>
+<p>An example of the former could be headings (unless they are &quot;components&quot;) meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget with its own styling.</p>
 <h3 id="i-have-always-been-told-to-use-classes-related-to-content-not-to-presentation-isn-t-atomic-css-promoting-bad-practice-">I have always been told to use classes related to content, <em>not to presentation</em>. Isn&#39;t Atomic CSS promoting bad practice?</h3>
 <blockquote>
     <div>
@@ -269,9 +268,9 @@ Note that Facebook appears to uglify some classes.</p>
 
 <h4 id="gzip-loves-atomic-css">Gzip loves Atomic CSS</h4>
 <p>If we put Gzip into the picture, then things look even better. That’s because a lot of repetitions means a better compression ratio.
-From a few tests we ran, it’s about 35% for semantic classes versus 48% for Atomic classes.</p>
+From a few tests we ran, it’s about 35% for semantic classes versus 48% for atomic classes.</p>
 <h3 id="how-can-you-distribute-presentation-changes-without-asking-everyone-to-change-their-markup-">How can you distribute presentation changes without asking everyone to change their markup?</h3>
-<p>Use Atomic classes where it makes sense; for example the following creates much of the content of our <a href="./reference">reference</a> page. If we decided to change the styling of this content this would be the only place we&#39;d need to go to.</p>
+<p>Use atomic classes where it makes sense; for example the following creates much of the content of our <a href="./reference">reference</a> page. If we decided to change the styling of this content this would be the only place we&#39;d need to go to.</p>
 <pre><code class="lang-js">return (
     <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">key</span>=<span class="hljs-value">{'id-'</span> + <span class="hljs-attribute">recipe.id</span>} <span class="hljs-attribute">className</span>=<span class="hljs-value">{displayclassDefinitions}</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-title">h3</span> <span class="hljs-attribute">className</span>=<span class="hljs-value">"M(0) Mt(10px) P(10px)"</span>&gt;</span>{recipe.name}<span class="hljs-tag">&lt;/<span class="hljs-title">h3</span>&gt;</span>
@@ -280,11 +279,11 @@ From a few tests we ran, it’s about 35% for semantic classes versus 48% for At
 );
 </code></pre>
 <h3 id="how-does-atomic-css-work-with-abbr-title-responsive-web-design-rwd-abbr-">How does Atomic CSS work with <abbr title="Responsive Web Design">RWD</abbr>?</h3>
-<p>Please visit our <a href="tutorials/responsive-web-design.html">RWD docs</a> to see examples of how you can use Atomic CSS to create styles in the context of breakpoints.</p>
+<p>Please visit our <a href="tutorials/responsive-web-design.html">RWD docs</a> to see examples of how you can use <b class="Fw(b)">ACSS</b> to create styles in the context of breakpoints.</p>
 <h2 id="answers-related-to-atomizer">Answers related to Atomizer</h2>
-<h3 id="should-i-atomize-everything-should-i-style-everything-using-atomic-classes-">Should I &quot;atomize&quot; everything? Should I style everything using atomic classes?</h3>
-<p>If changing some styling requires you to edit multiple files, then you should use the classic CSS approach: apply a &quot;meaningful&quot; class to the element you want to style and use that hook to write rules in a style sheet. But if changing a given style across the board can be done in one place - other than a style sheet - then you should go with Atomic CSS.</p>
-<p>An example of the former could be headings (unless they are &quot;components&quot;) meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget with its own styling.</p>
+<h3 id="how-does-atomic-css-compare-to-bootstrap-purecss-or-other-css-framework-">How does <b class="Fw(b)">ACSS</b> compare to Bootstrap, PureCSS, or other CSS framework?</h3>
+<p><b class="Fw(b)">ACSS</b> is not a framework; it does not contain UI components nor a grid system. It is a solution that allows you to to create <strong>your own UI</strong> while preventing bloat.</p>
+<p><b class="Fw(b)">ACSS</b>&#39;s &quot;footprint&quot; is limited to what a project uses - meaning there is no &quot;entry cost&quot;. Simply installing <a href="/guides/atomizer.html">Atomizer</a> in your project does not add any bytes to your pages.</p>
 <h3 id="do-i-need-to-specify-a-namespace-and-if-yes-what-should-i-use-">Do I need to specify a namespace? And if yes, what should I use?</h3>
 <p>You do not need to use a namespace per se but this is extremely useful to bump the specificity of Atomic rules.
 Our advice is to use an <code>id</code> (we use <code>#atomic</code>) so all Atomic rules can easily overwrite declarations from other rules; for example:</p>
@@ -314,7 +313,7 @@ Our advice is to use an <code>id</code> (we use <code>#atomic</code>) so all Ato
 <p>This clear separation helps to better manage styles inside large scale projects.</p>
 </div>
 
-<h3 id="why-are-atomic-classes-capitalized-as-far-as-i-know-no-other-framework-does-that-">Why are Atomic classes capitalized? As far as I know, no other framework does that?</h3>
+<h3 id="why-are-acss-classes-capitalized-as-far-as-i-know-no-other-framework-does-that-">Why are <b class="Fw(b)">ACSS</b> classes capitalized? As far as I know, no other framework does that?</h3>
 <p>We took advantage of the fact that nobody seems to capitalize classes and that CSS is case sensitive to get a &quot;cheap&quot; namespace, one that does not rely on extra character(s).</p>
 <h3 id="why-do-i-have-to-use-lowercase-for-color-values-">Why do I have to use lowercase for color values?</h3>
 <p>To prevent redundancy, we made the choice to favor lowercase over uppercase, even though the latter is valid.</p>
@@ -345,11 +344,11 @@ For example this would not work (using <code>atomic</code> as the namespace):</p
 
 <h3 id="how-can-one-remember-atomic-class-names-">How can one remember Atomic class names?</h3>
 <p>The syntax comes from <a href="http://emmet.io">Emmet</a>, which is a plugin for many IDEs. It allows you to type a few characters and get property/value pairs.
-Like Emmet shortcuts, Atomic classes are for the most part simple abbreviations.</p>
+Like Emmet shortcuts, <b class="Fw(b)">ACSS</b> classes are for the most part simple abbreviations.</p>
 <p>Also, note that we do not use <code>left</code> and <code>right</code> but instead <code>start</code> and <code>end</code>. So we can easily output a RTL style sheet.</p>
 <p>The <a href="../guides/syntax.html">syntax</a> and <a href="reference">reference</a> pages are meant to help you with this; and we may have a plugin for your IDE in the near future...</p>
 <h3 id="how-come-atomizer-is-not-creating-some-classes-for-me-">How come Atomizer is not creating some classes for me?</h3>
-<p>Make sure your grunt config is set up to scan all the files onto which Atomic classes are applied. See <strong>&lt;path to files to be scanned&gt;</strong> below:</p>
+<p>Make sure your grunt config is set up to scan all the files onto which <b class="Fw(b)">ACSS</b> classes are applied. See <strong>&lt;path to files to be scanned&gt;</strong> below:</p>
 <pre><code class="lang-javascript">module.exports = <span class="hljs-keyword">function</span> (grunt) {
     grunt.config.set(<span class="hljs-string">'atomizer'</span>, {
         dev: {
@@ -388,5 +387,5 @@ Like Emmet shortcuts, Atomic classes are for the most part simple abbreviations.
     <li>Maximum number of rules for IE9: 4,095 (65,534 for IE10+) <a href="#footnote-2">[↩]</a><a href="#footnote-2b">[↩]</a>.</li>
     <li><a href="http://microformats.org/">microformats</a> is a different story <a href="#footnote-3">[↩]</a>.</li>
     <li>Thanks to some uglification <a href="#footnote-4">[↩]</a>.</li>
-    <li>Choosing a <code>id</code> for the namespace (i.e. <code>#atomic</code>) guarantees that Atomic CSS styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use <code>!important</code> as such styling would overwrite inline styles as well as other rules in a project that could be using an <code>id</code> to create more specific styling <a href="#footnote-5">[↩]</a>.</li>
+    <li>Choosing a <code>id</code> for the namespace (i.e. <code>#atomic</code>) guarantees that <b class="Fw(b)">ACSS</b> styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use <code>!important</code> as such styling would overwrite inline styles as well as other rules in a project that could be using an <code>id</code> to create more specific styling <a href="#footnote-5">[↩]</a>.</li>
 </ol>

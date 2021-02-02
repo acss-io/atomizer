@@ -5,7 +5,7 @@ module.exports = {
         'md': '@media screen and (min-width:999px)',
         'lg': '@media screen and (min-width:1200px)'
     },
-    // custom atomic classes mapped to their values
+    // custom acss classes mapped to their values
     'custom': {
         'columnWidth': '20px',
         'Bgi(hamburger)': 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',

@@ -4,7 +4,7 @@ layout: docs
 title: Responsive Web Design
 ---
 
-<p>You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomic classes through <a href="/guides/syntax.html#-lt-breakpoint_identifier-">the breakpoint suffix</a> or automatic breakpoints.</p>
+<p>You can define your breakpoints as media queries in the config object and then apply those breakpoints to your <b class="Fw(b)">ACSS</b> classes through <a href="/guides/syntax.html#-lt-breakpoint_identifier-">the breakpoint suffix</a> or automatic breakpoints.</p>
 <h2 id="setting-up-breakpoints">Setting up Breakpoints</h2>
 <p>Pick the breakpoint names and media queries you want, for example:</p>
 <pre><code class="lang-json"><span class="hljs-string">'breakPoints'</span>: {
@@ -15,7 +15,7 @@ title: Responsive Web Design
 </code></pre>
 <p>Breakpoints may be named anything you want, as long as the characters are valid for use in  classnames.</p>
 <h2 id="usage">Usage</h2>
-<p>There are two ways to make use of breakpoints in your Atomic classes: explicitly and automatically.</p>
+<p>There are two ways to make use of breakpoints in your <b class="Fw(b)">ACSS</b> classes: explicitly and automatically.</p>
 <h3 id="explicit-breakpoints">Explicit Breakpoints</h3>
 <p>Append <code>--&lt;breakpoint name&gt;</code> to any Atomic class to associate that styling with the breakpoint of your choice. For example, <code>D(b)--sm</code> and <code>C(#000)--md</code> will create the following rules in the related media queries:</p>
 <pre><code class="lang-css"><span class="hljs-at_rule">@<span class="hljs-keyword">media</span> screen and (min-width:<span class="hljs-number">380px</span>) </span>{

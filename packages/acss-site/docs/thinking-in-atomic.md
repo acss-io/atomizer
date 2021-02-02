@@ -5,8 +5,8 @@ title: Thinking in Atomic
 ---
 
 <p>&quot;<strong>Atomic CSS</strong>&quot; is a <a href="http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/">CSS architecture</a>. It is not opinionated; it simply defines a set of classes representing single-purpose styling units.</p>
-<p><strong>Atomizer</strong> implements the <a href="/guides/syntax.html">Atomic syntax</a> to help you generate Atomic CSS. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomic classes found within your project, or from custom values defined in the Atomizer config file.</p>
-<p>Adopting Atomic CSS addresses common CSS challenges:</p>
+<p><strong>Atomizer</strong> implements the <b class="Fw(b)">ACSS</b> <a href="/guides/syntax.html">syntax</a> to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from <b class="Fw(b)">ACSS</b> classes found within your project, or from custom values defined in the Atomizer config file.</p>
+<p>Adopting a Atomic CSS methodology addresses common CSS challenges:</p>
 <dl class="Mstart(20px) Mb(30px)">
 <dt class="Fs(i) C(#000)">Changes are predictable</dt>
 <dd class="Mstart(20px) Mt(5px)">Because of the single responsibility principle (one class == one style) it is easy to predict what removing or adding a class will do.</dd>
@@ -23,13 +23,13 @@ title: Thinking in Atomic
 <h2 id="who-s-atomic-css-for-">Who&#39;s Atomic CSS for?</h2>
 <p><strong>Atomic CSS</strong> is for developers who see the benefits of styling &quot;<em>outside of style sheets</em>&quot; &mdash; who want to write markup and styles in one place while benefiting from a Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but <em>components</em>.</p>
 <h2 id="be-pragmatic">Be pragmatic</h2>
-<p>Atomic CSS can live side-by-side with traditional style sheets. In cases where Atomic CSS doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.  </p>
-<p>Traditional style sheets may be helpful for styles that Atomic cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <b class="Fw(n)"><a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></b>.</p>
+<p><b class="Fw(b)">ACSS</b> can live side-by-side with traditional style sheets. In cases where <b class="Fw(b)">ACSS</b> doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.  </p>
+<p>Traditional style sheets may be helpful for styles that <b class="Fw(b)">ACSS</b> cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <b class="Fw(n)"><a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></b>.</p>
 <h2 id="grids">Grids</h2>
-<p>There is no such thing as a &quot;Grid&quot; in Atomic CSS. Atomic CSS does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, Atomic CSS gives you all the tools you need to create <a href="/tutorials/grid-system.html">any grid you want</a>.</p>
+<p>There is no such thing as a &quot;Grid&quot; in <b class="Fw(b)">ACSS</b>. <b class="Fw(b)">ACSS</b> does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, <b class="Fw(b)">ACSS</b> gives you all the tools you need to create <a href="/tutorials/grid-system.html">any grid you want</a>.</p>
 <h2 id="specificity">Specificity</h2>
 <h3 id="from-0-0-1-0-to-infinity">From <code>0,0,1,0</code> to &quot;<em>infinity</em>&quot;</h3>
-<p>By nature, Atomic classes have very low specificity (<code>0,0,1,0</code>). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a <em>namespace</em>. Best practice is to keep specificity as low as possible, but depending on other rules in your project you may want to include a namespace to increase the weight of Atomic classes.</p>
+<p>By nature, <b class="Fw(b)">ACSS</b> classes have very low specificity (<code>0,0,1,0</code>). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a <em>namespace</em>. Best practice is to keep specificity as low as possible, but depending on other rules in your project you may want to include a namespace to increase the weight of <b class="Fw(b)">ACSS</b> classes.</p>
 <p>Keep in mind that the weight of rules is <em>not as important as</em> making sure specificity is homogeneous across rules.
 For example, styles like these:</p>
 <pre><code class="lang-css"><span class="hljs-id">#namespace</span> <span class="hljs-class">.myBox</span> <span class="hljs-rules">{}</span>           <span class="hljs-comment">/* 0,1,1,0 */</span>
@@ -46,7 +46,7 @@ For example, styles like these:</p>
 <span class="hljs-class">.nav</span> <span class="hljs-class">.list</span> <span class="hljs-class">.item</span> <span class="hljs-tag">a</span> {}          <span class="hljs-comment">/* 0,0,3,1 */</span>
 </code></pre>
 
-<p>Choosing to include a namespace or not, and to use a <em>class</em> or a <em>id</em> for the namespace, depends on the weight of rules in other style sheets. For Atomic classes to be relevant they must have enough weight to overwrite non-Atomic styles. The specificity may be the same as non-Atomic styles as long as the Atomic style sheet is included <strong>after</strong> other style sheets.</p>
+<p>Choosing to include a namespace or not, and to use a <em>class</em> or a <em>id</em> for the namespace, depends on the weight of rules in other style sheets. For atomic classes to be relevant they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the atomic style sheet is included <strong>after</strong> other style sheets.</p>
 <p>This table suggests the namespace to use depending on the weight of your other rules (<a href="http://specificity.keegan.st/">Specificity Calculator</a>).</p>
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Namespace consideration</caption>
@@ -110,7 +110,7 @@ For example, styles like these:</p>
             <td class="Va(t) P(10px)">layout.css,<br> custom.css,<br> etc.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">Atomic classes</th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><b class="Fw(b)">ACSS</b> classes</th>
             <td class="Va(t) P(10px)"><code>0,1,1,0</code></td>
             <td class="Va(t) P(10px)">atomic.css</td>
         </tr>

@@ -38,7 +38,7 @@ var Reference = React.createClass({
         return (
             <div>
                 <SearchBox />
-                <h2 id="atomic-classes">Atomic Classes</h2>
+                <h2 id="acss-classes">ACSS Classes</h2>
                 <ReferenceRules />
 
                 <h2 id="helper-classes">Helper Classes</h2>

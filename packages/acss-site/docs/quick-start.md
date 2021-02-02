@@ -19,7 +19,7 @@ title: Quick Start
 <p>Now try this:</p>
 <ul class="ul-list">
     <li>Open the index page in a text editor</li>
-    <li>Edit, add, or remove Atomic classes in the markup (get help from the <a href="/reference">reference page</a>)</li>
+    <li>Edit, add, or remove <b class="Fw(b)">ACSS</b> classes in the markup (get help from the <a href="/reference">reference page</a>)</li>
     <li>Save the file</li>
 </ul>
 
@@ -29,5 +29,5 @@ title: Quick Start
 <p>Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/example-config.js">this example</a> for more information on how configuration is used in Atomizer.</p>
 
 <h2 id="next-steps">Next Steps</h2>
-<p>From here, learn about <a href="/thinking-in-atomic.html">Atomic CSS Architecture</a>, read the <a href="/frequently-asked-questions.html">FAQ</a>, learn more about <a href="/guides/atomic-classes.html">Atomic classes</a> and their <a href="/guides/syntax.html">syntax</a>.</p>
+<p>From here, learn about <a href="/thinking-in-atomic.html">Atomic CSS Architecture</a>, read the <a href="/frequently-asked-questions.html">FAQ</a>, learn more about <a href="/guides/atomic-classes.html">ACSS</a> classes and their <a href="/guides/syntax.html">syntax</a>.</p>
 <p>Please visit the <a href="https://github.com/acss-io/atomizer">Atomizer</a> and <a href="https://github.com/acss-io/grunt-atomizer">grunt-atomizer</a> repositories for more information.</p>

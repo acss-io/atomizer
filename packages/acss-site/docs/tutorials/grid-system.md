@@ -4,7 +4,7 @@ layout: docs
 title: Grid system
 ---
 
-<p>Atomic CSS does not come with an <em>out-of-the-box</em> grid system. Instead, you use any property you want to build grids <em>the way <strong>you</strong> want</em>.</p>
+<p><b class="Fw(b)">ACSS</b> does not come with an <em>out-of-the-box</em> grid system. Instead, you use any property you want to build grids <em>the way <strong>you</strong> want</em>.</p>
 <h2 id="widths">Widths</h2>
 <p>You can choose from creating a unit-base system using fractions (i.e. <code>1/12</code>), using percentages (i.e. <code>20%</code>), or using any arbitrary measurement value (i.e. <code>15em</code>). In other words, the way you apply widths onto boxes is entirely up to you.</p>
 <p class="noteBox info">All classes related to <code>width</code> start with <code>W</code> &mdash; for example: <code>W(15em)</code>.</p>
