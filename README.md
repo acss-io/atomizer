@@ -101,6 +101,18 @@ var css = atomizer.getCss(finalConfig);
    * Boot-clj   : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
    * Ember      : [ember-cli-atomizer](https://github.com/nag5000/ember-cli-atomizer)
 
+### Extensions
+
+#### For Chrome
+
+   * [Atomic CSS Dev Tools](https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en)
+   * [Web Maker](https://chrome.google.com/webstore/detail/web-maker/lkfkkhfhhdkiemehlpkgjeojomhpccnh?hl=en)
+   * [Atomic CSS Helper](https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en)
+
+#### For VSCode
+
+   * [Atomic-css-search](https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search)
+   * [Atomizer](https://marketplace.visualstudio.com/items?itemName=pankaj-parashar.atomizer)
 
 ## Developer docs
 
