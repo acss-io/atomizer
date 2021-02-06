@@ -101,7 +101,7 @@ var css = atomizer.getCss(finalConfig);
    * Boot-clj   : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
    * Ember      : [ember-cli-atomizer](https://github.com/nag5000/ember-cli-atomizer)
 
-### Extensions
+### Third Party Extensions
 
 #### For Chrome
 
