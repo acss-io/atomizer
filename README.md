@@ -8,7 +8,9 @@
 [![devDependency Status](https://david-dm.org/acss-io/atomizer/dev-status.svg)](https://david-dm.org/acss-io/atomizer#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/github/acss-io/atomizer/badge.svg?branch=master)](https://coveralls.io/github/acss-io/atomizer?branch=master)
 
+## TL;DR:
 
+![GIF showing the VSCode extension (with autocompletion)](http://res.cloudinary.com/dw9fem4ki/image/upload/v1459669466/usage_mtx65l.gif)
 ## Overview
 
 Atomizer is a tool that helps you create Atomic CSS rules ([acss.io](http://acss.io)).
