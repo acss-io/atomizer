@@ -1,6 +1,9 @@
 .Bd {
   border-width: 1px;
 }
+.Bd\(0\)\! {
+  border: 0 !important;
+}
 .Bd, .Bds\(s\), .BdT, .BdB {
   border-style: solid;
 }
@@ -244,6 +247,10 @@
   margin-top: 1em;
   margin-bottom: 1em;
 }
+.My\(50px\) {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .Mt\(5px\) {
   margin-top: 5px;
 }
@@ -376,7 +383,7 @@
 .Ta\(start\) {
   text-align: left;
 }
-.Td\(n\)\:h:hover {
+.Td\(n\), .Td\(n\)\:h:hover {
   text-decoration: none;
 }
 .Tt\(u\) {
