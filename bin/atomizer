@@ -41,6 +41,8 @@ program
   .option('-w, --watch [target]', 'rebuilds when changes are detected in the file, directory, or glob (argument may be passed multiple times and are parsed for Atomic CSS classes)', collect, [])
   .option('--exclude [pattern]', 'excluded file pattern', collect, [])
   .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
+  .option('--bump-mq', 'Increases specificity of media queries a small amount')
+  .option('--bump-mq-important', 'Override specificity of media queries by applying !important')
   .option('--ie', 'adds old IE hacks to the output')
   .option('--verbose', 'show additional log info (warnings)')
   .option('--quiet', 'hide processing info')
@@ -188,7 +190,9 @@ function triggerBuild(state) {
 }
 
 var options = {
-    rtl: program.rtl
+    rtl: program.rtl,
+    bumpMQ: program.bumpMq,
+    bumpMQImportant: program.bumpMqImportant
 };
 
 // Options: Namespace
