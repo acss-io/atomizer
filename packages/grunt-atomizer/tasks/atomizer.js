@@ -76,6 +76,12 @@ module.exports = function (grunt) {
             }
         }
 
+        if (options.bumpMQ) {
+            if (grunt.util.kindOf(options.bumpMQ) !== 'boolean') {
+                grunt.fail.warn('`options.bumpMQ` must be a boolean.');
+            }
+        }
+
         var atomizer = new Atomizer({ verbose: (grunt.option.flags().indexOf('--verbose') > -1) });
 
         if (options.rules && options.rules.length > 0) {
