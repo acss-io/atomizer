@@ -463,6 +463,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         // require: [],
         // morph: null,
         banner: '',
+        bumpMQ: false,
         namespace: null,
         rtl: false,
         ie: false
@@ -544,6 +545,11 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
                     } else if (rule.type !== 'helper' && options.namespace) {
                         selector = [options.namespace, ' ', selector].join('');
                     }
+                }
+
+                // Add an extra attribute selector if the option to bump media query specificity is enabled
+                if (breakPoint && options.bumpMQ) {
+                    selector = selector + '[class]';
                 }
 
                 // rules are companion classes to the main atomic class

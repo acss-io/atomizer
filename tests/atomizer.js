@@ -601,6 +601,29 @@ describe('Atomizer()', function () {
             const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+
+        it ('returns expected css if media query specificity bump option has been passed', function () {
+            var atomizer = new Atomizer();
+            var config = {
+                breakPoints: {
+                    sm: '@media(min-width:400px)'
+                },
+                classNames: ['C(red)', 'C(red)--sm']
+            };
+            var expected = [
+                '.C\\(red\\) {',
+                '  color: red;',
+                '}',
+                '@media(min-width:400px) {',
+                '  .C\\(red\\)--sm[class] {',
+                '    color: red;',
+                '  }',
+                '}\n'
+            ].join('\n');
+            var result = atomizer.getCss(config, {bumpMQ: true});
+            expect(result).to.equal(expected);
+        });
+
         it ('returns expected css if IE option has been passed', function () {
             // set rules here so if helper change, we don't fail the test
             const atomizer = new Atomizer();
