@@ -406,14 +406,12 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             // add important for the following cases:
             //    - `!` was used in the class name
             //    - rule has a parent class, a namespace was given and the rule is not a helper [1]
-            //    - rule is a media query, and the option to apply !important to media queries was enabled
-            //
             // [1] rules with a parent class won't have a namespace attached to the selector since
             //     it prevents people from using the parent class at the root element (<html>). But
             //     to give it extra specificity (to make sure it has more weight than normal atomic
             //     classes) we add important to them. Helper classes don't need it because they do
             //     not share the same namespace.
-            if (treeo.declarations && (match.important || (match.parent && options.namespace && rule.type !== 'helper') || (options.bumpMQImportant && match.breakPoint))) {
+            if (treeo.declarations && (match.important || (match.parent && options.namespace && rule.type !== 'helper'))) {
                 treeo.declarations[prop] += ' !important';
             }
         }
@@ -466,7 +464,6 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         // morph: null,
         banner: '',
         bumpMQ: false,
-        bumpMQImportant: false,
         namespace: null,
         rtl: false,
         ie: false

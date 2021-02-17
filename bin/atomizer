@@ -42,7 +42,6 @@ program
   .option('--exclude [pattern]', 'excluded file pattern', collect, [])
   .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
   .option('--bump-mq', 'increases specificity of media queries a small amount')
-  .option('--bump-mq-important', 'override specificity of media queries by applying !important')
   .option('--ie', 'adds old IE hacks to the output')
   .option('--verbose', 'show additional log info (warnings)')
   .option('--quiet', 'hide processing info')
@@ -191,8 +190,7 @@ function triggerBuild(state) {
 
 var options = {
     rtl: program.rtl,
-    bumpMQ: program.bumpMq,
-    bumpMQImportant: program.bumpMqImportant
+    bumpMQ: program.bumpMq
 };
 
 // Options: Namespace

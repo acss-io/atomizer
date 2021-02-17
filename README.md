@@ -46,7 +46,6 @@ Usage: atomizer [options] [path]
     --ie                                adds old IE hacks to the output.
     --exclude=[pattern]                 pattern to exclude file to be scanned
     --bump-mq                           increases specificity of media queries a small amount
-    --bump-mq-important                 override specificity of media queries by applying !important
     --verbose                           show additional log info (warnings).
 ```
 
