@@ -44,7 +44,7 @@
     "load-grunt-tasks": "^1.0.0",
     "node-jsx": "^0.12.4",
     "object-assign": "^2.0.0",
-    "react": "^0.13.0",
+    "react": "^0.14.0",
     "script-loader": "~0.6.1",
     "webpack": "^1.4.12"
   },
