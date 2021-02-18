@@ -15,6 +15,7 @@ declare module 'atomizer' {
 
     export interface CSSOptions {
         banner?: string;
+        bumpMQ?: boolean;
         helpersNamespace?: string;
         ie?: boolean;
         namespace?: string;
