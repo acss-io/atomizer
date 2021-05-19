@@ -871,6 +871,120 @@ module.exports = [
     },
     /**
     ==================================================================
+    COLUMNS
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Colm',
+        'matcher': 'Colm',
+        'allowParamToValue': true,
+        'styles': {
+            'columns': '$0'
+        }
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmc',
+        'matcher': 'Colmc',
+        'styles': {
+            'column-count': '$0'
+        }
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmf',
+        'matcher': 'Colmf',
+        'allowParamToValue': false,
+        'shorthand': true,
+        'styles': {
+            'column-fill': '$0'
+        },
+        'arguments': [{
+            a: 'auto',
+            b: 'balance'
+        }]
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmg',
+        'matcher': 'Colmg',
+        'styles': {
+            'column-gap': '$0'
+        }
+    },
+    {
+        'type': 'pattern',
+        'id': 'Colmr',
+        'name': 'Colmr',
+        'allowParamToValue': true,
+        'styles': {
+            'column-rule': '$0'
+        }
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmrc',
+        'matcher': 'Colmrc',
+        'noParams': false,
+        'styles': {
+            'column-rule-color': '$0'
+        }
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmrs',
+        'matcher': 'Colmrs',
+        'allowParamToValue': false,
+        'shorthand': true,
+        'styles': {
+            'column-rule-style': '$0'
+        },
+        'arguments': [{
+            'd': 'dotted',
+            'da': 'dashed',
+            'do': 'double',
+            'g': 'groove',
+            'h': 'hidden',
+            'i': 'inset',
+            'n': 'none',
+            'o': 'outset',
+            'r': 'ridge',
+            's': 'solid'
+        }]
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmrw',
+        'matcher': 'Colmrw',
+        'styles': {
+            'column-rule-width': '$0'
+        }
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colms',
+        'matcher': 'Colms',
+        'allowParamToValue': false,
+        'shorthand': true,
+        'styles': {
+            'column-span': '$0'
+        },
+        'arguments': [{
+            'a': 'all',
+            'n': 'none'
+        }]
+    },
+    {
+        'type': 'pattern',
+        'name': 'Colmw',
+        'matcher': 'Colmw',
+        'styles': {
+            'column-width': '$0'
+        }
+    },
+    /**
+    ==================================================================
     CONTAIN
     ==================================================================
     */
