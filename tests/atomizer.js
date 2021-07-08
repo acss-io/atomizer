@@ -316,6 +316,23 @@ describe('Atomizer()', function () {
             const result = atomizer.getConfig();
             expect(result).to.deep.equal(expected);
         });
+        it ('should not mutate the argument passed into getConfig', function () {
+            const atomizer = new Atomizer();
+            const classNames = ['P(55px)', 'D(b)'];
+            const existingConfig = {
+                custom: {
+                    heading: '80px'
+                },
+                classNames: ['M(10px)', 'D(ib)']
+            };
+            atomizer.getConfig(classNames, existingConfig);
+            expect(existingConfig).to.deep.equal({
+                custom: {
+                    heading: '80px'
+                },
+                classNames: ['M(10px)', 'D(ib)']
+            });
+        });
     });
     describe('getCss()', function () {
         it ('returns expected css for custom classes with break points', function () {
@@ -603,14 +620,14 @@ describe('Atomizer()', function () {
         });
 
         it ('returns expected css if media query specificity bump option has been passed', function () {
-            var atomizer = new Atomizer();
-            var config = {
+            const atomizer = new Atomizer();
+            const config = {
                 breakPoints: {
                     sm: '@media(min-width:400px)'
                 },
                 classNames: ['C(red)', 'C(red)--sm']
             };
-            var expected = [
+            const expected = [
                 '.C\\(red\\) {',
                 '  color: red;',
                 '}',
@@ -620,7 +637,7 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            var result = atomizer.getCss(config, {bumpMQ: true});
+            const result = atomizer.getCss(config, {bumpMQ: true});
             expect(result).to.equal(expected);
         });
 
