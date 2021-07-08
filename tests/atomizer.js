@@ -620,14 +620,14 @@ describe('Atomizer()', function () {
         });
 
         it ('returns expected css if media query specificity bump option has been passed', function () {
-            const atomizer = new Atomizer();
-            const config = {
+            var atomizer = new Atomizer();
+            var config = {
                 breakPoints: {
                     sm: '@media(min-width:400px)'
                 },
                 classNames: ['C(red)', 'C(red)--sm']
             };
-            const expected = [
+            var expected = [
                 '.C\\(red\\) {',
                 '  color: red;',
                 '}',
@@ -637,7 +637,7 @@ describe('Atomizer()', function () {
                 '  }',
                 '}\n'
             ].join('\n');
-            const result = atomizer.getCss(config, {bumpMQ: true});
+            var result = atomizer.getCss(config, {bumpMQ: true});
             expect(result).to.equal(expected);
         });
 
