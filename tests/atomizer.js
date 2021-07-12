@@ -316,6 +316,23 @@ describe('Atomizer()', function () {
             const result = atomizer.getConfig();
             expect(result).to.deep.equal(expected);
         });
+        it ('should not mutate the argument passed into getConfig', function () {
+            const atomizer = new Atomizer();
+            const classNames = ['P(55px)', 'D(b)'];
+            const existingConfig = {
+                custom: {
+                    heading: '80px'
+                },
+                classNames: ['M(10px)', 'D(ib)']
+            };
+            atomizer.getConfig(classNames, existingConfig);
+            expect(existingConfig).to.deep.equal({
+                custom: {
+                    heading: '80px'
+                },
+                classNames: ['M(10px)', 'D(ib)']
+            });
+        });
     });
     describe('getCss()', function () {
         it ('returns expected css for custom classes with break points', function () {
