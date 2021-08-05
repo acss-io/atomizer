@@ -3,7 +3,7 @@
 import * as Atomizer from 'atomizer';
 import * as cssnano from 'cssnano';
 import { getOptions } from 'loader-utils';
-import * as postcss from 'postcss';
+import postcss from 'postcss';
 
 import { writeCssFile, ensureExists } from './utils';
 
