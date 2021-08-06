@@ -5,25 +5,28 @@
 
 ## Table of Contents
 
-1. [Install](#install)
+1. [Installation](#installation)
 1. [Loader configuration](#loader-configuration)
 1. [Atomic CSS configuration](#atomic-css-configuration)
 1. [Usage with React or Vue](#usage-with-react-or-vue)
-1. [Usage with `mini-css-extract-plugin` and `webpack-html-plugin`](#usage-with-mini-css-extract-plugin-and-webpack-html-plugin)
-1. [Usage with only `html-loader`](#usage-with-only-html-loader)
+   1. [Including the generated CSS with a JavaScript import](#including-the-generated-css-with-a-javascript-import)
+   1. [Including the generated CSS with a CSS import](#including-the-generated-css-with-a-css-import)
+   1. [Including the generated CSS directly into the HTML template](#including-the-generated-css-directly-into-the-html-template)
+1. [Usage with `webpack-html-plugin` and `mini-css-extract-plugin`](#usage-with-webpack-html-plugin-and-mini-css-extract-plugin)
+1. [Usage with only `html-loader` (or any other template loader)](#usage-with-only-html-loader-or-any-other-template-loader)
 
-## Install
+## Installation
 ```bash
-$ npm i webpack-atomizer-loader -D
+npm i -D webpack-atomizer-loader
 ```
 or
 ```bash
-$ yarn add webpack-atomizer-loader -D
+yarn add -D webpack-atomizer-loader
 ```
 
 ## Loader configuration
 
-The loader accepts three options:
+The loader accepts the below options:
 
 Option | Default | Required | Description
 -- | - | - | -
@@ -41,17 +44,17 @@ const autoprefixer = require("autoprefixer");
 const preCss = require("precss");
 
 {
-    // ...
-    use: [
-        {
-            loader: 'webpack-atomizer-loader',
-            options: {
-                configPath: path.resolve('./atomCssConfig.js'),
-                minimize: true,
-                postcssPlugins: [autoprefixer, preCss]
-            }
-        }
-    ]
+  // ...
+  use: [
+    {
+      loader: 'webpack-atomizer-loader',
+      options: {
+        configPath: path.resolve('./atomCssConfig.js'),
+        minimize: true,
+        postcssPlugins: [autoprefixer, preCss]
+      }
+    }
+  ]
 }
 ```
 
@@ -63,21 +66,21 @@ You need in a JavaScript file the Atomic CSS configuration that will be feed to 
 // atomicCssConfig.js
 
 module.exports = {
-    cssDest: './generatedAtoms.css',
-    options: {
-        namespace: '#atomic',
+  cssDest: './generatedAtoms.css',
+  options: {
+    namespace: '#atomic',
+  },
+  configs: {
+    breakPoints: {
+      sm: '@media screen(min-width=750px)',
+      md: '@media(min-width=1000px)',
+      lg: '@media(min-width=1200px)'
     },
-    configs: {
-        breakPoints: {
-            sm: '@media screen(min-width=750px)',
-            md: '@media(min-width=1000px)',
-            lg: '@media(min-width=1200px)'
-        },
-        custom: {
-            1: '1px solid #000',
-        },
-        classNames: []
-    }
+    custom: {
+      1: '1px solid #000',
+    },
+    classNames: []
+  }
 }
 ```
 
@@ -96,50 +99,48 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    module: {
-        rules: [
-            { // Optional. Read further down
-                test: /\.css$/, // or /\.scss$/
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader', // or 'sass-loader'
-                        options: {
-                            // ...
-                        }
-                    },
-                ]
-            },
-            {
-                test: /\.jsx?$/, // or /\.vue?$/
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'webpack-atomizer-loader',
-                        options: {
-                            configPath: path.resolve('./atomCssConfig.js')
-                        }
-                    },
-                    {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['react', 'es2015']
-                        }
-                    },
-                ]
-            }
+  module: {
+    rules: [
+      { // Optional. Read further down
+        test: /\.css$/, // or /\.scss$/
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader', // or 'sass-loader'
+            options: { /* ... */ }
+          },
         ]
-    },
-    plugins: [
-        new MiniCssExtractPlugin() // Optional. Read further down
+      },
+      {
+        test: /\.jsx?$/, // or /\.vue?$/
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'webpack-atomizer-loader',
+            options: {
+              configPath: path.resolve('./atomCssConfig.js')
+            }
+          },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['react', 'es2015']
+            }
+          },
+        ]
+      }
     ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin() // Optional. Read further down
+  ]
 };
 ```
 
 `webpack-atomizer-loader` will generate a `generatedAtoms.css` file which will have to be imported into the final `public/index.html` file. This can be done in three different ways:
 
-### Including the generated CSS with JavaScript
+### Including the generated CSS with a JavaScript import
 
 You can import the generated CSS file as a JavaScript module import. The project webpack entry point file is a good place to make the import:
 
@@ -161,7 +162,7 @@ ReactDOM.render(<App />, document.getElementById('root'))
 
 If you use some CSS preprocessor like SASS or PostCSS you'll have to also add the corresponding loader, which will have to go after the `css-loader` on the `rules` array (as shown on the aforementioned webpack config example).
 
-> ATTENTION: it may happen than the generated CSS file is created after the loaders to process `.css` files have finished and you receive a `Can't resolve` webpack error. In that case you will have to run `webpack` for a second time so that the `.css` loaders can pick the CSS file with the generated atom classes. In order to prevent this you can create an empty CSS file until the generated one overrides it during the second webpack run.
+> ⚠ **IMPORTANT**: the CSS file with the generated atoms will be created after the loaders to process `.css` files have finished and you will receive a `Can't resolve` webpack error. **There is a race condition**. The CSS file generated by the `webpack-atomizer-loader` with the atoms is not yet created by the time `css-loader` imports it. Unlike [Gulp](https://gulpjs.com) and its [`series()`](https://gulpjs.com/docs/en/api/series) and [`parallel()`](https://gulpjs.com/docs/en/api/parallel) methods, there is no way in webpack of waiting for a loader to start working after some other loader has finished. They start whenever there is an import matching the corresponding file extension. You will have to run `webpack` for a second time so that the `.css` loaders can pick the CSS file with the generated atom classes. In order to prevent the `Can't resolve` error you can create an empty CSS file until the generated one overrides it during the second run. Or you can [directly import the generated CSS into the HTML template](#including-the-generated-css-directly-into-the-html-template).
 
 ### Including the generated CSS with a CSS import
 
@@ -181,18 +182,21 @@ If you don't need any CSS preprocessing functionality you can remove the entire 
 ```js
 // webpack.config.js
 
+// 'test' and attached loaders for .css files not needed anymore. 👇
+// If css preprocessing is still required an 'exclude' rule could be added for 'generatedAtoms.css'
 {
-	test: /\.css$/, // or /\.scss$/
-	use: [
-		MiniCssExtractPlugin.loader,
-		'css-loader',
-		{
-			loader: 'postcss-loader', // or 'sass-loader'
-			options: {
-				// ...
-			}
-		},
-	]
+  test: /\.css$/,
+  exclude: 'generatedAtoms.css', // you may need this line
+  use: [
+    MiniCssExtractPlugin.loader,
+    'css-loader',
+    {
+      loader: 'postcss-loader', // or 'sass-loader'
+      options: {
+        // ...
+      }
+    },
+  ]
 }
 ```
 
@@ -210,7 +214,7 @@ and just import the generated CSS file directly into the HTML file of your templ
 
 After this you should be able to see the atom classes loaded on the browser and applied to your components.
 
-## Usage with `mini-css-extract-plugin` and `webpack-html-plugin`
+## Usage with `webpack-html-plugin` and `mini-css-extract-plugin`
 
 If the CSS atoms are on `class` attributes on `.html` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`) you can use the [`mini-css-extract-plugin`](https://github.com/webpack-contrib/mini-css-extract-plugin) and [`webpack-html-plugin`](https://github.com/jantimon/html-webpack-plugin) combo:
 
@@ -222,48 +226,48 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    module: {
-        rules: [
-            {
-                test: /\.css$/, // or /\.scss$/
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    {
-                        loader: 'postcss-loader', // or 'sass-loader'
-                        options: {
-                            // ...
-                        }
-                    },
-                ]
-            },
-            {
-                test: /\.html$/, // or /\.hbs$/
-                use: [
-                    {
-                        loader: 'html-loader', // Or the corresponding loader for the template system you're using
-                        options: {
-                            attributes: false,
-                            minimize: true
-                        }
-                    },
-                    {
-                        loader: 'webpack-atomizer-loader',
-                        options: {
-                            configPath: path.resolve('./atomCssConfig.js')
-                        }
-                    }
-                ]
+  module: {
+    rules: [
+      {
+        test: /\.css$/, // or /\.scss$/
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader', // or 'sass-loader'
+            options: {
+              // ...
             }
+          },
         ]
-    },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: 'src/originTemplate.html',
-            filename: 'dist/destinationFile.html'
-        }),
-        new MiniCssExtractPlugin()
+      },
+      {
+        test: /\.html$/, // or /\.hbs$/
+        use: [
+          {
+            loader: 'html-loader', // Or the corresponding loader for the template system you're using
+            options: {
+              attributes: false,
+              minimize: true
+            }
+          },
+          {
+            loader: 'webpack-atomizer-loader',
+            options: {
+              configPath: path.resolve('./atomCssConfig.js')
+            }
+          }
+        ]
+      }
     ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: 'src/originTemplate.html',
+      filename: 'dist/destinationFile.html'
+    }),
+    new MiniCssExtractPlugin()
+  ]
 };
 ```
 
@@ -272,7 +276,7 @@ a simple [`ejs` loader](https://github.com/jantimon/html-webpack-plugin/blob/mas
 
 Like when using the loader for React or Vue projects the generated CSS file with the atom classes still needs to be included in any of the three possible ways: with a [JavaScript import](#including-the-generated-css-with-javascript), with a [CSS import](#including-the-generated-css-with-a-css-import) or [Including the generated CSS directly into the HTML template](#including-the-generated-css-directly-into-the-HTML-template).
 
-## Usage with only `html-loader`
+## Usage with only `html-loader` (or any other template loader)
 
 If the CSS atoms are on `class` attributes on `.html` files (or any other template system like [`hbs`](https://github.com/pcardune/handlebars-loader), `pug` or `ejs`, or even `jsx` or `vue`) and you don't require any CSS preprocessing or want to keep the webpack configuration to the minimum you can just scan HTML files to find the atoms and include the generated CSS file directly into the final HTML template:
 
@@ -282,27 +286,27 @@ If the CSS atoms are on `class` attributes on `.html` files (or any other templa
 const path = require('path');
 
 module.exports = {
-    module: {
-        rules: [
-            {
-                test: /\.html$/, // or /\.hbs$/ or /\.jsx$/ (you may need to change loaders order and put webpack-atomizer-loader first on the array)
-                use: [
-                    {
-                        loader: 'html-loader', // Or the corresponding loader for the template system you're using
-                        options: {
-                            preprocessor: () => '' // THIS LINE IS IMPORTANT
-                        }
-                    },
-                    {
-                        loader: 'webpack-atomizer-loader',
-                        options: {
-                            configPath: path.resolve('./atomCssConfig.js')
-                        }
-                    }
-                ]
+  module: {
+    rules: [
+      {
+        test: /\.html$/, // or /\.hbs$/ or /\.jsx$/ (you may need to change loaders order and put webpack-atomizer-loader first on the array)
+        use: [
+          {
+            loader: 'html-loader', // Or the corresponding loader for the template system you're using
+            options: {
+              preprocessor: () => '' // THIS LINE IS IMPORTANT
             }
+          },
+          {
+            loader: 'webpack-atomizer-loader',
+            options: {
+              configPath: path.resolve('./atomCssConfig.js')
+            }
+          }
         ]
-    }
+      }
+    ]
+  }
 };
 ```
 
@@ -330,4 +334,3 @@ Then on your HTML project template:
 ```
 
 and your atoms will be styling your website like a boss. 😎
-
