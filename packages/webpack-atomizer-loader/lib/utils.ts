@@ -3,9 +3,9 @@ import * as path from 'path';
 
 const PATH_SEP: string = '/';
 
-export function writeCssFile(cssDest: string, cssString: string): Promise<Function> {
+export function writeCssFile(cssDest: string, cssString: string): Promise<void | Function> {
     return new Promise((resolve, reject) => {
-        fs.writeFile(cssDest, cssString, err => {
+        fs.writeFile(cssDest, cssString, (err) => {
             if (err) {
                 reject(err);
             } else {
