@@ -5,31 +5,28 @@ module.exports = {
     entry: __dirname + '/index.js',
     output: {
         path: __dirname,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
                 loader: '../dist/atomicLoader',
-                query: {
+                options: {
                     postcssPlugins: [autoprefixer],
                     minimize: true,
-                    configPath: [
-                        path.resolve('./atomCssConfig.js'),
-                        path.resolve('./atomCssConfig2.js')
-                    ]
-                }
+                    configPath: [path.resolve('./atomCssConfig.js'), path.resolve('./atomCssConfig2.js')],
+                },
             },
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
-                query: {
-                    presets: ['react', 'es2015']
-                }
-            }
-        ]
-    }
+                options: {
+                    presets: ['@babel/react'],
+                },
+            },
+        ],
+    },
 };

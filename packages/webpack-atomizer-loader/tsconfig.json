@@ -1,6 +1,7 @@
 {
     "compileOnSave": true,
     "compilerOptions": {
+        "esModuleInterop": true,
         "moduleResolution": "node",
         "outDir": "./dist",
         "lib": ["esnext"],
