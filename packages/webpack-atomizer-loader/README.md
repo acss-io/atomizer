@@ -30,13 +30,13 @@ yarn add -D webpack-atomizer-loader
 
 The loader accepts the below options:
 
-| Option           | Default     | Required | Description                                                                                                                                                             |
-| ---------------- | ----------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `configPath`     | `undefined` | No       | The path to the Atomic CSS config file. If no specified empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section. |
-| `minimize`       | `false`     | No       | Minimizes the resulting CSS file.                                                                                                                                       |
-| `postcssPlugins` | `[]`        | No       | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated.                                                                       |
+| Option | Default | Required | Description |
+| ------ | ------- | -------- | ----------- |
+| `configPath`     | `undefined` | No       | The path to the Atomic CSS config file. If not specified, empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section. |
+| `minimize`       | `false`     | No       | Minimizes the resulting CSS file. |
+| `postcssPlugins` | `[]`        | No       | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated. |
 
-The loader configuration will look something like this on `webpack.config.js`:
+The loader configuration will look something like this in `webpack.config.js`:
 
 ```js
 // webpack.config.js
@@ -62,15 +62,18 @@ const preCss = require('precss');
 
 ## Atomic CSS configuration
 
-You need in a JavaScript file the Atomic CSS configuration that will be feed to the loader. For example, `atomicCssConfig.js` will looks something like:
+You will need a JavaScript file with the Atomic CSS configuration that will be fed to the loader. For example, `atomicCssConfig.js` will looks something like:
 
 ```js
 // atomicCssConfig.js
 
 module.exports = {
     cssDest: './generatedAtoms.css',
+    // extends CSSOptions definition from atomizer
     options: {
         namespace: '#atomic',
+        // Supports array of rule objects or path to rules object string
+        rules: [{ custom: 'rule' }]
     },
     configs: {
         breakPoints: {
@@ -86,13 +89,13 @@ module.exports = {
 };
 ```
 
-Use the `cssDest` property to assign the output destination of the generated CSS. If not specified the default value is `./build/css/atomic.css`.
+Use the `cssDest` property to assign the output destination of the generated CSS. If not specified, the default value is `./build/css/atomic.css`.
 
 To know more about Atomic CSS configuration check https://github.com/acss-io/atomizer#api.
 
 ## Usage with React or Vue
 
-If the CSS atoms on your project are written in the `className` prop of JSX files locate `babel-loader` or `jsx-loader` on the webpack configuration and insert `webpack-atomizer-loader` before it:
+If the CSS atoms in your project are written in the `className` prop of JSX files, then use `babel-loader` or `jsx-loader` in your webpack configuration and insert `webpack-atomizer-loader` before it:
 
 ```js
 // webpack.config.js
@@ -149,7 +152,7 @@ module.exports = {
 
 You can import the generated CSS file as a JavaScript module import. The project webpack entry point file is a good place to make the import:
 
-```js
+```jsx
 // index.js
 
 import React from 'react';
@@ -171,7 +174,7 @@ If you use some CSS preprocessor like SASS or PostCSS you'll have to also add th
 
 ### Including the generated CSS with a CSS import
 
-Similar to the previous option but instead of including it in `index.js` it can be done to a `index.css` file:
+Similar to the previous option, but instead of including it in `index.js` it can be done to a `index.css` file:
 
 ```css
 /* index.css */
@@ -278,7 +281,7 @@ module.exports = {
 };
 ```
 
-By default if no HTML loader is specified `webpack-html-plugin` will use
+By default, if no HTML loader is specified `webpack-html-plugin` will use
 a simple [`ejs` loader](https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md). However as soon as `webpack-atomizer-loader` fires because of the `html` extension rule the default HTML loader will be disabled and we'll have to include ours. That's why on the above configuration in addition to `webpack-atomizer-loader` it's also included `html-loader`.
 
 Like when using the loader for React or Vue projects the generated CSS file with the atom classes still needs to be included in any of the three possible ways: with a [JavaScript import](#including-the-generated-css-with-javascript), with a [CSS import](#including-the-generated-css-with-a-css-import) or [Including the generated CSS directly into the HTML template](#including-the-generated-css-directly-into-the-HTML-template).
