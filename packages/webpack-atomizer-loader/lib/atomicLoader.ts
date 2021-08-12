@@ -52,20 +52,22 @@ const parseAndGenerateFile = function (
         }
 
         const pathConfig: PathConfig = configObject[configPath] || configObject.default;
+
+        // custom rules file
+        if (pathConfig.options && pathConfig.options.rules) {
+            atomizer.addRules(
+                typeof pathConfig.options.rules === 'string'
+                    ? require(require.resolve(pathConfig.options.rules))
+                    : pathConfig.options.rules
+            );
+        }
+
         const foundClasses = atomizer.findClassNames(source);
         let cssDest = pathConfig.cssDest || DEFAULT_CSS_DEST;
 
         if (!ensureExists(cssDest)) {
             console.warn('[atomic loader] create css failed.');
             return;
-        }
-
-        // custom rules file
-        if (pathConfig.options && pathConfig.options.rules) {
-            const customRules = require(require.resolve(pathConfig.options.rules));
-            if (customRules) {
-                atomizer.addRules(customRules);
-            }
         }
 
         const finalConfig = atomizer.getConfig(foundClasses, pathConfig.configs || {});
