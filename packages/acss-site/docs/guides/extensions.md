@@ -23,7 +23,7 @@ title: Third Party Extensions
 
 <ul class="ul-list">
   <li><a href="https://github.com/dword-design/nuxt-atomizer">nuxt-atomizer</a></li>
-  <li><a href="https://github.com/acss-io/webpack-atomizer-loader">webpack-atomizer-loader</a></li> - Webpack loader for compiling atomic CSS
+  <li><a href="https://github.com/acss-io/webpack-atomizer-loader">webpack-atomizer-loader</a> - Webpack loader for compiling atomic CSS</li>
 </ul>
 
 <hr class="My(50px)">
