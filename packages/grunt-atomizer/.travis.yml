@@ -1,9 +1,0 @@
-sudo: false
-language: node_js
-node_js:
-  - "10"
-  - "8"
-  - "6"
-before_install: npm install -g grunt-cli
-after_success:
-  - "cat artifacts/lcov.info | ./node_modules/.bin/coveralls"
