@@ -1,9 +1,4 @@
-# grunt-atomizer 
-
-[![npm version](https://badge.fury.io/js/grunt-atomizer.svg)](http://badge.fury.io/js/grunt-atomizer)
-[![Build Status](https://travis-ci.org/acss-io/grunt-atomizer.svg?branch=master)](https://travis-ci.org/acss-io/grunt-atomizer)
-[![Dependency Status](https://david-dm.org/acss-io/grunt-atomizer.svg)](https://david-dm.org/acss-io/grunt-atomizer)
-[![devDependency Status](https://david-dm.org/acss-io/grunt-atomizer/dev-status.svg)](https://david-dm.org/acss-io/grunt-atomizer#info=devDependencies)
+# grunt-atomizer [![npm version](https://badge.fury.io/js/grunt-atomizer.svg)](http://badge.fury.io/js/grunt-atomizer) ![Build Status](https://github.com/acss-io/grunt-atomizer/actions/workflows/test.yml/badge.svg)
 
 ## Overview
 

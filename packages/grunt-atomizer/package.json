@@ -47,10 +47,10 @@
   },
   "homepage": "https://github.com/yahoo/grunt-atomizer",
   "devDependencies": {
-    "grunt": "^0.4.0",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-jshint": "^0.11.0",
-    "grunt-contrib-nodeunit": "^0.4.1"
+    "grunt": "^1.4.1",
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-jshint": "^3.0.0",
+    "grunt-contrib-nodeunit": "^3.0.0"
   }
 }
