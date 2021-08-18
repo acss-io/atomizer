@@ -30,11 +30,11 @@ yarn add -D webpack-atomizer-loader
 
 The loader accepts the below options:
 
-| Option | Default | Required | Description |
-| ------ | ------- | -------- | ----------- |
+| Option           | Default     | Required | Description                                                                                                                                                               |
+| ---------------- | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `configPath`     | `undefined` | No       | The path to the Atomic CSS config file. If not specified, empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section. |
-| `minimize`       | `false`     | No       | Minimizes the resulting CSS file. |
-| `postcssPlugins` | `[]`        | No       | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated. |
+| `minimize`       | `false`     | No       | Minimizes the resulting CSS file.                                                                                                                                         |
+| `postcssPlugins` | `[]`        | No       | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated.                                                                         |
 
 The loader configuration will look something like this in `webpack.config.js`:
 
@@ -73,7 +73,7 @@ module.exports = {
     options: {
         namespace: '#atomic',
         // Supports array of rule objects or path to rules object string
-        rules: [{ custom: 'rule' }]
+        rules: [{ custom: 'rule' }],
     },
     configs: {
         breakPoints: {
