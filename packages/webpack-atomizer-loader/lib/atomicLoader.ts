@@ -14,6 +14,7 @@ const DEFAULT_POSTCSS_PLUGIN_LIST: string[] = [];
 let cachedResponse: string = '';
 
 const atomizer = new Atomizer({ verbose: true });
+const classNamesObject = {};
 
 interface ConfigObject {
     default: object;
@@ -63,7 +64,14 @@ const parseAndGenerateFile = function (
         }
 
         const finalConfig = atomizer.getConfig(foundClasses, config.configs || {});
-        const cssString: string = atomizer.getCss(finalConfig, config.options || {});
+        Object.assign(
+            classNamesObject,
+            Object.fromEntries(finalConfig.classNames.map((className) => [className, true]))
+        );
+        const cssString: string = atomizer.getCss(
+            { ...finalConfig, classNames: Object.keys(classNamesObject) },
+            config.options || {}
+        );
 
         const pipeline = postcss(validPostcssPlugins);
         if (minimize) {

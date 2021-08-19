@@ -1,11 +1,12 @@
 /* global describe, before, it */
 var fs = require('fs');
 var expect = require('chai').expect;
-var atomicLoader = require('../dist/atomicLoader');
 var path = require('path');
+var stealthyRequire = require('stealthy-require');
 
 describe('atomic loader', () => {
     it('can generate correct css', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         this.async = () => (err, source) => {
             var cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
             const cssFile = fs.readFileSync('./build/css/atomic.css');
@@ -14,7 +15,23 @@ describe('atomic loader', () => {
         };
         atomicLoader.call(this, '<div class="Bgc(yellow)"></div>');
     });
+    it('keeps already-generated css', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
+        let iteration = 0;
+        this.async = () => (err, source) => {
+            if (iteration >= 1) {
+                var cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
+                const cssFile = fs.readFileSync('./build/css/atomic.css');
+                expect(cssReg.test(cssFile)).to.equal(true);
+                done();
+            }
+            iteration += 1;
+        };
+        atomicLoader.call(this, '<div class="Bgc(yellow)"></div>');
+        atomicLoader.call(this, '');
+    });
     it('rules path', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         this.async = () => (err, source) => {
             var cssReg = new RegExp(/\.Foo/);
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
@@ -27,6 +44,7 @@ describe('atomic loader', () => {
         atomicLoader.call(this, '<div class="Foo"></div>');
     });
     it('rules object', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         this.async = () => (err, source) => {
             var cssReg = new RegExp(/\.Foo/);
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
@@ -39,9 +57,11 @@ describe('atomic loader', () => {
         atomicLoader.call(this, '<div class="Foo"></div>');
     });
     it('config path', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         this.async = () => (err, source) => {
             var cssReg = new RegExp(/\.Bgc\\\(foo\\\)/);
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
+            console.log(cssFile);
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
         };
@@ -52,6 +72,7 @@ describe('atomic loader', () => {
     });
 
     it('multiple config paths', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         this.async = () => (err, source) => {
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             expect(/\.Bgc\\\(foo\\\)/.test(cssFile)).to.equal(false);
@@ -68,6 +89,7 @@ describe('atomic loader', () => {
     });
 
     it('config', (done) => {
+        const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         this.async = () => (err, source) => {
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             expect(/\.Bgc\\\(foo\\\)/.test(cssFile)).to.equal(true);
