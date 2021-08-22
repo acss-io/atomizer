@@ -876,7 +876,7 @@ module.exports = [
     */
     {
         'type': 'pattern',
-        'name': 'Colm',
+        'name': 'Columns',
         'matcher': 'Colm',
         'allowParamToValue': true,
         'styles': {
@@ -885,7 +885,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmc',
+        'name': 'Column count',
         'matcher': 'Colmc',
         'styles': {
             'column-count': '$0'
@@ -893,7 +893,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmf',
+        'name': 'Column fill',
         'matcher': 'Colmf',
         'allowParamToValue': false,
         'shorthand': true,
@@ -907,7 +907,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmg',
+        'name': 'Column gap',
         'matcher': 'Colmg',
         'styles': {
             'column-gap': '$0'
@@ -915,8 +915,8 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'id': 'Colmr',
-        'name': 'Colmr',
+        'name': 'Column rule',
+        'matcher': 'Colmr',
         'allowParamToValue': true,
         'styles': {
             'column-rule': '$0'
@@ -924,7 +924,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmrc',
+        'name': 'Column rule color',
         'matcher': 'Colmrc',
         'noParams': false,
         'styles': {
@@ -933,7 +933,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmrs',
+        'name': 'Column rule style',
         'matcher': 'Colmrs',
         'allowParamToValue': false,
         'shorthand': true,
@@ -955,7 +955,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmrw',
+        'name': 'Column rule width',
         'matcher': 'Colmrw',
         'styles': {
             'column-rule-width': '$0'
@@ -963,7 +963,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colms',
+        'name': 'Column span',
         'matcher': 'Colms',
         'allowParamToValue': false,
         'shorthand': true,
@@ -977,7 +977,7 @@ module.exports = [
     },
     {
         'type': 'pattern',
-        'name': 'Colmw',
+        'name': 'Column width',
         'matcher': 'Colmw',
         'styles': {
             'column-width': '$0'
