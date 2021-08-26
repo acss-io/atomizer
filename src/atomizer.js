@@ -549,7 +549,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
 
                 // Add an extra attribute selector if the option to bump media query specificity is enabled
                 if (breakPoint && options.bumpMQ) {
-                    selector = selector + '[class]';
+                    selector = `${selector}[class]`;
                 }
 
                 // rules are companion classes to the main atomic class
