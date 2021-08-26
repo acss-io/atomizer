@@ -1,5 +1,6 @@
 node_modules/
 artifacts/
+coverage/
 npm-debug.log
 dist/
 *.log
