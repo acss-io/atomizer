@@ -122,8 +122,8 @@ Atomizer.prototype.findClassNames = function (src/*:string*/)/*:string[]*/ {
  *
  * getConfig(['Op(1)', 'D(n):h']);
  */
-Atomizer.prototype.getConfig = function (classNames/*:string[]*/, config/*:AtomizerConfig*/)/*:AtomizerConfig*/ {
-    config = config || { classNames: [] };
+Atomizer.prototype.getConfig = function (classNames/*:string[]*/, existingConfig/*:AtomizerConfig*/)/*:AtomizerConfig*/ {
+    const config = existingConfig && _.cloneDeep(existingConfig) || { classNames: [] };
     // merge classnames with config
     config.classNames = this.sortCSS(_.union(classNames || [], config.classNames));
     return config;
