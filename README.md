@@ -3,9 +3,7 @@
 [![Join the chat at https://gitter.im/acss-io/atomizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/acss-io/atomizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [![npm version](https://badge.fury.io/js/atomizer.svg)](http://badge.fury.io/js/atomizer)
-[![Build Status](https://travis-ci.org/acss-io/atomizer.svg?branch=master)](https://travis-ci.org/acss-io/atomizer)
-[![Dependency Status](https://david-dm.org/acss-io/atomizer.svg)](https://david-dm.org/acss-io/atomizer)
-[![devDependency Status](https://david-dm.org/acss-io/atomizer/dev-status.svg)](https://david-dm.org/acss-io/atomizer#info=devDependencies)
+![Build Status](https://github.com/acss-io/atomizer/actions/workflows/test.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/acss-io/atomizer/badge.svg?branch=master)](https://coveralls.io/github/acss-io/atomizer?branch=master)
 
 ## TL;DR:
