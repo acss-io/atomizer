@@ -1,9 +1,14 @@
 node_modules/
 artifacts/
+coverage/
 npm-debug.log
 dist/
+tests/
 .vscode/
 .travis.yml
 .coveralls.yml
 .jshintrc
 .npmrc
+.github
+.nyc_output
+*.tgz
