@@ -1071,6 +1071,21 @@ describe('Atomizer()', function () {
             const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
+        it ('has basic suppport for css variables', function () {
+            const atomizer = new Atomizer();
+            const config = {
+                classNames: [
+                    'C(--brand-color)'
+                ]
+            };
+            const expected = [
+                '.C\\(--brand-color\\) {',
+                '  color: var(--brand-color);',
+                '}\n'
+            ].join('\n');
+            const result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
     });
     // -------------------------------------------------------
     // escapeSelector()
