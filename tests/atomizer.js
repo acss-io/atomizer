@@ -1074,13 +1074,26 @@ describe('Atomizer()', function () {
         it ('has basic suppport for css variables', function () {
             const atomizer = new Atomizer();
             const config = {
+                breakPoints: {
+                    sm: '@media screen and (min-width:700px)'
+                },
                 classNames: [
-                    'C(--brand-color)'
+                    'C(--brand-color)',
+                    'Fz(--font-size)',
+                    'Fz(--small-font-size)--sm'
                 ]
             };
             const expected = [
                 '.C\\(--brand-color\\) {',
                 '  color: var(--brand-color);',
+                '}',
+                '.Fz\\(--font-size\\) {',
+                '  font-size: var(--font-size);',
+                '}',
+                '@media screen and (min-width:700px) {',
+                '  .Fz\\(--small-font-size\\)--sm {',
+                '    font-size: var(--small-font-size);',
+                '  }',
                 '}\n'
             ].join('\n');
             const result = atomizer.getCss(config);
