@@ -275,7 +275,7 @@ title: Class syntax
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"C(--primary-color)"</span>&gt;Hello World&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
 <p>External stylesheet:</p>
-<pre><code class="lang-javascript"><span class="hljs-string">:root</span>: {
+<pre><code class="lang-javascript"><span class="hljs-string">:root</span> {
     <span class="hljs-string">--primary-color</span>: <span class="hljs-string">#400090</span>
 }
 </code></pre>
