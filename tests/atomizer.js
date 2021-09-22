@@ -1120,7 +1120,7 @@ describe('Atomizer()', function () {
             const result = atomizer.getCss(config);
             expect(result).to.equal(expected);
         });
-        it ('has do not match bad input', function () {
+        it ('should not match bad input', function () {
             const atomizer = new Atomizer();
             const config = {
                 classNames: [
