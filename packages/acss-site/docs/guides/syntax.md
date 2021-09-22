@@ -15,7 +15,7 @@ title: Class syntax
 <p>Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context&gt;</a> class and <a href="#combinator">&lt;combinator&gt;</a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>.</p>
 <p>You may also optionally suffix the style with <a href="#-lt-">&lt;!&gt;</a> (for <code>!important</code>), a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>, a <a href="#-lt-pseudo-element-">&lt;pseudo-element&gt;</a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier&gt;</a>.</p>
 
-<h4 id="examples-">Examples:</h2>
+<h4 id="examples-">Examples:</h4>
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Atomic class Examples</caption>
     <thead>
