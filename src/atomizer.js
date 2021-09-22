@@ -291,6 +291,9 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         value = matchVal.hex;
                     }
                 }
+                if (matchVal.cssVariable) {
+                    value = `var(${matchVal.cssVariable})`;
+                }
                 if (matchVal.named) {
                     // first check if 'inh' is the value
                     if (matchVal.named === 'inh') {
