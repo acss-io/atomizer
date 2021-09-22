@@ -1127,7 +1127,6 @@ describe('Atomizer()', function () {
                     'C(--)',
                     'C(-- foo)',
                     'C(--$)',
-                    'C(--)',
                     '--bar'
                 ]
             };
