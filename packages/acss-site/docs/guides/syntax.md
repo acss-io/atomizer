@@ -5,7 +5,9 @@ title: Class syntax
 ---
 
 <p><b class="Fw(b)">ACSS</b> and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.</p>
+
 <h2 id="the-syntax">The syntax</h2>
+
 <pre>
 [<b class="hljs-type"><a href="#context">&lt;context></a></b>[<b class="hljs-type">:<a href="#pseudo-class">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#style">&lt;Style></a></b>[(<b class="hljs-type"><a href="#value">&lt;value></a>,<a href="#value">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-">&lt;!></a></b>][<b class="hljs-type"><a href="#pseudo-class">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#pseudo-element">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#breakpoint_identifier">&lt;breakpoint_identifier></a></b>]
 </pre>
@@ -15,7 +17,12 @@ title: Class syntax
 <p>Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context&gt;</a> class and <a href="#combinator">&lt;combinator&gt;</a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>.</p>
 <p>You may also optionally suffix the style with <a href="#-lt-">&lt;!&gt;</a> (for <code>!important</code>), a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>, a <a href="#-lt-pseudo-element-">&lt;pseudo-element&gt;</a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier&gt;</a>.</p>
 
-<h4 id="examples-">Examples:</h4>
+<h3 id="rtl-ltr">RTL/LTR</h3>
+<p>Any occurrence of <code>left</code> and <code>right</code> keywords or their abbreviated form ala <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> (i.e., <code>l</code> and <code>r</code>) in <a href="#-lt-style-">&lt;Style&gt;</a> or <a href="#-lt-value-">&lt;value&gt;</a>  must be replaced with the keywords <code>start</code> and <code>end</code>.  Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.</p>
+<p>For example, <code>Mend(2px)</code> maps to <code>margin-right: 2px</code> in a LTR context and <code>margin-left: 2px</code> in an RTL context, and <code>Pstart(1em)</code> would map to <code>padding-left: 1em</code> in a LTR context, etc.</p>
+
+<h2 id="examples-">Examples:</h2>
+
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Atomic class Examples</caption>
     <thead>
@@ -110,10 +117,8 @@ title: Class syntax
 
 <div class="noteBox info">The <a href="/reference">reference page</a> lets you quickly search for properties, values, or class names.</div>
 
-<h3 id="rtl-ltr">RTL/LTR</h3>
-<p>Any occurrence of <code>left</code> and <code>right</code> keywords or their abbreviated form ala <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> (i.e., <code>l</code> and <code>r</code>) in <a href="#-lt-style-">&lt;Style&gt;</a> or <a href="#-lt-value-">&lt;value&gt;</a>  must be replaced with the keywords <code>start</code> and <code>end</code>.  Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.</p>
-<p>For example, <code>Mend(2px)</code> maps to <code>margin-right: 2px</code> in a LTR context and <code>margin-left: 2px</code> in an RTL context, and <code>Pstart(1em)</code> would map to <code>padding-left: 1em</code> in a LTR context, etc.</p>
 <h2 id="syntax-definitions">Syntax Definitions</h2>
+
 <h3 id="context">&lt;context&gt;</h3>
 <p>Optional.</p>
 <p>A <strong>class</strong> applied to an ancestor or sibling of the node (see <a href="#examples-">examples</a>).</p>
