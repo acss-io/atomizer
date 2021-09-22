@@ -7,13 +7,109 @@ title: Class syntax
 <p><b class="Fw(b)">ACSS</b> and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.</p>
 <h2 id="the-syntax">The syntax</h2>
 <pre>
-[<b class="hljs-type"><a href="#-lt-context-">&lt;context></a></b>[<b class="hljs-type">:<a href="#-lt-pseudo-class-">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#-lt-style-">&lt;Style></a></b>[(<b class="hljs-type"><a href="#-lt-value-">&lt;value></a>,<a href="#-lt-value-">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-lt-">&lt;!></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-class-">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#-lt-pseudo-element-">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier></a></b>]
+[<b class="hljs-type"><a href="#context">&lt;context></a></b>[<b class="hljs-type">:<a href="#pseudo-class">&lt;pseudo-class></a></b>]<b class="hljs-type"><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a class="hljs-string" href="#style">&lt;Style></a></b>[(<b class="hljs-type"><a href="#value">&lt;value></a>,<a href="#value">&lt;value></a>?,...</b>)][<b class="hljs-type"><a href="#-">&lt;!></a></b>][<b class="hljs-type"><a href="#pseudo-class">:&lt;pseudo-class></a></b>][<b class="hljs-type"><a href="#pseudo-element">::&lt;pseudo-element></a></b>][<b class="hljs-type">--<a href="#breakpoint_identifier">&lt;breakpoint_identifier></a></b>]
 </pre>
 
-<p>At its core, a <b class="Fw(b)">ACSS</b> or Helper class is represented by a <a href="#-lt-style-">&lt;Style&gt;</a>. </p>
+<p>At its core, a <b class="Fw(b)">ACSS</b> or Helper class is represented by a <a href="#style">&lt;Style&gt;</a>. </p>
 <p><b class="Fw(b)">ACSS</b> classes typically require one <a href="#-lt-value-">&lt;value&gt;</a>, enclosed in parentheses, though some classes may accept more (eg, the helper class <a href="/guides/helper-classes.html#-lineclamp-"><code>LineClamp()</code></a> accepts two.)  Helper classes may not require a <a href="#-lt-value-">&lt;value&gt;</a>, in which case the parentheses may be omitted.</p>
 <p>Optionally, you may prefix the style with a <a href="#-lt-context-">&lt;context&gt;</a> class and <a href="#combinator">&lt;combinator&gt;</a>. The context class may optionally include a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>.</p>
 <p>You may also optionally suffix the style with <a href="#-lt-">&lt;!&gt;</a> (for <code>!important</code>), a <a href="#-lt-pseudo-class-">&lt;pseudo-class&gt;</a>, a <a href="#-lt-pseudo-element-">&lt;pseudo-element&gt;</a>, and a <a href="#-lt-breakpoint_identifier-">&lt;breakpoint_identifier&gt;</a>.</p>
+
+<h4 id="examples-">Examples:</h2>
+<table class="Ta(start) W(100%)">
+    <caption class="Hidden">Atomic class Examples</caption>
+    <thead>
+        <tr>
+            <th scope="col" class="P(10px)">HTML classes</th>
+            <th scope="col" class="P(10px)">What they do</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b class="hljs-string">n</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>display: none</code></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b class="hljs-string">n</b>)<b class="hljs-type">!</b></code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>display: none !important</code></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b class="hljs-string">1em</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>font-size: 1em</code></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b class="hljs-string">18px</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>font-size: 18px</code></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b class="hljs-string">u</b>)<b class="hljs-type">:h</b></code></th>
+            <td class="Va-t P(10px)">This underlines text on mouseover</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">n</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>box-shadow: none</code></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">foo</b>)<b class="hljs-type">--lg</b></code></th>
+            <td class="Va-t P(10px)">This applies a custom box-shadow inside the &quot;lg&quot; breakpoint <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">foo</b>)<b class="hljs-type">:h--lg</b></code></th>
+            <td class="Va-t P(10px)">Same styling as above but on mouseover only <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b class="hljs-string">#000</b>)</code></th>
+            <td class="Va-t P(10px)">This sets the color to black</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b class="hljs-string">#000.5</b>)</code></th>
+            <td class="Va-t P(10px)">This sets the color to black with a 50% opacity</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b class="hljs-string">bar</b>)</code></th>
+            <td class="Va-t P(10px)">This applies a &quot;global&quot; value to <code>margin</code> <a href="#footnote">[2]</a><a id="footnote-2" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Mend(<b class="hljs-string">0</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>margin-right: 0</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Ta(<b class="hljs-string">start</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>text-align:left</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Cl(<b class="hljs-string">start</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>clear:left</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bdstartw(<b class="hljs-string">0</b>)</code></th>
+            <td class="Va-t P(10px)">This is mapped to <code>border-left-width:0</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b class="hljs-string">-90deg</b>)</code></th>
+            <td class="Va-t P(10px)">This is an <a href="atomic-classes.html#aliases">alias</a> mapped to <code>transform: rotate(-90deg)</code> <a href="#footnote">[4]</a><a id="footnote-4" class="D(ib)"></a></td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>LineClamp(<b class="hljs-string">2,50px</b>)</code></th>
+            <td class="Va-t P(10px)">This is a <em>helper</em> which truncates text after 2 lines <a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a>.</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">list_</b>D(<b class="hljs-string">ib</b>)</code></th>
+            <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a descendant of a node to which the class<code>list</code> is applied <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">list&gt;</b>D(<b class="hljs-string">ib</b>)</code></th>
+            <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a direct child of a node to which the class <code>list</code> is applied to <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">box:h_</b>D(<b class="hljs-string">n</b>)</code></th>
+            <td class="Va-t P(10px)">This element is hidden when users hover over its ancestor with the class <code>.box</code> <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="noteBox info">The <a href="/reference">reference page</a> lets you quickly search for properties, values, or class names.</div>
+
 <h3 id="rtl-ltr">RTL/LTR</h3>
 <p>Any occurrence of <code>left</code> and <code>right</code> keywords or their abbreviated form ala <a href="http://docs.emmet.io/cheat-sheet/">Emmet</a> (i.e., <code>l</code> and <code>r</code>) in <a href="#-lt-style-">&lt;Style&gt;</a> or <a href="#-lt-value-">&lt;value&gt;</a>  must be replaced with the keywords <code>start</code> and <code>end</code>.  Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.</p>
 <p>For example, <code>Mend(2px)</code> maps to <code>margin-right: 2px</code> in a LTR context and <code>margin-left: 2px</code> in an RTL context, and <code>Pstart(1em)</code> would map to <code>padding-left: 1em</code> in a LTR context, etc.</p>
@@ -167,6 +263,23 @@ title: Class syntax
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"M(gutter) P(gutter)"</span>&gt;&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
 <p>Changing the value of <code>gutter</code> in the config object would change the value of both the <code>margin</code> and <code>padding</code> &mdash; <em>as well as the value of any other class using <code>gutter</code></em>.</p>
+
+<h4 id="css-variables">CSS variables</h4>
+<p>CSS variables can be referenced as class values.  Note that values are not managed by Atomizer, and must be defined independently.</p>
+<p>Usage:</p>
+<pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"C(--primary-color)"</span>&gt;Hello World&lt;/<span class="hljs-keyword">div</span>&gt;
+</code></pre>
+<p>External stylesheet:</p>
+<pre><code class="lang-javascript"><span class="hljs-string">:root</span>: {
+    <span class="hljs-string">--primary-color</span>: <span class="hljs-string">#400090</span>
+}
+</code></pre>
+<p>Output:</p>
+<pre><code class="lang-css"><span class="hljs-class">.C</span>\(<span class="hljs-tag">--primary-color</span>\) <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> var(--primary-color)</span></span>;
+}</span>
+</code></pre>
+
 <h3 id="-">&lt;!&gt;</h3>
 <p>Optional.</p>
 <p>The <code>!</code> character adds <code>!important</code> to the style.</p>
@@ -192,100 +305,6 @@ title: Class syntax
 <pre><code class="lang-html">&lt;<span class="hljs-keyword">div</span> <span class="hljs-type">class</span>=<span class="hljs-string">"W(50%)--sm W(33%)--md W(25%)--lg"</span>&gt;...&lt;/<span class="hljs-keyword">div</span>&gt;
 </code></pre>
 <p>The <code>width</code> of the box is <code>auto</code> below <code>500px</code>, then <code>50%</code> between <code>500px</code> and <code>899px</code>, then <code>33%</code> between <code>900px</code> and <code>1199px</code>, then <code>25%</code> above <code>1199px</code>.</p>
-<h2 id="examples-">Examples:</h2>
-<table class="Ta(start) W(100%)">
-    <caption class="Hidden">Atomic class Examples</caption>
-    <thead>
-        <tr>
-            <th scope="col" class="P(10px)">HTML classes</th>
-            <th scope="col" class="P(10px)">What they do</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b class="hljs-string">n</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>display: none</code></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b class="hljs-string">n</b>)<b class="hljs-type">!</b></code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>display: none !important</code></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b class="hljs-string">1em</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>font-size: 1em</code></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b class="hljs-string">18px</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>font-size: 18px</code></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b class="hljs-string">u</b>)<b class="hljs-type">:h</b></code></th>
-            <td class="Va-t P(10px)">This underlines text on mouseover</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">n</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>box-shadow: none</code></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">foo</b>)<b class="hljs-type">--lg</b></code></th>
-            <td class="Va-t P(10px)">This applies a custom box-shadow inside the &quot;lg&quot; breakpoint <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b class="hljs-string">foo</b>)<b class="hljs-type">:h--lg</b></code></th>
-            <td class="Va-t P(10px)">Same styling as above but on mouseover only <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b class="hljs-string">#000</b>)</code></th>
-            <td class="Va-t P(10px)">This sets the color to black</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b class="hljs-string">#000.5</b>)</code></th>
-            <td class="Va-t P(10px)">This sets the color to black with a 50% opacity</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b class="hljs-string">bar</b>)</code></th>
-            <td class="Va-t P(10px)">This applies a &quot;global&quot; value to <code>margin</code> <a href="#footnote">[2]</a><a id="footnote-2" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Mend(<b class="hljs-string">0</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>margin-right: 0</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Ta(<b class="hljs-string">start</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>text-align:left</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Cl(<b class="hljs-string">start</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>clear:left</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bdstartw(<b class="hljs-string">0</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to <code>border-left-width:0</code> in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b class="hljs-string">-90deg</b>)</code></th>
-            <td class="Va-t P(10px)">This is an <a href="atomic-classes.html#aliases">alias</a> mapped to <code>transform: rotate(-90deg)</code> <a href="#footnote">[4]</a><a id="footnote-4" class="D(ib)"></a></td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>LineClamp(<b class="hljs-string">2,50px</b>)</code></th>
-            <td class="Va-t P(10px)">This is a <em>helper</em> which truncates text after 2 lines <a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a>.</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">list_</b>D(<b class="hljs-string">ib</b>)</code></th>
-            <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a descendant of a node to which the class<code>list</code> is applied <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">list&gt;</b>D(<b class="hljs-string">ib</b>)</code></th>
-            <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a direct child of a node to which the class <code>list</code> is applied to <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
-        </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b class="hljs-type">box:h_</b>D(<b class="hljs-string">n</b>)</code></th>
-            <td class="Va-t P(10px)">This element is hidden when users hover over its ancestor with the class <code>.box</code> <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
-        </tr>
-    </tbody>
-</table>
-
-<div class="noteBox info">The <a href="/reference">reference page</a> lets you quickly search for properties, values, or class names.</div>
 
 <hr class="Mt-50px">
 
