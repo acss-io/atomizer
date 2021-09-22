@@ -80,7 +80,7 @@ const GRAMMAR = {
     'IMPORTANT'     : '!',
     // https://regex101.com/r/mM2vT9/8
     'NAMED'         : '([\\w$]+(?:(?:-(?!\\-))?\\w*)*)',
-    'CSS_VARIABLE'  : '(--(?:(?:-(?!\\-))?\\w*)*)',
+    'CSS_VARIABLE'  : '(--[\\w-]+)',
     'BREAKPOINT'    : '--(?<breakPoint>[a-zA-Z0-9]+)',
     'PSEUDO_CLASS'  : `(?:${  flatten(PSEUDO_CLASSES).join('|')  })(?![a-z])`,
     'PSEUDO_ELEMENT': `(?:${  flatten(PSEUDO_ELEMENTS).join('|')  })(?![a-z])`,
