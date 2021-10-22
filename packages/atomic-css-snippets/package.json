@@ -1,0 +1,70 @@
+{
+    "name": "atomic-css-snippets",
+    "displayName": "Atomic CSS Snippets",
+    "description": "Provides quick suggestions for Atomic CSS class names",
+    "version": "1.0.0",
+    "license": "MIT",
+    "publisher": "acss-io",
+    "devDependencies": {
+        "atomizer": "^3.11.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/acss-io/atomic-css-snippets.git"
+    },
+    "scripts": {
+        "build": "node scripts/generate-snippets.js > snippets.json"
+    },
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "keywords": [
+        "Atomic CSS",
+        "ACSS",
+        "Atomizer",
+        "CSS",
+        "Snippets",
+        "VSCode",
+        "Yahoo"
+    ],
+    "icon": "acss-io.png",
+    "contributes": {
+        "snippets": [
+            {
+                "language": "html",
+                "path": "snippets.json"
+            },
+            {
+                "language": "javascript",
+                "path": "snippets.json"
+            },
+            {
+                "language": "javascriptreact",
+                "path": "snippets.json"
+            },
+            {
+                "language": "marko",
+                "path": "snippets.json"
+            },
+            {
+                "language": "php",
+                "path": "snippets.json"
+            },
+            {
+                "language": "svelte",
+                "path": "snippets.json"
+            },
+            {
+                "language": "typescript",
+                "path": "snippets.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "snippets.json"
+            }
+        ]
+    }
+}
