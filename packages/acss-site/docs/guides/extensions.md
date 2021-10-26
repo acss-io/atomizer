@@ -15,8 +15,8 @@ title: Third Party Extensions
 <h2 id="vscode-extensions">For VSCode</h2>
 
 <ul class="ul-list">
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets">Atomic CSS Snippets</a></li>
   <li><a href="https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search">Atomic-css-search</a></li>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=pankaj-parashar.atomizer">Atomizer</a></li>
 </ul>
 
 <h2 id="integrations">Integrations</h2>
