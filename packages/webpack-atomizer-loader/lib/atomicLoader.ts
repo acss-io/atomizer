@@ -103,13 +103,17 @@ const atomicLoader = function (source, map) {
 
     const query = getOptions(this) || {};
     const { config, configPath = [], minimize = false, postcssPlugins = [] } = query;
-    let validPostcssPlugins = DEFAULT_POSTCSS_PLUGIN_LIST;
+    const validPostcssPlugins = Array.isArray(postcssPlugins) ? postcssPlugins : DEFAULT_POSTCSS_PLUGIN_LIST;
+    const addDependency = this.addDependency;
 
-    if (Array.isArray(postcssPlugins)) {
-        validPostcssPlugins = postcssPlugins;
-    }
     let configs = [
-        ...[].concat(configPath).map((configPath) => require(require.resolve(configPath))),
+        ...[].concat(configPath).map((configPath) => {
+            // for watch mode
+            if (addDependency) {
+                addDependency(configPath);
+            }
+            return require(require.resolve(configPath));
+        }),
         ...(config !== undefined ? [config] : []),
     ];
 
