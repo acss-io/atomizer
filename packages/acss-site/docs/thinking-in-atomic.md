@@ -5,6 +5,9 @@ title: Thinking in Atomic
 ---
 
 <p>&quot;<strong>Atomic CSS</strong>&quot; is a <a href="http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/">CSS architecture</a>. It is not opinionated; it simply defines a set of classes representing single-purpose styling units.</p>
+
+<p class="noteBox info">Be sure to read an interview with ACSS Co-Founder Thierry Koblentz, <a href="https://css-tricks.com/thierry-koblentz-atomic-css/">The Making of Atomic CSS</a> on CSS Tricks.</p>
+
 <p><strong>Atomizer</strong> implements the <b class="Fw(b)">ACSS</b> <a href="/guides/syntax.html">syntax</a> to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from <b class="Fw(b)">ACSS</b> classes found within your project, or from custom values defined in the Atomizer config file.</p>
 <p>Adopting a Atomic CSS methodology addresses common CSS challenges:</p>
 <dl class="Mstart(20px) Mb(30px)">
