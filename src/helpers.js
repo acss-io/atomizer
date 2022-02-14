@@ -348,22 +348,5 @@ module.exports = [
             'bottom': 0,
             'left': 0
         }
-    },
-    /**
-    ==================================================================
-    Zoom
-    hack for oldIE to create a "block-formatting context"
-    ==================================================================
-    */
-    {
-        'type': 'helper',
-        'name': 'Zoom',
-        'description': "Gives a box 'layout' in old versions of Internet Explorer",
-        'link': 'https://acss.io/guides/helper-classes.html#-zoom-',
-        'matcher': 'Zoom',
-        'noParams': true,
-        'styles': {
-            'zoom': '1'
-        }
     }
 ];
