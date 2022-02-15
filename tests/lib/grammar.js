@@ -25,8 +25,8 @@ describe('Grammar()', function () {
     });
     describe('matchValue()', function () {
         it('parses uppercase and lowercase hex', function () {
-            expect(Grammar.matchValue('#abc123')['hex']).to.equal('#abc123');
-            expect(Grammar.matchValue('#ABC123')['hex']).to.equal('#ABC123');
+            expect(Grammar.matchValue('#abc123').groups.hex).to.equal('#abc123');
+            expect(Grammar.matchValue('#ABC123').groups.hex).to.equal('#ABC123');
         });
     });
 });
