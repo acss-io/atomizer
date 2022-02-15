@@ -150,7 +150,7 @@ Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
         const bIndex = getMatchedIndex(b);
 
         // remain same default sort logic
-        if (aMatches.groups.named !== bMatches.groups.named) {
+        if (aMatches.named !== bMatches.named) {
           return a.localeCompare(b);
         }
 
@@ -184,7 +184,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         let rgb;
         let values;
 
-        if (!match || (!match.groups.atomicSelector && !match.groups.selector)) {
+        if (!match || (!match.atomicSelector && !match.selector)) {
           // no match, no op
           return;
         }
@@ -193,18 +193,18 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         // atomicSelector is the class name before the params: e.g. className(param)
         // selector is the class name if params is not required
         // we look both in rules and in helpers where this class belongs to
-        if (Object.prototype.hasOwnProperty.call(this.rulesMap, match.groups.atomicSelector)) {
-            ruleIndex = this.rulesMap[match.groups.atomicSelector];
+        if (Object.prototype.hasOwnProperty.call(this.rulesMap, match.atomicSelector)) {
+            ruleIndex = this.rulesMap[match.atomicSelector];
         }
         // the atomicSelector can also be a helper that requires params
-        else if (Object.prototype.hasOwnProperty.call(this.helpersMap, match.groups.atomicSelector)) {
-            ruleIndex = this.helpersMap[match.groups.atomicSelector];
+        else if (Object.prototype.hasOwnProperty.call(this.helpersMap, match.atomicSelector)) {
+            ruleIndex = this.helpersMap[match.atomicSelector];
         }
         // or it can be just a class with no params required
         // this is only possible for helper classes as param is required for
         // all atomic classes in rulesMap.
-        else if (Object.prototype.hasOwnProperty.call(this.helpersMap, match.groups.selector)) {
-            ruleIndex = this.helpersMap[match.groups.selector];
+        else if (Object.prototype.hasOwnProperty.call(this.helpersMap, match.selector)) {
+            ruleIndex = this.helpersMap[match.selector];
         } else {
             // not a valid class, no op
             return;
@@ -224,22 +224,22 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             tree[rule.matcher] = [];
         }
 
-        if (match.groups.parentSelector) {
-            treeo.parentSelector = match.groups.parentSelector;
+        if (match.parentSelector) {
+            treeo.parentSelector = match.parentSelector;
         }
-        if (match.groups.parent) {
-            treeo.parent = match.groups.parent;
+        if (match.parent) {
+            treeo.parent = match.parent;
         }
-        if (match.groups.parentPseudo) {
-            treeo.parentPseudo = match.groups.parentPseudo;
+        if (match.parentPseudo) {
+            treeo.parentPseudo = match.parentPseudo;
         }
-        if (match.groups.parentSep) {
-            treeo.parentSep = match.groups.parentSep;
+        if (match.parentSep) {
+            treeo.parentSep = match.parentSep;
         }
 
         // given values, return their valid form
-        if (match.groups.atomicValues) {
-            values = match.groups.atomicValues;
+        if (match.atomicValues) {
+            values = match.atomicValues;
 
             // values can be separated by a comma
             // parse them and return a valid value
@@ -252,30 +252,30 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     return null;
                 }
 
-                if (matchVal.groups.number) {
+                if (matchVal.number) {
                     if (rule.allowParamToValue || rule.type === 'helper') {
-                        value = matchVal.groups.number;
-                        if (matchVal.groups.unit) {
-                            value += matchVal.groups.unit;
+                        value = matchVal.number;
+                        if (matchVal.unit) {
+                            value += matchVal.unit;
                         }
                     } else {
                         // treat as if we matched a named value
-                        matchVal.groups.named = [matchVal.groups.number, matchVal.groups.unit].join('');
+                        matchVal.named = [matchVal.number, matchVal.unit].join('');
                     }
                 }
-                if (matchVal.groups.fraction) {
+                if (matchVal.fraction) {
                     // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
                     // making clear the steps involved:
                     // percentage: (numerator / denominator * 100)
                     // 4 decimal places:  (Math.round(percentage * 10000) / 10000)
-                    value = `${Math.round(matchVal.groups.numerator / matchVal.groups.denominator * 100 * 10000) / 10000  }%`;
+                    value = `${Math.round(matchVal.numerator / matchVal.denominator * 100 * 10000) / 10000  }%`;
                 }
-                if (matchVal.groups.hex) {
-                    if (matchVal.groups.hex !== matchVal.groups.hex.toLowerCase()) {
-                        console.warn(`Warning: Only lowercase hex digits are accepted. No rules will be generated for \`${  matchVal.groups.input  }\``);
+                if (matchVal.hex) {
+                    if (matchVal.hex !== matchVal.hex.toLowerCase()) {
+                        console.warn(`Warning: Only lowercase hex digits are accepted. No rules will be generated for \`${  matchVal.input  }\``);
                         value = null;
-                    } else if (matchVal.groups.alpha) {
-                        rgb = utils.hexToRgb(matchVal.groups.hex);
+                    } else if (matchVal.alpha) {
+                        rgb = utils.hexToRgb(matchVal.hex);
                         value = [
                             'rgba(',
                             rgb.r,
@@ -284,29 +284,29 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                             ',',
                             rgb.b,
                             ',',
-                            matchVal.groups.alpha,
+                            matchVal.alpha,
                             ')'
                         ].join('');
                     } else {
-                        value = matchVal.groups.hex;
+                        value = matchVal.hex;
                     }
                 }
-                if (matchVal.groups.cssVariable) {
-                    value = `var(${matchVal.groups.cssVariable})`;
+                if (matchVal.cssVariable) {
+                    value = `var(${matchVal.cssVariable})`;
                 }
-                if (matchVal.groups.named) {
+                if (matchVal.named) {
                     // first check if 'inh' is the value
-                    if (matchVal.groups.named === 'inh') {
+                    if (matchVal.named === 'inh') {
                         value = 'inherit';
                     }
                     // check if the named value matches any of the values
                     // registered in arguments.
-                    else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.groups.named) >= 0) {
-                        value = rule.arguments[index][matchVal.groups.named];
+                    else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.named) >= 0) {
+                        value = rule.arguments[index][matchVal.named];
                     }
                     // now check if named value was passed in the config
                     else {
-                        propAndValue = [match.groups.atomicSelector, '(', matchVal.groups.named, ')'].join('');
+                        propAndValue = [match.atomicSelector, '(', matchVal.named, ')'].join('');
                         let name;
 
                         // no custom, warn it
@@ -318,8 +318,8 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                             name = propAndValue;
                         }
                         // as value
-                        else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.groups.named)) {
-                            name = matchVal.groups.named;
+                        else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.named)) {
+                            name = matchVal.named;
                         }
                         // we have custom but we could not find the named class name there
                         else {
@@ -332,16 +332,16 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             });
         }
 
-        if (match.groups.valuePseudoClass) {
-            treeo.valuePseudoClass = match.groups.valuePseudoClass;
+        if (match.valuePseudoClass) {
+            treeo.valuePseudoClass = match.valuePseudoClass;
         }
 
-        if (match.groups.valuePseudoElement) {
-            treeo.valuePseudoElement = match.groups.valuePseudoElement;
+        if (match.valuePseudoElement) {
+            treeo.valuePseudoElement = match.valuePseudoElement;
         }
 
-        if (match.groups.breakPoint) {
-            treeo.breakPoint = match.groups.breakPoint;
+        if (match.breakPoint) {
+            treeo.breakPoint = match.breakPoint;
         }
 
         // before we assign, let's take care of the declarations
@@ -414,7 +414,7 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             //     to give it extra specificity (to make sure it has more weight than normal atomic
             //     classes) we add important to them. Helper classes don't need it because they do
             //     not share the same namespace.
-            if (treeo.declarations && (match.groups.important || (match.groups.parent && options.namespace && rule.type !== 'helper'))) {
+            if (treeo.declarations && (match.important || (match.parent && options.namespace && rule.type !== 'helper'))) {
                 treeo.declarations[prop] += ' !important';
             }
         }
@@ -433,7 +433,6 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             ].join('\n'));
         });
     }
-
 
     return tree;
 };
