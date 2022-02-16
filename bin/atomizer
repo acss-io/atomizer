@@ -203,11 +203,6 @@ if (typeof program.helpersNamespace !== 'undefined') {
     options.helpersNamespace = program.helpersNamespace;
 }
 
-// Options: IE
-if (typeof program.ie !== 'undefined') {
-    options.ie = true;
-}
-
 if (program.watch.length) {
     var buildTriggerState = { files: {} };
     var watcher = chokidar.watch(program.watch)
