@@ -132,7 +132,7 @@ function buildAtomicCss(additionalFiles, done) {
 
     // Generate config from parsed src files
 
-    var filesToParse = additionalFiles.concat(programOpts.args || []);
+    var filesToParse = additionalFiles.concat(program.args || []);
     if (filesToParse.length) {
         classnames = parseFiles(filesToParse, !!programOpts.recursive);
     }
