@@ -52,10 +52,11 @@ if (process.argv.length <= 2) {
     return;
 }
 
-var atomizer = new Atomizer({ verbose: !!program.verbose });
+var programOpts = program.opts();
+var atomizer = new Atomizer({ verbose: !!programOpts.verbose });
 
 function warn() {
-  if (!program.quiet) console.warn.apply(console, arguments);
+  if (!programOpts.quiet) console.warn.apply(console, arguments);
 }
 
 function parseFiles (files, recursive, dir) {
@@ -82,8 +83,8 @@ function parseFile (file, recursive, dir) {
 
         if (stat.isFile()) {
             var isExcluded = false;
-            if (program.exclude && program.exclude.length) {
-              isExcluded = some(program.exclude, function excludeFile(value) {
+            if (programOpts.exclude && programOpts.exclude.length) {
+              isExcluded = some(programOpts.exclude, function excludeFile(value) {
                 return minimatch(filepath, value, {matchBase: true});
               });
             }
@@ -106,7 +107,7 @@ function parseFile (file, recursive, dir) {
 
 function buildAtomicCss(additionalFiles, done) {
     // Custom rulesets
-    var rulesFiles = program.rules;
+    var rulesFiles = programOpts.rules;
     if (rulesFiles) {
         rulesFiles.forEach(function (rulesFile) {
             if (!fs.existsSync(rulesFile)) {
@@ -120,7 +121,7 @@ function buildAtomicCss(additionalFiles, done) {
 
     // Static config should contain the general 'config' options, along with any
     // statically defined configuration. It is required.
-    var configFile = program.config;
+    var configFile = programOpts.config;
     if (configFile) {
         if (!fs.existsSync(configFile)) {
             done(new Error('Configuration file ' + chalk.cyan(configFile) + ' not found.'));
@@ -133,7 +134,7 @@ function buildAtomicCss(additionalFiles, done) {
 
     var filesToParse = additionalFiles.concat(program.args || []);
     if (filesToParse.length) {
-        classnames = parseFiles(filesToParse, !!program.recursive);
+        classnames = parseFiles(filesToParse, !!programOpts.recursive);
     }
 
     // Finalize the config
@@ -143,7 +144,7 @@ function buildAtomicCss(additionalFiles, done) {
     content = atomizer.getCss(config, options);
 
     // Output the CSS
-    var outfile = program.outfile;
+    var outfile = programOpts.outfile;
     if (outfile) {
         fs.readFile(outfile, {encoding: 'utf-8'}, function(err, data) {
             if (data === content) {
@@ -189,28 +190,28 @@ function triggerBuild(state) {
 }
 
 var options = {
-    rtl: program.rtl,
-    bumpMQ: program.bumpMq
+    rtl: programOpts.rtl,
+    bumpMQ: programOpts.bumpMq
 };
 
 // Options: Namespace
-if (typeof program.namespace !== 'undefined') {
-    options.namespace = program.namespace;
+if (typeof programOpts.namespace !== 'undefined') {
+    options.namespace = programOpts.namespace;
 }
 
 // Options: Helpers Namespace
-if (typeof program.helpersNamespace !== 'undefined') {
-    options.helpersNamespace = program.helpersNamespace;
+if (typeof programOpts.helpersNamespace !== 'undefined') {
+    options.helpersNamespace = programOpts.helpersNamespace;
 }
 
 // Options: IE
-if (typeof program.ie !== 'undefined') {
+if (typeof programOpts.ie !== 'undefined') {
     options.ie = true;
 }
 
-if (program.watch.length) {
+if (programOpts.watch && programOpts.watch.length) {
     var buildTriggerState = { files: {} };
-    var watcher = chokidar.watch(program.watch)
+    var watcher = chokidar.watch(programOpts.watch)
     watcher.on('add', function (path) {
         buildTriggerState.files[path] = true;
     });
