@@ -909,9 +909,13 @@ module.exports = [
         'type': 'pattern',
         'name': 'Column gap',
         'matcher': 'Colmg',
+        'allowParamToValue': true,
         'styles': {
             'column-gap': '$0'
-        }
+        },
+        'arguments': [{
+            'n': 'normal'
+        }]
     },
     {
         'type': 'pattern',
@@ -979,9 +983,13 @@ module.exports = [
         'type': 'pattern',
         'name': 'Column width',
         'matcher': 'Colmw',
+        'allowParamToValue': true,
         'styles': {
             'column-width': '$0'
-        }
+        },
+        'arguments': [{
+            'a': 'auto'
+        }]
     },
     /**
     ==================================================================
