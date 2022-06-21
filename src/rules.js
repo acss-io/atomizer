@@ -876,6 +876,34 @@ module.exports = [
     },
     /**
     ==================================================================
+    CLIP PATH
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Clip path',
+        'matcher': 'Cp',
+        'allowParamToValue': false,
+        'styles': {
+            'clip-path': '$0'
+        },
+        'arguments': [{
+            'bb': 'border-box',
+            'cb': 'content-box',
+            'fb': 'fill-box',
+            'mb': 'margin-box',
+            'n': 'none',
+            'pb': 'padding-box',
+            'ini': 'initial',
+            'r': 'revert',
+            'rl': 'revert-layer',
+            'sb': 'stroke-box',
+            'u': 'unset',
+            'vb': 'view-box'
+        }]
+    },
+    /**
+    ==================================================================
     COLOR
     ==================================================================
     */
