@@ -888,10 +888,17 @@ module.exports = [
             'clip-path': '$0'
         },
         'arguments': [{
+            'bb': 'border-box',
+            'cb': 'content-box',
+            'fb': 'fill-box',
+            'mb': 'margin-box',
+            'pb': 'padding-box',
             'ini': 'initial',
             'r': 'revert',
             'rl': 'revert-layer',
-            'u': 'unset'
+            'sb': 'stroke-box',
+            'u': 'unset',
+            'vb': 'view-box'
         }]
     },
     /**
