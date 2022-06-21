@@ -892,6 +892,7 @@ module.exports = [
             'cb': 'content-box',
             'fb': 'fill-box',
             'mb': 'margin-box',
+            'n': 'none',
             'pb': 'padding-box',
             'ini': 'initial',
             'r': 'revert',
