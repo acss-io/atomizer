@@ -886,7 +886,13 @@ module.exports = [
         'allowParamToValue': false,
         'styles': {
             'clip-path': '$0'
-        }
+        },
+        'arguments': [{
+            'ini': 'initial',
+            'r': 'revert',
+            'rl': 'revert-layer',
+            'u': 'unset'
+        }]
     },
     /**
     ==================================================================
