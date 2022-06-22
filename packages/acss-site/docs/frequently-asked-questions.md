@@ -379,7 +379,7 @@ Like Emmet shortcuts, <b class="Fw(b)">ACSS</b> classes are for the most part si
 };
 </code></pre>
 <h3 id="how-come-atomizer-does-not-add-vendor-prefixes-where-needed-">How come Atomizer does not add vendor prefixes where needed?</h3>
-<p>We didn&#39;t want to reinvent the wheel as there are tools out there that do this very well (i.e. <a href="https://github.com/postcss/autoprefixer">autoprefixer</a>).</p>
+<p>We didn&#39;t want to reinvent the wheel as there are tools out there that do this very well (i.e. <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> (<a href="https://goonlinetools.com/autoprefixer/">available as an online tool</a>)).</p>
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
