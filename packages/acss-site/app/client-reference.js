@@ -2,22 +2,17 @@
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
-/*global document, window */
 
-// external packages
-import React from 'react';
-
-// other dependencies
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
+import { createElementWithContext } from 'fluxible-addons-react';
 import app from './app-reference';
-
-const dehydratedState = window.App; // sent from the server
 
 // for chrome dev tool support
 window.React = React;
 
-var context = app.createContext();
+const context = app.createContext();
 window.context = context;
 
-React.render(context.createElement(), 
-    document.getElementById('reference-app')
-);
+const root = createRoot(document.getElementById('reference-app'));
+root.render(createElementWithContext(context));

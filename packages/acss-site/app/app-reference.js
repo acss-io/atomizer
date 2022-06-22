@@ -3,28 +3,17 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-// external packages
-import React from 'react';
 import FluxibleApp from 'fluxible';
-
-// components
-import Reference from './components/Reference';
-
-// actions
-// import show500 from './actions/show500';
+import App from './components/App';
+import ReferenceStore from './stores/ReferenceStore';
 
 const app = new FluxibleApp({
-    component: Reference,
-    componentActionHandler: function (context, payload, done) {
-        // if (payload.err) {
-        //     console.log(payload.err.stack || payload.err);
-        //     context.executeAction(show500, payload, done);
-        //     return;
-        // }
+    component: App,
+    componentActionErrorHandler: function (context, payload, done) {
         done();
-    }
+    },
 });
 
-app.registerStore(require('./stores/ReferenceStore'));
+app.registerStore(ReferenceStore);
 
 export default app;
