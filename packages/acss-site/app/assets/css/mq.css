@@ -3,9 +3,9 @@
      * menu (slider)
      */
     .menu-on #aside {
-        animation: bounce .5s ease-out;
+        animation: bounce 0.5s ease-out;
         box-shadow: 1px 0 9px 1px #555;
-        transform:translateY(0);
+        transform: translateY(0);
     }
     /**
      * for the footer to get this styling we'd need to move ".menu-on" higher up
@@ -21,18 +21,18 @@
     }
     @keyframes bounce {
         0% {
-            transform:translateY(-100%);
+            transform: translateY(-100%);
             filter: blur(5px);
-         }
+        }
         40% {
-            transform:translateY(0);
+            transform: translateY(0);
         }
         60% {
-            transform:translateY(-10%);
-         }
+            transform: translateY(-10%);
+        }
         100% {
-            transform:translateY(0);
-         }
+            transform: translateY(0);
+        }
     }
     /**
      * no fancy marker nor right border along the side of the menu
@@ -41,6 +41,4 @@
     #aside a:after {
         display: none !important;
     }
-
 }
-

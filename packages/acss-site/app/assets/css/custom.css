@@ -17,8 +17,8 @@
 
 #header li a:before {
     pointer-events: none;
-    transition: all .3s;
-    content: "";
+    transition: all 0.3s;
+    content: '';
     left: 50%;
     top: 50%;
     width: 0;
@@ -27,7 +27,7 @@
     margin-left: 0;
     position: absolute;
     height: 0;
-    background: rgba(255, 255, 255, 0.2);;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 100%;
     opacity: 0;
 }
@@ -50,7 +50,7 @@
     height: 5px;
     margin: 0;
     padding: 0;
-    background: #FFF;
+    background: #fff;
     border-radius: 0;
     opacity: 1;
 }
@@ -70,12 +70,12 @@ li.selected a {
 #aside li:hover a:after,
 #aside li.selected a:after,
 #aside:after {
-    content: "";
+    content: '';
     position: absolute;
     width: 1px;
     top: 0;
     bottom: 0;
-    background: rgba(2, 128, 174, .3);
+    background: rgba(2, 128, 174, 0.3);
 }
 
 /**
@@ -96,7 +96,7 @@ li.selected a {
 }
 
 #aside li.selected a:after {
-    background: #0280AE;
+    background: #0280ae;
 }
 
 /**
@@ -108,7 +108,7 @@ textarea,
 .textarea,
 code,
 #footer {
-    background: rgba(2, 128, 174, .05);
+    background: rgba(2, 128, 174, 0.05);
 }
 
 pre code {
@@ -136,17 +136,17 @@ pre code {
 
 .info {
     border-color: #1d5cab;
-    background: #D0E8FD;
+    background: #d0e8fd;
 }
 
 .important {
-    border-color: #FF0061;
-    background: #FFDDEA;
+    border-color: #ff0061;
+    background: #ffddea;
 }
 
 .success {
     border-color: #5ed500;
-    background: #E0F9C5;
+    background: #e0f9c5;
 }
 
 /* embedded Code Pens =============================================== */

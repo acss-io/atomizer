@@ -3,7 +3,7 @@
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 
-import {BaseStore} from 'fluxible/addons';
+import { BaseStore } from 'fluxible/addons';
 
 class ReferenceStore extends BaseStore {
     constructor(dispatcher) {
@@ -14,8 +14,8 @@ class ReferenceStore extends BaseStore {
     }
 
     handleSearch(payload) {
-        let query = payload.query;
-        // Don't update if query hasn't changed, or 
+        const query = payload.query;
+        // Don't update if query hasn't changed, or
         // there's a query but the query is nothing but spaces
         if (query === this.getCurrentQuery() || (query && query.trim() === '')) {
             return;
@@ -25,16 +25,18 @@ class ReferenceStore extends BaseStore {
     }
 
     handleCustomConfig(payload) {
-        let config = payload.config;
+        const config = payload.config;
         let configObj;
 
-        if (config === this.customConfig) { 
+        if (config === this.customConfig) {
             return;
         }
 
         try {
             configObj = JSON.parse(config);
-        } catch (ex) {}
+        } catch (ex) {
+            console.error(ex);
+        }
 
         this.customConfig = config;
         this.customConfigObj = configObj;
@@ -49,7 +51,7 @@ class ReferenceStore extends BaseStore {
         return {
             currentQuery: this.currentQuery,
             customConfig: this.customConfig,
-            customConfigObj: this.customConfigObj
+            customConfigObj: this.customConfigObj,
         };
     }
 
@@ -66,8 +68,8 @@ class ReferenceStore extends BaseStore {
 
 ReferenceStore.storeName = 'ReferenceStore';
 ReferenceStore.handlers = {
-    'CHANGE_SEARCH_TERM': 'handleSearch',
-    'CHANGE_CUSTOM_CONFIG': 'handleCustomConfig'
+    CHANGE_SEARCH_TERM: 'handleSearch',
+    CHANGE_CUSTOM_CONFIG: 'handleCustomConfig',
 };
 
 export default ReferenceStore;

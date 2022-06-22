@@ -1,68 +1,120 @@
 {
-  "name": "acss-site",
-  "private": true,
-  "version": "1.0.1",
-  "description": "ACSS website",
-  "author": "Thierry Koblentz <thierryk@yahoo-inc.com>",
-  "contributors": [
-    {
-      "name": "Renato Iwashima",
-      "email": "renatoi@yahoo-inc.com"
+    "name": "acss-site",
+    "private": true,
+    "version": "1.0.1",
+    "description": "ACSS website",
+    "author": "Thierry Koblentz <thierryk@yahoo-inc.com>",
+    "contributors": [
+        {
+            "name": "Renato Iwashima",
+            "email": "renatoi@yahoo-inc.com"
+        },
+        {
+            "name": "Steve Carlson",
+            "email": "yasteve@yahoo-inc.com"
+        }
+    ],
+    "scripts": {
+        "build": "grunt",
+        "dev": "npm run build; docker compose up",
+        "lint": "npm run lint:eslint && npm run lint:prettier",
+        "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier:fix",
+        "lint:eslint": "eslint app/ --ext js,jsx",
+        "lint:prettier": "prettier . --check",
+        "lint:prettier:fix": "prettier . --write"
     },
-    {
-      "name": "Steve Carlson",
-      "email": "yasteve@yahoo-inc.com"
+    "precommit": [
+        "lint"
+    ],
+    "devDependencies": {
+        "@babel/cli": "^7.17.10",
+        "@babel/core": "^7.18.5",
+        "@babel/eslint-parser": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "@babel/preset-react": "^7.17.12",
+        "@lodder/grunt-postcss": "^3.1.1",
+        "atomizer": "^3.14.1",
+        "autoprefixer": "^10.4.7",
+        "babel-loader": "^8.2.5",
+        "classnames": "^2.3.1",
+        "create-react-class": "^15.7.0",
+        "debug": "^4.3.4",
+        "escape-string-regexp": "^5.0.0",
+        "eslint": "^8.18.0",
+        "eslint-plugin-react": "^7.30.0",
+        "fluxible": "^1.4.2",
+        "fluxible-addons-react": "^1.2.0",
+        "grunt": "^1.5.3",
+        "grunt-atomizer": "^3.2.0",
+        "grunt-cli": "^1.4.3",
+        "grunt-contrib-cssmin": "^4.0.0",
+        "grunt-webpack": "^5.0.0",
+        "load-grunt-tasks": "^5.1.0",
+        "postcss": "^8.4.14",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "webpack": "^5.73.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/acss-io/acss-site.git"
+    },
+    "keywords": [
+        "atomic",
+        "atomic-css",
+        "atomic.css",
+        "acss",
+        "css",
+        "yahoo"
+    ],
+    "license": "BSD",
+    "bugs": {
+        "url": "https://github.com/acss-io/acss-site/issues"
+    },
+    "homepage": "https://github.com/acss-io/acss-site",
+    "babel": {
+        "presets": [
+            [
+                "@babel/preset-env"
+            ],
+            "@babel/preset-react"
+        ]
+    },
+    "browserslist": "> 0.25%, not dead",
+    "eslintConfig": {
+        "extends": [
+            "eslint:recommended",
+            "plugin:react/recommended",
+            "plugin:react/jsx-runtime"
+        ],
+        "env": {
+            "browser": true,
+            "node": true,
+            "es2020": true
+        },
+        "parser": "@babel/eslint-parser",
+        "parserOptions": {
+            "ecmaVersion": "latest",
+            "sourceType": "module"
+        },
+        "rules": {
+            "prefer-const": "error",
+            "react/prop-types": "off"
+        },
+        "settings": {
+            "react": {
+                "version": "detect"
+            }
+        }
+    },
+    "eslintIgnore": [
+        "node_modules"
+    ],
+    "prettier": {
+        "printWidth": 120,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "es5"
     }
-  ],
-  "scripts": {
-    "dev": "cd ./docs; bundle exec jekyll serve",
-    "lint": "grunt jshint",
-    "build": "grunt build"
-  },
-  "precommit": [
-    "lint"
-  ],
-  "dependencies": {},
-  "devDependencies": {
-    "atomizer": "^3.6.2",
-    "autoprefixer-core": "^5.1.11",
-    "babel": "^4.7.8",
-    "babel-loader": "5.0.0",
-    "classnames": "^1.2.0",
-    "debug": "^2.1.1",
-    "escape-string-regexp": "^1.0.0",
-    "fluxible": "^0.4.6",
-    "grunt": "~0.4.5",
-    "grunt-atomizer": "^3.0.0",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-cssmin": "^0.12.2",
-    "grunt-contrib-jshint": "^0.11.0",
-    "grunt-postcss": "^0.3.0",
-    "grunt-webpack": "^1.0.8",
-    "json-loader": "^0.5.1",
-    "jsx-loader": "~0.12.2",
-    "load-grunt-tasks": "^1.0.0",
-    "node-jsx": "^0.12.4",
-    "object-assign": "^2.0.0",
-    "react": "^0.14.0",
-    "script-loader": "~0.6.1",
-    "webpack": "^1.4.12"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/acss-io/acss-site.git"
-  },
-  "keywords": [
-    "atomic",
-    "atomic-css",
-    "atomic.css",
-    "acss",
-    "css",
-    "yahoo"
-  ],
-  "license": "BSD",
-  "bugs": {
-    "url": "https://github.com/acss-io/acss-site/issues"
-  },
-  "homepage": "https://github.com/acss-io/acss-site"
 }
