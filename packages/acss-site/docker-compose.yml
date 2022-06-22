@@ -1,7 +1,7 @@
 version: '3'
 services:
     jekyll:
-        image: jekyll/jekyll:3.8
+        image: jekyll/minimal:3.8
         environment:
             - JEKYLL_ENV=development
         command: bash -c "cd docs && jekyll serve --watch --incremental --config _config.yml --host 0.0.0.0"
@@ -9,4 +9,5 @@ services:
             - 4000:4000
         volumes:
             - .:/srv/jekyll
+            - ./vendor/bundle:/usr/local/bundle:Z
         restart: unless-stopped

@@ -29,6 +29,7 @@ app/build/
 build/
 docs/.jekyll-metadata
 docs/.sass-cache/
+vendor/bundle
 /assets.js
 
 # Users Environment Variables
