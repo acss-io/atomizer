@@ -216,6 +216,41 @@
         ],
         "description": "Ap(n)"
     },
+    "Ar(<custom-param>)": {
+        "prefix": "aspect-ratio",
+        "body": [
+            "Ar(${1:<custom-param>})"
+        ],
+        "description": "Ar(<custom-param>)"
+    },
+    "Ar(ini)": {
+        "prefix": "aspect-ratio: initial",
+        "body": [
+            "Ar(ini)"
+        ],
+        "description": "Ar(ini)"
+    },
+    "Ar(r)": {
+        "prefix": "aspect-ratio: revert",
+        "body": [
+            "Ar(r)"
+        ],
+        "description": "Ar(r)"
+    },
+    "Ar(rl)": {
+        "prefix": "aspect-ratio: revert-layer",
+        "body": [
+            "Ar(rl)"
+        ],
+        "description": "Ar(rl)"
+    },
+    "Ar(u)": {
+        "prefix": "aspect-ratio: unset",
+        "body": [
+            "Ar(u)"
+        ],
+        "description": "Ar(u)"
+    },
     "Bd(<custom-param>)": {
         "prefix": "border",
         "body": [
@@ -7615,6 +7650,97 @@
         ],
         "description": "Cl(end)"
     },
+    "Cp(<custom-param>)": {
+        "prefix": "clip-path",
+        "body": [
+            "Cp(${1:<custom-param>})"
+        ],
+        "description": "Cp(<custom-param>)"
+    },
+    "Cp(bb)": {
+        "prefix": "clip-path: border-box",
+        "body": [
+            "Cp(bb)"
+        ],
+        "description": "Cp(bb)"
+    },
+    "Cp(cb)": {
+        "prefix": "clip-path: content-box",
+        "body": [
+            "Cp(cb)"
+        ],
+        "description": "Cp(cb)"
+    },
+    "Cp(fb)": {
+        "prefix": "clip-path: fill-box",
+        "body": [
+            "Cp(fb)"
+        ],
+        "description": "Cp(fb)"
+    },
+    "Cp(mb)": {
+        "prefix": "clip-path: margin-box",
+        "body": [
+            "Cp(mb)"
+        ],
+        "description": "Cp(mb)"
+    },
+    "Cp(n)": {
+        "prefix": "clip-path: none",
+        "body": [
+            "Cp(n)"
+        ],
+        "description": "Cp(n)"
+    },
+    "Cp(pb)": {
+        "prefix": "clip-path: padding-box",
+        "body": [
+            "Cp(pb)"
+        ],
+        "description": "Cp(pb)"
+    },
+    "Cp(ini)": {
+        "prefix": "clip-path: initial",
+        "body": [
+            "Cp(ini)"
+        ],
+        "description": "Cp(ini)"
+    },
+    "Cp(r)": {
+        "prefix": "clip-path: revert",
+        "body": [
+            "Cp(r)"
+        ],
+        "description": "Cp(r)"
+    },
+    "Cp(rl)": {
+        "prefix": "clip-path: revert-layer",
+        "body": [
+            "Cp(rl)"
+        ],
+        "description": "Cp(rl)"
+    },
+    "Cp(sb)": {
+        "prefix": "clip-path: stroke-box",
+        "body": [
+            "Cp(sb)"
+        ],
+        "description": "Cp(sb)"
+    },
+    "Cp(u)": {
+        "prefix": "clip-path: unset",
+        "body": [
+            "Cp(u)"
+        ],
+        "description": "Cp(u)"
+    },
+    "Cp(vb)": {
+        "prefix": "clip-path: view-box",
+        "body": [
+            "Cp(vb)"
+        ],
+        "description": "Cp(vb)"
+    },
     "C(<value>)": {
         "prefix": "color",
         "body": [
@@ -8707,12 +8833,19 @@
         ],
         "description": "Colmf(b)"
     },
-    "Colmg(<custom-param>)": {
+    "Colmg(<value>)": {
         "prefix": "column-gap",
         "body": [
-            "Colmg(${1:<custom-param>})"
+            "Colmg(${1:<value>})"
         ],
-        "description": "Colmg(<custom-param>)"
+        "description": "Colmg(<value>)"
+    },
+    "Colmg(n)": {
+        "prefix": "column-gap: normal",
+        "body": [
+            "Colmg(n)"
+        ],
+        "description": "Colmg(n)"
     },
     "Colmr(<value>)": {
         "prefix": "column-rule",
@@ -8833,12 +8966,19 @@
         ],
         "description": "Colms(n)"
     },
-    "Colmw(<custom-param>)": {
+    "Colmw(<value>)": {
         "prefix": "column-width",
         "body": [
-            "Colmw(${1:<custom-param>})"
+            "Colmw(${1:<value>})"
         ],
-        "description": "Colmw(<custom-param>)"
+        "description": "Colmw(<value>)"
+    },
+    "Colmw(a)": {
+        "prefix": "column-width: auto",
+        "body": [
+            "Colmw(a)"
+        ],
+        "description": "Colmw(a)"
     },
     "Ctn(<custom-param>)": {
         "prefix": "contain",
