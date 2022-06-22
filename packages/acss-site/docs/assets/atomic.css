@@ -103,6 +103,9 @@
 .C\(\#fff\)\:h:hover {
   color: #fff;
 }
+.home .home_Cur\(t\) {
+  cursor: text;
+}
 .D\(b\), .home .home_D\(b\), .menu-on .menu-on_D\(b\), .open .open_D\(b\) {
   display: block;
 }
@@ -565,6 +568,9 @@ a[class*=LineClamp]:after {
   }
   .Mt\(-20px\)--sm {
     margin-top: -20px;
+  }
+  .Mt\(-40px\)--sm {
+    margin-top: -40px;
   }
   .Maw\(1000px\)--sm {
     max-width: 1000px;
