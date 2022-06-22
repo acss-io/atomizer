@@ -28,6 +28,7 @@ node_modules
 app/build/
 build/
 docs/.jekyll-metadata
+docs/.sass-cache/
 /assets.js
 
 # Users Environment Variables
