@@ -319,10 +319,11 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         else {
                             warnings.push(propAndValue);
                         }
-                        value = utils.getCustomValue(config, name);
 
-                        // use global values if no custom value was found
-                        if (!value) {
+                        if (name) {
+                            value = utils.getCustomValue(config, name);
+                        } else {
+                            // use global values if no custom value was found
                             switch (matchVal.groups.named) {
                                 case 'inh':
                                     value = 'inherit';
