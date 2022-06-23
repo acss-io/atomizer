@@ -303,26 +303,25 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                         const propAndValue = [match.groups.atomicSelector, '(', matchVal.groups.named, ')'].join('');
                         let name;
 
-                        // no custom, warn it
-                        if (!config.custom) {
-                            warnings.push(propAndValue);
+                        if (config.custom) {
+                            // as prop + value
+                            if (Object.prototype.hasOwnProperty.call(config.custom, propAndValue)) {
+                                name = propAndValue;
+                            }
+                            // as value
+                            else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.groups.named)) {
+                                name = matchVal.groups.named;
+                            }
+                            else {
+                                // we have custom but we could not find the named class name there
+                                warnings.push(propAndValue);
+                            }
                         }
-                        // as prop + value
-                        else if (Object.prototype.hasOwnProperty.call(config.custom, propAndValue)) {
-                            name = propAndValue;
-                        }
-                        // as value
-                        else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.groups.named)) {
-                            name = matchVal.groups.named;
-                        }
-                        // we have custom but we could not find the named class name there
-                        else {
-                            warnings.push(propAndValue);
-                        }
+                        value = utils.getCustomValue(config, name);
 
-                        if (name) {
-                            value = utils.getCustomValue(config, name);
-                        } else {
+                        if (!value) {
+                            warnings.push(propAndValue);
+
                             // use global values if no custom value was found
                             switch (matchVal.groups.named) {
                                 case 'inh':
