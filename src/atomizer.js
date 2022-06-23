@@ -312,16 +312,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                             else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.groups.named)) {
                                 name = matchVal.groups.named;
                             }
-                            else {
-                                // we have custom but we could not find the named class name there
-                                warnings.push(propAndValue);
-                            }
                         }
                         value = utils.getCustomValue(config, name);
 
                         if (!value) {
-                            warnings.push(propAndValue);
-
                             // use global values if no custom value was found
                             switch (matchVal.groups.named) {
                                 case 'inh':
@@ -340,6 +334,10 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                                     value = 'unset';
                                     break;
                             }
+                        }
+
+                        if (!value) {
+                            warnings.push(propAndValue);
                         }
                     }
                 }
