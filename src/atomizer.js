@@ -245,8 +245,6 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             // parse them and return a valid value
             values = values.split(',').map(function (value, index) {
                 const matchVal = Grammar.matchValue(value);
-                let propAndValue;
-
                 if (!matchVal) {
                     // In cases like: End(-), matchVal will be null.
                     return null;
@@ -295,30 +293,14 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     value = `var(${matchVal.groups.cssVariable})`;
                 }
                 if (matchVal.groups.named) {
-                    // add global values first
-                    if (matchVal.groups.named === 'inh') {
-                        value = 'inherit';
-                    }
-                    else if (matchVal.groups.named === 'ini') {
-                        value = 'initial';
-                    }
-                    else if (matchVal.groups.named === 'rv') {
-                        value = 'revert';
-                    }
-                    else if (matchVal.groups.named === 'rvl') {
-                        value = 'revert-layer';
-                    }
-                    else if (matchVal.groups.named === 'un') {
-                        value = 'unset';
-                    }
                     // check if the named value matches any of the values
                     // registered in arguments.
-                    else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.groups.named) >= 0) {
+                    if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.groups.named) >= 0) {
                         value = rule.arguments[index][matchVal.groups.named];
                     }
                     // now check if named value was passed in the config
                     else {
-                        propAndValue = [match.groups.atomicSelector, '(', matchVal.groups.named, ')'].join('');
+                        const propAndValue = [match.groups.atomicSelector, '(', matchVal.groups.named, ')'].join('');
                         let name;
 
                         // no custom, warn it
@@ -338,6 +320,27 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                             warnings.push(propAndValue);
                         }
                         value = utils.getCustomValue(config, name);
+
+                        // use global values if no custom value was found
+                        if (!value) {
+                            switch (matchVal.groups.named) {
+                                case 'inh':
+                                    value = 'inherit';
+                                    break;
+                                case 'ini':
+                                    value = 'initial';
+                                    break;
+                                case 'rv':
+                                    value = 'revert';
+                                    break;
+                                case 'rvl':
+                                    value = 'revert-layer';
+                                    break;
+                                case 'un':
+                                    value = 'unset';
+                                    break;
+                            }
+                        }
                     }
                 }
                 return value;
