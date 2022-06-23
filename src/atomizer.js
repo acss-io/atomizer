@@ -295,9 +295,21 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     value = `var(${matchVal.groups.cssVariable})`;
                 }
                 if (matchVal.groups.named) {
-                    // first check if 'inh' is the value
+                    // add global values first
                     if (matchVal.groups.named === 'inh') {
                         value = 'inherit';
+                    }
+                    else if (matchVal.groups.named === 'ini') {
+                        value = 'initial';
+                    }
+                    else if (matchVal.groups.named === 'rv') {
+                        value = 'revert';
+                    }
+                    else if (matchVal.groups.named === 'rvl') {
+                        value = 'revert-layer';
+                    }
+                    else if (matchVal.groups.named === 'un') {
+                        value = 'unset';
                     }
                     // check if the named value matches any of the values
                     // registered in arguments.
