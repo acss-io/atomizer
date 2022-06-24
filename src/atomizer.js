@@ -14,6 +14,14 @@ const XRegExp = require('xregexp');
 
 const RULES = require('./rules.js').concat(require('./helpers.js'));
 
+const GLOBAL_VALUES = {
+    inh: 'inherit',
+    ini: 'initial',
+    rv: 'revert',
+    rvl: 'revert-layer',
+    un: 'unset'
+};
+
 /**
  * constructor
  */
@@ -313,28 +321,9 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                                 name = matchVal.groups.named;
                             }
                         }
-                        value = utils.getCustomValue(config, name);
 
-                        if (!value) {
-                            // use global values if no custom value was found
-                            switch (matchVal.groups.named) {
-                                case 'inh':
-                                    value = 'inherit';
-                                    break;
-                                case 'ini':
-                                    value = 'initial';
-                                    break;
-                                case 'rv':
-                                    value = 'revert';
-                                    break;
-                                case 'rvl':
-                                    value = 'revert-layer';
-                                    break;
-                                case 'un':
-                                    value = 'unset';
-                                    break;
-                            }
-                        }
+                        // use global values if no custom value was found
+                        value = utils.getCustomValue(config, name) || GLOBAL_VALUES[matchVal.groups.named] || null;
 
                         if (!value) {
                             warnings.push(propAndValue);
