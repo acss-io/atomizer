@@ -619,6 +619,32 @@ describe('Atomizer()', function () {
             expect(result).to.equal(expected);
         });
 
+        it ('returns css for all global values', function () {
+            const atomizer = new Atomizer();
+            const config = {
+                classNames: ['Bd(inh)', 'Bd(ini)', 'Bd(rv)', 'Bd(rvl)', 'Bd(un)']
+            };
+            const expected = [
+                '.Bd\\(inh\\) {',
+                '  border: inherit;',
+                '}',
+                '.Bd\\(ini\\) {',
+                '  border: initial;',
+                '}',
+                '.Bd\\(rv\\) {',
+                '  border: revert;',
+                '}',
+                '.Bd\\(rvl\\) {',
+                '  border: revert-layer;',
+                '}',
+                '.Bd\\(un\\) {',
+                '  border: unset;',
+                '}\n'
+            ].join('\n');
+            const result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+
         it ('returns expected css if media query specificity bump option has been passed', function () {
             const atomizer = new Atomizer();
             const config = {

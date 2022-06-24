@@ -14,6 +14,14 @@ const XRegExp = require('xregexp');
 
 const RULES = require('./rules.js').concat(require('./helpers.js'));
 
+const GLOBAL_VALUES = {
+    inh: 'inherit',
+    ini: 'initial',
+    rv: 'revert',
+    rvl: 'revert-layer',
+    un: 'unset'
+};
+
 /**
  * constructor
  */
@@ -245,8 +253,6 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
             // parse them and return a valid value
             values = values.split(',').map(function (value, index) {
                 const matchVal = Grammar.matchValue(value);
-                let propAndValue;
-
                 if (!matchVal) {
                     // In cases like: End(-), matchVal will be null.
                     return null;
@@ -295,37 +301,33 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
                     value = `var(${matchVal.groups.cssVariable})`;
                 }
                 if (matchVal.groups.named) {
-                    // first check if 'inh' is the value
-                    if (matchVal.groups.named === 'inh') {
-                        value = 'inherit';
-                    }
                     // check if the named value matches any of the values
                     // registered in arguments.
-                    else if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.groups.named) >= 0) {
+                    if (rule.arguments && index < rule.arguments.length && Object.keys(rule.arguments[index]).indexOf(matchVal.groups.named) >= 0) {
                         value = rule.arguments[index][matchVal.groups.named];
                     }
                     // now check if named value was passed in the config
                     else {
-                        propAndValue = [match.groups.atomicSelector, '(', matchVal.groups.named, ')'].join('');
+                        const propAndValue = [match.groups.atomicSelector, '(', matchVal.groups.named, ')'].join('');
                         let name;
 
-                        // no custom, warn it
-                        if (!config.custom) {
+                        if (config.custom) {
+                            // as prop + value
+                            if (Object.prototype.hasOwnProperty.call(config.custom, propAndValue)) {
+                                name = propAndValue;
+                            }
+                            // as value
+                            else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.groups.named)) {
+                                name = matchVal.groups.named;
+                            }
+                        }
+
+                        // use global values if no custom value was found
+                        value = utils.getCustomValue(config, name) || GLOBAL_VALUES[matchVal.groups.named] || null;
+
+                        if (!value) {
                             warnings.push(propAndValue);
                         }
-                        // as prop + value
-                        else if (Object.prototype.hasOwnProperty.call(config.custom, propAndValue)) {
-                            name = propAndValue;
-                        }
-                        // as value
-                        else if (Object.prototype.hasOwnProperty.call(config.custom, matchVal.groups.named)) {
-                            name = matchVal.groups.named;
-                        }
-                        // we have custom but we could not find the named class name there
-                        else {
-                            warnings.push(propAndValue);
-                        }
-                        value = utils.getCustomValue(config, name);
                     }
                 }
                 return value;

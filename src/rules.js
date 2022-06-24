@@ -6,7 +6,12 @@
  * ----------------------------------------------------
  *
  * These are the main Atomic CSS rules.
- * By default, all rules accept "inh" ("inherit").
+ * By default, all rules accept:
+ *  - "inh" ("inherit")
+ *  - "ini" ("initial")
+ *  - "rv" ("revert")
+ *  - "rvl" ("revert-layer")
+ *  - "un" ("unset")
  *
  * Please submit a PR if you find any missing rule.
  *
@@ -200,13 +205,7 @@ module.exports = [
         'allowParamToValue': false,
         'styles': {
             'aspect-ratio': '$0'
-        },
-        'arguments': [{
-            'ini': 'initial',
-            'r': 'revert',
-            'rl': 'revert-layer',
-            'u': 'unset'
-        }]
+        }
     },
     /**
     ==================================================================
@@ -894,11 +893,7 @@ module.exports = [
             'mb': 'margin-box',
             'n': 'none',
             'pb': 'padding-box',
-            'ini': 'initial',
-            'r': 'revert',
-            'rl': 'revert-layer',
             'sb': 'stroke-box',
-            'u': 'unset',
             'vb': 'view-box'
         }]
     },
@@ -2055,7 +2050,6 @@ module.exports = [
             'a': 'auto',
             'fa': 'fill-available',
             'fc': 'fit-content',
-            'ini': 'initial',
             'maxc': 'max-content',
             'minc': 'min-content'
         }]
