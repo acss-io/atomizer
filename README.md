@@ -1,7 +1,5 @@
 # Atomizer
 
-[![Join the chat at https://gitter.im/acss-io/atomizer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/acss-io/atomizer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
 [![npm version](https://badge.fury.io/js/atomizer.svg)](http://badge.fury.io/js/atomizer)
 ![Build Status](https://github.com/acss-io/atomizer/actions/workflows/test.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/acss-io/atomizer/badge.svg?branch=master)](https://coveralls.io/github/acss-io/atomizer?branch=master)
@@ -9,6 +7,7 @@
 ## TL;DR:
 
 ![GIF showing the VSCode extension (with autocompletion)](http://res.cloudinary.com/dw9fem4ki/image/upload/v1459669466/usage_mtx65l.gif)
+
 ## Overview
 
 Atomizer is a tool that helps you create Atomic CSS rules ([acss.io](http://acss.io)).
@@ -59,9 +58,9 @@ atomizer -c config.js -n \#myrootclass > atomic.css
 ### API
 
 ```javascript
-var Atomizer = require('atomizer');
+import Atomizer from 'atomizer';
 
-var defaultConfig = {
+const defaultConfig = {
     "breakPoints": {
         'sm': '@media(min-width:750px)',
         'md': '@media(min-width:1000px)',
@@ -80,17 +79,16 @@ var defaultConfig = {
     ]
 };
 
-var atomizer = new Atomizer({verbose: true});
+const atomizer = new Atomizer({verbose: true});
 
 // Parse text to find Atomic CSS classes
-var foundClasses = atomizer.findClassNames('<div class="D(n)! P(10px) M(20%) Bd(1) Bd(foo)--sm"></div>');
+const foundClasses = atomizer.findClassNames('<div class="D(n)! P(10px) M(20%) Bd(1) Bd(foo)--sm"></div>');
 
 // Generate Atomizer configuration from an array of Atomic classnames
-var finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
+const finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
 
 // Generate Atomic CSS from configuration
-var css = atomizer.getCss(finalConfig);
-
+const css = atomizer.getCss(finalConfig);
 ```
 
 ### Plugins
@@ -112,8 +110,8 @@ var css = atomizer.getCss(finalConfig);
 
 #### For VSCode
 
-   * [Atomic-css-search](https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search)
-   * [Atomizer](https://marketplace.visualstudio.com/items?itemName=pankaj-parashar.atomizer)
+   * [Atomic CSS Snippets](https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets) - Provides quick suggestions for Atomic CSS class names
+   * [Atomic-css-search](https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search) - Search Atomic css right in your favorite editor.
 
 ## Developer docs
 
