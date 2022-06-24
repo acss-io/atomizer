@@ -17,12 +17,6 @@ title: Get Help with ACSS
 
 <p>You can also start <a href="https://github.com/acss-io/acss-site/discussions">a discussion on GitHub</a></p>
 
-<h2 id="discussion">Discussion</h2>
-
-<p>Feel free to start a dicussion or ask a question on <a href="https://github.com/acss-io/acss-site/discussions">Github</a>. We will do our best to help!
-
-<p>You can find us on <a href="http://gitter.im">Gitter</a> on most working days: <a href="https://gitter.im/acss-io/atomizer">https://gitter.im/acss-io/atomizer</a></p>
-
 <h2 id="twitter">Twitter</h2>
 
 <p>Follow us on Twitter (<a href="https://twitter.com/atomiccss">@AtomicCSS</a>) for the latest updates about <b class="Fw(b)">ACSS</b> and Atomizer. We&#39;ll also respond to questions there as best we can in 140 chars.</p>
