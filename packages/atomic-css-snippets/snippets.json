@@ -223,34 +223,6 @@
         ],
         "description": "Ar(<custom-param>)"
     },
-    "Ar(ini)": {
-        "prefix": "aspect-ratio: initial",
-        "body": [
-            "Ar(ini)"
-        ],
-        "description": "Ar(ini)"
-    },
-    "Ar(r)": {
-        "prefix": "aspect-ratio: revert",
-        "body": [
-            "Ar(r)"
-        ],
-        "description": "Ar(r)"
-    },
-    "Ar(rl)": {
-        "prefix": "aspect-ratio: revert-layer",
-        "body": [
-            "Ar(rl)"
-        ],
-        "description": "Ar(rl)"
-    },
-    "Ar(u)": {
-        "prefix": "aspect-ratio: unset",
-        "body": [
-            "Ar(u)"
-        ],
-        "description": "Ar(u)"
-    },
     "Bd(<custom-param>)": {
         "prefix": "border",
         "body": [
@@ -7699,40 +7671,12 @@
         ],
         "description": "Cp(pb)"
     },
-    "Cp(ini)": {
-        "prefix": "clip-path: initial",
-        "body": [
-            "Cp(ini)"
-        ],
-        "description": "Cp(ini)"
-    },
-    "Cp(r)": {
-        "prefix": "clip-path: revert",
-        "body": [
-            "Cp(r)"
-        ],
-        "description": "Cp(r)"
-    },
-    "Cp(rl)": {
-        "prefix": "clip-path: revert-layer",
-        "body": [
-            "Cp(rl)"
-        ],
-        "description": "Cp(rl)"
-    },
     "Cp(sb)": {
         "prefix": "clip-path: stroke-box",
         "body": [
             "Cp(sb)"
         ],
         "description": "Cp(sb)"
-    },
-    "Cp(u)": {
-        "prefix": "clip-path: unset",
-        "body": [
-            "Cp(u)"
-        ],
-        "description": "Cp(u)"
     },
     "Cp(vb)": {
         "prefix": "clip-path: view-box",
@@ -10324,6 +10268,20 @@
         ],
         "description": "Fv(sc)"
     },
+    "Gp(<value>)": {
+        "prefix": "gap",
+        "body": [
+            "Gp(${1:<value>})"
+        ],
+        "description": "Gp(<value>)"
+    },
+    "Rowg(<value>)": {
+        "prefix": "row-gap",
+        "body": [
+            "Rowg(${1:<value>})"
+        ],
+        "description": "Rowg(<value>)"
+    },
     "H(<value>)": {
         "prefix": "height",
         "body": [
@@ -10890,13 +10848,6 @@
             "Miw(fc)"
         ],
         "description": "Miw(fc)"
-    },
-    "Miw(ini)": {
-        "prefix": "min-width: initial",
-        "body": [
-            "Miw(ini)"
-        ],
-        "description": "Miw(ini)"
     },
     "Miw(maxc)": {
         "prefix": "min-width: max-content",
