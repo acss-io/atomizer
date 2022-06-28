@@ -158,7 +158,6 @@ title: Class syntax
 }</span>
 </code></pre>
 <p>This class hides the current element whenever its ancestor (<code>.foo</code>) is hovered over.</p>
-<p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it&#39;s not possible to use the pseudo-class syntax with these browsers.</p>
 
 <h3 id="pseudo-element">&lt;pseudo-element&gt;</h3>
 <p>Optional.</p>
@@ -170,8 +169,6 @@ title: Class syntax
     <li><code>fli</code> for <code>::first-line</code></li>
     <li><code>ph</code> for <code>::placeholder</code></li>
 </ul>
-
-<p class="noteBox important">Internet Explorer 7 and below do not accept the use of colons in classnames, and therefore it&#39;s not possible to use the pseudo-element syntax with these browsers.</p>
 
 <h3 id="combinator">&lt;combinator&gt;</h3>
 <p>Required if &lt;context&gt; is provided. One of the following may be used:</p>
@@ -234,7 +231,15 @@ title: Class syntax
     <li>Value should be abbreviated with the first letter of the value.</li>
     <li>If two values share the same initial letter, then the next value in alphabetical order is <a href="http://en.wikipedia.org/wiki/Abbreviation">abbreviated</a> in <a href="http://en.wikipedia.org/wiki/Contraction_%28grammar%29">contracted</a> form.</li>
     <li>If <strong>one value</strong> is composed by two or more words (e.g. <code>inline-block</code>) then the first letter of each word should be used with no separator between them (e.g. <code>inline-block</code> becomes <code>ib</code>, <code>space-between</code> becomes <code>sb</code>).</li>
-    <li>The <code>inherit</code> value will always use the keyword <code>inh</code> as a special exception because it is available almost globally.</li>
+    <li>The following values are special exceptions as they are available almost globally:
+        <ul class="ul-list">
+            <li><code>inh</code> = <code>inherit</code></li>
+            <li><code>ini</code> = <code>initial</code></li>
+            <li><code>rv</code> = <code>revert</code></li>
+            <li><code>rvl</code> = <code>revert-layer</code></li>
+            <li><code>un</code> = <code>unset</code></li>
+        </ul>
+    </li>
 </ul>
 
 <h4 id="literal-values">Literal values</h4>
