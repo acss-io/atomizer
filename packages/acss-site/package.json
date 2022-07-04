@@ -37,7 +37,7 @@
         "autoprefixer": "^10.4.7",
         "babel-loader": "^8.2.5",
         "escape-string-regexp": "^5.0.0",
-        "eslint": "^8.18.0",
+        "eslint": "^8.19.0",
         "eslint-plugin-react": "^7.30.1",
         "fluxible": "^1.4.2",
         "fluxible-addons-react": "^1.2.0",
