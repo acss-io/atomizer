@@ -43,11 +43,16 @@ const PSEUDO_CLASSES = {
 };
 
 const PSEUDO_ELEMENTS = {
-    '::before':         '::b',
-    '::after':          '::a',
-    '::first-letter':   '::fl',
-    '::first-line':     '::fli',
-    '::placeholder':    '::ph'
+    '::after':                  '::a',
+    '::before':                 '::b',
+    '::backdrop':               '::bd',
+    '::cue':                    '::c',
+    '::file-selector-button':   '::fsb',
+    '::first-letter':           '::fl',
+    '::first-line':             '::fli',
+    '::marker':                 '::m',
+    '::placeholder':            '::ph',
+    '::selection':              '::s'
 };
 
 const PSEUDOS = Object.assign({}, PSEUDO_CLASSES, PSEUDO_ELEMENTS);
