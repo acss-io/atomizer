@@ -32,7 +32,7 @@
  *   "start" and "end".
  * - Rules is written as an array because ORDER is important for the CSS generation.
  **/
-
+const blendModes = require('./blendmodes');
 const colors = require('./colors');
 
 module.exports = [
@@ -206,6 +206,21 @@ module.exports = [
         'styles': {
             'aspect-ratio': '$0'
         }
+    },
+    /**
+    ==================================================================
+    BACKGROUND BLEND MODE
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Background blend mode',
+        'matcher': 'Bgbm',
+        'allowParamToValue': false,
+        'styles': {
+            'background-blend-mode': '$0'
+        },
+        'arguments': [blendModes]
     },
     /**
     ==================================================================
@@ -2053,6 +2068,21 @@ module.exports = [
             'maxc': 'max-content',
             'minc': 'min-content'
         }]
+    },
+    /**
+    ==================================================================
+    MIX BLEND MODE
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Mix blend mode',
+        'matcher': 'Mbm',
+        'allowParamToValue': false,
+        'styles': {
+            'mix-blend-mode': '$0'
+        },
+        'arguments': [blendModes]
     },
     /**
     ==================================================================
