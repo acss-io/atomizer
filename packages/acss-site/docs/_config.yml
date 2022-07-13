@@ -1,6 +1,5 @@
-title: ACSS
-description: ""
-theme: minima
+title: Atomizer
+description: "A CSS utility for component-based websites"
 defaults:
   -
     scope:
@@ -8,3 +7,5 @@ defaults:
       type: "pages"
     values:
       githubDocsPath: "https://github.com/acss-io/acss-site/tree/master/docs/"
+plugins:
+  - jekyll-seo-tag

@@ -1,24 +1,24 @@
 <div id="header" role="header" class="P(10px) Ov(h) home_Ov(v) Z(7) Pos(r) Bgc(brandColor) optLegibility">
     <div class="innerwrapper SpaceBetween Mx(a)--sm Maw(1000px)--sm W(90%)--sm W(a)--sm">
         <a href="{{ '/' | relative_url }}" class="Va(m) Fz(20px) Lh(1.2) C(#fff) Td(n):h">
-            <abbr title="Atomized CSS" class="D(n)--xs home_D(b) Td(n) Bd(0)! Fw(b)">ACSS <span class="Hidden">(Atomized CSS)</span></abbr>
+            <span class="D(n)!--xs home_D(b) Td(n) Bd(0)! Fw(b)">Atomizer</span>
             <img id="logo" class="H(30px) Mt(1px) D(n)--sm home_D(n) docs_Mstart(40px) support_Mstart(40px)" alt='ACSS Logo' src="{{ "/images/atomic-css-logo.png" | relative_url }}" />
-
-        </a> <ul role="navigation" class="Va(m) M(0) P(0)">
-                <li class="{% if page.section == 'docs' %}selected{% endif %} D(ib) Va(m) Pos(r)">
-                    <a href="{{ "/quick-start.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Docs</a>
-                </li>
-                <li class="{% if page.section == 'reference' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
-                    <a href="{{ "/reference.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Reference</a>
-                </li>
-                <li class="{% if page.section == 'support' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
-                    <a href="{{ "/support.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Support</a>
-                </li>
-                <li class="D(ib) Mstart(15px) Pos(r)">
-                    <a class="D(b) C(#fff) Td(n):h" href="https://github.com/acss-io/atomizer">
-                        <img class="Va(m) Pos(r)" alt="GitHub" width="30" src="{{ "/images/github-logo.png" | relative_url }}" />
-                    </a>
-                </li>
-            </ul>
+        </a>
+        <ul role="navigation" class="Va(m) M(0) P(0)">
+            <li class="{% if page.section == 'docs' %}selected{% endif %} D(ib) Va(m) Pos(r)">
+                <a href="{{ "/quick-start.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Docs</a>
+            </li>
+            <li class="{% if page.section == 'reference' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
+                <a href="{{ "/reference.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Reference</a>
+            </li>
+            <li class="{% if page.section == 'support' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
+                <a href="{{ "/support.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Support</a>
+            </li>
+            <li class="D(ib) Mstart(15px) Pos(r)">
+                <a class="D(b) C(#fff) Td(n):h" href="https://github.com/acss-io/atomizer">
+                    <img class="Va(m) Pos(r)" alt="GitHub" width="30" src="{{ "/images/github-logo.png" | relative_url }}" />
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

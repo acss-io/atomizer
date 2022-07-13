@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         atomizer: {
             docs: {
                 options: {
-                    ie: true,
+                    ie: false,
                     configFile: './config/atomic-config.js',
                     configOutput: './build/atomizer.json',
                 },
@@ -71,6 +71,16 @@ module.exports = function (grunt) {
             },
         },
 
+        watch: {
+            atomic: {
+                files: ['app/**/*', 'docs/**/*', '!docs/_site'],
+                tasks: ['dev'],
+                options: {
+                    spawn: false,
+                },
+            },
+        },
+
         // webpack
         webpack: {
             dev: {
@@ -99,7 +109,7 @@ module.exports = function (grunt) {
                 stats: {
                     colors: true,
                 },
-                watch: true,
+                watch: false,
             },
             prod: {
                 mode: 'production',
@@ -130,4 +140,5 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('default', ['atomizer:docs', 'cssmin:docs', 'postcss:docs', 'webpack:prod']);
+    grunt.registerTask('dev', ['atomizer:docs', 'cssmin:docs', 'postcss:docs', 'webpack:dev']);
 };
