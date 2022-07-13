@@ -24,7 +24,8 @@
     "test": "npm run test --workspaces --if-present"
   },
   "engines": {
-    "node": ">=16.0"
+    "node": ">=16.0",
+    "npm": ">=8.0"
   },
   "workspaces": [
     "packages/atomizer"
