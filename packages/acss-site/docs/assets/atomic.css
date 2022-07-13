@@ -88,6 +88,9 @@
 .C\(\#07f\) {
   color: #07f;
 }
+.C\(\#4c4c4c\) {
+  color: #4c4c4c;
+}
 .C\(\#ccc\) {
   color: #ccc;
 }
@@ -112,19 +115,13 @@
 .D\(ib\), .IbBox, a[class*=LineClamp], .Row {
   display: inline-block;
 }
-.D\(ib\), .Ov\(h\), .Cf, .IbBox, a[class*=LineClamp], .Row {
-  zoom: 1;
-}
-.D\(ib\), .IbBox, a[class*=LineClamp] {
-  *display: inline;
-}
-.D\(n\), .foo .foo_D\(n\), .foo + .foo\+D\(n\), .foo ~ .foo\~D\(n\), .home .home_D\(n\) {
+.D\(n\), .foo .foo_D\(n\), .foo + .foo\+D\(n\), .foo > .foo\>D\(n\), .foo ~ .foo\~D\(n\), .home .home_D\(n\) {
   display: none;
 }
 .D\(tb\) {
   display: table;
 }
-.D\(tbc\) {
+.D\(tbc\), .BfcHack {
   display: table-cell;
 }
 .D\(tbfg\) {
@@ -141,6 +138,9 @@
 }
 .home .home_D\(b\)\! {
   display: block !important;
+}
+.subtitle:hover .subtitle\:h_D\(i\) {
+  display: inline;
 }
 .Flxg\(1\) {
   flex-grow: 1;
@@ -186,9 +186,6 @@
 }
 .Fs\(i\) {
   font-style: italic;
-}
-.Fs\(n\) {
-  font-style: normal;
 }
 .H\(0\) {
   height: 0;
@@ -303,11 +300,9 @@
 }
 .foo:hover > .foo\:h\>Op\(1\) {
   opacity: 1;
-  filter: alpha(opacity=100);
 }
 .Op\(0\) {
   opacity: 0;
-  filter: alpha(opacity=0);
 }
 .home .home_Ov\(v\) {
   overflow: visible;
@@ -454,6 +449,15 @@
   border-top-width: 0;
   border-bottom-width: 1px;
 }
+.BfcHack {
+  width: 1600px;
+}
+.BfcHack, .Row {
+  *width: auto;
+}
+.BfcHack, .Cf, .IbBox, a[class*=LineClamp], .Row {
+  zoom: 1;
+}
 .Cf:before, .Cf:after {
   content: " ";
   display: table;
@@ -483,6 +487,9 @@
   height: 1px !important;
   width: 1px !important;
 }
+.IbBox, a[class*=LineClamp] {
+  *display: inline;
+}
 [class*=LineClamp] {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -510,7 +517,6 @@ a[class*=LineClamp]:after {
 }
 .Row {
   *display: block;
-  *width: auto;
 }
 .StretchedBox {
   top: 0;
@@ -518,9 +524,12 @@ a[class*=LineClamp]:after {
   bottom: 0;
   left: 0;
 }
+.Zoom {
+  zoom: 1;
+}
 @media screen and (max-width:700px) {
-  .D\(n\)--xs {
-    display: none;
+  .D\(n\)\!--xs {
+    display: none !important;
   }
   .Fl\(n\)--xs {
     float: none;
@@ -541,8 +550,6 @@ a[class*=LineClamp]:after {
 @media screen and (min-width:700px) {
   .D\(ib\)--sm {
     display: inline-block;
-    zoom: 1;
-    *display: inline;
   }
   .D\(n\)\!--sm {
     display: none !important;

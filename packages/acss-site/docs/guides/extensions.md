@@ -4,26 +4,26 @@ layout: docs
 title: Third Party Extensions
 ---
 
-<h2 id="chrome-extensions">For Chrome</h2>
+{% include subhead.html tag="h2" title="For Chrome" %}
 
 <ul class="ul-list">
-  <li><a href="https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en">Atomic CSS Dev Tools</a></li>
-  <li><a href="https://chrome.google.com/webstore/detail/web-maker/lkfkkhfhhdkiemehlpkgjeojomhpccnh?hl=en">Web Maker</a></li>
-  <li><a href="https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en">Atomic CSS Helper</a></li>
+    <li><a href="https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en">Atomic CSS Dev Tools</a></li>
+    <li><a href="https://chrome.google.com/webstore/detail/web-maker/lkfkkhfhhdkiemehlpkgjeojomhpccnh?hl=en">Web Maker</a></li>
+    <li><a href="https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en">Atomic CSS Helper</a></li>
 </ul>
 
-<h2 id="vscode-extensions">For VSCode</h2>
+{% include subhead.html tag="h2" title="For VSCode" %}
 
 <ul class="ul-list">
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets">Atomic CSS Snippets</a></li>
-  <li><a href="https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search">Atomic-css-search</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets">Atomic CSS Snippets</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search">Atomic-css-search</a></li>
 </ul>
 
-<h2 id="integrations">Integrations</h2>
+{% include subhead.html tag="h2" title="Integrations" %}
 
 <ul class="ul-list">
-  <li><a href="https://github.com/dword-design/nuxt-atomizer">nuxt-atomizer</a></li>
-  <li><a href="https://github.com/acss-io/webpack-atomizer-loader">webpack-atomizer-loader</a> - Webpack loader for compiling atomic CSS</li>
+    <li><a href="https://github.com/dword-design/nuxt-atomizer">nuxt-atomizer</a></li>
+    <li><a href="https://github.com/acss-io/webpack-atomizer-loader">webpack-atomizer-loader</a> - Webpack loader for compiling atomic CSS</li>
 </ul>
 
 <hr class="My(50px)">
