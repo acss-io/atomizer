@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions are always welcome, no matter how large or small! . Please be sure to sign our [CLA][] before you submit pull requests or otherwise contribute to `atomizer`. This protects developers, who rely on [BSD license][].
+Contributions are always welcome, no matter how large or small!.
 
 ## Support
 
