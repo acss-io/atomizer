@@ -63,9 +63,10 @@ npm test -w atomizer
 Local website development uses Docker to run Jekyll, [install Docker](https://docs.docker.com/get-docker/) from the install guide. After installations, run the following command to setup the site:
 
 ```bash
-cd site
 npm run dev
 ```
+
+This will start Grunt to watch for asset changes and execute Jekyll to run the server.
 
 [BSD license]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
 [CLA]: https://yahoocla.herokuapp.com/

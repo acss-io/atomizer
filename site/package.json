@@ -1,10 +1,9 @@
 {
-    "name": "atomizer-site",
+    "name": "site",
     "private": true,
-    "version": "1.0.1",
     "scripts": {
         "build": "grunt",
-        "lint": "npm run lint:eslint && npm run lint:prettier",
+        "lint": "npm run lint:eslint",
         "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier:fix",
         "lint:eslint": "eslint app/ --ext js,jsx",
         "lint:prettier": "prettier . --check",

@@ -51,10 +51,10 @@ const ReferenceHelpers = ({ store }) => {
         }
 
         const showHelper = !searching || searchMatches;
-        const displayclassDefinitions = 'Ov(h) ' + (showHelper ? 'D(b)' : 'D(n)');
+        const displayclassDefinitions = `Ov(h) ${showHelper ? 'D(b)' : 'D(n)'}`;
 
         return (
-            <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
+            <div key={`id-${recipe.matcher}`} className={displayclassDefinitions}>
                 <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">
                     {recipe.matcher} <span className="C(#ccc)">({recipe.name})</span>
                 </h3>

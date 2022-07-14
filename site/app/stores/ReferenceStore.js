@@ -14,7 +14,7 @@ class ReferenceStore extends BaseStore {
     }
 
     handleSearch(payload) {
-        const query = payload.query;
+        const { query } = payload;
         // Don't update if query hasn't changed, or
         // there's a query but the query is nothing but spaces
         if (query === this.getCurrentQuery() || (query && query.trim() === '')) {
@@ -25,7 +25,7 @@ class ReferenceStore extends BaseStore {
     }
 
     handleCustomConfig(payload) {
-        const config = payload.config;
+        const { config } = payload;
         let configObj;
 
         if (config === this.customConfig) {
