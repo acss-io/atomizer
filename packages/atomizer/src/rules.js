@@ -32,7 +32,8 @@
  *   "start" and "end".
  * - Rules is written as an array because ORDER is important for the CSS generation.
  **/
-
+const blendModes = require('./blendmodes');
+const mixBlendModes = Object.assign(blendModes, {'pd': 'plus-darker', 'pl': 'plus-lighter'});
 const colors = require('./colors');
 
 module.exports = [
@@ -647,6 +648,17 @@ module.exports = [
             'n': 'none',
             't': 'transparent'
         }]
+    },
+    // background-blend-mode
+    {
+        'type': 'pattern',
+        'name': 'Background blend mode',
+        'matcher': 'Bgbm',
+        'allowParamToValue': false,
+        'styles': {
+            'background-blend-mode': '$0'
+        },
+        'arguments': [blendModes]
     },
     // background-image
     {
@@ -2058,6 +2070,21 @@ module.exports = [
     },
     /**
     ==================================================================
+    MIX BLEND MODE
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Mix blend mode',
+        'matcher': 'Mbm',
+        'allowParamToValue': false,
+        'styles': {
+            'mix-blend-mode': '$0'
+        },
+        'arguments': [mixBlendModes]
+    },
+    /**
+    ==================================================================
     OBJECTS
     ==================================================================
     */
@@ -3139,6 +3166,7 @@ module.exports = [
     /**
     ==================================================================
     SVG
+    note: 'i': 'inherit' has been left for backwards compat, `inh`: 'inherit' is the global that should be used
     ==================================================================
     */
     {
