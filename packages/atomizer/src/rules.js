@@ -209,21 +209,6 @@ module.exports = [
     },
     /**
     ==================================================================
-    BACKGROUND BLEND MODE
-    ==================================================================
-    */
-    {
-        'type': 'pattern',
-        'name': 'Background blend mode',
-        'matcher': 'Bgbm',
-        'allowParamToValue': false,
-        'styles': {
-            'background-blend-mode': '$0'
-        },
-        'arguments': [blendModes]
-    },
-    /**
-    ==================================================================
     BORDERS
     ==================================================================
     */
@@ -660,6 +645,17 @@ module.exports = [
             'n': 'none',
             't': 'transparent'
         }]
+    },
+    // background-blend-mode
+    {
+        'type': 'pattern',
+        'name': 'Background blend mode',
+        'matcher': 'Bgbm',
+        'allowParamToValue': false,
+        'styles': {
+            'background-blend-mode': '$0,$1,$2,$3'
+        },
+        'arguments': [blendModes, blendModes, blendModes, blendModes]
     },
     // background-image
     {
@@ -2080,9 +2076,9 @@ module.exports = [
         'matcher': 'Mbm',
         'allowParamToValue': false,
         'styles': {
-            'mix-blend-mode': '$0'
+            'mix-blend-mode': '$0,$1,$2,$3'
         },
-        'arguments': [blendModes]
+        'arguments': [blendModes, blendModes, blendModes, blendModes]
     },
     /**
     ==================================================================
