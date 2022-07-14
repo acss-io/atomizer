@@ -654,9 +654,9 @@ module.exports = [
         'matcher': 'Bgbm',
         'allowParamToValue': false,
         'styles': {
-            'background-blend-mode': '$0,$1,$2,$3'
+            'background-blend-mode': '$0'
         },
-        'arguments': [blendModes, blendModes, blendModes, blendModes]
+        'arguments': [blendModes]
     },
     // background-image
     {
