@@ -15,6 +15,10 @@
     {
       "name": "Thierry Koblentz",
       "email": "thierryk@yahooinc.com"
+    },
+    {
+      "name": "Seth Bertalotto",
+      "email": "sbertal@yahooinc.com"
     }
   ],
   "scripts": {
@@ -22,6 +26,8 @@
     "dev": "concurrently npm:dev:*",
     "dev:start": "docker compose up",
     "dev:watch": "grunt dev",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"

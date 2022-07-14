@@ -3,11 +3,8 @@
     "private": true,
     "scripts": {
         "build": "grunt",
-        "lint": "npm run lint:eslint",
-        "lint:fix": "npm run lint:eslint -- --fix && npm run lint:prettier:fix",
-        "lint:eslint": "eslint app/ --ext js,jsx",
-        "lint:prettier": "prettier . --check",
-        "lint:prettier:fix": "prettier . --write"
+        "lint": "eslint app/ --ext js,jsx",
+        "lint:fix": "eslint app/ --ext js,jsx --fix"
     },
     "dependencies": {
         "atomizer": "^3.15.0"
