@@ -13,8 +13,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // project variables
         project: {
-            app: './site/app',
-            docs: './site/docs',
+            app: './app',
+            docs: './docs',
         },
 
         // atomizer: initial task to generate the config
@@ -22,8 +22,8 @@ module.exports = function (grunt) {
             docs: {
                 options: {
                     ie: false,
-                    configFile: './site/config/atomic-config.js',
-                    configOutput: './site/build/atomizer.json',
+                    configFile: './config/atomic-config.js',
+                    configOutput: './build/atomizer.json',
                 },
                 files: [
                     {
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
                 },
                 entry: '<%= project.app %>/client-reference.js',
                 output: {
-                    path: path.resolve(__dirname, 'site', 'docs', 'assets', 'js'),
+                    path: path.resolve(__dirname, 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',
                     filename: '[name].js',
                     chunkFilename: '[name].js',
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
                 },
                 entry: '<%= project.app %>/client-reference.js',
                 output: {
-                    path: path.resolve(__dirname, 'site', 'docs', 'assets', 'js'),
+                    path: path.resolve(__dirname, 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',
                     filename: '[name].js',
                     chunkFilename: '[name].js',

@@ -14,11 +14,11 @@ npm-debug.log
 *.log
 
 # site files
-site/app/build/
-site/build
-site/docs/_site
-site/docs/.jekyll-metadata
-site/docs/.sass-cache/
+app/build/
+build
+docs/_site
+docs/.jekyll-metadata
+docs/.sass-cache/
 vendor/bundle
 
 # grunt-nodemon

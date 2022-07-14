@@ -22,14 +22,15 @@
     }
   ],
   "scripts": {
-    "build": "npm run build --workspaces --if-present",
+    "build": "grunt && npm run build --workspaces --if-present",
     "dev": "concurrently npm:dev:*",
     "dev:start": "docker compose up",
     "dev:watch": "grunt dev",
     "format": "prettier . --check",
     "format:fix": "prettier . --write",
-    "lint": "npm run lint --workspaces --if-present",
-    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "lint": "concurrently npm:lint:*",
+    "lint:packages": "npm run lint --workspaces --if-present",
+    "lint:site": "eslint app/ --ext js,jsx",
     "test": "npm run test --workspaces --if-present"
   },
   "engines": {
