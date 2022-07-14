@@ -1302,4 +1302,33 @@ describe('Atomizer()', function () {
             ]);
         });
     });
+    describe('Blend modes', function () {
+        it ('Supports blend modes', function () {
+            const atomizer = new Atomizer();
+            const config = {
+                classNames: [
+                    'Bgbm(n)',
+                    'Mbm(s)',
+                    'foo_Bgbm(h)',
+                    'bar_Mbm(sa)'
+                ]
+            };
+            const expected = [
+                '.Bgbm\\(n\\) {',
+                '  background-blend-mode: normal;',
+                '}',
+                '.foo .foo_Bgbm\\(h\\) {',
+                '  background-blend-mode: hue;',
+                '}',
+                '.Mbm\\(s\\) {',
+                '  mix-blend-mode: screen;',
+                '}',
+                '.bar .bar_Mbm\\(sa\\) {',
+                '  mix-blend-mode: saturation;',
+                '}\n'
+            ].join('\n');
+            const result = atomizer.getCss(config);
+            expect(result).to.equal(expected);
+        });
+    });
 });

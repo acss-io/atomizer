@@ -73,6 +73,11 @@ The website files are located in a few directories:
 - `app/` - The "References" page which uses React on the client to dynamically filter Atomizer classes
 - `docs/` - The main Jekyll site that contains all the markdown files for the website
 
+
+### Testing new rules
+Add new rules in `src/rules.js` create a new example file in `examples/html` eg `sample-2.html` then run `./node_modules/.bin/atomizer examples/html/sample-2.html`. You could also copy the output and paste into the PR to be extra nice :)
+
+
 [BSD license]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
 [CLA]: https://yahoocla.herokuapp.com/
 [monorepo]: https://en.wikipedia.org/wiki/Monorepo
