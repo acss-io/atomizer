@@ -2077,9 +2077,9 @@ module.exports = [
         'matcher': 'Mbm',
         'allowParamToValue': false,
         'styles': {
-            'mix-blend-mode': '$0,$1,$2,$3'
+            'mix-blend-mode': '$0'
         },
-        'arguments': [mixBlendModes, mixBlendModes, mixBlendModes, mixBlendModes]
+        'arguments': [mixBlendModes]
     },
     /**
     ==================================================================
