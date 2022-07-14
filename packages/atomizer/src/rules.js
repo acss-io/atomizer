@@ -3167,7 +3167,7 @@ module.exports = [
     /**
     ==================================================================
     SVG
-    note: 'i': 'inherit' has been left for backwards compat, `inh`: 'inherit' is the global that shold be used
+    note: 'i': 'inherit' has been left for backwards compat, `inh`: 'inherit' is the global that should be used
     ==================================================================
     */
     {

@@ -79,7 +79,6 @@ Add new rules in `src/rules.js` create a new example file in `examples/html` eg 
 
 
 [BSD license]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
-[CLA]: https://yahoocla.herokuapp.com/
 [monorepo]: https://en.wikipedia.org/wiki/Monorepo
 [Support]: https://acss.io/support.html
 [workspaces]: https://docs.npmjs.com/cli/v8/using-npm/workspaces
