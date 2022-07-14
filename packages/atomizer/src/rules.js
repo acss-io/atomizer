@@ -371,6 +371,8 @@ module.exports = [
         },
         'arguments': [{
             'i': 'inherit'
+        }, {
+            'i': 'inherit'
         }]
     },
     /**
