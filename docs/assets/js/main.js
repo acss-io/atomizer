@@ -1,6 +1,667 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./app/actions/searchReference.js":
+/*!****************************************!*\
+  !*** ./app/actions/searchReference.js ***!
+  \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* export default binding */ __WEBPACK_DEFAULT_EXPORT__; }
+/* harmony export */ });
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(context, payload) {
+  var query = typeof payload === 'string' ? payload : '';
+  context.dispatch('CHANGE_SEARCH_TERM', {
+    query: query
+  });
+}
+
+/***/ }),
+
+/***/ "./app/app-reference.js":
+/*!******************************!*\
+  !*** ./app/app-reference.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var fluxible__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fluxible */ "./node_modules/fluxible/index.js");
+/* harmony import */ var fluxible__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fluxible__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App */ "./app/components/App.jsx");
+/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stores/ReferenceStore */ "./app/stores/ReferenceStore.js");
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+
+
+var app = new (fluxible__WEBPACK_IMPORTED_MODULE_0___default())({
+  component: _components_App__WEBPACK_IMPORTED_MODULE_1__["default"],
+  componentActionErrorHandler: function componentActionErrorHandler(context, payload, done) {
+    done();
+  }
+});
+app.registerStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_2__["default"]);
+/* harmony default export */ __webpack_exports__["default"] = (app);
+
+/***/ }),
+
+/***/ "./app/components/App.jsx":
+/*!********************************!*\
+  !*** ./app/components/App.jsx ***!
+  \********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
+/* harmony import */ var _Reference__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reference */ "./app/components/Reference.jsx");
+
+
+
+var App = function App() {
+  return /*#__PURE__*/React.createElement(_Reference__WEBPACK_IMPORTED_MODULE_1__["default"], null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_0__.provideContext)(App));
+
+/***/ }),
+
+/***/ "./app/components/Reference.jsx":
+/*!**************************************!*\
+  !*** ./app/components/Reference.jsx ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _SearchBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBox */ "./app/components/SearchBox.jsx");
+/* harmony import */ var _ReferenceRules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReferenceRules */ "./app/components/ReferenceRules.jsx");
+/* harmony import */ var _ReferenceHelpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReferenceHelpers */ "./app/components/ReferenceHelpers.jsx");
+/**
+ * Copyright 2015, Yahoo Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+
+
+
+var Reference = function Reference() {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_SearchBox__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/React.createElement("h2", {
+    id: "acss-classes"
+  }, "Atomizer Classes"), /*#__PURE__*/React.createElement(_ReferenceRules__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/React.createElement("h2", {
+    id: "helper-classes"
+  }, "Helper Classes"), /*#__PURE__*/React.createElement(_ReferenceHelpers__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Reference);
+
+/***/ }),
+
+/***/ "./app/components/ReferenceHelpers.jsx":
+/*!*********************************************!*\
+  !*** ./app/components/ReferenceHelpers.jsx ***!
+  \*********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atomizer/src/helpers */ "./packages/atomizer/src/helpers.js");
+/* harmony import */ var atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! escape-string-regexp */ "./node_modules/escape-string-regexp/index.js");
+/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
+/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ReferenceStore */ "./app/stores/ReferenceStore.js");
+var _this = undefined;
+
+/**
+ * Copyright 2015, Yahoo Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+
+
+
+
+function hasClassUsingMatcher(matcher, classnames) {
+  var value;
+
+  for (var i = 0, iLen = classnames.length; iLen; i++) {
+    value = classnames[i];
+
+    if (value.indexOf(matcher) === 0) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+var ReferenceHelpers = function ReferenceHelpers(_ref) {
+  var store = _ref.store;
+  var searchRE = false;
+
+  if (store.currentQuery) {
+    var escapedString = (0,escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__["default"])(store.currentQuery);
+    searchRE = new RegExp(escapedString, 'i');
+  }
+
+  var customConfig = store.customConfigObj;
+  var hasConfig = !!customConfig;
+
+  if (!hasConfig) {
+    customConfig = {};
+  }
+
+  var items = atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0___default().map(function (recipe) {
+    var searching = !!store.currentQuery;
+    var usingClass = false;
+    var searchMatches = null;
+
+    if (customConfig.classNames && customConfig.classNames.length) {
+      usingClass = hasClassUsingMatcher(recipe.matcher, customConfig.classNames);
+    } // If config is provided, filter any rules not used in config
+
+
+    if (hasConfig && !usingClass) {
+      return;
+    }
+
+    if (searching) {
+      searchMatches = recipe.name.search(searchRE) > -1 || recipe.matcher.search(searchRE) > -1;
+    }
+
+    var showHelper = !searching || searchMatches;
+    var displayclassDefinitions = "Ov(h) ".concat(showHelper ? 'D(b)' : 'D(n)');
+    return /*#__PURE__*/React.createElement("div", {
+      key: "id-".concat(recipe.matcher),
+      className: displayclassDefinitions
+    }, /*#__PURE__*/React.createElement("h3", {
+      className: "Cl(b) M(0) Mend(20px) Mt(15px) P(10px)"
+    }, recipe.matcher, " ", /*#__PURE__*/React.createElement("span", {
+      className: "C(#ccc)"
+    }, "(", recipe.name, ")")), /*#__PURE__*/React.createElement("p", {
+      className: "M(0) Mstart(20px) P(10px) Pt(0) Ff(m)"
+    }, recipe.description, " [", /*#__PURE__*/React.createElement("a", {
+      href: recipe.link
+    }, "More", /*#__PURE__*/React.createElement("b", {
+      className: "Hidden"
+    }, " about ", recipe.matcher)), "]"));
+  }, _this);
+  return /*#__PURE__*/React.createElement("div", null, items);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__.connectToStores)(ReferenceHelpers, [_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]], function (context) {
+  return {
+    store: context.getStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]).getState()
+  };
+}));
+
+/***/ }),
+
+/***/ "./app/components/ReferenceRules.jsx":
+/*!*******************************************!*\
+  !*** ./app/components/ReferenceRules.jsx ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atomizer/src/rules */ "./packages/atomizer/src/rules.js");
+/* harmony import */ var atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! escape-string-regexp */ "./node_modules/escape-string-regexp/index.js");
+/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
+/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ReferenceStore */ "./app/stores/ReferenceStore.js");
+var _this = undefined;
+
+/**
+ * Copyright 2015, Yahoo Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+
+
+
+var styleRegex = new RegExp(/\$(\d+?)/g);
+
+function replaceRTLTokens(str) {
+  return str.replace(/__START__/g, 'left').replace(/__END__/g, 'right');
+}
+
+function replacePlaceholders(str, values) {
+  if (!Array.isArray(values)) {
+    values = [values];
+  } // Map each value to a placeholder
+
+
+  for (var i = 0; i < values.length; i++) {
+    str = str.replace("$".concat(i), values[i]);
+  } // Use regex to clean up any leftover placeholders
+
+
+  return str.replace(styleRegex, '');
+}
+
+function getValueCount(str) {
+  return str.match(styleRegex).length;
+}
+/**
+ * Reference docs for the ruleset
+ *
+ * @class ReferenceRules
+ * @constructor
+ */
+
+
+var ReferenceRules = function ReferenceRules(_ref) {
+  var store = _ref.store;
+  var searchRE = false;
+  var hasConfig = !!store.customConfigObj;
+
+  if (store.currentQuery) {
+    searchRE = new RegExp((0,escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__["default"])(store.currentQuery), 'i');
+  }
+
+  var items = atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0___default().map(function (recipe) {
+    var values = [];
+    var classDefinitions = [];
+    var searching = !!store.currentQuery;
+    var prefix = recipe.matcher;
+    var usesClass = false;
+    var declaration;
+    var rawDeclarationBlock = [];
+    var styledDeclarationBlock = [];
+    var searchTitleMatches = null;
+    var showRecipeBlock = false;
+    var value;
+    var suffix; // If config is provided, filter any rules not used in config
+
+    if (hasConfig && !usesClass) {
+      return;
+    }
+
+    if (searching) {
+      searchTitleMatches = recipe.name.search(searchRE) > -1;
+    }
+
+    if (recipe.type === 'pattern') {
+      if (!hasConfig) {
+        var hasMultiValues = false;
+
+        for (var property in recipe.styles) {
+          var propertyStyle = recipe.styles[property];
+          var valueCount = getValueCount(propertyStyle);
+
+          if (valueCount > 1) {
+            hasMultiValues = true;
+            value = [];
+
+            for (var vc = 1; vc <= valueCount; vc++) {
+              value.push("value".concat(vc));
+            }
+          } else {
+            value = 'value';
+          }
+
+          propertyStyle = replaceRTLTokens(replacePlaceholders(propertyStyle, value));
+          property = replaceRTLTokens(property);
+          rawDeclarationBlock.push("".concat(property, ": ").concat(propertyStyle));
+          styledDeclarationBlock.push( /*#__PURE__*/React.createElement("div", {
+            key: propertyStyle
+          }, property, ": ", /*#__PURE__*/React.createElement("span", {
+            className: "C(#07f)"
+          }, propertyStyle)));
+        }
+
+        suffix = '<custom-param>';
+
+        if (recipe.allowParamToValue) {
+          suffix = "<value>".concat(hasMultiValues ? '+' : '', " or ").concat(suffix);
+        }
+
+        values.push({
+          rawSelector: "".concat(prefix, "([").concat(suffix, "])"),
+          rawDeclaration: rawDeclarationBlock,
+          selector: /*#__PURE__*/React.createElement("b", null, prefix, "(", /*#__PURE__*/React.createElement("b", {
+            className: "C(#000)"
+          }, suffix), ")"),
+          declaration: styledDeclarationBlock
+        });
+
+        if (recipe.arguments) {
+          // Reduce the arguments array down to a single object
+          // containing all possible permutations
+          var args = recipe.arguments.reduce(function (prevValue, currentValue) {
+            var obj = {};
+
+            for (var p in prevValue) {
+              obj[p] = prevValue[p];
+
+              for (var c in currentValue) {
+                var key = "".concat(p, ",").concat(c);
+                obj[key] = [prevValue[p], currentValue[c]].reduce(function (a, b) {
+                  return a.concat(b);
+                }, []);
+              }
+            }
+
+            return obj;
+          });
+
+          for (var paramKey in args) {
+            var selector = "".concat(prefix, "(").concat(paramKey, ")");
+            var _value = args[paramKey];
+            rawDeclarationBlock = [];
+            styledDeclarationBlock = [];
+
+            for (var _property in recipe.styles) {
+              declaration = replaceRTLTokens("".concat(_property, ": ").concat(replacePlaceholders(recipe.styles[_property], _value)));
+              rawDeclarationBlock.push(declaration);
+              styledDeclarationBlock.push( /*#__PURE__*/React.createElement("div", null, declaration));
+            }
+
+            values.push({
+              rawSelector: selector,
+              rawDeclaration: rawDeclarationBlock,
+              selector: /*#__PURE__*/React.createElement("b", null, selector),
+              declaration: styledDeclarationBlock
+            });
+          }
+        }
+      } else if (usesClass) {// for (let x=0; x < parsedConfig[prefix].length; x++) {
+        //     const prefixConfig = parsedConfig[prefix][x];
+        //     for (let i=0; i < prefixConfig.values.length; i++) {
+        //         const valueObj = prefixConfig.values[i];
+        //         rawDeclarationBlock = [];
+        //         styledDeclarationBlock = [];
+        //         if (valueObj && valueObj.declaration) {
+        //             for (let property in valueObj.declaration) {
+        //                 declaration = replaceRTLTokens(property + ": " + valueObj.declaration[property]);
+        //                 rawDeclarationBlock.push(declaration);
+        //                 styledDeclarationBlock.push(<div>{declaration}</div>);
+        //             }
+        //             values.push({
+        //                 rawSelector: prefixConfig.className,
+        //                 rawDeclaration: rawDeclarationBlock,
+        //                 selector: <b>{prefixConfig.className}</b>,
+        //                 declaration: styledDeclarationBlock
+        //             });
+        //         }
+        //     }
+        // }
+      } // Loop through the selectors and generate the actual styles for each
+
+
+      for (var x = 0; x < values.length; x++) {
+        var v = values[x];
+        var showRuleset = false;
+
+        if (v.declaration) {
+          // Filter with search
+          if (!searching || searchTitleMatches || v.rawSelector.search(searchRE) > -1 || v.rawDeclaration.join('\n').search(searchRE) > -1) {
+            showRuleset = true;
+            showRecipeBlock = true;
+          }
+
+          var termClasses = 'Pend(10px) Fl(start) Cl(start)';
+          var defClasses = 'Fl(start) M(0) P(0) C(#f2438c)';
+
+          if (!showRuleset) {
+            termClasses += ' D(n)';
+            defClasses += ' D(n)';
+          }
+
+          classDefinitions.push([/*#__PURE__*/React.createElement("dt", {
+            key: v.rawSelector,
+            className: termClasses
+          }, v.selector), /*#__PURE__*/React.createElement("dd", {
+            key: v.rawDeclaration.toString(),
+            className: defClasses
+          }, v.declaration)]);
+        }
+      }
+    }
+
+    var displayclassDefinitions = "Ov(h) ".concat(showRecipeBlock ? 'D(b)' : 'D(n)');
+    return /*#__PURE__*/React.createElement("div", {
+      key: "id-".concat(recipe.matcher),
+      className: displayclassDefinitions
+    }, /*#__PURE__*/React.createElement("h3", {
+      className: "Cl(b) M(0) Mend(20px) Mt(15px) P(10px)"
+    }, recipe.name), /*#__PURE__*/React.createElement("dl", {
+      className: "M(0) Mstart(20px) P(10px) Pt(0) Ff(m)"
+    }, classDefinitions));
+  }, _this);
+  return /*#__PURE__*/React.createElement("div", null, items);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__.connectToStores)(ReferenceRules, [_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]], function (context) {
+  return {
+    store: context.getStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]).getState()
+  };
+}));
+
+/***/ }),
+
+/***/ "./app/components/SearchBox.jsx":
+/*!**************************************!*\
+  !*** ./app/components/SearchBox.jsx ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
+/* harmony import */ var _actions_searchReference__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/searchReference */ "./app/actions/searchReference.js");
+/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ReferenceStore */ "./app/stores/ReferenceStore.js");
+/**
+ * Copyright 2015, Yahoo Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+
+
+
+var throttle = false;
+
+var SearchBox = function SearchBox(_ref) {
+  var executeAction = _ref.executeAction,
+      store = _ref.store;
+  var textInput = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
+
+  var onKeyDown = function onKeyDown(e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+      if (throttle) {
+        clearTimeout(throttle);
+        throttle = false;
+      }
+
+      executeAction(_actions_searchReference__WEBPACK_IMPORTED_MODULE_2__["default"], e.target.value);
+    }
+  };
+
+  var onQueryChange = function onQueryChange() {
+    if (throttle) {
+      clearTimeout(throttle);
+    }
+
+    throttle = setTimeout(function () {
+      executeAction(_actions_searchReference__WEBPACK_IMPORTED_MODULE_2__["default"], textInput.current.value);
+      throttle = false;
+    }, 500);
+  };
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    textInput.current.value = store.currentQuery;
+  }, [store.currentQuery]);
+  return /*#__PURE__*/React.createElement("div", {
+    id: "search-section"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "Mb(0)"
+  }, /*#__PURE__*/React.createElement("label", {
+    htmlFor: "searchbox"
+  }, "Search:")), /*#__PURE__*/React.createElement("input", {
+    id: "searchbox",
+    ref: textInput,
+    type: "search",
+    role: "search",
+    className: "W(100%) P(10px) Fz(30px) C(brandColor) Fw(b)",
+    size: "50",
+    placeholder: "Type classname or CSS declaration here...",
+    title: "Type classname or CSS declaration here...",
+    autoFocus: true,
+    onChange: onQueryChange,
+    onKeyDown: onKeyDown
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_1__.connectToStores)(SearchBox, [_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]], function (context) {
+  return {
+    executeAction: context.executeAction,
+    store: context.getStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]).getState()
+  };
+}));
+
+/***/ }),
+
+/***/ "./app/stores/ReferenceStore.js":
+/*!**************************************!*\
+  !*** ./app/stores/ReferenceStore.js ***!
+  \**************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var fluxible_addons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fluxible/addons */ "./node_modules/fluxible/addons/index.js");
+/* harmony import */ var fluxible_addons__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fluxible_addons__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+/**
+ * Copyright 2015, Yahoo! Inc.
+ * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
+ */
+
+
+var ReferenceStore = /*#__PURE__*/function (_BaseStore) {
+  _inherits(ReferenceStore, _BaseStore);
+
+  var _super = _createSuper(ReferenceStore);
+
+  function ReferenceStore(dispatcher) {
+    var _this;
+
+    _classCallCheck(this, ReferenceStore);
+
+    _this = _super.call(this, dispatcher);
+    _this.currentQuery = '';
+    _this.customConfig = undefined;
+    _this.customConfigObj = undefined;
+    return _this;
+  }
+
+  _createClass(ReferenceStore, [{
+    key: "handleSearch",
+    value: function handleSearch(payload) {
+      var query = payload.query; // Don't update if query hasn't changed, or
+      // there's a query but the query is nothing but spaces
+
+      if (query === this.getCurrentQuery() || query && query.trim() === '') {
+        return;
+      }
+
+      this.currentQuery = query;
+      this.emitChange();
+    }
+  }, {
+    key: "handleCustomConfig",
+    value: function handleCustomConfig(payload) {
+      var config = payload.config;
+      var configObj;
+
+      if (config === this.customConfig) {
+        return;
+      }
+
+      try {
+        configObj = JSON.parse(config);
+      } catch (ex) {
+        console.error(ex);
+      }
+
+      this.customConfig = config;
+      this.customConfigObj = configObj;
+      this.emitChange();
+    }
+  }, {
+    key: "getCurrentQuery",
+    value: function getCurrentQuery() {
+      return this.currentQuery;
+    }
+  }, {
+    key: "getState",
+    value: function getState() {
+      return {
+        currentQuery: this.currentQuery,
+        customConfig: this.customConfig,
+        customConfigObj: this.customConfigObj
+      };
+    }
+  }, {
+    key: "dehydrate",
+    value: function dehydrate() {
+      return this.getState();
+    }
+  }, {
+    key: "rehydrate",
+    value: function rehydrate(state) {
+      this.currentQuery = state.currentQuery;
+      this.customConfig = state.customConfig;
+      this.customConfigObj = state.customConfigObj;
+    }
+  }]);
+
+  return ReferenceStore;
+}(fluxible_addons__WEBPACK_IMPORTED_MODULE_0__.BaseStore);
+
+ReferenceStore.storeName = 'ReferenceStore';
+ReferenceStore.handlers = {
+  CHANGE_SEARCH_TERM: 'handleSearch',
+  CHANGE_CUSTOM_CONFIG: 'handleCustomConfig'
+};
+/* harmony default export */ __webpack_exports__["default"] = (ReferenceStore);
+
+/***/ }),
+
 /***/ "./packages/atomizer/src/colors.js":
 /*!*****************************************!*\
   !*** ./packages/atomizer/src/colors.js ***!
@@ -3611,667 +4272,6 @@ SVG
     'm': 'miter'
   }]
 }];
-
-/***/ }),
-
-/***/ "./site/app/actions/searchReference.js":
-/*!*********************************************!*\
-  !*** ./site/app/actions/searchReference.js ***!
-  \*********************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": function() { return /* export default binding */ __WEBPACK_DEFAULT_EXPORT__; }
-/* harmony export */ });
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-/* harmony default export */ function __WEBPACK_DEFAULT_EXPORT__(context, payload) {
-  var query = typeof payload === 'string' ? payload : '';
-  context.dispatch('CHANGE_SEARCH_TERM', {
-    query: query
-  });
-}
-
-/***/ }),
-
-/***/ "./site/app/app-reference.js":
-/*!***********************************!*\
-  !*** ./site/app/app-reference.js ***!
-  \***********************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var fluxible__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fluxible */ "./node_modules/fluxible/index.js");
-/* harmony import */ var fluxible__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fluxible__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/App */ "./site/app/components/App.jsx");
-/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stores/ReferenceStore */ "./site/app/stores/ReferenceStore.js");
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-
-
-
-var app = new (fluxible__WEBPACK_IMPORTED_MODULE_0___default())({
-  component: _components_App__WEBPACK_IMPORTED_MODULE_1__["default"],
-  componentActionErrorHandler: function componentActionErrorHandler(context, payload, done) {
-    done();
-  }
-});
-app.registerStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_2__["default"]);
-/* harmony default export */ __webpack_exports__["default"] = (app);
-
-/***/ }),
-
-/***/ "./site/app/components/App.jsx":
-/*!*************************************!*\
-  !*** ./site/app/components/App.jsx ***!
-  \*************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
-/* harmony import */ var _Reference__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Reference */ "./site/app/components/Reference.jsx");
-
-
-
-var App = function App() {
-  return /*#__PURE__*/React.createElement(_Reference__WEBPACK_IMPORTED_MODULE_1__["default"], null);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_0__.provideContext)(App));
-
-/***/ }),
-
-/***/ "./site/app/components/Reference.jsx":
-/*!*******************************************!*\
-  !*** ./site/app/components/Reference.jsx ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _SearchBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SearchBox */ "./site/app/components/SearchBox.jsx");
-/* harmony import */ var _ReferenceRules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReferenceRules */ "./site/app/components/ReferenceRules.jsx");
-/* harmony import */ var _ReferenceHelpers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ReferenceHelpers */ "./site/app/components/ReferenceHelpers.jsx");
-/**
- * Copyright 2015, Yahoo Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-
-
-
-
-var Reference = function Reference() {
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(_SearchBox__WEBPACK_IMPORTED_MODULE_0__["default"], null), /*#__PURE__*/React.createElement("h2", {
-    id: "acss-classes"
-  }, "Atomizer Classes"), /*#__PURE__*/React.createElement(_ReferenceRules__WEBPACK_IMPORTED_MODULE_1__["default"], null), /*#__PURE__*/React.createElement("h2", {
-    id: "helper-classes"
-  }, "Helper Classes"), /*#__PURE__*/React.createElement(_ReferenceHelpers__WEBPACK_IMPORTED_MODULE_2__["default"], null));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Reference);
-
-/***/ }),
-
-/***/ "./site/app/components/ReferenceHelpers.jsx":
-/*!**************************************************!*\
-  !*** ./site/app/components/ReferenceHelpers.jsx ***!
-  \**************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atomizer/src/helpers */ "./packages/atomizer/src/helpers.js");
-/* harmony import */ var atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! escape-string-regexp */ "./node_modules/escape-string-regexp/index.js");
-/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
-/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ReferenceStore */ "./site/app/stores/ReferenceStore.js");
-var _this = undefined;
-
-/**
- * Copyright 2015, Yahoo Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-
-
-
-
-
-function hasClassUsingMatcher(matcher, classnames) {
-  var value;
-
-  for (var i = 0, iLen = classnames.length; iLen; i++) {
-    value = classnames[i];
-
-    if (value.indexOf(matcher) === 0) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-var ReferenceHelpers = function ReferenceHelpers(_ref) {
-  var store = _ref.store;
-  var searchRE = false;
-
-  if (store.currentQuery) {
-    var escapedString = (0,escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__["default"])(store.currentQuery);
-    searchRE = new RegExp(escapedString, 'i');
-  }
-
-  var customConfig = store.customConfigObj;
-  var hasConfig = !!customConfig;
-
-  if (!hasConfig) {
-    customConfig = {};
-  }
-
-  var items = atomizer_src_helpers__WEBPACK_IMPORTED_MODULE_0___default().map(function (recipe) {
-    var searching = !!store.currentQuery;
-    var usingClass = false;
-    var searchMatches = null;
-
-    if (customConfig.classNames && customConfig.classNames.length) {
-      usingClass = hasClassUsingMatcher(recipe.matcher, customConfig.classNames);
-    } // If config is provided, filter any rules not used in config
-
-
-    if (hasConfig && !usingClass) {
-      return;
-    }
-
-    if (searching) {
-      searchMatches = recipe.name.search(searchRE) > -1 || recipe.matcher.search(searchRE) > -1;
-    }
-
-    var showHelper = !searching || searchMatches;
-    var displayclassDefinitions = 'Ov(h) ' + (showHelper ? 'D(b)' : 'D(n)');
-    return /*#__PURE__*/React.createElement("div", {
-      key: 'id-' + recipe.matcher,
-      className: displayclassDefinitions
-    }, /*#__PURE__*/React.createElement("h3", {
-      className: "Cl(b) M(0) Mend(20px) Mt(15px) P(10px)"
-    }, recipe.matcher, " ", /*#__PURE__*/React.createElement("span", {
-      className: "C(#ccc)"
-    }, "(", recipe.name, ")")), /*#__PURE__*/React.createElement("p", {
-      className: "M(0) Mstart(20px) P(10px) Pt(0) Ff(m)"
-    }, recipe.description, " [", /*#__PURE__*/React.createElement("a", {
-      href: recipe.link
-    }, "More", /*#__PURE__*/React.createElement("b", {
-      className: "Hidden"
-    }, " about ", recipe.matcher)), "]"));
-  }, _this);
-  return /*#__PURE__*/React.createElement("div", null, items);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__.connectToStores)(ReferenceHelpers, [_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]], function (context) {
-  return {
-    store: context.getStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]).getState()
-  };
-}));
-
-/***/ }),
-
-/***/ "./site/app/components/ReferenceRules.jsx":
-/*!************************************************!*\
-  !*** ./site/app/components/ReferenceRules.jsx ***!
-  \************************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! atomizer/src/rules */ "./packages/atomizer/src/rules.js");
-/* harmony import */ var atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! escape-string-regexp */ "./node_modules/escape-string-regexp/index.js");
-/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
-/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ReferenceStore */ "./site/app/stores/ReferenceStore.js");
-var _this = undefined;
-
-/**
- * Copyright 2015, Yahoo Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-
-
-
-
-var styleRegex = new RegExp(/\$(\d+?)/g);
-
-function replaceRTLTokens(str) {
-  return str.replace(/__START__/g, 'left').replace(/__END__/g, 'right');
-}
-
-function replacePlaceholders(str, values) {
-  if (!Array.isArray(values)) {
-    values = [values];
-  } // Map each value to a placeholder
-
-
-  for (var i = 0; i < values.length; i++) {
-    str = str.replace('$' + i, values[i]);
-  } // Use regex to clean up any leftover placeholders
-
-
-  return str.replace(styleRegex, '');
-}
-
-function getValueCount(str) {
-  return str.match(styleRegex).length;
-}
-/**
- * Reference docs for the ruleset
- *
- * @class ReferenceRules
- * @constructor
- */
-
-
-var ReferenceRules = function ReferenceRules(_ref) {
-  var store = _ref.store;
-  var searchRE = false;
-  var hasConfig = !!store.customConfigObj;
-
-  if (store.currentQuery) {
-    searchRE = new RegExp((0,escape_string_regexp__WEBPACK_IMPORTED_MODULE_1__["default"])(store.currentQuery), 'i');
-  }
-
-  var items = atomizer_src_rules__WEBPACK_IMPORTED_MODULE_0___default().map(function (recipe) {
-    var values = [];
-    var classDefinitions = [];
-    var searching = !!store.currentQuery;
-    var prefix = recipe.matcher;
-    var usesClass = false;
-    var declaration;
-    var rawDeclarationBlock = [];
-    var styledDeclarationBlock = [];
-    var searchTitleMatches = null;
-    var showRecipeBlock = false;
-    var value;
-    var suffix; // If config is provided, filter any rules not used in config
-
-    if (hasConfig && !usesClass) {
-      return;
-    }
-
-    if (searching) {
-      searchTitleMatches = recipe.name.search(searchRE) > -1;
-    }
-
-    if (recipe.type === 'pattern') {
-      if (!hasConfig) {
-        var hasMultiValues = false;
-
-        for (var property in recipe.styles) {
-          var propertyStyle = recipe.styles[property];
-          var valueCount = getValueCount(propertyStyle);
-
-          if (valueCount > 1) {
-            hasMultiValues = true;
-            value = [];
-
-            for (var vc = 1; vc <= valueCount; vc++) {
-              value.push('value' + vc);
-            }
-          } else {
-            value = 'value';
-          }
-
-          propertyStyle = replaceRTLTokens(replacePlaceholders(propertyStyle, value));
-          property = replaceRTLTokens(property);
-          rawDeclarationBlock.push(property + ': ' + propertyStyle);
-          styledDeclarationBlock.push( /*#__PURE__*/React.createElement("div", {
-            key: propertyStyle
-          }, property, ": ", /*#__PURE__*/React.createElement("span", {
-            className: "C(#07f)"
-          }, propertyStyle)));
-        }
-
-        suffix = '<custom-param>';
-
-        if (recipe.allowParamToValue) {
-          suffix = '<value>' + (hasMultiValues ? '+' : '') + ' or ' + suffix;
-        }
-
-        values.push({
-          rawSelector: prefix + '([' + suffix + '])',
-          rawDeclaration: rawDeclarationBlock,
-          selector: /*#__PURE__*/React.createElement("b", null, prefix, "(", /*#__PURE__*/React.createElement("b", {
-            className: "C(#000)"
-          }, suffix), ")"),
-          declaration: styledDeclarationBlock
-        });
-
-        if (recipe.arguments) {
-          // Reduce the arguments array down to a single object
-          // containing all possible permutations
-          var args = recipe.arguments.reduce(function (prevValue, currentValue) {
-            var obj = {};
-
-            for (var p in prevValue) {
-              obj[p] = prevValue[p];
-
-              for (var c in currentValue) {
-                var key = p + ',' + c;
-                obj[key] = [prevValue[p], currentValue[c]].reduce(function (a, b) {
-                  return a.concat(b);
-                }, []);
-              }
-            }
-
-            return obj;
-          });
-
-          for (var paramKey in args) {
-            var selector = prefix + '(' + paramKey + ')';
-            var _value = args[paramKey];
-            rawDeclarationBlock = [];
-            styledDeclarationBlock = [];
-
-            for (var _property in recipe.styles) {
-              declaration = replaceRTLTokens(_property + ': ' + replacePlaceholders(recipe.styles[_property], _value));
-              rawDeclarationBlock.push(declaration);
-              styledDeclarationBlock.push( /*#__PURE__*/React.createElement("div", null, declaration));
-            }
-
-            values.push({
-              rawSelector: selector,
-              rawDeclaration: rawDeclarationBlock,
-              selector: /*#__PURE__*/React.createElement("b", null, selector),
-              declaration: styledDeclarationBlock
-            });
-          }
-        }
-      } else if (usesClass) {// for (let x=0; x < parsedConfig[prefix].length; x++) {
-        //     const prefixConfig = parsedConfig[prefix][x];
-        //     for (let i=0; i < prefixConfig.values.length; i++) {
-        //         const valueObj = prefixConfig.values[i];
-        //         rawDeclarationBlock = [];
-        //         styledDeclarationBlock = [];
-        //         if (valueObj && valueObj.declaration) {
-        //             for (let property in valueObj.declaration) {
-        //                 declaration = replaceRTLTokens(property + ": " + valueObj.declaration[property]);
-        //                 rawDeclarationBlock.push(declaration);
-        //                 styledDeclarationBlock.push(<div>{declaration}</div>);
-        //             }
-        //             values.push({
-        //                 rawSelector: prefixConfig.className,
-        //                 rawDeclaration: rawDeclarationBlock,
-        //                 selector: <b>{prefixConfig.className}</b>,
-        //                 declaration: styledDeclarationBlock
-        //             });
-        //         }
-        //     }
-        // }
-      } // Loop through the selectors and generate the actual styles for each
-
-
-      for (var x = 0; x < values.length; x++) {
-        var v = values[x];
-        var showRuleset = false;
-
-        if (v.declaration) {
-          // Filter with search
-          if (!searching || searchTitleMatches || v.rawSelector.search(searchRE) > -1 || v.rawDeclaration.join('\n').search(searchRE) > -1) {
-            showRuleset = true;
-            showRecipeBlock = true;
-          }
-
-          var termClasses = 'Pend(10px) Fl(start) Cl(start)';
-          var defClasses = 'Fl(start) M(0) P(0) C(#f2438c)';
-
-          if (!showRuleset) {
-            termClasses += ' D(n)';
-            defClasses += ' D(n)';
-          }
-
-          classDefinitions.push([/*#__PURE__*/React.createElement("dt", {
-            key: v.rawSelector,
-            className: termClasses
-          }, v.selector), /*#__PURE__*/React.createElement("dd", {
-            key: v.rawDeclaration.toString(),
-            className: defClasses
-          }, v.declaration)]);
-        }
-      }
-    }
-
-    var displayclassDefinitions = 'Ov(h) ' + (showRecipeBlock ? 'D(b)' : 'D(n)');
-    return /*#__PURE__*/React.createElement("div", {
-      key: 'id-' + recipe.matcher,
-      className: displayclassDefinitions
-    }, /*#__PURE__*/React.createElement("h3", {
-      className: "Cl(b) M(0) Mend(20px) Mt(15px) P(10px)"
-    }, recipe.name), /*#__PURE__*/React.createElement("dl", {
-      className: "M(0) Mstart(20px) P(10px) Pt(0) Ff(m)"
-    }, classDefinitions));
-  }, _this);
-  return /*#__PURE__*/React.createElement("div", null, items);
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__.connectToStores)(ReferenceRules, [_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]], function (context) {
-  return {
-    store: context.getStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]).getState()
-  };
-}));
-
-/***/ }),
-
-/***/ "./site/app/components/SearchBox.jsx":
-/*!*******************************************!*\
-  !*** ./site/app/components/SearchBox.jsx ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
-/* harmony import */ var _actions_searchReference__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/searchReference */ "./site/app/actions/searchReference.js");
-/* harmony import */ var _stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/ReferenceStore */ "./site/app/stores/ReferenceStore.js");
-/**
- * Copyright 2015, Yahoo Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-
-
-
-
-var throttle = false;
-
-var SearchBox = function SearchBox(_ref) {
-  var executeAction = _ref.executeAction,
-      store = _ref.store;
-  var textInput = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
-
-  var onKeyDown = function onKeyDown(e) {
-    if (e.key === 'Enter' || e.keyCode === 13) {
-      if (throttle) {
-        clearTimeout(throttle);
-        throttle = false;
-      }
-
-      executeAction(_actions_searchReference__WEBPACK_IMPORTED_MODULE_2__["default"], e.target.value);
-    }
-  };
-
-  var onQueryChange = function onQueryChange() {
-    if (throttle) {
-      clearTimeout(throttle);
-    }
-
-    throttle = setTimeout(function () {
-      executeAction(_actions_searchReference__WEBPACK_IMPORTED_MODULE_2__["default"], textInput.current.value);
-      throttle = false;
-    }, 500);
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    textInput.current.value = store.currentQuery;
-  }, [store.currentQuery]);
-  return /*#__PURE__*/React.createElement("div", {
-    id: "search-section"
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "Mb(0)"
-  }, /*#__PURE__*/React.createElement("label", {
-    htmlFor: "searchbox"
-  }, "Search:")), /*#__PURE__*/React.createElement("input", {
-    id: "searchbox",
-    ref: textInput,
-    type: "search",
-    role: "search",
-    className: "W(100%) P(10px) Fz(30px) C(brandColor) Fw(b)",
-    size: "50",
-    placeholder: "Type classname or CSS declaration here...",
-    title: "Type classname or CSS declaration here...",
-    autoFocus: true,
-    onChange: onQueryChange,
-    onKeyDown: onKeyDown
-  }));
-};
-
-/* harmony default export */ __webpack_exports__["default"] = ((0,fluxible_addons_react__WEBPACK_IMPORTED_MODULE_1__.connectToStores)(SearchBox, [_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]], function (context) {
-  return {
-    executeAction: context.executeAction,
-    store: context.getStore(_stores_ReferenceStore__WEBPACK_IMPORTED_MODULE_3__["default"]).getState()
-  };
-}));
-
-/***/ }),
-
-/***/ "./site/app/stores/ReferenceStore.js":
-/*!*******************************************!*\
-  !*** ./site/app/stores/ReferenceStore.js ***!
-  \*******************************************/
-/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var fluxible_addons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! fluxible/addons */ "./node_modules/fluxible/addons/index.js");
-/* harmony import */ var fluxible_addons__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(fluxible_addons__WEBPACK_IMPORTED_MODULE_0__);
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-/**
- * Copyright 2015, Yahoo! Inc.
- * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
- */
-
-
-var ReferenceStore = /*#__PURE__*/function (_BaseStore) {
-  _inherits(ReferenceStore, _BaseStore);
-
-  var _super = _createSuper(ReferenceStore);
-
-  function ReferenceStore(dispatcher) {
-    var _this;
-
-    _classCallCheck(this, ReferenceStore);
-
-    _this = _super.call(this, dispatcher);
-    _this.currentQuery = '';
-    _this.customConfig = undefined;
-    _this.customConfigObj = undefined;
-    return _this;
-  }
-
-  _createClass(ReferenceStore, [{
-    key: "handleSearch",
-    value: function handleSearch(payload) {
-      var query = payload.query; // Don't update if query hasn't changed, or
-      // there's a query but the query is nothing but spaces
-
-      if (query === this.getCurrentQuery() || query && query.trim() === '') {
-        return;
-      }
-
-      this.currentQuery = query;
-      this.emitChange();
-    }
-  }, {
-    key: "handleCustomConfig",
-    value: function handleCustomConfig(payload) {
-      var config = payload.config;
-      var configObj;
-
-      if (config === this.customConfig) {
-        return;
-      }
-
-      try {
-        configObj = JSON.parse(config);
-      } catch (ex) {
-        console.error(ex);
-      }
-
-      this.customConfig = config;
-      this.customConfigObj = configObj;
-      this.emitChange();
-    }
-  }, {
-    key: "getCurrentQuery",
-    value: function getCurrentQuery() {
-      return this.currentQuery;
-    }
-  }, {
-    key: "getState",
-    value: function getState() {
-      return {
-        currentQuery: this.currentQuery,
-        customConfig: this.customConfig,
-        customConfigObj: this.customConfigObj
-      };
-    }
-  }, {
-    key: "dehydrate",
-    value: function dehydrate() {
-      return this.getState();
-    }
-  }, {
-    key: "rehydrate",
-    value: function rehydrate(state) {
-      this.currentQuery = state.currentQuery;
-      this.customConfig = state.customConfig;
-      this.customConfigObj = state.customConfigObj;
-    }
-  }]);
-
-  return ReferenceStore;
-}(fluxible_addons__WEBPACK_IMPORTED_MODULE_0__.BaseStore);
-
-ReferenceStore.storeName = 'ReferenceStore';
-ReferenceStore.handlers = {
-  CHANGE_SEARCH_TERM: 'handleSearch',
-  CHANGE_CUSTOM_CONFIG: 'handleCustomConfig'
-};
-/* harmony default export */ __webpack_exports__["default"] = (ReferenceStore);
 
 /***/ }),
 
@@ -42080,15 +42080,15 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 !function() {
 "use strict";
-/*!**************************************!*\
-  !*** ./site/app/client-reference.js ***!
-  \**************************************/
+/*!*********************************!*\
+  !*** ./app/client-reference.js ***!
+  \*********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var fluxible_addons_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! fluxible-addons-react */ "./node_modules/fluxible-addons-react/dist/es/index.js");
-/* harmony import */ var _app_reference__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-reference */ "./site/app/app-reference.js");
+/* harmony import */ var _app_reference__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-reference */ "./app/app-reference.js");
 /**
  * Copyright 2015, Yahoo! Inc.
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
