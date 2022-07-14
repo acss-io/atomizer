@@ -33,6 +33,7 @@
  * - Rules is written as an array because ORDER is important for the CSS generation.
  **/
 const blendModes = require('./blendmodes');
+const mixBlendModes = Object.assign(blendModes, {'pd': 'plus-darker', 'pl': 'plus-lighter'});
 const colors = require('./colors');
 
 module.exports = [
@@ -2078,7 +2079,7 @@ module.exports = [
         'styles': {
             'mix-blend-mode': '$0,$1,$2,$3'
         },
-        'arguments': [blendModes, blendModes, blendModes, blendModes]
+        'arguments': [mixBlendModes, mixBlendModes, mixBlendModes, mixBlendModes]
     },
     /**
     ==================================================================
