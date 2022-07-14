@@ -19,7 +19,7 @@ site/build
 site/docs/_site
 site/docs/.jekyll-metadata
 site/docs/.sass-cache/
-site/vendor/bundle
+vendor/bundle
 
 # grunt-nodemon
 .rebooted

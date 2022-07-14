@@ -20,7 +20,7 @@ function replacePlaceholders(str, values) {
     }
     // Map each value to a placeholder
     for (let i = 0; i < values.length; i++) {
-        str = str.replace('$' + i, values[i]);
+        str = str.replace(`$${i}`, values[i]);
     }
     // Use regex to clean up any leftover placeholders
     return str.replace(styleRegex, '');
@@ -77,14 +77,14 @@ const ReferenceRules = ({ store }) => {
                         hasMultiValues = true;
                         value = [];
                         for (let vc = 1; vc <= valueCount; vc++) {
-                            value.push('value' + vc);
+                            value.push(`value${vc}`);
                         }
                     } else {
                         value = 'value';
                     }
                     propertyStyle = replaceRTLTokens(replacePlaceholders(propertyStyle, value));
                     property = replaceRTLTokens(property);
-                    rawDeclarationBlock.push(property + ': ' + propertyStyle);
+                    rawDeclarationBlock.push(`${property}: ${propertyStyle}`);
                     styledDeclarationBlock.push(
                         <div key={propertyStyle}>
                             {property}: <span className="C(#07f)">{propertyStyle}</span>
@@ -94,11 +94,11 @@ const ReferenceRules = ({ store }) => {
 
                 suffix = '<custom-param>';
                 if (recipe.allowParamToValue) {
-                    suffix = '<value>' + (hasMultiValues ? '+' : '') + ' or ' + suffix;
+                    suffix = `<value>${hasMultiValues ? '+' : ''} or ${suffix}`;
                 }
 
                 values.push({
-                    rawSelector: prefix + '([' + suffix + '])',
+                    rawSelector: `${prefix}([${suffix}])`,
                     rawDeclaration: rawDeclarationBlock,
                     selector: (
                         <b>
@@ -115,8 +115,8 @@ const ReferenceRules = ({ store }) => {
                         const obj = {};
                         for (const p in prevValue) {
                             obj[p] = prevValue[p];
-                            for (var c in currentValue) {
-                                var key = p + ',' + c;
+                            for (const c in currentValue) {
+                                const key = `${p},${c}`;
                                 obj[key] = [prevValue[p], currentValue[c]].reduce(function (a, b) {
                                     return a.concat(b);
                                 }, []);
@@ -126,13 +126,13 @@ const ReferenceRules = ({ store }) => {
                     });
 
                     for (const paramKey in args) {
-                        const selector = prefix + '(' + paramKey + ')';
+                        const selector = `${prefix}(${paramKey})`;
                         const value = args[paramKey];
                         rawDeclarationBlock = [];
                         styledDeclarationBlock = [];
                         for (const property in recipe.styles) {
                             declaration = replaceRTLTokens(
-                                property + ': ' + replacePlaceholders(recipe.styles[property], value)
+                                `${property}: ${replacePlaceholders(recipe.styles[property], value)}`
                             );
                             rawDeclarationBlock.push(declaration);
                             styledDeclarationBlock.push(<div>{declaration}</div>);
@@ -202,9 +202,9 @@ const ReferenceRules = ({ store }) => {
             }
         }
 
-        const displayclassDefinitions = 'Ov(h) ' + (showRecipeBlock ? 'D(b)' : 'D(n)');
+        const displayclassDefinitions = `Ov(h) ${showRecipeBlock ? 'D(b)' : 'D(n)'}`;
         return (
-            <div key={'id-' + recipe.matcher} className={displayclassDefinitions}>
+            <div key={`id-${recipe.matcher}`} className={displayclassDefinitions}>
                 <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">{recipe.name}</h3>
                 <dl className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{classDefinitions}</dl>
             </div>

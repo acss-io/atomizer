@@ -3,3 +3,4 @@ node_nodules
 bin
 artifacts
 .nyc_output
+**/coverage

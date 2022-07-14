@@ -11,12 +11,16 @@
     },
     "parser": "@babel/eslint-parser",
     "parserOptions": {
+        "babelOptions": {
+            "presets": ["@babel/preset-react"]
+        },
         "ecmaVersion": "latest",
+        "requireConfigFile": false,
         "sourceType": "module"
     },
     "rules": {
         "camelcase": 2,
-        "comma-dangle": 2,
+        "comma-dangle": 0,
         "comma-spacing": 2,
         "no-else-return": 2,
         "no-extend-native": 2,
