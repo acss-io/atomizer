@@ -19,6 +19,9 @@
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
+    "dev": "concurrently npm:dev:*",
+    "dev:start": "docker compose up",
+    "dev:watch": "grunt dev",
     "lint": "npm run lint --workspaces --if-present",
     "lint:fix": "npm run lint:fix --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
@@ -28,15 +31,41 @@
     "npm": ">=8.0"
   },
   "workspaces": [
-    "packages/atomizer"
+    "packages/atomizer",
+    "site"
   ],
   "devDependencies": {
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.18.6",
+    "@babel/preset-react": "^7.18.6",
+    "@lodder/grunt-postcss": "^3.1.1",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
     "chai": "^4.3.6",
+    "concurrently": "^7.2.2",
     "coveralls": "^3.1.1",
-    "eslint": "^8.9.0",
+    "escape-string-regexp": "^5.0.0",
+    "eslint": "^8.19.0",
     "eslint-plugin-mocha": "^10.0.3",
+    "eslint-plugin-react": "^7.30.1",
+    "fluxible": "^1.4.2",
+    "fluxible-addons-react": "^1.2.0",
+    "grunt": "^1.5.3",
+    "grunt-atomizer": "^3.2.0",
+    "grunt-cli": "^1.4.3",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-webpack": "^5.0.0",
+    "load-grunt-tasks": "^5.1.0",
     "mocha": "^10.0.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "postcss": "^8.4.14",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "webpack": "^5.73.0"
   },
   "repository": {
     "type": "git",
@@ -53,5 +82,12 @@
   "bugs": {
     "url": "https://github.com/acss-io/atomizer/issues"
   },
-  "homepage": "https://github.com/acss-io/atomizer"
+  "homepage": "https://github.com/acss-io/atomizer",
+  "browserslist": "> 0.25%, not dead",
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "trailingComma": "es5"
+  }
 }

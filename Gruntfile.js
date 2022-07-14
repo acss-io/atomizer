@@ -13,8 +13,8 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // project variables
         project: {
-            app: './app',
-            docs: './docs',
+            app: './site/app',
+            docs: './site/docs',
         },
 
         // atomizer: initial task to generate the config
@@ -22,12 +22,12 @@ module.exports = function (grunt) {
             docs: {
                 options: {
                     ie: false,
-                    configFile: './config/atomic-config.js',
-                    configOutput: './build/atomizer.json',
+                    configFile: './site/config/atomic-config.js',
+                    configOutput: './site/build/atomizer.json',
                 },
                 files: [
                     {
-                        src: ['./app/components/**/*.jsx', './docs/**/*.md', './docs/**/*.html'],
+                        src: ['<%= project.app %>/components/**/*.jsx', '<%= project.docs %>/**/*.md', '<%= project.docs %>/**/*.html'],
                         dest: '<%= project.docs %>/assets/atomic.css',
                     },
                 ],
@@ -73,7 +73,7 @@ module.exports = function (grunt) {
 
         watch: {
             atomic: {
-                files: ['app/**/*', 'docs/**/*', '!docs/_site'],
+                files: ['<%= project.app %>/**/*', '<%= project.docs %>/**/*', '!<%= project.docs %>/_site'],
                 tasks: ['dev'],
                 options: {
                     spawn: false,
@@ -90,7 +90,7 @@ module.exports = function (grunt) {
                 },
                 entry: '<%= project.app %>/client-reference.js',
                 output: {
-                    path: path.resolve(__dirname, 'docs', 'assets', 'js'),
+                    path: path.resolve(__dirname, 'site', 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',
                     filename: '[name].js',
                     chunkFilename: '[name].js',
@@ -118,7 +118,7 @@ module.exports = function (grunt) {
                 },
                 entry: '<%= project.app %>/client-reference.js',
                 output: {
-                    path: path.resolve(__dirname, 'docs', 'assets', 'js'),
+                    path: path.resolve(__dirname, 'site', 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',
                     filename: '[name].js',
                     chunkFilename: '[name].js',

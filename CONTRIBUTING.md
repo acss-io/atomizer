@@ -58,6 +58,15 @@ to test just one package (i.e, `atomizer`), run:
 npm test -w atomizer
 ```
 
+## Website
+
+Local website development uses Docker to run Jekyll, [install Docker](https://docs.docker.com/get-docker/) from the install guide. After installations, run the following command to setup the site:
+
+```bash
+cd site
+npm run dev
+```
+
 [BSD license]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
 [CLA]: https://yahoocla.herokuapp.com/
 [monorepo]: https://en.wikipedia.org/wiki/Monorepo
