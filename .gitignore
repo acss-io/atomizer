@@ -1,7 +1,27 @@
+# node modules
 node_modules/
+
+# build files
+dist/
+
+# test artifacts
+.nyc_output/
 artifacts/
 coverage/
+
+# log files
 npm-debug.log
-dist/
 *.log
-.nyc_output
+
+# site files
+site/app/build/
+site/build
+site/docs/_site
+site/docs/.jekyll-metadata
+site/docs/.sass-cache/
+site/vendor/bundle
+
+# grunt-nodemon
+.rebooted
+.idea
+.DS_Store

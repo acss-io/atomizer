@@ -4,7 +4,7 @@ services:
         image: jekyll/jekyll:3.8
         environment:
             - JEKYLL_ENV=development
-        command: bash -c "cd docs && jekyll serve --watch --incremental --config _config.yml --host 0.0.0.0"
+        command: bash -c "cd site/docs && jekyll serve --watch --incremental --config _config.yml --host 0.0.0.0"
         ports:
             - 4000:4000
         volumes:
