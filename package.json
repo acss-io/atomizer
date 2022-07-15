@@ -38,6 +38,7 @@
     "npm": ">=8.0"
   },
   "workspaces": [
+    "packages/atomic-css-snippets",
     "packages/atomizer",
     "site"
   ],
