@@ -15,8 +15,7 @@ npm-debug.log
 *.log
 
 # site files
-app/build/
-build
+build/
 docs/_site
 docs/.jekyll-metadata
 docs/.sass-cache/
@@ -29,3 +28,7 @@ vendor/bundle
 
 # atomic-css-snippets
 *.vsix
+
+# webpack-atomizer-loader
+**/example/*.css
+**/example/bundle.js

@@ -1,7 +1,0 @@
-node_modules/
-.DS_Store
-example/*.css
-example/bundle.js
-coverage/
-dist/
-build/

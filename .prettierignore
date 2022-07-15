@@ -1,7 +1,13 @@
+# directories
+.nyc_output
 build/
+coverage/
+dist/
 site/docs/
 node_modules/
-package-lock.json
-.nyc_output
-coverage
 vendor/
+
+# files
+example/bundle.js
+example/*.css
+package-lock.json
