@@ -1,6 +1,4 @@
-'use strict';
-
-var grunt = require('grunt');
+const grunt = require('grunt');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -29,8 +27,8 @@ exports.atomizer = {
     noConfigWithParsing: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/noConfigWithParsing.css');
-        var expected = grunt.file.read('test/expected/noConfigWithParsing.css');
+        const actual = grunt.file.read('tmp/noConfigWithParsing.css');
+        const expected = grunt.file.read('test/expected/noConfigWithParsing.css');
 
         test.equal(actual, expected, 'should generate the expected css by passing only the source.');
 
@@ -39,8 +37,8 @@ exports.atomizer = {
     configFileOnly: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/configFileOnly.css');
-        var expected = grunt.file.read('test/expected/configFileOnly.css');
+        const actual = grunt.file.read('tmp/configFileOnly.css');
+        const expected = grunt.file.read('test/expected/configFileOnly.css');
 
         test.equal(actual, expected, 'should generate the expected css by passing a configFile only.');
 
@@ -49,8 +47,8 @@ exports.atomizer = {
     configGruntOnly: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/configGruntOnly.css');
-        var expected = grunt.file.read('test/expected/configGruntOnly.css');
+        const actual = grunt.file.read('tmp/configGruntOnly.css');
+        const expected = grunt.file.read('test/expected/configGruntOnly.css');
 
         test.equal(actual, expected, 'should generate the expected css by passing a config directly to grunt only.');
 
@@ -59,8 +57,8 @@ exports.atomizer = {
     configBoth: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/configBoth.css');
-        var expected = grunt.file.read('test/expected/configBoth.css');
+        const actual = grunt.file.read('tmp/configBoth.css');
+        const expected = grunt.file.read('test/expected/configBoth.css');
 
         test.equal(actual, expected, 'should generate the expected css by passing a configFile and a config directly to grunt.');
 
@@ -69,10 +67,10 @@ exports.atomizer = {
     configBothWithParsing: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/configBothWithParsing.css');
-        var expected = grunt.file.read('test/expected/configBothWithParsing.css');
-        var actualConfigOutput = grunt.file.read('tmp/configOutput.json');
-        var expectedConfigOutput = grunt.file.read('test/expected/configOutput.json');
+        const actual = grunt.file.read('tmp/configBothWithParsing.css');
+        const expected = grunt.file.read('test/expected/configBothWithParsing.css');
+        // const actualConfigOutput = grunt.file.read('tmp/configOutput.json');
+        // const expectedConfigOutput = grunt.file.read('test/expected/configOutput.json');
 
         test.equal(actual, expected, 'should generate the expected css by passing a configFile and a config directly to grunt + parsing.');
 
@@ -81,8 +79,8 @@ exports.atomizer = {
     configOutputBothWithParsing: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/configOutput.json');
-        var expected = grunt.file.read('test/expected/configOutput.json');
+        const actual = grunt.file.read('tmp/configOutput.json');
+        const expected = grunt.file.read('test/expected/configOutput.json');
 
         test.equal(actual, expected, 'should generate the expected config JSON output by passing a configFile and a config directly to grunt + parsing.');
 
@@ -91,8 +89,8 @@ exports.atomizer = {
     customRules: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/customRuleset.css');
-        var expected = grunt.file.read('test/expected/customRuleset.css');
+        const actual = grunt.file.read('tmp/customRuleset.css');
+        const expected = grunt.file.read('test/expected/customRuleset.css');
 
         test.equal(actual, expected, 'should generate the expected css when using a custom ruleset.');
 
@@ -101,8 +99,8 @@ exports.atomizer = {
     ie: function(test) {
         test.expect(1);
 
-        var actual = grunt.file.read('tmp/ie.css');
-        var expected = grunt.file.read('test/expected/ie.css');
+        const actual = grunt.file.read('tmp/ie.css');
+        const expected = grunt.file.read('test/expected/ie.css');
 
         test.equal(actual, expected, 'should generate the expected css with ie hacks if options is set to true.');
 
