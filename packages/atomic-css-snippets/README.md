@@ -29,4 +29,3 @@ In order for snippets to work inside quotes, you will need to enable the followi
     "strings": true
 }
 ```
-
