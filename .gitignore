@@ -8,6 +8,7 @@ dist/
 .nyc_output/
 artifacts/
 coverage/
+tmp/
 
 # log files
 npm-debug.log

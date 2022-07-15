@@ -6,31 +6,31 @@
   "contributors": [
     {
       "name": "Renato Iwashima",
-      "email": "renatoi@yahoo-inc.com"
+      "email": "renatoi@yahooinc.com"
     },
     {
       "name": "Steve Carlson",
-      "email": "yasteve@yahoo-inc.com"
+      "email": "yasteve@yahooinc.com"
     },
     {
       "name": "Thierry Koblentz",
-      "email": "thierryk@yahoo-inc.com"
+      "email": "thierryk@yahooinc.com"
     }
   ],
   "repository": {
+    "directory": "grunt-atomizer",
     "type": "git",
-    "url": "git://github.com/yahoo/grunt-atomizer.git"
+    "url": "git://github.com/acss-io/atomizer.git"
   },
   "scripts": {
-    "test": "grunt test",
-    "lint": "grunt"
+    "test": "grunt test"
   },
   "dependencies": {
     "atomizer": "^3.0.0",
     "lodash": "^4.0.0"
   },
   "peerDependencies": {
-    "grunt": ">=0.4.0"
+    "grunt": "^1.0.0"
   },
   "keywords": [
     "atomizer",
@@ -43,14 +43,7 @@
   ],
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/yahoo/grunt-atomizer/issues"
+    "url": "https://github.com/acss-io/atomizer/issues"
   },
-  "homepage": "https://github.com/yahoo/grunt-atomizer",
-  "devDependencies": {
-    "grunt": "^1.4.1",
-    "grunt-cli": "^1.4.3",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-jshint": "^3.0.0",
-    "grunt-contrib-nodeunit": "^3.0.0"
-  }
+  "homepage": "https://github.com/acss-io/atomizer"
 }
