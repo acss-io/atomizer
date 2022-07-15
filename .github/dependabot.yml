@@ -6,15 +6,15 @@ updates:
           interval: daily
           time: '13:00'
       open-pull-requests-limit: 10
-  # atomizer
-  - package-ecosystem: npm
-    directory: "/packages/atomizer"
-    schedule:
-      interval: daily
-    open-pull-requests-limit: 10
-  # grunt-atomizer
-  - package-ecosystem: npm
-    directory: "/packages/grunt-atomizer"
-    schedule:
-      interval: daily
-    open-pull-requests-limit: 10
+    # atomizer
+    - package-ecosystem: npm
+      directory: "/packages/atomizer"
+      schedule:
+        interval: daily
+      open-pull-requests-limit: 10
+    # grunt-atomizer
+    - package-ecosystem: npm
+      directory: "/packages/grunt-atomizer"
+      schedule:
+        interval: daily
+      open-pull-requests-limit: 10
