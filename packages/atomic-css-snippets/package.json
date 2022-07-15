@@ -9,8 +9,9 @@
         "atomizer": "^3.15.0"
     },
     "repository": {
+        "directory": "packages/atomic-css-snippets",
         "type": "git",
-        "url": "git://github.com/acss-io/atomic-css-snippets.git"
+        "url": "git://github.com/acss-io/atomizer.git"
     },
     "scripts": {
         "build": "node scripts/generate-snippets.js > snippets.json"
