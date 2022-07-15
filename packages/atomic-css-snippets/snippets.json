@@ -5585,6 +5585,13 @@
         ],
         "description": "Bdsp(i)"
     },
+    "Bdsp(i,i)": {
+        "prefix": "border-spacing: inherit inherit",
+        "body": [
+            "Bdsp(i,i)"
+        ],
+        "description": "Bdsp(i,i)"
+    },
     "Bds(<custom-param>)": {
         "prefix": "border-style",
         "body": [
