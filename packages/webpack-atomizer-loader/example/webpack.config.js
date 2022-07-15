@@ -1,5 +1,5 @@
-var path = require('path');
-var autoprefixer = require('autoprefixer');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
     entry: __dirname + '/index.js',

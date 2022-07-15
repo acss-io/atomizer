@@ -1,17 +1,10 @@
-// jshint ignore: start
-var React = require('react');
-var createReactClass = require('create-react-class');
+const React = require('react');
+const Body = require('./Body');
 
-var Body = require('./Body');
-
-var Application = createReactClass({
-    render: function () {
-        return (
-            <div className="T(0)">
-                <Body />
-            </div>
-        );
-    },
-});
+const Application = () => (
+    <div className="T(0)">
+        <Body />
+    </div>
+);
 
 module.exports = Application;

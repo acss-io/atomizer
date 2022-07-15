@@ -1,4 +1,4 @@
-# webpack-atomizer-loader [![npm version](https://badge.fury.io/js/webpack-atomizer-loader.svg)](http://badge.fury.io/js/webpack-atomizer-loader) ![Build Status](https://github.com/acss-io/webpack-atomizer-loader/actions/workflows/test.yml/badge.svg)
+# webpack-atomizer-loader [![npm version](https://badge.fury.io/js/webpack-atomizer-loader.svg)](http://badge.fury.io/js/webpack-atomizer-loader)
 
 [Webpack loader](https://webpack.js.org/concepts/loaders) for compiling [Atomic CSS](https://acss.io).
 
