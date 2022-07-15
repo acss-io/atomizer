@@ -22,7 +22,7 @@
     }
   ],
   "scripts": {
-    "build": "grunt && npm run build --workspaces --if-present",
+    "build": "grunt",
     "dev": "concurrently npm:dev:*",
     "dev:start": "docker compose up",
     "dev:watch": "grunt dev",
