@@ -23,6 +23,8 @@
     "url": "git://github.com/acss-io/atomizer.git"
   },
   "scripts": {
+    "lint": "eslint --ext .js .",
+    "lint:fix": "eslint --ext .js . --fix",
     "test": "grunt test"
   },
   "dependencies": {
