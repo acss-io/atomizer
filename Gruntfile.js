@@ -32,6 +32,26 @@ module.exports = function (grunt) {
                     },
                 ],
             },
+            examples: {
+                options: {
+                    configFile: './examples/config/atomizer.js'
+                },
+                files: [{
+                    src: ['./examples/**/*.html'],
+                    dest: './examples/css/atomic.css'
+                }]
+            }
+        },
+
+        // simple connect server for examples
+        connect: {
+            examples: {
+                options: {
+                    port: 3000,
+                    base: 'examples',
+                    open: true
+                }
+            }
         },
 
         // cssmin for production (atomizer needs to run first)
@@ -72,13 +92,24 @@ module.exports = function (grunt) {
         },
 
         watch: {
-            atomic: {
+            docs: {
                 files: ['<%= project.app %>/**/*', '<%= project.docs %>/**/*', '!<%= project.docs %>/_site'],
                 tasks: ['dev'],
                 options: {
                     spawn: false,
                 },
             },
+            examples: {
+                options: {
+                    livereload: true
+                },
+                files: [
+                    './examples/**/*.html',
+                    './examples/**/*.js',
+                    './examples/**/*.css'
+                ],
+                tasks: ['atomizer:examples']
+            }
         },
 
         // webpack
@@ -141,4 +172,5 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', ['atomizer:docs', 'cssmin:docs', 'postcss:docs', 'webpack:prod']);
     grunt.registerTask('dev', ['atomizer:docs', 'cssmin:docs', 'postcss:docs', 'webpack:dev']);
+    grunt.registerTask('examples', ['atomizer:examples', 'connect:examples', 'watch:examples']);
 };

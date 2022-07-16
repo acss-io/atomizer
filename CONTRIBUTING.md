@@ -77,8 +77,17 @@ The website files are located in a few directories:
 - `app/` - The "References" page which uses React on the client to dynamically filter Atomizer classes
 - `docs/` - The main Jekyll site that contains all the markdown files for the website
 
-### Testing new rules
-Add new rules in `src/rules.js` create a new example file in `examples/html` eg `sample-2.html` then run `./node_modules/.bin/atomizer examples/html/sample-2.html`. You could also copy the output and paste into the PR to be extra nice :)
+### Testing New Rules
+
+Add new rules in `packages/atomizer/src/rules.js` and create a new example file in `examples/` eg `flex.html`.
+
+Then run:
+
+```bash
+npm run examples
+```
+
+This will run atomizer on the example files and setup a static dev server to review the changes in your browser.
 
 ### Quick CSS Glossary
 
