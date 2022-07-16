@@ -1,6 +1,18 @@
-node_nodules
-**/*.json
-bin
-artifacts
+# directories
 .nyc_output
 **/coverage
+bin
+artifacts
+node_nodules
+dist
+
+# docs
+docs/assets/js/main.js
+docs/_site
+vendor/
+
+# files
+**/*.json
+
+# webpack-atomizer-loader
+**/*/bundle.js

@@ -6,8 +6,9 @@
     ],
     "env": {
         "browser": true,
-        "node": true,
-        "es2020": true
+        "es2020": true,
+        "mocha": true,
+        "node": true
     },
     "parser": "@babel/eslint-parser",
     "parserOptions": {
@@ -28,6 +29,7 @@
         "no-iterator": 2,
         "no-proto": 2,
         "no-useless-constructor": 2,
+        "no-useless-escape": 0,
         "no-useless-rename": 2,
         "no-var": 2,
         "prefer-destructuring": 2,
@@ -42,6 +44,8 @@
             }
         ],
         "react/prop-types": "off",
+        "react/jsx-uses-react": "off",
+        "react/react-in-jsx-scope": "off",
         "rest-spread-spacing": 2,
         "semi": [2, "always"]
     },
