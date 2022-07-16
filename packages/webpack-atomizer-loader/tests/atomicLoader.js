@@ -1,14 +1,13 @@
-/* global describe, before, it */
-var fs = require('fs');
-var expect = require('chai').expect;
-var path = require('path');
-var stealthyRequire = require('stealthy-require');
+const fs = require('fs');
+const {expect} = require('chai');
+const path = require('path');
+const stealthyRequire = require('stealthy-require');
 
 describe('atomic loader', () => {
     it('can generate correct css', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
-        this.async = () => (err, source) => {
-            var cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
+        this.async = () => () => {
+            const cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
             const cssFile = fs.readFileSync('./build/css/atomic.css');
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
@@ -18,9 +17,9 @@ describe('atomic loader', () => {
     it('keeps already-generated css', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         let iteration = 0;
-        this.async = () => (err, source) => {
+        this.async = () => () => {
             if (iteration >= 1) {
-                var cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
+                const cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
                 const cssFile = fs.readFileSync('./build/css/atomic.css');
                 expect(cssReg.test(cssFile)).to.equal(true);
                 done();
@@ -32,8 +31,8 @@ describe('atomic loader', () => {
     });
     it('rules path', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
-        this.async = () => (err, source) => {
-            var cssReg = new RegExp(/\.Foo/);
+        this.async = () => () => {
+            const cssReg = new RegExp(/\.Foo/);
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
@@ -45,8 +44,8 @@ describe('atomic loader', () => {
     });
     it('rules object', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
-        this.async = () => (err, source) => {
-            var cssReg = new RegExp(/\.Foo/);
+        this.async = () => () => {
+            const cssReg = new RegExp(/\.Foo/);
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
@@ -58,8 +57,8 @@ describe('atomic loader', () => {
     });
     it('config path', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
-        this.async = () => (err, source) => {
-            var cssReg = new RegExp(/\.Bgc\\\(foo\\\)/);
+        this.async = () => () => {
+            const cssReg = new RegExp(/\.Bgc\\\(foo\\\)/);
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             console.log(cssFile);
             expect(cssReg.test(cssFile)).to.equal(true);
@@ -73,7 +72,7 @@ describe('atomic loader', () => {
 
     it('multiple config paths', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
-        this.async = () => (err, source) => {
+        this.async = () => () => {
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             expect(/\.Bgc\\\(foo\\\)/.test(cssFile)).to.equal(false);
             expect(/\.C\\\(bar\\\)/.test(cssFile)).to.equal(true);
@@ -90,7 +89,7 @@ describe('atomic loader', () => {
 
     it('config', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
-        this.async = () => (err, source) => {
+        this.async = () => () => {
             const cssFile = fs.readFileSync('./build/css/atomic.css', 'utf8');
             expect(/\.Bgc\\\(foo\\\)/.test(cssFile)).to.equal(true);
             done();

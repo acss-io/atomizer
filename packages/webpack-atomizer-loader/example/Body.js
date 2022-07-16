@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 const React = require('react');
 const Body = () => (
     <div>
