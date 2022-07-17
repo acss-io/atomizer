@@ -116,7 +116,7 @@ selector {  property: value  }
 ↑__________ rule or ruleset _↑
 ```
 
-## Atomic.css Generation
+### Atomic.css Generation
 
 The generation process involves 2 main parts:
 
