@@ -16,9 +16,19 @@
                 This examples demonstrates using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-blend-mode">background-blend-mode</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode">mix-blend-mode</a> with Atomizer.
             </p>
             
-            <div class="Bgbm(n) Mbm(pl)">Test Blend modes</div>
+            <h2>Background Blend Mode: Difference - Bgbm(di)</h2>
 
-            <div class="foo_Bgbm(h) bar_Mbm(s)">Test parent Blend modes</div>
+            <div class="W(300px) H(300px) Bg(blendenModeImages) Bgbm(di)"></div>
+
+            <h2>Mix Blend Mode: Screen - Mbm(sc)</h2>
+
+            <svg>
+                <g>
+                    <circle cx="40" cy="40" r="40" fill="red" class="Mbm(sc)" />
+                    <circle cx="80" cy="40" r="40" fill="lightgreen" class="Mbm(sc)" />
+                    <circle cx="60" cy="80" r="40" fill="blue" class="Mbm(sc)" />
+                </g>
+            </svg>
         </main>
 
         <!-- this is just to reload the page if you make any changes to the html -->
