@@ -1,4 +1,4 @@
-# grunt-atomizer [![npm version](https://badge.fury.io/js/grunt-atomizer.svg)](http://badge.fury.io/js/grunt-atomizer) ![Build Status](https://github.com/acss-io/grunt-atomizer/actions/workflows/test.yml/badge.svg)
+# grunt-atomizer [![npm version](https://badge.fury.io/js/grunt-atomizer.svg)](http://badge.fury.io/js/grunt-atomizer)
 
 ## Overview
 
@@ -153,6 +153,6 @@ atomizer: {
 This software is free to use under the Yahoo! Inc. BSD license.
 See the [LICENSE file][] for license text and copyright information.
 
-[LICENSE file]: https://github.com/acss-io/grunt-atomizer/blob/master/LICENSE.md
+[LICENSE file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
 
-Third-pary open source code used are listed in our [package.json file]( https://github.com/acss-io/grunt-atomizer/blob/master/package.json).
+Third-pary open source code used are listed in our [package.json file]( https://github.com/acss-io/atomizer/blob/master/package.json).
