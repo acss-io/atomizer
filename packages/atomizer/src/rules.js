@@ -2123,6 +2123,16 @@ module.exports = [
             'n': 'none'
         }]
     },
+    {
+        'type': 'pattern',
+        'name': 'Outline-offset',
+        'matcher': 'Oo',
+        'shorthand': true,
+        'allowParamToValue': true,
+        'styles': {
+            'outline-offset': '$0'
+        }
+    },
     /**
     ==================================================================
     OFFSETS
