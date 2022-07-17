@@ -1,3 +1,8 @@
+<!-- The following statement must stay in the PR description -->
+I confirm that this contribution is made under a BSD license and that I have the authority necessary to make this contribution on behalf of its copyright owner.
+
+---
+
 ### Description
 
 _Describe your changes in detail._
@@ -25,7 +30,3 @@ Review the following points, and put an x in all the boxes that apply. If you’
 - [ ] I have updated the documentation accordingly.
 - [ ] I have read the [CONTRIBUTING](https://github.com/acss-io/atomizer/blob/master/CONTRIBUTING.md) document.
 - [ ] I have added tests to cover my changes.
-
----
-
-I confirm that this contribution is made under a BSD license and that I have the authority necessary to make this contribution on behalf of its copyright owner.
