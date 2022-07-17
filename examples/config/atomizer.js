@@ -7,6 +7,8 @@ module.exports = {
     // another via the #{ } syntax, which are resolved 
     // recursively
     'custom': {
+        'Bgc($primary)': '#f3f3f3',
+        blendenModeImages: 'url("/images/br.png"), url("/images/tr.png")',
         uh: '79px',             // custom 1 (see classNames below)
         primary: '#f6a1e1',     // custom 2 (see classNames below)
         standardPadding: '10px',
