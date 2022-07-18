@@ -24,7 +24,7 @@
     "dependencies": {
         "atomizer": "^3.9.2",
         "cssnano": "^5.0.7",
-        "loader-utils": "^2.0.0",
+        "loader-utils": "^3.2.0",
         "postcss": "^8.3.6"
     },
     "repository": {
