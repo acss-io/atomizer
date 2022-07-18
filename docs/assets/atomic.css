@@ -40,7 +40,7 @@
 .Bgc\(\#000\.6\) {
   background-color: rgba(0,0,0,.6);
 }
-.Bgc\(\#0280ae\), .Bgc\(brandColor\) {
+.Bgc\(\#0280ae\), .Bgc\(brandColor\), .Bgc\(\#0280ae\)\:h:hover {
   background-color: #0280ae;
 }
 .Bgc\(\#0280ae\.5\) {
@@ -60,9 +60,6 @@
 }
 .Bgc\(t\) {
   background-color: transparent;
-}
-.Bgc\(\#0280ae\)\:h:hover {
-  background-color: #0280ae;
 }
 .menu-on .menu-on_Bgp\(end_t\) {
   background-position: right 0;
@@ -97,14 +94,11 @@
 .C\(\#f2438c\) {
   color: #f2438c;
 }
-.C\(\#fff\) {
+.C\(\#fff\), .C\(\#fff\)\:h:hover {
   color: #fff;
 }
 .C\(--primary-color\) {
   color: var(--primary-color);
-}
-.C\(\#fff\)\:h:hover {
-  color: #fff;
 }
 .D\(b\), .home .home_D\(b\), .menu-on .menu-on_D\(b\), .open .open_D\(b\) {
   display: block;
@@ -112,10 +106,10 @@
 .D\(f\) {
   display: flex;
 }
-.D\(ib\), .IbBox, a[class*=LineClamp], .Row {
+.D\(ib\), .Ell:after, .IbBox, a[class*=LineClamp], a[class*=LineClamp]:after, .Row {
   display: inline-block;
 }
-.D\(n\), .foo .foo_D\(n\), .foo + .foo\+D\(n\), .foo > .foo\>D\(n\), .foo ~ .foo\~D\(n\), .home .home_D\(n\) {
+.D\(n\), .D\(n\)\:h:hover, .foo .foo_D\(n\), .foo + .foo\+D\(n\), .foo > .foo\>D\(n\), .foo ~ .foo\~D\(n\), .foo:hover .foo\:h_D\(n\), .home .home_D\(n\) {
   display: none;
 }
 .D\(tb\) {
@@ -129,12 +123,6 @@
 }
 .D\(tbhg\) {
   display: table-header-group;
-}
-.D\(n\)\:h:hover {
-  display: none;
-}
-.foo:hover .foo\:h_D\(n\) {
-  display: none;
 }
 .home .home_D\(b\)\! {
   display: block !important;
@@ -307,7 +295,7 @@
 .home .home_Ov\(v\) {
   overflow: visible;
 }
-.Ov\(h\), .Ell, .Hidden, [class*=LineClamp] {
+.Ov\(h\), .Ell:after, .Ell, .Hidden, [class*=LineClamp], a[class*=LineClamp]:after {
   overflow: hidden;
 }
 .P\(0\) {
@@ -374,10 +362,7 @@
 .Ta\(start\) {
   text-align: left;
 }
-.Td\(n\) {
-  text-decoration: none;
-}
-.Td\(n\)\:h:hover {
+.Td\(n\), .Td\(n\)\:h:hover {
   text-decoration: none;
 }
 .Tt\(u\) {
@@ -452,25 +437,10 @@
 .BfcHack {
   width: 1600px;
 }
-.BfcHack, .Row {
-  *width: auto;
-}
-.BfcHack, .Cf, .IbBox, a[class*=LineClamp], .Row {
-  zoom: 1;
-}
-.Cf:before, .Cf:after {
-  content: " ";
-  display: table;
-}
-.Cf:after {
-  clear: both;
-}
-.Ell:after {
+.Ell:after, a[class*=LineClamp]:after {
   content: ".";
   font-size: 0;
   visibility: hidden;
-  display: inline-block;
-  overflow: hidden;
   height: 0;
   width: 0;
 }
@@ -481,14 +451,10 @@
 }
 .Hidden {
   position: absolute !important;
-  *clip: rect(1px 1px 1px 1px);
   clip: rect(1px,1px,1px,1px);
   padding: 0 !important;
   height: 1px !important;
   width: 1px !important;
-}
-.IbBox, a[class*=LineClamp] {
-  *display: inline;
 }
 [class*=LineClamp] {
   display: -webkit-box;
@@ -496,15 +462,6 @@
 }
 a[class*=LineClamp] {
   display : -webkit-box;
-}
-a[class*=LineClamp]:after {
-  content: ".";
-  font-size: 0;
-  visibility: hidden;
-  display: inline-block;
-  overflow: hidden;
-  height: 0;
-  width: 0;
 }
 .LineClamp\(2\,54px\) {
   -webkit-line-clamp: 2;
@@ -515,17 +472,11 @@ a[class*=LineClamp]:after {
 .LineClamp\(3\,54px\) {
   -webkit-line-clamp: 3;
 }
-.Row {
-  *display: block;
-}
 .StretchedBox {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-}
-.Zoom {
-  zoom: 1;
 }
 @media screen and (max-width:700px) {
   .D\(n\)--xs {

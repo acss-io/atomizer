@@ -79,13 +79,7 @@ JSS.combineSelectors = function (extracted/*:Extracted*/)/*:Extracted*/ {
     for (const block in extracted) {
         extracts = extracted[block];
         for (let i = 0, l = extracts.length; i < l; i += 1) {
-            // If this selector has an escaped colon, we can't safely combine it
-            // with another selector since it will break in IE < 8
-            if (extracts[i].selector && extracts[i].selector.indexOf('\:') > -1) { continue; }
             for(let j = i + 1; j < l; j += 1) {
-                // If this selector has an escaped colon, we can't safely combine it
-                // with another selector since it will break in IE < 8
-                if (extracts[j].selector && extracts[j].selector.indexOf('\:') > -1) { continue; }
                 // combine if prop and value match
                 if(extracts[i].prop === extracts[j].prop && extracts[i].value === extracts[j].value) {
                     if (extracts[j].selector) {

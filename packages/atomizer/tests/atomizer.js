@@ -547,10 +547,7 @@ describe('Atomizer()', function () {
                 '.C\\(red\\) {',
                 '  color: red;',
                 '}',
-                '.C\\(\\#333\\) {',
-                '  color: #333;',
-                '}',
-                '.C\\(\\#333\\)\\:li:link {',
+                '.C\\(\\#333\\), .C\\(\\#333\\)\\:li:link {',
                 '  color: #333;',
                 '}',
                 '.Cnt\\(cq\\)\\:h\\:\\:b:hover::before {',
@@ -580,13 +577,7 @@ describe('Atomizer()', function () {
                 '.End\\(0\\) {',
                 '  right: 0;',
                 '}',
-                '.test:hover > .test\\:h\\>Op\\(1\\)\\:h:hover {',
-                '  opacity: 1;',
-                '}',
-                '.test:hover .test\\:h_Op\\(1\\)\\:h:hover {',
-                '  opacity: 1;',
-                '}',
-                '.Op\\(1\\) {',
+                '.test:hover > .test\\:h\\>Op\\(1\\)\\:h:hover, .test:hover .test\\:h_Op\\(1\\)\\:h:hover, .Op\\(1\\) {',
                 '  opacity: 1;',
                 '}',
                 '.Op\\(1\\)\\! {',
@@ -664,38 +655,6 @@ describe('Atomizer()', function () {
                 '}\n'
             ].join('\n');
             const result = atomizer.getCss(config, {bumpMQ: true});
-            expect(result).to.equal(expected);
-        });
-
-        it ('returns expected css if IE option has been passed', function () {
-            // set rules here so if helper change, we don't fail the test
-            const atomizer = new Atomizer();
-            const config = {
-                classNames: ['Op(.33)', 'D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
-            };
-            const expected = [
-                '.D\\(ib\\) {',
-                '  display: inline-block;',
-                '  *display: inline;',
-                '}',
-                '.D\\(ib\\), .Ov\\(h\\), .Ov\\(s\\), .Ov\\(a\\) {',
-                '  zoom: 1;',
-                '}',
-                '.Op\\(\\.33\\) {',
-                '  opacity: .33;',
-                '  filter: alpha(opacity=33);',
-                '}',
-                '.Ov\\(h\\) {',
-                '  overflow: hidden;',
-                '}',
-                '.Ov\\(s\\) {',
-                '  overflow: scroll;',
-                '}',
-                '.Ov\\(a\\) {',
-                '  overflow: auto;',
-                '}\n'
-            ].join('\n');
-            const result = atomizer.getCss(config, {ie: true});
             expect(result).to.equal(expected);
         });
         it ('returns expected css of a helper class', function () {

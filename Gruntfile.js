@@ -21,7 +21,6 @@ module.exports = function (grunt) {
         atomizer: {
             docs: {
                 options: {
-                    ie: false,
                     configFile: './config/atomic-config.js',
                     configOutput: './build/atomizer.json',
                 },

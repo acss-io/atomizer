@@ -68,12 +68,6 @@ module.exports = function (grunt) {
             }
         }
 
-        if (options.ie) {
-            if (grunt.util.kindOf(options.ie) !== 'boolean') {
-                grunt.fail.warn('`options.ie` must be a boolean.');
-            }
-        }
-
         if (options.bumpMQ) {
             if (grunt.util.kindOf(options.bumpMQ) !== 'boolean') {
                 grunt.fail.warn('`options.bumpMQ` must be a boolean.');
