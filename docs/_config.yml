@@ -6,6 +6,6 @@ defaults:
       path: ""
       type: "pages"
     values:
-      githubDocsPath: "https://github.com/acss-io/acss-site/tree/master/docs/"
+      githubDocsPath: "https://github.com/acss-io/atomizer/tree/master/docs/"
 plugins:
   - jekyll-seo-tag
