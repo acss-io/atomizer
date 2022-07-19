@@ -109,6 +109,30 @@
 .Ac\(st\) {
   align-content: stretch;
 }
+.Jc\(c\) {
+  justify-content: center;
+}
+.Jc\(fe\) {
+  justify-content: flex-end;
+}
+.Jc\(fs\) {
+  justify-content: flex-start;
+}
+.Jc\(l\) {
+  justify-content: left;
+}
+.Jc\(r\) {
+  justify-content: right;
+}
+.Jc\(sa\) {
+  justify-content: space-around;
+}
+.Jc\(sb\) {
+  justify-content: space-between;
+}
+.Jc\(se\) {
+  justify-content: space-evenly;
+}
 .Fl\(start\) {
   float: left;
 }
