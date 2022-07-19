@@ -30,4 +30,4 @@ jobs:
               with:
                   enable_jekyll: true
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./docs/_site
+                  publish_dir: ./docs
