@@ -16,7 +16,6 @@ jobs:
 
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/jekyll-build-pages@v1
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v2
               with:
@@ -32,3 +31,7 @@ jobs:
                   enable_jekyll: true
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./docs/_site
+            # - name: Coveralls
+            #   uses: coverallsapp/github-action@master
+            #   with:
+            #     github-token: ${{ secrets.GITHUB_TOKEN }}
