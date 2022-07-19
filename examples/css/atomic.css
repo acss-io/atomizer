@@ -4,6 +4,12 @@
 .Bgbm\(di\) {
   background-blend-mode: difference;
 }
+.Bgbm\(n\) {
+  background-blend-mode: normal;
+}
+.foo .foo_Bgbm\(h\) {
+  background-blend-mode: hue;
+}
 .Bgc\(\#000\) {
   background-color: #000;
 }
@@ -68,6 +74,12 @@
 .My\(2rem\) {
   margin-top: 2rem;
   margin-bottom: 2rem;
+}
+.bar .bar_Mbm\(s\) {
+  mix-blend-mode: saturation;
+}
+.Mbm\(pl\) {
+  mix-blend-mode: plus-lighter;
 }
 .Mbm\(sc\) {
   mix-blend-mode: screen;
