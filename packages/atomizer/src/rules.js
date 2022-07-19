@@ -32,10 +32,10 @@
  *   "start" and "end".
  * - Rules is written as an array because ORDER is important for the CSS generation.
  **/
+const { baselinePosition, contentDistribution, contentPosition } = require('./boxAlignment');
 const blendModes = require('./blendmodes');
-const mixBlendModes = Object.assign(blendModes, {'pd': 'plus-darker', 'pl': 'plus-lighter'});
 const colors = require('./colors');
-
+const selfPosition = {...contentPosition, 'se': 'self-end', 'ss': 'self-start'};
 module.exports = [
     /**
     ==================================================================
@@ -1396,8 +1396,8 @@ module.exports = [
         }]
     },
     // align-self (previously flex-align)
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
-    // Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-self
     {
         'type': 'pattern',
         'name': 'Align self',
@@ -1408,11 +1408,10 @@ module.exports = [
         },
         'arguments': [{
             'a': 'auto',
-            'fs': 'flex-start',
-            'fe': 'flex-end',
-            'c': 'center',
-            'b': 'baseline',
-            'st': 'stretch'
+            'n': 'normal',
+            's': 'stretch',
+            ...baselinePosition,
+            ...selfPosition
         }]
     },
     // flex-direction
@@ -1485,8 +1484,8 @@ module.exports = [
         }]
     },
     // align-items (previously flex-item-align)
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-align
-    // Latest version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
     {
         'type': 'pattern',
         'name': 'Align items',
@@ -1496,17 +1495,16 @@ module.exports = [
             'align-items': '$0'
         },
         'arguments': [{
-            'fs': 'flex-start',
-            'fe': 'flex-end',
-            'c': 'center',
-            'b': 'baseline',
-            'st': 'stretch'
+            'n': 'normal',
+            's': 'stretch',
+            ...contentDistribution,
+            ...contentPosition
         }]
     },
     // align-content (previously flex-line-pack)
     // Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-line-pack
-    // Latest version: http://www.w3.org/TR/css3-flexbox/#align-content-property
+    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-content-property
+    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-content
     {
         'type': 'pattern',
         'name': 'Align content',
@@ -1516,12 +1514,9 @@ module.exports = [
             'align-content': '$0'
         },
         'arguments': [{
-            'fs': 'flex-start',
-            'fe': 'flex-end',
-            'c': 'center',
-            'sb': 'space-between',
-            'sa': 'space-around',
-            'st': 'stretch'
+            'n': 'normal',
+            ...contentDistribution,
+            ...contentPosition
         }]
     },
     // order (previously flex-order)
@@ -1536,9 +1531,8 @@ module.exports = [
             'order': '$0'
         }
     },
-    // justify-content (previously flex-pack)
-    // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-pack
-    // Latest version: http://www.w3.org/TR/css3-flexbox/#justify-content-property
+    // Previous version: http://www.w3.org/TR/css3-flexbox/#justify-content-property
+    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-justify-content
     {
         'type': 'pattern',
         'name': 'Justify content',
@@ -1548,16 +1542,11 @@ module.exports = [
             'justify-content': '$0'
         },
         'arguments': [{
-            /* Positional alignment */
-            'fs': 'flex-start',
-            'fe': 'flex-end',
-            'c': 'center',
-            
-            /* Distributed alignment */
-            'sb': 'space-between',
-            'sa': 'space-around',
-            'se': 'space-evenly',
-            's':  'stretch'
+            'n': 'normal',
+            'l': 'left',
+            'r': 'right',
+            ...contentDistribution,
+            ...contentPosition
         }]
     },
     // flex-wrap
@@ -1776,6 +1765,24 @@ module.exports = [
             'a': 'auto',
             'n': 'normal',
             'm': 'manual'
+        }]
+    },
+        /**
+    ==================================================================
+    ISOLATE
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Isolation',
+        'matcher': 'I',
+        'allowParamToValue': false,
+        'styles': {
+            'isolation': '$0'
+        },
+        'arguments': [{
+            'a': 'auto',
+            'i': 'isolate',
         }]
     },
     /**
@@ -2081,7 +2088,7 @@ module.exports = [
         'styles': {
             'mix-blend-mode': '$0'
         },
-        'arguments': [mixBlendModes]
+        'arguments': [{...blendModes, 'pd': 'plus-darker', 'pl': 'plus-lighter'}]
     },
     /**
     ==================================================================
