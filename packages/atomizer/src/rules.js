@@ -37,6 +37,9 @@ const blendModes = require('./blendmodes');
 const mixBlendModes = Object.assign(blendModes, {'pd': 'plus-darker', 'pl': 'plus-lighter'});
 const colors = require('./colors');
 const selfPosition = {...contentPosition, 'se': 'self-end', 'ss': 'self-start'};
+
+
+
 module.exports = [
     /**
     ==================================================================
@@ -1410,7 +1413,7 @@ module.exports = [
         'arguments': [{
             'a': 'auto',
             'n': 'normal',
-            's': 'stretch',
+            'st': 'stretch',
             ...baselinePosition,
             ...selfPosition
         }]
