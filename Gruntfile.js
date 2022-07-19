@@ -92,7 +92,7 @@ module.exports = function (grunt) {
 
         watch: {
             docs: {
-                files: ['<%= project.app %>/**/*', '<%= project.docs %>/**/*', '!<%= project.docs %>/_site'],
+                files: ['<%= project.app %>/**/*', '<%= project.docs %>/**/*', '!<%= project.docs %>/_site/**/*'],
                 tasks: ['dev'],
                 options: {
                     spawn: false,
