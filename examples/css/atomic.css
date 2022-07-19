@@ -58,6 +58,12 @@
 .As\(fs\) {
   align-self: flex-start;
 }
+.As\(se\) {
+  align-self: self-end;
+}
+.As\(ss\) {
+  align-self: self-start;
+}
 .As\(st\) {
   align-self: stretch;
 }
