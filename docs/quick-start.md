@@ -8,18 +8,17 @@ title: Quick Start
 
 {% include subhead.html tag="h2" title="Playground" %}
 
-<p>To create a basic Atomic project, clone the <a href="https://github.com/acss-io/atomizer-examples">atomizer-examples</a> repo:</p>
+<p>To create a basic Atomic project, clone the <a href="https://github.com/acss-io/atomizer">atomizer</a> repo:</p>
 
 {% highlight shell %}
-git clone git@github.com:acss-io/atomizer-examples.git
+git clone git@github.com:acss-io/atomizer.git
 {% endhighlight %}
 
-<p>then start:</p>
+<p>then run our simple example dev server:</p>
 
 {% highlight shell %}
-cd atomizer-examples
 npm install
-npm start
+npm run examples
 {% endhighlight %}
 
 <p>This should open a page in your browser at <a href="http://localhost:3000">http://localhost:3000</a></p>
@@ -36,10 +35,10 @@ npm start
 
 {% include subhead.html tag="h2" title="Configuration" %}
 
-<p>Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/example-config.js">this example</a> for more information on how configuration is used in Atomizer.</p>
+<p>Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.js">this example</a> for more information on how configuration is used in Atomizer.</p>
 
 {% include subhead.html tag="h2" title="Next Steps" %}
 
-<p>From here, learn about <a href="/thinking-in-atomic.html">Atomic CSS Architecture</a>, read the <a href="/frequently-asked-questions.html">FAQ</a>, learn more about <a href="/guides/atomic-classes.html">Atomizer</a> classes and their <a href="/guides/syntax.html">syntax</a>.</p>
+<p>From here, learn about <a href="/thinking-in-atomic.html">Atomic CSS Architecture</a>, read the <a href="/frequently-asked-questions.html">FAQ</a>, learn more about <a href="/guides/acss-classes.html">Atomizer</a> classes and their <a href="/guides/syntax.html">syntax</a>.</p>
 
-<p>Please visit the <a href="https://github.com/acss-io/atomizer">Atomizer</a> and <a href="https://github.com/acss-io/grunt-atomizer">grunt-atomizer</a> repositories for more information.</p>
+<p>Please visit the <a href="https://github.com/acss-io/atomizer">Atomizer</a> repository for more information.</p>
