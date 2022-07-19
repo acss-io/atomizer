@@ -1498,6 +1498,7 @@ module.exports = [
         'arguments': [{
             'n': 'normal',
             's': 'stretch',
+            ...baselinePosition,
             ...contentDistribution,
             ...contentPosition
         }]
@@ -1516,6 +1517,7 @@ module.exports = [
         },
         'arguments': [{
             'n': 'normal',
+            ...baselinePosition,
             ...contentDistribution,
             ...contentPosition
         }]
