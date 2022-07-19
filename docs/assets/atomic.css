@@ -115,7 +115,7 @@
 .D\(tb\) {
   display: table;
 }
-.D\(tbc\), .BfcHack {
+.D\(tbc\) {
   display: table-cell;
 }
 .D\(tbfg\) {
@@ -127,7 +127,7 @@
 .home .home_D\(b\)\! {
   display: block !important;
 }
-.subtitle:hover .subtitle\:h_D\(i\) {
+.subhead:hover .subhead\:h_D\(i\) {
   display: inline;
 }
 .Flxg\(1\) {
@@ -433,9 +433,6 @@
 .BdB {
   border-top-width: 0;
   border-bottom-width: 1px;
-}
-.BfcHack {
-  width: 1600px;
 }
 .Ell:after, a[class*=LineClamp]:after {
   content: ".";
