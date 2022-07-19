@@ -42,7 +42,7 @@ program
   .option('--exclude [pattern]', 'excluded file pattern', collect, [])
   .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
   .option('--bump-mq', 'increases specificity of media queries a small amount')
-  .option('--ie', 'adds old IE hacks to the output')
+  .option('--ie', '[deprecated] no longer used')
   .option('--verbose', 'show additional log info (warnings)')
   .option('--quiet', 'hide processing info')
   .parse(process.argv);
@@ -202,11 +202,6 @@ if (typeof programOpts.namespace !== 'undefined') {
 // Options: Helpers Namespace
 if (typeof programOpts.helpersNamespace !== 'undefined') {
     options.helpersNamespace = programOpts.helpersNamespace;
-}
-
-// Options: IE
-if (typeof programOpts.ie !== 'undefined') {
-    options.ie = true;
 }
 
 if (programOpts.watch && programOpts.watch.length) {

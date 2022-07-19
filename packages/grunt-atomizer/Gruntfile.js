@@ -102,21 +102,6 @@ module.exports = function(grunt) {
                         dest: 'tmp/customRuleset.css'
                     }
                 ]
-            },
-            // grunt should add IE hacks if passed
-            ie: {
-                options: {
-                    namespace: '#atomic',
-                    ie: true,
-                    config: {
-                        classNames: ['D(ib)', 'Ov(h)', 'Ov(s)', 'Ov(a)']
-                    }
-                },
-                files: [
-                    {
-                        dest: 'tmp/ie.css'
-                    }
-                ]
             }
         },
 

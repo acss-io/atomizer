@@ -351,22 +351,6 @@ Atomizer.prototype.parseConfig = function (config/*:AtomizerConfig*/, options/*:
         for (const prop in treeo.declarations) {
             if (values) {
                 values.forEach((value, index) => {
-                    // plug IE hacks for know properties
-                    if (options.ie) {
-                        // block formatting context on old IE
-                        /* istanbul ignore else  */
-                        if ((prop === 'display' && value === 'inline-block') || (prop === 'overflow' && value !== 'visible')) {
-                            treeo.declarations.zoom = 1;
-                        }
-                        /* istanbul ignore else  */
-                        if (prop === 'display' && value === 'inline-block') {
-                            treeo.declarations['*display'] = 'inline';
-                        }
-                        /* istanbul ignore else  */
-                        if (prop === 'opacity') {
-                            treeo.declarations.filter = `alpha(opacity=${  parseFloat(value, 10) * 100  })`;
-                        }
-                    }
                     if (value !== null && treeo.declarations) {
                         // value could be an object for custom classes with breakPoints
                         // e.g.
@@ -471,8 +455,7 @@ Atomizer.prototype.getCss = function (config/*:AtomizerConfig*/, options/*:CSSOp
         banner: '',
         bumpMQ: false,
         namespace: null,
-        rtl: false,
-        ie: false
+        rtl: false
     }, options);
 
     // validate config.breakPoints

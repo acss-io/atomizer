@@ -20,7 +20,7 @@ title: Grid system
 
 <p>This styling has great browser support <a href="#footnote">[1]</a> and it is direction-friendly (boxes are displayed according to <code>ltr</code> / <code>rtl</code> contexts).</p>
 
-<p>When creating inline-block constructs, you should use the helper class (<code>IbBox</code>) instead of <code>D(ib)</code> because the former gives you old-IE support plus vertical-alignment (<code>top</code>) for free.</p>
+<p>When creating inline-block constructs, you should use the helper class (<code>IbBox</code>) instead of <code>D(ib)</code> because the former gives you vertical-alignment (<code>top</code>) for free.</p>
 
 {% include subhead.html tag="h4" title="Example" %}
 
@@ -43,11 +43,10 @@ title: Grid system
 <p data-height="190" data-theme-id="12469" data-slug-hash="emMPaw" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/emMPaw/'>emMPaw</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 <div class="noteBox warning">
-    <p><strong>3 things to be aware of when creating <code>inline-block</code> constructs</strong>:</p>
+    <p><strong>Some things to be aware of when creating <code>inline-block</code> constructs</strong>:</p>
     <ol class="ol-list">
        <li>white-space between nodes in the markup creates space between boxes, so make sure to address this by either removing that space altogether, using html comments (<code>&lt;!-- --&gt;</code>), or implementing some other trick like the one used by <a href="http://purecss.io/grids/">PureCSS</a>.</li>
-       <li><code>vertical-align:top</code> is needed to make sure all boxes are top aligned (<code>IbBox</code> takes care of #2 and #3).</li>
-       <li>IE7 <em>doesn&#39;t support</em> <code>display:inline-block</code> but Atomizer takes care of this behind the scenes <a href="#footnote">[1]</a>.</li>
+       <li><code>vertical-align:top</code> is needed to make sure all boxes are top aligned (<code>IbBox</code> takes care of this).</li>
     </ol>
 </div>
 
@@ -143,6 +142,5 @@ title: Grid system
 <hr class="Mt(50px)">
 
 <ol id="footnote" class="ol-list">
-    <li>Atomizer provides a patch for oldIE <a href="#footnote-1">[↩]</a>.</li>
     <li>Atomizer relies on <code>start</code> and <code>end</code> instead of <code>left</code> and <code>right</code> which allows the usage of the <strong>same</strong> classes regardless of script context <a href="#footnote-2">[↩]</a>.</li>
 </ol>

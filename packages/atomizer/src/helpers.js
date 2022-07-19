@@ -147,9 +147,7 @@ module.exports = [
         'noParams': true,
         'styles': {
             'display': 'table-cell',
-            'width': '1600px', /* 1 */
-            '*width': 'auto',
-            'zoom': 1
+            'width': '1600px' /* 1 */
         }
     },
     /**
@@ -164,9 +162,6 @@ module.exports = [
         'link': 'https://acss.io/guides/helper-classes.html#-cf-clearfix-',
         'matcher': 'Cf',
         'noParams': true,
-        'styles': {
-            'zoom': 1
-        },
         'rules': {
             '.Cf:before, .Cf:after': {
                 'content': '" "',
@@ -224,7 +219,6 @@ module.exports = [
         'noParams': true,
         'styles': {
             'position': 'absolute !important',
-            '*clip': 'rect(1px 1px 1px 1px)',
             'clip': 'rect(1px,1px,1px,1px)',
             'padding': '0 !important',
             'border': '0 !important',
@@ -248,8 +242,6 @@ module.exports = [
         'noParams': true,
         'styles': {
             'display': 'inline-block',
-            '*display': 'inline',
-            'zoom': 1,
             'vertical-align': 'top'
         }
     },
@@ -283,9 +275,7 @@ module.exports = [
             },
             'a[class*=LineClamp]': {
                 'display': 'inline-block',
-                'display ': '-webkit-box',
-                '*display': 'inline',
-                'zoom': 1
+                'display ': '-webkit-box'
             },
             /**
             * Fix WebKit bug that displays ellipsis in middle of text inside *LINKS*
@@ -322,10 +312,7 @@ module.exports = [
             'display': 'inline-block',
             'vertical-align': 'top',
             'width': '100%',
-            'box-sizing': 'border-box',
-            '*display': 'block',
-            '*width': 'auto',
-            'zoom': 1
+            'box-sizing': 'border-box'
         }
     },
     /**
@@ -347,23 +334,6 @@ module.exports = [
             'right': 0,
             'bottom': 0,
             'left': 0
-        }
-    },
-    /**
-    ==================================================================
-    Zoom
-    hack for oldIE to create a "block-formatting context"
-    ==================================================================
-    */
-    {
-        'type': 'helper',
-        'name': 'Zoom',
-        'description': "Gives a box 'layout' in old versions of Internet Explorer",
-        'link': 'https://acss.io/guides/helper-classes.html#-zoom-',
-        'matcher': 'Zoom',
-        'noParams': true,
-        'styles': {
-            'zoom': '1'
         }
     }
 ];

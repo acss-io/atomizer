@@ -58,8 +58,6 @@ title: Helper classes
 
 <p class="noteBox warning">Note that this is a hack and may break if the content of the box is too large or if the box is next to floats.</p>
 
-<p class="noteBox info">Atomizer plugs <code>zoom:1</code> along with <code>overflow:hidden</code> whenever you use the class <code>Ov(h)</code>. This is because <code>overflow:hidden</code> does not create a block-formatting context in old IE but <code>zoom</code> does.</p>
-
 {% include subhead.html tag="h2" title="<code>Cf</code> (Clearfix)" %}
 
 <p>Use <code>Cf</code> for <a href="http://yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified/">clearfix</a>.</p>
@@ -94,13 +92,12 @@ title: Helper classes
 
 {% highlight css %}
 display: inline-block;
-*display: inline;
-zoom: 1;
-vertical-align: top;{% endhighlight %}
+vertical-align: top;
+{% endhighlight %}
 
 {% highlight html %}
-   <div class="IbBox W(50%) Ta(c) Bgc(#0280ae.5) C(#fff)">Box-1</div>
-   <div class="IbBox W(50%) Ta(c) Bgc(#0280ae) C(#fff)">Box-2</div>
+   <div class="IbBox W(50%) Ta(c) Bgc(#0280ae.5) C(#fff)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(#0280ae) C(#fff)">Box-2</div>
 {% endhighlight %}
 
 <p>Example:</p>
@@ -174,10 +171,6 @@ left: 0;
 <div class="Pos(r) H(0) Pt(10%)">
     <div class="StretchedBox Bgc(#0280ae) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
-
-{% include subhead.html tag="h2" title="<code>Zoom</code>" %}
-
-<p>Use the class <code>Zoom</code> if you support old versions of IE and need to <a href="http://www.satzansatz.de/cssd/onhavinglayout.html">give a box a layout</a>.</p>
 
 <hr class="Mt(50px)">
 

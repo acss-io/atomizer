@@ -95,15 +95,5 @@ exports.atomizer = {
         test.equal(actual, expected, 'should generate the expected css when using a custom ruleset.');
 
         test.done();
-    },
-    ie: function(test) {
-        test.expect(1);
-
-        const actual = grunt.file.read('tmp/ie.css');
-        const expected = grunt.file.read('test/expected/ie.css');
-
-        test.equal(actual, expected, 'should generate the expected css with ie hacks if options is set to true.');
-
-        test.done();
     }
 };
