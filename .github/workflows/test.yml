@@ -24,6 +24,13 @@ jobs:
             - run: npm run lint
             - run: npm run build
             - run: npm test
+            - name: Deploy
+              if: ${{ github.ref == 'refs/heads/master' }}
+              uses: peaceiris/actions-gh-pages@v3
+              with:
+                  enable_jekyll: true
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  publish_dir: ./docs/_site
             # - name: Coveralls
             #   uses: coverallsapp/github-action@master
             #   with:
