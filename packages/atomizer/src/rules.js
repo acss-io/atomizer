@@ -34,6 +34,7 @@
  **/
 const { baselinePosition, contentDistribution, contentPosition } = require('./boxAlignment');
 const blendModes = require('./blendmodes');
+const mixBlendModes = Object.assign(blendModes, {'pd': 'plus-darker', 'pl': 'plus-lighter'});
 const colors = require('./colors');
 const selfPosition = {...contentPosition, 'se': 'self-end', 'ss': 'self-start'};
 module.exports = [
@@ -2088,7 +2089,7 @@ module.exports = [
         'styles': {
             'mix-blend-mode': '$0'
         },
-        'arguments': [{...blendModes, 'pd': 'plus-darker', 'pl': 'plus-lighter'}]
+        'arguments': [mixBlendModes]
     },
     /**
     ==================================================================
