@@ -1781,7 +1781,7 @@ module.exports = [
     {
         'type': 'pattern',
         'name': 'Isolation',
-        'matcher': 'I',
+        'matcher': 'Iso',
         'allowParamToValue': false,
         'styles': {
             'isolation': '$0'
