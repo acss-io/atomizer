@@ -5,8 +5,9 @@ title: Box level alignment
 ---
 
 <p>These examples shows different ways relating to the alignment of boxes within their containers in the various CSS box layout models: block layout, table layout, flex layout</p>
-<p>**Note:** Grid is not currently supported</p>
-
+<p class="noteBox warning">
+    <b class="Fw(b)">NOTE:</b> Grid is not currently supported
+</p>
 {% include subhead.html tag="h3" title="<code>align-content</code> construct" %}
 
 <p>Aligns the contents of the box as a whole (as the alignment subject) within the box itself along the block/column/cross axis of the box. Following example shows <code>Ac(sb)</code>, <b class="Fw(b)">align-content: Space between</b></p>
