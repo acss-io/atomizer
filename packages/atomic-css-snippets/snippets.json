@@ -6173,6 +6173,139 @@
         ],
         "description": "Bg(t)"
     },
+    "Bgbm(<custom-param>)": {
+        "prefix": "background-blend-mode",
+        "body": [
+            "Bgbm(${1:<custom-param>})"
+        ],
+        "description": "Bgbm(<custom-param>)"
+    },
+    "Bgbm(c)": {
+        "prefix": "background-blend-mode: color",
+        "body": [
+            "Bgbm(c)"
+        ],
+        "description": "Bgbm(c)"
+    },
+    "Bgbm(cb)": {
+        "prefix": "background-blend-mode: color-burn",
+        "body": [
+            "Bgbm(cb)"
+        ],
+        "description": "Bgbm(cb)"
+    },
+    "Bgbm(cd)": {
+        "prefix": "background-blend-mode: color-dodge",
+        "body": [
+            "Bgbm(cd)"
+        ],
+        "description": "Bgbm(cd)"
+    },
+    "Bgbm(d)": {
+        "prefix": "background-blend-mode: darken",
+        "body": [
+            "Bgbm(d)"
+        ],
+        "description": "Bgbm(d)"
+    },
+    "Bgbm(di)": {
+        "prefix": "background-blend-mode: difference",
+        "body": [
+            "Bgbm(di)"
+        ],
+        "description": "Bgbm(di)"
+    },
+    "Bgbm(e)": {
+        "prefix": "background-blend-mode: exclusion",
+        "body": [
+            "Bgbm(e)"
+        ],
+        "description": "Bgbm(e)"
+    },
+    "Bgbm(h)": {
+        "prefix": "background-blend-mode: hue",
+        "body": [
+            "Bgbm(h)"
+        ],
+        "description": "Bgbm(h)"
+    },
+    "Bgbm(hl)": {
+        "prefix": "background-blend-mode: hard-light",
+        "body": [
+            "Bgbm(hl)"
+        ],
+        "description": "Bgbm(hl)"
+    },
+    "Bgbm(l)": {
+        "prefix": "background-blend-mode: lighten",
+        "body": [
+            "Bgbm(l)"
+        ],
+        "description": "Bgbm(l)"
+    },
+    "Bgbm(lu)": {
+        "prefix": "background-blend-mode: luminosity",
+        "body": [
+            "Bgbm(lu)"
+        ],
+        "description": "Bgbm(lu)"
+    },
+    "Bgbm(m)": {
+        "prefix": "background-blend-mode: multiply",
+        "body": [
+            "Bgbm(m)"
+        ],
+        "description": "Bgbm(m)"
+    },
+    "Bgbm(n)": {
+        "prefix": "background-blend-mode: normal",
+        "body": [
+            "Bgbm(n)"
+        ],
+        "description": "Bgbm(n)"
+    },
+    "Bgbm(o)": {
+        "prefix": "background-blend-mode: overlay",
+        "body": [
+            "Bgbm(o)"
+        ],
+        "description": "Bgbm(o)"
+    },
+    "Bgbm(s)": {
+        "prefix": "background-blend-mode: saturation",
+        "body": [
+            "Bgbm(s)"
+        ],
+        "description": "Bgbm(s)"
+    },
+    "Bgbm(sc)": {
+        "prefix": "background-blend-mode: screen",
+        "body": [
+            "Bgbm(sc)"
+        ],
+        "description": "Bgbm(sc)"
+    },
+    "Bgbm(sl)": {
+        "prefix": "background-blend-mode: soft-light",
+        "body": [
+            "Bgbm(sl)"
+        ],
+        "description": "Bgbm(sl)"
+    },
+    "Bgbm(pd)": {
+        "prefix": "background-blend-mode: plus-darker",
+        "body": [
+            "Bgbm(pd)"
+        ],
+        "description": "Bgbm(pd)"
+    },
+    "Bgbm(pl)": {
+        "prefix": "background-blend-mode: plus-lighter",
+        "body": [
+            "Bgbm(pl)"
+        ],
+        "description": "Bgbm(pl)"
+    },
     "Bgi(<custom-param>)": {
         "prefix": "background-image",
         "body": [
@@ -9624,26 +9757,19 @@
         ],
         "description": "As(a)"
     },
-    "As(fs)": {
-        "prefix": "align-self: flex-start",
+    "As(n)": {
+        "prefix": "align-self: normal",
         "body": [
-            "As(fs)"
+            "As(n)"
         ],
-        "description": "As(fs)"
+        "description": "As(n)"
     },
-    "As(fe)": {
-        "prefix": "align-self: flex-end",
+    "As(st)": {
+        "prefix": "align-self: stretch",
         "body": [
-            "As(fe)"
+            "As(st)"
         ],
-        "description": "As(fe)"
-    },
-    "As(c)": {
-        "prefix": "align-self: center",
-        "body": [
-            "As(c)"
-        ],
-        "description": "As(c)"
+        "description": "As(st)"
     },
     "As(b)": {
         "prefix": "align-self: baseline",
@@ -9652,12 +9778,40 @@
         ],
         "description": "As(b)"
     },
-    "As(st)": {
-        "prefix": "align-self: stretch",
+    "As(c)": {
+        "prefix": "align-self: center",
         "body": [
-            "As(st)"
+            "As(c)"
         ],
-        "description": "As(st)"
+        "description": "As(c)"
+    },
+    "As(fe)": {
+        "prefix": "align-self: flex-end",
+        "body": [
+            "As(fe)"
+        ],
+        "description": "As(fe)"
+    },
+    "As(fs)": {
+        "prefix": "align-self: flex-start",
+        "body": [
+            "As(fs)"
+        ],
+        "description": "As(fs)"
+    },
+    "As(se)": {
+        "prefix": "align-self: self-end",
+        "body": [
+            "As(se)"
+        ],
+        "description": "As(se)"
+    },
+    "As(ss)": {
+        "prefix": "align-self: self-start",
+        "body": [
+            "As(ss)"
+        ],
+        "description": "As(ss)"
     },
     "Fld(<custom-param>)": {
         "prefix": "flex-direction",
@@ -9848,26 +10002,12 @@
         ],
         "description": "Ai(<custom-param>)"
     },
-    "Ai(fs)": {
-        "prefix": "align-items: flex-start",
+    "Ai(n)": {
+        "prefix": "align-items: normal",
         "body": [
-            "Ai(fs)"
+            "Ai(n)"
         ],
-        "description": "Ai(fs)"
-    },
-    "Ai(fe)": {
-        "prefix": "align-items: flex-end",
-        "body": [
-            "Ai(fe)"
-        ],
-        "description": "Ai(fe)"
-    },
-    "Ai(c)": {
-        "prefix": "align-items: center",
-        "body": [
-            "Ai(c)"
-        ],
-        "description": "Ai(c)"
+        "description": "Ai(n)"
     },
     "Ai(b)": {
         "prefix": "align-items: baseline",
@@ -9876,12 +10016,54 @@
         ],
         "description": "Ai(b)"
     },
+    "Ai(sa)": {
+        "prefix": "align-items: space-around",
+        "body": [
+            "Ai(sa)"
+        ],
+        "description": "Ai(sa)"
+    },
+    "Ai(sb)": {
+        "prefix": "align-items: space-between",
+        "body": [
+            "Ai(sb)"
+        ],
+        "description": "Ai(sb)"
+    },
+    "Ai(se)": {
+        "prefix": "align-items: space-evenly",
+        "body": [
+            "Ai(se)"
+        ],
+        "description": "Ai(se)"
+    },
     "Ai(st)": {
         "prefix": "align-items: stretch",
         "body": [
             "Ai(st)"
         ],
         "description": "Ai(st)"
+    },
+    "Ai(c)": {
+        "prefix": "align-items: center",
+        "body": [
+            "Ai(c)"
+        ],
+        "description": "Ai(c)"
+    },
+    "Ai(fe)": {
+        "prefix": "align-items: flex-end",
+        "body": [
+            "Ai(fe)"
+        ],
+        "description": "Ai(fe)"
+    },
+    "Ai(fs)": {
+        "prefix": "align-items: flex-start",
+        "body": [
+            "Ai(fs)"
+        ],
+        "description": "Ai(fs)"
     },
     "Ac(<custom-param>)": {
         "prefix": "align-content",
@@ -9890,33 +10072,19 @@
         ],
         "description": "Ac(<custom-param>)"
     },
-    "Ac(fs)": {
-        "prefix": "align-content: flex-start",
+    "Ac(n)": {
+        "prefix": "align-content: normal",
         "body": [
-            "Ac(fs)"
+            "Ac(n)"
         ],
-        "description": "Ac(fs)"
+        "description": "Ac(n)"
     },
-    "Ac(fe)": {
-        "prefix": "align-content: flex-end",
+    "Ac(b)": {
+        "prefix": "align-content: baseline",
         "body": [
-            "Ac(fe)"
+            "Ac(b)"
         ],
-        "description": "Ac(fe)"
-    },
-    "Ac(c)": {
-        "prefix": "align-content: center",
-        "body": [
-            "Ac(c)"
-        ],
-        "description": "Ac(c)"
-    },
-    "Ac(sb)": {
-        "prefix": "align-content: space-between",
-        "body": [
-            "Ac(sb)"
-        ],
-        "description": "Ac(sb)"
+        "description": "Ac(b)"
     },
     "Ac(sa)": {
         "prefix": "align-content: space-around",
@@ -9925,12 +10093,47 @@
         ],
         "description": "Ac(sa)"
     },
+    "Ac(sb)": {
+        "prefix": "align-content: space-between",
+        "body": [
+            "Ac(sb)"
+        ],
+        "description": "Ac(sb)"
+    },
+    "Ac(se)": {
+        "prefix": "align-content: space-evenly",
+        "body": [
+            "Ac(se)"
+        ],
+        "description": "Ac(se)"
+    },
     "Ac(st)": {
         "prefix": "align-content: stretch",
         "body": [
             "Ac(st)"
         ],
         "description": "Ac(st)"
+    },
+    "Ac(c)": {
+        "prefix": "align-content: center",
+        "body": [
+            "Ac(c)"
+        ],
+        "description": "Ac(c)"
+    },
+    "Ac(fe)": {
+        "prefix": "align-content: flex-end",
+        "body": [
+            "Ac(fe)"
+        ],
+        "description": "Ac(fe)"
+    },
+    "Ac(fs)": {
+        "prefix": "align-content: flex-start",
+        "body": [
+            "Ac(fs)"
+        ],
+        "description": "Ac(fs)"
     },
     "Or(<value>)": {
         "prefix": "order",
@@ -9946,33 +10149,33 @@
         ],
         "description": "Jc(<custom-param>)"
     },
-    "Jc(fs)": {
-        "prefix": "justify-content: flex-start",
+    "Jc(n)": {
+        "prefix": "justify-content: normal",
         "body": [
-            "Jc(fs)"
+            "Jc(n)"
         ],
-        "description": "Jc(fs)"
+        "description": "Jc(n)"
     },
-    "Jc(fe)": {
-        "prefix": "justify-content: flex-end",
+    "Jc(l)": {
+        "prefix": "justify-content: left",
         "body": [
-            "Jc(fe)"
+            "Jc(l)"
         ],
-        "description": "Jc(fe)"
+        "description": "Jc(l)"
     },
-    "Jc(c)": {
-        "prefix": "justify-content: center",
+    "Jc(r)": {
+        "prefix": "justify-content: right",
         "body": [
-            "Jc(c)"
+            "Jc(r)"
         ],
-        "description": "Jc(c)"
+        "description": "Jc(r)"
     },
-    "Jc(sb)": {
-        "prefix": "justify-content: space-between",
+    "Jc(s)": {
+        "prefix": "justify-content: stretch",
         "body": [
-            "Jc(sb)"
+            "Jc(s)"
         ],
-        "description": "Jc(sb)"
+        "description": "Jc(s)"
     },
     "Jc(sa)": {
         "prefix": "justify-content: space-around",
@@ -9981,6 +10184,13 @@
         ],
         "description": "Jc(sa)"
     },
+    "Jc(sb)": {
+        "prefix": "justify-content: space-between",
+        "body": [
+            "Jc(sb)"
+        ],
+        "description": "Jc(sb)"
+    },
     "Jc(se)": {
         "prefix": "justify-content: space-evenly",
         "body": [
@@ -9988,12 +10198,33 @@
         ],
         "description": "Jc(se)"
     },
-    "Jc(s)": {
+    "Jc(st)": {
         "prefix": "justify-content: stretch",
         "body": [
-            "Jc(s)"
+            "Jc(st)"
         ],
-        "description": "Jc(s)"
+        "description": "Jc(st)"
+    },
+    "Jc(c)": {
+        "prefix": "justify-content: center",
+        "body": [
+            "Jc(c)"
+        ],
+        "description": "Jc(c)"
+    },
+    "Jc(fe)": {
+        "prefix": "justify-content: flex-end",
+        "body": [
+            "Jc(fe)"
+        ],
+        "description": "Jc(fe)"
+    },
+    "Jc(fs)": {
+        "prefix": "justify-content: flex-start",
+        "body": [
+            "Jc(fs)"
+        ],
+        "description": "Jc(fs)"
     },
     "Flw(<custom-param>)": {
         "prefix": "flex-wrap",
@@ -10379,6 +10610,27 @@
             "Hy(m)"
         ],
         "description": "Hy(m)"
+    },
+    "Iso(<custom-param>)": {
+        "prefix": "isolation",
+        "body": [
+            "Iso(${1:<custom-param>})"
+        ],
+        "description": "Iso(<custom-param>)"
+    },
+    "Iso(a)": {
+        "prefix": "isolation: auto",
+        "body": [
+            "Iso(a)"
+        ],
+        "description": "Iso(a)"
+    },
+    "Iso(i)": {
+        "prefix": "isolation: isolate",
+        "body": [
+            "Iso(i)"
+        ],
+        "description": "Iso(i)"
     },
     "Lts(<value>)": {
         "prefix": "letter-spacing",
@@ -10870,6 +11122,139 @@
         ],
         "description": "Miw(minc)"
     },
+    "Mbm(<custom-param>)": {
+        "prefix": "mix-blend-mode",
+        "body": [
+            "Mbm(${1:<custom-param>})"
+        ],
+        "description": "Mbm(<custom-param>)"
+    },
+    "Mbm(c)": {
+        "prefix": "mix-blend-mode: color",
+        "body": [
+            "Mbm(c)"
+        ],
+        "description": "Mbm(c)"
+    },
+    "Mbm(cb)": {
+        "prefix": "mix-blend-mode: color-burn",
+        "body": [
+            "Mbm(cb)"
+        ],
+        "description": "Mbm(cb)"
+    },
+    "Mbm(cd)": {
+        "prefix": "mix-blend-mode: color-dodge",
+        "body": [
+            "Mbm(cd)"
+        ],
+        "description": "Mbm(cd)"
+    },
+    "Mbm(d)": {
+        "prefix": "mix-blend-mode: darken",
+        "body": [
+            "Mbm(d)"
+        ],
+        "description": "Mbm(d)"
+    },
+    "Mbm(di)": {
+        "prefix": "mix-blend-mode: difference",
+        "body": [
+            "Mbm(di)"
+        ],
+        "description": "Mbm(di)"
+    },
+    "Mbm(e)": {
+        "prefix": "mix-blend-mode: exclusion",
+        "body": [
+            "Mbm(e)"
+        ],
+        "description": "Mbm(e)"
+    },
+    "Mbm(h)": {
+        "prefix": "mix-blend-mode: hue",
+        "body": [
+            "Mbm(h)"
+        ],
+        "description": "Mbm(h)"
+    },
+    "Mbm(hl)": {
+        "prefix": "mix-blend-mode: hard-light",
+        "body": [
+            "Mbm(hl)"
+        ],
+        "description": "Mbm(hl)"
+    },
+    "Mbm(l)": {
+        "prefix": "mix-blend-mode: lighten",
+        "body": [
+            "Mbm(l)"
+        ],
+        "description": "Mbm(l)"
+    },
+    "Mbm(lu)": {
+        "prefix": "mix-blend-mode: luminosity",
+        "body": [
+            "Mbm(lu)"
+        ],
+        "description": "Mbm(lu)"
+    },
+    "Mbm(m)": {
+        "prefix": "mix-blend-mode: multiply",
+        "body": [
+            "Mbm(m)"
+        ],
+        "description": "Mbm(m)"
+    },
+    "Mbm(n)": {
+        "prefix": "mix-blend-mode: normal",
+        "body": [
+            "Mbm(n)"
+        ],
+        "description": "Mbm(n)"
+    },
+    "Mbm(o)": {
+        "prefix": "mix-blend-mode: overlay",
+        "body": [
+            "Mbm(o)"
+        ],
+        "description": "Mbm(o)"
+    },
+    "Mbm(s)": {
+        "prefix": "mix-blend-mode: saturation",
+        "body": [
+            "Mbm(s)"
+        ],
+        "description": "Mbm(s)"
+    },
+    "Mbm(sc)": {
+        "prefix": "mix-blend-mode: screen",
+        "body": [
+            "Mbm(sc)"
+        ],
+        "description": "Mbm(sc)"
+    },
+    "Mbm(sl)": {
+        "prefix": "mix-blend-mode: soft-light",
+        "body": [
+            "Mbm(sl)"
+        ],
+        "description": "Mbm(sl)"
+    },
+    "Mbm(pd)": {
+        "prefix": "mix-blend-mode: plus-darker",
+        "body": [
+            "Mbm(pd)"
+        ],
+        "description": "Mbm(pd)"
+    },
+    "Mbm(pl)": {
+        "prefix": "mix-blend-mode: plus-lighter",
+        "body": [
+            "Mbm(pl)"
+        ],
+        "description": "Mbm(pl)"
+    },
     "Objf(<custom-param>)": {
         "prefix": "object-fit",
         "body": [
@@ -10932,6 +11317,13 @@
             "O(n)"
         ],
         "description": "O(n)"
+    },
+    "Oo(<value>)": {
+        "prefix": "outline-offset",
+        "body": [
+            "Oo(${1:<value>})"
+        ],
+        "description": "Oo(<value>)"
     },
     "T(<value>)": {
         "prefix": "top",
