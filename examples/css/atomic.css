@@ -4,6 +4,12 @@
 .Bgbm\(di\) {
   background-blend-mode: difference;
 }
+.Bgbm\(n\) {
+  background-blend-mode: normal;
+}
+.foo .foo_Bgbm\(h\) {
+  background-blend-mode: hue;
+}
 .Bgc\(\#000\) {
   background-color: #000;
 }
@@ -40,14 +46,110 @@
 .D\(n\)\! {
   display: none !important;
 }
+.As\(b\) {
+  align-self: baseline;
+}
+.As\(c\) {
+  align-self: center;
+}
+.As\(fe\) {
+  align-self: flex-end;
+}
+.As\(fs\) {
+  align-self: flex-start;
+}
+.As\(se\) {
+  align-self: self-end;
+}
+.As\(ss\) {
+  align-self: self-start;
+}
+.As\(st\) {
+  align-self: stretch;
+}
+.Fld\(c\) {
+  flex-direction: column;
+}
+.Fxf\(w\) {
+  flex-flow: wrap;
+}
+.Ai\(b\) {
+  align-items: baseline;
+}
+.Ai\(c\) {
+  align-items: center;
+}
+.Ai\(fe\) {
+  align-items: flex-end;
+}
+.Ai\(fs\) {
+  align-items: flex-start;
+}
+.Ai\(st\) {
+  align-items: stretch;
+}
+.Ac\(c\) {
+  align-content: center;
+}
+.Ac\(fe\) {
+  align-content: flex-end;
+}
+.Ac\(fs\) {
+  align-content: flex-start;
+}
+.Ac\(sa\) {
+  align-content: space-around;
+}
+.Ac\(sb\) {
+  align-content: space-between;
+}
+.Ac\(se\) {
+  align-content: space-evenly;
+}
+.Ac\(st\) {
+  align-content: stretch;
+}
+.Jc\(c\) {
+  justify-content: center;
+}
+.Jc\(fe\) {
+  justify-content: flex-end;
+}
+.Jc\(fs\) {
+  justify-content: flex-start;
+}
+.Jc\(l\) {
+  justify-content: left;
+}
+.Jc\(r\) {
+  justify-content: right;
+}
+.Jc\(sa\) {
+  justify-content: space-around;
+}
+.Jc\(sb\) {
+  justify-content: space-between;
+}
+.Jc\(se\) {
+  justify-content: space-evenly;
+}
 .Fl\(start\) {
   float: left;
 }
 .Fz\(2rem\) {
   font-size: 2rem;
 }
+.Gp\(10px\) {
+  gap: 10px;
+}
 .H\(100\%\) {
   height: 100%;
+}
+.H\(200px\) {
+  height: 200px;
+}
+.H\(20px\) {
+  height: 20px;
 }
 .H\(300px\) {
   height: 300px;
@@ -69,11 +171,26 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.Mend\(10px\) {
+  margin-right: 10px;
+}
+.Mb\(10px\) {
+  margin-bottom: 10px;
+}
+.bar .bar_Mbm\(s\) {
+  mix-blend-mode: saturation;
+}
+.Mbm\(pl\) {
+  mix-blend-mode: plus-lighter;
+}
 .Mbm\(sc\) {
   mix-blend-mode: screen;
 }
 .Op\(1\)\! {
   opacity: 1 !important;
+}
+.P\(10px\) {
+  padding: 10px;
 }
 .P\(1rem\) {
   padding: 1rem;
@@ -105,14 +222,20 @@
 .W\(10\/12\) {
   width: 83.3333%;
 }
+.W\(100\%\), .W\(12\/12\) {
+  width: 100%;
+}
 .W\(11\/12\) {
   width: 91.6667%;
 }
-.W\(12\/12\) {
-  width: 100%;
+.W\(160px\) {
+  width: 160px;
 }
 .W\(2\/12\) {
   width: 16.6667%;
+}
+.W\(20px\) {
+  width: 20px;
 }
 .W\(3\/12\) {
   width: 25%;
