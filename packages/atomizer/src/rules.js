@@ -1497,10 +1497,11 @@ module.exports = [
             'align-items': '$0'
         },
         'arguments': [{
+            'a': 'auto',
             'n': 'normal',
+            'st': 'stretch',
             ...baselinePosition,
-            ...contentDistribution,
-            ...contentPosition
+            ...selfPosition
         }]
     },
     // align-content (previously flex-line-pack)
