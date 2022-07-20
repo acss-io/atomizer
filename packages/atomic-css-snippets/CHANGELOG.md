@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.4]
+
+- Update snippet definitions for atomizer@3.16.1
+
 ## [1.0.3]
 
 - Update snippet definitions for atomizer@3.16.0

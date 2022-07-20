@@ -10009,40 +10009,19 @@
         ],
         "description": "Ai(n)"
     },
-    "Ai(b)": {
-        "prefix": "align-items: baseline",
-        "body": [
-            "Ai(b)"
-        ],
-        "description": "Ai(b)"
-    },
-    "Ai(sa)": {
-        "prefix": "align-items: space-around",
-        "body": [
-            "Ai(sa)"
-        ],
-        "description": "Ai(sa)"
-    },
-    "Ai(sb)": {
-        "prefix": "align-items: space-between",
-        "body": [
-            "Ai(sb)"
-        ],
-        "description": "Ai(sb)"
-    },
-    "Ai(se)": {
-        "prefix": "align-items: space-evenly",
-        "body": [
-            "Ai(se)"
-        ],
-        "description": "Ai(se)"
-    },
     "Ai(st)": {
         "prefix": "align-items: stretch",
         "body": [
             "Ai(st)"
         ],
         "description": "Ai(st)"
+    },
+    "Ai(b)": {
+        "prefix": "align-items: baseline",
+        "body": [
+            "Ai(b)"
+        ],
+        "description": "Ai(b)"
     },
     "Ai(c)": {
         "prefix": "align-items: center",
@@ -10064,6 +10043,20 @@
             "Ai(fs)"
         ],
         "description": "Ai(fs)"
+    },
+    "Ai(se)": {
+        "prefix": "align-items: self-end",
+        "body": [
+            "Ai(se)"
+        ],
+        "description": "Ai(se)"
+    },
+    "Ai(ss)": {
+        "prefix": "align-items: self-start",
+        "body": [
+            "Ai(ss)"
+        ],
+        "description": "Ai(ss)"
     },
     "Ac(<custom-param>)": {
         "prefix": "align-content",
