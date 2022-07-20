@@ -1497,7 +1497,6 @@ module.exports = [
             'align-items': '$0'
         },
         'arguments': [{
-            'a': 'auto',
             'n': 'normal',
             'st': 'stretch',
             ...baselinePosition,
