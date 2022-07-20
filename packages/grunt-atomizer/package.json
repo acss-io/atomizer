@@ -22,6 +22,10 @@
     "type": "git",
     "url": "git://github.com/acss-io/atomizer.git"
   },
+  "files": [
+    "tasks",
+    "*.js"
+  ],
   "scripts": {
     "lint": "eslint --ext .js .",
     "lint:fix": "eslint --ext .js . --fix",

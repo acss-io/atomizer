@@ -31,5 +31,9 @@
         "directory": "webpack-atomizer-loader",
         "type": "git",
         "url": "git://github.com/acss-io/atomizer.git"
-    }
+    },
+    "files": [
+        "dist",
+        "*.js"
+    ]
 }
