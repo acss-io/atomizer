@@ -1498,9 +1498,9 @@ module.exports = [
         },
         'arguments': [{
             'n': 'normal',
+            'st': 'stretch',
             ...baselinePosition,
-            ...contentDistribution,
-            ...contentPosition
+            ...selfPosition
         }]
     },
     // align-content (previously flex-line-pack)
