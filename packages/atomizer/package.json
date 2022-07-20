@@ -18,6 +18,11 @@
       "email": "thierryk@yahooinc.com"
     }
   ],
+  "files": [
+    "bin",
+    "src",
+    "*.d.ts"
+  ],
   "scripts": {
     "lint": "eslint --ext .js .",
     "lint:fix": "eslint --ext .js . --fix",
