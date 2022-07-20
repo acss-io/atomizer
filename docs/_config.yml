@@ -1,11 +1,11 @@
 title: Atomizer
-description: "A CSS utility for component-based websites"
+description: 'A CSS utility for component-based websites'
+baseurl: '/'
 defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      githubDocsPath: "https://github.com/acss-io/atomizer/tree/master/docs/"
+    - scope:
+          path: ''
+          type: 'pages'
+      values:
+          githubDocsPath: 'https://github.com/acss-io/atomizer/tree/master/docs/'
 plugins:
-  - jekyll-seo-tag
+    - jekyll-seo-tag
