@@ -19,11 +19,9 @@ build/
 docs/_site
 docs/.jekyll-metadata
 docs/.sass-cache/
-# docs/assets/atomic.css
-# docs/assets/main.css
-# docs/assets/js/main.js
-# docs/assets/js/main.js.LICENSE.txt
-# docs/assets/js/main.js.map
+docs/assets/atomic.css
+docs/assets/main.css
+docs/assets/js/main.*
 vendor/bundle
 
 # grunt-nodemon
