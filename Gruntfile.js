@@ -26,7 +26,12 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['<%= project.app %>/components/**/*.jsx', '<%= project.docs %>/**/*.md', '<%= project.docs %>/**/*.html'],
+                        src: [
+                            '<%= project.app %>/components/**/*.jsx',
+                            '<%= project.docs %>/**/*.md',
+                            '<%= project.docs %>/**/*.html',
+                            '<%= project.docs %>/assets/js/*.js'
+                        ],
                         dest: '<%= project.docs %>/assets/atomic.css',
                     },
                 ],

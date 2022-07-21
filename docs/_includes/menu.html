@@ -1,8 +1,15 @@
+<form id="search" class="D(n) Mb(20px)">
+    <label for="q" class="Hidden">Site Search:</label>
+    <input type="text" name="search" placeholder="Search" id="q" autocomplete="off" class="Px(10px) Py(5px) C(brandColor) Fw(b) Bd Bdc(light) Bdc(brandColor):f">
+    <div id="results" class="D(n) Z(3) W(30rem) Bgc(#efefef) Bxsh(light)"></div>
+</form>
+
 <ul class="M(0) P(0)">
     <li class="{% if page.url == '/quick-start.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/quick-start.html" | relative_url }}">Quick Start</a></li>
     <li class="{% if page.url == '/thinking-in-atomic.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/thinking-in-atomic.html" | relative_url }}">Thinking in Atomic</a></li>
     <li class="{% if page.url == '/frequently-asked-questions.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/frequently-asked-questions.html" | relative_url }}">FAQ</a></li>
 </ul>
+
 <h3 class="Fz(14px) BdT Fw(n) Pt(20px)">GUIDES</h3>
 <ul class="M(0) P(0)">
     <li class="{% if page.url == '/guides/acss-classes.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/acss-classes.html" | relative_url }}">ACSS classes</a></li>
@@ -10,11 +17,13 @@
     <li class="{% if page.url == '/guides/syntax.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/syntax.html" | relative_url }}">Class syntax</a></li>
     <li class="{% if page.url == '/guides/shorthand.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/shorthand.html" | relative_url }}">Shorthand</a></li>
 </ul>
+
 <h3 class="Fz(14px) BdT Fw(n) Pt(20px)">TOOLS</h3>
 <ul class="M(0) P(0)">
     <li class="{% if page.url == '/guides/atomizer.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/atomizer.html" | relative_url }}">Atomizer</a></li>
     <li class="{% if page.url == '/guides/extensions.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/extensions.html" | relative_url }}">Extensions</a></li>
 </ul>
+
 <h3 class="Fz(14px) BdT Fw(n) Pt(20px)">TUTORIALS</h3>
 <ul class="M(0) P(0)">
     <li class="{% if page.url == '/tutorials/grid-system.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/grid-system.html" | relative_url }}">Grid system</a></li>
