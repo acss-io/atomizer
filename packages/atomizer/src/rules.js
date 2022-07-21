@@ -38,6 +38,9 @@ const mixBlendModes = Object.assign(blendModes, {'pd': 'plus-darker', 'pl': 'plu
 const colors = require('./colors');
 const selfPosition = {...contentPosition, 'se': 'self-end', 'ss': 'self-start'};
 
+// not adding to utils so it doesn't get bundled to the client
+const sortKeys = (obj) => Object.keys(obj).sort().reduce((acc, key) => { acc[key] = obj[key]; return acc; }, {});
+
 module.exports = [
     /**
     ==================================================================
@@ -1408,13 +1411,13 @@ module.exports = [
         'styles': {
             'align-self': '$0'
         },
-        'arguments': [{
+        'arguments': [sortKeys({
             'a': 'auto',
             'n': 'normal',
             'st': 'stretch',
             ...baselinePosition,
             ...selfPosition
-        }]
+        })]
     },
     // flex-direction
     {
@@ -1496,12 +1499,12 @@ module.exports = [
         'styles': {
             'align-items': '$0'
         },
-        'arguments': [{
+        'arguments': [sortKeys({
             'n': 'normal',
             'st': 'stretch',
             ...baselinePosition,
             ...selfPosition
-        }]
+        })]
     },
     // align-content (previously flex-line-pack)
     // Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
@@ -1515,12 +1518,12 @@ module.exports = [
         'styles': {
             'align-content': '$0'
         },
-        'arguments': [{
+        'arguments': [sortKeys({
             'n': 'normal',
             ...baselinePosition,
             ...contentDistribution,
             ...contentPosition
-        }]
+        })]
     },
     // order (previously flex-order)
     // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-order
@@ -1544,14 +1547,14 @@ module.exports = [
         'styles': {
             'justify-content': '$0'
         },
-        'arguments': [{
+        'arguments': [sortKeys({
             'n': 'normal',
             'l': 'left',
             'r': 'right',
             's': 'stretch', // backwards compat
             ...contentDistribution,
             ...contentPosition
-        }]
+        })]
     },
     // flex-wrap
     {
