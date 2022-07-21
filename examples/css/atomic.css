@@ -4,12 +4,6 @@
 .Bgbm\(di\) {
   background-blend-mode: difference;
 }
-.Bgbm\(n\) {
-  background-blend-mode: normal;
-}
-.foo .foo_Bgbm\(h\) {
-  background-blend-mode: hue;
-}
 .Bgc\(\#000\) {
   background-color: #000;
 }
@@ -177,12 +171,6 @@
 .Mb\(10px\) {
   margin-bottom: 10px;
 }
-.bar .bar_Mbm\(s\) {
-  mix-blend-mode: saturation;
-}
-.Mbm\(pl\) {
-  mix-blend-mode: plus-lighter;
-}
 .Mbm\(sc\) {
   mix-blend-mode: screen;
 }
@@ -201,10 +189,7 @@
 .P\(3rem\) {
   padding: 3rem;
 }
-.Td\(u\) {
-  text-decoration: underline;
-}
-.Td\(u\)\:h:hover {
+.Td\(u\), .Td\(u\)\:h:hover {
   text-decoration: underline;
 }
 .foo > .foo\>W\(uh\) {
@@ -257,6 +242,13 @@
 }
 .W\(9\/12\) {
   width: 75%;
+}
+.Cf:before, .Cf:after {
+  content: " ";
+  display: table;
+}
+.Cf:after {
+  clear: both;
 }
 @media(min-width:500px) {
   .D\(b\)--sm {

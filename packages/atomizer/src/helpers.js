@@ -162,6 +162,7 @@ module.exports = [
         'link': 'https://acss.io/guides/helper-classes.html#-cf-clearfix-',
         'matcher': 'Cf',
         'noParams': true,
+        'styles': {},
         'rules': {
             '.Cf:before, .Cf:after': {
                 'content': '" "',
