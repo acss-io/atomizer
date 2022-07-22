@@ -47,10 +47,10 @@
 
             const toggleMenuButton = document.getElementById('toggleMenuButton');
             if (toggleMenuButton) {
-                toggleMenuButton.addEventListener('click', window.toggleMenu);
+                toggleMenuButton.addEventListener('click', toggleMenu);
                 document.addEventListener('keyup', function (e) {
                     if (e.keyCode === 27) {
-                        window.toggleMenu();
+                        toggleMenu();
                     }
                 });
             }

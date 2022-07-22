@@ -149,7 +149,7 @@
             results.forEach((doc) => {
                 // make sure query is highlighted
                 const snippet = doc.snippet.replace(query, `<mark class="Fw(b)">${query}</mark>`);
-                html.push(`<li class="P(10px)"><a href="${doc.permalink}">${doc.title}</a><p class="M(0) Mstart(18px)">${snippet}</p></li>`);
+                html.push(`<li class="P(10px)"><a href="${doc.permalink}">${doc.title}</a><p class="M(0) Mstart(18px) Fz(.85rem)">${snippet}</p></li>`);
             });
             resultsCont.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';
@@ -195,9 +195,14 @@
 
         // add event listener to search form
         search.addEventListener('submit', doSearch, false);
-        searchInput.addEventListener('focus', doSearch, false);
         searchInput.addEventListener('keyup', debounce(doSearch), false);
-        searchInput.addEventListener('blur', displaySearchResults, false);
+        // searchInput.addEventListener('focus', doSearch, false);
+        // searchInput.addEventListener('blur', displaySearchResults, false);
+        document.addEventListener('click', (event) => {
+            if (!search.contains(event.target)) {
+                displaySearchResults();
+            }
+        });
 
         // load lunr db
         const LUNR_DB = '/assets/lunr.json';
@@ -209,7 +214,6 @@
         if (data?.index) {
             index = lunr.Index.load(data.index);
             docs = data.docs; // eslint-disable-line prefer-destructuring
-            search.classList.toggle('D(n)');
         }
     }
 })();
