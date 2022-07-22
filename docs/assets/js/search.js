@@ -135,7 +135,8 @@
      * @param {Array} results
      */
     function displaySearchResults(query, results = []) {
-        const resultsCont = document.getElementById('results');
+        const resultsCont = document.getElementById('resultsCont');
+        const resultsEl = document.getElementById('resultsCont');
 
         // clear previous results
         if (!query || query === '' || !results.length) {
@@ -151,7 +152,7 @@
                 const snippet = doc.snippet.replace(query, `<mark class="Fw(b)">${query}</mark>`);
                 html.push(`<li class="P(10px)"><a href="${doc.permalink}">${doc.title}</a><p class="M(0) Mstart(18px) Fz(.85rem)">${snippet}</p></li>`);
             });
-            resultsCont.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
+            resultsEl.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';
         }
     }
@@ -189,18 +190,24 @@
                         return doc;
                     })
                     .slice(0, 5);
-                displaySearchResults(query, results);
+                return displaySearchResults(query, results);
             }
+            displaySearchResults();
         };
 
         // add event listener to search form
         search.addEventListener('submit', doSearch, false);
         searchInput.addEventListener('keyup', debounce(doSearch), false);
-        // searchInput.addEventListener('focus', doSearch, false);
-        // searchInput.addEventListener('blur', displaySearchResults, false);
-        document.addEventListener('click', (event) => {
-            if (!search.contains(event.target)) {
+        // hide search results on click outside of search form
+        document.addEventListener('click', (e) => {
+            if (!search.contains(e.target)) {
                 displaySearchResults();
+            }
+        });
+        // if "cmd+k" is pressed, focus on search input
+        document.addEventListener('keydown', (e) => {
+            if ((e.metaKey || e.altKey) && e.code === 'KeyK') {
+                searchInput.focus();
             }
         });
 

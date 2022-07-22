@@ -1,35 +1,79 @@
-<form id="search" class="Mb(20px) P(r) Pend(20px)--sm">
-    <label for="q" class="Hidden">Site Search:</label>
-    <input type="text" name="search" placeholder="Search" id="q" autocomplete="off" class="W(100%) Px(10px) Py(5px) C(brandColor) Fw(b) Bd Bdc(light) Bdc(brandColor):f">
-    <div id="results" class="D(n) Z(3) Pos(a) W(30rem)--sm W(94%)--xs Bd Bdc(#ccc) Bgc(#efefef) Bxsh(light)"></div>
-</form>
+<div class="P(r) Mb(20px) Pend(20px)--sm">
+    <form id="search" class="D(f) Ai(c) Pos(r)">
+        <label for="q" class="Pos(a) Start(5px) Lh(0)">
+            <svg width="24" height="24" fill="none">
+                <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+            </svg>
+            <span id="search-label" class="Hidden">Site Search:</span>
+        </label>
+        <input type="search" role="search" placeholder="Quick search..." id="q" autocomplete="off" class="W(100%) Py(10px) Pend(40px) Pstart(35px)">
+        <span class="D(b) D(n)!--xs Pos(a) End(10px) C(#777)">
+            <kbd class="Va(m)">⌘</kbd><kbd>K</kbd>
+        </span>
+    </form>
+    <div
+        id="resultsCont"
+        class="D(n) Z(3) Pos(a) W(30rem)--sm W(94%)--xs Bd Bdc(#ccc) Bgc(#fff) Bxsh(light)"
+        role="dialog"
+        aria-labelledby="search-label"
+        aria-modal="true"
+    >
+        <h2 class="Hidden">Search Results</h2>
+        <div id="results"></div>
+    </div>
+</div>
 
 <ul class="M(0) P(0)">
-    <li class="{% if page.url == '/quick-start.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/quick-start.html" | relative_url }}">Quick Start</a></li>
-    <li class="{% if page.url == '/thinking-in-atomic.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/thinking-in-atomic.html" | relative_url }}">Thinking in Atomic</a></li>
-    <li class="{% if page.url == '/frequently-asked-questions.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/frequently-asked-questions.html" | relative_url }}">FAQ</a></li>
+    <li class="{% if page.url == '/quick-start.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/quick-start.html" | relative_url }}">Quick Start</a>
+    </li>
+    <li class="{% if page.url == '/thinking-in-atomic.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/thinking-in-atomic.html" | relative_url }}">Thinking in Atomic</a>
+    </li>
+    <li class="{% if page.url == '/frequently-asked-questions.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/frequently-asked-questions.html" | relative_url }}">FAQ</a>
+    </li>
 </ul>
 
-<h3 class="Fz(14px) BdT Fw(n) Pt(20px)">GUIDES</h3>
+<h3 class="Fz(15px) BdT Fw(b) Pt(20px)">Guides</h3>
 
 <ul class="M(0) P(0)">
-    <li class="{% if page.url == '/guides/acss-classes.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/acss-classes.html" | relative_url }}">ACSS classes</a></li>
-    <li class="{% if page.url == '/guides/helper-classes.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/helper-classes.html" | relative_url }}">Helper classes</a></li>
-    <li class="{% if page.url == '/guides/syntax.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/syntax.html" | relative_url }}">Class syntax</a></li>
-    <li class="{% if page.url == '/guides/shorthand.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/shorthand.html" | relative_url }}">Shorthand</a></li>
+    <li class="{% if page.url == '/guides/acss-classes.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/acss-classes.html" | relative_url }}">ACSS classes</a>
+    </li>
+    <li class="{% if page.url == '/guides/helper-classes.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/helper-classes.html" | relative_url }}">Helper classes</a>
+    </li>
+    <li class="{% if page.url == '/guides/syntax.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/syntax.html" | relative_url }}">Class syntax</a>
+    </li>
+    <li class="{% if page.url == '/guides/shorthand.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/shorthand.html" | relative_url }}">Shorthand</a>
+    </li>
 </ul>
 
-<h3 class="Fz(14px) BdT Fw(n) Pt(20px)">TOOLS</h3>
+<h3 class="Fz(15px) BdT Fw(b) Pt(20px)">Tools</h3>
 
 <ul class="M(0) P(0)">
-    <li class="{% if page.url == '/guides/atomizer.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/atomizer.html" | relative_url }}">Atomizer</a></li>
-    <li class="{% if page.url == '/guides/extensions.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/extensions.html" | relative_url }}">Extensions</a></li>
+    <li class="{% if page.url == '/guides/atomizer.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/atomizer.html" | relative_url }}">Atomizer</a>
+    </li>
+    <li class="{% if page.url == '/guides/extensions.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/extensions.html" | relative_url }}">Extensions</a>
+    </li>
 </ul>
 
-<h3 class="Fz(14px) BdT Fw(n) Pt(20px)">TUTORIALS</h3>
+<h3 class="Fz(15px) BdT Fw(b) Pt(20px)">Tutorials</h3>
 
 <ul class="M(0) P(0)">
-    <li class="{% if page.url == '/tutorials/grid-system.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/grid-system.html" | relative_url }}">Grid system</a></li>
-    <li class="{% if page.url == '/tutorials/alignment.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/alignment.html" | relative_url }}">Alignment</a></li>
-    <li class="{% if page.url == '/tutorials/responsive-web-design.html' %}selected{% endif %}"><a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/responsive-web-design.html" | relative_url }}">Responsive Web Design</a></li>
+    <li class="{% if page.url == '/tutorials/grid-system.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/grid-system.html" | relative_url }}">Grid system</a>
+    </li>
+    <li class="{% if page.url == '/tutorials/alignment.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/alignment.html" | relative_url }}">Alignment</a>
+    </li>
+    <li class="{% if page.url == '/tutorials/responsive-web-design.html' %}selected{% endif %}">
+        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/responsive-web-design.html" | relative_url }}">Responsive Web Design</a>
+    </li>
 </ul>
