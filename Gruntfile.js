@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                             '<%= project.docs %>/**/*.html',
                             '<%= project.docs %>/assets/js/*.js'
                         ],
-                        dest: '<%= project.docs %>/assets/atomic.css',
+                        dest: '<%= project.docs %>/assets/css/atomic.css',
                     },
                 ],
             },
@@ -69,13 +69,13 @@ module.exports = function (grunt) {
                     {
                         src: [
                             '<%= project.app %>/assets/css/base.css',
-                            '<%= project.docs %>/assets/atomic.css',
+                            '<%= project.docs %>/assets/css/atomic.css',
                             '<%= project.app %>/assets/css/helpers.css',
                             '<%= project.app %>/assets/css/custom.css',
                             '<%= project.app %>/assets/css/mq.css',
                             '<%= project.app %>/assets/css/syntax.css',
                         ],
-                        dest: '<%= project.docs %>/assets/main.css',
+                        dest: '<%= project.docs %>/assets/css/main.css',
                     },
                 ],
             },
@@ -88,8 +88,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['<%= project.docs %>/assets/main.css'],
-                        dest: '<%= project.docs %>/assets/main.css',
+                        src: ['<%= project.docs %>/assets/css/main.css'],
+                        dest: '<%= project.docs %>/assets/css/main.css',
                     },
                 ],
             },
