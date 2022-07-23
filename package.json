@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "build": "grunt && npm run build --workspaces --if-present",
-    "postbuild": "node scripts/buildSearch.js",
+    "postbuild": "node scripts/buildSearch.mjs",
     "dev": "grunt dev && concurrently npm:dev:*",
     "dev:start": "docker compose up",
     "dev:watch": "grunt watch:docs",

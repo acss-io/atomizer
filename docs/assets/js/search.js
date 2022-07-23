@@ -148,9 +148,13 @@
             const listClass = 'M(0) List(dc) Lisp(i)';
             const html = [];
             results.forEach((doc) => {
-                // make sure query is highlighted
-                const snippet = doc.snippet.replace(query, `<mark class="Fw(b)">${query}</mark>`);
-                html.push(`<li class="P(10px)"><a href="${doc.permalink}">${doc.title}</a><p class="M(0) Mstart(18px) Fz(.85rem)">${snippet}</p></li>`);
+                let snippet = '';
+                if (doc.snippet) {
+                    // make sure query is highlighted
+                    snippet = doc.snippet.replace(query, `<mark class="Fw(b)">${query}</mark>`);
+                    snippet = `<p class="M(0) Mstart(18px) Fz(.85rem)">${snippet}</p>`;
+                }
+                html.push(`<li class="P(10px)"><a href="${doc.permalink}" target="_blank">${doc.title}</a>${snippet}</li>`);
             });
             resultsEl.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';
@@ -186,7 +190,9 @@
                     .search(query)
                     .map(function (result) {
                         const doc = docs[result.ref];
-                        doc.snippet = getSearchSnippet(query, doc.tokens);
+                        if (doc.tokens) {
+                            doc.snippet = getSearchSnippet(query, doc.tokens);
+                        }
                         return doc;
                     })
                     .slice(0, 5);

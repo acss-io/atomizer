@@ -7,13 +7,17 @@
  * site to be loaded on demand.
  */
 
-const fs = require('fs');
-const glob = require('glob');
-const lodash = require('lodash');
-const lunr = require('lunr');
-const { marked } = require('marked');
-const path = require('path');
-const shell = require('shelljs');
+import fs from 'fs';
+import glob from 'glob';
+import lodash from 'lodash';
+import lunr from 'lunr';
+import { marked } from 'marked';
+import path from 'path';
+import shell from 'shelljs';
+import stripChars from '../app/libs/stripChars.mjs';
+
+// atomizer rules
+import atomizerRules from '../packages/atomizer/src/rules.js';
 
 // consts
 const DOCS_PATH = path.join(process.cwd(), 'docs');
@@ -74,7 +78,7 @@ const index = lunr(function() {
     this.field('body', { boost: 5 });
     this.field('permalink');
  
-    // add them to lunr index
+    // add files to index
     if (files.length) {
         console.log('Generating index...');
         for (let i = 0; i < files.length; i++) {
@@ -97,10 +101,24 @@ const index = lunr(function() {
                     token.text = marked(token.text).replace(/(<([^>]+)>)/ig, '');
                     return token;
                 });
+            
 
             this.add(doc);
             docs[doc.id] = doc;
         }
+    }
+
+    // add rules to index
+    for (const rule of atomizerRules) {
+        const id = stripChars(rule.name);
+        const doc = {
+            id,
+            title: `${rule.matcher}() - ${Object.keys(rule.styles)[0]}: value`,
+            body: `${rule.name} - ${rule.matcher}`,
+            permalink: `/reference.html#${id}`
+        };
+        this.add(doc);
+        docs[id] = doc;
     }
 });
  
