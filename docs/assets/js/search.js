@@ -1,4 +1,4 @@
-/* global lunr */
+/* global lunr, gtag */
 (async function () {
     /*
      * string_score.js: String Scoring Algorithm 0.1.22
@@ -158,6 +158,11 @@
             });
             resultsEl.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';
+
+            // beacon the query
+            if (typeof gtag !== 'undefined') {
+                gtag?.('event', 'search', { query });
+            }
         }
     }
 
