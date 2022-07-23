@@ -128,7 +128,10 @@ module.exports = function (grunt) {
                 resolve: {
                     extensions: ['', '.js', '.jsx'],
                 },
-                entry: '<%= project.app %>/client-reference.js',
+                entry: {
+                    main: '<%= project.app %>/client-reference.js',
+                    search: '<%= project.app %>/assets/js/search.js',
+                },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',
@@ -156,7 +159,10 @@ module.exports = function (grunt) {
                 resolve: {
                     extensions: ['', '.js', '.jsx'],
                 },
-                entry: '<%= project.app %>/client-reference.js',
+                entry: {
+                    main: '<%= project.app %>/client-reference.js',
+                    search: '<%= project.app %>/assets/js/search.js',
+                },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',

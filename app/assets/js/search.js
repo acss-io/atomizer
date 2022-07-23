@@ -1,4 +1,7 @@
-/* global lunr, gtag */
+/* global gtag */
+
+import lunr from 'lunr';
+
 (async function () {
     /*
      * string_score.js: String Scoring Algorithm 0.1.22

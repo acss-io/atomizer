@@ -19,11 +19,7 @@ build/
 docs/_site
 docs/.jekyll-metadata
 docs/.sass-cache/
-docs/assets/atomic.css
-docs/assets/lunr.json
-docs/assets/main.css
-docs/assets/js/lunr.*
-docs/assets/js/main.*
+docs/assets
 vendor/bundle
 
 # grunt-nodemon

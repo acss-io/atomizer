@@ -105,7 +105,7 @@
     "url": "https://github.com/acss-io/atomizer/issues"
   },
   "homepage": "https://github.com/acss-io/atomizer",
-  "browserslist": "> 0.25%, not dead",
+  "browserslist": "> 1%, not op_mini all",
   "prettier": {
     "printWidth": 120,
     "singleQuote": true,
