@@ -26,8 +26,13 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['<%= project.app %>/components/**/*.jsx', '<%= project.docs %>/**/*.md', '<%= project.docs %>/**/*.html'],
-                        dest: '<%= project.docs %>/assets/atomic.css',
+                        src: [
+                            '<%= project.app %>/components/**/*.jsx',
+                            '<%= project.docs %>/**/*.md',
+                            '<%= project.docs %>/**/*.html',
+                            '<%= project.docs %>/assets/js/*.js'
+                        ],
+                        dest: '<%= project.docs %>/assets/css/atomic.css',
                     },
                 ],
             },
@@ -64,13 +69,13 @@ module.exports = function (grunt) {
                     {
                         src: [
                             '<%= project.app %>/assets/css/base.css',
-                            '<%= project.docs %>/assets/atomic.css',
+                            '<%= project.docs %>/assets/css/atomic.css',
                             '<%= project.app %>/assets/css/helpers.css',
                             '<%= project.app %>/assets/css/custom.css',
                             '<%= project.app %>/assets/css/mq.css',
                             '<%= project.app %>/assets/css/syntax.css',
                         ],
-                        dest: '<%= project.docs %>/assets/main.css',
+                        dest: '<%= project.docs %>/assets/css/main.css',
                     },
                 ],
             },
@@ -83,8 +88,8 @@ module.exports = function (grunt) {
                 },
                 files: [
                     {
-                        src: ['<%= project.docs %>/assets/main.css'],
-                        dest: '<%= project.docs %>/assets/main.css',
+                        src: ['<%= project.docs %>/assets/css/main.css'],
+                        dest: '<%= project.docs %>/assets/css/main.css',
                     },
                 ],
             },
@@ -123,7 +128,10 @@ module.exports = function (grunt) {
                 resolve: {
                     extensions: ['', '.js', '.jsx'],
                 },
-                entry: '<%= project.app %>/client-reference.js',
+                entry: {
+                    main: '<%= project.app %>/client-reference.js',
+                    search: '<%= project.app %>/assets/js/search.js',
+                },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',
@@ -151,7 +159,10 @@ module.exports = function (grunt) {
                 resolve: {
                     extensions: ['', '.js', '.jsx'],
                 },
-                entry: '<%= project.app %>/client-reference.js',
+                entry: {
+                    main: '<%= project.app %>/client-reference.js',
+                    search: '<%= project.app %>/assets/js/search.js',
+                },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
                     publicPath: '/public/js/',

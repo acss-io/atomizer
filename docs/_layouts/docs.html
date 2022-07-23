@@ -6,14 +6,18 @@ layout: default
     <button id="toggleMenuButton" class="menu-button Bgi(hamburger) W(32px) H(32px) D(n)--sm Pos(a) Bdw(0) Bgc(t) P(0) T(0) Start(0) Z(7) M(10px) menu-on_Bgp(end_t)">
         <b class="Hidden">Toggle the menu</b>
     </button>
-    <div id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Va(t) W(150px)--sm W(250px)--md End(0) Pt(20px) Pb(40px) menu-on_Pstart(10px) Pend(50px)--sm Z(5) End(a)--sm Start(0) Pos(a) Pos(r)--sm" role="aside">
+
+    <div id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Va(t) W(150px)--sm W(250px)--md End(0) Pt(20px) Pb(40px) menu-on_Px(10px) Pend(50px)--sm Z(5) End(a)--sm Start(0) Pos(a) Pos(r)--sm" role="aside">
         {% include menu.html %}
     </div>
+
     <div id="main" role="main" class="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
         <div class="SpaceBetween">
-            <h1 class="D(ib) Va(m) Fz(30px)">{{ page.title }}</h1> <a href="{{ page.githubDocsPath }}{{ page.path }}" class="D(ib) Va(m) Mt(30px)" target='_blank'>Edit on Github</a>
+            <h1 class="D(ib) Va(m) Fz(30px)">{{ page.title }}</h1>
+            <a href="{{ page.githubDocsPath }}{{ page.path }}" class="D(ib) Va(m) Mt(30px)" target='_blank'>Edit on Github</a>
         </div>
         <div>{{ content }}</div>
     </div>
+
     <div id="overlay" class="D(n) D(n)!--sm menu-on_D(b) Bgc(#000.6) Z(3) Pos(f) T(0) Start(0) W(100%) H(100%)"></div>
 </div>

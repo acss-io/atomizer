@@ -11,6 +11,7 @@ module.exports = {
         'Bgi(hamburger)': 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
         'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
+        'Bdc(light)': 'rgba(2,128,174,.3)',
         brandColor: '#0280ae',
         'Bgc(selected)': '#e5e1ea!important',
         primaryFontColor: '#{brandColor}',

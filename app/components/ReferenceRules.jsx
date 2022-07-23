@@ -7,6 +7,7 @@ import Rules from 'atomizer/src/rules';
 import escapeStringRegexp from 'escape-string-regexp';
 import { connectToStores } from 'fluxible-addons-react';
 import ReferenceStore from '../stores/ReferenceStore';
+import stripChars from '../libs/stripChars.mjs';
 
 const styleRegex = new RegExp(/\$(\d+?)/g);
 
@@ -205,7 +206,7 @@ const ReferenceRules = ({ store }) => {
         const displayclassDefinitions = `Ov(h) ${showRecipeBlock ? 'D(b)' : 'D(n)'}`;
         return (
             <div key={`id-${recipe.matcher}`} className={displayclassDefinitions}>
-                <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)">{recipe.name}</h3>
+                <h3 className="Cl(b) M(0) Mend(20px) Mt(15px) P(10px)" id={stripChars(recipe.name)}>{recipe.name}</h3>
                 <dl className="M(0) Mstart(20px) P(10px) Pt(0) Ff(m)">{classDefinitions}</dl>
             </div>
         );

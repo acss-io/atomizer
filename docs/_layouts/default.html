@@ -13,45 +13,29 @@
            \__\/         \__\/         \__\/         \__\/         
 -->
 <html class="atomic {{page.section}}" lang="{{ page.lang | default: site.lang | default: "en" }}">
+    {%- include head.html -%}
 
-  {%- include head.html -%}
-
-  <body>
-    <div id="app" class="H(100%)">
-      <div class="H(100%)">
-        <div class="wrapper Bxz(bb) Mih(100%)">
-
-    {%- include header.html -%}
-
-    {{ content }}
-
+    <body>
+        <div id="app" class="H(100%)">
+            <div class="H(100%)">
+                <div class="wrapper Bxz(bb) Mih(100%)">
+                    {%- include header.html -%}
+                    {{ content }}
+                </div>
+                {%- include footer.html -%}
+            </div>
         </div>
-        {%- include footer.html -%}
-      </div>
-    </div>
-  </body>
-  <script src="https://assets.codepen.io/assets/embed/ei.js" async></script>
-  <script>
-  function toggleMenu () {
-    var wrapper = document.getElementById('toggleMenuWrapper');
-    if (wrapper.classList) {
-        wrapper.classList.toggle('menu-on');
-    } else {
-        if (wrapper.className.indexOf(' menu-on') >= 0) {
-            wrapper.className = wrapper.className.replace(' menu-on', '');
-        } else {
-            wrapper.className += ' menu-on';
-        }
-    }
-  }
-  var toggleMenuButton = document.getElementById('toggleMenuButton');
-  if (toggleMenuButton) {
-    toggleMenuButton.addEventListener('click', window.toggleMenu);
-    document.addEventListener('keyup', function (e) {
-        if (e.keyCode === 27) {
-            window.toggleMenu();
-        }
-    });
-  }
-  </script>
+    </body>
+
+    <script src="{{ "/assets/js/search.js" | relative_url }}" async></script>
+    <script src="https://static.codepen.io/assets/embed/ei.js" async></script>
+    <script>
+        (function() {
+            const toggleMenuButton = document.getElementById('toggleMenuButton');
+            toggleMenuButton?.addEventListener('click', () => {
+                const wrapper = document.getElementById('toggleMenuWrapper');
+                wrapper.classList.toggle('menu-on');
+            });
+        }());
+    </script>
 </html>
