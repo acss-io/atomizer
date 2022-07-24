@@ -157,7 +157,7 @@ import lunr from 'lunr';
                     snippet = doc.snippet.replace(query, `<mark class="Fw(b)">${query}</mark>`);
                     snippet = `<p class="M(0) Mstart(18px) Fz(.85rem)">${snippet}</p>`;
                 }
-                html.push(`<li class="P(10px)"><a href="${doc.permalink}" target="_blank">${doc.title}</a>${snippet}</li>`);
+                html.push(`<li class="P(10px)"><a href="${doc.permalink}">${doc.title}</a>${snippet}</li>`);
             });
             resultsEl.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';

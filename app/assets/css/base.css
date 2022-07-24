@@ -42,10 +42,6 @@ textarea {
     margin: 0; /* 2 */
 }
 
-.SpaceBetween > * {
-    line-height: 1.55; /* must match value from body (above) */
-}
-
 /**
  * Margins
  */

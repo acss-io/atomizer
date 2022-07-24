@@ -3,7 +3,7 @@
      * menu (slider)
      */
     .menu-on #aside {
-        animation: bounce 0.5s ease-out;
+        animation: slide 0.3s ease-out;
         box-shadow: 1px 0 9px 1px #555;
         transform: translateY(0);
     }
@@ -19,16 +19,10 @@
         will-change: transform;
         backface-visibility: hidden;
     }
-    @keyframes bounce {
+    @keyframes slide {
         0% {
             transform: translateY(-100%);
             filter: blur(5px);
-        }
-        40% {
-            transform: translateY(0);
-        }
-        60% {
-            transform: translateY(-10%);
         }
         100% {
             transform: translateY(0);
