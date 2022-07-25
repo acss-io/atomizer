@@ -378,14 +378,6 @@ pre code {
     border: 0;
     white-space: pre;
 }
-pre:before {
-    content: 'example';
-    position: absolute;
-    left: 9px;
-    top: 5px;
-    font-size: 12px;
-    color: #0280ae;
-}
 
 /**
  * =============================================================================

@@ -4,7 +4,7 @@ code {
     max-width: 738px; /* this is inside a table-cell */
 }
 pre {
-    padding: 30px 16px 10px 7px;
+    padding: 10px 16px 10px 7px;
     line-height: 1.45;
     border-radius: 3px;
     background: url(https://s.yimg.com/os/acss/images/pre-background.177ebfe5.gif);
