@@ -117,6 +117,7 @@ code,
 
 pre code {
     background: none;
+    padding: 0;
 }
 
 /* info/warning/important/success boxes ============================= */
