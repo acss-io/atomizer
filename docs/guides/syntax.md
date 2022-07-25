@@ -9,7 +9,7 @@ title: Class syntax
 {% include subhead.html tag="h2" title="The syntax" %}
 
 <pre>
-[<b><a href="#context">&lt;context></a></b>[<b>:<a href="#pseudo-class">&lt;pseudo-class></a></b>]<b><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a  href="#style">&lt;Style></a></b>[(<b><a href="#value">&lt;value></a>,<a href="#value">&lt;value></a>?,...</b>)][<b><a href="#-">&lt;!></a></b>][<b><a href="#pseudo-class">:&lt;pseudo-class></a></b>][<b><a href="#pseudo-element">::&lt;pseudo-element></a></b>][<b>--<a href="#breakpoint_identifier">&lt;breakpoint_identifier></a></b>]
+[<b><a href="#context">&lt;context></a></b>[<b>:<a href="#pseudo-class">&lt;pseudo-class></a></b>]<b><a href="#combinator">&lt;combinator></a></b>]<b class="Fw(b)"><a  href="#style">&lt;Style></a></b>[(<b><a href="#value">&lt;value></a>,<a href="#value">&lt;value></a>?,...</b>)][<b><a href="#-">&lt;!></a></b>][<b><a href="#pseudo-class">:&lt;pseudo-class></a></b>][<b><a href="#pseudo-element">::&lt;pseudo-element></a></b>][<b>--<a href="#breakpoint-identifier">&lt;breakpoint_identifier></a></b>]
 </pre>
 
 <p>At its core, a <b class="Fw(b)">ACSS</b> or Helper class is represented by a <a href="#style">&lt;Style&gt;</a>. </p>
@@ -26,7 +26,7 @@ title: Class syntax
 
 <p>For example, <code>Mend(2px)</code> maps to <code>margin-right: 2px</code> in a LTR context and <code>margin-left: 2px</code> in an RTL context, and <code>Pstart(1em)</code> would map to <code>padding-left: 1em</code> in a LTR context, etc.</p>
 
-<h2 id="examples-">Examples:</h2>
+{% include subhead.html tag="h2" title="Examples" %}
 
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Atomic class Examples</caption>

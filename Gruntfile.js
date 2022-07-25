@@ -28,9 +28,9 @@ module.exports = function (grunt) {
                     {
                         src: [
                             '<%= project.app %>/components/**/*.jsx',
+                            '<%= project.app %>/assets/js/*.js',
                             '<%= project.docs %>/**/*.md',
-                            '<%= project.docs %>/**/*.html',
-                            '<%= project.docs %>/assets/js/*.js'
+                            '<%= project.docs %>/**/*.html'
                         ],
                         dest: '<%= project.docs %>/assets/css/atomic.css',
                     },
@@ -131,6 +131,7 @@ module.exports = function (grunt) {
                 entry: {
                     main: '<%= project.app %>/client-reference.js',
                     search: '<%= project.app %>/assets/js/search.js',
+                    toc: '<%= project.app %>/assets/js/toc.js',
                 },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
@@ -162,6 +163,7 @@ module.exports = function (grunt) {
                 entry: {
                     main: '<%= project.app %>/client-reference.js',
                     search: '<%= project.app %>/assets/js/search.js',
+                    toc: '<%= project.app %>/assets/js/toc.js',
                 },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
