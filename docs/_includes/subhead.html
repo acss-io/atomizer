@@ -1,4 +1,4 @@
-{% assign clean_id = include.title | downcase | slugify" %}
+{% assign clean_id = include.title | downcase | replace: "&lt;", "" | replace: "&gt;", "" | slugify %}
 <{{ include.tag }} id="{{ clean_id }}">
     <a href="#{{ clean_id }}" class="C(#4c4c4c) subhead">
         {{ include.title }}

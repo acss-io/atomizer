@@ -14,7 +14,9 @@ module.exports = {
         'Bdc(light)': 'rgba(2,128,174,.3)',
         brandColor: '#0280ae',
         'Bgc(selected)': '#e5e1ea!important',
+        lineHeight: '0.8',
         primaryFontColor: '#{brandColor}',
+        tocEnd: 'max(0px,calc(50% - 40rem))',
         'Fz(RWD-fontSize)': {
             xs: '40px',
             sm: '19px',

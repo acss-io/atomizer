@@ -6,33 +6,7 @@ title: Frequently Asked Questions
 
 <p>This section is intended to answer common questions related to Atomic CSS and Atomizer. If you&#39;re unable to find an answer to your question, <a href="/support.html">you can find support here</a> or <a href="https://github.com/acss-io/atomizer/discussions">start a discussion here</a>.</p>
 
-<h2 id="questions-related-to-the-atomic-css-architecture">Questions related to the Atomic CSS architecture</h2>
-
-<ul class="ul-list">
-   <li><a href="#what-is-atomic-css-">What is Atomic CSS?</a></li>
-   <li><a href="#how-is-atomic-css-different-than-using-inline-styles-">How is Atomic CSS different than using inline styles?</a></li>
-   <li><a href="#what-are-the-benefits-of-atomic-css-">What are the benefits of Atomic CSS?</a></li>
-   <li><a href="#should-i-style-everything-using-atomic-classes-">Should I style everything using atomic classes?</a></li>
-   <li><a href="#i-have-always-been-told-to-use-classes-related-to-content-not-to-presentation-isn-t-atomic-css-promoting-bad-practice-">I have always been told to use classes related to content, <em>not to presentation</em>. Isn&#39;t Atomic CSS promoting bad practice?</a></li>
-   <li><a href="#isn-t-atomic-css-moving-bloat-from-style-sheets-to-html-">Isn&#39;t Atomic CSS moving bloat from style sheets to HTML?</a></li>
-   <li><a href="#how-can-you-distribute-presentation-changes-without-asking-everyone-to-change-their-markup-">How can you distribute presentation changes without asking everyone to change their markup?</a></li>
-   <li><a href="#how-does-atomic-css-work-with-abbr-title-responsive-web-design-rwd-abbr-">How does Atomic CSS work with Responsive Web Design (RWD)?</a></li>
-</ul>
-
-<h2 id="questions-related-to-atomizer">Questions related to Atomizer</h2>
-
-<ul class="ul-list">
-   <li><a href="#how-does-atomizer-css-compare-to-bootstrap-purecss-or-other-css-framework-">How does Atomizer compare to Bootstrap, PureCSS, or other CSS frameworks?</a></li>
-   <li><a href="#do-i-need-to-specify-a-namespace-and-if-yes-what-should-i-use-">Do I need to specify a namespace? And if yes, what should I use?</a></li>
-   <li><a href="#why-are-atomizer-classes-capitalized-as-far-as-i-know-no-other-framework-does-that-">Why are Atomizer classes capitalized? As far as I know, no other framework does that?</a></li>
-   <li><a href="#why-do-i-have-to-use-lowercase-for-color-values-">Why do I have to use lowercase for colors?</a></li>
-   <li><a href="#why-are-descendant-classes-not-relying-on-the-namespace-why-are-those-styles-using-important-">Why are &quot;descendant classes&quot; not relying on the namespace? Why are those styles using <code>!important</code></a>?</li>
-   <li><a href="#how-can-one-remember-atomic-class-names-">How can one remember Atomic class names?</a></li>
-   <li><a href="#how-come-atomizer-is-not-creating-some-classes-for-me-">How come Atomizer is not creating some classes for me?</a></li>
-   <li><a href="#how-come-atomizer-does-not-add-vendor-prefixes-where-needed-">How come Atomizer does not add vendor prefixes where needed?</a></li>
-</ul>
-
-<h2 id="answers-related-to-the-atomic-css-architecture">Answers related to the Atomic CSS architecture</h2>
+<h2 id="atomic-css-architecture">Atomic CSS architecture</h2>
 
 <h3 id="what-is-atomic-css-">What is Atomic CSS?</h3>
 
@@ -45,6 +19,7 @@ title: Frequently Asked Questions
 <p class="noteBox info">Note that the above materials are relatively &quot;old&quot; and some of their content may have changed.</p>
 
 <h3 id="how-is-atomic-css-different-than-using-inline-styles-">How is Atomic CSS different than using inline styles?</h3>
+
 <dl class="dl-list">
     <dt>Inline styling, the bad parts:</dt>
     <dd>High specificity, verbosity, the inability to deal with pseudo-classes or pseudo-elements, and the fact that those bytes are not cached</dd>

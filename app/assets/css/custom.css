@@ -86,6 +86,10 @@ li.selected a {
     right: 0;
 }
 
+#toc li {
+    line-height: initial;
+}
+
 /* Colors =========================================================== */
 
 /**

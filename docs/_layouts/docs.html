@@ -2,21 +2,26 @@
 layout: default
 ---
 
-<div id="toggleMenuWrapper" class="docs-page D(tb)--sm Tbl(f) Pt(20px) Mb(50px) Maw(1280px)--sm Miw(1280px)--lg Mx(a)--sm W(96%)--sm">
+<div id="toggleMenuWrapper" class="docs-page D(tb)--sm Tbl(f) Pt(20px) Mb(50px) Maw(1280px)--sm Miw(1280px)--lg Mx(a)--sm">
     <button id="toggleMenuButton" class="menu-button Bgi(hamburger) W(32px) H(32px) D(n)--sm Pos(a) Bdw(0) Bgc(t) P(0) T(0) Start(0) Z(7) M(10px) menu-on_Bgp(end_t)">
         <b class="Hidden">Toggle the menu</b>
     </button>
 
-    <aside id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Va(t) W(150px)--sm W(250px)--md End(0) Pt(20px) Pb(40px) menu-on_Px(10px) Pend(50px)--sm Z(5) End(a)--sm Start(0) Pos(a) Pos(r)--sm">
+    <aside id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Va(t) W(250px)--sm End(0) Pt(20px) Pb(40px) menu-on_Px(10px) Pstart(10px)--sm Pstart(0px)--lg Pend(50px)--sm Z(5) End(a)--sm Start(0) Pos(r)--sm">
         {% include menu.html %}
     </aside>
 
     <main id="main" class="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
-        <div class="D(f)--sm Ai(c) Jc(sb)">
-            <h1 class="Fz(30px)">{{ page.title }}</h1>
-            <a href="{{ page.githubDocsPath }}{{ page.path }}" class="Mt(25px)" target='_blank'>Edit on Github</a>
+        <h1 class="Fz(30px)">{{ page.title }}</h1>
+
+        <div class="D(f)--lg">
+            <div id="toc" class="Pos(f)--lg Ovy(a) T(5em) B(0) End(tocEnd)--lg Or(2)--md W(200px)--lg"></div>
+            <div class="W(75%)--sm">
+                <div>{{ content }}</div>
+            </div>
         </div>
-        <div>{{ content }}</div>
+
+        <a href="{{ page.githubDocsPath }}{{ page.path }}" class="Mt(25px)" target='_blank'>Edit on Github</a>
     </main>
 
     <div id="overlay" class="D(n) D(n)!--sm menu-on_D(b) Bgc(#000.6) Z(3) Pos(f) T(0) Start(0) W(100%) H(100%)"></div>
