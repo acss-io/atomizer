@@ -44,4 +44,3 @@ jobs:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   jekyll_src: 'docs'
                   target_branch: 'gh-pages'
-                  build_only: true
