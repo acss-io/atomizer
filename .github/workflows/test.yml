@@ -24,10 +24,17 @@ jobs:
             - run: npm run lint
             - run: npm run build
             - run: npm test
-            - name: Deploy
-              if: ${{ github.ref == 'refs/heads/master' }}
-              uses: peaceiris/actions-gh-pages@v3
+            # - name: Deploy
+            #   if: ${{ github.ref == 'refs/heads/master' }}
+            #   uses: peaceiris/actions-gh-pages@v3
+            #   with:
+            #       enable_jekyll: true
+            #       github_token: ${{ secrets.GITHUB_TOKEN }}
+            #       publish_dir: ./docs
+
+            - uses: helaili/jekyll-action@v2
               with:
-                  enable_jekyll: true
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./docs
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  jekyll_src: 'docs'
+                  target_branch: 'gh-pages'
+                  build_only: true
