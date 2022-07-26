@@ -6,6 +6,10 @@ title: Get Help with Atomizer
 
 **Atomizer** was originally developed by engineers at [Yahoo](https://www.yahoo.com).  If you have questions, suggestions or ideas about how to use or improve **Atomizer**, please reach out to us!
 
+## Frequently Asked Questions
+
+Check out our [FAQ page](/frequently-asked-questions.html) for answers to common questions related to Atomic CSS and Atomizer.
+
 ## GitHub
 
 The atomizer code base (and all other packages) live in our [monorepo](https://github.com/acss-io/atomizer) repository. Feel free to file issues, pull requests or start a [discussion on GitHub](https://github.com/acss-io/atomizer/discussions).
