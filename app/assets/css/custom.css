@@ -86,8 +86,25 @@ li.selected a {
     right: 0;
 }
 
+/* Table of Contents =============================================== */
+
+#toc ul {
+    list-style-type: disc;
+    margin: 0;
+    padding: 0;
+}
+
 #toc li {
     line-height: initial;
+    padding: 5px 0;
+}
+
+#toc li ul {
+    margin-top: 5px;
+}
+
+#toc li li {
+    margin-left: 25px;
 }
 
 /* Colors =========================================================== */

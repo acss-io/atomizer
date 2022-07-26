@@ -15,9 +15,12 @@ layout: default
         <h1 class="Fz(20px) Fz(30px)--sm Mb(20px)--xs">{{ page.title }}</h1>
 
         <div class="D(f)--lg">
-            <div id="toc" class="Pos(f)--lg Ovy(a) T(5em) B(0) End(tocEnd)--lg Or(2)--md W(13%)--lg Mt(1em) Mt(0)--lg"></div>
+            <div id="toc" class="Pos(f)--lg Ovy(a) T(5em) B(0) End(tocEnd)--lg Or(2)--md W(13%)--lg Mt(1em) Mt(0)--lg">
+                <h4 class="D(n) D(b)--lg Fz(.865rem)">On this page</h4>
+                {{ content | toc_only }}
+            </div>
             <div class="W(100%) W(75%)--lg">
-                <div>{{ content }}</div>
+                <div>{{ content | inject_anchors }}</div>
             </div>
         </div>
     </main>

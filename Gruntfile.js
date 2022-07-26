@@ -131,7 +131,6 @@ module.exports = function (grunt) {
                 entry: {
                     main: '<%= project.app %>/client-reference.js',
                     search: '<%= project.app %>/assets/js/search.js',
-                    toc: '<%= project.app %>/assets/js/toc.js',
                 },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),
@@ -163,7 +162,6 @@ module.exports = function (grunt) {
                 entry: {
                     main: '<%= project.app %>/client-reference.js',
                     search: '<%= project.app %>/assets/js/search.js',
-                    toc: '<%= project.app %>/assets/js/toc.js',
                 },
                 output: {
                     path: path.resolve(__dirname, 'docs', 'assets', 'js'),

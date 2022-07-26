@@ -1,11 +1,18 @@
 title: Atomizer
 description: 'A CSS utility for component-based websites'
 baseurl: '/'
+markdown: kramdown
 defaults:
     - scope:
           path: ''
           type: 'pages'
       values:
           githubDocsPath: 'https://github.com/acss-io/atomizer/tree/master/docs/'
+          toc: true
 plugins:
     - jekyll-seo-tag
+    - jekyll-toc
+toc:
+    list_id: toc-wrap
+    min_level: 2
+    max_level: 3

@@ -4,28 +4,19 @@ layout: docs
 title: Third Party Extensions
 ---
 
-{% include subhead.html tag="h2" title="For Chrome" %}
+## For Chrome
 
-<ul class="ul-list">
-    <li><a href="https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en">Atomic CSS Dev Tools</a></li>
-    <li><a href="https://chrome.google.com/webstore/detail/web-maker/lkfkkhfhhdkiemehlpkgjeojomhpccnh?hl=en">Web Maker</a></li>
-    <li><a href="https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en">Atomic CSS Helper</a></li>
-</ul>
+- [Atomic CSS Dev Tools](https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en)
+- [Web Maker](https://chrome.google.com/webstore/detail/web-maker/lkfkkhfhhdkiemehlpkgjeojomhpccnh?hl=en)
+- [Atomic CSS Helper](https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en)
 
-{% include subhead.html tag="h2" title="For VSCode" %}
+## For VSCode
 
-<ul class="ul-list">
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets">Atomic CSS Snippets</a></li>
-    <li><a href="https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search">Atomic-css-search</a></li>
-</ul>
+- [Atomic CSS Snippets](https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets)
+- [Atomic-css-search](https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search)
 
-{% include subhead.html tag="h2" title="Integrations" %}
+## Integrations
 
-<ul class="ul-list">
-    <li><a href="https://github.com/dword-design/nuxt-atomizer">nuxt-atomizer</a></li>
-    <li><a href="https://github.com/acss-io/webpack-atomizer-loader">webpack-atomizer-loader</a> - Webpack loader for compiling atomic CSS</li>
-</ul>
+- [nuxt-atomizer](https://github.com/dword-design/nuxt-atomizer)
+- [webpack-atomizer-loader](https://github.com/acss-io/webpack-atomizer-loader) - Webpack loader for compiling atomic CSS
 
-<hr class="My(50px)">
-
-<p class="noteBox info">For a simple <b class="Fw(b)">Web Interface</b> to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, check out <a href="https://pankajparashar-zz.github.io/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or <b class="Fw(b)">ACSS</b> classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
