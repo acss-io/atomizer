@@ -24,10 +24,24 @@ jobs:
             - run: npm run lint
             - run: npm run build
             - run: npm test
-            - name: Deploy
-              if: ${{ github.ref == 'refs/heads/master' }}
-              uses: peaceiris/actions-gh-pages@v3
+            # - name: Deploy
+            #   if: ${{ github.ref == 'refs/heads/master' }}
+            #   uses: peaceiris/actions-gh-pages@v3
+            #   with:
+            #       enable_jekyll: true
+            #       github_token: ${{ secrets.GITHUB_TOKEN }}
+            #       publish_dir: ./docs
+
+            # Use GitHub Actions' cache to shorten build times and decrease load on servers
+            - uses: actions/cache@v2
               with:
-                  enable_jekyll: true
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./docs
+                  path: vendor/bundle
+                  key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+                  restore-keys: |
+                      ${{ runner.os }}-gems-
+            - uses: helaili/jekyll-action@v2
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  jekyll_src: 'docs'
+                  target_branch: 'gh-pages'
+                  build_only: true

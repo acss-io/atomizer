@@ -47,9 +47,9 @@ title: Atomizer tool
 }
 {% endhighlight %}
 
-{% include subhead.html tag="h2" title="Integrations" %}
+## Integrations
 
-{% include subhead.html tag="h3" title="Build" %}
+### Build
 
 <p>So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other task runner/build system you&#39;d like.</p>
 
@@ -64,7 +64,7 @@ title: Atomizer tool
 
 <p>If you create your own, please <a href="/support.html">let us know!</a></p>
 
-<h4 id="example-grunt">Example: Grunt</h4>
+#### Example: Grunt
 
 <p>If you&#39;re using the <a href="http://gruntjs.com/">Grunt</a> task runner, you can use <a href="http://github.com/acss-io/grunt-atomizer">grunt-atomizer</a> to configure and execute Atomizer:</p>
 
@@ -107,7 +107,7 @@ atomizer: {
 }
 {% endhighlight %}
 
-{% include subhead.html tag="h3" title="Web Tools" %}
+### Web Tools
 
 <p>For a simple web interface to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, check out <a href="https://pankajparashar-zz.github.io/atomizer-web/">ATOMIZER WEB</a>, a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or <b class="Fw(b)">ACSS</b> classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.</p>
 

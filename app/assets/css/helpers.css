@@ -8,22 +8,26 @@
  * Fancy lists
  ==================================================================
  */
-.ul-list {
+.ul-list,
+#main ul {
     list-style-type: disc;
     padding-left: 2em;
 }
 
-.ol-list {
+.ol-list,
+#main ol {
     list-style-type: decimal;
     padding-left: 2em;
 }
 
-.dl-list dt {
+.dl-list dt,
+#main dt {
     color: #000;
     font-weight: 400;
 }
 
-.dl-list dd {
+.dl-list dd,
+#main dd {
     padding-left: 2em;
 }
 

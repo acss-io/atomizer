@@ -16,7 +16,7 @@ title: Atomizer classes
 
 <div class="noteBox info">The <a href="/reference">searchable reference page</a> gives you a complete listing of <b class="Fw(b)">ACSS</b> classes and their supported values.</div>
 
-{% include subhead.html tag="h2" title="Aliases" %}
+## Aliases
 
 <p><b class="Fw(b)">ACSS</b> provides aliases for most properties <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a> that rely on <a href="http://www.w3.org/TR/css3-values/#functional-notation">Functional Notation</a>:</p>
 

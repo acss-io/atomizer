@@ -4,41 +4,39 @@ layout: docs
 title: Quick Start
 ---
 
-<p>This page is here to help you quickly set up an example site powered by <a href="/guides/atomizer.html">Atomizer</a>.</p>
+This page is here to help you quickly set up an example site powered by [Atomizer](/guides/atomizer.html).
 
-{% include subhead.html tag="h2" title="Playground" %}
+## Playground
 
-<p>To create a basic Atomic project, clone the <a href="https://github.com/acss-io/atomizer">atomizer</a> repo:</p>
+To create a basic Atomic project, clone the [atomizer](https://github.com/acss-io/atomizer) repo:
 
-{% highlight shell %}
+```shell
 git clone git@github.com:acss-io/atomizer.git
-{% endhighlight %}
+```
 
-<p>then run our simple example dev server:</p>
+then run our simple example dev server:
 
-{% highlight shell %}
+```shell
 npm install
 npm run examples
-{% endhighlight %}
+```
 
-<p>This should open a page in your browser at <a href="http://localhost:3000">http://localhost:3000</a></p>
+This should open a page in your browser at [http://localhost:3000](http://localhost:3000)
 
-<p>Now try this:</p>
+Now try this:
 
-<ul class="ul-list">
-    <li>Open the index page in a text editor</li>
-    <li>Edit, add, or remove <b class="Fw(b)">Atomizer</b> classes in the markup (get help from the <a href="/reference">reference page</a>)</li>
-    <li>Save the file</li>
-</ul>
+- Open the index page in a text editor
+- Edit, add, or remove **Atomizer** classes in the markup (get help from the [reference page](/reference))
+- Save the file
 
-<p>The browser should reload the page, displaying all your changes. Check the <a href="http://localhost:3000/css/atomic.css">atomic.css</a> file to see that it only contains the rules for the classes that are being used in the project.</p>
+The browser should reload the page, displaying all your changes. Check the [atomic.css](http://localhost:3000/css/atomic.css) file to see that it only contains the rules for the classes that are being used in the project.
 
-{% include subhead.html tag="h2" title="Configuration" %}
+## Configuration
 
-<p>Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.js">this example</a> for more information on how configuration is used in Atomizer.</p>
+Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at [this example](https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.js) for more information on how configuration is used in Atomizer.
 
-{% include subhead.html tag="h2" title="Next Steps" %}
+## Next Steps
 
-<p>From here, learn about <a href="/thinking-in-atomic.html">Atomic CSS Architecture</a>, read the <a href="/frequently-asked-questions.html">FAQ</a>, learn more about <a href="/guides/acss-classes.html">Atomizer</a> classes and their <a href="/guides/syntax.html">syntax</a>.</p>
+From here, learn about [Atomic CSS Architecture](/thinking-in-atomic.html), read the [FAQ](/frequently-asked-questions.html), learn more about [Atomizer](/guides/acss-classes.html) classes and their [syntax](/guides/syntax.html).
 
-<p>Please visit the <a href="https://github.com/acss-io/atomizer">Atomizer</a> repository for more information.</p>
+Please visit the [Atomizer](https://github.com/acss-io/atomizer) repository for more information.

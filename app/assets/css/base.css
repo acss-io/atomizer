@@ -170,6 +170,7 @@ hr {
     height: 0; /* 1/2 */
     border: 0;
     border-top: 4px solid rgba(2, 128, 174, 0.3);
+    margin-top: 50px;
 }
 
 code {
