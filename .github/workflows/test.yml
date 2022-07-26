@@ -38,7 +38,7 @@ jobs:
                   path: vendor/bundle
                   key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
                   restore-keys: |
-                  ${{ runner.os }}-gems-
+                      ${{ runner.os }}-gems-
             - uses: helaili/jekyll-action@v2
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
