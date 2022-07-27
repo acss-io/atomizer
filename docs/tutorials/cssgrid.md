@@ -163,7 +163,8 @@ The `grid-row-start` and `grid-row-end` properties determine a grid item’s siz
 
 This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties. The syntax of the `grid-template-areas` property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
-Since this property has numerous complex possibilities, we only allow using atomic variables - they can be configured using a template literal.
+Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> - they can be configured using a template literal.
+
 
 ```html
 custom: {
