@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         atomizer: {
             docs: {
                 options: {
-                    configFile: './config/atomic-config.js',
+                    configFile: './config/atomic.config.js',
                     configOutput: './build/atomizer.json',
                 },
                 files: [
@@ -38,7 +38,7 @@ module.exports = function (grunt) {
             },
             examples: {
                 options: {
-                    configFile: './examples/config/atomizer.js'
+                    configFile: './examples/atomizer.config.js'
                 },
                 files: [{
                     src: ['./examples/**/*.html'],

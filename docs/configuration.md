@@ -4,19 +4,13 @@ layout: docs
 title: Configuration
 ---
 
-By default, no configuration file is necessary for Atomizer to run. Atomizer will automatically parse the files passed in and generate the CSS file for you. However, to use Atomizer to its fullest potential, you may wish to customize Atomizer to fit your requirements.
+By default, no configuration file is necessary for Atomizer to run. Atomizer will automatically parse the files passed in and generate the CSS file for you.
+
+However, in most cases, you will need to customize Atomizer to fit your projects requirements. This guide will help define the configuration options available for Atomizer.
 
 ## Create a configuration file
 
-The following command will create an empty config file in the directory of your choosing:
-
-```shell
-touch atomizer.config.js
-```
-
-<p class="noteBox info">The name of the file is arbitrary as this will be passed into Atomizer at build time.</p>
-
-Add the following contents to the `atomizer.config.js` file:
+Create a file named `atomizer.config.js` in the directory of your choosing with the following contents:
 
 ```js
 module.exports = {
@@ -26,7 +20,11 @@ module.exports = {
 };
 ```
 
-How you incorporate this file depends on your setup, please refer to the [installation guide](./installation.html) for more info. Next, read the config options below to fill out the configuration.
+<p class="noteBox info">The name of the file is arbitrary as this will be passed into Atomizer at build time.</p>
+
+How you incorporate this file depends on your setup, please refer to the [installation guide](./installation.html) for more info.
+
+Next, read the config sections below to learn more about the configuration options available.
 
 ## Configuration options
 
@@ -80,6 +78,8 @@ module.exports = {
 
 The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`.
 
+#### Substitution
+
 Custom values may also be substituted into one another via the `#{}` syntax, which are resolved recursively.
 
  ```js
@@ -90,3 +90,15 @@ module.exports = {
     }
 };
  ```
+
+### Exclude
+
+This is the opposite of the [classNames](#classnames). There are cases that you may want to tell Atomizer to ignore class names already defined in `classNames`. This is useful when classes are automatically added by the parser or when you want to create different atomic CSS files from the same set of `classNames`.
+
+```js
+module.exports = {
+    exclude: [
+        'Fl(end)',
+    ];
+}
+```

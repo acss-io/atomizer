@@ -33,7 +33,7 @@ Now try this:
 
 The browser should reload the page, displaying all your changes. Check the [atomic.css](http://localhost:3000/css/atomic.css) file to see that it only contains the rules for the classes that are being used in the project.
 
-<p class="noteBox info">Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.js">this example</a> for more information on how configuration is used in Atomizer.</p>
+<p class="noteBox info">Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.config.js">this example</a> for more information on how configuration is used in Atomizer.</p>
 
 ## Next Steps
 
