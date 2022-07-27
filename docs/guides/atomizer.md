@@ -1,4 +1,4 @@
 ---
-redirect: https://acss.io/installation.html
+redirect: /installation.html
 layout: redirect
 ---

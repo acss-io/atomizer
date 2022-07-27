@@ -1,4 +1,4 @@
 ---
-redirect: https://acss.io/breakpoints.html
+redirect: /breakpoints.html
 layout: redirect
 ---
