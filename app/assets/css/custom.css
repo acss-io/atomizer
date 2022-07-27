@@ -63,7 +63,7 @@ li.selected a {
 }
 
 #aside:after {
-    right: 50px; /* same as padding-right on #aside */
+    right: 0; /* same as padding-right on #aside */
     z-index: -1;
 }
 

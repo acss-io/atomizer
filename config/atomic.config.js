@@ -5,23 +5,19 @@ module.exports = {
         md: '@media screen and (min-width:999px)',
         lg: '@media screen and (min-width:1200px)',
     },
-    // custom acss classes mapped to their values
     custom: {
-        columnWidth: '20px',
+        'Bdt(light)': '1px solid rgba(2, 128, 174, 0.3)',
         'Bgi(hamburger)': 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
-        'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
-        'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
-        'Bdc(light)': 'rgba(2,128,174,.3)',
         brandColor: '#0280ae',
-        'Bgc(selected)': '#e5e1ea!important',
-        lineHeight: '0.8',
-        primaryFontColor: '#{brandColor}',
-        tocEnd: 'max(0px,calc(50% - 40rem))',
+        'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
+        columnWidth: '20px',
         'Fz(RWD-fontSize)': {
             xs: '40px',
             sm: '19px',
             md: '28px',
             lg: '55px',
         },
+        tocEnd: 'max(0px,calc(50% - 40rem))',
+        'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
     },
 };

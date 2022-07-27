@@ -4,11 +4,13 @@ layout: docs
 title: Quick Start
 ---
 
-This page is here to help you quickly set up an example site powered by [Atomizer](/guides/atomizer.html).
+Atomizer works by scanning HTML, JS and any other text file for [Atomizer classes](./guides/atomizer-classes.html). The classes are tranformed into style declarations and outputted to a CSS file. Add this generated CSS file to your site and you are done!
+
+We have created a few examples that you can check out before [setting up](./installation.html) Atomizer on your own site. Please follow the instructions below.
 
 ## Playground
 
-To create a basic Atomic project, clone the [atomizer](https://github.com/acss-io/atomizer) repo:
+To try our example Atomic project, clone the [atomizer](https://github.com/acss-io/atomizer) repo:
 
 ```shell
 git clone git@github.com:acss-io/atomizer.git
@@ -31,12 +33,10 @@ Now try this:
 
 The browser should reload the page, displaying all your changes. Check the [atomic.css](http://localhost:3000/css/atomic.css) file to see that it only contains the rules for the classes that are being used in the project.
 
-## Configuration
-
-Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at [this example](https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.js) for more information on how configuration is used in Atomizer.
+<p class="noteBox info">Atomizer allows you to define breakpoints, variables/custom values, and predefined classes in a JSON-formatted config file. Take a look at <a href="https://github.com/acss-io/atomizer/blob/master/examples/config/atomizer.config.js">this example</a> for more information on how configuration is used in Atomizer.</p>
 
 ## Next Steps
 
-From here, learn about [Atomic CSS Architecture](/thinking-in-atomic.html), read the [FAQ](/frequently-asked-questions.html), learn more about [Atomizer](/guides/acss-classes.html) classes and their [syntax](/guides/syntax.html).
+From here, [install](./installation.html) Atomizer in your site, learn about [Atomic CSS Architecture](/thinking-in-atomic.html), read the [FAQ](/frequently-asked-questions.html), learn more about [Atomizer](/guides/atomizer-classes.html) classes and their [syntax](/guides/syntax.html).
 
 Please visit the [Atomizer](https://github.com/acss-io/atomizer) repository for more information.
