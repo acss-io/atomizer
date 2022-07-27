@@ -80,7 +80,9 @@ module.exports = {
 };
 ```
 
-The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`. Custom values may also be substituted into one another via the `#{}` syntax, which are resolved recursively.
+The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`.
+
+Custom values may also be substituted into one another via the `#{}` syntax, which are resolved recursively.
 
  ```js
 module.exports = {
