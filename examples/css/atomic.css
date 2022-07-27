@@ -1,72 +1,3 @@
-.Bg\(blendenModeImages\) {
-  background: url("/images/br.png"), url("/images/tr.png");
-}
-.Bgbm\(di\) {
-  background-blend-mode: difference;
-}
-.Bgc\(\#000\) {
-  background-color: #000;
-}
-.Bgc\(\#333\) {
-  background-color: #333;
-}
-.Bgc\(\#add8e6\) {
-  background-color: #add8e6;
-}
-.Bgc\(\#ccc\) {
-  background-color: #ccc;
-}
-.Bgc\(\#fff\.8\) {
-  background-color: rgba(255,255,255,.8);
-}
-.Bgc\(\$primary\) {
-  background-color: #f3f3f3;
-}
-.C\(\#ff0000\) {
-  color: #ff0000;
-}
-.C\(\#fff\) {
-  color: #fff;
-}
-.C\(primary\) {
-  color: #f6a1e1;
-}
-.D\(f\) {
-  display: flex;
-}
-.D\(ib\) {
-  display: inline-block;
-}
-.D\(n\)\! {
-  display: none !important;
-}
-.As\(b\) {
-  align-self: baseline;
-}
-.As\(c\) {
-  align-self: center;
-}
-.As\(fe\) {
-  align-self: flex-end;
-}
-.As\(fs\) {
-  align-self: flex-start;
-}
-.As\(se\) {
-  align-self: self-end;
-}
-.As\(ss\) {
-  align-self: self-start;
-}
-.As\(st\) {
-  align-self: stretch;
-}
-.Fld\(c\) {
-  flex-direction: column;
-}
-.Fxf\(w\) {
-  flex-flow: wrap;
-}
 .Ai\(b\) {
   align-items: baseline;
 }
@@ -103,6 +34,99 @@
 .Ac\(st\) {
   align-content: stretch;
 }
+.As\(b\) {
+  align-self: baseline;
+}
+.As\(c\) {
+  align-self: center;
+}
+.As\(fe\) {
+  align-self: flex-end;
+}
+.As\(fs\) {
+  align-self: flex-start;
+}
+.As\(se\) {
+  align-self: self-end;
+}
+.As\(ss\) {
+  align-self: self-start;
+}
+.As\(st\) {
+  align-self: stretch;
+}
+.Bg\(blendenModeImages\) {
+  background: url("/images/br.png"), url("/images/tr.png");
+}
+.Bgbm\(di\) {
+  background-blend-mode: difference;
+}
+.Bgc\(\#000\) {
+  background-color: #000;
+}
+.Bgc\(\#333\) {
+  background-color: #333;
+}
+.Bgc\(\#add8e6\) {
+  background-color: #add8e6;
+}
+.Bgc\(\#ccc\) {
+  background-color: #ccc;
+}
+.Bgc\(\#fff\.8\) {
+  background-color: rgba(255,255,255,.8);
+}
+.Bgc\(\$primary\) {
+  background-color: #f3f3f3;
+}
+.C\(\#ff0000\) {
+  color: #ff0000;
+}
+.C\(\#fff\) {
+  color: #fff;
+}
+.C\(primary\) {
+  color: #f6a1e1;
+}
+.D\(f\) {
+  display: flex;
+}
+.D\(g\) {
+  display: grid;
+}
+.D\(ib\) {
+  display: inline-block;
+}
+.D\(n\)\! {
+  display: none !important;
+}
+.Fld\(c\) {
+  flex-direction: column;
+}
+.Fxf\(w\) {
+  flex-flow: wrap;
+}
+.Gaf\(rd\) {
+  grid-auto-flow: row dense;
+}
+.Gac\(mc\) {
+  grid-auto-columns: min-content;
+}
+.Gar\(100px\) {
+  grid-auto-rows: 100px;
+}
+.Gar\(mc\) {
+  grid-auto-rows: min-content;
+}
+.Gc\(twoCol\) {
+  grid-column: 1 / span 2;
+}
+.Gr\(twoCol\) {
+  grid-row: 1 / span 2;
+}
+.Gtc\(threeColGrid\) {
+  grid-template-columns: repeat(3, minmax(20px, 1fr));
+}
 .Jc\(c\) {
   justify-content: center;
 }
@@ -127,6 +151,9 @@
 .Jc\(se\) {
   justify-content: space-evenly;
 }
+.Ji\(c\) {
+  justify-items: center;
+}
 .Fl\(start\) {
   float: left;
 }
@@ -139,6 +166,9 @@
 .H\(100\%\) {
   height: 100%;
 }
+.H\(10px\) {
+  height: 10px;
+}
 .H\(200px\) {
   height: 200px;
 }
@@ -147,6 +177,15 @@
 }
 .H\(300px\) {
   height: 300px;
+}
+.H\(30px\) {
+  height: 30px;
+}
+.H\(40px\) {
+  height: 40px;
+}
+.H\(50px\) {
+  height: 50px;
 }
 .H\(uh\) {
   height: 79px;
