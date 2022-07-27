@@ -28,7 +28,7 @@ module.exports = {
 };
 ```
 
-How you incorporate this file depends on your setup, please refer to the [installation guide](./installation.html) for more info.
+How you incorporate this file depends on your setup, please refer to the [installation guide](./installation.html) for more info. Next, read the config options below to fill out the configuration.
 
 ## Configuration options
 
