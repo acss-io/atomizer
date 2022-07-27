@@ -7,11 +7,11 @@ layout: default
         <b class="Hidden">Toggle the menu</b>
     </button>
 
-    <aside id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Pos(r) Va(t) W(250px)--sm End(0) Pt(20px) Pb(40px) menu-on_Px(10px) Pstart(10px)--sm Pstart(0px)--lg Pend(50px)--sm Z(5) End(a)--sm Start(0)">
+    <aside id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Pos(r) Va(t) W(250px)--sm End(0) Pt(20px) Pb(40px) menu-on_Px(10px) Pstart(10px)--sm Pstart(0px)--lg Z(5) End(a)--sm Start(0)">
         {% include menu.html %}
     </aside>
 
-    <main id="main" class="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
+    <main id="main" class="D(tbc)--sm home_D(b)! Px(10px) Pstart(40px)--sm menu-on_Pos(f)">
         <h1 class="Fz(20px) Fz(30px)--sm Mb(20px)--xs">{{ page.title }}</h1>
 
         <div class="D(f)--lg">
@@ -19,7 +19,7 @@ layout: default
                 <h4 class="D(n) D(b)--lg Fz(.865rem)">On this page</h4>
                 {{ content | toc_only }}
             </div>
-            <div class="W(100%) W(75%)--lg">
+            <div class="W(100%) W(73%)--lg">
                 <div>{{ content | inject_anchors }}</div>
             </div>
         </div>

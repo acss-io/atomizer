@@ -6,6 +6,7 @@ module.exports = {
         lg: '@media screen and (min-width:1200px)',
     },
     custom: {
+        'Bdt(light)': '1px solid rgba(2, 128, 174, 0.3)',
         'Bgi(hamburger)': 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         brandColor: '#0280ae',
         'Bxsh(light)': '0 2px 3px rgba(0, 0, 0, 0.2)',
