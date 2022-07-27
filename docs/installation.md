@@ -6,7 +6,7 @@ title: Installation
 
 [Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating **Atomic CSS (ACSS)** stylesheets.
 
-Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* [[1]](#footnote-1).
+Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* [[1]](#footnote)<a id="footnote-1"></a>.
 
 This guide explains various solutions to setup Atomizer in your website. Have an integration we do not cover? Please [let us know](https://github.com/acss-io/atomizer/discussions). If you want to see Atomizer in action, please check out the [quick start guide](./quick-start.html).
 
@@ -52,10 +52,19 @@ Open the `index.html` in your browser to see your fancy page.
 
 Now, let's say you decided to change the color of the text to red, add the following class to the `h1` tag:
 
-```html
-<h1 class="Fz(30px) C(#ff0000)">
-    Hello world!
-</h1>
+```diff
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/dist/output.css" rel="stylesheet">
+    </head>
+    <body>
+-       <h1 class="Fz(30px)">Hello world!</h1>
++       <h1 class="Fz(30px) C(#ff0000)">Hello world!</h1>
+    </body>
+</html>
 ```
 
 Then Atomizer would update the style sheet with the following:
@@ -75,14 +84,16 @@ Then Atomizer would update the style sheet with the following:
 
 So how do you integrate Atomizer into your project? You can use Grunt, Gulp, WebPack, Make, Graddle, or any other task runner/build system you&#39;d like.
 
-Here&#39;s a few open source projects we know about:
+Here are the build projects we support:
 
-<ul class="ul-list">
-    <li>Clojure : <a href="https://github.com/azizzaeny/boot-atomizer">boot-atomizer</a> (<a href="https://github.com/boot-clj/boot">Boot-Task</a> for clojurescript )</li>
-    <li>Grunt: <a href="https://www.npmjs.com/package/grunt-atomizer">grunt-atomizer</a></li>
-    <li>Gulp: <a href="https://www.npmjs.com/package/gulp-atomizer">gulp-atomizer</a></li>
-    <li>Webpack: <a href="https://www.npmjs.com/package/webpack-atomizer-loader">webpack-atomizer-loader</a></li>
-</ul>
+- Grunt: <a href="https://www.npmjs.com/package/grunt-atomizer">grunt-atomizer</a>
+- Webpack: <a href="https://www.npmjs.com/package/webpack-atomizer-loader">webpack-atomizer-loader</a>
+
+and here some community supported libraries:
+
+- Clojure : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) ([Boot-Task](https://github.com/boot-clj/boot) for clojurescript)
+- Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
+- Nuxt: [nuxt-atomizer](https://github.com/dword-design/nuxt-atomizer)
 
 If you create your own, please [let us know!](/support.html)
 
@@ -129,14 +140,22 @@ atomizer: {
 }
 ```
 
-### Web Tools
+### Browser
 
-For a simple web interface to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, check out [ATOMIZER WEB](https://pankajparashar-zz.github.io/atomizer-web/), a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or <b class="Fw(b)">ACSS</b> classes and ATOMIZER WEB will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
+#### Atomizer Web
+
+For a simple web interface to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, check out [Atomizer Web](https://pankajparashar-zz.github.io/atomizer-web/), a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or <b class="Fw(b)">ACSS</b> classes and Atomizer Web will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
+
+#### Chrome
+
+Chrome extensions built and maintained by the Atomizer community
+
+- [Atomic CSS Dev Tools](https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en)
+- [Atomic CSS Helper](https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en)
 
 ---
 
+<div id="footnote"></div>
+
 1. This is true for non-custom classes <a href="#footnote-1">[↩]</a>
 
-<ol id="footnote" class="ol-list">
-    <li>This is true for non-custom classes <a href="#footnote-1">[↩]</a>.</li>
-</ol>

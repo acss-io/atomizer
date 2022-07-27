@@ -3,6 +3,7 @@ description: 'A CSS utility for component-based websites'
 destination: ./_site
 baseurl: '/'
 markdown: kramdown
+highlighter: rouge
 defaults:
     - scope:
           path: ''

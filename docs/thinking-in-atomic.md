@@ -8,7 +8,7 @@ title: Thinking in Atomic
 
 <p class="noteBox info">Be sure to read an interview with Atomizer Co-Founder Thierry Koblentz, <a href="https://css-tricks.com/thierry-koblentz-atomic-css/">The Making of Atomic CSS</a> on CSS Tricks.</p>
 
-**Atomizer** implements the **ACSS** [syntax](/guides/syntax.html) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
+**Atomizer** implements the Atomizer [syntax](/guides/syntax.html) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
 
 Adopting a Atomic CSS methodology addresses common CSS challenges:
 
