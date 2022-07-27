@@ -4,7 +4,7 @@ layout: docs
 title: Breakpoints
 ---
 
-You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomizer classes through <a href="/guides/syntax.html#-lt-breakpoint_identifier-">the breakpoint suffix</a> or automatic breakpoints.
+You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomizer classes through <a href="/guides/syntax.html#breakpoint_identifier">the breakpoint suffix</a> or automatic breakpoints.
 
 ## Setting up Breakpoints
 
@@ -12,9 +12,9 @@ Pick the breakpoint names and media queries you want, for example:
 
 ```js
 breakPoints: {
-    sm: '@media screen and (min-width: 380px)',
-    md: '@media screen and (min-width: 600px)',
-    lg: '@media screen and (min-width: 900px)',
+    sm: '@media screen and (min-width: 700px)',
+    md: '@media screen and (min-width: 999px)',
+    lg: '@media screen and (min-width: 1200px)',
 }
 ```
 
@@ -26,16 +26,16 @@ There are two ways to make use of breakpoints in your Atomizer classes: explicit
 
 ### Explicit Breakpoints
 
-Append `--&lt;breakpoint name&gt;` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create the following rules in the related media queries:
+Append `--<breakpoint name>` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create the following rules in the related media queries:
 
 ```css
-@media screen and (min-width:380px) {
+@media screen and (min-width:700px) {
     #atomic .D(b)--sm {
         display: block;
     }
 }
 
-@media screen and (min-width:680px) {
+@media screen and (min-width:999px) {
     #atomic .C(#000)--md {
         color: #000;
     }
@@ -44,7 +44,7 @@ Append `--&lt;breakpoint name&gt;` to any Atomic class to associate that styling
 
 ### Automatic Breakpoints
 
-[Variable values](/guides/syntax.html#variable-values) and [custom classes](/guides/atomic-classes.html#custom-classes) may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the [breakpoint identifier](/guides/syntax.html#breakpoint_identifier) suffix on your class.
+[Variable values](/guides/syntax.html#variable-values) and [custom classes](/guides/atomizer-classes.html#aliases) may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the [breakpoint identifier](/guides/syntax.html#breakpoint_identifier) suffix on your class.
 
 Simply set the value of your variable or custom class identifier to an object containing breakpoint names as the keys:
 
@@ -82,9 +82,9 @@ When using explicit breakpoints, use multiple classes to have styles applied in 
 --><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae)">4</div>
 ```
 
-- Below 380px, the boxes are displayed on top of each other (`div` are block-level elements)
-- Above 380px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)
-- Above 900px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)
+- Below 700px, the boxes are displayed on top of each other (`div` are block-level elements)
+- Above 999px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)
+- Above 1200px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)
 
 <p class="noteBox info">The breakpoints for the example below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>
 

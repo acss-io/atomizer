@@ -4,11 +4,11 @@ layout: docs
 title: Browser Support
 ---
 
-Atomizer supports all modern browsers and is tested on latest stable versions of Chrome, Edge, Firefox and Safari. There is no support for any version of Internet Explorer.
+Atomizer supports all modern browsers and is tested on the latest stable versions of Chrome, Edge, Firefox and Safari. There is no support for any version of Internet Explorer.
 
 In general, Atomizer will only support features that have reached the CSS spec recommendation status. Support for new or "in draft" CSS features will be avoided until properly tested and incorporated in stable browser versions.
 
-If unsure if a particular CSS feature is ready for production, use the [Can I Use?](https://caniuse.com/) website for in depth browser support information.
+If you are unsure if a particular CSS feature is ready for production, use the [Can I Use?](https://caniuse.com/) website for in depth browser support information.
 
 ## Vendor Prefixing
 

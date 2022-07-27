@@ -106,7 +106,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Create styles that rely on <a href="/guides/syntax.html#-lt-pseudo-class-">pseudo-classes</a>.</p>
+        <p>Create styles that rely on <a href="/guides/syntax.html#pseudo-class-">pseudo-classes</a>.</p>
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
