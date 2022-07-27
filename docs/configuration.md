@@ -22,7 +22,7 @@ module.exports = {
 
 <p class="noteBox info">The name of the file is arbitrary as this will be passed into Atomizer at build time.</p>
 
-How you incorporate this file depends on your setup, please refer to the [installation guide](./installation.html) for more info.
+How you use this file depends on your project setup, please refer to the [installation guide](./installation.html) for more info.
 
 Next, read the config sections below to learn more about the configuration options available.
 
