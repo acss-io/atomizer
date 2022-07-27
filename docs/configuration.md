@@ -4,8 +4,6 @@ layout: docs
 title: Configuration
 ---
 
-Learn how to configure your Atomizer usage.
-
 By default, no configuration file is necessary for Atomizer to run. Atomizer will automatically parse the files passed in and generate the CSS file for you. However, to use Atomizer to its fullest potential, you may wish to customize Atomizer to fit your requirements.
 
 ## Create a configuration file
