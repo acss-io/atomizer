@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+
+        <title>Atomizer: Grid</title>
+
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/atomic.css">
+    </head>
+    <body>
+        <main>
+            <h1>Grid</h1>
+
+            <p>This examples shows different ways to use grid with Atomizer.</p>
+
+            <h2>Grid Template Columns Require custom variables</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gp(10px) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Grid auto rows</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Ji(st) Gp(10px) Gar(100px) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Align grid items</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Ai(c) Gp(10px) Gar(100px) Bgc(#add8e6) P(10px)">
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Align & Justify grid items</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gp(10px) Gar(100px) Ai(c) Ji(c) Bgc(#add8e6) P(10px)">
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
+                <div class="D(f) Ai(c) Jc(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Grid columns require custom values</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gp(10px) Gar(100px) Ji(st) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc) Gc(twoCol)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc) Gc(twoCol)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Grid auto flow</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gaf(rd) Gp(10px) Gar(100px) Ji(st) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc) Gc(twoCol)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc) Gc(twoCol)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+
+
+            <h2>Grid auto column</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gac(mc) Gp(10px) Gar(100px) Ji(st) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc) Gc(twoCol)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc) Gc(twoCol)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Grid auto row</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gar(mc) Gp(10px) Gar(100px) Ji(st) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc) Gc(twoCol)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc) Gc(twoCol)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+
+            <h2>Grid row requires custom values</h2>
+
+            <div class="D(g) Gtc(threeColGrid) Gp(10px) Gar(100px) Ji(st) Bgc(#add8e6) P(10px)">
+                <div class="Bgc(#ccc) Gr(twoCol)">1</div>
+                <div class="Bgc(#ccc)">2</div>
+                <div class="Bgc(#ccc)">3</div>
+                <div class="Bgc(#ccc)">4</div>
+                <div class="Bgc(#ccc) Gr(twoCol)">5</div>
+                <div class="Bgc(#ccc)">6</div>
+            </div>
+        </main>
+
+        <!-- this is just to reload the page if you make any changes to the html -->
+        <script src="//localhost:35729/livereload.js"></script>
+    </body>
+</html>

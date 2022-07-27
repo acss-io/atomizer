@@ -222,3 +222,6 @@ pre {
 .highlight .il {
     color: #009999;
 } /* Literal.Number.Integer.Long */
+.language-html+.language-html {
+    margin-top: 15px;
+}
