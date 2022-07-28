@@ -22,7 +22,7 @@ const Reference = () => {
         <div>
             <SearchBox />
 
-            <h2 id="acss-classes">Atomizer Classes</h2>
+            <h2 id="atomizer-classes">Atomizer Classes</h2>
             <ReferenceRules />
 
             <h2 id="helper-classes">Helper Classes</h2>

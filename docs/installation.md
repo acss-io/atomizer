@@ -6,7 +6,7 @@ title: Installation
 
 [Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating **Atomic CSS (ACSS)** stylesheets.
 
-Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* [[1]](#footnote)<a id="footnote-1"></a>.
+Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* <sup>[[1]](#footnote)</sup><a id="footnote-1"></a>.
 
 This guide explains various solutions to setup Atomizer in your website. Have an integration we do not cover? Please [let us know](https://github.com/acss-io/atomizer/discussions). If you want to see Atomizer in action, please check out the [quick start guide](./quick-start.html).
 
@@ -157,5 +157,5 @@ Chrome extensions built and maintained by the Atomizer community
 
 <div id="footnote"></div>
 
-1. This is true for non-custom classes <a href="#footnote-1">[↩]</a>
+1. This is true for non-custom classes <sub>[[↩]](#footnote-1)</sub>
 

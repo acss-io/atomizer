@@ -46,7 +46,7 @@ const SearchBox = ({ executeAction, store }) => {
                 ref={textInput}
                 type="search"
                 role="search"
-                className="W(100%) P(10px) Fz(30px) C(brandColor) Fw(b)"
+                className="W(100%) P(10px) Fz(20px) C(brandColor)"
                 size="50"
                 placeholder="Type classname or CSS declaration here..."
                 title="Type classname or CSS declaration here..."
