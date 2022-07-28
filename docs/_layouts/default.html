@@ -31,10 +31,18 @@
     <script src="https://static.codepen.io/assets/embed/ei.js" async></script>
     <script>
         (function() {
+            // handle docs menu toggle
             const toggleMenuButton = document.getElementById('toggleMenuButton');
             toggleMenuButton?.addEventListener('click', () => {
                 const wrapper = document.getElementById('toggleMenuWrapper');
                 wrapper.classList.toggle('menu-on');
+            });
+
+            // handle home navigation toggle
+            const toggleNavButton = document.getElementById('toggleNavButton');
+            toggleNavButton?.addEventListener('click', () => {
+                const header = document.getElementById('header');
+                header.classList.toggle('nav-on');
             });
         }());
     </script>

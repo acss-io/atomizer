@@ -3,19 +3,15 @@ section: home
 layout: home
 ---
 
-<div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(49%)--sm">
-    <h2 class="Bdw(0)! P(0) M(0) Ta(c)">CSS is painful</h2>
-    <p>CSS is a critical piece of the frontend toolkit, but it&#39;s hard to manage, especially in large projects. Styles are written in a global scope, which is narrowed through complex selectors. Specificity issues, redundancy, bloat, and maintenance can become a nightmare. And modular, component-based projects only add to the complexity. <b class="Fw(b)">Atomizer</b> enables you to style directly in your components, avoiding the headache of <i class="Fs(i)">writing</i> and <i class="Fs(i)">managing</i> stylesheets.</p>
-</div>
-
-<div class="Bxz(bb) D(ib) Va(t) W(100%) Pend(30px)--sm W(49%)--sm">
-    <h2 class="Bdw(0)! P(0) M(0) Ta(c)">Style with class</h2>
-    <p>Most approaches to styling inside components rely on inline styles, which are limiting. Atomic CSS, like inline styles, offers single-purpose units of style, but applied via <em>classes</em>. This allows for the use of handy things such as media queries, contextual styling and pseudo-classes. The lower specificity of classes also allows for easier overrides. And the short, predictable classnames are highly reusable and compress well.</p>
-</div>
-
-<div class="Mx(a) Mt(10px) Bxz(bb) Va(t) W(100%) W(65%)--sm">
-    <h2 class="Bdw(0)! P(0) M(0) Ta(c)">Meet Atomizer</h2>
-    <p>Atomizer is a utility for modern web sites. Atomizer generates an Atomic stylesheet from the <b class="Fw(b)">ACSS</b> classes you&#39;re actually using in your project (no unused styles!), or predeclare styles in configuration - it&#39;s up to you. <b class="Fw(b)">Atomizer</b> is not opinionated, brings no CSS of its own, and integrates nicely with your favorite task runner.</p>
+<div class="D(f)--lg Jc(sb) Gp(2rem)">
+    <div>
+        <h2 class="Fz(24px) My(0) Mt(2em)--lg Mb(1em)--lg">Meet Atomizer!</h2>
+        <p>
+            Atomizer generates a simple static CSS stylesheet from the Atomizer classes you define in your project or predeclared configured styles - it&#39;s up to you.
+        </p>
+        <p>Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
+    </div>
+    <img src="{{ "/images/atomic-demo.gif" | relative_url }}" class="H(400px)--sm" alt="Atomizer demo">
 </div>
 
 <h2 id="colors">Colors</h2>
@@ -48,9 +44,9 @@ layout: home
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight js %}
 // config object
-'custom': {
-    'brandColor': '#0280ae',
-    'columnWidth': '20px'
+custom: {
+    brandColor: '#0280ae',
+    columnWidth: '20px',
 }
 {% endhighlight %}
 
@@ -73,7 +69,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomizer syntax allows you to style elements <a href="/guides/atomizer-classes.html#descendant-selectors">depending on their ancestors or siblings</a>.</p>
+        <p>Atomizer syntax allows you to style elements <a href="/guides/syntax.html#combinator">depending on their ancestors or siblings</a>.</p>
         <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -106,7 +102,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Create styles that rely on <a href="/guides/syntax.html#pseudo-class-">pseudo-classes</a>.</p>
+        <p>Create styles that rely on <a href="/guides/syntax.html#pseudo-class">pseudo-classes</a>.</p>
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -182,7 +178,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Define your responsive &quot;breakpoints&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
+        <p>Define your responsive &quot;<a href="/breakpoints.html">breakpoints</a>&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
 
         <h3>Classes mapped to a single breakpoint</h3>
 
@@ -238,7 +234,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomizer offers a selection of <a href="/guides/helper-classes.html">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="guides/helper-classes.html#-bd-borders-">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
+        <p>Atomizer offers a selection of <a href="/guides/helper-classes.html">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="guides/helper-classes.html#bd-borders">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
         <p>For example <code>LineClamp()</code>, which takes two parameters:</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">

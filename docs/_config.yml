@@ -1,5 +1,5 @@
 title: Atomizer
-description: 'A CSS utility for component-based websites'
+description: 'An unopinionated CSS utility library for modern websites.'
 destination: ./_site
 baseurl: '/'
 markdown: kramdown

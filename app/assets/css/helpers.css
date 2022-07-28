@@ -30,12 +30,3 @@
 #main dd {
     padding-left: 2em;
 }
-
-/**
- * TO COME LAST IN THIS STYLE SHEET
- * this is because React plugs <span> all over the place and they get styled by rules using selectors like "> *"
- */
-.atomic span {
-    display: inline;
-    float: none;
-}
