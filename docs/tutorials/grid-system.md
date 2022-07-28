@@ -18,7 +18,7 @@ There are many ways to display boxes next to each other, it&#39;s up to you to d
 
 ### `inline-block` construct
 
-This styling has great browser support <a href="#footnote">[1]</a> and it is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
+This styling has great browser support <sup><a href="#footnote" id="footnote-1">[1]</a></sup> and it is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
 When creating inline-block constructs, you should use the helper class (`IbBox`) instead of `D(ib)` because the former gives you vertical-alignment (`top`) for free.
 
@@ -52,7 +52,7 @@ When creating inline-block constructs, you should use the helper class (`IbBox`)
 
 ### `float` construct
 
-This styling has great browser support and <a href="https://github.com/acss-io/atomizer">Atomizer</a> makes it &quot;direction&quot; agnostic <a href="#footnote">[2]</a>.  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
+This styling has great browser support and <a href="https://github.com/acss-io/atomizer">Atomizer</a> makes it &quot;direction&quot; agnostic.  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
 #### Example
 
@@ -141,4 +141,4 @@ In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with
 
 <div id="footnote"></div>
 
-1. Atomizer relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context <a href="#footnote-2">[↩]</a>.
+1. Atomizer relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context. <sub><a href="#footnote-1">[↩]</a></sub>

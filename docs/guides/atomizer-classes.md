@@ -18,7 +18,7 @@ For more on the syntax of Atomizer classes and their value parameters, see [the 
 
 ## Aliases
 
-Atomizer provides aliases for most properties [[1]](#footnote)<a id="footnote-1" class="D(ib)"></a> that rely on [Functional Notation](http://www.w3.org/TR/css3-values/#functional-notation):
+Atomizer provides aliases for most properties <sup>[[1]](#footnote)<a id="footnote-1" class="D(ib)"></a></sup> that rely on [Functional Notation](http://www.w3.org/TR/css3-values/#functional-notation):
 
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Aliases for values based on functional notation</caption>
@@ -74,11 +74,11 @@ Atomizer provides aliases for most properties [[1]](#footnote)<a id="footnote-1"
             <td class="Va(t) P(10px)"><code>filter:sepia(50%)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix<b>&lt;custom value&gt;</b></code> <b class="Fw(n)"><a href="#footnote">[2]</a><a id="footnote-2" class="D(ib)"></a></b></th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix<b>&lt;custom value&gt;</b></code> <sup><a href="#footnote" id="footnote-2">[2]</a></sup></th>
             <td class="Va(t) P(10px)"><code>transform:matrix(1.2,.3,.4,1.5,40,10)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix3d<b>&lt;custom value&gt;</b></code> <b class="Fw(n)"><a href="#footnote">[2]</a><a id="footnote-3" class="D(ib)"></a></b></th>
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Matrix3d<b>&lt;custom value&gt;</b></code> <sup><a href="#footnote" id="footnote-2">[2]</a></sup></th>
             <td class="Va(t) P(10px)"><code>transform:matrix(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
@@ -165,5 +165,5 @@ custom: {
 
 <div id="footnote"></div>
 
-1. Aliases use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, there are not yet aliases for `calc()`, `rgba()`, etc. [[↩]](#footnote-1).
-1. Use the Atomizer config object to set custom values for `Matrix()` and `Matrix3d()`. [[↩]](#footnote-2).
+1. Aliases use the function name whenever it is bound to a `property`; for example `Rotate()` for `transform` or `Blur()` for `filter`. However, there are not yet aliases for `calc()`, `rgba()`, etc. <sub>[[↩]](#footnote-1)</sub>
+1. Use the Atomizer config object to set [custom values](../configuration.html#custom) for `Matrix()` and `Matrix3d()`. <sub>[[↩]](#footnote-2)</sub>

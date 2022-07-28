@@ -12,7 +12,7 @@ title: Thinking in Atomic
 
 Adopting a Atomic CSS methodology addresses common CSS challenges:
 
-<dl class="Mstart(20px) Mb(30px)">
+<dl class="Mb(30px)">
     <dt class="Fs(i) C(#000)">Changes are predictable</dt>
     <dd class="Mstart(20px) Mt(5px)">Because of the single responsibility principle (one class == one style) it is easy to predict what removing or adding a class will do.</dd>
     <dt class="Fs(i) C(#000)">Scope is limited</dt>
@@ -20,7 +20,7 @@ Adopting a Atomic CSS methodology addresses common CSS challenges:
     <dt class="Fs(i) C(#000)">CSS is lean</dt>
     <dd class="Mstart(20px) Mt(5px)">There is very little redundancy and no dead weight (all styles are relevant to the project).</dd>
     <dt class="Fs(i) C(#000)">Components are portable</dt>
-    <dd class="Mstart(20px) Mt(5px)">Classes used to style a component are not specific to that component, hence components can live in any other project that uses Atomizer [[2]](#footnote).</dd>
+    <dd class="Mstart(20px) Mt(5px)">Classes used to style a component are not specific to that component, hence components can live in any other project that uses Atomizer <sup><a href="#footnote" id="footnote-1">[1]</a></sup>.</dd>
     <dt class="Fs(i) C(#000)">Beginner-friendly</dt>
     <dd class="Mstart(20px) Mt(5px)">Writing efficient and correct selectors is often one of the hardest parts of CSS for new developers to master. With Atomic CSS, developers don&#39;t create bloat because they don&#39;t write the selectors, instead they mostly re-use existing classes. This can greatly simplify the learning curve for inexperienced developers.</dd>
 </dl>
@@ -33,7 +33,7 @@ Adopting a Atomic CSS methodology addresses common CSS challenges:
 
 <b>ACSS</b> can live side-by-side with traditional style sheets. In cases where <b>ACSS</b> doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.  
 
-Traditional style sheets may be helpful for styles that <b>ACSS</b> cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <b class="Fw(n)">[[1]](#footnote)<a id="footnote-1" class="D(ib)"></a></b>.
+Traditional style sheets may be helpful for styles that <b>ACSS</b> cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <sup>[[2]](#footnote)<a id="footnote-2" class="D(ib)"></a></sup>.
 
 ## Grids
 
@@ -97,16 +97,16 @@ This table suggests the namespace to use depending on the weight of your other r
         </tr>
             <tr class="BdT Bdc(#0280ae.3)">
                 <th scope="row" class="Va(t) Whs(nw) P(10px)">More than <code>0,1,1,0</code></th>
-                <td class="Va(t) P(10px)">Use whatever it takes <b class="Fw(n)">[[4]](#footnote)<a id="footnote-4" class="D(ib)"></a></b></td>
+                <td class="Va(t) P(10px)">Use whatever it takes <sup><a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></sup></td>
             </tr>
     </tbody>
 </table>
 
-<p class="noteBox info">You can set up a namespace in [grunt-atomizer](https://github.com/acss-io/grunt-atomizer#examples) or via [the Atomizer command line](https://github.com/acss-io/atomizer#cli).</p>
+<p class="noteBox info">You can set up a namespace in <a href="https://github.com/acss-io/grunt-atomizer#examples">grunt-atomizer</a> or via the <a href="./installation.html#atomizer-cli">Atomizer command line</a>.</p>
 
 ### Style sheets organization
 
-Take advantage of the *cascade* by creating &quot;specificity layers&quot; <b class="Fw(n)">[[3]](#footnote)<a id="footnote-3" class="D(ib)"></a></b> and loading files in proper order.
+Take advantage of the *cascade* by creating &quot;specificity layers&quot; <sup>[[4]](#footnote)<a id="footnote-4" class="D(ib)"></a></sup> and loading files in proper order.
 
 <table class="Ta(start) W(100%)">
     <caption class="Hidden">Namespace consideration</caption>
@@ -138,16 +138,16 @@ Take advantage of the *cascade* by creating &quot;specificity layers&quot; <b cl
             <td class="Va(t) P(10px)"><code>0,1,1,0</code></td>
             <td class="Va(t) P(10px)">atomic.css</td>
         </tr>
-            <tr class="BdT Bdc(#0280ae.3)">
-                <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>@style</code></th>
-                <td class="Va(t) P(10px)"><code>1,0,0,0</code></td>
-                <td class="Va(t) P(10px)">Inline Styles</td>
-            </tr>
-            <tr class="BdT Bdc(#0280ae.3)">
-                <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>!important</code> rule</th>
-                <td class="Va(t) P(10px)">Trumps all the above <b class="Fw(n)">[[5]](#footnote)<a id="footnote-5" class="D(ib)"></a></b></td>
-                <td class="Va(t) P(10px)">Can be anywhere<br> (as an exception)</td>
-            </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>@style</code></th>
+            <td class="Va(t) P(10px)"><code>1,0,0,0</code></td>
+            <td class="Va(t) P(10px)">Inline Styles</td>
+        </tr>
+        <tr class="BdT Bdc(#0280ae.3)">
+            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>!important</code> rule</th>
+            <td class="Va(t) P(10px)">Trumps all the above <sup><a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a></sup></td>
+            <td class="Va(t) P(10px)">Can be anywhere<br> (as an exception)</td>
+        </tr>
     </tbody>
 </table>
 
@@ -155,10 +155,10 @@ Take advantage of the *cascade* by creating &quot;specificity layers&quot; <b cl
 
 ---
 
-<ol id="footnote" class="ol-list">
-    <li>An example of this could be the markup of a &quot;button&quot; that could appear in many places across a project (versus a unique &quot;component&quot; *included* in multiple places) [[↩]](#footnote-1).</li>
-    <li>Unless that component relies on custom values from the config file - in which case, keys from that file would need to be added to the config of the other project [[↩]](#footnote-2).</li>
-    <li>Specificity is something we want to leverage, not something we want to keep a lid on [[↩]](#footnote-3).</li>
-    <li>The namespace can be anything, for example: <code>#someId #anotherId .andAclass</code> [[↩]](#footnote-4).</li>
-    <li><code>!important</code> is not related to specificity per se [[↩]](#footnote-5).</li>
-</ol>
+<div id="footnote"></div>
+
+1. Unless that component relies on custom values from the config file - in which case, keys from that file would need to be added to the config of the other project <sub>[[↩]](#footnote-1)</sub>.
+1. An example of this could be the markup of a &quot;button&quot; that could appear in many places across a project (versus a unique &quot;component&quot; *included* in multiple places) <sub>[[↩]](#footnote-2)</sub>.
+1. The namespace can be anything, for example: `#someId #anotherId .andAclass` <sub>[[↩]](#footnote-3)</sub>.
+1. Specificity is something we want to leverage, not something we want to keep a lid on <sub>[[↩]](#footnote-4)</sub>.
+1. `!important` is not related to specificity per se <sub>[[↩]](#footnote-5)</sub>.

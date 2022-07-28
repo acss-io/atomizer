@@ -39,19 +39,19 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
     <tbody>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b>n</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `display: none</code></td>
+            <td class="Va-t P(10px)">This is mapped to <code>display: none</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b>n</b>)<b>!</b></code></th>
-            <td class="Va-t P(10px)">This is mapped to `display: none !important</code></td>
+            <td class="Va-t P(10px)">This is mapped to <code>display: none !important</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b>1em</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `font-size: 1em</code></td>
+            <td class="Va-t P(10px)">This is mapped to <code>font-size: 1em</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b>18px</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `font-size: 18px</code></td>
+            <td class="Va-t P(10px)">This is mapped to <code>font-size: 18px</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b>u</b>)<b>:h</b></code></th>
@@ -59,15 +59,15 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b>n</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `box-shadow: none</code></td>
+            <td class="Va-t P(10px)">This is mapped to <code>box-shadow: none</code></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b>foo</b>)<b>--lg</b></code></th>
-            <td class="Va-t P(10px)">This applies a custom box-shadow inside the &quot;lg&quot; breakpoint <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This applies a custom box-shadow inside the &quot;lg&quot; breakpoint <sup><a href="#footnote" id="footnote-1">[1]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b>foo</b>)<b>:h--lg</b></code></th>
-            <td class="Va-t P(10px)">Same styling as above but on mouseover only <a href="#footnote">[1]</a><a id="footnote-1" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">Same styling as above but on mouseover only <sup><a href="#footnote" id="footnote-1">[1]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b>#000</b>)</code></th>
@@ -79,43 +79,43 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b>bar</b>)</code></th>
-            <td class="Va-t P(10px)">This applies a &quot;global&quot; value to `margin` <a href="#footnote">[2]</a><a id="footnote-2" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This applies a <a href="../configuration.html#custom">custom</a> value to <code>margin</code> <sup><a href="#footnote" id="footnote-2">[2]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Mend(<b>0</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `margin-right: 0` in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This is mapped to <code>margin-right: 0</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Ta(<b>start</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `text-align:left` in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This is mapped to <code>text-align:left</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Cl(<b>start</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `clear:left` in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This is mapped to <code>clear:left</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bdstartw(<b>0</b>)</code></th>
-            <td class="Va-t P(10px)">This is mapped to `border-left-width:0` in a LTR context <a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This is mapped to <code>border-left-width:0</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b>-90deg</b>)</code></th>
-            <td class="Va-t P(10px)">This is an <a href="atomic-classes.html#aliases">alias</a> mapped to `transform: rotate(-90deg)` <a href="#footnote">[4]</a><a id="footnote-4" class="D(ib)"></a></td>
+            <td class="Va-t P(10px)">This is an <a href="atomizer-classes.html#aliases">alias</a> mapped to <code>transform: rotate(-90deg)</code> <sup><a href="#footnote" id="footnote-4">[4]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>LineClamp(<b>2,50px</b>)</code></th>
-            <td class="Va-t P(10px)">This is a *helper* which truncates text after 2 lines <a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a>.</td>
+            <td class="Va-t P(10px)">This is a <a href="helper-classes.html">helper</a> which truncates text after 2 lines <sup><a href="#footnote" id="footnote-5">[5]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>list_</b>D(<b>ib</b>)</code></th>
-            <td class="Va-t P(10px)">This element is styled with `display:inline-block` when it is a descendant of a node to which the class`list` is applied <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
+            <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a descendant of a node to which the class <code>list</code> is applied <sup><a href="#footnote" id="footnote-6">[6]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>list&gt;</b>D(<b>ib</b>)</code></th>
-            <td class="Va-t P(10px)">This element is styled with `display:inline-block` when it is a direct child of a node to which the class `list` is applied to <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
+            <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a direct child of a node to which the class <code>list</code> is applied to <sup><a href="#footnote" id="footnote-6">[6]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>box:h_</b>D(<b>n</b>)</code></th>
-            <td class="Va-t P(10px)">This element is hidden when users hover over its ancestor with the class `.box` <a href="#footnote">[6]</a><a id="footnote-6" class="D(ib)"></a>.</td>
+            <td class="Va-t P(10px)">This element is hidden when users hover over its ancestor with the class <code>.box</code> <sup><a href="#footnote" id="footnote-6">[6]</a></sup></td>
         </tr>
     </tbody>
 </table>
@@ -128,7 +128,7 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
 
 Optional.
 
-A **class** applied to an ancestor or sibling of the node (see [examples](#examples-)).
+A **class** applied to an ancestor or sibling of the node (see [examples](#examples)).
 
 ### &lt;pseudo-class&gt;
 
@@ -188,11 +188,16 @@ Optional.
 
 A suffix mapped to a [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements). The following pseudo-elements are supported:
 
-- `b` for `::before`
 - `a` for `::after`
+- `b` for `::before`
+- `bd` for `::backdrop`
+- `c` for `::cue`
+- `fsb` for `::file-selector-button`
 - `fl` for `::first-letter`
 - `fli` for `::first-line`
+- `m` for `::marker`
 - `ph` for `::placeholder`
+- `s` for `::selection`
 
 ### &lt;combinator&gt;
 
@@ -424,6 +429,6 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
 1. `Bxs(foo)` uses a custom variable `foo` set in the config object <sub>[[↩]](#footnote-1)</sub>.
 1. `bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P(bar)` for `padding`, `H(bar)` for`height`, etc.) <sub>[[↩]](#footnote-2)</sub>.
 1. `start` is mapped to either &quot;left&quot; or &quot;right&quot; depending on the config file <sub>[[↩]](#footnote-3)</sub>.
-1. this class is an [alias](atomic-classes.html) <sub>[[↩]](#footnote-4)</sub>.
-1. this class is a [helper](helper-classes.html) <sub>[[↩]](#footnote-5)</sub>.
+1. This class is an [alias](atomizer-classes.html#aliases) <sub>[[↩]](#footnote-4)</sub>.
+1. This class is a [helper](helper-classes.html) <sub>[[↩]](#footnote-5)</sub>.
 1. Unlike all other Atomizer classes, those containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles <sub>[[↩]](#footnote-6)</sub>.

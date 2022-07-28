@@ -10,7 +10,7 @@ Unlike [ACSS classes](/guides/acss-classes.html), helper classes apply multiple 
 
 ## `Bd*` (Borders)
 
-Styling elements with a border requires 3 properties [[1]](#footnote) so to make styling via classes a bit less verbose, the following helpers combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
+Styling elements with a border requires 3 properties <sup>[[1]](#footnote)</sup><a id="footnote-1"></a> so to make styling via classes a bit less verbose, the following helpers combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
 
 - `Bd` creates a `1px` border on all edges of a box
 - `BdX` creates a `1px` border on the left and right edges of a box
@@ -166,6 +166,8 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
     <div class="StretchedBox Bgc(#0280ae) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 
-<hr class="Mt(50px)">
+---
 
-1. Unless one wants the initial value of `border-width` and `border-color` [[↩]](#footnote-1).</li>
+<div id="footnote"></div>
+
+1. Unless one wants the initial value of `border-width` and `border-color`. <sub>[[↩]](#footnote-1)</sub>

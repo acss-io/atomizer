@@ -73,7 +73,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomizer syntax allows you to style elements <a href="/guides/atomic-classes.html#descendant-selectors">depending on their ancestors or siblings</a>.</p>
+        <p>Atomizer syntax allows you to style elements <a href="/guides/atomizer-classes.html#descendant-selectors">depending on their ancestors or siblings</a>.</p>
         <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
