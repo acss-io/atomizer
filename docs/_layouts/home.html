@@ -3,19 +3,24 @@ layout: default
 ---
 
 <div>
-    <div id='splash' class='Ov(h) BdB Bdc(#0280ae.3) Bgc(brandColor)'>
-        <div class='Ta(c) Va(m)'>
-            <h1 class='Pos(r) C(#fff)'>
-                <img class='Pos(r) Z(7) Mt(-20px)--sm Mb(20px)' id="logo" alt='Atomizer logo' height="130" src="{{ "/images/atomic-css-logo.png" | relative_url }}" />
-                <div class='My(10px) Fz(48px) Lh(1.2)'>Create <span class="Whs(nw)">Atomic CSS</span> <span class="Whs(nw)">with Atomizer</span></div>
+    <div id="splash" class="Ov(h) BdB Bdc(#0280ae.3) Bgc(brandColor)">
+        <div class="Ta(c) Va(m) Mx(a) Px(1rem) W(90%)--sm W(80%)--md W(50%)--lg">
+            <h1 class="Pos(r) C(#fff) My(1em)">
+                <img class="D(n) D(ib)--sm Pos(r) Z(7) Mt(-20px)--sm Mb(20px)" id="logo" alt="Atomizer logo" height="130" src="{{ "/images/atomic-css-logo.png" | relative_url }}">
+                <div class="My(10px) Fz(28px) Fz(48px)--sm Lh(1.2)">
+                    Create small, reusable CSS that scales as your website grows.
+                </div>
             </h1>
-            <p>
-                <a href="{{ "/quick-start.html" | relative_url }}" class='Mt(10px) Mb(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#fff.3) Bdrs(2px) Bxsh(light) Tsh(1) Fw(b) Td(n):h'>Get Started</a>
+            <p class="C(#fff) M(0) Fz(16px) Fz(22px)--sm Py(5px) Fw(400)">
+                Atomizer is an unopinionated CSS utility library for modern websites.
+                Just add classes like <code>D(f)</code> and <code>Fz(1.5rem)</code> to your markup to efficiently style your website. 
             </p>
-            <p class="Tt(u) C(#fff) M(0) Fz(12px) Py(5px) BdT Bdc(#fff.2) Lts(2px) Fw(400)">An unopinionated CSS utility for component-based websites</p>
+            <p>
+                <a href="{{ "/quick-start.html" | relative_url }}" class="Mt(10px) Mb(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#fff.3) Bdrs(2px) Bxsh(light) Tsh(1) Fw(b) Td(n):h">Get Started</a>
+            </p>
         </div>
     </div>
-    <div class='Bxz(bb) Pt(40px) Px(10px) Mb(50px) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)'>
+    <div class="Bxz(bb) Pt(40px) Px(10px) Mb(50px) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)">
         <div id="main" role="main" class="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
             <div>{{ content }}</div>
         </div>

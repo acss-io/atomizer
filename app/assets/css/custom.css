@@ -55,12 +55,11 @@
     opacity: 1;
 }
 
-/**
- * .selected list item
- */
 li.selected a {
     cursor: text;
 }
+
+/* Menu Styles ==================================================== */
 
 #aside:after {
     right: 0; /* same as padding-right on #aside */
@@ -78,12 +77,17 @@ li.selected a {
     background: rgba(2, 128, 174, 0.3);
 }
 
-/**
- * Position
- */
 #aside li:hover a:after,
 #aside li.selected a:after {
     right: 0;
+}
+
+#aside li.selected a {
+    font-weight: 500;
+}
+
+#aside li.selected a:after {
+    background: #0280ae;
 }
 
 /* Table of Contents =============================================== */
@@ -108,18 +112,32 @@ li.selected a {
     margin-left: 25px;
 }
 
-/* Colors =========================================================== */
+/* Home Navigation Menu ============================================= */
 
 /**
- * Foreground
+ * This menu only displays on the homepage to display the
+ * Docs/Reference/Support/GitHub links.
  */
-#aside li.selected a {
-    font-weight: 500;
+
+.nav-on nav {
+    background: #fff;
+    border-radius: 5px;
+    display: block !important;
+    padding: 0 20px;
+    position: absolute;
+    right: 25px;
+    top: 50px;
+    width: 130px;
+}
+.nav-on nav li {
+    display: block;
+    margin: 15px 0 15px 0;
+}
+.nav-on nav a {
+    color: #0280ae;
 }
 
-#aside li.selected a:after {
-    background: #0280ae;
-}
+/* Colors =========================================================== */
 
 /**
  * Background
@@ -186,5 +204,3 @@ pre code {
 .cp_embed_iframe {
     margin-top: -20px;
 }
-
-/* ================================================================== */
