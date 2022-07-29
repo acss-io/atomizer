@@ -3,7 +3,7 @@ import 'codemirror/mode/xml/xml.js';
 import 'codemirror/mode/css/css.js';
 import 'codemirror/mode/javascript/javascript.js';
 import Atomizer from 'atomizer';
-import JSZip from 'JSZip';
+import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 const markup = document.getElementById('markup');
