@@ -89,6 +89,13 @@ Open \`index.html\` in your browser to see your page.
     saveAs(content, 'atomizer.zip');
 }
 
+function toggleFullScreen() {
+    const header = document.getElementById('header');
+    const fullscreen = document.getElementById('fullscreen');
+    fullscreen.classList.toggle('fc-on');
+    header.hidden = !header.hidden;
+}
+
 // populate preview iframe with initial markup
 updatePreview();
 
@@ -96,3 +103,4 @@ updatePreview();
 markupEditor.on('change', updatePreview);
 configEditor.on('change', updatePreview);
 document.getElementById('save').addEventListener('click', createZip);
+document.getElementById('fullscreen').addEventListener('click', toggleFullScreen);
