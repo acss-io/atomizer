@@ -47,7 +47,7 @@ function updatePreview() {
 
     // update the iframe preview
     const preview = document.getElementById('preview');
-    preview.contentDocument.head.innerHTML = `<style>* { margin: 0; padding: 0 }${cssEditor.getValue()}</style>`;
+    preview.contentDocument.head.innerHTML = `<style>h1 { margin: 0; padding: 0 }${cssEditor.getValue()}</style>`;
     preview.contentDocument.body.innerHTML = markupEditor.getValue();
 }
 
