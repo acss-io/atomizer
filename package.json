@@ -56,6 +56,7 @@
     "autoprefixer": "^10.4.7",
     "babel-loader": "^8.2.5",
     "chai": "^4.3.6",
+    "codemirror": "^5.65.7",
     "concurrently": "^7.2.2",
     "coveralls": "^3.1.1",
     "escape-string-regexp": "^5.0.0",

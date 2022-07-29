@@ -17,6 +17,7 @@ module.exports = {
             md: '28px',
             lg: '55px',
         },
+        replBorder: '2px solid #1a1821',
         tocEnd: 'max(0px,calc(50% - 40rem))',
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
     },
