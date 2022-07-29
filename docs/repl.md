@@ -12,10 +12,10 @@ title: Hello world - REPL
         <ul class="D(f) M(0)">
             <li class="Mend(20px)">
                 <button id="fullscreen" class="D(f) Ai(c) Jc(sb) Pt(10px) Pb(10px) Bg(n) Bd(n) C(#ccc) C(#fff):h Cur(p) Fz(14px)" title="Toggle fullscreen mode">
-                    <svg class="D(b) fc-on_D(n)" viewBox="0 0 24 24" width="20" height="20">
+                    <svg class="D(b) fs-on_D(n)" viewBox="0 0 24 24" width="20" height="20">
                         <path fill="currentColor" d="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z"></path>
                     </svg>
-                    <svg class="D(n) fc-on_D(b)" viewBox="0 0 24 24" width="20" height="20">
+                    <svg class="D(n) fs-on_D(b)" viewBox="0 0 24 24" width="20" height="20">
                         <path fill="currentColor" d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
                     </svg>
                     <span class="Pstart(5px)">Fullscreen</span>

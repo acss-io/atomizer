@@ -1,3 +1,5 @@
+/* global gtag */
+
 import CodeMirror from 'codemirror';
 import 'codemirror/mode/xml/xml.js';
 import 'codemirror/mode/css/css.js';
@@ -87,13 +89,23 @@ Open \`index.html\` in your browser to see your page.
     
     const content = await zip.generateAsync({ type: 'blob' });
     saveAs(content, 'atomizer.zip');
+
+    if (typeof gtag !== 'undefined') {
+        gtag?.('event', 'repl_download');
+    }
 }
 
 function toggleFullScreen() {
     const header = document.getElementById('header');
     const fullscreen = document.getElementById('fullscreen');
-    fullscreen.classList.toggle('fc-on');
+    const fullscreenClass = 'fs-on';
+    fullscreen.classList.toggle(fullscreenClass);
     header.hidden = !header.hidden;
+
+    if (typeof gtag !== 'undefined') {
+        const mode = fullscreen.classList.contains(fullscreenClass) ? 'open' : 'closed';
+        gtag?.('event', 'repl_fullscreen', { mode });
+    }
 }
 
 // populate preview iframe with initial markup
