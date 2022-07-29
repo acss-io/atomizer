@@ -43,6 +43,7 @@ title: Hello world - REPL
     <h1 class="Ta(c)">Hello world!</h1>
     <p class="My(10px) Lh(1.3)">Modify the markup by changing the code in the "html" box. As you add and remove <a href="./guides/atomizer-classes.html">Atomizer classes</a>, this preview will update live and the CSS will be auto generated in the "css" box above.</p>
     <p class="Lh(1.3)">You can further customize Atomizer by adding your own breakpoints or custom values. Take a look at the <a href="./configuration.html">Configuration guide</a> for more information.</p>
+    <p>Like what you see? Use the Download button to save it locally and build your next project!</p>
 </div>
             </textarea>
         </div>
