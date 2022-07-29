@@ -74,6 +74,7 @@ module.exports = function (grunt) {
                             '<%= project.app %>/assets/css/custom.css',
                             '<%= project.app %>/assets/css/mq.css',
                             '<%= project.app %>/assets/css/syntax.css',
+                            '<%= project.app %>/assets/css/repl.css',
                         ],
                         dest: '<%= project.docs %>/assets/css/main.css',
                     },
@@ -130,6 +131,7 @@ module.exports = function (grunt) {
                 },
                 entry: {
                     main: '<%= project.app %>/client-reference.js',
+                    repl: '<%= project.app %>/assets/js/repl.js',
                     search: '<%= project.app %>/assets/js/search.js',
                 },
                 output: {
@@ -161,6 +163,7 @@ module.exports = function (grunt) {
                 },
                 entry: {
                     main: '<%= project.app %>/client-reference.js',
+                    repl: '<%= project.app %>/assets/js/repl.js',
                     search: '<%= project.app %>/assets/js/search.js',
                 },
                 output: {

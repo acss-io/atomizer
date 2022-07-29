@@ -24,7 +24,7 @@ Next, create a simple html file, `index.html` and copy the following HTML into i
 <!doctype html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/dist/output.css" rel="stylesheet">
     </head>
@@ -142,9 +142,9 @@ atomizer: {
 
 ### Browser
 
-#### Atomizer Web
+#### REPL
 
-For a simple web interface to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, check out [Atomizer Web](https://pankajparashar-zz.github.io/atomizer-web/), a tool built by <a href="https://twitter.com/pankajparashar" title="@pankajparashar on Twitter">Pankaj Parashar</a>. Paste some markup or <b class="Fw(b)">ACSS</b> classes and Atomizer Web will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
+For a simple web interface to help you learn about Atomizer and <b class="Fw(b)">ACSS</b>, try our [REPL](./repl.html). Paste some markup or <b class="Fw(b)">ACSS</b> classes and the REPL will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
 
 #### Chrome
 
@@ -158,4 +158,3 @@ Chrome extensions built and maintained by the Atomizer community
 <div id="footnote"></div>
 
 1. This is true for non-custom classes <sub>[[↩]](#footnote-1)</sub>
-

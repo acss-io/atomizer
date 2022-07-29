@@ -164,7 +164,7 @@ import lunr from 'lunr';
 
             // beacon the query
             if (typeof gtag !== 'undefined') {
-                gtag?.('event', 'search', { query });
+                gtag?.('event', 'search', { search_term: query }); // eslint-disable-line camelcase
             }
         }
     }
