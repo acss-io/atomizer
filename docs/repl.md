@@ -8,7 +8,7 @@ title: Hello world - REPL
 
 <div class="Bgc(#383838)">
     <div class="D(f) Ai(c) Jc(sb) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm Pstart(10px) Pstart(0)--lg">
-        <h1 class="M(0) Mb(-3px) Lh(0) Fz(16px) C(#ccc)">Hello world RPEL</h1>
+        <h1 class="D(n)--xs M(0) Mb(-3px) Lh(0) Fz(16px) C(#ccc)">Hello world RPEL</h1>
         {% include search.html %}
         <ul class="D(f) M(0)">
             <li class="Mend(20px)--sm">
@@ -49,7 +49,7 @@ title: Hello world - REPL
             </textarea>
         </div>
 
-        <div class="Fxb(0%) Fxg(1) Fxs(1) Pos(r) Bdstart(replBorder) Bdend(replBorder)">
+        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) Bdstart(replBorder) Bdend(replBorder)">
             <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">
                 <a href="./configuration.html">config</a>
             </h2>
@@ -67,7 +67,7 @@ title: Hello world - REPL
 }
             </textarea>
         </div>
-        <div class="Fxb(0%) Fxg(1) Fxs(1) Pos(r)">
+        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r)">
             <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">css</h2>
             <textarea id="css"></textarea>
         </div>
