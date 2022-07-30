@@ -110,6 +110,10 @@ const index = lunr(function() {
 
     // add rules to index
     for (const rule of atomizerRules) {
+        // ignore rules which would confuse users
+        if (rule.name.includes('deprecated')) {
+            continue;
+        }
         const id = stripChars(rule.name);
         const doc = {
             id,
