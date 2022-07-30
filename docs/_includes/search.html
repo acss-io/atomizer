@@ -1,0 +1,30 @@
+{% assign placeholderText = 'Quick search...' %}
+{% if page.section == 'repl' %}
+    {% assign placeholderText = 'Class search...' %}
+{% endif %}
+
+<div class="Pos(r)">
+    <form id="search" class="D(f) Ai(c) Pos(r)">
+        <label for="q" class="Pos(a) Start(5px) Lh(0)">
+            <svg width="24" height="24" fill="none">
+                <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+            </svg>
+            <span id="search-label" class="Hidden">Site Search:</span>
+        </label>
+        <input type="search" role="search" placeholder="{{ placeholderText }}" id="q" autocomplete="off" class="W(80%) W(100%)--sm Py(10px) Pend(40px) Pstart(35px) repl_Py(5px) repl_Bgc(#ccc) repl_Bgc(#fff):focus">
+        <span class="D(b) D(n)!--xs Pos(a) End(10px) C(#777)">
+            <kbd class="Va(m)">⌘</kbd><kbd>K</kbd>
+        </span>
+    </form>
+    <div
+        id="resultsCont"
+        class="D(n) Z(3) Pos(a) W(30rem)--sm W(94%)--xs Bd Bdc(#ccc) Bgc(#fff) Bxsh(light)"
+        role="dialog"
+        aria-labelledby="search-label"
+        aria-modal="true"
+    >
+        <h2 class="Hidden">Search Results</h2>
+        <div id="results" class="Mah(200px) Ovy(s)"></div>
+    </div>
+</div>

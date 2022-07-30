@@ -139,7 +139,7 @@ import lunr from 'lunr';
      */
     function displaySearchResults(query, results = []) {
         const resultsCont = document.getElementById('resultsCont');
-        const resultsEl = document.getElementById('resultsCont');
+        const resultsEl = document.getElementById('results');
 
         // clear previous results
         if (!query || query === '' || !results.length) {
@@ -203,7 +203,7 @@ import lunr from 'lunr';
                         }
                         return doc;
                     })
-                    .slice(0, 5);
+                    .slice(0, 20);
                 return displaySearchResults(query, results);
             }
             displaySearchResults();

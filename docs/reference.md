@@ -4,7 +4,7 @@ layout: reference
 title: Reference
 ---
 
-# Reference
+<h1 class="Fz(24px) Fz(30px)--sm Mb(20px)--xs">Reference</h1>
 
 Use this page to search for [Atomizer](#atomizer-classes) and [Helper](#helper-classes) classes.
 
