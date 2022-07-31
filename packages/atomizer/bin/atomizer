@@ -13,6 +13,7 @@ process.title = 'atomizer';
 var chalk = require('chalk');
 var chokidar = require('chokidar');
 var fs = require('fs');
+var glob = require('glob');
 var minimatch = require('minimatch');
 var path = require('path');
 var program = require('commander');
@@ -20,6 +21,7 @@ var some = require('lodash/some');
 var union = require('lodash/union');
 
 var Atomizer = require('../src/atomizer');
+const { files } = require('jszip');
 var content = '';
 var config = {};
 var classnames = [];
@@ -131,8 +133,18 @@ function buildAtomicCss(additionalFiles, done) {
     }
 
     // Generate config from parsed src files
-
     var filesToParse = additionalFiles.concat(program.args || []);
+
+    // load src files from "content" property of config
+    if (config.content && Array.isArray(config.content)) {
+        filesToParse = config.content
+            .reduce(function (files, pattern) {
+                var found = glob.sync(pattern, { matchBase: true });
+                return files.concat(found);
+            }, [])
+            .concat(filesToParse);
+    }
+
     if (filesToParse.length) {
         classnames = parseFiles(filesToParse, !!programOpts.recursive);
     }
