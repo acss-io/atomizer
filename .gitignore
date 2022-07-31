@@ -15,6 +15,7 @@ npm-debug.log
 *.log
 
 # site files
+app/assets/css/atomic.css
 build/
 docs/_site
 docs/.jekyll-metadata
