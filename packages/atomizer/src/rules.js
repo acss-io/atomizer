@@ -2315,13 +2315,7 @@ module.exports = [
         'allowParamToValue': true,
         'styles': {
             'padding': '$0'
-        },
-        'arguments': [{
-            'a': 'auto',
-            'h': 'hidden',
-            's': 'scroll',
-            'v': 'visible'
-        }]
+        }
     },
     // X axis
     {
@@ -2479,15 +2473,21 @@ module.exports = [
             'scroll-snap-align': '$0'
         },
         'arguments': [{
-            'n': 'none',
             'c': 'center',
             'c_e': 'center end',
+            'c_n': 'center none',
             'c_s': 'center start',
             'e': 'end',
             'e_c': 'end center',
+            'e_n': 'end none',
             'e_s': 'end start',
+            'n': 'none',
+            'n_c': 'none center',
+            'n_e': 'none end',
+            'n_s': 'none start',
             's': 'start',
             's_c': 'start center',
+            's_n': 'start none',
             's_e': 'start end'
         }]
     },
