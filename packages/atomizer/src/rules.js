@@ -2315,7 +2315,13 @@ module.exports = [
         'allowParamToValue': true,
         'styles': {
             'padding': '$0'
-        }
+        },
+        'arguments': [{
+            'a': 'auto',
+            'h': 'hidden',
+            's': 'scroll',
+            'v': 'visible'
+        }]
     },
     // X axis
     {
@@ -2444,6 +2450,256 @@ module.exports = [
             'b': 'both',
             'h': 'horizontal',
             'v': 'vertical'
+        }]
+    },
+    /**
+    ==================================================================
+    SCROLL
+    ==================================================================
+    */
+    {
+        'type': 'pattern',
+        'name': 'Scroll Behavior',
+        'matcher': 'Sb',
+        'allowParamToValue': false,
+        'styles': {
+            'scroll-behavior': '$0'
+        },
+        'arguments': [{
+            'a': 'auto',
+            's': 'smooth'
+        }]
+    },
+    {
+        'type': 'pattern',
+        'name': 'Scroll Snap Align',
+        'matcher': 'Ssa',
+        'allowParamToValue': false,
+        'styles': {
+            'scroll-snap-align': '$0'
+        },
+        'arguments': [{
+            'n': 'none',
+            'c': 'center',
+            'c_e': 'center end',
+            'c_s': 'center start',
+            'e': 'end',
+            'e_c': 'end center',
+            'e_s': 'end start',
+            's': 'start',
+            's_c': 'start center',
+            's_e': 'start end'
+        }]
+    },
+    {
+        'type': 'pattern',
+        'name': 'Scroll Snap Type',
+        'matcher': 'Sst',
+        'allowParamToValue': false,
+        'styles': {
+            'scroll-snap-type': '$0'
+        },
+        'arguments': [{
+            'b': 'block',
+            'b_m': 'block mandatory',
+            'b_p': 'block proximity',
+            'bo': 'both',
+            'bo_m': 'both mandatory',
+            'bo_p': 'both proximity',
+            'i': 'inline',
+            'i_m': 'inline mandatory',
+            'i_p': 'inline proximity',
+            'n': 'none',
+            'x': 'x',
+            'x_m': 'x mandatory',
+            'x_p': 'x proximity',
+            'y': 'y',
+            'y_m': 'y mandatory',
+            'y_p': 'y proximity',
+        }]
+    },
+    {
+        'type': 'pattern',
+        'name': 'Scroll Snap Stop',
+        'matcher': 'Sss',
+        'allowParamToValue': false,
+        'styles': {
+            'scroll-snap-stop': '$0'
+        },
+        'arguments': [{
+            'a': 'always',
+            'n': 'normal'
+        }]
+    },
+    /**
+    ==================================================================
+    SCROLL MARGIN
+    ==================================================================
+    */
+    // all edges
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin (all edges)',
+        'matcher': 'Sm',
+        'shorthand': true,
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin': '$0'
+        }
+    },
+    // X axis
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin (X axis)',
+        'matcher': 'Smx',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin-__START__': '$0',
+            'scroll-margin-__END__': '$0'
+        }
+    },
+    // Y axis
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin (Y axis)',
+        'matcher': 'Smy',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin-top': '$0',
+            'scroll-margin-bottom': '$0'
+        }
+    },
+    // top
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin top',
+        'matcher': 'Smt',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin-top': '$0'
+        }
+    },
+    // end
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin end',
+        'matcher': 'Smend',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin-__END__': '$0'
+        }
+    },
+    // bottom
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin bottom',
+        'matcher': 'Smb',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin-bottom': '$0'
+        }
+    },
+    // start
+    {
+        'type': 'pattern',
+        'name': 'Scroll margin start',
+        'matcher': 'Smstart',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-margin-__START__': '$0'
+        }
+    },
+    /**
+    ==================================================================
+    SCROLL PADDING
+    ==================================================================
+    */
+    // all edges
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding (all edges)',
+        'matcher': 'Sp',
+        'shorthand': true,
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding': '$0'
+        },
+        'arguments': [{
+            'a': 'auto'
+        }]
+    },
+    // X axis
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding (X axis)',
+        'matcher': 'Spx',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding-__START__': '$0',
+            'scroll-padding-__END__': '$0'
+        }
+    },
+    // Y axis
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding (Y axis)',
+        'matcher': 'Spy',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding-top': '$0',
+            'scroll-padding-bottom': '$0'
+        }
+    },
+    // top
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding top',
+        'matcher': 'Spt',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding-top': '$0'
+        },
+        'arguments': [{
+            'a': 'auto'
+        }]
+    },
+    // end
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding end',
+        'matcher': 'Spend',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding-__END__': '$0'
+        },
+        'arguments': [{
+            'a': 'auto'
+        }]
+    },
+    // bottom
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding bottom',
+        'matcher': 'Spb',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding-bottom': '$0'
+        },
+        'arguments': [{
+            'a': 'auto'
+        }]
+    },
+    // start
+    {
+        'type': 'pattern',
+        'name': 'Scroll padding start',
+        'matcher': 'Spstart',
+        'allowParamToValue': true,
+        'styles': {
+            'scroll-padding-__START__': '$0'
+        },
+        'arguments': [{
+            'a': 'auto'
         }]
     },
     /**
