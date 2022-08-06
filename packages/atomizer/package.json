@@ -26,7 +26,7 @@
   "scripts": {
     "lint": "eslint --ext .js .",
     "lint:fix": "eslint --ext .js . --fix",
-    "test": "nyc --report-dir coverage --reporter lcov -- mocha tests/ --recursive"
+    "test": "jest tests/"
   },
   "bin": {
     "atomizer": "./bin/atomizer"

@@ -1,5 +1,4 @@
 # directories
-.nyc_output
 **/coverage
 bin
 artifacts

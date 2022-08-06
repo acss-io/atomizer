@@ -1,5 +1,4 @@
 # directories
-.nyc_output
 build/
 coverage/
 dist/
