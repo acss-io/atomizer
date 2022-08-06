@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "atomizer:docs": "atomizer --quiet -R -c ./config/atomic.config.js -o ./app/assets/css/atomic.css ./app/components/ ./app/assets/js/ ./docs/",
-    "atomizer:examples": "atomizer --quiet -R -c ./examples/atomizer.config.js -o ./examples/css/atomic.css -w ./examples/ ./examples/",
+    "atomizer:examples": "atomizer --quiet -R -c ./examples/atomizer.config.js -o ./examples/css/atomic.css",
     "build": "npm run build:docs && npm run build --workspaces --if-present",
     "build:docs": "npm run atomizer:docs && npm run postcss && npm run webpack:prod",
     "build:index": "node scripts/buildSearch.mjs",

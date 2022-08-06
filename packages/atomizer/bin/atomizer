@@ -17,18 +17,20 @@ var glob = require('glob');
 var minimatch = require('minimatch');
 var path = require('path');
 var program = require('commander');
+var empty = require('lodash/isEmpty');
 var some = require('lodash/some');
 var union = require('lodash/union');
-
 var Atomizer = require('../src/atomizer');
-const { files } = require('jszip');
+
 var content = '';
 var config = {};
 var classnames = [];
+var cwd = process.cwd();
+var defaultConfigPath = path.resolve(cwd, 'atomizer.config.js');
 
 function collect(val, memo) {
-  memo.push(val);
-  return memo;
+    memo.push(val);
+    return memo;
 }
 
 program
@@ -49,16 +51,8 @@ program
   .option('--quiet', 'hide processing info')
   .parse(process.argv);
 
-if (process.argv.length <= 2) {
-    program.outputHelp();
-    return;
-}
-
-var programOpts = program.opts();
-var atomizer = new Atomizer({ verbose: !!programOpts.verbose });
-
 function warn() {
-  if (!programOpts.quiet) console.warn.apply(console, arguments);
+    if (!programOpts.quiet) console.warn.apply(console, arguments);
 }
 
 function parseFiles (files, recursive, dir) {
@@ -80,7 +74,7 @@ function parseFile (file, recursive, dir) {
 
     if (file) {
         filepath = dir ? path.resolve(dir, file) : path.resolve(file);
-        relative = path.relative(process.cwd(), filepath);
+        relative = path.relative(cwd, filepath);
         stat = fs.statSync(filepath);
 
         if (stat.isFile()) {
@@ -99,7 +93,7 @@ function parseFile (file, recursive, dir) {
             }
         } else if (stat.isDirectory()) {
             if (!dir || dir && recursive) {
-                warn('Inspecting directory ' + chalk.cyan(path.relative(process.cwd(), filepath)));
+                warn('Inspecting directory ' + chalk.cyan(path.relative(cwd, filepath)));
                 classNames = parseFiles(fs.readdirSync(filepath), recursive, filepath);
             }
         }
@@ -119,17 +113,6 @@ function buildAtomicCss(additionalFiles, done) {
             warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
             atomizer.addRules(require(path.resolve(rulesFile)));
         });
-    }
-
-    // Static config should contain the general 'config' options, along with any
-    // statically defined configuration. It is required.
-    var configFile = programOpts.config;
-    if (configFile) {
-        if (!fs.existsSync(configFile)) {
-            done(new Error('Configuration file ' + chalk.cyan(configFile) + ' not found.'));
-            return false;
-        }
-        config = require(path.resolve(configFile));
     }
 
     // Generate config from parsed src files
@@ -201,6 +184,42 @@ function triggerBuild(state) {
     });
 }
 
+// Setup Atomizer instance
+var programOpts = program.opts();
+var atomizer = new Atomizer({ verbose: !!programOpts.verbose });
+
+// Attempt to load config from `--config` option first, otherwise
+// check for a default config file in the current working directory
+var configFile = programOpts.config;
+if (configFile) {
+    if (!fs.existsSync(configFile)) {
+        console.error('Configuration file ' + chalk.cyan(configFile) + ' not found.');
+        return;
+    }
+    config = require(path.resolve(configFile));
+} else if (fs.existsSync(defaultConfigPath)) {
+    config = require(defaultConfigPath);
+}
+
+// Print help menu if no config is loaded and no arguments are passed in
+if (empty(config) && process.argv.length <= 2) {
+    program.outputHelp();
+    return;
+}
+
+// Collect files to parse from cli args
+var filesToParse = program.args || [];
+
+// add more src files from "content" property of config
+if (config.content && Array.isArray(config.content)) {
+    filesToParse = config.content
+        .reduce(function (files, pattern) {
+            var found = glob.sync(pattern, { matchBase: true });
+            return files.concat(found);
+        }, [])
+        .concat(filesToParse);
+}
+
 var options = {
     rtl: programOpts.rtl,
     bumpMQ: programOpts.bumpMq
@@ -216,14 +235,21 @@ if (typeof programOpts.helpersNamespace !== 'undefined') {
     options.helpersNamespace = programOpts.helpersNamespace;
 }
 
+// initially watch all parsed files, then add additional files
+// from the "--watch [target]" option
+var filesToWatch = filesToParse;
 if (programOpts.watch && programOpts.watch.length) {
+    filesToWatch = filesToWatch.concat(programOpts.watch);
+}
+
+if (filesToWatch.length) {
     // used for testing --watch input
     if (typeof process.env.TEST !== 'undefined') {
         console.log('Watching ' + chalk.cyan(programOpts.watch.join(', ')) + ' for changes.');
         buildAtomicCss([], function () {});
     } else {
         var buildTriggerState = { files: {} };
-        var watcher = chokidar.watch(programOpts.watch);
+        var watcher = chokidar.watch(filesToWatch);
         watcher.on('add', function (path) {
             buildTriggerState.files[path] = true;
         });
