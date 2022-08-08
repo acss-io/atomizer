@@ -212,7 +212,6 @@ if (programOpts.watch && programOpts.watch.length) {
     } else {
         var buildTriggerState = { files: {} };
         var watcher = chokidar.watch(programOpts.watch);
-        console.log('watcher', watcher);
         watcher.on('add', function (path) {
             buildTriggerState.files[path] = true;
         });
