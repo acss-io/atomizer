@@ -1,6 +1,7 @@
 'use strict';
 
-const childProcess = require('child_process');  
+const childProcess = require('child_process');
+const chokidar = require('chokidar');
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
@@ -12,12 +13,16 @@ const htmlFixture = path.resolve(fixtureDir, 'test.html');
 
 // mocks
 jest.mock('chokidar', () => {
-    watch: () => {
-        on: (event, callback) => {
-            console.log('event', event);
-            callback();
-        }
-    }
+    return {
+        watch: jest.fn(() => {
+            return {
+                on: jest.fn((event, cb) => {
+                    cb();
+                }),
+                close: jest.fn()
+            };
+        })
+    };
 });
 
 describe('atomizer', () => {
@@ -114,8 +119,8 @@ describe('atomizer', () => {
         });
 
         it.only('--watch', async () => {
-            await execFileAsync('node', [atomizer, htmlFixture, '--watch', htmlFixture]);
-            // console.log('watchMock', watchMock);
+            const { stdout } = await execFileAsync('node', [atomizer, htmlFixture, '-w', htmlFixture]);
+            console.log('stdout', stdout);
         });
     });
 });

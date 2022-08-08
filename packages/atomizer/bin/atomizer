@@ -23,6 +23,7 @@ var Atomizer = require('../src/atomizer');
 var content = '';
 var config = {};
 var classnames = [];
+// var isTesting = process.env.JEST_WORKER_ID;
 
 function collect(val, memo) {
   memo.push(val);
@@ -205,8 +206,10 @@ if (typeof programOpts.helpersNamespace !== 'undefined') {
 }
 
 if (programOpts.watch && programOpts.watch.length) {
+    console.log('programOpts.watch', programOpts.watch);
     var buildTriggerState = { files: {} };
-    var watcher = chokidar.watch(programOpts.watch)
+    var watcher = chokidar.watch(programOpts.watch);
+    console.log('watcher', watcher);
     watcher.on('add', function (path) {
         buildTriggerState.files[path] = true;
     });
