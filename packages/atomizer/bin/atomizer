@@ -45,10 +45,7 @@ program
   .option('--ie', '[deprecated] no longer used')
   .option('--verbose', 'show additional log info (warnings)')
   .option('--quiet', 'hide processing info')
-  .parse(process.argv)
-  .action(() => {
-    console.log('arguments', arguments);
-  });
+  .parse(process.argv);
 
 if (process.argv.length <= 2) {
     program.outputHelp();
