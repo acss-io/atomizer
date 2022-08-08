@@ -82,20 +82,6 @@ exports[`atomizer options --rules 1`] = `
 "
 `;
 
-exports[`atomizer options --verbose 1`] = `
-"Parsing file tests/fixtures/verbose/verbose.html for Atomic CSS classes
-"
-`;
-
-exports[`atomizer options --verbose 2`] = `
-"Parsing file tests/fixtures/verbose/verbose.html for Atomic CSS classes
-Warning: Class \`D(MissingValue)\` is ambiguous, and must be manually added to your config file:
-\\"custom\\": {
-    \\"D(MissingValue)\\": <YOUR-CUSTOM-VALUE>
-}
-"
-`;
-
 exports[`atomizer should parse html files for classes 1`] = `
 "
 .D\\\\(b\\\\) {

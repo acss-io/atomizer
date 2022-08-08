@@ -1,7 +1,6 @@
 'use strict';
 
 const childProcess = require('child_process');
-const chokidar = require('chokidar');
 const fs = require('fs');
 const path = require('path');
 const util = require('util');
@@ -10,20 +9,6 @@ const atomizer = path.resolve(__dirname, '..', '..', 'bin', 'atomizer');
 const execFileAsync = util.promisify(childProcess.execFile);
 const fixtureDir = path.resolve(__dirname, '..', 'fixtures');
 const htmlFixture = path.resolve(fixtureDir, 'test.html');
-
-// mocks
-jest.mock('chokidar', () => {
-    return {
-        watch: jest.fn(() => {
-            return {
-                on: jest.fn((event, cb) => {
-                    cb();
-                }),
-                close: jest.fn()
-            };
-        })
-    };
-});
 
 describe('atomizer', () => {
     it('should return the help menu', async () => {
@@ -111,16 +96,20 @@ describe('atomizer', () => {
 
             // should not output anything if --verbose is not set
             const { stderr: noWarning } = await execFileAsync('node', [atomizer, verboseFixture, '--config', configFile]);
-            expect(noWarning).toMatchSnapshot();
+            expect(noWarning).not.toContain('Warning: Class');
 
             // should output warnings if --verbose is set
             const { stderr } = await execFileAsync('node', [atomizer, verboseFixture, '--verbose', '--config', configFile]);
-            expect(stderr).toMatchSnapshot();
+            expect(stderr).toContain('Warning: Class `D(MissingValue)` is ambiguous');
         });
 
-        it.only('--watch', async () => {
-            const { stdout } = await execFileAsync('node', [atomizer, htmlFixture, '-w', htmlFixture]);
-            console.log('stdout', stdout);
+        it('--watch', async () => {
+            const { stdout } = await execFileAsync(
+                'node',
+                [atomizer, htmlFixture, '--watch', htmlFixture],
+                { env: { ...process.env, TEST: true } }
+            );
+            expect(stdout).toContain('test.html for changes');          
         });
     });
 });
