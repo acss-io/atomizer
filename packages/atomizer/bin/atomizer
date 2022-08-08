@@ -205,20 +205,26 @@ if (typeof programOpts.helpersNamespace !== 'undefined') {
 }
 
 if (programOpts.watch && programOpts.watch.length) {
-    var buildTriggerState = { files: {} };
-    var watcher = chokidar.watch(programOpts.watch)
-    watcher.on('add', function (path) {
-        buildTriggerState.files[path] = true;
-    });
-    watcher.on('unlink', function (path) {
-        delete buildTriggerState.files[path];
-    });
-    watcher.on('ready', function () {
-        triggerBuild(buildTriggerState);
-        watcher.on('all', function (n, p) {
-            triggerBuild(buildTriggerState);
+    // used for testing --watch input
+    if (typeof process.env.TEST !== 'undefined') {
+        console.log('Watching ' + chalk.cyan(programOpts.watch.join(', ')) + ' for changes.');
+        buildAtomicCss([], function () {});
+    } else {
+        var buildTriggerState = { files: {} };
+        var watcher = chokidar.watch(programOpts.watch);
+        watcher.on('add', function (path) {
+            buildTriggerState.files[path] = true;
         });
-    });
+        watcher.on('unlink', function (path) {
+            delete buildTriggerState.files[path];
+        });
+        watcher.on('ready', function () {
+            triggerBuild(buildTriggerState);
+            watcher.on('all', function (n, p) {
+                triggerBuild(buildTriggerState);
+            });
+        });
+    }
 } else {
     buildAtomicCss([], function () {});
 }

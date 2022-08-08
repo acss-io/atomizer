@@ -1,28 +1,33 @@
 'use strict';
 
-const {expect} = require('chai');
 const utils = require('../../src/lib/utils');
 
-describe('utils', function () {
-    describe('hexToRgb()', function () {
-        it('should return null given an invalid hex', function () {
+describe('utils', () => {
+    describe('hexToRgb()', () => {
+        it('should return null given an invalid hex', () => {
             const result = utils.hexToRgb('ghk');
-            expect(result).to.be.null;
+            expect(result).toBeNull();
         });
-        it('should return expected rgb object given a hex in full form', function () {
-            const result = utils.hexToRgb('#000000');
-            const expected = {r: 0, g: 0, b: 0};
-            expect(result).to.deep.equal(expected);
-        });
-        it('should return expected rgb object given a hex in shorthand form', function () {
-            const result = utils.hexToRgb('#000');
-            const expected = {r: 0, g: 0, b: 0};
-            expect(result).to.deep.equal(expected);
-        });
+        it(
+            'should return expected rgb object given a hex in full form',
+            () => {
+                const result = utils.hexToRgb('#000000');
+                const expected = {r: 0, g: 0, b: 0};
+                expect(result).toEqual(expected);
+            }
+        );
+        it(
+            'should return expected rgb object given a hex in shorthand form',
+            () => {
+                const result = utils.hexToRgb('#000');
+                const expected = {r: 0, g: 0, b: 0};
+                expect(result).toEqual(expected);
+            }
+        );
     });
 
-    describe('mergeConfigs()', function () {
-        it('should merge non-conflicting breakpoints correctly', function () {
+    describe('mergeConfigs()', () => {
+        it('should merge non-conflicting breakpoints correctly', () => {
             const config1 = {
                 breakPoints: {
                     'sm': '@media(min-width: 600px)'
@@ -40,28 +45,31 @@ describe('utils', function () {
                 }
             };
             const result = utils.mergeConfigs([config1, config2]);
-            expect(result).to.deep.equal(expected);
+            expect(result).toEqual(expected);
         });
-        it('should merge conflicting breakpoints where the latter config is kept', function () {
-            const config1 = {
-                breakPoints: {
-                    'sm': '@media(min-width: 600px)'
-                }
-            };
-            const config2 = {
-                breakPoints: {
-                    'sm': '@media(min-width: 550px)'
-                }
-            };
-            const expected = {
-                breakPoints: {
-                    'sm': '@media(min-width: 550px)'
-                }
-            };
-            const result = utils.mergeConfigs([config1, config2]);
-            expect(result).to.deep.equal(expected);
-        });
-        it('should merge classNames correctly', function () {
+        it(
+            'should merge conflicting breakpoints where the latter config is kept',
+            () => {
+                const config1 = {
+                    breakPoints: {
+                        'sm': '@media(min-width: 600px)'
+                    }
+                };
+                const config2 = {
+                    breakPoints: {
+                        'sm': '@media(min-width: 550px)'
+                    }
+                };
+                const expected = {
+                    breakPoints: {
+                        'sm': '@media(min-width: 550px)'
+                    }
+                };
+                const result = utils.mergeConfigs([config1, config2]);
+                expect(result).toEqual(expected);
+            }
+        );
+        it('should merge classNames correctly', () => {
             const config1 = {
                 classNames: ['D-ib', 'Bd-foo']
             };
@@ -76,9 +84,9 @@ describe('utils', function () {
             };
             const result = utils.mergeConfigs([config1, config2, config3]);
 
-            expect(result).to.deep.equal(expected);
+            expect(result).toEqual(expected);
         });
-        it('should merge customs correctly', function () {
+        it('should merge customs correctly', () => {
             const config1 = {
                 custom: {
                     'foo': '1px solid red'
@@ -96,45 +104,48 @@ describe('utils', function () {
                 }
             };
             const result = utils.mergeConfigs([config1, config2]);
-            expect(result).to.deep.equal(expected);
+            expect(result).toEqual(expected);
         });
-        it('should merge conflicting customs where the latter config is kept', function () {
-            const config1 = {
-                custom: {
-                    'foo': '1px solid red'
-                }
-            };
-            const config2 = {
-                custom: {
-                    'foo': '2px dashed blue'
-                }
-            };
-            const expected = {
-                custom: {
-                    'foo': '2px dashed blue'
-                }
-            };
-            const result = utils.mergeConfigs([config1, config2]);
-            expect(result).to.deep.equal(expected);
-        });
+        it(
+            'should merge conflicting customs where the latter config is kept',
+            () => {
+                const config1 = {
+                    custom: {
+                        'foo': '1px solid red'
+                    }
+                };
+                const config2 = {
+                    custom: {
+                        'foo': '2px dashed blue'
+                    }
+                };
+                const expected = {
+                    custom: {
+                        'foo': '2px dashed blue'
+                    }
+                };
+                const result = utils.mergeConfigs([config1, config2]);
+                expect(result).toEqual(expected);
+            }
+        );
     });
 
-    describe('repeatString()', function () {
-        it('should not repeat string if count < 0', function () {
+    describe('repeatString()', () => {
+        it('should not repeat string if count < 0', () => {
             const result = utils.repeatString('test', 0);
-            expect(result).to.be.empty;
+            expect(Object.keys(result)).toHaveLength(0);
         });
-        it('should output string once if count is 1', function () {
+        it('should output string once if count is 1', () => {
             const result = utils.repeatString('test', 1);
-            expect(result).to.equal('test');
+            expect(result).toBe('test');
         });
-        it('should output string twice if count is 2', function () {
+        it('should output string twice if count is 2', () => {
             const result = utils.repeatString('test', 2);
-            expect(result).to.equal('testtest');
+            expect(result).toBe('testtest');
         });
-        it('should output string twice if count is 3', function () {
+        it('should output string twice if count is 3', () => {
             const result = utils.repeatString('test', 3);
-            expect(result).to.equal('testtesttest');
+            expect(result).toBe('testtesttest');
         });
     });
 });

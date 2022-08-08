@@ -10,5 +10,4 @@ tests/
 .jshintrc
 .npmrc
 .github
-.nyc_output
 *.tgz
