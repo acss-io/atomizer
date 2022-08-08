@@ -23,7 +23,6 @@ var Atomizer = require('../src/atomizer');
 var content = '';
 var config = {};
 var classnames = [];
-// var isTesting = process.env.JEST_WORKER_ID;
 
 function collect(val, memo) {
   memo.push(val);
