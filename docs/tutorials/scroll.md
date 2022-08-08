@@ -8,7 +8,7 @@ These examples shows the various scroll snap properties supported by Atomizer.
 
 ### `scroll-behavior` construct
 
-The scroll-behavior CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`.
+The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`.
 
 ```html
 <div class="Sb(s)">
