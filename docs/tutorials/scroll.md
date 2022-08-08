@@ -4,7 +4,7 @@ layout: docs
 title: Scroll Snap
 ---
 
-These examples shows the various scroll snap properties supported by atomic.
+These examples shows the various scroll snap properties supported by Atomizer.
 
 ### `scroll-behavior` construct
 
