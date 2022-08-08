@@ -6,20 +6,25 @@ title: Get Help with Atomizer
 
 **Atomizer** was originally developed by engineers at [Yahoo](https://www.yahoo.com).  If you have questions, suggestions or ideas about how to use or improve **Atomizer**, please reach out to us!
 
-## Frequently Asked Questions
+### Browse the docs
 
-Check out our [FAQ page](/frequently-asked-questions.html) for answers to common questions related to Atomic CSS and Atomizer.
+Find what you need in our documentation and tutorials
 
-## GitHub
+- Learn how to [get started](./quick-start.html) with Atomizer.
+- Use our [FAQ](./frequently-asked-questions.html) page for common questions and troubleshooting.
+- Learn how to [Configure](./configuration.html) Atomizer.
+- Look at the full class [Reference](./reference.html) page.
 
-The atomizer code base (and all other packages) live in our [monorepo](https://github.com/acss-io/atomizer) repository. Feel free to file issues, pull requests or start a [discussion on GitHub](https://github.com/acss-io/atomizer/discussions).
+### Join the community
 
-## Slack
+Ask questions and find answers from other Atomizer users like you.
 
-Real-time discussions are encouraged on our "Atomic CSS" Slack workspace. Please use this [invite link](https://join.slack.com/t/atomiccss/shared_invite/zt-1cibei9yf-uzzDdDRLrLUgHkNDEFkjjw) to join the discussions!
+- Real-time discussions are encouraged on our "Atomic CSS" Slack workspace. Please use this [invite link](https://join.slack.com/t/atomiccss/shared_invite/zt-1cibei9yf-uzzDdDRLrLUgHkNDEFkjjw) to join the discussions!
+- Feel free to file issues, pull requests or start a [discussion on GitHub](https://github.com/acss-io/atomizer/discussions).
 
-## Twitter
+### Stay up to date
 
-Follow us on Twitter ([@AtomicCSS](https://twitter.com/atomiccss)) for the latest updates about ACSS and Atomizer. We&#39;ll also respond to questions there as best we can in 140 chars.
+Get notified when Atomizer is updated.
 
-Please use the [#AtomicCSS](https://twitter.com/search?q=AtomicCSS) or [#Atomizer](https://twitter.com/search?q=Atomizer) hashtag for tweets for better discoverability.
+- Follow [AtomicCSS](https://twitter.com/atomiccss) on Twitter.
+- Look at the [Releases](https://github.com/acss-io/atomizer/releases) page.
