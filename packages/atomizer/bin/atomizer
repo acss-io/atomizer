@@ -102,34 +102,10 @@ function parseFile (file, recursive, dir) {
 }
 
 function buildAtomicCss(additionalFiles, done) {
-    // Custom rulesets
-    var rulesFiles = programOpts.rules;
-    if (rulesFiles) {
-        rulesFiles.forEach(function (rulesFile) {
-            if (!fs.existsSync(rulesFile)) {
-                done(new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.'));
-                return false;
-            }
-            warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
-            atomizer.addRules(require(path.resolve(rulesFile)));
-        });
-    }
-
-    // Generate config from parsed src files
-    var filesToParse = additionalFiles.concat(program.args || []);
-
-    // load src files from "content" property of config
-    if (config.content && Array.isArray(config.content)) {
-        filesToParse = config.content
-            .reduce(function (files, pattern) {
-                var found = glob.sync(pattern, { matchBase: true });
-                return files.concat(found);
-            }, [])
-            .concat(filesToParse);
-    }
-
-    if (filesToParse.length) {
-        classnames = parseFiles(filesToParse, !!programOpts.recursive);
+    // Add additional files, if any, from the watcher
+    var finalFilesToParse = additionalFiles.concat(filesToParse);
+    if (finalFilesToParse.length) {
+        classnames = parseFiles(finalFilesToParse, !!programOpts.recursive);
     }
 
     // Finalize the config
@@ -210,7 +186,7 @@ if (empty(config) && process.argv.length <= 2) {
 // Collect files to parse from cli args
 var filesToParse = program.args || [];
 
-// add more src files from "content" property of config
+// Add more src files from "content" property of config
 if (config.content && Array.isArray(config.content)) {
     filesToParse = config.content
         .reduce(function (files, pattern) {
@@ -220,6 +196,20 @@ if (config.content && Array.isArray(config.content)) {
         .concat(filesToParse);
 }
 
+// Custom rulesets
+var rulesFiles = programOpts.rules;
+if (rulesFiles) {
+    rulesFiles.forEach(function (rulesFile) {
+        if (!fs.existsSync(rulesFile)) {
+            done(new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.'));
+            return false;
+        }
+        warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
+        atomizer.addRules(require(path.resolve(rulesFile)));
+    });
+}
+
+// Options
 var options = {
     rtl: programOpts.rtl,
     bumpMQ: programOpts.bumpMq
@@ -235,17 +225,19 @@ if (typeof programOpts.helpersNamespace !== 'undefined') {
     options.helpersNamespace = programOpts.helpersNamespace;
 }
 
-// initially watch all parsed files, then add additional files
-// from the "--watch [target]" option
-var filesToWatch = filesToParse;
-if (programOpts.watch && programOpts.watch.length) {
-    filesToWatch = filesToWatch.concat(programOpts.watch);
-}
+// Setup Watcher
+if (programOpts.watch === true || programOpts.watch.length) {
+    // initially watch all parsed files
+    var filesToWatch = filesToParse.concat([]);
 
-if (filesToWatch.length) {
+    // if passed in, add additional files from the "--watch [target]" option
+    if (Array.isArray(programOpts.watch) && programOpts.watch.length) {
+        filesToWatch = filesToWatch.concat(programOpts.watch);
+    }
+    
     // used for testing --watch input
     if (typeof process.env.TEST !== 'undefined') {
-        console.log('Watching ' + chalk.cyan(programOpts.watch.join(', ')) + ' for changes.');
+        console.log('Watching ' + chalk.cyan(filesToWatch.join(', ')) + ' for changes.');
         buildAtomicCss([], function () {});
     } else {
         var buildTriggerState = { files: {} };
