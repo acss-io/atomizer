@@ -10,7 +10,7 @@ Use `D(g)` for `display: grid` or `D(ig)` for `display: inline-grid` on the chos
 
 For alignment of child elements please see <a href="alignment.html">alignment</a>.
 
-## [grid-area](/reference#gridarea)
+## [grid-area](../reference.html#gridarea)
 
 The [grid-area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area) property is a shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`. Uses custom variables, you can also use <a href="/configuration.html#substitution">substitution</a> like in the examples below. 
 
@@ -35,7 +35,7 @@ custom: {
 </div>
 
 
-## [grid-auto-columns](/reference#gridautocolumns) &  [grid-auto-rows](/reference#gridautorows)
+## [grid-auto-columns](../reference.html#gridautocolumns) &  [grid-auto-rows](../reference.html#gridautorows)
 
 The [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns) and [grid-auto-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows) properties specify the size of tracks not assigned a size by `grid-template-rows` or `grid-template-columns`. Can use keywords, single values or custom variables. 
 
@@ -57,7 +57,7 @@ Following example shows `Gar(150px)` = `grid-auto-rows: 150px`.
     <div class="Bgc(#ccc)">6</div>
 </div>
 
-## [grid-auto-flow](/reference#gridautoflow)
+## [grid-auto-flow](../reference.html#gridautoflow)
 
 Grid items that aren’t explicitly placed are automatically placed into an unoccupied space in the grid container by the auto-placement algorithm. [grid-auto-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow) controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid. Uses keywords. 
 
@@ -79,7 +79,7 @@ Following example shows `Gaf(rd)` = `grid-auto-flow: row dense`.
     <div class="Bgc(#ccc)">6</div>
 </div>
 
-## [grid-column](/reference#gridcolumn) & [grid-row](/reference#gridrow)
+## [grid-column](../reference.html#gridcolumn) & [grid-row](../reference.html#gridrow)
 
 The [grid-row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row) and [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) properties are shorthands for `grid-row-start/grid-row-end` and `grid-column-start/grid-column-end`, respectively. Uses values and variables. 
 
@@ -111,7 +111,7 @@ custom: {
     <div class="Bgc(#ccc) Gc(2)">6</div>
 </div>
 
-## [grid-column-start](/reference#gridcolumnstart) & [grid-column-end](/reference#gridcolumnend)
+## [grid-column-start](../reference.html#gridcolumnstart) & [grid-column-end](../reference.html#gridcolumnend)
 
 The [grid-column-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start) and [grid-column-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start, block-start, inline-end, and block-end edges of its grid area. 
 
@@ -141,7 +141,7 @@ custom: {
 </div>
 
 
-## [grid-row-start](/reference#gridrowstart) & [grid-row-end](/reference#gridrowend)
+## [grid-row-start](../reference.html#gridrowstart) & [grid-row-end](../reference.html#gridrowend)
 
 The [grid-row-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start) and [grid-row-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start, block-start, inline-end, and block-end edges of its grid area. 
 
@@ -166,7 +166,7 @@ Following example shows `Gre(1)` = `grid-row-end: 1`.
     <div class="Bgc(#ccc)">6</div>
 </div>
 
-## [grid-template](/reference#gridtemplate)
+## [grid-template](../reference.html#gridtemplate)
 
 The [grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template) CSS property is a shorthand property for defining grid columns, rows, and areas. This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties. The syntax of the `grid-template-areas` property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
@@ -204,7 +204,7 @@ custom: {
     <div class="Bgc(#ccc) Ga(gridContent)">3</div>
 </div>
 
-## [grid-template-areas](/reference#gridtemplateareas)
+## [grid-template-areas](../reference.html#gridtemplateareas)
 
 This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties. The syntax of the [grid-template-areas](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas) property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
@@ -242,7 +242,7 @@ custom: {
     <div class="Bgc(#ccc) Ga(gridContent)">3</div>
 </div>
 
-## [grid-template-columns](/reference#gridtemplatecolumns) & [grid-template-rows](/reference#gridtemplaterows)
+## [grid-template-columns](../reference.html#gridtemplatecolumns) & [grid-template-rows](../reference.html#gridtemplaterows)
 
 These properties specify, as a space-separated track list, the line names and track sizing functions of the grid. The [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) property specifies the track list for the grid’s columns, while [grid-template-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows) specifies the track list for the grid’s rows.
 
