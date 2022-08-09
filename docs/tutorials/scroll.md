@@ -64,7 +64,7 @@ The [scroll-snap-type](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-s
 
 ### [scroll-margin](/reference#scrollmarginalledges) && [scroll-margin-*](/reference#scrollmargintop) constructs
 
-The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin) shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container. Following example shows `Smstart(2em)`, *scroll-margin-left: 2em*.
+The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin) shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element, can also use longhand versions like [scroll-margin-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-left) etc. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container. Following example shows `Smstart(2em)`, *scroll-margin-left: 2em*.
 
 ```html
 <div>
@@ -83,7 +83,7 @@ The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-marg
 
 ### [scroll-padding](/reference#scrollpaddingalledges) & [scroll-padding-*](/reference#scrollpaddingtop)constructs
 
-The [scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding) shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element. Following example shows `Spx(20px)`, *scroll-padding-left: 20px; scroll-padding-right: 20px;*.
+The [scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding) shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element, can also use longhand versions like [scroll-padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-left) etc. Following example shows `Spx(20px)`, *scroll-padding-left: 20px; scroll-padding-right: 20px;*.
 
 
 ```html
