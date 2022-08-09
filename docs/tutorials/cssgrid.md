@@ -12,7 +12,9 @@ For alignment of child elements please see <a href="alignment.html">alignment</a
 
 ## [grid-area](/reference#gridarea)
 
-The [grid-area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area) property is a shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`. Uses custom variables, you can also use <a href="/configuration.html#substitution">substitution</a> like in the examples below. Following example shows `Ga(colMain)` = `grid-area: 'main'`.
+The [grid-area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area) property is a shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`. Uses custom variables, you can also use <a href="/configuration.html#substitution">substitution</a> like in the examples below. 
+
+Following example shows `Ga(colMain)` = `grid-area: 'main'`.
 
 ```html
 custom: {
@@ -35,7 +37,9 @@ custom: {
 
 ## [grid-auto-columns](/reference#gridautocolumns) &  [grid-auto-rows](/reference#gridautorows)
 
-The [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns) and [grid-auto-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows) properties specify the size of tracks not assigned a size by `grid-template-rows` or `grid-template-columns`. Can use keywords, single values or custom variables. Following example shows `Gar(150px)` = `grid-auto-rows: 150px`.
+The [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns) and [grid-auto-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows) properties specify the size of tracks not assigned a size by `grid-template-rows` or `grid-template-columns`. Can use keywords, single values or custom variables. 
+
+Following example shows `Gar(150px)` = `grid-auto-rows: 150px`.
 
 ```html
 <div class="Gar(150px)">
@@ -55,7 +59,9 @@ The [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-au
 
 ## [grid-auto-flow](/reference#gridautoflow)
 
-Grid items that aren’t explicitly placed are automatically placed into an unoccupied space in the grid container by the auto-placement algorithm. [grid-auto-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow) controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid. Uses keywords. Following example shows `Gaf(rd)` = `grid-auto-flow: row dense`.
+Grid items that aren’t explicitly placed are automatically placed into an unoccupied space in the grid container by the auto-placement algorithm. [grid-auto-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow) controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid. Uses keywords. 
+
+Following example shows `Gaf(rd)` = `grid-auto-flow: row dense`.
 
 ```html
 <div class="Gaf(rd)">
@@ -75,7 +81,9 @@ Grid items that aren’t explicitly placed are automatically placed into an unoc
 
 ## [grid-column](/reference#gridcolumn) & [grid-row](/reference#gridrow)
 
-The [grid-row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row) and [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) properties are shorthands for `grid-row-start/grid-row-end` and `grid-column-start/grid-column-end`, respectively. Uses values and variables. Following example shows `Gr(twoCol)` = `grid-row: 1 / span 2`.
+The [grid-row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row) and [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) properties are shorthands for `grid-row-start/grid-row-end` and `grid-column-start/grid-column-end`, respectively. Uses values and variables. 
+
+Following example shows `Gr(twoCol)` = `grid-row: 1 / span 2`.
 
 
 ```html
@@ -105,7 +113,9 @@ custom: {
 
 ## [grid-column-start](/reference#gridcolumnstart) & [grid-column-end](/reference#gridcolumnend)
 
-The [grid-column-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start) and [grid-column-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start, block-start, inline-end, and block-end edges of its grid area. Following example shows `Gcs(spanTwo)`= `grid-column-start: span 2`.
+The [grid-column-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start) and [grid-column-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start, block-start, inline-end, and block-end edges of its grid area. 
+
+Following example shows `Gcs(spanTwo)`= `grid-column-start: span 2`.
 
 ```html
 custom: {
@@ -133,7 +143,9 @@ custom: {
 
 ## [grid-row-start](/reference#gridrowstart) & [grid-row-end](/reference#gridrowend)
 
-The [grid-row-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start) and [grid-row-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start, block-start, inline-end, and block-end edges of its grid area. Following example shows `Gre(1)` = `grid-row-end: 1`.
+The [grid-row-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start) and [grid-row-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the inline-start, block-start, inline-end, and block-end edges of its grid area. 
+
+Following example shows `Gre(1)` = `grid-row-end: 1`.
 
 
 ```html
@@ -158,7 +170,9 @@ The [grid-row-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-s
 
 The [grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template) CSS property is a shorthand property for defining grid columns, rows, and areas. This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties. The syntax of the `grid-template-areas` property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
-Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> - they can be configured using a template literal. Following example shows `Gt(gridABCUnit)` = 
+Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> - they can be configured using a template literal. 
+
+Following example shows `Gt(gridABCUnit)` = 
 ```html
 grid-template: "a a a" 40px
                "b c c" 40px
@@ -194,11 +208,13 @@ custom: {
 
 This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties. The syntax of the [grid-template-areas](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas) property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
-Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> - they can be configured using a template literal. Following example shows `Gta(gridABC)` = 
+Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> - they can be configured using a template literal. 
+
+Following example shows `Gta(gridABC)` = 
 ```html
 grid-template: "a a a" 40px
                "b c c" 40px
-               "b c c" 40px;`.
+               "b c c" 40px;
 ```
 
 ```html
@@ -230,7 +246,9 @@ custom: {
 
 These properties specify, as a space-separated track list, the line names and track sizing functions of the grid. The [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) property specifies the track list for the grid’s columns, while [grid-template-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows) specifies the track list for the grid’s rows.
 
-Since these properties have numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a>. Following example shows `Gtc(threeColEvenGrid)` = `grid-template-columns: repeat(3, minmax(20px, 1fr)).`
+Since these properties have numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a>. 
+
+Following example shows `Gtc(threeColEvenGrid)` = `grid-template-columns: repeat(3, minmax(20px, 1fr)).`
 
 ```html
 custom: {
