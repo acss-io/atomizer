@@ -6,9 +6,9 @@ title: Scroll Snap
 
 These examples shows the various scroll snap properties supported by Atomizer.
 
-### `scroll-behavior` construct
+### [scroll-behavior](/reference#scrollbehavior) construct
 
-The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`.
+The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`. Following example shows `Sb(s)`, *scroll-behavior: smooth*.
 
 ```html
 <div class="Sb(s)">
@@ -25,9 +25,9 @@ The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-be
 </div>
 
 
-### `scroll-snap-align` construct
+### [scroll-snap-align](/reference#scrollsnapalign) construct
 
-You can specify up to 2 values for this property, representing the block and inline axes, respectively. If you only give 1 value, that value will be used for both axes.
+The [scroll-snap-align](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-align) property specifies the box's snap position as an alignment of its snap area (as the alignment subject) within its snap container's snapport (as the alignment container). You can specify up to 2 values for this property, representing the block and inline axes, respectively. If you only give 1 value, that value will be used for both axes. Following example shows `Ssa(s)`, *scroll-snap-align: start*.
 
 ```html
 <div class="Sb(s)">
@@ -44,13 +44,12 @@ You can specify up to 2 values for this property, representing the block and inl
 </div>
 
 
-### `scroll-snap-type` construct
+### [scroll-snap-type](/reference#scrollsnaptype) construct
 
-The `scroll-snap-type` property specifies whether a scroll container is a scroll snap container, how strictly it snaps, and which axes are considered. If no strictness value is specified, proximity is assumed.
-
+The [scroll-snap-type](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) property specifies whether a scroll container is a scroll snap container, how strictly it snaps, and which axes are considered. If no strictness value is specified, proximity is assumed. Following example shows `Sst(x_p)`, *scroll-snap-type: x proximity*.
 
 ```html
-<div class="Sb(s) Sst(x_p)">
+<div class="Sst(x_p)">
     <div>1</div>
     <div>2</div>
     <div>3</div>
@@ -63,12 +62,12 @@ The `scroll-snap-type` property specifies whether a scroll container is a scroll
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
 </div>
 
-### `scroll-margin` && `scroll-margin-*` constructs
+### [scroll-margin](/reference#scrollmarginalledges) && [scroll-margin-*](/reference#scrollmargintop) constructs
 
-The `scroll-margin` shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container.
+The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin) shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container. Following example shows `Smstart(2em)`, *scroll-margin-left: 2em*.
 
 ```html
-<div class="Sb(s) Sst(x_m)">
+<div>
     <div>1</div>
     <div class="Smstart(2em)">2</div>
     <div>3</div>
@@ -82,13 +81,13 @@ The `scroll-margin` shorthand property sets scroll margin on all sides of an ele
 </div>
 
 
-### `scroll-padding` & `scroll-padding-*`constructs
+### [scroll-padding](/reference#scrollpaddingalledges) & [scroll-padding-*](/reference#scrollpaddingtop)constructs
 
-The `scroll-padding` shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element.
+The [scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding) shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element. Following example shows `Spx(20px)`, *scroll-padding-left: 20px; scroll-padding-right: 20px;*.
 
 
 ```html
-<div class="Sb(s) Sst(x_m) Spx(20px) Px(20px)">
+<div class="Spx(20px)">
     <div>1</div>
     <div>2</div>
     <div>3</div>
@@ -106,15 +105,15 @@ The `scroll-padding` shorthand property sets scroll padding on all sides of an e
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">7 </div>
 </div>
 
-### `scroll-snap-stop` construct
+### [scroll-snap-stop](/reference#scrollsnapstop) construct
 
-The `scroll-snap-stop` CSS property defines whether or not the scroll container is allowed to "pass over" possible snap positions.
+The [scroll-snap-stop](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop) CSS property defines whether or not the scroll container is allowed to "pass over" possible snap positions. Following example shows `Sst(x_m)`, *scroll-snap-stop: x mandatory*.
 
 ```html
-<div class="Sb(s) Sst(x_m)">
-    <div class="Ssa(a)">1</div>
-    <div class="Ssa(a)">2</div>
-    <div class="Ssa(a)">3</div>
+<div class="Sst(x_m)">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
     ...
 </div>
 ```
