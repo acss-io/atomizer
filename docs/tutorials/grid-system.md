@@ -16,7 +16,7 @@ You can choose from creating a unit-base system using fractions (i.e. `1/12`), u
 
 There are many ways to display boxes next to each other, it&#39;s up to you to decide which method fits your needs best.
 
-### `inline-block` construct
+### `inline-block`
 
 This styling has great browser support <sup><a href="#footnote" id="footnote-1">[1]</a></sup> and it is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
@@ -50,7 +50,7 @@ When creating inline-block constructs, you should use the helper class (`IbBox`)
     </ol>
 </div>
 
-### `float` construct
+### `float`
 
 This styling has great browser support and <a href="https://github.com/acss-io/atomizer">Atomizer</a> makes it &quot;direction&quot; agnostic.  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
@@ -75,7 +75,7 @@ This styling has great browser support and <a href="https://github.com/acss-io/a
 
 <p class="noteBox info"><a href="https://github.com/acss-io/atomizer">Atomizer</a> can also auto-generate `background-color` and `color`.</p>
 
-### `table` and `table-cell` construct
+### `table` and `table-cell`
 
 This styling has good browser support (IE8+) and is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
@@ -117,7 +117,7 @@ In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with
 
 <p data-height="200" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-### `flexbox` construct
+### `flexbox`
 
 - `D(f)` for `display:flex`
 - `Jc(sb)` for `justify-content:space-between`
