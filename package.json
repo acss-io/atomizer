@@ -33,7 +33,7 @@
     "format:fix": "prettier . --write",
     "lint": "eslint --ext .js,jsx .",
     "postcss": "postcss app/assets/css/main.css -o docs/assets/css/main.css",
-    "prebuild:docs": "npm run build:index",
+    "postbuild:docs": "npm run build:index",
     "predev": "npm run build:index",
     "test": "npm run test --workspaces --if-present",
     "webpack:dev": "webpack --config webpack.config.js --config-name dev",
