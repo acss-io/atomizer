@@ -9757,20 +9757,6 @@
         ],
         "description": "As(a)"
     },
-    "As(n)": {
-        "prefix": "align-self: normal",
-        "body": [
-            "As(n)"
-        ],
-        "description": "As(n)"
-    },
-    "As(st)": {
-        "prefix": "align-self: stretch",
-        "body": [
-            "As(st)"
-        ],
-        "description": "As(st)"
-    },
     "As(b)": {
         "prefix": "align-self: baseline",
         "body": [
@@ -9799,6 +9785,13 @@
         ],
         "description": "As(fs)"
     },
+    "As(n)": {
+        "prefix": "align-self: normal",
+        "body": [
+            "As(n)"
+        ],
+        "description": "As(n)"
+    },
     "As(se)": {
         "prefix": "align-self: self-end",
         "body": [
@@ -9812,6 +9805,13 @@
             "As(ss)"
         ],
         "description": "As(ss)"
+    },
+    "As(st)": {
+        "prefix": "align-self: stretch",
+        "body": [
+            "As(st)"
+        ],
+        "description": "As(st)"
     },
     "Fld(<custom-param>)": {
         "prefix": "flex-direction",
@@ -10002,20 +10002,6 @@
         ],
         "description": "Ai(<custom-param>)"
     },
-    "Ai(n)": {
-        "prefix": "align-items: normal",
-        "body": [
-            "Ai(n)"
-        ],
-        "description": "Ai(n)"
-    },
-    "Ai(st)": {
-        "prefix": "align-items: stretch",
-        "body": [
-            "Ai(st)"
-        ],
-        "description": "Ai(st)"
-    },
     "Ai(b)": {
         "prefix": "align-items: baseline",
         "body": [
@@ -10044,6 +10030,13 @@
         ],
         "description": "Ai(fs)"
     },
+    "Ai(n)": {
+        "prefix": "align-items: normal",
+        "body": [
+            "Ai(n)"
+        ],
+        "description": "Ai(n)"
+    },
     "Ai(se)": {
         "prefix": "align-items: self-end",
         "body": [
@@ -10058,6 +10051,13 @@
         ],
         "description": "Ai(ss)"
     },
+    "Ai(st)": {
+        "prefix": "align-items: stretch",
+        "body": [
+            "Ai(st)"
+        ],
+        "description": "Ai(st)"
+    },
     "Ac(<custom-param>)": {
         "prefix": "align-content",
         "body": [
@@ -10065,19 +10065,40 @@
         ],
         "description": "Ac(<custom-param>)"
     },
-    "Ac(n)": {
-        "prefix": "align-content: normal",
-        "body": [
-            "Ac(n)"
-        ],
-        "description": "Ac(n)"
-    },
     "Ac(b)": {
         "prefix": "align-content: baseline",
         "body": [
             "Ac(b)"
         ],
         "description": "Ac(b)"
+    },
+    "Ac(c)": {
+        "prefix": "align-content: center",
+        "body": [
+            "Ac(c)"
+        ],
+        "description": "Ac(c)"
+    },
+    "Ac(fe)": {
+        "prefix": "align-content: flex-end",
+        "body": [
+            "Ac(fe)"
+        ],
+        "description": "Ac(fe)"
+    },
+    "Ac(fs)": {
+        "prefix": "align-content: flex-start",
+        "body": [
+            "Ac(fs)"
+        ],
+        "description": "Ac(fs)"
+    },
+    "Ac(n)": {
+        "prefix": "align-content: normal",
+        "body": [
+            "Ac(n)"
+        ],
+        "description": "Ac(n)"
     },
     "Ac(sa)": {
         "prefix": "align-content: space-around",
@@ -10107,27 +10128,6 @@
         ],
         "description": "Ac(st)"
     },
-    "Ac(c)": {
-        "prefix": "align-content: center",
-        "body": [
-            "Ac(c)"
-        ],
-        "description": "Ac(c)"
-    },
-    "Ac(fe)": {
-        "prefix": "align-content: flex-end",
-        "body": [
-            "Ac(fe)"
-        ],
-        "description": "Ac(fe)"
-    },
-    "Ac(fs)": {
-        "prefix": "align-content: flex-start",
-        "body": [
-            "Ac(fs)"
-        ],
-        "description": "Ac(fs)"
-    },
     "Or(<value>)": {
         "prefix": "order",
         "body": [
@@ -10142,12 +10142,26 @@
         ],
         "description": "Jc(<custom-param>)"
     },
-    "Jc(n)": {
-        "prefix": "justify-content: normal",
+    "Jc(c)": {
+        "prefix": "justify-content: center",
         "body": [
-            "Jc(n)"
+            "Jc(c)"
         ],
-        "description": "Jc(n)"
+        "description": "Jc(c)"
+    },
+    "Jc(fe)": {
+        "prefix": "justify-content: flex-end",
+        "body": [
+            "Jc(fe)"
+        ],
+        "description": "Jc(fe)"
+    },
+    "Jc(fs)": {
+        "prefix": "justify-content: flex-start",
+        "body": [
+            "Jc(fs)"
+        ],
+        "description": "Jc(fs)"
     },
     "Jc(l)": {
         "prefix": "justify-content: left",
@@ -10155,6 +10169,13 @@
             "Jc(l)"
         ],
         "description": "Jc(l)"
+    },
+    "Jc(n)": {
+        "prefix": "justify-content: normal",
+        "body": [
+            "Jc(n)"
+        ],
+        "description": "Jc(n)"
     },
     "Jc(r)": {
         "prefix": "justify-content: right",
@@ -10197,27 +10218,6 @@
             "Jc(st)"
         ],
         "description": "Jc(st)"
-    },
-    "Jc(c)": {
-        "prefix": "justify-content: center",
-        "body": [
-            "Jc(c)"
-        ],
-        "description": "Jc(c)"
-    },
-    "Jc(fe)": {
-        "prefix": "justify-content: flex-end",
-        "body": [
-            "Jc(fe)"
-        ],
-        "description": "Jc(fe)"
-    },
-    "Jc(fs)": {
-        "prefix": "justify-content: flex-start",
-        "body": [
-            "Jc(fs)"
-        ],
-        "description": "Jc(fs)"
     },
     "Flw(<custom-param>)": {
         "prefix": "flex-wrap",
@@ -11723,6 +11723,419 @@
             "Rsz(v)"
         ],
         "description": "Rsz(v)"
+    },
+    "Sb(<custom-param>)": {
+        "prefix": "scroll-behavior",
+        "body": [
+            "Sb(${1:<custom-param>})"
+        ],
+        "description": "Sb(<custom-param>)"
+    },
+    "Sb(a)": {
+        "prefix": "scroll-behavior: auto",
+        "body": [
+            "Sb(a)"
+        ],
+        "description": "Sb(a)"
+    },
+    "Sb(s)": {
+        "prefix": "scroll-behavior: smooth",
+        "body": [
+            "Sb(s)"
+        ],
+        "description": "Sb(s)"
+    },
+    "Ssa(<custom-param>)": {
+        "prefix": "scroll-snap-align",
+        "body": [
+            "Ssa(${1:<custom-param>})"
+        ],
+        "description": "Ssa(<custom-param>)"
+    },
+    "Ssa(c)": {
+        "prefix": "scroll-snap-align: center",
+        "body": [
+            "Ssa(c)"
+        ],
+        "description": "Ssa(c)"
+    },
+    "Ssa(c_e)": {
+        "prefix": "scroll-snap-align: center end",
+        "body": [
+            "Ssa(c_e)"
+        ],
+        "description": "Ssa(c_e)"
+    },
+    "Ssa(c_n)": {
+        "prefix": "scroll-snap-align: center none",
+        "body": [
+            "Ssa(c_n)"
+        ],
+        "description": "Ssa(c_n)"
+    },
+    "Ssa(c_s)": {
+        "prefix": "scroll-snap-align: center start",
+        "body": [
+            "Ssa(c_s)"
+        ],
+        "description": "Ssa(c_s)"
+    },
+    "Ssa(e)": {
+        "prefix": "scroll-snap-align: end",
+        "body": [
+            "Ssa(e)"
+        ],
+        "description": "Ssa(e)"
+    },
+    "Ssa(e_c)": {
+        "prefix": "scroll-snap-align: end center",
+        "body": [
+            "Ssa(e_c)"
+        ],
+        "description": "Ssa(e_c)"
+    },
+    "Ssa(e_n)": {
+        "prefix": "scroll-snap-align: end none",
+        "body": [
+            "Ssa(e_n)"
+        ],
+        "description": "Ssa(e_n)"
+    },
+    "Ssa(e_s)": {
+        "prefix": "scroll-snap-align: end start",
+        "body": [
+            "Ssa(e_s)"
+        ],
+        "description": "Ssa(e_s)"
+    },
+    "Ssa(n)": {
+        "prefix": "scroll-snap-align: none",
+        "body": [
+            "Ssa(n)"
+        ],
+        "description": "Ssa(n)"
+    },
+    "Ssa(n_c)": {
+        "prefix": "scroll-snap-align: none center",
+        "body": [
+            "Ssa(n_c)"
+        ],
+        "description": "Ssa(n_c)"
+    },
+    "Ssa(n_e)": {
+        "prefix": "scroll-snap-align: none end",
+        "body": [
+            "Ssa(n_e)"
+        ],
+        "description": "Ssa(n_e)"
+    },
+    "Ssa(n_s)": {
+        "prefix": "scroll-snap-align: none start",
+        "body": [
+            "Ssa(n_s)"
+        ],
+        "description": "Ssa(n_s)"
+    },
+    "Ssa(s)": {
+        "prefix": "scroll-snap-align: start",
+        "body": [
+            "Ssa(s)"
+        ],
+        "description": "Ssa(s)"
+    },
+    "Ssa(s_c)": {
+        "prefix": "scroll-snap-align: start center",
+        "body": [
+            "Ssa(s_c)"
+        ],
+        "description": "Ssa(s_c)"
+    },
+    "Ssa(s_n)": {
+        "prefix": "scroll-snap-align: start none",
+        "body": [
+            "Ssa(s_n)"
+        ],
+        "description": "Ssa(s_n)"
+    },
+    "Ssa(s_e)": {
+        "prefix": "scroll-snap-align: start end",
+        "body": [
+            "Ssa(s_e)"
+        ],
+        "description": "Ssa(s_e)"
+    },
+    "Sst(<custom-param>)": {
+        "prefix": "scroll-snap-type",
+        "body": [
+            "Sst(${1:<custom-param>})"
+        ],
+        "description": "Sst(<custom-param>)"
+    },
+    "Sst(b)": {
+        "prefix": "scroll-snap-type: block",
+        "body": [
+            "Sst(b)"
+        ],
+        "description": "Sst(b)"
+    },
+    "Sst(b_m)": {
+        "prefix": "scroll-snap-type: block mandatory",
+        "body": [
+            "Sst(b_m)"
+        ],
+        "description": "Sst(b_m)"
+    },
+    "Sst(b_p)": {
+        "prefix": "scroll-snap-type: block proximity",
+        "body": [
+            "Sst(b_p)"
+        ],
+        "description": "Sst(b_p)"
+    },
+    "Sst(bo)": {
+        "prefix": "scroll-snap-type: both",
+        "body": [
+            "Sst(bo)"
+        ],
+        "description": "Sst(bo)"
+    },
+    "Sst(bo_m)": {
+        "prefix": "scroll-snap-type: both mandatory",
+        "body": [
+            "Sst(bo_m)"
+        ],
+        "description": "Sst(bo_m)"
+    },
+    "Sst(bo_p)": {
+        "prefix": "scroll-snap-type: both proximity",
+        "body": [
+            "Sst(bo_p)"
+        ],
+        "description": "Sst(bo_p)"
+    },
+    "Sst(i)": {
+        "prefix": "scroll-snap-type: inline",
+        "body": [
+            "Sst(i)"
+        ],
+        "description": "Sst(i)"
+    },
+    "Sst(i_m)": {
+        "prefix": "scroll-snap-type: inline mandatory",
+        "body": [
+            "Sst(i_m)"
+        ],
+        "description": "Sst(i_m)"
+    },
+    "Sst(i_p)": {
+        "prefix": "scroll-snap-type: inline proximity",
+        "body": [
+            "Sst(i_p)"
+        ],
+        "description": "Sst(i_p)"
+    },
+    "Sst(n)": {
+        "prefix": "scroll-snap-type: none",
+        "body": [
+            "Sst(n)"
+        ],
+        "description": "Sst(n)"
+    },
+    "Sst(x)": {
+        "prefix": "scroll-snap-type: x",
+        "body": [
+            "Sst(x)"
+        ],
+        "description": "Sst(x)"
+    },
+    "Sst(x_m)": {
+        "prefix": "scroll-snap-type: x mandatory",
+        "body": [
+            "Sst(x_m)"
+        ],
+        "description": "Sst(x_m)"
+    },
+    "Sst(x_p)": {
+        "prefix": "scroll-snap-type: x proximity",
+        "body": [
+            "Sst(x_p)"
+        ],
+        "description": "Sst(x_p)"
+    },
+    "Sst(y)": {
+        "prefix": "scroll-snap-type: y",
+        "body": [
+            "Sst(y)"
+        ],
+        "description": "Sst(y)"
+    },
+    "Sst(y_m)": {
+        "prefix": "scroll-snap-type: y mandatory",
+        "body": [
+            "Sst(y_m)"
+        ],
+        "description": "Sst(y_m)"
+    },
+    "Sst(y_p)": {
+        "prefix": "scroll-snap-type: y proximity",
+        "body": [
+            "Sst(y_p)"
+        ],
+        "description": "Sst(y_p)"
+    },
+    "Sss(<custom-param>)": {
+        "prefix": "scroll-snap-stop",
+        "body": [
+            "Sss(${1:<custom-param>})"
+        ],
+        "description": "Sss(<custom-param>)"
+    },
+    "Sss(a)": {
+        "prefix": "scroll-snap-stop: always",
+        "body": [
+            "Sss(a)"
+        ],
+        "description": "Sss(a)"
+    },
+    "Sss(n)": {
+        "prefix": "scroll-snap-stop: normal",
+        "body": [
+            "Sss(n)"
+        ],
+        "description": "Sss(n)"
+    },
+    "Sm(<value>)": {
+        "prefix": "scroll-margin",
+        "body": [
+            "Sm(${1:<value>})"
+        ],
+        "description": "Sm(<value>)"
+    },
+    "Smx(<value>)": {
+        "prefix": "scroll-margin-leftscroll-margin-right",
+        "body": [
+            "Smx(${1:<value>})"
+        ],
+        "description": "Smx(<value>)"
+    },
+    "Smy(<value>)": {
+        "prefix": "scroll-margin-topscroll-margin-bottom",
+        "body": [
+            "Smy(${1:<value>})"
+        ],
+        "description": "Smy(<value>)"
+    },
+    "Smt(<value>)": {
+        "prefix": "scroll-margin-top",
+        "body": [
+            "Smt(${1:<value>})"
+        ],
+        "description": "Smt(<value>)"
+    },
+    "Smend(<value>)": {
+        "prefix": "scroll-margin-right",
+        "body": [
+            "Smend(${1:<value>})"
+        ],
+        "description": "Smend(<value>)"
+    },
+    "Smb(<value>)": {
+        "prefix": "scroll-margin-bottom",
+        "body": [
+            "Smb(${1:<value>})"
+        ],
+        "description": "Smb(<value>)"
+    },
+    "Smstart(<value>)": {
+        "prefix": "scroll-margin-left",
+        "body": [
+            "Smstart(${1:<value>})"
+        ],
+        "description": "Smstart(<value>)"
+    },
+    "Sp(<value>)": {
+        "prefix": "scroll-padding",
+        "body": [
+            "Sp(${1:<value>})"
+        ],
+        "description": "Sp(<value>)"
+    },
+    "Sp(a)": {
+        "prefix": "scroll-padding: auto",
+        "body": [
+            "Sp(a)"
+        ],
+        "description": "Sp(a)"
+    },
+    "Spx(<value>)": {
+        "prefix": "scroll-padding-leftscroll-padding-right",
+        "body": [
+            "Spx(${1:<value>})"
+        ],
+        "description": "Spx(<value>)"
+    },
+    "Spy(<value>)": {
+        "prefix": "scroll-padding-topscroll-padding-bottom",
+        "body": [
+            "Spy(${1:<value>})"
+        ],
+        "description": "Spy(<value>)"
+    },
+    "Spt(<value>)": {
+        "prefix": "scroll-padding-top",
+        "body": [
+            "Spt(${1:<value>})"
+        ],
+        "description": "Spt(<value>)"
+    },
+    "Spt(a)": {
+        "prefix": "scroll-padding-top: auto",
+        "body": [
+            "Spt(a)"
+        ],
+        "description": "Spt(a)"
+    },
+    "Spend(<value>)": {
+        "prefix": "scroll-padding-right",
+        "body": [
+            "Spend(${1:<value>})"
+        ],
+        "description": "Spend(<value>)"
+    },
+    "Spend(a)": {
+        "prefix": "scroll-padding-right: auto",
+        "body": [
+            "Spend(a)"
+        ],
+        "description": "Spend(a)"
+    },
+    "Spb(<value>)": {
+        "prefix": "scroll-padding-bottom",
+        "body": [
+            "Spb(${1:<value>})"
+        ],
+        "description": "Spb(<value>)"
+    },
+    "Spb(a)": {
+        "prefix": "scroll-padding-bottom: auto",
+        "body": [
+            "Spb(a)"
+        ],
+        "description": "Spb(a)"
+    },
+    "Spstart(<value>)": {
+        "prefix": "scroll-padding-left",
+        "body": [
+            "Spstart(${1:<value>})"
+        ],
+        "description": "Spstart(<value>)"
+    },
+    "Spstart(a)": {
+        "prefix": "scroll-padding-left: auto",
+        "body": [
+            "Spstart(a)"
+        ],
+        "description": "Spstart(a)"
     },
     "Tbl(<custom-param>)": {
         "prefix": "table-layout",
