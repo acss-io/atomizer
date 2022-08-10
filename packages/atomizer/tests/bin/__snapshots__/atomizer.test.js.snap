@@ -22,6 +22,9 @@ exports[`atomizer options --bump-mq 2`] = `
 
 exports[`atomizer options --config 1`] = `
 "
+.C\\\\(\\\\#000\\\\) {
+  color: #000;
+}
 .H\\\\(uh\\\\) {
   height: 79px;
 }
