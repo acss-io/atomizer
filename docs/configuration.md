@@ -4,27 +4,44 @@ layout: docs
 title: Configuration
 ---
 
-By default, no configuration file is necessary for Atomizer to run. Atomizer will automatically parse the files passed in and generate the CSS file for you.
-
-However, in most cases, you will need to customize Atomizer to fit your projects requirements. This guide will help define the configuration options available for Atomizer.
+Atomizer will automatically parse the content files passed into the cli, no configuration is required. However, in many cases, you may need to customize Atomizer to fit your projects requirements. This guide will help define the configuration options available for Atomizer; each section defined below is optional.
 
 ## Create a configuration file
 
-Create a file named `atomizer.config.js` in the directory of your choosing with the following contents:
+By default, Atomizer will look for an optional `atomizer.config.js` file at the root of your project where you can define your customizations. Create a file named `atomizer.config.js` at the root of your project (or a directory of your choosing) with the following contents:
 
 ```js
 module.exports = {
+    content: [],
     breakPoints: {},
-    classNames: {},
     custom: {},
 };
 ```
 
-<p class="noteBox info">The name of the file is arbitrary as this will be passed into Atomizer at build time. How you use this file depends on your project setup, please refer to the <a href="./installation.html">installation guide</a> for more info. </p>
+As mentioned above, Atomizer will automatically find this configuration file when executed. However, if you decided to locate the config file in a different directory, then you can specify that location via the `--config` option:
+
+```shell
+atomizer --config configs/atomizer.config.js
+```
 
 Next, read the config sections below to learn more about the configuration options available.
 
 ## Configuration options
+
+### Content
+
+The `content` section let's you define the paths to any and all files that may contain Atomizer classes:
+
+```js
+module.exports = {
+    content: [
+        './components/**/*.js',
+        './templates/**/*.html',
+    },
+}
+```
+
+Read more about how to use the `content` property in our [Content guide](./content.html).
 
 ### Breakpoints
 
@@ -41,19 +58,6 @@ module.exports = {
 ```
 
 Read more about how break points work from our [Breakpoints guide](./breakpoints.html).
-
-### Classnames
-
-`classNames` is the list of Atomizer class names your project uses. You do not have to explictly declare them like this since Atomizer can parse any file and create this list automatically for you.  However, you always have the option to explicitly declare classnames if you find it helpful for your project.
-
-```js
-module.exports = {
-    classNames: [
-        'H(uh)',
-        'C(primary)',
-    }
-}
-```
 
 ### Custom
 
@@ -75,6 +79,19 @@ module.exports = {
 ```
 
 The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`.
+
+### Classnames
+
+`classNames` is the list of Atomizer class names your project uses. You do not have to explictly declare them like this since Atomizer can parse any file and create this list automatically for you.  However, you always have the option to explicitly declare classnames if you find it helpful for your project.
+
+```js
+module.exports = {
+    classNames: [
+        'H(uh)',
+        'C(primary)',
+    }
+}
+```
 
 #### Substitution
 
