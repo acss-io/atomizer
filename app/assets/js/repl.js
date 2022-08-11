@@ -101,7 +101,7 @@ function toggleFullScreen() {
     const fullscreenClass = 'fs-on';
     fullscreen.classList.toggle(fullscreenClass);
     header.hidden = !header.hidden;
-
+    document.documentElement.classList.toggle(fullscreenClass);
     if (typeof gtag !== 'undefined') {
         const mode = fullscreen.classList.contains(fullscreenClass) ? 'open' : 'closed';
         gtag?.('event', 'repl_fullscreen', { mode });
@@ -116,3 +116,4 @@ markupEditor.on('change', updatePreview);
 configEditor.on('change', updatePreview);
 document.getElementById('save').addEventListener('click', createZip);
 document.getElementById('fullscreen').addEventListener('click', toggleFullScreen);
+

@@ -12,9 +12,9 @@ module.exports = {
     },
     contentPosition: {
         'c': 'center',
-        // 'e': 'end',
+        'e': 'end',
         'fe': 'flex-end',
         'fs': 'flex-start',
-        // 's': 'start'
+        's': 'start'
     }
 };

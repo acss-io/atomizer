@@ -61,14 +61,8 @@ li.selected a {
 
 /* Menu Styles ==================================================== */
 
-#aside:after {
-    right: 0; /* same as padding-right on #aside */
-    z-index: -1;
-}
-
-#aside li:hover a:after,
-#aside li.selected a:after,
-#aside:after {
+#nav li:hover a:after,
+#nav li.selected a:after {
     content: '';
     position: absolute;
     width: 1px;
@@ -77,16 +71,16 @@ li.selected a {
     background: rgba(2, 128, 174, 0.3);
 }
 
-#aside li:hover a:after,
-#aside li.selected a:after {
-    right: 0;
+#nav li:hover a:after,
+#nav li.selected a:after {
+    right: -1px;
 }
 
-#aside li.selected a {
+#nav li.selected a {
     font-weight: 500;
 }
 
-#aside li.selected a:after {
+#nav li.selected a:after {
     background: #0280ae;
 }
 

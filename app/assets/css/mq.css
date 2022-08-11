@@ -1,11 +1,22 @@
 @media screen and (max-width: 700px) {
+    #toggleMenuWrapper {
+        margin-top: 20px!important;
+    }
     /**
      * menu (slider)
      */
-    .menu-on #aside {
+    .menu-on #nav {
         animation: slide 0.3s ease-out;
         box-shadow: 1px 0 9px 1px #555;
+        box-sizing: border-box;
+        display: block;
         transform: translateY(0);
+        z-index: 4;
+        width: 100%;
+        background: #fff;
+        left: 0;
+        padding-left: 10px;
+        top: 4.2em;
     }
     /**
      * for the footer to get this styling we'd need to move ".menu-on" higher up
@@ -14,7 +25,7 @@
     .menu-on #footer {
         filter: blur(2px);
     }
-    #aside {
+    #nav {
         transform: translateY(-100%);
         will-change: transform;
         backface-visibility: hidden;
@@ -27,12 +38,5 @@
         100% {
             transform: translateY(0);
         }
-    }
-    /**
-     * no fancy marker nor right border along the side of the menu
-     */
-    #aside:after,
-    #aside a:after {
-        display: none !important;
     }
 }
