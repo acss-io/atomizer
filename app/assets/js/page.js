@@ -8,11 +8,7 @@ if (nav && aside && header && footer) {
     const headerHeight = header.clientHeight;
     const footerHeight = footer.clientHeight;
     let availHeight = document.body.clientHeight - headerHeight - footerHeight;
-    console.log('availHeight', availHeight);
     const updateSticky = () => {
-        console.log('availHeight', availHeight);
-        console.log('navHeight', navHeight);
-
         if (navHeight > availHeight) {
             document.body.classList.add('navStickyBottom');
         } else {
