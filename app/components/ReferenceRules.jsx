@@ -210,7 +210,7 @@ const ReferenceRules = ({ store }) => {
         for (const property in recipe.styles) {
             const mdnLink = `https://developer.mozilla.org/en-US/docs/Web/CSS/${property}`;
             moreLink = (
-                <a href={mdnLink} className="V(h) logo:h_V(v) V(v):f Mstart(10px)" target="_blank" rel="noreferrer">
+                <a href={mdnLink} className="Op(0) logo:h_Op(1) Op(1):f Mstart(10px)" target="_blank" rel="noreferrer">
                     <b className="Hidden">Read {property} docs from mdn</b>
                     <svg width="48" height="14" viewBox="0 0 48 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <title>MDN logo</title>
