@@ -16,6 +16,7 @@
         background: #fff;
         left: 0;
         padding-left: 10px;
+        top: 4.2em;
     }
     /**
      * for the footer to get this styling we'd need to move ".menu-on" higher up

@@ -15,7 +15,7 @@
 <html class="atomic Spt(70px) {{page.section}}" lang="{{ page.lang | default: site.lang | default: "en" }}">
     {%- include head.html -%}
 
-    <body class="Pt(3.2em)">
+    <body class="Pt(3.2em) fs-on_Pt(0)">
         {%- include header.html -%}
         {{ content }}
         {%- include footer.html -%}
@@ -31,6 +31,7 @@
             toggleMenuButton?.addEventListener('click', () => {
                 const wrapper = document.getElementById('toggleMenuWrapper');
                 wrapper.classList.toggle('menu-on');
+                window.scrollTo(0, 0);
             });
 
             // handle home navigation toggle
