@@ -61,14 +61,8 @@ li.selected a {
 
 /* Menu Styles ==================================================== */
 
-#aside:after {
-    right: 0; /* same as padding-right on #aside */
-    z-index: -1;
-}
-
 #aside li:hover a:after,
-#aside li.selected a:after,
-#aside:after {
+#aside li.selected a:after {
     content: '';
     position: absolute;
     width: 1px;
@@ -79,7 +73,7 @@ li.selected a {
 
 #aside li:hover a:after,
 #aside li.selected a:after {
-    right: 0;
+    right: -1px;
 }
 
 #aside li.selected a {

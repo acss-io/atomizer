@@ -2,25 +2,23 @@
 layout: default
 ---
 
-<div id="toggleMenuWrapper" class="docs-page D(tb)--sm Tbl(f) Pt(20px) Mb(50px) Maw(1280px)--sm Miw(1280px)--lg Mx(a)--sm">
-    <button id="toggleMenuButton" class="menu-button Bgi(hamburger) W(32px) H(32px) D(n)--sm Pos(a) Bdw(0) Bgc(t) P(0) T(0) Start(0) Z(7) M(10px) menu-on_Bgp(end_t)">
+<div id="toggleMenuWrapper" class="docs-page D(f) Ai(s) Gp(40px) Mt(40px) Mb(50px) Mx(a) Px(10px) Maw(1280px)--sm">
+    <button id="toggleMenuButton" class="menu-button Bgi(hamburger) W(32px) H(32px) D(n)--sm Pos(f) Bdw(0) Bgc(t) P(0) T(0) Start(0) Z(7) M(10px) menu-on_Bgp(end_t)">
         <b class="Hidden">Toggle the menu</b>
     </button>
-
-    <aside id="aside" class="D(tbc) Bgc(#fff) Mt(-20px)--xs Pos(a)--xs Pos(r) Va(t) W(250px)--sm End(0) Pt(20px) Pb(40px) menu-on_Px(10px) Pstart(10px)--sm Pstart(0px)--lg Z(5) End(a)--sm Start(0)">
+    <nav id="nav" class="Bdc(#b1d0e1) Bdendw(1px) Bdends(s) Fxs(0) W(250px) Pos(st) has-scrolled_T(5.6em) navStickyBottom_B(20px) navStickyBottom_T(a)! navStickyBottom_As(e) Mt(-20px)--xs Pos(a)--xs D(n)--xs">
         {% include menu.html %}
-    </aside>
+    </nav>
 
-    <main id="main" class="D(tbc)--sm home_D(b)! Px(10px) Pstart(40px)--sm menu-on_Pos(f)">
+    <main id="main" class="menu-on_Pos(f)">
         <h1 class="Fz(24px) Fz(30px)--sm Mb(20px)--xs">{{ page.title }}</h1>
-
-        <div class="D(f)--lg">
+        <div class="D(b) D(n)--lg">
             {% include toc.html %}
-            <div class="W(100%) W(73%)--lg">
-                <div>{{ content | inject_anchors }}</div>
-            </div>
         </div>
+        {{ content | inject_anchors }}
     </main>
-
+    <aside id="toc" class="Fxb(195px) Fxs(0) D(n) D(b)--lg Pos(st) has-scrolled_T(5.6em) tocStickyBottom_B(20px) tocStickyBottom_T(a)! tocStickyBottom_As(e)">
+        {% include toc.html isOpen="open" %}
+    </aside>
     <div id="overlay" class="D(n) D(n)!--sm menu-on_D(b) Bgc(#000.6) Z(3) Pos(f) T(0) Start(0) W(100%) H(100%)"></div>
 </div>

@@ -1,11 +1,4 @@
-<!-- used for mobile-->
-<details id="toc" class="My(1em) D(b) D(n)--lg">
+<details id="toc-details" {{ include.isOpen }}>
     <summary>On this page</summary>
     {{ content | toc_only }}
 </details>
-
-<!-- used for desktop -->
-<div id="toc" class="D(n) D(b)--lg Pos(f)--lg Ovy(a) T(5em) B(0) End(tocEnd)--lg Or(2)--md W(13%)--lg Mt(1em) Mt(0)--lg">
-    <h4 class="D(n) D(b)--lg Fz(.865rem)">On this page</h4>
-    {{ content | toc_only }}
-</div>

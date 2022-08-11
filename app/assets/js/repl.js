@@ -116,3 +116,4 @@ markupEditor.on('change', updatePreview);
 configEditor.on('change', updatePreview);
 document.getElementById('save').addEventListener('click', createZip);
 document.getElementById('fullscreen').addEventListener('click', toggleFullScreen);
+

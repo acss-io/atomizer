@@ -12,19 +12,14 @@
           \  \:\        \  \::/        /__/:/        /__/:/           
            \__\/         \__\/         \__\/         \__\/         
 -->
-<html class="atomic {{page.section}}" lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html class="atomic Spt(70px) {{page.section}}" lang="{{ page.lang | default: site.lang | default: "en" }}">
     {%- include head.html -%}
 
-    <body>
-        <div id="app" class="H(100%)">
-            <div class="H(100%)">
-                <div class="wrapper Bxz(bb) Mih(100%)">
-                    {%- include header.html -%}
-                    {{ content }}
-                </div>
-                {%- include footer.html -%}
-            </div>
-        </div>
+    <body class="Pt(3.2em)">
+        {%- include header.html -%}
+        {{ content }}
+        {%- include footer.html -%}
+        <script src="{{'/assets/js/page.js' | relative_url }}"></script>
     </body>
 
     <script src="{{ "/assets/js/search.js" | relative_url }}" async></script>
