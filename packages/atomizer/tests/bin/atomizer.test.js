@@ -104,12 +104,17 @@ describe('atomizer', () => {
         });
 
         it('--watch', async () => {
+            const configFile = path.resolve(fixtureDir, 'watch', 'atomizer.config.js');
+            const watchFixture = path.resolve(fixtureDir, 'watch', 'watch.html');
             const { stdout } = await execFileAsync(
                 'node',
-                [atomizer, htmlFixture, '--watch', htmlFixture],
+                [atomizer, htmlFixture, '-c', configFile ,'--watch', watchFixture],
                 { env: { ...process.env, TEST: true } }
             );
-            expect(stdout).toContain('test.html for changes');          
+            expect(stdout).toContain('Watching');
+            expect(stdout).toContain('/fixtures/test.html'); // watch file from arg "atomizer test.html"
+            expect(stdout).toContain('/watch/foo.html'); // watch file from "config.content"
+            expect(stdout).toContain('/watch/watch.html'); // watch file from "--watch watch.html" opton
         });
     });
 });

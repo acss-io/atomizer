@@ -5,6 +5,7 @@ module.exports = {
         md: '@media screen and (min-width:999px)',
         lg: '@media screen and (min-width:1200px)',
     },
+    content: ['examples/*.html'],
     custom: {
         'Bdt(light)': '1px solid rgba(2, 128, 174, 0.3)',
         'Bgi(hamburger)': 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',

@@ -1,4 +1,7 @@
 module.exports = {
+    content: [
+        './examples'
+    ],
     // 'custom' maps custom suffixes to values and it is specially useful for theming
     // or things that you need to change globally in many different atomic classes.
     // these key/value pairs map to the custom suffixes in 'classNames'.
