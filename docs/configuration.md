@@ -1,10 +1,11 @@
 ---
-section: docs
+description: Learn how to configure Atomizer for your project's needs.
 layout: docs
+section: docs
 title: Configuration
 ---
 
-Atomizer will automatically parse the content files passed into the cli, no configuration is required. However, in many cases, you may need to customize Atomizer to fit your projects requirements. This guide will help define the configuration options available for Atomizer; each section defined below is optional.
+Atomizer will automatically parse the content files passed into the cli; no configuration is required. However, in many cases, you may need to customize Atomizer to fit your project's requirements. This guide will help define the configuration options available for Atomizer; each section below is optional.
 
 ## Create a configuration file
 
@@ -30,7 +31,7 @@ Next, read the config sections below to learn more about the configuration optio
 
 ### Content
 
-The `content` section let's you define the paths to any and all files that may contain Atomizer classes:
+The `content` section lets you define the paths to any files that may contain Atomizer classes:
 
 ```js
 module.exports = {
@@ -57,11 +58,11 @@ module.exports = {
 };
 ```
 
-Read more about how break points work from our [Breakpoints guide](./breakpoints.html).
+Read more about how breakpoints work from our [Breakpoints guide](./breakpoints.html).
 
 ### Custom
 
-The `custom` section maps custom suffixes to values and it is specially useful for theming or things that you need to change globally in many different Atomizer classes. These key/value pairs map to the custom suffixes in `classNames`.
+The `custom` section maps custom suffixes to values, and it is beneficial for theming or things you need to change globally in many different Atomizer classes. These key/value pairs map to the custom suffixes in `classNames`.
 
 For example, given the configuration below:
 
@@ -82,7 +83,7 @@ The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`.
 
 ### Classnames
 
-`classNames` is the list of Atomizer class names your project uses. You do not have to explictly declare them like this since Atomizer can parse any file and create this list automatically for you.  However, you always have the option to explicitly declare classnames if you find it helpful for your project.
+`classNames` is the list of Atomizer class names your project uses. You do not have to declare them like this since Atomizer can parse any file and create this list automatically for you.  However, you always have the option to explicitly declare classnames if you find them helpful for your project.
 
 ```js
 module.exports = {

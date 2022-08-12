@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Get answers to common questions about Atomizer. 
 layout: docs
+section: docs
 title: Frequently Asked Questions
 ---
 

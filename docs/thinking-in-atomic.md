@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Learn the Atomic CSS principles that Atomizer is built on.
 layout: docs
+section: docs
 title: Thinking in Atomic
 ---
 

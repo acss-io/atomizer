@@ -1,6 +1,7 @@
 ---
-section: docs
+description: How Atomizer handles CSS shorthand notation.
 layout: docs
+section: docs
 title: Shorthand notation
 ---
 
@@ -80,7 +81,7 @@ Even though Atomizer does not allow shorthand notation, many classes support &qu
 
 ### Border helper classes
 
-When it comes to border styling, initial values exist for `width` and `color` but many authors may still want to set all 3 values: `width`, `color`, and `style`. To make things a bit less verbose, Atomizer offers a set of <a href="helper-classes.html#-bd-borders-">helper classes for borders</a> which set `style` to `solid` and `width` to `1px` (as a default).
+When it comes to border styling, initial values exist for `width` and `color` but many authors may still want to set all 3 values: `width`, `color`, and `style`. To make things a bit less verbose, Atomizer offers a set of <a href="helper-classes.html#bd-borders">helper classes for borders</a> which set `style` to `solid` and `width` to `1px` (as a default).
 
 This allows you to use a single class to create a single pixel border that either &quot;inherits&quot; text color or can be combined with an Atomic class for border-color (e.g., `Bd Bdc(#fff)`).
 

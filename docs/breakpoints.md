@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Learn how to build responsively designed websites with Atomizer.
 layout: docs
+section: docs
 title: Breakpoints
 ---
 

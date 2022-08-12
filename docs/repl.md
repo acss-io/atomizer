@@ -1,6 +1,7 @@
 ---
-section: repl
+description: Interactive environment to test the Atomizer sytnax.
 layout: default
+section: repl
 title: Hello world - REPL
 ---
 

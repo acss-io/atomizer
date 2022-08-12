@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Install the Atomizer cli or one of the many supported framework integrations.
 layout: docs
+section: docs
 title: Installation
 ---
 

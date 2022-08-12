@@ -1,10 +1,11 @@
 ---
-section: docs
+description: Learn how to configure content sources for Atomizer.
 layout: docs
+section: docs
 title: Content Configuration
 ---
 
-The `content` section of your `atomizer.config.js` file is where you configure the paths to all your HTML templates, JavaScript components, and any other source files containing Atomizer class names.
+The `content` section of your `atomizer.config.js` file is where you configure the paths to all your HTML templates, JavaScript components, and other source files containing Atomizer class names.
 
 ```js
 module.exports = {
@@ -40,7 +41,7 @@ The glob library supports many different patterns to make it easy to configure y
 
 #### Be specific
 
-Be as specific as possible when defining your paths. Generic patterns like the one below could lead to extra CSS that your project may not actually use:
+Be as specific as possible when defining your paths. Generic patterns like the one below could lead to extra CSS that your project may not use:
 
 ```js
 module.exports = {
@@ -74,7 +75,7 @@ module.exports = {
 
 #### Avoid CSS
 
-Never include CSS in your path patterns. This could cause issues as Atomizer could potentially produce additional styles:
+Never include CSS in your path patterns. CSS could cause issues as Atomizer could potentially produce additional styles:
 
 ```js
 module.exports = {
@@ -106,9 +107,9 @@ createElement.classList.add('D(b)');
 
 ### Dynamic class names
 
-Atomizer will only find class names that are statically written. Statically defined class names are easily parseable and do not require run-time execution or compilation to be parsed. In other words, avoid creating your Atomizer class names dynamically as they will not be parsed.
+Atomizer will only find statically written class names. Statically defined class names are easily parseable and do not require run-time execution or compilation to be parsed. In other words, avoid creating your Atomizer class names dynamically as they will not be parsed.
 
-In the example below, the strings `C(#ff0000)` and `C(#00FF00)` are dynamically created based on run time logic, therefore Atomizer is not able to find the classes.
+In the example below, the strings `C(#ff0000)` and `C(#00FF00)` are dynamically created based on run time logic; Atomizer will not find the classes.
 
 {% raw %}
 ```jsx
@@ -128,7 +129,7 @@ This ensures Atomizer can adequately parse the files.
 
 ## Explicit classes
 
-If you need to define specific Atomizer class names that are not present in any of your source paths, then you can use the [classNames](./configuration.html#classnames) property from the `atomizer.config.js` file to manual define the classes:
+If you need to specify Atomizer class names that are not present in any of your source paths, then you can use the [classNames](./configuration.html#classnames) property from the `atomizer.config.js` file to manual define the classes:
 
 ```js
 module.exports = {
@@ -138,4 +139,4 @@ module.exports = {
 }
 ```
 
-Read more about this on our [configuration guide](./configuration.html#classnames).
+Read more about this in our [configuration guide](./configuration.html#classnames).

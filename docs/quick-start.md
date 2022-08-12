@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Quickly learn how to use Atomizer with our simple examples.
 layout: docs
+section: docs
 title: Quick Start
 ---
 
