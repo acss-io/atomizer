@@ -82,13 +82,6 @@ ul {
     list-style-type: none;
 }
 
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- */
-video {
-    display: inline-block; /* 1 */
-}
-
 abbr[title] {
     border-bottom: 1px dotted #555;
     cursor: help;
@@ -128,29 +121,13 @@ small {
 }
 
 /**
- * 1. Remove border when inside "a" element in IE 8/9/10.
- * 2. Prevent image from sticking out of their container.
- * 3. Prevent "mysterious gaps below images" (descender).
+ * 1. Prevent image from sticking out of their container.
+ * 2. Prevent "mysterious gaps below images" (descender).
  */
 img {
-    border: 0; /* 1 */
-    height: auto; /* 2 */
-    max-width: 100%; /* 2 */
-    vertical-align: bottom; /* 3 */
-}
-
-/**
- * 1. Address `overflow` set to `hidden` in IE 8/9/10/11.
- */
-button {
-    overflow: visible; /* 1 */
-}
-
-/**
- * 1. Correct overflow not hidden in IE 9/10/11.
- */
-svg:not(:root) {
-    overflow: hidden; /* 1 */
+    height: auto; /* 1 */
+    max-width: 100%; /* 1 */
+    vertical-align: bottom; /* 2 */
 }
 
 .textarea {
@@ -232,12 +209,6 @@ h6 {
  * Links
  * =============================================================================
  */
-/**
- * Remove the gray background *color* from active links in IE 10.
- */
-a {
-    background-color: transparent;
-}
 
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -329,15 +300,11 @@ textarea:focus {
  * It's recommended that you don't attempt to style these elements.
  * Firefox's implementation doesn't respect box-sizing, padding, or width.
  *
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
- * 2. Remove excess padding in IE 8/9/10.
- * 3. Help vertical centering of controls when they are next to each other.
+ * 1. Help vertical centering of controls when they are next to each other.
  */
 input[type='checkbox'],
 input[type='radio'] {
-    box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
-    vertical-align: middle;
+    vertical-align: middle; /* 1 */
 }
 
 /**
