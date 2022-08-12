@@ -162,6 +162,10 @@ textarea {
     overflow-x: auto;
 }
 
+summary {
+    cursor: pointer;
+}
+
 /**
  * 1 & 2. Address differences between Firefox and other browsers.
  */

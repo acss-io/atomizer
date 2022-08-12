@@ -49,7 +49,7 @@ Atomizer will merge your custom class rules with the default rule set and produc
 
 ## Rule options
 
-Atomizer and helper classes share many of the same rules properties. The sections below explain each property.
+The sections below explain each rule property available to configure. *(\*)denotes a required property.*
 
 ### allowParamToValue
 
@@ -57,10 +57,9 @@ Atomizer and helper classes share many of the same rules properties. The section
 - **Default**: `false` (`true` for Helper classes)
 - **Required**: `false`
 
-Enable the rule to pass a value with a supported unit of measure if the param uses unit values (e.g., `px`, `em`, etc).
+If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pass a value with a supported unit of measure. The `value` of the style property will be the replacement token `$0`, which Atomizer will replace with the declared value.
 
-```js
-// enables <div class="Fsize(10px)"></div>
+```json
 {
     allowParamToValue: true,
     matcher: 'Fsize',
@@ -70,16 +69,21 @@ Enable the rule to pass a value with a supported unit of measure if the param us
 }
 ```
 
+```html
+<div class="Fsize(10px)"></div>
+```
+
 ### arguments
 
 - **Type**: `array<object>`
 - **Default**: `undefined`
 - **Required**: `false`
 
-An array of objects which define the named arguments for the class.
+An `array` of objects which define the named arguments for the class. The `arguments` array defines one or many `objects`. The `styles` object defines the `key` as the CSS property name and the value as tokens (`$0`) that will be replaced by the corresponding argument object index.
 
-```js
-// enables <h1 class="Fs(i)">Hello world!</h1>
+In the following example, the first argument `object` in the `array`, would replace the `$0` token in the `font-style` property.
+
+```json
 {
     type: 'pattern',
     name: 'Font style',
@@ -95,13 +99,21 @@ An array of objects which define the named arguments for the class.
 }
 ```
 
-The name of the argument can be passed into the class name (e.g., `FS(i)`) to produce the correct style.
+The name of the argument can be passed into the class name (e.g., `FS(i)`) to produce the correct style. At build time, Atomizer will read the `i` keyword and replace it with the `italic` value from the arguments object.
+
+```html
+<h1 class="Fs(i)">Hello world!</h1>
+```
 
 #### Multiple arguments
 
-A rule can define multiple argument `objects` in the arguments `array`. Each one maps to a separate style value. This is useful for styles that support multiple values, see the example below:
+For styles that support multiple values, a rule can define multiple argument `objects` in its arguments `array`. Each `object` mapping to a separate style token value.
 
-```js
+In the example below, the `arguments` array takes two `objects` (they are the same in this example but that is not a requirement). The `styles.key` property defines the CSS property name and the value as tokens (e.g., `$0 $1`) that will be replaced by the corresponding argument object index.
+
+In other words, the first object in the array will replace the `$0` token, the second object will replace the `$1` token and so on.
+
+```json
 {
     type: 'pattern',
     name: 'Transform origin',
@@ -126,11 +138,19 @@ A rule can define multiple argument `objects` in the arguments `array`. Each one
 }
 ```
 
+Therefore, the following HTML:
+
+```html
+<div class="Trfo(start, bottom)"></div>
+```
+
+Will translate to `transform-origin: left bottom`.
+
 #### Arguments with `allowParamToValue`
 
 `allowParamToValue` can be enabled to also pass in a unit of measure to the class. This is useful for classes like `H` (height) that support named arguments and a unit of measurement:
 
-```js
+```json
 {
     type: 'pattern',
     name: 'Height',
@@ -162,7 +182,7 @@ A rule can define multiple argument `objects` in the arguments `array`. Each one
 - **Default**: `undefined`
 - **Required**: `false`
 
-Used by helpers internally for documentation purposes. Not required, but good to define for future documentation purposes.
+Used by helpers internally for documentation purposes. Not required, but good practice to define.
 
 ### id
 
@@ -178,9 +198,9 @@ Used internally by Atomizer for documentation purposes.
 - **Default**: `undefined`
 - **Required**: `false`
 
-Used by the Reference page for helpers to link to internal or external sources.
+A `URL` used by the <a href="../reference.html">Reference</a> page for helpers to link to internal or external sources.
 
-### matcher
+### matcher*
 
 - **Type**: `string`
 - **Default**: `undefined`
@@ -212,7 +232,7 @@ Used internally by Atomizer to reduce the time complexity when building the gram
 
 An `object` of custom rules used by helper classes. `rules` can be defined if the helper class needs to define additional Atomizer rules not available by default. Each `key` of the object is the CSS rule. The `value` of the property is an `object` of `key` `value` CSS styles.
 
-```js
+```json
 {
     type: 'helper',
     name: 'Ellipsis',
@@ -249,13 +269,13 @@ An `object` of custom rules used by helper classes. `rules` can be defined if th
 
 Whether or not the rule is a [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property (i.e., a property that sets the value of multiple other CSS properties simultaneously).
 
-```js
+```json
 {
     type: 'pattern',
     name: 'Flex',
     matcher: 'Fx',
-    'shorthand': true,
-    'allowParamToValue': false,
+    shorthand: true,
+    allowParamToValue: false,
     styles: {
         'flex': '$0'
     },
@@ -266,7 +286,7 @@ Whether or not the rule is a [shorthand](https://developer.mozilla.org/en-US/doc
 }
 ```
 
-### styles
+### styles*
 
 - **Type**: `object`
 - **Default**: `undefined`
@@ -305,7 +325,7 @@ To support [RTL languages](./syntax.html#rtlltr), special tokens are available (
 
 At build time, Atomizer will dynamically replace the `__START__` or `__END__` token with the proper `left` or `right` value based on the presence of the `--rtl` option.
 
-### type
+### type*
 
 - **Type**: `string`
 - **Default**: `undefined`
