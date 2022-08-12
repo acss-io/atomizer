@@ -49,7 +49,7 @@ Atomizer will merge your custom class rules with the default rule set and produc
 
 ## Rule options
 
-The rule object follows a specific schema with optional fields. Many of the same properties are used by both the Atomizer and helper classes. The sections below explain each property.
+Atomizer and helper classes share many of the same rules properties. The sections below explain each property.
 
 ### allowParamToValue
 
