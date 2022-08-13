@@ -151,13 +151,13 @@ import lunr from 'lunr';
             const listClass = 'M(0) List(dc) Lisp(i)';
             const html = [];
             results.forEach((doc) => {
-                let snippet = '';
-                if (doc.snippet) {
-                    // make sure query is highlighted
-                    snippet = doc.snippet.replace(query, `<mark class="Fw(b)">${query}</mark>`);
-                    snippet = `<p class="M(0) Mstart(18px) Fz(.85rem)">${snippet}</p>`;
+                let description = '';
+                if (doc.description) {
+                    const regex = new RegExp(query, 'gi');
+                    description = doc.description.replace(regex, `<mark class="Fw(b)">${query}</mark>`);
+                    description = `<p class="M(0) Mstart(18px) Fz(.85rem)">${description}</p>`;
                 }
-                html.push(`<li class="P(10px)"><a href="${doc.permalink}">${doc.title}</a>${snippet}</li>`);
+                html.push(`<li class="Px(10px) Py(5px)"><a href="${doc.permalink}">${doc.title}</a>${description}</li>`);
             });
             resultsEl.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';

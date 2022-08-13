@@ -22,6 +22,13 @@ import atomizerRules from '../packages/atomizer/src/rules.js';
 // consts
 const DOCS_PATH = path.join(process.cwd(), 'docs');
 const INDEX_DB_FILE = path.join(DOCS_PATH, 'assets', 'lunr.json');
+const DESCRIPTION_REGEX = /^description:\s(.*)$/mi;
+
+// Find the description from jekyll frontmatter
+const findDescription = (str) => {
+    const matches = str && str.match(DESCRIPTION_REGEX);
+    return matches && matches[1];
+};
 
 // docs like `i18n` end up as `I 18 N` after lodash
 // formats it. this removes the space
@@ -50,7 +57,7 @@ const formatTitle = (file) => {
  
 // set default options
 marked.setOptions({
-renderer: new marked.Renderer(),
+    renderer: new marked.Renderer(),
     gfm: true,
     tables: true,
     breaks: false,
@@ -76,6 +83,7 @@ const index = lunr(function() {
     this.ref('id');
     this.field('title', { boost: 10 });
     this.field('body', { boost: 5 });
+    this.field('description', { boost: 3 });
     this.field('permalink');
  
     // add files to index
@@ -85,9 +93,11 @@ const index = lunr(function() {
             const file = files[i];
             const filepath = path.join(DOCS_PATH, file);
             const markdown = fs.readFileSync(filepath, 'utf-8').split('---');
+            const description = findDescription(markdown[1]);
             const body = markdown.slice(2, markdown.length).join('');
             const doc = {
                 id: file,
+                description,
                 title: formatTitle(file),
                 body,
                 permalink: `/${file.replace('.md', '.html')}`
@@ -102,7 +112,6 @@ const index = lunr(function() {
                     return token;
                 });
             
-
             this.add(doc);
             docs[doc.id] = doc;
         }
