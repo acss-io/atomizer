@@ -1,12 +1,13 @@
 ---
-section: docs
+description: Classes provided to help with common styling patterns.
 layout: docs
+section: docs
 title: Helper classes
 ---
 
-Helper classes are provided to help with common styling patterns. [Atomizer](/guides/atomizer.html) provides the following set of helper classes, and you can define your own through custom Atomizer rulesets.
+Unlike [Atomizer classes](/guides/atomizer-classes.html), helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.
 
-Unlike [ACSS classes](/guides/acss-classes.html), helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.
+<div class="noteBox info">Atomizer let's you define your own custom helper classes, please follow our <a href="./custom-classes.html">Custom classes</a> guide.</div>
 
 ## `Bd*` (Borders)
 

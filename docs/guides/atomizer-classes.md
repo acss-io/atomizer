@@ -1,20 +1,25 @@
 ---
-section: docs
+description: Understand Atomizer classes and the available aliases.
 layout: docs
+section: docs
 title: Atomizer classes
 ---
 
-ACSS classes are simple, single-purpose units of styling.  Much like inline styles, atomic styles only apply a single style declaration.  Unlike inline styles, atomic styles have a lower specificity, making them easier to override, and can be modified through the use of pseudo-classes, media queries, and more.
+Atomizer classes are simple, single-purpose units of styling.  Much like inline styles, these styles only apply a single style declaration.  Unlike inline styles, Atomizer classes have a lower specificity, making them easier to override, and can be modified using pseudo-classes, media queries, and more.
 
-The inspiration for Atomizer syntax comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which greatly improves HTML &amp; CSS workflow.
+<div class="noteBox info">Atomizer let's you define your own custom classes, please follow our <a href="./custom-classes.html">Custom classes</a> guide.</div>
+
+## Overview
+
+The inspiration for Atomizer syntax comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which improves HTML &amp; CSS workflow.
 
 Simple Atomizer classes are easily interpreted, since they take a simple value as a parameter.  For example, `W(**20px**)` clearly maps to `width: 20px`, and `Lh(**1.5**)` clearly maps to `line-height: 1.5`.
 
-Complex Atomizer classes make use of custom identifiers known as &quot;variables&quot;, which allow values to be defined in a central location (i.e., the Atomizer configuration file) and reused across styles.  For example, if the variable `foo` is set to `20px`, then `P(foo)` and `M(foo)` would map to `padding: 20px` and `margin: 20px`, respectively.
+Complex Atomizer classes use custom identifiers known as &quot;variables&quot;, which allow values to be defined in a central location (i.e., the Atomizer [configuration](../configuration.html) file) and reused across styles.  For example, if the variable `foo` is set to `20px`, then `P(foo)` and `M(foo)` would map to `padding: 20px` and `margin: 20px`, respectively.
 
 For more on the syntax of Atomizer classes and their value parameters, see [the Class Syntax guide](/guides/syntax.html).
 
-<div class="noteBox info">The <a href="/reference">searchable reference page</a> gives you a complete listing of Atomizer classes and their supported values.</div>
+<div class="noteBox info">The <a href="/reference.html">searchable reference page</a> gives you a complete listing of Atomizer classes and their supported values.</div>
 
 ## Aliases
 
@@ -152,7 +157,7 @@ Atomizer provides aliases for most properties <sup>[[1]](#footnote)<a id="footno
     </tbody>
 </table>
 
-<div class="noteBox info">It is possible to apply multiple filters at once by creating a custom value or class in Atomizer&#39;s configuration.  For example:
+<div class="noteBox info">It is possible to apply multiple filters at once by creating a <a href="../configuration.html#custom">custom value</a> or class in Atomizer&#39;s configuration.  For example:
 
 {% highlight js %}
 custom: {

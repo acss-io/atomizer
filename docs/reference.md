@@ -1,6 +1,7 @@
 ---
-section: reference
+description: Simple reference page of every Atomizer and Helper class.
 layout: reference
+section: reference
 title: Reference
 ---
 
@@ -8,7 +9,7 @@ title: Reference
 
 Use this page to search for [Atomizer](#atomizer-classes) and [Helper](#helper-classes) classes.
 
-You can also [learn about the syntax]({{'/guides/syntax.html' | relative_url }}), [look at some examples]({{'/guides/syntax.html#examples' | relative_url }}), [learn about custom classes]({{'/guides/atomizer-classes.html' | relative_url }}), or [learn about helper/utility classes]({{'/guides/helper-classes.html' | relative_url }}).  There is also [a handy web tool]({{'/installation.html#browser' | relative_url }}) to help you experiment with Atomizer syntax.
+You can also [learn about the syntax]({{'/guides/syntax.html' | relative_url }}), [look at some examples]({{'/guides/syntax.html#examples' | relative_url }}), [learn about custom classes]({{'/guides/atomizer-classes.html' | relative_url }}), or [learn about helper/utility classes]({{'/guides/helper-classes.html' | relative_url }}).  There is also an interactive [REPL]({{'/repl.html' | relative_url }}) to help you experiment with the Atomizer syntax.
 
 <div id="reference-app"></div>
 

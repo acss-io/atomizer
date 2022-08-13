@@ -1,10 +1,11 @@
 ---
-section: docs
+description: How to align boxes within containers.
 layout: docs
+section: docs
 title: Box level alignment
 ---
 
-These examples shows different ways relating to the alignment of boxes within their containers in the various CSS box layout models: block layout, table layout, flex layout.
+These examples shows different ways to align boxes within their containers in the various CSS box layout models: `block` layout, `table` layout, and `flex` layout.
 
 <p class="noteBox warning"><strong>NOTE:</strong> Grid is not currently supported</p>
 

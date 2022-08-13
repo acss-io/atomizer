@@ -1,6 +1,7 @@
 ---
-section: support
+description: Find out how to get help with Atomizer.
 layout: docs
+section: support
 title: Get Help with Atomizer
 ---
 

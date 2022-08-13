@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Learn different methods to layout your website.
 layout: docs
+section: docs
 title: Grid system
 ---
 

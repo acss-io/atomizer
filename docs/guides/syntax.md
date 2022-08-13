@@ -1,10 +1,9 @@
 ---
-section: docs
+description: Atomizer follow a strict syntax, which makes the classnames easier to interpret by humans.
 layout: docs
+section: docs
 title: Class syntax
 ---
-
-Atomizer and Helper classes follow a strict syntax, which makes the classnames easier to interpret by humans and easier to parse by tools such as Atomizer.
 
 ## The syntax
 

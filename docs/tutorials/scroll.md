@@ -1,10 +1,9 @@
 ---
-section: docs
+description: Examples that show the various scroll snap properties supported by Atomizer.
 layout: docs
+section: docs
 title: Scroll Snap
 ---
-
-These examples shows the various scroll snap properties supported by Atomizer.
 
 ## [`scroll-behavior`](../reference.html#scrollbehavior)
 

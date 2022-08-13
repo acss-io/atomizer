@@ -1,6 +1,7 @@
 ---
-section: docs
+description: Learn what browsers Atomizer supports.
 layout: docs
+section: docs
 title: Browser Support
 ---
 
