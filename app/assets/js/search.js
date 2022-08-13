@@ -144,7 +144,7 @@ import lunr from 'lunr';
         // clear previous results
         if (!query || query === '' || !results.length) {
             resultsCont.style.display = 'none';
-            resultsCont.innerHTML = '';
+            resultsEl.innerHTML = '';
         }
 
         if (results.length) {

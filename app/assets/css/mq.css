@@ -18,6 +18,15 @@
         padding-left: 10px;
         top: 4.2em;
     }
+
+    /**
+     * nav selected item
+     */
+    #nav li:hover a:after,
+    #nav li.selected a:after {
+        width: 0;
+    }
+
     /**
      * for the footer to get this styling we'd need to move ".menu-on" higher up
      */
