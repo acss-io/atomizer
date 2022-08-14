@@ -27,7 +27,7 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
 
 ## Examples
 
-<table class="Ta(start) W(100%)">
+<table class="Ta(start) Tbl(f) W(100%)">
     <caption class="Hidden">Atomic class Examples</caption>
     <thead>
         <tr>

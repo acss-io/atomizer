@@ -9,9 +9,9 @@ title: Thinking in Atomic
 
 <p class="noteBox info">Be sure to read an interview with Atomizer Co-Founder Thierry Koblentz, <a href="https://css-tricks.com/thierry-koblentz-atomic-css/">The Making of Atomic CSS</a> on CSS Tricks.</p>
 
-**Atomizer** implements the Atomizer [syntax](/guides/syntax.html) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
+**Atomizer** implements the a specific [syntax](/guides/syntax.html) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
 
-Adopting a Atomic CSS methodology addresses common CSS challenges:
+Adopting an Atomic CSS methodology addresses common CSS challenges:
 
 <dl class="Mb(30px)">
     <dt class="Fs(i) C(#000)">Changes are predictable</dt>
@@ -28,7 +28,7 @@ Adopting a Atomic CSS methodology addresses common CSS challenges:
 
 ## Who&#39;s Atomic CSS for?
 
-**Atomic CSS** is for developers who see the benefits of styling &quot;*outside of style sheets*&quot; &mdash; who want to write markup and styles in one place while benefiting from a Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but *components*.
+**Atomic CSS** is for developers who see the benefits of styling &quot;*outside of style sheets*&quot; &mdash; who want to write markup and styles in one place while benefiting from an Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but *components*.
 
 ## Be pragmatic
 
@@ -42,11 +42,11 @@ There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does no
 
 ## Specificity
 
-### From <code>0,0,1,0</code> to &quot;*infinity*&quot;
+### From `0,0,1,0` to &quot;*infinity*&quot;
 
-By nature, <b>ACSS</b> classes have very low specificity (<code>0,0,1,0</code>). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a *namespace*. Best practice is to keep specificity as low as possible, but depending on other rules in your project you may want to include a namespace to increase the weight of <b>ACSS</b> classes.
+By nature, <b>ACSS</b> classes have very low specificity (`0,0,1,0`). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a *namespace*. The best practice is to keep specificity as low as possible, but depending on other rules in your project, you may want to include a namespace to increase the weight of <b>ACSS</b> classes.
 
-Keep in mind that the weight of rules is *not as important as* making sure specificity is homogeneous across rules.
+Remember that the weight of rules is *not as important as* making sure specificity is homogeneous across rules.
 For example, styles like these:
 
 ```css
@@ -57,7 +57,7 @@ For example, styles like these:
 #namespace .nav_link {}        /* 0,1,1,0 */
 ```
 
-are easier to maintain than styles like these:
+Are easier to maintain than styles like these:
 
 ```css
 .myBox {}                      /* 0,0,1,0 */
@@ -67,7 +67,7 @@ ul.list .active {}             /* 0,0,2,1 */
 .nav .list .item a {}          /* 0,0,3,1 */
 ```
 
-Choosing to include a namespace or not, and to use a *class* or a *id* for the namespace, depends on the weight of rules in other style sheets. For atomic classes to be relevant they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the atomic style sheet is included **after** other style sheets.
+Choosing to include a namespace or not; and to use a *class* or an *id* for the namespace; depends on the weight of rules in other style sheets. For atomic classes to be relevant they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the atomic style sheet is included **after** other style sheets.
 
 This table suggests the namespace to use depending on the weight of your other rules ([Specificity Calculator](http://specificity.keegan.st/)).
 
@@ -109,7 +109,7 @@ This table suggests the namespace to use depending on the weight of your other r
 
 Take advantage of the *cascade* by creating &quot;specificity layers&quot; <sup>[[4]](#footnote)<a id="footnote-4" class="D(ib)"></a></sup> and loading files in proper order.
 
-<table class="Ta(start) W(100%)">
+<table class="Ta(start) Tbl(f) W(100%)">
     <caption class="Hidden">Namespace consideration</caption>
     <thead>
         <tr>
@@ -120,32 +120,32 @@ Take advantage of the *cascade* by creating &quot;specificity layers&quot; <sup>
     </thead>
     <tbody>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">type selectors</th>
+            <th scope="row" class="Va(t) Whs(pl) P(10px)">type selectors</th>
             <td class="Va(t) P(10px)"><code>0,0,0,x</code></td>
             <td class="Va(t) P(10px)">normalize.css,<br> base.css,<br> etc.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">single class</th>
+            <th scope="row" class="Va(t) Whs(pl) P(10px)">single class</th>
             <td class="Va(t) P(10px)"><code>0,0,1,0</code></td>
             <td class="Va(t) P(10px)">helpers.css,<br> utility.css,<br> etc.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">contextual selectors<br> (any number of classes)</th>
+            <th scope="row" class="Va(t) Whs(pl) P(10px)">contextual selectors<br> (any number of classes)</th>
             <td class="Va(t) P(10px)"><code>0,0,x,x</code></td>
             <td class="Va(t) P(10px)">layout.css,<br> custom.css,<br> etc.</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)">Atomizer classes</th>
+            <th scope="row" class="Va(t) Whs(pl) P(10px)">Atomizer classes</th>
             <td class="Va(t) P(10px)"><code>0,1,1,0</code></td>
             <td class="Va(t) P(10px)">atomic.css</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>@style</code></th>
+            <th scope="row" class="Va(t) Whs(pl) P(10px)"><code>@style</code></th>
             <td class="Va(t) P(10px)"><code>1,0,0,0</code></td>
             <td class="Va(t) P(10px)">Inline Styles</td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
-            <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>!important</code> rule</th>
+            <th scope="row" class="Va(t) Whs(pl) P(10px)"><code>!important</code> rule</th>
             <td class="Va(t) P(10px)">Trumps all the above <sup><a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a></sup></td>
             <td class="Va(t) P(10px)">Can be anywhere<br> (as an exception)</td>
         </tr>
