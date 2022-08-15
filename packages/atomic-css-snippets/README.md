@@ -4,13 +4,13 @@
 
 Provides autocomplete snippets for Atomic CSS classes for the following file types:
 
-* JavaScript (.js)
-* HTML (.html)
-* Marko (.marko)
-* PHP (.php)
-* React (.jsx/.tsx)
-* Svelte (.svelte)
-* TypeScript (.ts)
+-   JavaScript (.js)
+-   HTML (.html)
+-   Marko (.marko)
+-   PHP (.php)
+-   React (.jsx/.tsx)
+-   Svelte (.svelte)
+-   TypeScript (.ts)
 
 Note: In order to use this extension for Svelte and Marko, you will first need to install the respective programming language extensions for VSCode.
 

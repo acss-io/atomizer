@@ -95,11 +95,22 @@ describe('atomizer', () => {
             const verboseFixture = path.resolve(fixtureDir, 'verbose', 'verbose.html');
 
             // should not output anything if --verbose is not set
-            const { stderr: noWarning } = await execFileAsync('node', [atomizer, verboseFixture, '--config', configFile]);
+            const { stderr: noWarning } = await execFileAsync('node', [
+                atomizer,
+                verboseFixture,
+                '--config',
+                configFile,
+            ]);
             expect(noWarning).not.toContain('Warning: Class');
 
             // should output warnings if --verbose is set
-            const { stderr } = await execFileAsync('node', [atomizer, verboseFixture, '--verbose', '--config', configFile]);
+            const { stderr } = await execFileAsync('node', [
+                atomizer,
+                verboseFixture,
+                '--verbose',
+                '--config',
+                configFile,
+            ]);
             expect(stderr).toContain('Warning: Class `D(MissingValue)` is ambiguous');
         });
 
@@ -108,7 +119,7 @@ describe('atomizer', () => {
             const watchFixture = path.resolve(fixtureDir, 'watch', 'watch.html');
             const { stdout } = await execFileAsync(
                 'node',
-                [atomizer, htmlFixture, '-c', configFile ,'--watch', watchFixture],
+                [atomizer, htmlFixture, '-c', configFile, '--watch', watchFixture],
                 { env: { ...process.env, TEST: true } }
             );
             expect(stdout).toContain('Watching');

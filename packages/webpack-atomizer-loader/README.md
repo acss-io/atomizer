@@ -30,11 +30,11 @@ yarn add -D webpack-atomizer-loader
 
 The loader accepts the below options:
 
-| Option           | Default     | Required | Description                                                                                                                                                               |
-| ---------------- | ----------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `configPath`     | `undefined` | No       | The path to the Atomic CSS config file. If not specified, empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section. |
-| `minimize`       | `false`     | No       | Minimizes the resulting CSS file.                                                                                                                                         |
-| `postcssPlugins` | `[]`        | No       | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated.                                                                         |
+| Option | Default | Required | Description |
+| --- | --- | --- | --- |
+| `configPath` | `undefined` | No | The path to the Atomic CSS config file. If not specified, empty Atomic CSS configuration will apply. Check [Atomic CSS configuration](#atomic-css-configuration) section. |
+| `minimize` | `false` | No | Minimizes the resulting CSS file. |
+| `postcssPlugins` | `[]` | No | Array with [PostCSS](https://postcss.org) plugins that will be used to process the CSS generated. |
 
 The loader configuration will look something like this in `webpack.config.js`:
 
@@ -281,8 +281,7 @@ module.exports = {
 };
 ```
 
-By default, if no HTML loader is specified `webpack-html-plugin` will use
-a simple [`ejs` loader](https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md). However as soon as `webpack-atomizer-loader` fires because of the `html` extension rule the default HTML loader will be disabled and we'll have to include ours. That's why on the above configuration in addition to `webpack-atomizer-loader` it's also included `html-loader`.
+By default, if no HTML loader is specified `webpack-html-plugin` will use a simple [`ejs` loader](https://github.com/jantimon/html-webpack-plugin/blob/master/docs/template-option.md). However as soon as `webpack-atomizer-loader` fires because of the `html` extension rule the default HTML loader will be disabled and we'll have to include ours. That's why on the above configuration in addition to `webpack-atomizer-loader` it's also included `html-loader`.
 
 Like when using the loader for React or Vue projects the generated CSS file with the atom classes still needs to be included in any of the three possible ways: with a [JavaScript import](#including-the-generated-css-with-javascript), with a [CSS import](#including-the-generated-css-with-a-css-import) or [Including the generated CSS directly into the HTML template](#including-the-generated-css-directly-into-the-HTML-template).
 

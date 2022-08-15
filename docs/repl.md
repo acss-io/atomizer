@@ -60,17 +60,17 @@ title: Hello world - REPL
                 </a>
             </h2>
             <textarea id="config">
-{
-    "breakPoints": {
-        "sm": "@media(min-width:750px)",
-        "md": "@media(min-width:1000px)",
-        "lg": "@media(min-width:1200px)"
-    },
-    "custom": {
-        "arial": "Arial, sans-serif"
-    },
-    "classNames": []
-}
+            {
+                "breakPoints": {
+                    "sm": "@media(min-width:750px)",
+                    "md": "@media(min-width:1000px)",
+                    "lg": "@media(min-width:1200px)"
+                },
+                "custom": {
+                    "arial": "Arial, sans-serif"
+                },
+                "classNames": []
+            }
             </textarea>
         </div>
         <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r)">
@@ -82,6 +82,7 @@ title: Hello world - REPL
         <div id="message" class="D(n) Pos(a) W(100%) Bxz(bb) Px(5px) Py(10px) Bgc(#da101b) C(#fff)"></div>
         <iframe id="preview" class="Bd(n) W(100%) H(100%) Ovx(s)"></iframe>
     </div>
+
 </div>
 
 <script src="{{'/assets/js/repl.js' | relative_url }}"></script>

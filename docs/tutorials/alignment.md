@@ -11,7 +11,7 @@ These examples shows different ways to align boxes within their containers in th
 
 ## `align-content`
 
-Aligns the contents of the box as a whole (as the alignment subject) within the box itself along the block/column/cross axis of the box. Following example shows `Ac(sb)`, *align-content: Space between*
+Aligns the contents of the box as a whole (as the alignment subject) within the box itself along the block/column/cross axis of the box. Following example shows `Ac(sb)`, _align-content: Space between_
 
 ```html
 <div class="D(f) Ac(sb)">
@@ -35,7 +35,7 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
 
 ## `align-items`
 
-This property specifies the default `align-self` for <strong>all</strong> of the child boxes (including anonymous boxes) participating in this box’s formatting context.. Following example shows `Ai(c)`, *align-items: center*
+This property specifies the default `align-self` for <strong>all</strong> of the child boxes (including anonymous boxes) participating in this box’s formatting context.. Following example shows `Ai(c)`, _align-items: center_
 
 ```html
 <div class="D(f) Ai(c)">
@@ -59,7 +59,7 @@ This property specifies the default `align-self` for <strong>all</strong> of the
 
 ## `align-self`
 
-Aligns the box (as the alignment subject) within its containing block (as the alignment container) along the block/column/cross axis of the alignment container: the box’s outer edges are aligned within its alignment container as described by its alignment value. Following example shows `As(fs)`, *align-self: flex-start*
+Aligns the box (as the alignment subject) within its containing block (as the alignment container) along the block/column/cross axis of the alignment container: the box’s outer edges are aligned within its alignment container as described by its alignment value. Following example shows `As(fs)`, _align-self: flex-start_
 
 ```html
 <div class="D(f) Ai(c)">
@@ -83,7 +83,7 @@ Aligns the box (as the alignment subject) within its containing block (as the al
 
 ## `justify-content`
 
-Aligns the contents of the box as a whole (as the alignment subject) within the box itself (as the alignment container) along the inline/row/main axis of the box. Following example shows `Jc(se)`, *justify-content: space-evenly*
+Aligns the contents of the box as a whole (as the alignment subject) within the box itself (as the alignment container) along the inline/row/main axis of the box. Following example shows `Jc(se)`, _justify-content: space-evenly_
 
 ```html
 <div class="D(f) Jc(se)">

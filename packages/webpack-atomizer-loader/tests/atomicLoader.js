@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {expect} = require('chai');
+const { expect } = require('chai');
 const path = require('path');
 const stealthyRequire = require('stealthy-require');
 

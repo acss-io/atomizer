@@ -7,7 +7,7 @@ title: Scroll Snap
 
 ## [`scroll-behavior`](../reference.html#scrollbehavior)
 
-The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`. 
+The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`.
 
 Following example shows `Sb(s)` = `scroll-behavior: smooth`.
 
@@ -27,7 +27,7 @@ Following example shows `Sb(s)` = `scroll-behavior: smooth`.
 
 ## [`scroll-snap-align`](../reference.html#scrollsnapalign)
 
-The [scroll-snap-align](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-align) property specifies the box's snap position as an alignment of its snap area (as the alignment subject) within its snap container's snapport (as the alignment container). You can specify up to 2 values for this property, representing the block and inline axes, respectively. If you only give 1 value, that value will be used for both axes. 
+The [scroll-snap-align](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-align) property specifies the box's snap position as an alignment of its snap area (as the alignment subject) within its snap container's snapport (as the alignment container). You can specify up to 2 values for this property, representing the block and inline axes, respectively. If you only give 1 value, that value will be used for both axes.
 
 Following example shows `Ssa(s)` = `scroll-snap-align: start`.
 
@@ -67,7 +67,7 @@ Following example shows `Sst(x_p)` = `scroll-snap-type: x proximity`.
 
 ## [`scroll-margin`](../reference.html#scrollmarginalledges) && [`scroll-margin-*`](../reference.html#scrollmargintop)
 
-The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin) shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element, can also use longhand versions like [scroll-margin-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-left) etc. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container. 
+The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin) shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element, can also use longhand versions like [scroll-margin-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-left) etc. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container.
 
 Following example shows `Smstart(2em)` = `scroll-margin-left: 2em`.
 
@@ -87,7 +87,7 @@ Following example shows `Smstart(2em)` = `scroll-margin-left: 2em`.
 
 ## [`scroll-padding`](../reference.html#scrollpaddingalledges) & [`scroll-padding-*`](../reference.html#scrollpaddingtop)constructs
 
-The [scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding) shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element, can also use longhand versions like [scroll-padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-left) etc. 
+The [scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding) shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element, can also use longhand versions like [scroll-padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-left) etc.
 
 Following example shows `Spx(20px)` = `scroll-padding-left: 20px; scroll-padding-right: 20px;`.
 
@@ -112,7 +112,7 @@ Following example shows `Spx(20px)` = `scroll-padding-left: 20px; scroll-padding
 
 ## [`scroll-snap-stop`](../reference.html#scrollsnapstop)
 
-The [scroll-snap-stop](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop) CSS property defines whether or not the scroll container is allowed to "pass over" possible snap positions. 
+The [scroll-snap-stop](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop) CSS property defines whether or not the scroll container is allowed to "pass over" possible snap positions.
 
 Following example shows `Sst(x_m)` = `scroll-snap-stop: x mandatory`.
 

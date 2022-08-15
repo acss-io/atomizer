@@ -4,18 +4,20 @@ const utils = {};
 const customValueTokenRegex = /#\{(.+?)\}/g;
 
 // hex value to rgb object
-utils.hexToRgb = function (hex/*:string*/)/*:Rgb*/ {
+utils.hexToRgb = function (hex /*:string*/) /*:Rgb*/ {
     // shorthand to full form
-    hex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function(m, r, g, b) {
+    hex = hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, function (m, r, g, b) {
         return r + r + g + g + b + b;
     });
 
     const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-        r: parseInt(result[1], 16),
-        g: parseInt(result[2], 16),
-        b: parseInt(result[3], 16)
-    } : null;
+    return result
+        ? {
+              r: parseInt(result[1], 16),
+              g: parseInt(result[2], 16),
+              b: parseInt(result[3], 16),
+          }
+        : null;
 };
 
 /**
@@ -31,13 +33,13 @@ utils.handleMergeArrays = function (a, b) {
 };
 
 // merge atomizer configs into a single config
-utils.mergeConfigs = function (configs/*:Config[]*/)/*:Config*/ {
+utils.mergeConfigs = function (configs /*:Config[]*/) /*:Config*/ {
     // TODO: Offer option to warn on conflicts
     return _.mergeWith.apply(null, configs.concat(utils.handleMergeArrays));
 };
 
 // returns a repeated string by X amount
-utils.repeatString = function (pattern/*:string*/, count/*:integer*/) {
+utils.repeatString = function (pattern /*:string*/, count /*:integer*/) {
     let result = '';
     if (count < 1) {
         return result;
@@ -46,14 +48,14 @@ utils.repeatString = function (pattern/*:string*/, count/*:integer*/) {
         if (count & 1) {
             result += pattern;
         }
-        count >>= 1, pattern += pattern;
+        (count >>= 1), (pattern += pattern);
     }
     return result + pattern;
 };
 
 // Performs a lookup of custom value tokens, recursively replacing
 //  any custom value tokens found within each custom value
-utils.getCustomValue = function (config/*:Config*/, currentName/*:string*/, nameStack/*:string[]*/)/*:string*/ {
+utils.getCustomValue = function (config /*:Config*/, currentName /*:string*/, nameStack /*:string[]*/) /*:string*/ {
     nameStack = nameStack || [];
 
     if (typeof currentName !== 'string' || !config || !config.custom) {
@@ -77,7 +79,11 @@ utils.getCustomValue = function (config/*:Config*/, currentName/*:string*/, name
     // Expectation is that 20 should be a more than reasonble depth
     // to assume something is wrong
     if (nameStack.length > 20) {
-        throw new Error(`Depth limit reached while substituting custom value tokens. Ensure your custom values don't contain tokens that reference one another, leading to an infinite loop.\n\nCustom value trace: ${  nameStack.join(' > ')}`);
+        throw new Error(
+            `Depth limit reached while substituting custom value tokens. Ensure your custom values don't contain tokens that reference one another, leading to an infinite loop.\n\nCustom value trace: ${nameStack.join(
+                ' > '
+            )}`
+        );
     }
 
     return value.replace(customValueTokenRegex, (token, name) => {

@@ -11,22 +11,16 @@ describe('Grammar()', () => {
             // execute and assert
             expect(Grammar.getPseudo()).toBeUndefined();
         });
-        it(
-            'returns non abbreviated form if abbreviated form has been passed',
-            () => {
-                // execute and assert
-                expect(Grammar.getPseudo(':h')).toBe(':hover');
-                expect(Grammar.getPseudo('::b')).toBe('::before');
-            }
-        );
-        it(
-            'returns non abbreviated form if non abbreviated form has been passed',
-            () => {
-                // execute and assert
-                expect(Grammar.getPseudo(':hover')).toBe(':hover');
-                expect(Grammar.getPseudo('::before')).toBe('::before');
-            }
-        );
+        it('returns non abbreviated form if abbreviated form has been passed', () => {
+            // execute and assert
+            expect(Grammar.getPseudo(':h')).toBe(':hover');
+            expect(Grammar.getPseudo('::b')).toBe('::before');
+        });
+        it('returns non abbreviated form if non abbreviated form has been passed', () => {
+            // execute and assert
+            expect(Grammar.getPseudo(':hover')).toBe(':hover');
+            expect(Grammar.getPseudo('::before')).toBe('::before');
+        });
     });
     describe('matchValue()', () => {
         it('parses uppercase and lowercase hex', () => {

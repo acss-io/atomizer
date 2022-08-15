@@ -9,14 +9,14 @@ Atomizer generally does not offer shorthand notation (e.g., `M(5px,0,0,0)`) beca
 
 For example, `border-width/style/color` can be specified in any order:
 
-- *Bd(1px,solid,#000)*
-- *Bd(1px,#000,solid)*
-- *Bd(solid,#000,1px)*
-- *Bd(solid,1px,#000)*
-- *Bd(#000,1px,solid)*
-- *Bd(#000,solid,1px)*
+-   _Bd(1px,solid,#000)_
+-   _Bd(1px,#000,solid)_
+-   _Bd(solid,#000,1px)_
+-   _Bd(solid,1px,#000)_
+-   _Bd(#000,1px,solid)_
+-   _Bd(#000,solid,1px)_
 
-The above creates 6 different rules for the exact same styling (a *solid 1px black* border). While the tool could be smart and assign all those classes to the *same* declaration, you&#39;d still end up with more bytes than is necessary:
+The above creates 6 different rules for the exact same styling (a _solid 1px black_ border). While the tool could be smart and assign all those classes to the _same_ declaration, you&#39;d still end up with more bytes than is necessary:
 
 ```css
 .Bd(1px,solid,#000),
@@ -31,18 +31,18 @@ The above creates 6 different rules for the exact same styling (a *solid 1px bla
 
 It would also be possible to enforce order (i.e., `width,style,color`) to prevent such duplication, but you&#39;d still end up with a lot of redundancy. For example:
 
-- *Bd(1px,solid,#000)*
-- *Bd(1px,solid,#ccc)*
-- *Bd(1px,solid,#555)*
-- *Bd(2px,solid,#000)*
-- *Bd(3px,solid,#000)*
-- *Bd(1px,dotted,#000)*
+-   _Bd(1px,solid,#000)_
+-   _Bd(1px,solid,#ccc)_
+-   _Bd(1px,solid,#555)_
+-   _Bd(2px,solid,#000)_
+-   _Bd(3px,solid,#000)_
+-   _Bd(1px,dotted,#000)_
 
 Would result in:
 
-- 4 duplicate declarations for `border-width`
-- 5 duplicate declarations for `border-style`
-- 4 duplicate declarations for `border-color`
+-   4 duplicate declarations for `border-width`
+-   5 duplicate declarations for `border-style`
+-   4 duplicate declarations for `border-color`
 
 ...either through duplicate declarations or selector grouping:
 
@@ -76,8 +76,8 @@ Would result in:
 
 Even though Atomizer does not allow shorthand notation, many classes support &quot;`x`/`y` notation&quot; which applies the same styling on opposite edges. For example:
 
-- `Mx(a)` for `margin-left:auto; margin-right:auto;`
-- `Py(5px)` for `padding-top:5px; padding-bottom:5px;`
+-   `Mx(a)` for `margin-left:auto; margin-right:auto;`
+-   `Py(5px)` for `padding-top:5px; padding-bottom:5px;`
 
 ### Border helper classes
 

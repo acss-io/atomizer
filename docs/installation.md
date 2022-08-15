@@ -7,7 +7,7 @@ title: Installation
 
 [Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating **Atomic CSS (ACSS)** stylesheets.
 
-Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date *without the need for writing a single CSS declaration manually* <sup>[[1]](#footnote)</sup><a id="footnote-1"></a>.
+Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date _without the need for writing a single CSS declaration manually_ <sup>[[1]](#footnote)</sup><a id="footnote-1"></a>.
 
 This guide explains various solutions to setup Atomizer in your website. Have an integration we do not cover? Please [let us know](https://github.com/acss-io/atomizer/discussions). If you want to see Atomizer in action, please check out the [quick start guide](./quick-start.html).
 
@@ -35,7 +35,7 @@ Next, create a simple html file, `index.html` and copy the following HTML into i
 </html>
 ```
 
-Run atomizer on the file to generate the CSS *(NOTE: the command will not finish because the `--watch` command is listening for changes)*:
+Run atomizer on the file to generate the CSS _(NOTE: the command will not finish because the `--watch` command is listening for changes)_:
 
 ```shell
 atomizer -o ./dist/output.css --watch index.html index.html
@@ -87,14 +87,14 @@ So how do you integrate Atomizer into your project? You can use Grunt, Gulp, Web
 
 Here are the build projects we support:
 
-- Grunt: <a href="https://www.npmjs.com/package/grunt-atomizer">grunt-atomizer</a>
-- Webpack: <a href="https://www.npmjs.com/package/webpack-atomizer-loader">webpack-atomizer-loader</a>
+-   Grunt: <a href="https://www.npmjs.com/package/grunt-atomizer">grunt-atomizer</a>
+-   Webpack: <a href="https://www.npmjs.com/package/webpack-atomizer-loader">webpack-atomizer-loader</a>
 
 and here some community supported libraries:
 
-- Clojure : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) ([Boot-Task](https://github.com/boot-clj/boot) for clojurescript)
-- Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
-- Nuxt: [nuxt-atomizer](https://github.com/dword-design/nuxt-atomizer)
+-   Clojure : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer) ([Boot-Task](https://github.com/boot-clj/boot) for clojurescript)
+-   Gulp: [gulp-atomizer](https://www.npmjs.com/package/gulp-atomizer)
+-   Nuxt: [nuxt-atomizer](https://github.com/dword-design/nuxt-atomizer)
 
 If you create your own, please [let us know!](/support.html)
 
@@ -151,8 +151,8 @@ For a simple web interface to help you learn about Atomizer and <b class="Fw(b)"
 
 Chrome extensions built and maintained by the Atomizer community
 
-- [Atomic CSS Dev Tools](https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en)
-- [Atomic CSS Helper](https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en)
+-   [Atomic CSS Dev Tools](https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en)
+-   [Atomic CSS Helper](https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en)
 
 ---
 

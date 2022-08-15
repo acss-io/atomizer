@@ -38,7 +38,7 @@ Boolean flag that adds a small amount of additional specificity weight to all me
 
 #### options.namespace
 
-A CSS selector used to define scope for the Atomic CSS rules.  (eg, if `options.namespace` is set to `#atomic`, the CSS output will be in the form of `#atomic .P(10px)`, etc.)
+A CSS selector used to define scope for the Atomic CSS rules. (eg, if `options.namespace` is set to `#atomic`, the CSS output will be in the form of `#atomic .P(10px)`, etc.)
 
 #### options.rtl
 
@@ -46,7 +46,7 @@ Process the rules for right-to-left output. False by default.
 
 #### options.rules
 
-An array of additional [Atomizer](http://github.com/acss-io/atomizer) rulesets passed as file paths. 
+An array of additional [Atomizer](http://github.com/acss-io/atomizer) rulesets passed as file paths.
 
 #### files.src
 
@@ -146,9 +146,8 @@ atomizer: {
 
 ## License
 
-This software is free to use under the Yahoo! Inc. BSD license.
-See the [LICENSE file][] for license text and copyright information.
+This software is free to use under the Yahoo! Inc. BSD license. See the [LICENSE file][] for license text and copyright information.
 
-[LICENSE file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
+[license file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
 
-Third-pary open source code used are listed in our [package.json file]( https://github.com/acss-io/atomizer/blob/master/package.json).
+Third-pary open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/master/package.json).

@@ -28,11 +28,11 @@ Adopting an Atomic CSS methodology addresses common CSS challenges:
 
 ## Who&#39;s Atomic CSS for?
 
-**Atomic CSS** is for developers who see the benefits of styling &quot;*outside of style sheets*&quot; &mdash; who want to write markup and styles in one place while benefiting from an Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but *components*.
+**Atomic CSS** is for developers who see the benefits of styling &quot;_outside of style sheets_&quot; &mdash; who want to write markup and styles in one place while benefiting from an Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but _components_.
 
 ## Be pragmatic
 
-<b>ACSS</b> can live side-by-side with traditional style sheets. In cases where <b>ACSS</b> doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.  
+<b>ACSS</b> can live side-by-side with traditional style sheets. In cases where <b>ACSS</b> doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.
 
 Traditional style sheets may be helpful for styles that <b>ACSS</b> cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <sup>[[2]](#footnote)<a id="footnote-2" class="D(ib)"></a></sup>.
 
@@ -42,12 +42,11 @@ There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does no
 
 ## Specificity
 
-### From `0,0,1,0` to &quot;*infinity*&quot;
+### From `0,0,1,0` to &quot;_infinity_&quot;
 
-By nature, <b>ACSS</b> classes have very low specificity (`0,0,1,0`). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a *namespace*. The best practice is to keep specificity as low as possible, but depending on other rules in your project, you may want to include a namespace to increase the weight of <b>ACSS</b> classes.
+By nature, <b>ACSS</b> classes have very low specificity (`0,0,1,0`). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a _namespace_. The best practice is to keep specificity as low as possible, but depending on other rules in your project, you may want to include a namespace to increase the weight of <b>ACSS</b> classes.
 
-Remember that the weight of rules is *not as important as* making sure specificity is homogeneous across rules.
-For example, styles like these:
+Remember that the weight of rules is _not as important as_ making sure specificity is homogeneous across rules. For example, styles like these:
 
 ```css
 #namespace .myBox {}           /* 0,1,1,0 */
@@ -67,7 +66,7 @@ ul.list .active {}             /* 0,0,2,1 */
 .nav .list .item a {}          /* 0,0,3,1 */
 ```
 
-Choosing to include a namespace or not; and to use a *class* or an *id* for the namespace; depends on the weight of rules in other style sheets. For atomic classes to be relevant they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the atomic style sheet is included **after** other style sheets.
+Choosing to include a namespace or not; and to use a _class_ or an _id_ for the namespace; depends on the weight of rules in other style sheets. For atomic classes to be relevant they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the atomic style sheet is included **after** other style sheets.
 
 This table suggests the namespace to use depending on the weight of your other rules ([Specificity Calculator](http://specificity.keegan.st/)).
 
@@ -107,7 +106,7 @@ This table suggests the namespace to use depending on the weight of your other r
 
 ### Style sheets organization
 
-Take advantage of the *cascade* by creating &quot;specificity layers&quot; <sup>[[4]](#footnote)<a id="footnote-4" class="D(ib)"></a></sup> and loading files in proper order.
+Take advantage of the _cascade_ by creating &quot;specificity layers&quot; <sup>[[4]](#footnote)<a id="footnote-4" class="D(ib)"></a></sup> and loading files in proper order.
 
 <table class="Ta(start) Tbl(f) W(100%)">
     <caption class="Hidden">Namespace consideration</caption>
@@ -159,7 +158,7 @@ Take advantage of the *cascade* by creating &quot;specificity layers&quot; <sup>
 <div id="footnote"></div>
 
 1. Unless that component relies on custom values from the config file - in which case, keys from that file would need to be added to the config of the other project <sub>[[↩]](#footnote-1)</sub>.
-1. An example of this could be the markup of a &quot;button&quot; that could appear in many places across a project (versus a unique &quot;component&quot; *included* in multiple places) <sub>[[↩]](#footnote-2)</sub>.
+1. An example of this could be the markup of a &quot;button&quot; that could appear in many places across a project (versus a unique &quot;component&quot; _included_ in multiple places) <sub>[[↩]](#footnote-2)</sub>.
 1. The namespace can be anything, for example: `#someId #anotherId .andAclass` <sub>[[↩]](#footnote-3)</sub>.
 1. Specificity is something we want to leverage, not something we want to keep a lid on <sub>[[↩]](#footnote-4)</sub>.
 1. `!important` is not related to specificity per se <sub>[[↩]](#footnote-5)</sub>.

@@ -83,7 +83,7 @@ The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`.
 
 ### Classnames
 
-`classNames` is the list of Atomizer class names your project uses. You do not have to declare them like this since Atomizer can parse any file and create this list automatically for you.  However, you always have the option to explicitly declare classnames if you find them helpful for your project.
+`classNames` is the list of Atomizer class names your project uses. You do not have to declare them like this since Atomizer can parse any file and create this list automatically for you. However, you always have the option to explicitly declare classnames if you find them helpful for your project.
 
 ```js
 module.exports = {
@@ -98,14 +98,14 @@ module.exports = {
 
 Custom values may also be substituted into one another via the `#{}` syntax, which are resolved recursively.
 
- ```js
+```js
 module.exports = {
-    custom: {
-        padding: '#{standardPadding} 5px #{standardPadding} 20px',
-        standardPadding: '10px',
-    }
+   custom: {
+       padding: '#{standardPadding} 5px #{standardPadding} 20px',
+       standardPadding: '10px',
+   }
 };
- ```
+```
 
 ### Exclude
 

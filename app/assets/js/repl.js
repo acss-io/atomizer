@@ -18,8 +18,8 @@ const markupEditor = CodeMirror.fromTextArea(markup, {
     indentUnit: 4,
     lineNumbers: true,
     lineWrapping: true,
-    mode : 'xml',
-    theme: 'material-darker'
+    mode: 'xml',
+    theme: 'material-darker',
 });
 markupEditor.setSize('100%', '100%');
 
@@ -50,7 +50,7 @@ function saveToLocalStorage() {
     const markup = markupEditor.getValue();
     const config = configEditor.getValue();
 
-    localStorage.setItem('markup', markup);    
+    localStorage.setItem('markup', markup);
     localStorage.setItem('config', config);
 }
 
@@ -130,7 +130,7 @@ Open \`index.html\` in your browser to see your page.
     zip.file('README.md', readme);
     zip.file('index.html', page);
     zip.file('css/atomizer.css', cssEditor.getValue());
-    
+
     const content = await zip.generateAsync({ type: 'blob' });
     saveAs(content, 'atomizer.zip');
 

@@ -31,7 +31,7 @@ module.exports = {
 };
 ```
 
-Each path is configured as a [glob pattern](https://en.wikipedia.org/wiki/Glob_(programming)) to avoid repetitively listing out each file manually. Atomizer uses the popular [glob](https://www.npmjs.com/package/glob) library to parse the path patterns.
+Each path is configured as a [glob pattern](<https://en.wikipedia.org/wiki/Glob_(programming)>) to avoid repetitively listing out each file manually. Atomizer uses the popular [glob](https://www.npmjs.com/package/glob) library to parse the path patterns.
 
 The glob library supports many different patterns to make it easy to configure your project files. Please check out their [usage guide](https://www.npmjs.com/package/glob#Usage) for more information.
 
@@ -112,17 +112,21 @@ Atomizer will only find statically written class names. Statically defined class
 In the example below, the strings `C(#ff0000)` and `C(#00FF00)` are dynamically created based on run time logic; Atomizer will not find the classes.
 
 {% raw %}
+
 ```jsx
 <div class="C(#{{ error ? 'ff0000' : '00FF00' }})"></div>
 ```
+
 {% endraw %}
 
 The correct way would be to make sure the complete string is written in the file:
 
 {% raw %}
+
 ```html
 <div class="{{ error ? 'C(#ff0000)' : 'C(#00FF00)' }}"></div>
 ```
+
 {% endraw %}
 
 This ensures Atomizer can adequately parse the files.

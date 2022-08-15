@@ -5,8 +5,8 @@ module.exports = [
         matcher: 'Foo',
         name: 'Foo',
         styles: {
-            'foo': '$0'
+            foo: '$0',
         },
-        type: 'pattern'
-    }
+        type: 'pattern',
+    },
 ];
