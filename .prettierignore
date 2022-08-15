@@ -14,8 +14,10 @@ docs/_site/
 docs/**/*.html
 
 # examples
-example/bundle.js
-example/*.css
+examples/bundle.js
+examples/**/*.css
+# required for inline-block
+examples/grid.html
 
 # grunt test files
 packages/grunt-atomizer/test/
