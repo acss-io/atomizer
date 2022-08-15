@@ -11,6 +11,7 @@ import { saveAs } from 'file-saver';
 // message container
 const message = document.getElementById('message');
 
+// markup editor instance
 const markup = document.getElementById('markup');
 const markupEditor = CodeMirror.fromTextArea(markup, {
     htmlMode: true,
@@ -22,6 +23,7 @@ const markupEditor = CodeMirror.fromTextArea(markup, {
 });
 markupEditor.setSize('100%', '100%');
 
+// css editor instance
 const css = document.getElementById('css');
 const cssEditor = CodeMirror.fromTextArea(css, {
     indentUnit: 4,
@@ -32,6 +34,7 @@ const cssEditor = CodeMirror.fromTextArea(css, {
 });
 cssEditor.setSize('100%', '100%');
 
+// config editor instance
 const config = document.getElementById('config');
 const configEditor = CodeMirror.fromTextArea(config, {
     indentUnit: 4,
@@ -41,6 +44,27 @@ const configEditor = CodeMirror.fromTextArea(config, {
     theme: 'material-darker',
 });
 configEditor.setSize('100%', '100%');
+
+// local storage management
+function saveToLocalStorage() {
+    const markup = markupEditor.getValue();
+    const config = configEditor.getValue();
+
+    localStorage.setItem('markup', markup);    
+    localStorage.setItem('config', config);
+}
+
+function readFromLocalStorage() {
+    const markup = localStorage.getItem('markup');
+    const config = localStorage.getItem('config');
+
+    if (markup) {
+        markupEditor.setValue(markup);
+    }
+    if (config) {
+        configEditor.setValue(config);
+    }
+}
 
 function updatePreview() {
     // get css from atomizer
@@ -56,6 +80,8 @@ function updatePreview() {
         message.classList.toggle('D(n)');
         return;
     }
+
+    // run atomizer
     const foundClasses = atomizer.findClassNames(markupEditor.getValue());
     const finalConfig = atomizer.getConfig(foundClasses, config);
     const acss = atomizer.getCss(finalConfig);
@@ -68,6 +94,9 @@ function updatePreview() {
     const preview = document.getElementById('preview');
     preview.contentDocument.head.innerHTML = `<style>h1 { margin: 0; padding: 0 }${cssEditor.getValue()}</style>`;
     preview.contentDocument.body.innerHTML = markupEditor.getValue();
+
+    // save to local storage
+    saveToLocalStorage();
 }
 
 async function createZip() {
@@ -123,12 +152,14 @@ function toggleFullScreen() {
     }
 }
 
-// populate preview iframe with initial markup
-updatePreview();
-
 // attach listeners
 markupEditor.on('change', updatePreview);
 configEditor.on('change', updatePreview);
 document.getElementById('save').addEventListener('click', createZip);
 document.getElementById('fullscreen').addEventListener('click', toggleFullScreen);
 
+// load data from local storage
+readFromLocalStorage();
+
+// populate preview iframe with initial markup
+updatePreview();

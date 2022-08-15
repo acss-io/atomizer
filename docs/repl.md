@@ -52,7 +52,12 @@ title: Hello world - REPL
 
         <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) Bdstart(replBorder) Bdend(replBorder)">
             <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">
-                <a href="./configuration.html">config</a>
+                <a href="./configuration.html" target="_blank">
+                    config
+                    <svg class="W(14px) H(14px) Va(m)" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                    </svg>
+                </a>
             </h2>
             <textarea id="config">
 {
