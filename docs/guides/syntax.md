@@ -13,7 +13,7 @@ title: Class syntax
 
 At its core, a Atomizer or Helper class is represented by a [&lt;Style&gt;](#style).
 
-Atomizer classes typically require one [&lt;value&gt;](#value), enclosed in parentheses, though some classes may accept more (eg, the helper class [`LineClamp()`](/guides/helper-classes.html#lineclamp) accepts two.)  Helper classes may not require a [&lt;value&gt;](#value), in which case the parentheses may be omitted.
+Atomizer classes typically require one [&lt;value&gt;](#value), enclosed in parentheses, though some classes may accept more (eg, the helper class [`LineClamp()`](/guides/helper-classes.html#lineclamp) accepts two.) Helper classes may not require a [&lt;value&gt;](#value), in which case the parentheses may be omitted.
 
 Optionally, you may prefix the style with a [&lt;context&gt;](#context) class and [&lt;combinator&gt;](#combinator). The context class may optionally include a [&lt;pseudo-class&gt;](#pseudo-class).
 
@@ -21,7 +21,7 @@ You may also optionally suffix the style with [&lt;!&gt;](#-important) (for `!im
 
 ### RTL/LTR
 
-Any occurrence of `left` and `right` keywords or their abbreviated form ala [Emmet](http://docs.emmet.io/cheat-sheet/) (i.e., `l` and `r`) in [&lt;Style&gt;](#style) or [&lt;value&gt;](#value)  must be replaced with the keywords `start` and `end`.  Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.
+Any occurrence of `left` and `right` keywords or their abbreviated form ala [Emmet](http://docs.emmet.io/cheat-sheet/) (i.e., `l` and `r`) in [&lt;Style&gt;](#style) or [&lt;value&gt;](#value) must be replaced with the keywords `start` and `end`. Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.
 
 For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margin-left: 2px` in an RTL context, and `Pstart(1em)` would map to `padding-left: 1em` in a LTR context, etc.
 
@@ -135,11 +135,11 @@ Optional.
 
 A suffix mapped to a [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), for example:
 
-- `a` for `:active`
-- `c` for `:checked`
-- `f` for `:focus`
-- `h` for `:hover`
-- etc.
+-   `a` for `:active`
+-   `c` for `:checked`
+-   `f` for `:focus`
+-   `h` for `:hover`
+-   etc.
 
 <p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in <a href="https://github.com/acss-io/atomizer/blob/master/src/lib/grammar.js#L6">Atomizer&#39;s grammar library</a>.</p>
 
@@ -187,16 +187,16 @@ Optional.
 
 A suffix mapped to a [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements). The following pseudo-elements are supported:
 
-- `a` for `::after`
-- `b` for `::before`
-- `bd` for `::backdrop`
-- `c` for `::cue`
-- `fsb` for `::file-selector-button`
-- `fl` for `::first-letter`
-- `fli` for `::first-line`
-- `m` for `::marker`
-- `ph` for `::placeholder`
-- `s` for `::selection`
+-   `a` for `::after`
+-   `b` for `::before`
+-   `bd` for `::backdrop`
+-   `c` for `::cue`
+-   `fsb` for `::file-selector-button`
+-   `fl` for `::first-letter`
+-   `fli` for `::first-line`
+-   `m` for `::marker`
+-   `ph` for `::placeholder`
+-   `s` for `::selection`
 
 ### &lt;combinator&gt;
 
@@ -282,21 +282,21 @@ There are three value types: Defined, Literal and Variable
 
 #### Defined values
 
-This is the *abbreviation* of a **defined value**. Defined values are valid keywords for any given property. (For example, `inherit` (`inh`), `auto` (`a`), etc.)  Defined values attempt to follow [Emmet syntax](http://docs.emmet.io/cheat-sheet/) as closely as possible.
+This is the _abbreviation_ of a **defined value**. Defined values are valid keywords for any given property. (For example, `inherit` (`inh`), `auto` (`a`), etc.) Defined values attempt to follow [Emmet syntax](http://docs.emmet.io/cheat-sheet/) as closely as possible.
 
 Defined values are enumerated in Atomizer&#39;s ruleset, so there is no need to define such values in Atomizer configuration before using such values.
 
 **Defined values that are not present in Emmet** are named according to the rules below:
 
-- Value should be abbreviated with the first letter of the value.
-- If two values share the same initial letter, then the next value in alphabetical order is [abbreviated](http://en.wikipedia.org/wiki/Abbreviation) in [contracted](http://en.wikipedia.org/wiki/Contraction_%28grammar%29) form.
-- If **one value** is composed by two or more words (e.g. `inline-block`) then the first letter of each word should be used with no separator between them (e.g. `inline-block` becomes `ib`, `space-between` becomes `sb`).
-- The following values are special exceptions as they are available almost globally:
-  - `inh` = `inherit`
-  - `ini` = `initial`
-  - `rv` = `revert`
-  - `rvl` = `revert-layer`
-  - `un` = `unset`
+-   Value should be abbreviated with the first letter of the value.
+-   If two values share the same initial letter, then the next value in alphabetical order is [abbreviated](http://en.wikipedia.org/wiki/Abbreviation) in [contracted](http://en.wikipedia.org/wiki/Contraction_%28grammar%29) form.
+-   If **one value** is composed by two or more words (e.g. `inline-block`) then the first letter of each word should be used with no separator between them (e.g. `inline-block` becomes `ib`, `space-between` becomes `sb`).
+-   The following values are special exceptions as they are available almost globally:
+    -   `inh` = `inherit`
+    -   `ini` = `initial`
+    -   `rv` = `revert`
+    -   `rvl` = `revert-layer`
+    -   `un` = `unset`
 
 #### Literal values
 
@@ -338,7 +338,7 @@ Pass multiple values separated by commas (`,`) when supported (e.g., `Bgp(20px,5
 
 ##### Variable values
 
-A &quot;variable&quot; is mapped to a global value set in the config object. It is different than a custom class as it is *not bound to a property*, for example:
+A &quot;variable&quot; is mapped to a global value set in the config object. It is different than a custom class as it is _not bound to a property_, for example:
 
 ```js
 custom: {
@@ -352,11 +352,11 @@ Usage:
 <div class="M(gutter) P(gutter)"></div>
 ```
 
-Changing the value of `gutter` in the config object would change the value of both the `margin` and `padding` &mdash; *as well as the value of any other class using `gutter`*.
+Changing the value of `gutter` in the config object would change the value of both the `margin` and `padding` &mdash; _as well as the value of any other class using `gutter`_.
 
 ##### CSS variables
 
-CSS variables can be referenced as class values.  Note that values are not managed by Atomizer, and must be defined independently.
+CSS variables can be referenced as class values. Note that values are not managed by Atomizer, and must be defined independently.
 
 Usage:
 

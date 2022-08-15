@@ -11,9 +11,9 @@ This section is intended to answer common questions related to Atomic CSS and At
 
 ### What is Atomic CSS?
 
-Atomic CSS is a collection of single purpose styling units (*single responsibility principle for maximum reuse*) that fits well with components in templated frameworks such as [React](https://github.com/facebook/react), [Ember](https://github.com/emberjs/ember.js/), or [Angular](https://github.com/angular/angular.js).
+Atomic CSS is a collection of single purpose styling units (_single responsibility principle for maximum reuse_) that fits well with components in templated frameworks such as [React](https://github.com/facebook/react), [Ember](https://github.com/emberjs/ember.js/), or [Angular](https://github.com/angular/angular.js).
 
-Atomic classes and their associated styling are **immutable**, meaning you&#39;d use the same classes whatever the project you&#39;re working on or the team you&#39;re working with. In other words, Atomic CSS is a common &quot;vocabulary&quot; meant to style documents *regardless of context or content*.
+Atomic classes and their associated styling are **immutable**, meaning you&#39;d use the same classes whatever the project you&#39;re working on or the team you&#39;re working with. In other words, Atomic CSS is a common &quot;vocabulary&quot; meant to style documents _regardless of context or content_.
 
 For more information about Atomic CSS, we recommend that you read [Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/) on Smashing Magazine, watch the [Atomic CSS presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4) on youtube, or check the [Atomic CSS slide deck](https://www.haikudeck.com/atomic-css-uncategorized-presentation-dJ0xlFjhBQ) on haikudeck.
 
@@ -60,7 +60,7 @@ For more information about Atomic CSS, we recommend that you read [Challenging C
 
 ### What are the benefits of Atomic CSS?
 
-The main benefit of Atomic CSS is that it prevents bloat by *dramatically reducing redundancy*. This is possible because rules are content agnostic which makes them much more re-usable than rules based on &quot;semantic&quot; selectors (names that relate to *what* is styled).
+The main benefit of Atomic CSS is that it prevents bloat by _dramatically reducing redundancy_. This is possible because rules are content agnostic which makes them much more re-usable than rules based on &quot;semantic&quot; selectors (names that relate to _what_ is styled).
 
 It also:
 
@@ -195,7 +195,7 @@ If changing some styling requires you to edit multiple files, then you should us
 
 An example of the former could be headings (unless they are &quot;components&quot;) meant to look the same across many modules, or any other styling meant to be shared across different modules. An example of the latter is a component that lives in a template or a JS file, like a specific widget with its own styling.
 
-### I have always been told to use classes related to content, *not to presentation*. Isn&#39;t Atomic CSS promoting bad practice?
+### I have always been told to use classes related to content, _not to presentation_. Isn&#39;t Atomic CSS promoting bad practice?
 
 <blockquote>
     <div>
@@ -216,9 +216,7 @@ The sole purpose of classes is to provide hooks for styling and behavior. They a
 
 The main goal of Atomic CSS is to reduce bloat, so to better achieve this we must ignore content and context as much as possible.
 
-Look at the following snippet for example (a carousel without a `carousel` class). It creates a working carousel.
-We put things together in the markup, there is no need for &quot;carousel&quot; rules in the style sheet.
-If we wanted to show only 2 items per view, we would simply replace W(20%) with W(50%) - that’s it.
+Look at the following snippet for example (a carousel without a `carousel` class). It creates a working carousel. We put things together in the markup, there is no need for &quot;carousel&quot; rules in the style sheet. If we wanted to show only 2 items per view, we would simply replace W(20%) with W(50%) - that’s it.
 
 ```html
 <div data-plugin="carousel">
@@ -238,8 +236,7 @@ Unlike a `.carousel` class, all the above classes can be re-used to style any ot
 
 ### Isn&#39;t Atomic CSS moving bloat from style sheets to HTML?
 
-The table below represents the average number of characters per class attribute on a page.
-Note that Facebook appears to uglify some classes.
+The table below represents the average number of characters per class attribute on a page. Note that Facebook appears to uglify some classes.
 
 <table cellspacing="0" class="Ta(c)">
     <caption class="Hidden">Number of characters per class attributes between web sites</caption>
@@ -277,8 +274,7 @@ The table above uses yahoo.com for reference as this site uses an early version 
 
 <h4 id="gzip-loves-atomic-css">Gzip loves Atomic CSS</h4>
 
-If we put Gzip into the picture, then things look even better. That’s because a lot of repetitions means a better compression ratio.
-From a few tests we ran, it’s about 35% for semantic classes versus 48% for atomic classes.
+If we put Gzip into the picture, then things look even better. That’s because a lot of repetitions means a better compression ratio. From a few tests we ran, it’s about 35% for semantic classes versus 48% for atomic classes.
 
 ### How can you distribute presentation changes without asking everyone to change their markup?
 
@@ -307,8 +303,7 @@ Please visit our <a href="tutorials/responsive-web-design.html">RWD docs</a> to 
 
 ### Do I need to specify a namespace? And if yes, what should I use?
 
-You do not need to use a namespace per se but this is extremely useful to bump the specificity of Atomic rules.
-Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily overwrite declarations from other rules; for example:
+You do not need to use a namespace per se but this is extremely useful to bump the specificity of Atomic rules. Our advice is to use an `id` (we use `#atomic`) so all Atomic rules can easily overwrite declarations from other rules; for example:
 
 ```css
 .hero-module .button {
@@ -341,6 +336,7 @@ The value for `font-weight` in the `.hero-module .button {...}` rule is overwrit
     </ul>
 
     This clear separation helps to better manage styles inside large scale projects.
+
 </div>
 
 ### Why are Atomizer classes capitalized? As far as I know, no other framework does that?
@@ -357,8 +353,7 @@ This is because classes such as `C(#fff)` and `C(#FFF)` would not duplicate the 
 
 If you have chosen to use a namespace then all Atomic rules rely on that namespace except the ones containing descendant selectors as those are **not** &quot;sandboxed&quot; via that said namespace. Instead, Atomizer adds !important to those styles.
 
-The reason for this is because including the namespace in the selector could make the rule fail to target the node.
-For example this would not work (using `atomic` as the namespace):
+The reason for this is because including the namespace in the selector could make the rule fail to target the node. For example this would not work (using `atomic` as the namespace):
 
 ```html
 <html id="atomic" class="open">
@@ -436,12 +431,10 @@ module.exports = function (grunt) {
 
 We didn&#39;t want to reinvent the wheel as there are tools out there that do this very well (i.e. <a href="https://github.com/postcss/autoprefixer">autoprefixer</a> (<a href="https://goonlinetools.com/autoprefixer/">available as an online tool</a>)).
 
-<hr class="Mt(50px)">
+---
 
-<ol id="footnote" class="ol-list">
-    <li>Specificity of Atomic rules can be increased via namespace. You&#39;d use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` <a href="#footnote-1">[↩]</a>.</li>
-    <li>Maximum number of rules for IE9: 4,095 (65,534 for IE10+) <a href="#footnote-2">[↩]</a><a href="#footnote-2b">[↩]</a>.</li>
-    <li><a href="http://microformats.org/">microformats</a> is a different story <a href="#footnote-3">[↩]</a>.</li>
-    <li>Thanks to some uglification <a href="#footnote-4">[↩]</a>.</li>
-    <li>Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that <b class="Fw(b)">ACSS</b> styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling <a href="#footnote-5">[↩]</a>.</li>
-</ol>
+1. Specificity of Atomic rules can be increased via namespace. You&#39;d use a `type` selector for `0.0.1.1`, a `class` for `0.0.2.0`, and an `id` for `0.1.1.0` <a href="#footnote-1">[↩]</a>.
+1. Maximum number of rules for IE9: 4,095 (65,534 for IE10+) <a href="#footnote-2">[↩]</a><a href="#footnote-2b">[↩]</a>.
+1. <a href="http://microformats.org/">microformats</a> is a different story <a href="#footnote-3">[↩]</a>.
+1. Thanks to some uglification <a href="#footnote-4">[↩]</a>.
+1. Choosing a `id` for the namespace (i.e. `#atomic`) guarantees that <b class="Fw(b)">ACSS</b> styles overwrite any other rule in a project based on classes &mdash; regardless how many classes are being used. <br> We do not use `!important` as such styling would overwrite inline styles as well as other rules in a project that could be using an `id` to create more specific styling <a href="#footnote-5">[↩]</a>.

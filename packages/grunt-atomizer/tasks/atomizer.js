@@ -16,7 +16,6 @@ function hash(config, options) {
 }
 
 module.exports = function (grunt) {
-
     /**
      * Validates an atomizer config file.
      * @param  {object} config        The config file.
@@ -25,7 +24,7 @@ module.exports = function (grunt) {
      */
     function validateConfig(config, configObjPath) {
         if (grunt.util.kindOf(config) !== 'object') {
-            grunt.fail.warn(`\`${  configObjPath  }\` must be an object.`);
+            grunt.fail.warn(`\`${configObjPath}\` must be an object.`);
         }
     }
 
@@ -74,11 +73,11 @@ module.exports = function (grunt) {
             }
         }
 
-        const atomizer = new Atomizer({ verbose: (grunt.option.flags().indexOf('--verbose') > -1) });
+        const atomizer = new Atomizer({ verbose: grunt.option.flags().indexOf('--verbose') > -1 });
 
         if (options.rules && options.rules.length > 0) {
             options.rules.forEach(function (ruleFile) {
-                grunt.log.writeln(`Adding rules found in ${  ruleFile}`);
+                grunt.log.writeln(`Adding rules found in ${ruleFile}`);
                 atomizer.addRules(require(path.resolve(ruleFile)));
             });
         }
@@ -89,13 +88,13 @@ module.exports = function (grunt) {
 
             if (f.src) {
                 let classNames = [];
-                grunt.log.writeln(`Parsing ${  f.src.length  } files for Atomic classes`);
+                grunt.log.writeln(`Parsing ${f.src.length} files for Atomic classes`);
                 f.src.forEach(function (filePath) {
                     const foundClasses = atomizer.findClassNames(grunt.file.read(filePath));
                     classNames = _.union(classNames, foundClasses);
-                    grunt.log.debug(`+ ${  filePath  } (${  foundClasses.length  } classes found)`);
+                    grunt.log.debug(`+ ${filePath} (${foundClasses.length} classes found)`);
                 });
-                grunt.log.writeln(`${classNames.length  } unique classes found`);
+                grunt.log.writeln(`${classNames.length} unique classes found`);
 
                 // get the config object given an array of atomic class names
                 config = atomizer.getConfig(classNames, gruntConfig);
@@ -111,33 +110,32 @@ module.exports = function (grunt) {
             if (options.cache && grunt.file.exists(cacheFile) && grunt.file.read(cacheFile) === cacheContent) {
                 grunt.log.oklns('Skipping CSS generation because nothing has changed.');
                 return;
-            } 
-                grunt.log.writeln('Creating CSS...');
-                const content = atomizer.getCss(config, options);
+            }
+            grunt.log.writeln('Creating CSS...');
+            const content = atomizer.getCss(config, options);
 
-                // write file
-                if (options.configOutput) {
-                    grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
-                    grunt.log.oklns(`Writing configuration to ${  options.configOutput}`);
-                }
-                grunt.file.write(f.dest, content);
-                const stats = fs.statSync(f.dest);
-                if (stats.size > 0) {
-                    contentLength = (stats.size / 1024).toFixed(2);
-                }
-                grunt.log.oklns(`Writing Atomic CSS to ${  f.dest  } (${  contentLength  } kb)`);
+            // write file
+            if (options.configOutput) {
+                grunt.file.write(options.configOutput, JSON.stringify(config, null, 2));
+                grunt.log.oklns(`Writing configuration to ${options.configOutput}`);
+            }
+            grunt.file.write(f.dest, content);
+            const stats = fs.statSync(f.dest);
+            if (stats.size > 0) {
+                contentLength = (stats.size / 1024).toFixed(2);
+            }
+            grunt.log.oklns(`Writing Atomic CSS to ${f.dest} (${contentLength} kb)`);
 
-                // cache it
-                if (options.cache) {
-                    // clean cache file
-                    if (grunt.file.exists(cacheFile)) {
-                        grunt.file.delete(cacheFile);
-                    }
-                    // write
-                    grunt.file.write(cacheFile, cacheContent);
-                    grunt.log.oklns(`Cache file: ${  cacheFile  } successfully created.`);
+            // cache it
+            if (options.cache) {
+                // clean cache file
+                if (grunt.file.exists(cacheFile)) {
+                    grunt.file.delete(cacheFile);
                 }
-            
+                // write
+                grunt.file.write(cacheFile, cacheContent);
+                grunt.log.oklns(`Cache file: ${cacheFile} successfully created.`);
+            }
         }, this);
 
         done();

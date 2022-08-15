@@ -7,7 +7,7 @@ const utils = require('./utils');
 const JSS = {};
 
 // returns a new JSS with flattened selectors
-JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/) {
+JSS.flattenSelectors = function (newJss /*:Jss*/, jss /*:Jss*/, parent /*:string*/) {
     let props;
     let value;
     let selector;
@@ -26,14 +26,14 @@ JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/)
                     if (!newJss[prop]) {
                         newJss[prop] = {};
                     }
-                    newJss[prop][parent ? `${parent  } ${  rule}` : rule] = value;
+                    newJss[prop][parent ? `${parent} ${rule}` : rule] = value;
                 } else {
-                    JSS.flattenSelectors(newJss, props, parent ? `${parent  } ${  rule}` : rule);
+                    JSS.flattenSelectors(newJss, props, parent ? `${parent} ${rule}` : rule);
                 }
-            }
+            } /*if (typeof value === 'string' || typeof value === 'number')*/
             // prop is prop
-            else /*if (typeof value === 'string' || typeof value === 'number')*/ {
-                selector = parent ? `${parent  } ${  rule}` : rule;
+            else {
+                selector = parent ? `${parent} ${rule}` : rule;
                 if (!newJss[selector]) {
                     newJss[selector] = {};
                 }
@@ -45,7 +45,7 @@ JSS.flattenSelectors = function (newJss/*:Jss*/, jss/*:Jss*/, parent/*:string*/)
 };
 
 // read a flat JSS and build an Extracted object
-JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, block/*:string*/)/*:Extracted*/ {
+JSS.extractProperties = function (extracted /*:Extracted*/, jss /*:JssFlat*/, block /*:string*/) /*:Extracted*/ {
     let props;
     let prop;
 
@@ -64,7 +64,7 @@ JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, bloc
                 extracted[block].push({
                     selector: selector,
                     prop: prop,
-                    value: props[prop]
+                    value: props[prop],
                 });
             }
         }
@@ -74,16 +74,16 @@ JSS.extractProperties = function (extracted/*:Extracted*/, jss/*:JssFlat*/, bloc
 };
 
 // combine selectors in an extracted object
-JSS.combineSelectors = function (extracted/*:Extracted*/)/*:Extracted*/ {
+JSS.combineSelectors = function (extracted /*:Extracted*/) /*:Extracted*/ {
     let extracts;
     for (const block in extracted) {
         extracts = extracted[block];
         for (let i = 0, l = extracts.length; i < l; i += 1) {
-            for(let j = i + 1; j < l; j += 1) {
+            for (let j = i + 1; j < l; j += 1) {
                 // combine if prop and value match
-                if(extracts[i].prop === extracts[j].prop && extracts[i].value === extracts[j].value) {
+                if (extracts[i].prop === extracts[j].prop && extracts[i].value === extracts[j].value) {
                     if (extracts[j].selector) {
-                        extracts[i].selector += `, ${  extracts[j].selector}`;
+                        extracts[i].selector += `, ${extracts[j].selector}`;
                     } else {
                         extracts[i].selector = false;
                     }
@@ -95,7 +95,7 @@ JSS.combineSelectors = function (extracted/*:Extracted*/)/*:Extracted*/ {
     return extracted;
 };
 
-JSS.extractedToStylesheet = function (extracted/*:Extracted*/)/*:Stylesheet*/ {
+JSS.extractedToStylesheet = function (extracted /*:Extracted*/) /*:Stylesheet*/ {
     const stylesheet = {};
 
     for (const block in extracted) {
@@ -116,10 +116,12 @@ JSS.extractedToStylesheet = function (extracted/*:Extracted*/)/*:Stylesheet*/ {
 };
 
 // transforms jss to css
-JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
+JSS.jssToCss = function (jss /*:Jss*/, options /*:Options*/) {
     let css = [];
-    let extracted/*:Extracted*/;
-    const tab = options && options.tabWidth && utils.repeatString(' ', parseInt(options.tabWidth, 10)) || utils.repeatString(' ', 2);
+    let extracted /*:Extracted*/;
+    const tab =
+        (options && options.tabWidth && utils.repeatString(' ', parseInt(options.tabWidth, 10))) ||
+        utils.repeatString(' ', 2);
 
     // flatten nested selectors
     jss = JSS.flattenSelectors({}, jss);
@@ -131,7 +133,7 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
     extracted = JSS.combineSelectors(extracted);
 
     // build stylesheet object from extract
-    const stylesheet = JSS.extractedToStylesheet(extracted)/*:Stylesheet*/;
+    const stylesheet = JSS.extractedToStylesheet(extracted); /*:Stylesheet*/
 
     // finally, write css
     // First write the main block
@@ -141,14 +143,14 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
         for (const label in options.breakPoints) {
             const block = options.breakPoints[label];
             if (block && stylesheet[block]) {
-                css.push(`${block  } {`);
+                css.push(`${block} {`);
                 JSS.writeBlockToCSS(css, stylesheet[block], tab, tab);
                 css.push('}');
             }
         }
     }
 
-    css = css.length > 0 ? `${css.join('\n')  }\n` : '';
+    css = css.length > 0 ? `${css.join('\n')}\n` : '';
 
     return css;
 };
@@ -156,11 +158,11 @@ JSS.jssToCss = function (jss/*:Jss*/, options/*:Options*/) {
 JSS.writeBlockToCSS = function (css, block, tab, indent) {
     indent = indent || '';
     for (const selector in block) {
-        css.push(`${indent + selector  } {`);
+        css.push(`${indent + selector} {`);
         for (const prop in block[selector]) {
-            css.push(`${indent + tab + prop  }: ${  block[selector][prop]  };`);
+            css.push(`${indent + tab + prop}: ${block[selector][prop]};`);
         }
-        css.push(`${indent  }}`);
+        css.push(`${indent}}`);
     }
 };
 

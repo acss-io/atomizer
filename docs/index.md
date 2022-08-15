@@ -49,7 +49,6 @@ custom: {
     columnWidth: '20px',
 }
 {% endhighlight %}
-
 {% highlight html %}
 <div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"></div>
 <div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)">
@@ -179,25 +178,20 @@ custom: {
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
         <p>Define your responsive &quot;<a href="/breakpoints.html">breakpoints</a>&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
-
         <h3>Classes mapped to a single breakpoint</h3>
-
         <p>Reference your breakpoints in your classnames using a double-dash suffix (eg, <code>--sm</code>).</p>
-
         <p>In this example, the four boxes are styled as <code>inline-block</code>, with a <code>width</code> of <code>25%</code> when the viewport is more than <code>700px</code> wide.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight js %}
-'breakPoints': {
-    'sm': '@media screen and (min-width:700px)'
-}
-{% endhighlight %}
-
+breakPoints: {
+    sm: '@media screen and (min-width:700px)'
+}{% endhighlight %}
 {% highlight html %}
-   <div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div>
-   <div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
-   <div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div>
-   <div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
+<div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div>
+<div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
+<div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div>
+<div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
@@ -207,9 +201,7 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-
         <h3>Classes mapped to multiple breakpoints</h3>
-
         <p>Classes may have different values associated with different breakpoints; meaning the same class applies different styles depending on media queries.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -219,8 +211,7 @@ custom: {
     'sm': '22px',
     'md': '32px',
     'lg': '42px'
-}
-{% endhighlight %}
+}{% endhighlight %}
 {% highlight html %}
 <div class="Fz(RWD-fontSize)">Responsive font-size</div>
 {% endhighlight %}

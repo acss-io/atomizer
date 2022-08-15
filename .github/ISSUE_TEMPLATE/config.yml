@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Question
-    url: https://github.com/acss-io/atomizer/discussions/new
-    about: Got a question? Please use the Discussion forum
+    - name: Question
+      url: https://github.com/acss-io/atomizer/discussions/new
+      about: Got a question? Please use the Discussion forum

@@ -11,7 +11,7 @@ The Atomizer [cli](../installation.html#atomizer-cli) provides a `--rules [file]
 
 ## Creating a rules file
 
-Create a rule file, `atomizer.rules.js`, in the following format (*NOTE: You can name this whatever you want*):
+Create a rule file, `atomizer.rules.js`, in the following format (_NOTE: You can name this whatever you want_):
 
 ```js
 // atomizer.rules.js
@@ -49,13 +49,13 @@ Atomizer will merge your custom class rules with the default rule set and produc
 
 ## Rule options
 
-The sections below explain each rule property available to configure. *(\*)denotes a required property.*
+The sections below explain each rule property available to configure. _(\*)denotes a required property._
 
 ### allowParamToValue
 
-- **Type**: `boolean`
-- **Default**: `false` (`true` for Helper classes)
-- **Required**: `false`
+-   **Type**: `boolean`
+-   **Default**: `false` (`true` for Helper classes)
+-   **Required**: `false`
 
 If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pass a value with a supported unit of measure. The `value` of the style property will be the replacement token `$0`, which Atomizer will replace with the declared value.
 
@@ -75,9 +75,9 @@ If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pas
 
 ### arguments
 
-- **Type**: `array<object>`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `array<object>`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 An `array` of objects which define the named arguments for the class. The `arguments` array defines one or many `objects`. The `styles` object defines the `key` as the CSS property name and the value as tokens (`$0`) that will be replaced by the corresponding argument object index.
 
@@ -178,57 +178,57 @@ Will translate to `transform-origin: left bottom`.
 
 ### description
 
-- **Type**: `string`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `string`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 Used by helpers internally for documentation purposes. Not required, but good practice to define.
 
 ### id
 
-- **Type**: `string`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `string`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 Used internally by Atomizer for documentation purposes.
 
 ### link
 
-- **Type**: `string`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `string`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 A `URL` used by the <a href="../reference.html">Reference</a> page for helpers to link to internal or external sources.
 
-### matcher*
+### matcher\*
 
-- **Type**: `string`
-- **Default**: `undefined`
-- **Required**: `true`
+-   **Type**: `string`
+-   **Default**: `undefined`
+-   **Required**: `true`
 
 A unique class name for the rule. This **MUST** be unique to avoid conflicts with Atomizer class names.
 
 ### name
 
-- **Type**: `string`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `string`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 Used internally by Atomizer for documentation purposes.
 
 ### noParams
 
-- **Type**: `boolean`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `boolean`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 Used internally by Atomizer to reduce the time complexity when building the grammar rules. If a class will not accept unit measurement parameters, then enabling this flag can help Atomizers performance.
 
 ### rules
 
-- **Type**: `object`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `object`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 An `object` of custom rules used by helper classes. `rules` can be defined if the helper class needs to define additional Atomizer rules not available by default. Each `key` of the object is the CSS rule. The `value` of the property is an `object` of `key` `value` CSS styles.
 
@@ -263,9 +263,9 @@ An `object` of custom rules used by helper classes. `rules` can be defined if th
 
 ### shorthand
 
-- **Type**: `boolean`
-- **Default**: `undefined`
-- **Required**: `false`
+-   **Type**: `boolean`
+-   **Default**: `undefined`
+-   **Required**: `false`
 
 Whether or not the rule is a [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property (i.e., a property that sets the value of multiple other CSS properties simultaneously).
 
@@ -286,11 +286,11 @@ Whether or not the rule is a [shorthand](https://developer.mozilla.org/en-US/doc
 }
 ```
 
-### styles*
+### styles\*
 
-- **Type**: `object`
-- **Default**: `undefined`
-- **Required**: `true`
+-   **Type**: `object`
+-   **Default**: `undefined`
+-   **Required**: `true`
 
 Defines the CSS key value properties used by the class name. Multiple properties can be specified depending on the purpose of the custom class or helper.
 
@@ -325,13 +325,13 @@ To support [RTL languages](./syntax.html#rtlltr), special tokens are available (
 
 At build time, Atomizer will dynamically replace the `__START__` or `__END__` token with the proper `left` or `right` value based on the presence of the `--rtl` option.
 
-### type*
+### type\*
 
-- **Type**: `string`
-- **Default**: `undefined`
-- **Required**: `true`
+-   **Type**: `string`
+-   **Default**: `undefined`
+-   **Required**: `true`
 
 The type of rule; available options:
 
-- `helper`: Used for customer helper classes
-- `pattern`: Used for custom Atomizer classes
+-   `helper`: Used for customer helper classes
+-   `pattern`: Used for custom Atomizer classes

@@ -13,13 +13,13 @@ Unlike [Atomizer classes](/guides/atomizer-classes.html), helper classes apply m
 
 Styling elements with a border requires 3 properties <sup>[[1]](#footnote)</sup><a id="footnote-1"></a> so to make styling via classes a bit less verbose, the following helpers combine `border-style` (set to `solid`) and `border-width` (set to `1px`):
 
-- `Bd` creates a `1px` border on all edges of a box
-- `BdX` creates a `1px` border on the left and right edges of a box
-- `BdY` creates a `1px` border on the top and bottom edges of a box
-- `BdT` creates a `1px` border on the top edge of a box
-- `BdEnd` creates a `1px` border on the right edge of a box (in a LTR context)
-- `BdB` creates a `1px` border on the bottom edge of a box
-- `BdStart` creates a `1px` border on the left edge of a box (in a LTR context)
+-   `Bd` creates a `1px` border on all edges of a box
+-   `BdX` creates a `1px` border on the left and right edges of a box
+-   `BdY` creates a `1px` border on the top and bottom edges of a box
+-   `BdT` creates a `1px` border on the top edge of a box
+-   `BdEnd` creates a `1px` border on the right edge of a box (in a LTR context)
+-   `BdB` creates a `1px` border on the bottom edge of a box
+-   `BdStart` creates a `1px` border on the left edge of a box (in a LTR context)
 
 You can combine one of the classes above with a `border-color` of your choice (i.e. `Bdc(#ff6347)`) to get a border color different than the text color of the box.
 
@@ -41,9 +41,9 @@ Example with a custom color:
 
 The default `width` of these helpers is `1px` as it is the most common use case. If you want to use a different `width` or `style` value, then you can either
 
-- use standard <b class="Fw(b)">ACSS</b> classes, for example: `Bdw(5px) Bds(s) Bdc(#555)`
-- create a custom class via config, for example: `Bd(myCustomBorder)`
-- use <strong>the same helper classes</strong> with [different values](helper-classes.htmlthe-special-case-of-border-)
+-   use standard <b class="Fw(b)">ACSS</b> classes, for example: `Bdw(5px) Bds(s) Bdc(#555)`
+-   create a custom class via config, for example: `Bd(myCustomBorder)`
+-   use <strong>the same helper classes</strong> with [different values](helper-classes.htmlthe-special-case-of-border-)
 
 <p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/acss-io/atomizer/blob/master/src/rules.js#L289).</p>
 
@@ -110,8 +110,8 @@ Truncating multiple lines of text in a way that works across browsers is not an 
 
 With the help of Atomizer, you can use the `LineClamp()` class to &quot;pass&quot; 2 parameters:
 
-- the number of lines you want to display
-- the `max-height` to use for the box
+-   the number of lines you want to display
+-   the `max-height` to use for the box
 
 Example:
 

@@ -157,7 +157,9 @@ import lunr from 'lunr';
                     description = doc.description.replace(regex, `<mark class="Fw(b)">${query}</mark>`);
                     description = `<p class="M(0) Mstart(18px) Fz(.85rem)">${description}</p>`;
                 }
-                html.push(`<li class="Px(10px) Py(5px)"><a href="${doc.permalink}">${doc.title}</a>${description}</li>`);
+                html.push(
+                    `<li class="Px(10px) Py(5px)"><a href="${doc.permalink}">${doc.title}</a>${description}</li>`
+                );
             });
             resultsEl.innerHTML = `<ol class="${listClass}">${html.join('')}</ol>`;
             resultsCont.style.display = 'block';
@@ -169,11 +171,13 @@ import lunr from 'lunr';
         }
     }
 
-    function debounce(func, timeout = 500){
+    function debounce(func, timeout = 500) {
         let timer;
         return (...args) => {
             clearTimeout(timer);
-            timer = setTimeout(() => { func.apply(this, args); }, timeout);
+            timer = setTimeout(() => {
+                func.apply(this, args);
+            }, timeout);
         };
     }
 
@@ -188,7 +192,7 @@ import lunr from 'lunr';
         let docs;
         const searchInput = document.getElementById('q');
 
-        const doSearch = function(e) {
+        const doSearch = function (e) {
             if (e) {
                 e.preventDefault();
             }

@@ -1,55 +1,55 @@
 {
-  "name": "grunt-atomizer",
-  "description": "Grunt task for Atomizer",
-  "version": "3.4.0",
-  "main": "index.js",
-  "contributors": [
-    {
-      "name": "Renato Iwashima",
-      "email": "renatoi@yahooinc.com"
+    "name": "grunt-atomizer",
+    "description": "Grunt task for Atomizer",
+    "version": "3.4.0",
+    "main": "index.js",
+    "contributors": [
+        {
+            "name": "Renato Iwashima",
+            "email": "renatoi@yahooinc.com"
+        },
+        {
+            "name": "Steve Carlson",
+            "email": "yasteve@yahooinc.com"
+        },
+        {
+            "name": "Thierry Koblentz",
+            "email": "thierryk@yahooinc.com"
+        }
+    ],
+    "repository": {
+        "directory": "grunt-atomizer",
+        "type": "git",
+        "url": "git://github.com/acss-io/atomizer.git"
     },
-    {
-      "name": "Steve Carlson",
-      "email": "yasteve@yahooinc.com"
+    "files": [
+        "tasks",
+        "*.js"
+    ],
+    "scripts": {
+        "lint": "eslint --ext .js .",
+        "lint:fix": "eslint --ext .js . --fix",
+        "test": "grunt test"
     },
-    {
-      "name": "Thierry Koblentz",
-      "email": "thierryk@yahooinc.com"
-    }
-  ],
-  "repository": {
-    "directory": "grunt-atomizer",
-    "type": "git",
-    "url": "git://github.com/acss-io/atomizer.git"
-  },
-  "files": [
-    "tasks",
-    "*.js"
-  ],
-  "scripts": {
-    "lint": "eslint --ext .js .",
-    "lint:fix": "eslint --ext .js . --fix",
-    "test": "grunt test"
-  },
-  "dependencies": {
-    "atomizer": "^3.0.0",
-    "lodash": "^4.0.0"
-  },
-  "peerDependencies": {
-    "grunt": "^1.0.0"
-  },
-  "keywords": [
-    "atomizer",
-    "atomic",
-    "grunt",
-    "gruntplugin",
-    "grunt-atomic",
-    "grunt-atomizer",
-    "atomic-css"
-  ],
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/acss-io/atomizer/issues"
-  },
-  "homepage": "https://github.com/acss-io/atomizer"
+    "dependencies": {
+        "atomizer": "^3.0.0",
+        "lodash": "^4.0.0"
+    },
+    "peerDependencies": {
+        "grunt": "^1.0.0"
+    },
+    "keywords": [
+        "atomizer",
+        "atomic",
+        "grunt",
+        "gruntplugin",
+        "grunt-atomic",
+        "grunt-atomizer",
+        "atomic-css"
+    ],
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/acss-io/atomizer/issues"
+    },
+    "homepage": "https://github.com/acss-io/atomizer"
 }

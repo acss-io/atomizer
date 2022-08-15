@@ -1,123 +1,133 @@
 {
-  "name": "atomizer-mono",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Atomizer CSS monorepo, this package should not be published",
-  "contributors": [
-    {
-      "name": "Renato Iwashima",
-      "email": "renatoi@yahooinc.com"
+    "name": "atomizer-mono",
+    "version": "1.0.0",
+    "private": true,
+    "description": "Atomizer CSS monorepo, this package should not be published",
+    "contributors": [
+        {
+            "name": "Renato Iwashima",
+            "email": "renatoi@yahooinc.com"
+        },
+        {
+            "name": "Steve Carlson",
+            "email": "yasteve@yahooinc.com"
+        },
+        {
+            "name": "Thierry Koblentz",
+            "email": "thierryk@yahooinc.com"
+        },
+        {
+            "name": "Seth Bertalotto",
+            "email": "sbertal@yahooinc.com"
+        }
+    ],
+    "scripts": {
+        "atomizer:docs": "atomizer --quiet -R -c ./config/atomic.config.js -o ./app/assets/css/atomic.css ./app/components/ ./app/assets/js/ ./docs/",
+        "atomizer:examples": "atomizer --quiet -R -c ./examples/atomizer.config.js -o ./examples/css/atomic.css",
+        "build": "npm run build:docs && npm run build --workspaces --if-present",
+        "build:docs": "npm run atomizer:docs && npm run postcss && npm run webpack:prod",
+        "build:index": "node scripts/buildSearch.mjs",
+        "dev": "concurrently \"npm run atomizer:docs -- -w ./app/components/ -w ./app/assets/js/ -w ./docs/\" \"npm run postcss -- -w\" \"npm run webpack:dev\" \"docker compose up\"",
+        "examples": "concurrently \"npm run atomizer:examples\" \"live-server examples --wait 500\"",
+        "format": "prettier . --check",
+        "format:fix": "prettier . --write",
+        "lint": "eslint --ext .js,jsx .",
+        "postcss": "postcss app/assets/css/main.css -o docs/assets/css/main.css",
+        "postbuild:docs": "npm run build:index",
+        "predev": "npm run build:index",
+        "test": "npm run test --workspaces --if-present",
+        "webpack:dev": "webpack --config webpack.config.js --config-name dev",
+        "webpack:prod": "webpack --config webpack.config.js --config-name prod"
     },
-    {
-      "name": "Steve Carlson",
-      "email": "yasteve@yahooinc.com"
+    "engines": {
+        "node": ">=16.0",
+        "npm": ">=8.0"
     },
-    {
-      "name": "Thierry Koblentz",
-      "email": "thierryk@yahooinc.com"
+    "workspaces": [
+        "packages/*",
+        "site"
+    ],
+    "devDependencies": {
+        "@babel/cli": "^7.18.6",
+        "@babel/core": "^7.18.6",
+        "@babel/eslint-parser": "^7.18.2",
+        "@babel/preset-env": "^7.18.6",
+        "@babel/preset-react": "^7.18.6",
+        "@lodder/grunt-postcss": "^3.1.1",
+        "@types/core-js": "^2.5.5",
+        "@types/node": "^18.0.6",
+        "autoprefixer": "^10.4.7",
+        "babel-loader": "^8.2.5",
+        "chai": "^4.3.6",
+        "codemirror": "^5.65.7",
+        "concurrently": "^7.2.2",
+        "coveralls": "^3.1.1",
+        "cssnano": "^5.1.12",
+        "escape-string-regexp": "^5.0.0",
+        "eslint": "^8.19.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-mocha": "^10.0.3",
+        "eslint-plugin-react": "^7.30.1",
+        "file-saver": "^2.0.5",
+        "fluxible": "^1.4.2",
+        "fluxible-addons-react": "^1.2.0",
+        "glob": "^8.0.3",
+        "grunt": "^1.5.3",
+        "grunt-cli": "^1.4.3",
+        "grunt-contrib-clean": "^2.0.0",
+        "grunt-contrib-nodeunit": "^4.0.0",
+        "husky": "^8.0.1",
+        "jest": "^28.1.3",
+        "jszip": "^3.10.0",
+        "lint-staged": "^13.0.3",
+        "live-server": "^1.2.2",
+        "load-grunt-tasks": "^5.1.0",
+        "lunr": "^2.3.9",
+        "marked": "^4.0.18",
+        "mocha": "^10.0.0",
+        "postcss": "^8.4.14",
+        "postcss-cli": "^10.0.0",
+        "postcss-import": "^14.1.0",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "shelljs": "^0.8.5",
+        "stealthy-require": "^1.1.1",
+        "typescript": "^4.3.5",
+        "webpack": "^5.73.0",
+        "webpack-cli": "^4.10.0"
     },
-    {
-      "name": "Seth Bertalotto",
-      "email": "sbertal@yahooinc.com"
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/acss-io/atomizer.git"
+    },
+    "keywords": [
+        "atomic",
+        "atomize",
+        "atomizer",
+        "atomizr",
+        "css"
+    ],
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/acss-io/atomizer/issues"
+    },
+    "homepage": "https://github.com/acss-io/atomizer",
+    "browserslist": "> 1%, not op_mini all",
+    "prettier": {
+        "embeddedLanguageFormatting": "off",
+        "printWidth": 120,
+        "proseWrap": "never",
+        "singleQuote": true,
+        "tabWidth": 4,
+        "trailingComma": "es5"
+    },
+    "lint-staged": {
+        "*.{js,jsx}": [
+            "npm run lint -- --fix"
+        ],
+        "**/*.*": [
+            "npm run format:fix"
+        ]
     }
-  ],
-  "scripts": {
-    "atomizer:docs": "atomizer --quiet -R -c ./config/atomic.config.js -o ./app/assets/css/atomic.css ./app/components/ ./app/assets/js/ ./docs/",
-    "atomizer:examples": "atomizer --quiet -R -c ./examples/atomizer.config.js -o ./examples/css/atomic.css",
-    "build": "npm run build:docs && npm run build --workspaces --if-present",
-    "build:docs": "npm run atomizer:docs && npm run postcss && npm run webpack:prod",
-    "build:index": "node scripts/buildSearch.mjs",
-    "dev": "concurrently \"npm run atomizer:docs -- -w ./app/components/ -w ./app/assets/js/ -w ./docs/\" \"npm run postcss -- -w\" \"npm run webpack:dev\" \"docker compose up\"",
-    "examples": "concurrently \"npm run atomizer:examples\" \"live-server examples --wait 500\"",
-    "format": "prettier . --check",
-    "format:fix": "prettier . --write",
-    "lint": "eslint --ext .js,jsx .",
-    "postcss": "postcss app/assets/css/main.css -o docs/assets/css/main.css",
-    "postbuild:docs": "npm run build:index",
-    "predev": "npm run build:index",
-    "test": "npm run test --workspaces --if-present",
-    "webpack:dev": "webpack --config webpack.config.js --config-name dev",
-    "webpack:prod": "webpack --config webpack.config.js --config-name prod"
-  },
-  "engines": {
-    "node": ">=16.0",
-    "npm": ">=8.0"
-  },
-  "workspaces": [
-    "packages/atomic-css-snippets",
-    "packages/atomizer",
-    "packages/grunt-atomizer",
-    "packages/webpack-atomizer-loader",
-    "site"
-  ],
-  "devDependencies": {
-    "@babel/cli": "^7.18.6",
-    "@babel/core": "^7.18.6",
-    "@babel/eslint-parser": "^7.18.2",
-    "@babel/preset-env": "^7.18.6",
-    "@babel/preset-react": "^7.18.6",
-    "@lodder/grunt-postcss": "^3.1.1",
-    "@types/core-js": "^2.5.5",
-    "@types/node": "^18.0.6",
-    "autoprefixer": "^10.4.7",
-    "babel-loader": "^8.2.5",
-    "chai": "^4.3.6",
-    "codemirror": "^5.65.7",
-    "concurrently": "^7.2.2",
-    "coveralls": "^3.1.1",
-    "cssnano": "^5.1.12",
-    "escape-string-regexp": "^5.0.0",
-    "eslint": "^8.19.0",
-    "eslint-plugin-mocha": "^10.0.3",
-    "eslint-plugin-react": "^7.30.1",
-    "file-saver": "^2.0.5",
-    "fluxible": "^1.4.2",
-    "fluxible-addons-react": "^1.2.0",
-    "glob": "^8.0.3",
-    "grunt": "^1.5.3",
-    "grunt-cli": "^1.4.3",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-nodeunit": "^4.0.0",
-    "jest": "^28.1.3",
-    "jszip": "^3.10.0",
-    "live-server": "^1.2.2",
-    "load-grunt-tasks": "^5.1.0",
-    "lunr": "^2.3.9",
-    "marked": "^4.0.18",
-    "mocha": "^10.0.0",
-    "postcss": "^8.4.14",
-    "postcss-cli": "^10.0.0",
-    "postcss-import": "^14.1.0",
-    "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "shelljs": "^0.8.5",
-    "stealthy-require": "^1.1.1",
-    "typescript": "^4.3.5",
-    "webpack": "^5.73.0",
-    "webpack-cli": "^4.10.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/acss-io/atomizer.git"
-  },
-  "keywords": [
-    "atomic",
-    "atomize",
-    "atomizer",
-    "atomizr",
-    "css"
-  ],
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/acss-io/atomizer/issues"
-  },
-  "homepage": "https://github.com/acss-io/atomizer",
-  "browserslist": "> 1%, not op_mini all",
-  "prettier": {
-    "printWidth": 120,
-    "singleQuote": true,
-    "tabWidth": 4,
-    "trailingComma": "es5"
-  }
 }

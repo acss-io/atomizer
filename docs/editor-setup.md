@@ -19,13 +19,13 @@ The easiest way to integrate with VS Code is to install our [Atomic CSS Snippets
 
 This extension provides autocomplete snippets for Atomizer CSS classes. It includes support for the following file types:
 
-- JavaScript (.js)
-- HTML (.html)
-- Marko (.marko)
-- PHP (.php)
-- React (.jsx/.tsx)
-- Svelte (.svelte)
-- TypeScript (.ts)
+-   JavaScript (.js)
+-   HTML (.html)
+-   Marko (.marko)
+-   PHP (.php)
+-   React (.jsx/.tsx)
+-   Svelte (.svelte)
+-   TypeScript (.ts)
 
 ### Atomic-css-search
 

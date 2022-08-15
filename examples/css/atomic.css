@@ -22,24 +22,6 @@
 .Bgc\(\$primary\) {
   background-color: #f3f3f3;
 }
-.Cl\(b\), .Cf:after {
-  clear: both;
-}
-.Cl\(start\) {
-  clear: left;
-}
-.C\(\#000\) {
-  color: #000;
-}
-.C\(\#07f\) {
-  color: #07f;
-}
-.C\(\#ccc\) {
-  color: #ccc;
-}
-.C\(\#f2438c\) {
-  color: #f2438c;
-}
 .C\(\#ff0000\) {
   color: #ff0000;
 }
@@ -49,17 +31,11 @@
 .C\(primary\) {
   color: #f6a1e1;
 }
-.D\(b\) {
-  display: block;
-}
 .D\(f\) {
   display: flex;
 }
 .D\(ib\) {
   display: inline-block;
-}
-.D\(n\) {
-  display: none;
 }
 .D\(n\)\! {
   display: none !important;
@@ -154,18 +130,6 @@
 .Fl\(start\) {
   float: left;
 }
-.Ff\(m\) {
-  font-family: Monaco, "Courier New", monospace;
-}
-.Fw\(b\) {
-  font-weight: bold;
-}
-.Fz\(\.85rem\) {
-  font-size: .85rem;
-}
-.Fz\(20px\) {
-  font-size: 20px;
-}
 .Fz\(2rem\) {
   font-size: 2rem;
 }
@@ -187,20 +151,11 @@
 .H\(uh\) {
   height: 79px;
 }
-.List\(dc\) {
-  list-style-type: decimal;
-}
 .List\(n\) {
   list-style-type: none;
 }
-.Lisp\(i\) {
-  list-style-position: inside;
-}
 .Lh\(1\.5rem\) {
   line-height: 1.5rem;
-}
-.M\(0\) {
-  margin: 0;
 }
 .My\(1rem\) {
   margin-top: 1rem;
@@ -210,38 +165,17 @@
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
-.Mt\(15px\) {
-  margin-top: 15px;
-}
 .Mend\(10px\) {
   margin-right: 10px;
 }
-.Mend\(20px\) {
-  margin-right: 20px;
-}
-.Mb\(0\) {
-  margin-bottom: 0;
-}
 .Mb\(10px\) {
   margin-bottom: 10px;
-}
-.Mstart\(18px\) {
-  margin-left: 18px;
-}
-.Mstart\(20px\) {
-  margin-left: 20px;
 }
 .Mbm\(sc\) {
   mix-blend-mode: screen;
 }
 .Op\(1\)\! {
   opacity: 1 !important;
-}
-.Ov\(h\), .Hidden {
-  overflow: hidden;
-}
-.P\(0\) {
-  padding: 0;
 }
 .P\(10px\) {
   padding: 10px;
@@ -254,12 +188,6 @@
 }
 .P\(3rem\) {
   padding: 3rem;
-}
-.Pt\(0\) {
-  padding-top: 0;
-}
-.Pend\(10px\) {
-  padding-right: 10px;
 }
 .Td\(u\), .Td\(u\)\:h:hover {
   text-decoration: underline;
@@ -319,13 +247,8 @@
   content: " ";
   display: table;
 }
-.Hidden {
-  position: absolute !important;
-  clip: rect(1px,1px,1px,1px);
-  padding: 0 !important;
-  border: 0 !important;
-  height: 1px !important;
-  width: 1px !important;
+.Cf:after {
+  clear: both;
 }
 @media(min-width:500px) {
   .D\(b\)--sm {

@@ -66,9 +66,9 @@ custom: {
 
 In this example, the class `P(logo)` will style a box with a `padding` of `10px` below the first breakpoint, but then this padding will become:
 
-- `12px` inside the `sm` breakpoint
-- `14px` inside the `md` breakpoint
-- `20px` inside the `lg` breakpoint
+-   `12px` inside the `sm` breakpoint
+-   `14px` inside the `md` breakpoint
+-   `20px` inside the `lg` breakpoint
 
 Likewise, any class that uses the variable `gutter` will receive different values depending on the currently active breakpoint.
 
@@ -83,9 +83,9 @@ When using explicit breakpoints, use multiple classes to have styles applied in 
 --><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae)">4</div>
 ```
 
-- Below 700px, the boxes are displayed on top of each other (`div` are block-level elements)
-- Above 999px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)
-- Above 1200px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)
+-   Below 700px, the boxes are displayed on top of each other (`div` are block-level elements)
+-   Above 999px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)
+-   Above 1200px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)
 
 <p class="noteBox info">The breakpoints for the example below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>
 

@@ -22,7 +22,7 @@ import atomizerRules from '../packages/atomizer/src/rules.js';
 // consts
 const DOCS_PATH = path.join(process.cwd(), 'docs');
 const INDEX_DB_FILE = path.join(DOCS_PATH, 'assets', 'lunr.json');
-const DESCRIPTION_REGEX = /^description:\s(.*)$/mi;
+const DESCRIPTION_REGEX = /^description:\s(.*)$/im;
 
 // Find the description from jekyll frontmatter
 const findDescription = (str) => {
@@ -38,7 +38,7 @@ const fixNumeronym = (file) => {
     }
     return file;
 };
- 
+
 const formatTitle = (file) => {
     // remove extension
     file = file.replace('.md', '');
@@ -49,12 +49,12 @@ const formatTitle = (file) => {
     // some docs don't have categories
     let category = '';
     if (split[1]) {
-        category = `${lodash.startCase(split[0])  } - `;
+        category = `${lodash.startCase(split[0])} - `;
     }
     const filename = fixNumeronym(lodash.startCase(split[1] || split[0]));
     return category + filename;
 };
- 
+
 // set default options
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -63,7 +63,7 @@ marked.setOptions({
     breaks: false,
     pedantic: false,
     smartLists: true,
-    smartypants: false
+    smartypants: false,
 });
 
 // used as a look up for doc information against a lunr search query
@@ -73,19 +73,19 @@ const docs = {};
 const pattern = '**/*.md';
 const globOpts = {
     cwd: DOCS_PATH,
-    ignore: ['**/index.md', '404.md', 'README.md']
+    ignore: ['**/index.md', '404.md', 'README.md'],
 };
 const files = glob.sync(pattern, globOpts);
- 
- // setup index
-const index = lunr(function() {
+
+// setup index
+const index = lunr(function () {
     console.log('Creating lunr index');
     this.ref('id');
     this.field('title', { boost: 10 });
     this.field('body', { boost: 5 });
     this.field('description', { boost: 3 });
     this.field('permalink');
- 
+
     // add files to index
     if (files.length) {
         console.log('Generating index...');
@@ -100,18 +100,19 @@ const index = lunr(function() {
                 description,
                 title: formatTitle(file),
                 body,
-                permalink: `/${file.replace('.md', '.html')}`
+                permalink: `/${file.replace('.md', '.html')}`,
             };
 
             // use marked to generate tokens for snippet generation later
-            doc.tokens = marked.lexer(body)
-                .filter(tokens => tokens.type === 'html')
+            doc.tokens = marked
+                .lexer(body)
+                .filter((tokens) => tokens.type === 'html')
                 .map((token) => {
                     // parse the markdown and strip tags
-                    token.text = marked(token.text).replace(/(<([^>]+)>)/ig, '');
+                    token.text = marked(token.text).replace(/(<([^>]+)>)/gi, '');
                     return token;
                 });
-            
+
             this.add(doc);
             docs[doc.id] = doc;
         }
@@ -128,17 +129,17 @@ const index = lunr(function() {
             id,
             title: `${rule.matcher}() - ${Object.keys(rule.styles)[0]}: value`,
             body: `${rule.name} - ${rule.matcher}`,
-            permalink: `/reference.html#${id}`
+            permalink: `/reference.html#${id}`,
         };
         this.add(doc);
         docs[id] = doc;
     }
 });
- 
+
 // save index to file to load in jekyll docs
 console.log('Saving index...');
 fs.writeFileSync(INDEX_DB_FILE, JSON.stringify({ docs, index: index.toJSON() }));
- 
+
 // copy lunr library to docs site to use in browser
 console.log('Copying "lunr.min.js" library to /docs/assets/js...');
 shell.exec('cp node_modules/lunr/lunr.min.js docs/assets/js/');

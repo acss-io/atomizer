@@ -1,5 +1,5 @@
-module.exports = function(api) {
+module.exports = function (api) {
     api.add({
-        body: { margin: '20px' }
+        body: { margin: '20px' },
     });
 };

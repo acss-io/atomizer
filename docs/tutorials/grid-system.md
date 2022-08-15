@@ -5,7 +5,7 @@ section: docs
 title: Grid system
 ---
 
-Atomizer does not come with an *out-of-the-box* grid system. Instead, you use any property you want to build grids *the way **you** want*.
+Atomizer does not come with an _out-of-the-box_ grid system. Instead, you use any property you want to build grids _the way **you** want_.
 
 ## Widths
 
@@ -53,7 +53,7 @@ When creating inline-block constructs, you should use the helper class (`IbBox`)
 
 ### `float`
 
-This styling has great browser support and <a href="https://github.com/acss-io/atomizer">Atomizer</a> makes it &quot;direction&quot; agnostic.  Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
+This styling has great browser support and <a href="https://github.com/acss-io/atomizer">Atomizer</a> makes it &quot;direction&quot; agnostic. Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
 #### Example
 
@@ -120,8 +120,8 @@ In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with
 
 ### `flexbox`
 
-- `D(f)` for `display:flex`
-- `Jc(sb)` for `justify-content:space-between`
+-   `D(f)` for `display:flex`
+-   `Jc(sb)` for `justify-content:space-between`
 
 #### Example
 

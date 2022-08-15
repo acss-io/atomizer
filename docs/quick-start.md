@@ -28,9 +28,9 @@ This should open a page in your browser at [http://localhost:3000](http://localh
 
 Now try this:
 
-- Open the index page in a text editor
-- Edit, add, or remove **Atomizer** classes in the markup (get help from the [reference page](/reference.html))
-- Save the file
+-   Open the index page in a text editor
+-   Edit, add, or remove **Atomizer** classes in the markup (get help from the [reference page](/reference.html))
+-   Save the file
 
 The browser should reload the page, displaying all your changes. Check the [atomic.css](http://localhost:3000/css/atomic.css) file to see that it only contains the rules for the classes that are being used in the project.
 

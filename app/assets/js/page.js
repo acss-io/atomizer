@@ -52,4 +52,3 @@ if (nav && aside && header && footer) {
         handleResize();
     });
 }
-

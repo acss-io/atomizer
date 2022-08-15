@@ -8,13 +8,13 @@ updates:
       open-pull-requests-limit: 10
     # atomizer
     - package-ecosystem: npm
-      directory: "/packages/atomizer"
+      directory: '/packages/atomizer'
       schedule:
-        interval: daily
+          interval: daily
       open-pull-requests-limit: 10
     # grunt-atomizer
     - package-ecosystem: npm
-      directory: "/packages/grunt-atomizer"
+      directory: '/packages/grunt-atomizer'
       schedule:
-        interval: daily
+          interval: daily
       open-pull-requests-limit: 10

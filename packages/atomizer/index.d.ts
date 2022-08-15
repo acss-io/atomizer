@@ -30,14 +30,10 @@ declare module 'atomizer' {
 
         public addRules(rules: AtomizerRule[]): void;
         public findClassNames(src: string): string[];
-        public getConfig: (
-            classNames: string[],
-            config: AtomizerConfig
-        ) => AtomizerConfig;
+        public getConfig: (classNames: string[], config: AtomizerConfig) => AtomizerConfig;
         public getCss(config: AtomizerConfig, options?: CSSOptions): string;
         public getSyntax(isSimple?: boolean): RegExp;
         public parseConfig(config: AtomizerConfig, options?: CSSOptions): any;
         public sortCSS(classNames: string[]): string[];
-
     }
 }

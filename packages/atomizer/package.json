@@ -1,64 +1,64 @@
 {
-  "name": "atomizer",
-  "version": "3.18.0",
-  "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
-  "main": "./src/atomizer.js",
-  "typings": "./index.d.ts",
-  "contributors": [
-    {
-      "name": "Renato Iwashima",
-      "email": "renatoi@yahooinc.com"
+    "name": "atomizer",
+    "version": "3.18.0",
+    "description": "A tool for creating Atomic CSS, a collection of single purpose styling units for maximum reuse",
+    "main": "./src/atomizer.js",
+    "typings": "./index.d.ts",
+    "contributors": [
+        {
+            "name": "Renato Iwashima",
+            "email": "renatoi@yahooinc.com"
+        },
+        {
+            "name": "Steve Carlson",
+            "email": "yasteve@yahooinc.com"
+        },
+        {
+            "name": "Thierry Koblentz",
+            "email": "thierryk@yahooinc.com"
+        }
+    ],
+    "files": [
+        "bin",
+        "src",
+        "*.d.ts"
+    ],
+    "scripts": {
+        "lint": "eslint --ext .js .",
+        "lint:fix": "eslint --ext .js . --fix",
+        "test": "jest tests/"
     },
-    {
-      "name": "Steve Carlson",
-      "email": "yasteve@yahooinc.com"
+    "bin": {
+        "atomizer": "./bin/atomizer"
     },
-    {
-      "name": "Thierry Koblentz",
-      "email": "thierryk@yahooinc.com"
-    }
-  ],
-  "files": [
-    "bin",
-    "src",
-    "*.d.ts"
-  ],
-  "scripts": {
-    "lint": "eslint --ext .js .",
-    "lint:fix": "eslint --ext .js . --fix",
-    "test": "jest tests/"
-  },
-  "bin": {
-    "atomizer": "./bin/atomizer"
-  },
-  "engines": {
-    "node": ">=10.0"
-  },
-  "preferGlobal": true,
-  "dependencies": {
-    "chalk": "^4.0.0",
-    "chokidar": "^3.5.3",
-    "commander": "^9.0.0",
-    "glob": "^8.0.3",
-    "lodash": "^4.17.21",
-    "minimatch": "^4.1.1",
-    "xregexp": "^5.1.0"
-  },
-  "repository": {
-    "directory": "packages/atomizer",
-    "type": "git",
-    "url": "git://github.com/acss-io/atomizer.git"
-  },
-  "keywords": [
-    "atomic",
-    "atomize",
-    "atomizer",
-    "atomizr",
-    "css"
-  ],
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/acss-io/atomizer/issues"
-  },
-  "homepage": "https://github.com/acss-io/atomizer"
+    "engines": {
+        "node": ">=10.0"
+    },
+    "preferGlobal": true,
+    "dependencies": {
+        "chalk": "^4.0.0",
+        "chokidar": "^3.5.3",
+        "commander": "^9.0.0",
+        "glob": "^8.0.3",
+        "lodash": "^4.17.21",
+        "minimatch": "^4.1.1",
+        "xregexp": "^5.1.0"
+    },
+    "repository": {
+        "directory": "packages/atomizer",
+        "type": "git",
+        "url": "git://github.com/acss-io/atomizer.git"
+    },
+    "keywords": [
+        "atomic",
+        "atomize",
+        "atomizer",
+        "atomizr",
+        "css"
+    ],
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/acss-io/atomizer/issues"
+    },
+    "homepage": "https://github.com/acss-io/atomizer"
 }
