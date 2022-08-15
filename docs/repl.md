@@ -9,7 +9,7 @@ title: Hello world - REPL
 
 <div class="Bgc(#383838)">
     <div class="D(f) Ai(c) Jc(sb) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm Pstart(10px) Pstart(0)--lg">
-        <h1 class="D(n)--xs M(0) Mb(-3px) Lh(0) Fz(16px) C(#ccc)">Hello world RPEL</h1>
+        <h1 class="D(n)--xs M(0) Mb(-3px) Lh(0) Fz(16px) C(#eee)">Hello world</h1>
         {% include search.html %}
         <ul class="D(f) M(0)">
             <li class="Mend(20px)--sm">
@@ -74,6 +74,7 @@ title: Hello world - REPL
         </div>
     </div>
     <div style="flex: 1 1 auto">
+        <div id="message" class="D(n) Pos(a) W(100%) Bxz(bb) Px(5px) Py(10px) Bgc(#da101b) C(#fff)"></div>
         <iframe id="preview" class="Bd(n) W(100%) H(100%) Ovx(s)"></iframe>
     </div>
 </div>

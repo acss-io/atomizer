@@ -8,10 +8,14 @@ import Atomizer from 'atomizer';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
+// message container
+const message = document.getElementById('message');
+
 const markup = document.getElementById('markup');
 const markupEditor = CodeMirror.fromTextArea(markup, {
     htmlMode: true,
     indentUnit: 4,
+    lineNumbers: true,
     lineWrapping: true,
     mode : 'xml',
     theme: 'material-darker'
@@ -31,6 +35,7 @@ cssEditor.setSize('100%', '100%');
 const config = document.getElementById('config');
 const configEditor = CodeMirror.fromTextArea(config, {
     indentUnit: 4,
+    lineNumbers: true,
     lineWrapping: true,
     mode: 'javascript',
     theme: 'material-darker',
@@ -40,7 +45,17 @@ configEditor.setSize('100%', '100%');
 function updatePreview() {
     // get css from atomizer
     const atomizer = new Atomizer();
-    const config = JSON.parse(configEditor.getValue());
+    let config;
+
+    // error handling
+    message.classList.add('D(n)');
+    try {
+        config = JSON.parse(configEditor.getValue());
+    } catch (e) {
+        message.innerText = e.message.replace('\n', '');
+        message.classList.toggle('D(n)');
+        return;
+    }
     const foundClasses = atomizer.findClassNames(markupEditor.getValue());
     const finalConfig = atomizer.getConfig(foundClasses, config);
     const acss = atomizer.getCss(finalConfig);
