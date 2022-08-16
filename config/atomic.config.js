@@ -16,7 +16,7 @@ module.exports = {
         gridContent: 'c',
         gridHeader: 'a',
         gridNav: 'b',
-        gridABC:`"a a a"
+        gridABC: `"a a a"
                  "b c c"
                  "b c c"`,
         gridABCUnit: `"a a a" 40px
@@ -30,7 +30,8 @@ module.exports = {
         replBorder: '2px solid #1a1821',
         rowOneFixed: '[col1] 100px [col1-end] repeat(auto-fit, [line3] 200px)',
         spanTwo: 'span 2',
-        twoColNamedGrid: '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
+        twoColNamedGrid:
+            '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
         threeColEvenGrid: 'repeat(3, minmax(20px, 1fr))',
         tocEnd: 'max(0px,calc(50% - 40rem))',
         'Fz(RWD-fontSize)': {
@@ -40,6 +41,6 @@ module.exports = {
             lg: '55px',
         },
         'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
-        twoCol: '1 / span 2'
+        twoCol: '1 / span 2',
     },
 };

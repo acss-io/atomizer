@@ -47,67 +47,71 @@ const sortKeys = (obj) =>
             return acc;
         }, {});
 const alignItems = {
-    'n': 'normal',
-    'st': 'stretch',
+    n: 'normal',
+    st: 'stretch',
     ...baselinePosition,
-    ...selfPosition
+    ...selfPosition,
 };
 const justifyItems = {
-    'n': 'normal',
-    'l': 'left',
-    'r': 'right',
-    's': 'stretch', // backwards compat
+    n: 'normal',
+    l: 'left',
+    r: 'right',
+    s: 'stretch', // backwards compat
     ...baselinePosition,
-    ...selfPosition
+    ...selfPosition,
 };
 module.exports = [
     // align-items (previously flex-item-align)
     // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
     // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
     {
-        'type': 'pattern',
-        'name': 'Align items',
-        'matcher': 'Ai',
-        'allowParamToValue': false,
-        'styles': {
-            'align-items': '$0'
+        type: 'pattern',
+        name: 'Align items',
+        matcher: 'Ai',
+        allowParamToValue: false,
+        styles: {
+            'align-items': '$0',
         },
-        'arguments': [sortKeys({ ...alignItems })]
+        arguments: [sortKeys({ ...alignItems })],
     },
     // align-content (previously flex-line-pack)
     // Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
     // Previous version: http://www.w3.org/TR/css3-flexbox/#align-content-property
     // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-content
     {
-        'type': 'pattern',
-        'name': 'Align content',
-        'matcher': 'Ac',
-        'allowParamToValue': false,
-        'styles': {
-            'align-content': '$0'
+        type: 'pattern',
+        name: 'Align content',
+        matcher: 'Ac',
+        allowParamToValue: false,
+        styles: {
+            'align-content': '$0',
         },
-        'arguments': [sortKeys({
-            'n': 'normal',
-            ...baselinePosition,
-            ...contentDistribution,
-            ...contentPosition
-        })]
+        arguments: [
+            sortKeys({
+                n: 'normal',
+                ...baselinePosition,
+                ...contentDistribution,
+                ...contentPosition,
+            }),
+        ],
     },
     // align-self (previously flex-align)
     // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
     // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-self
     {
-        'type': 'pattern',
-        'name': 'Align self',
-        'matcher': 'As',
-        'allowParamToValue': false,
-        'styles': {
-            'align-self': '$0'
+        type: 'pattern',
+        name: 'Align self',
+        matcher: 'As',
+        allowParamToValue: false,
+        styles: {
+            'align-self': '$0',
         },
-        'arguments': [sortKeys({
-            ...alignItems,
-            'a' : 'auto' 
-        })]
+        arguments: [
+            sortKeys({
+                ...alignItems,
+                a: 'auto',
+            }),
+        ],
     },
     /**
     ==================================================================
@@ -1304,9 +1308,12 @@ module.exports = [
                 n: 'none',
                 b: 'block',
                 f: 'flex',
-                if: 'inline-flex',
+                f: 'flex',
+                g: 'grid',
                 i: 'inline',
                 ib: 'inline-block',
+                if: 'inline-flex',
+                ig: 'inline-grid',
                 tb: 'table',
                 tbr: 'table-row',
                 tbc: 'table-cell',
@@ -1634,156 +1641,162 @@ module.exports = [
     */
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-area
     {
-        'type': 'pattern',
-        'name': 'Grid Area',
-        'matcher': 'Ga',
-        'allowParamToValue': false,
-        'styles': {
-            'grid-area': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Area',
+        matcher: 'Ga',
+        allowParamToValue: false,
+        styles: {
+            'grid-area': '$0',
+        },
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-auto-columns
     {
-        'type': 'pattern',
-        'name': 'Grid Auto Columns',
-        'matcher': 'Gac',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-auto-columns': '$0'
+        type: 'pattern',
+        name: 'Grid Auto Columns',
+        matcher: 'Gac',
+        allowParamToValue: true,
+        styles: {
+            'grid-auto-columns': '$0',
         },
-        'arguments': [{
-            'a': 'auto',
-            'mc': 'min-content',
-            'ma': 'max-content',
-        }]
+        arguments: [
+            {
+                a: 'auto',
+                mc: 'min-content',
+                ma: 'max-content',
+            },
+        ],
     },
     // https://www.w3.org/TR/css-grid-1/#auto-placement
     {
-        'type': 'pattern',
-        'name': 'Grid Auto Flow',
-        'matcher': 'Gaf',
-        'allowParamToValue': false,
-        'styles': {
-            'grid-auto-flow': '$0'
+        type: 'pattern',
+        name: 'Grid Auto Flow',
+        matcher: 'Gaf',
+        allowParamToValue: false,
+        styles: {
+            'grid-auto-flow': '$0',
         },
-        'arguments': [{
-            'c': 'column',
-            'd': 'dense',
-            'cd': 'column dense',
-            'r': 'row', 
-            'rd': 'row dense'
-        }]
+        arguments: [
+            {
+                c: 'column',
+                d: 'dense',
+                cd: 'column dense',
+                r: 'row',
+                rd: 'row dense',
+            },
+        ],
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-auto-rows
     {
-        'type': 'pattern',
-        'name': 'Grid Auto Rows',
-        'matcher': 'Gar',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-auto-rows': '$0'
+        type: 'pattern',
+        name: 'Grid Auto Rows',
+        matcher: 'Gar',
+        allowParamToValue: true,
+        styles: {
+            'grid-auto-rows': '$0',
         },
-        'arguments': [{
-            'a': 'auto',
-            'mc': 'min-content',
-            'ma': 'max-content',
-        }]
+        arguments: [
+            {
+                a: 'auto',
+                mc: 'min-content',
+                ma: 'max-content',
+            },
+        ],
     },
     // https://www.w3.org/TR/css-grid-1/#line-placement
     {
-        'type': 'pattern',
-        'name': 'Grid Column',
-        'matcher': 'Gc',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-column': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Column',
+        matcher: 'Gc',
+        allowParamToValue: true,
+        styles: {
+            'grid-column': '$0',
+        },
     },
     {
-        'type': 'pattern',
-        'name': 'Grid Column End',
-        'matcher': 'Gce',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-column-end': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Column End',
+        matcher: 'Gce',
+        allowParamToValue: true,
+        styles: {
+            'grid-column-end': '$0',
+        },
     },
     {
-        'type': 'pattern',
-        'name': 'Grid Column Start',
-        'matcher': 'Gcs',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-column-start': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Column Start',
+        matcher: 'Gcs',
+        allowParamToValue: true,
+        styles: {
+            'grid-column-start': '$0',
+        },
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-row
     {
-        'type': 'pattern',
-        'name': 'Grid Row',
-        'matcher': 'Gr',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-row': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Row',
+        matcher: 'Gr',
+        allowParamToValue: true,
+        styles: {
+            'grid-row': '$0',
+        },
     },
     {
-        'type': 'pattern',
-        'name': 'Grid Row End',
-        'matcher': 'Gre',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-row-end': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Row End',
+        matcher: 'Gre',
+        allowParamToValue: true,
+        styles: {
+            'grid-row-end': '$0',
+        },
     },
     {
-        'type': 'pattern',
-        'name': 'Grid Row Start',
-        'matcher': 'Grs',
-        'allowParamToValue': true,
-        'styles': {
-            'grid-row-start': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Row Start',
+        matcher: 'Grs',
+        allowParamToValue: true,
+        styles: {
+            'grid-row-start': '$0',
+        },
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-template
     {
-        'type': 'pattern',
-        'name': 'Grid Template',
-        'matcher': 'Gt',
-        'allowParamToValue': false,
-        'styles': {
-            'grid-template': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Template',
+        matcher: 'Gt',
+        allowParamToValue: false,
+        styles: {
+            'grid-template': '$0',
+        },
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-template-areas
     {
-        'type': 'pattern',
-        'name': 'Grid Template Areas',
-        'matcher': 'Gta',
-        'allowParamToValue': false,
-        'styles': {
-            'grid-template-areas': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Template Areas',
+        matcher: 'Gta',
+        allowParamToValue: false,
+        styles: {
+            'grid-template-areas': '$0',
+        },
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-template-columns
     {
-        'type': 'pattern',
-        'name': 'Grid Template Columns',
-        'matcher': 'Gtc',
-        'allowParamToValue': false,
-        'styles': {
-            'grid-template-columns': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Template Columns',
+        matcher: 'Gtc',
+        allowParamToValue: false,
+        styles: {
+            'grid-template-columns': '$0',
+        },
     },
     // https://www.w3.org/TR/css-grid-1/#propdef-grid-template-rows
     {
-        'type': 'pattern',
-        'name': 'Grid Template Rows',
-        'matcher': 'Gtr',
-        'allowParamToValue': false,
-        'styles': {
-            'grid-template-rows': '$0'
-        }
+        type: 'pattern',
+        name: 'Grid Template Rows',
+        matcher: 'Gtr',
+        allowParamToValue: false,
+        styles: {
+            'grid-template-rows': '$0',
+        },
     },
     // order (previously flex-order)
     // Previous version: http://www.w3.org/TR/2012/WD-css3-flexbox-20120322/#flex-order
@@ -1820,27 +1833,29 @@ module.exports = [
     // Previous version: http://www.w3.org/TR/css3-flexbox/#justify-items-property
     // Latest version: https://www.w3.org/TR/css-align-3/#propdef-justify-items
     {
-        'type': 'pattern',
-        'name': 'Justify items',
-        'matcher': 'Ji',
-        'allowParamToValue': false,
-        'styles': {
-            'justify-items': '$0'
+        type: 'pattern',
+        name: 'Justify items',
+        matcher: 'Ji',
+        allowParamToValue: false,
+        styles: {
+            'justify-items': '$0',
         },
-        'arguments': [sortKeys({...justifyItems})]
+        arguments: [sortKeys({ ...justifyItems })],
     },
     {
-        'type': 'pattern',
-        'name': 'Justify self',
-        'matcher': 'Js',
-        'allowParamToValue': false,
-        'styles': {
-            'justify-self': '$0'
+        type: 'pattern',
+        name: 'Justify self',
+        matcher: 'Js',
+        allowParamToValue: false,
+        styles: {
+            'justify-self': '$0',
         },
-        'arguments': [sortKeys({
-            ...justifyItems,
-            'a' : 'auto' 
-        })]
+        arguments: [
+            sortKeys({
+                ...justifyItems,
+                a: 'auto',
+            }),
+        ],
     },
     // flex-wrap
     {
