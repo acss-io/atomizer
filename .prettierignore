@@ -16,8 +16,9 @@ docs/**/*.html
 # examples
 examples/bundle.js
 examples/**/*.css
+
 # required for inline-block
-examples/grid.html
+examples/layout.html
 
 # grunt test files
 packages/grunt-atomizer/test/
