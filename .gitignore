@@ -3,6 +3,7 @@ node_modules/
 
 # build files
 dist/
+scripts/*.sh
 
 # test artifacts
 artifacts/
