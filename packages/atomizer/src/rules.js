@@ -1655,7 +1655,6 @@ module.exports = [
                 n: 'normal',
                 l: 'left',
                 r: 'right',
-                s: 'stretch', // backwards compat
                 ...contentDistribution,
                 ...contentPosition,
             }),
