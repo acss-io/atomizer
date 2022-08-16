@@ -45,7 +45,7 @@ The default `width` of these helpers is `1px` as it is the most common use case.
 -   create a custom class via config, for example: `Bd(myCustomBorder)`
 -   use <strong>the same helper classes</strong> with [different values](helper-classes.htmlthe-special-case-of-border-)
 
-<p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/acss-io/atomizer/blob/master/src/rules.js#L289).</p>
+<p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/acss-io/atomizer/blob/main/src/rules.js#L289).</p>
 
 ## `BfcHack` (Block-formatting context)
 

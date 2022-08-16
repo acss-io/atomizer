@@ -118,6 +118,6 @@ We have [wiki](https://github.com/acss-io/atomizer/wiki) docs for contributors w
 
 This software is free to use under the Yahoo Inc. BSD license. See the [LICENSE file][] for license text and copyright information.
 
-[license file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
+[license file]: https://github.com/acss-io/atomizer/blob/main/LICENSE.md
 
-Third-party open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/master/package.json).
+Third-party open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/main/package.json).

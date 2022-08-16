@@ -173,9 +173,9 @@ Examples:
 
 2. Configuration: This is the actual source of truth for Atomizer when creating the CSS. It is a simple JS object containing 4 keys: `custom`, `breakPoints`, `classNames`, and `exclude`. The configuration file will come from the consumer of atomizer. It can be manually passed, automatically generated after scanning files or a mix of both (e.g. Manually create a config file, define some custom classes, and let the tool find the classes in my project and merge the results in a final config output). Please note that classes defined in `custom` won't be generated in the final CSS unless they are **used** (passed in `classNames`). Please see example config file as it contains useful comments to understand what each key does.
 
-Example: https://github.com/yahoo/atomizer/blob/master/examples/config/atomizer.js
+Example: https://github.com/yahoo/atomizer/blob/main/examples/config/atomizer.js
 
-[bsd license]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
+[bsd license]: https://github.com/acss-io/atomizer/blob/main/LICENSE.md
 [monorepo]: https://en.wikipedia.org/wiki/Monorepo
 [support]: https://acss.io/support.html
 [workspaces]: https://docs.npmjs.com/cli/v8/using-npm/workspaces

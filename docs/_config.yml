@@ -9,7 +9,7 @@ defaults:
           path: ''
           type: 'pages'
       values:
-          githubDocsPath: 'https://github.com/acss-io/atomizer/tree/master/docs/'
+          githubDocsPath: 'https://github.com/acss-io/atomizer/tree/main/docs/'
           toc: true
 plugins:
     - jekyll-seo-tag

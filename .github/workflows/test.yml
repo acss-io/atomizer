@@ -2,9 +2,9 @@ name: Testing
 
 on:
     push:
-        branches: [master]
+        branches: [main]
     pull_request:
-        branches: [master]
+        branches: [main]
 
 jobs:
     test:
@@ -34,7 +34,7 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-gems-
             - name: Deploy
-              if: ${{ github.ref == 'refs/heads/master' }}
+              if: ${{ github.ref == 'refs/heads/main' }}
               uses: helaili/jekyll-action@v2
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}

@@ -14,10 +14,10 @@ This is a monorepo of the various Atomizer ecosystem packages.
 
 ### Plugins
 
--   Grunt : [grunt-atomizer](https://github.com/acss-io/atomizer/tree/master/packages/grunt-atomizer)
+-   Grunt : [grunt-atomizer](https://github.com/acss-io/atomizer/tree/main/packages/grunt-atomizer)
 -   Gulp : [gulp-atomizer](https://github.com/acss-io/gulp-atomizer)
 -   Metalsmith : [metalsmith-atomizer](https://github.com/tests-always-included/metalsmith-atomizer)
--   Webpack : [webpack-atomizer-loader](https://github.com/acss-io/atomizer/tree/master/packages/webpack-atomizer-loader)
+-   Webpack : [webpack-atomizer-loader](https://github.com/acss-io/atomizer/tree/main/packages/webpack-atomizer-loader)
 -   Boot-clj : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
 -   Ember : [ember-cli-atomizer](https://github.com/nag5000/ember-cli-atomizer)
 
@@ -36,12 +36,12 @@ This is a monorepo of the various Atomizer ecosystem packages.
 
 ## Contributing
 
-Please read through our [CONTRIBUTING.md](https://github.com/acss-io/atomizer/blob/master/CONTRIBUTING.md) and fill out an issue at [atomizer/issues](https://github.com/acss-io/atomizer/issues/new)!
+Please read through our [CONTRIBUTING.md](https://github.com/acss-io/atomizer/blob/main/CONTRIBUTING.md) and fill out an issue at [atomizer/issues](https://github.com/acss-io/atomizer/issues/new)!
 
 ## License
 
 This software is free to use under the Yahoo Inc. BSD license. See the [LICENSE file][] for license text and copyright information.
 
-[license file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
+[license file]: https://github.com/acss-io/atomizer/blob/main/LICENSE.md
 
-Third-party open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/master/package.json).
+Third-party open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/main/package.json).

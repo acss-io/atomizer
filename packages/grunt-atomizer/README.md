@@ -14,7 +14,7 @@ npm install grunt-atomizer --save-dev
 
 ### Options
 
-None of the options are required. Make sure you understand [atomic configs](https://github.com/acss-io/atomizer/blob/master/examples/example-config.js) in order to properly use the config options below.
+None of the options are required. Make sure you understand [atomic configs](https://github.com/acss-io/atomizer/blob/main/examples/example-config.js) in order to properly use the config options below.
 
 #### options.cache
 
@@ -148,6 +148,6 @@ atomizer: {
 
 This software is free to use under the Yahoo! Inc. BSD license. See the [LICENSE file][] for license text and copyright information.
 
-[license file]: https://github.com/acss-io/atomizer/blob/master/LICENSE.md
+[license file]: https://github.com/acss-io/atomizer/blob/main/LICENSE.md
 
-Third-pary open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/master/package.json).
+Third-pary open source code used are listed in our [package.json file](https://github.com/acss-io/atomizer/blob/main/package.json).

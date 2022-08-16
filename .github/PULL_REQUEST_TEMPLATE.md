@@ -29,5 +29,5 @@ What types of changes does your code introduce? Put an x in all the boxes that a
 Review the following points, and put an x in all the boxes that apply. If you’re unsure about any of these, don’t hesitate to ask. We’re here to help!
 
 -   [ ] I have updated the documentation accordingly.
--   [ ] I have read the [CONTRIBUTING](https://github.com/acss-io/atomizer/blob/master/CONTRIBUTING.md) document.
+-   [ ] I have read the [CONTRIBUTING](https://github.com/acss-io/atomizer/blob/main/CONTRIBUTING.md) document.
 -   [ ] I have added tests to cover my changes.
