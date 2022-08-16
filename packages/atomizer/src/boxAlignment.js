@@ -15,6 +15,6 @@ module.exports = {
         e: 'end',
         fe: 'flex-end',
         fs: 'flex-start',
-        s: 'start',
+        sta: 'start',
     },
 };
