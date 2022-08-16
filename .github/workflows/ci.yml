@@ -10,34 +10,34 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout Code
+            - name: Checkout code
               uses: actions/checkout@v3
-            - name: Setup Node
+            - name: Setup node
               uses: actions/setup-node@v3
               with:
                   node-version: 16
             - name: Install Dependencies
               run: npm install
-            - name: Lint Code
+            - name: Lint code
               run: npm run lint
-            - name: Format Code
+            - name: Format code
               run: npm run format
-            - name: Build Code
+            - name: Build code
               run: npm run build
-            - name: Test Code
+            - name: Test code
               run: npm run test
     publish:
         runs-on: ubuntu-latest
         needs: [test]
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
         steps:
-            - name: Checkout Code
+            - name: Checkout code
               uses: actions/checkout@v3
-            - name: Setup Node
+            - name: Setup node
               uses: actions/setup-node@v3
               with:
                   node-version: 16
-            - name: Install Dependencies
+            - name: Install dependencies
               run: npm install
             - name: Publish
               id: changesets
@@ -63,7 +63,7 @@ jobs:
                   key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
                   restore-keys: |
                       ${{ runner.os }}-gems-
-            - name: Deploy to GitHub Pages
+            - name: Deploy to GitHub pages
               if: ${{ github.ref == 'refs/heads/main' }}
               uses: helaili/jekyll-action@v2
               with:
