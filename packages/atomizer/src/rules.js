@@ -1309,7 +1309,6 @@ module.exports = [
                 n: 'none',
                 b: 'block',
                 f: 'flex',
-                f: 'flex',
                 g: 'grid',
                 i: 'inline',
                 ib: 'inline-block',
