@@ -1,0 +1,72 @@
+name: CI
+
+on:
+    pull_request:
+        types: [opened, synchronize]
+    push:
+        branches: [main]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - name: Install Dependencies
+              run: npm install
+            - name: Lint Code
+              run: npm run lint
+            - name: Format Code
+              run: npm run format
+            - name: Build Code
+              run: npm run build
+            - name: Test Code
+              run: npm run test
+    publish:
+        runs-on: ubuntu-latest
+        needs: [test]
+        if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - name: Install dependencies
+              run: npm install
+            - name: Publish
+              id: changesets
+              uses: changesets/action@v1
+              with:
+                  version: npm run version
+                  publish: npm run publish
+                  commit: '[ci] publish'
+                  title: '[ci] publish'
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    site:
+        runs-on: ubuntu-latest
+        if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
+        steps:
+            - uses: actions/checkout@v2
+            # Use GitHub Actions' cache to shorten build times and decrease load on servers
+            - Name: Setup vendor cache
+              uses: actions/cache@v2
+              with:
+                  path: vendor/bundle
+                  key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
+                  restore-keys: |
+                      ${{ runner.os }}-gems-
+            - name: Deploy to GitHub Pages
+              if: ${{ github.ref == 'refs/heads/main' }}
+              uses: helaili/jekyll-action@v2
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  jekyll_src: 'docs'
+                  target_branch: 'gh-pages'
