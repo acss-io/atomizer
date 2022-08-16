@@ -109,7 +109,7 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
     <b class="Fw(b)">NOTE:</b> <code>justify-items</code> & <code>justify-self</code> only work in gird mode
 </p>
 
-### `justify-items` construct
+### `justify-items`
 
 <p>This property specifies the default <code>justify-self</code> for all of the child boxes (including anonymous boxes) participating in this box’s formatting context. Following example shows <code>Ji(st)</code>, <b class="Fw(b)">justify-content: space-evenly</b></p>
 
@@ -134,7 +134,7 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
     <div class="D(f) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-### `justify-self` construct
+### `justify-self`
 
 <p>Justifies the box (as the alignment subject) within its containing block (as the alignment container) along the inline/row/main axis of the alignment container: the box’s outer edges are aligned within its alignment container. Following example shows <code>Js(st)</code>, <b class="Fw(b)">justify-content: space-evenly</b></p>
 
