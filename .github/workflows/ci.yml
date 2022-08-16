@@ -10,9 +10,9 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout code
+            - name: Checkout Code
               uses: actions/checkout@v3
-            - name: Setup node
+            - name: Setup Node
               uses: actions/setup-node@v3
               with:
                   node-version: 16
@@ -31,13 +31,13 @@ jobs:
         needs: [test]
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
         steps:
-            - name: Checkout code
+            - name: Checkout Code
               uses: actions/checkout@v3
-            - name: Setup node
+            - name: Setup Node
               uses: actions/setup-node@v3
               with:
                   node-version: 16
-            - name: Install dependencies
+            - name: Install Dependencies
               run: npm install
             - name: Publish
               id: changesets
