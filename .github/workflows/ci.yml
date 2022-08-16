@@ -56,7 +56,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             # Use GitHub Actions' cache to shorten build times and decrease load on servers
-            - Name: Setup vendor cache
+            - name: Setup vendor cache
               uses: actions/cache@v2
               with:
                   path: vendor/bundle
