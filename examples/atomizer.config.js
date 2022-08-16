@@ -15,7 +15,7 @@ module.exports = {
         standardPadding: '10px',
         padding: '#{standardPadding} 5px #{standardPadding} 20px', // custom value substitution is supported via #{} syntax
         threeColGrid: 'repeat(3, minmax(20px, 1fr))',
-        twoCol: '1 / span 2'
+        twoCol: '1 / span 2',
     },
     // breakpoints define media queries and is used to contain the style of a class
     // only when that media query is active.

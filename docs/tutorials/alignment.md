@@ -114,6 +114,7 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
 <p>This property specifies the default <code>justify-self</code> for all of the child boxes (including anonymous boxes) participating in this box’s formatting context. Following example shows <code>Ji(st)</code>, <b class="Fw(b)">justify-content: space-evenly</b></p>
 
 {% highlight html %}
+
 <div class="D(g) Gtc(3) Ji(st) H(100px) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
     <div class="D(f) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
     <div class="D(f) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
@@ -138,6 +139,7 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
 <p>Justifies the box (as the alignment subject) within its containing block (as the alignment container) along the inline/row/main axis of the alignment container: the box’s outer edges are aligned within its alignment container. Following example shows <code>Js(st)</code>, <b class="Fw(b)">justify-content: space-evenly</b></p>
 
 {% highlight html %}
+
 <div class="D(g) Gtc(3) H(100px) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
     <div class="D(f) Ji(st) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
     <div class="D(f) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>

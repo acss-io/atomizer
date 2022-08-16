@@ -28,18 +28,18 @@ module.exports = {
         primaryFontColor: '#{brandColor}',
         replBorder: '2px solid #1a1821',
         rowOneFixed: '[col1] 100px [col1-end] repeat(auto-fit, [line3] 200px)',
-        'RWD-fontSize': {
+        spanTwo: 'span 2',
+        twoColNamedGrid:
+            '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
+        threeColEvenGrid: 'repeat(3, minmax(20px, 1fr))',
+        tocEnd: 'max(0px,calc(50% - 40rem))',
+        'Fz(RWD-fontSize)': {
             xs: '40px',
             sm: '19px',
             md: '28px',
             lg: '55px',
         },
-        spanTwo: 'span 2',
-        textShadowLight: '0 1px 0 rgba(0, 0, 0, 0.8)',
-        threeColEvenGrid: 'repeat(3, minmax(20px, 1fr))',
-        tocEnd: 'max(0px,calc(50% - 40rem))',
+        'Tsh(1)': '0 1px 0 rgba(0, 0, 0, 0.8)',
         twoCol: '1 / span 2',
-        twoColNamedGrid:
-            '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
     },
 };
