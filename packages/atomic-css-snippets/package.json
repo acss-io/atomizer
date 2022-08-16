@@ -2,7 +2,7 @@
     "name": "atomic-css-snippets",
     "displayName": "Atomic CSS Snippets",
     "description": "Provides quick suggestions for Atomic CSS class names",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "license": "MIT",
     "publisher": "acss-io",
     "devDependencies": {

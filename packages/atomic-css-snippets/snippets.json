@@ -6979,6 +6979,11 @@
         "body": ["As(c)"],
         "description": "As(c)"
     },
+    "As(e)": {
+        "prefix": "align-self: end",
+        "body": ["As(e)"],
+        "description": "As(e)"
+    },
     "As(fe)": {
         "prefix": "align-self: flex-end",
         "body": ["As(fe)"],
@@ -6993,6 +6998,11 @@
         "prefix": "align-self: normal",
         "body": ["As(n)"],
         "description": "As(n)"
+    },
+    "As(s)": {
+        "prefix": "align-self: start",
+        "body": ["As(s)"],
+        "description": "As(s)"
     },
     "As(se)": {
         "prefix": "align-self: self-end",
@@ -7154,6 +7164,11 @@
         "body": ["Ai(c)"],
         "description": "Ai(c)"
     },
+    "Ai(e)": {
+        "prefix": "align-items: end",
+        "body": ["Ai(e)"],
+        "description": "Ai(e)"
+    },
     "Ai(fe)": {
         "prefix": "align-items: flex-end",
         "body": ["Ai(fe)"],
@@ -7168,6 +7183,11 @@
         "prefix": "align-items: normal",
         "body": ["Ai(n)"],
         "description": "Ai(n)"
+    },
+    "Ai(s)": {
+        "prefix": "align-items: start",
+        "body": ["Ai(s)"],
+        "description": "Ai(s)"
     },
     "Ai(se)": {
         "prefix": "align-items: self-end",
@@ -7199,6 +7219,11 @@
         "body": ["Ac(c)"],
         "description": "Ac(c)"
     },
+    "Ac(e)": {
+        "prefix": "align-content: end",
+        "body": ["Ac(e)"],
+        "description": "Ac(e)"
+    },
     "Ac(fe)": {
         "prefix": "align-content: flex-end",
         "body": ["Ac(fe)"],
@@ -7213,6 +7238,11 @@
         "prefix": "align-content: normal",
         "body": ["Ac(n)"],
         "description": "Ac(n)"
+    },
+    "Ac(s)": {
+        "prefix": "align-content: start",
+        "body": ["Ac(s)"],
+        "description": "Ac(s)"
     },
     "Ac(sa)": {
         "prefix": "align-content: space-around",
@@ -7249,6 +7279,11 @@
         "body": ["Jc(c)"],
         "description": "Jc(c)"
     },
+    "Jc(e)": {
+        "prefix": "justify-content: end",
+        "body": ["Jc(e)"],
+        "description": "Jc(e)"
+    },
     "Jc(fe)": {
         "prefix": "justify-content: flex-end",
         "body": ["Jc(fe)"],
@@ -7275,7 +7310,7 @@
         "description": "Jc(r)"
     },
     "Jc(s)": {
-        "prefix": "justify-content: stretch",
+        "prefix": "justify-content: start",
         "body": ["Jc(s)"],
         "description": "Jc(s)"
     },
