@@ -1,5 +1,6 @@
 {
     "name": "atomic-css-snippets",
+    "private": true,
     "displayName": "Atomic CSS Snippets",
     "description": "Provides quick suggestions for Atomic CSS class names",
     "version": "1.0.6",
