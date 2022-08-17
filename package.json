@@ -22,12 +22,12 @@
         }
     ],
     "scripts": {
-        "atomizer:docs": "atomizer --quiet -R -c ./config/atomic.config.js -o ./app/assets/css/atomic.css ./app/components/ ./app/assets/js/ ./docs/",
+        "atomizer:docs": "atomizer --quiet -R -o ./app/assets/css/atomic.css",
         "atomizer:examples": "atomizer --quiet -R -c ./examples/atomizer.config.js -o ./examples/css/atomic.css",
         "build": "npm run build:docs && npm run build --workspaces --if-present",
         "build:docs": "npm run atomizer:docs && npm run postcss && npm run webpack:prod",
         "build:index": "node scripts/buildSearch.mjs",
-        "dev": "concurrently \"npm run atomizer:docs -- -w ./app/components/ -w ./app/assets/js/ -w ./docs/\" \"npm run postcss -- -w\" \"npm run webpack:dev\" \"docker compose up\"",
+        "dev": "concurrently \"npm run atomizer:docs -- -w\" \"npm run postcss -- -w\" \"npm run webpack:dev\" \"docker compose up\"",
         "examples": "concurrently \"npm run atomizer:examples\" \"live-server examples --wait 500\"",
         "format": "prettier . --check",
         "format:fix": "prettier . --write",
