@@ -242,4 +242,4 @@ breakPoints: {
 
 <hr>
 
-<p class="Ta(c)"><a class="M(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#0280ae.8) Bdrs(2px) Bxsh(light) Tsh(1) Fw(b) Td(n):h" href="quick-start.html">Get Started</a></p>
+<p class="Ta(c)"><a class="M(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#0280ae.8) Bdrs(2px) Bxsh(boxShadowLight) Tsh(textShadowLight) Fw(b) Td(n):h" href="quick-start.html">Get Started</a></p>
