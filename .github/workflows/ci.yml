@@ -56,7 +56,7 @@ jobs:
               continue-on-error: true
               run: |
                   npm run package -w atomic-css-snippets
-                  npm run publish -w atomic-css-snippets
+                  npm run deploy -w atomic-css-snippets
               env:
                   VSCE_PAT: ${{ secrets.VSCE_PAT }}
     site:
