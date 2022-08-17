@@ -35,7 +35,9 @@
         "postcss": "postcss app/assets/css/main.css -o docs/assets/css/main.css",
         "postbuild:docs": "npm run build:index",
         "predev": "npm run build:index",
+        "publish": "changeset publish",
         "test": "npm run test --workspaces --if-present",
+        "version": "changeset version",
         "webpack:dev": "webpack --config webpack.config.js --config-name dev",
         "webpack:prod": "webpack --config webpack.config.js --config-name prod"
     },

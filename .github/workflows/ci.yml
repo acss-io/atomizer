@@ -39,6 +39,8 @@ jobs:
                   node-version: 16
             - name: Install dependencies
               run: npm install
+            - name: Build code
+              run: npm run build
             - name: Publish
               id: changesets
               uses: changesets/action@v1
