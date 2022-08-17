@@ -69,7 +69,7 @@ jobs:
             - name: Publish extension
               run: |
                   npm run package -w atomic-css-snippets
-                  npm run publish -w atomic-css-snippets
+                  npm run publish -w atomic-css-snippets -- -p ${{ secrets.VS_MARKETPLACE_TOKEN }}
               env:
                   VSCE_PAT: ${{ secrets.VS_MARKETPLACE_TOKEN }}
     site:
