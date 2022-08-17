@@ -1,13 +1,13 @@
 {
     "name": "atomic-css-snippets",
-    "private": true,
     "displayName": "Atomic CSS Snippets",
     "description": "Provides quick suggestions for Atomic CSS class names",
     "version": "1.0.6",
     "license": "MIT",
     "publisher": "acss-io",
     "devDependencies": {
-        "atomizer": "^3.15.0"
+        "atomizer": "^3.15.0",
+        "vsce": "^2.10.0"
     },
     "repository": {
         "directory": "packages/atomic-css-snippets",
@@ -15,7 +15,9 @@
         "url": "git://github.com/acss-io/atomizer.git"
     },
     "scripts": {
-        "build": "node scripts/generate-snippets.js > snippets.json"
+        "build": "node scripts/generate-snippets.js > snippets.json",
+        "package": "vsce package --no-dependencies",
+        "publish": "vsce publish --no-dependencies"
     },
     "engines": {
         "vscode": "^1.60.0"

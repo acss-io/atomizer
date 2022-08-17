@@ -29,6 +29,7 @@ vendor/bundle
 .DS_Store
 
 # atomic-css-snippets
+snippets.json
 *.vsix
 
 # webpack-atomizer-loader

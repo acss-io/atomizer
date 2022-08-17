@@ -41,7 +41,7 @@ jobs:
               run: npm install
             - name: Build code
               run: npm run build
-            - name: Publish
+            - name: Publish to npm
               id: changesets
               uses: changesets/action@v1
               with:
@@ -52,6 +52,13 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+            - name: Publish VSCode extension
+              continue-on-error: true
+              run: |
+                  npm run package -w atomic-css-snippets
+                  npm run publish -w atomic-css-snippets
+              env:
+                  VSCE_PAT: ${{ secrets.VSCE_PAT }}
     site:
         runs-on: ubuntu-latest
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"

@@ -79,7 +79,7 @@ If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pas
 -   **Default**: `undefined`
 -   **Required**: `false`
 
-An `array` of objects which define the named arguments for the class. The `arguments` array defines one or many `objects`. The `styles` object defines the `key` as the CSS property name and the value as tokens (`$0`) that will be replaced by the corresponding argument object index.
+An `array` of objects used to specify predefined values for the class. Each index in the `array` maps to the arguments passed. For each object, keys are names given to the predefined values and values are the CSS values of the predefined value. The `styles` object defines the `key` as the CSS property name and the value as tokens (`$0`) that will be replaced by the corresponding argument object index.
 
 In the following example, the first argument `object` in the `array`, would replace the `$0` token in the `font-style` property.
 
@@ -206,7 +206,7 @@ A `URL` used by the <a href="../reference.html">Reference</a> page for helpers t
 -   **Default**: `undefined`
 -   **Required**: `true`
 
-A unique class name for the rule. This **MUST** be unique to avoid conflicts with Atomizer class names.
+The portion of the CSS class that maps to the unique identification of the class. This **MUST** be unique to avoid conflicts with Atomizer class names.
 
 ### name
 
@@ -214,7 +214,7 @@ A unique class name for the rule. This **MUST** be unique to avoid conflicts wit
 -   **Default**: `undefined`
 -   **Required**: `false`
 
-Used internally by Atomizer for documentation purposes.
+Name of the rule/helper. Used internally by Atomizer for documentation purposes.
 
 ### noParams
 
@@ -292,7 +292,7 @@ Whether or not the rule is a [shorthand](https://developer.mozilla.org/en-US/doc
 -   **Default**: `undefined`
 -   **Required**: `true`
 
-Defines the CSS key value properties used by the class name. Multiple properties can be specified depending on the purpose of the custom class or helper.
+A CSS object where keys are CSS properties and values are CSS values. If a param is used you can retrieve it using `$<index>`. Multiple properties can be specified depending on the purpose of the custom class or helper.
 
 ```js
 {
