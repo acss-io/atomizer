@@ -288,7 +288,7 @@ Atomizer.prototype.parseConfig = function (config /*:AtomizerConfig*/, options /
                 if (matchVal.groups.hex) {
                     if (matchVal.groups.hex !== matchVal.groups.hex.toLowerCase()) {
                         console.warn(
-                            `Warning: Only lowercase hex digits are accepted. No rules will be generated for \`${matchVal.groups.input}\``
+                            `Warning: Only lowercase hex digits are accepted. No rules will be generated for \`${matchVal.groups.hex}\``
                         );
                         value = null;
                     } else if (matchVal.groups.alpha) {
