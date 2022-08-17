@@ -66,12 +66,12 @@ jobs:
               run: npm install
             - name: Build code
               run: npm run build
-            - name: Publish code
+            - name: Publish extension
               run: |
                   npm run package -w atomic-css-snippets
                   npm run publish -w atomic-css-snippets
               env:
-                  VSCE_PAT: 'invalid' # ${{ secrets.VS_MARKETPLACE_TOKEN }}
+                  VSCE_PAT: ${{ secrets.VS_MARKETPLACE_TOKEN }}
     site:
         runs-on: ubuntu-latest
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
