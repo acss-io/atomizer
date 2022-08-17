@@ -109,12 +109,12 @@ createElement.classList.add('D(b)');
 
 Atomizer will only find statically written class names. Statically defined class names are easily parseable and do not require run-time execution or compilation to be parsed. In other words, avoid creating your Atomizer class names dynamically as they will not be parsed.
 
-In the example below, the strings `C(#ff0000)` and `C(#00FF00)` are dynamically created based on run time logic; Atomizer will not find the classes.
+In the example below, the strings `C(#ff0000)` and `C(#00ff00)` are dynamically created based on run time logic; Atomizer will not find the classes.
 
 {% raw %}
 
 ```jsx
-<div class="C(#{{ error ? 'ff0000' : '00FF00' }})"></div>
+<div class="C(#{{ error ? 'ff0000' : '00ff00' }})"></div>
 ```
 
 {% endraw %}
@@ -124,7 +124,7 @@ The correct way would be to make sure the complete string is written in the file
 {% raw %}
 
 ```html
-<div class="{{ error ? 'C(#ff0000)' : 'C(#00FF00)' }}"></div>
+<div class="{{ error ? 'C(#ff0000)' : 'C(#00ff00)' }}"></div>
 ```
 
 {% endraw %}

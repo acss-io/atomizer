@@ -347,7 +347,7 @@ We took advantage of the fact that nobody seems to capitalize classes and that C
 
 To prevent redundancy, we made the choice to favor lowercase over uppercase, even though the latter is valid.
 
-This is because classes such as `C(#fff)` and `C(#FFF)` would not duplicate the declaration but would add an unnecessary selector to the style sheet.
+This is because hex classes such as `#fff` and `#FFF` would not duplicate the declaration, but would add an unnecessary selector to the style sheet.
 
 ### Why are &quot;descendant classes&quot; not relying on the namespace? Why are those styles using `!important`?
 
