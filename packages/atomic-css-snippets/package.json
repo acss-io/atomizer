@@ -5,7 +5,6 @@
     "version": "1.0.6",
     "license": "MIT",
     "publisher": "acss-io",
-    "main": "snippets.json",
     "devDependencies": {
         "atomizer": "^3.15.0"
     },
@@ -20,9 +19,6 @@
     "engines": {
         "vscode": "^1.60.0"
     },
-    "activationEvents": [
-        "*"
-    ],
     "categories": [
         "Snippets"
     ],
