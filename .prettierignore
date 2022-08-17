@@ -9,6 +9,7 @@ vendor/
 package-lock.json
 
 # docs
+app/assets/css/atomic.css
 docs/assets/
 docs/_site/
 docs/**/*.html
