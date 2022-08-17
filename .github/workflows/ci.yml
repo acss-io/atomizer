@@ -67,6 +67,7 @@ jobs:
             - name: Build code
               run: npm run build
             - name: Publish extension
+              continue-on-error: true
               run: |
                   npm run package -w atomic-css-snippets
                   npm run publish -w atomic-css-snippets
