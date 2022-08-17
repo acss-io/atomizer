@@ -6,7 +6,8 @@
     "license": "MIT",
     "publisher": "acss-io",
     "devDependencies": {
-        "atomizer": "^3.15.0"
+        "atomizer": "^3.15.0",
+        "vsce": "^2.10.0"
     },
     "repository": {
         "directory": "packages/atomic-css-snippets",
@@ -14,7 +15,9 @@
         "url": "git://github.com/acss-io/atomizer.git"
     },
     "scripts": {
-        "build": "node scripts/generate-snippets.js > snippets.json"
+        "build": "node scripts/generate-snippets.js > snippets.json",
+        "package": "vsce package --yarn",
+        "publish": "vsce publish --yarn"
     },
     "engines": {
         "vscode": "^1.60.0"
