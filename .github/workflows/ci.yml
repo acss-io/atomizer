@@ -72,7 +72,6 @@ jobs:
                   packagePath: 'packages/atomic-css-snippets'
                   pat: 'invalid' # ${{ secrets.VS_MARKETPLACE_TOKEN }}
                   registryUrl: https://marketplace.visualstudio.com
-                  yarn: true
     site:
         runs-on: ubuntu-latest
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
