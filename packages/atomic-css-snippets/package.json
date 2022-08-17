@@ -16,8 +16,8 @@
     },
     "scripts": {
         "build": "node scripts/generate-snippets.js > snippets.json",
-        "package": "vsce package --yarn",
-        "publish": "vsce publish --yarn"
+        "package": "vsce package --no-dependencies",
+        "publish": "vsce publish --no-dependencies"
     },
     "engines": {
         "vscode": "^1.60.0"
