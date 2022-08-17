@@ -69,9 +69,9 @@ jobs:
             - name: Publish extension
               run: |
                   npm run package -w atomic-css-snippets
-                  npm run publish -w atomic-css-snippets -- -p ${{ secrets.VS_MARKETPLACE_TOKEN }}
+                  npm run publish -w atomic-css-snippets -- -p ${{ secrets.VSCE_PAT }}
               env:
-                  VSCE_PAT: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+                  VSCE_PAT: ${{ secrets.VSCE_PAT }}
     site:
         runs-on: ubuntu-latest
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
