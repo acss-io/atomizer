@@ -41,7 +41,7 @@ jobs:
               run: npm install
             - name: Build code
               run: npm run build
-            - name: Publish
+            - name: Publish to npm
               id: changesets
               uses: changesets/action@v1
               with:
@@ -52,6 +52,27 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+    vscode:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+            - name: Install dependencies
+              run: npm install
+            - name: Build code
+              run: npm run build
+            - name: Publish to Visual Studio Marketplace
+              uses: HaaLeo/publish-vscode-extension@v1
+              with:
+                  dryRun: true
+                  packagePath: 'packages/atomic-css-snippets'
+                  pat: 'invalid' # ${{ secrets.VS_MARKETPLACE_TOKEN }}
+                  registryUrl: https://marketplace.visualstudio.com
+                  yarn: true
     site:
         runs-on: ubuntu-latest
         if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
