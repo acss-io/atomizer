@@ -52,21 +52,7 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-    vscode:
-        runs-on: ubuntu-latest
-        # if: steps.changesets.outputs.publishedPackages == 'true' && contains(steps.changesets.outputs.publishedPackages.*.name, 'atomizer')
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v3
-            - name: Setup node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 16
-            - name: Install dependencies
-              run: npm install
-            - name: Build code
-              run: npm run build
-            - name: Publish extension
+            - name: Publish VSCode extension
               continue-on-error: true
               run: |
                   npm run package -w atomic-css-snippets
