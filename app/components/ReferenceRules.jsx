@@ -206,7 +206,14 @@ const ReferenceRules = ({ store }) => {
         const displayclassDefinitions = `Ov(h) ${showRecipeBlock ? 'D(b)' : 'D(n)'}`;
 
         // automatically add link to MDN
-        const [property] = Object.keys(recipe.styles);
+        let [property] = Object.keys(recipe.styles);
+        // replace start and end tokens
+        if (property.includes('__START__')) {
+            property = property.replace('__START__', 'left');
+        }
+        if (property.includes('__END__')) {
+            property = property.replace('__END__', 'right');
+        }
         const mdnLink = `https://developer.mozilla.org/en-US/docs/Web/CSS/${property}`;
         const moreLink = (
             <a href={mdnLink} className="Op(0) logo:h_Op(1) Op(1):f Mstart(10px)" target="_blank" rel="noreferrer">
