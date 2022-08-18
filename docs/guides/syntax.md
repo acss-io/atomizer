@@ -141,7 +141,7 @@ A suffix mapped to a [pseudo-class](https://developer.mozilla.org/en-US/docs/Web
 -   `h` for `:hover`
 -   etc.
 
-<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in <a href="https://github.com/acss-io/atomizer/blob/main/src/lib/grammar.js#L6">Atomizer&#39;s grammar library</a>.</p>
+<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in <a href="https://github.com/acss-io/atomizer/blob/main/packages/atomizer/src/lib/grammar.js#L7">Atomizer&#39;s grammar library</a>.</p>
 
 Pseudo-classes may be applied to any regular class or &lt;context&gt; class. For example:
 
