@@ -1,0 +1,42 @@
+{
+    "name": "unplugin-atomizer",
+    "version": "1.0.0",
+    "description": "Atomizer plugin for esbuild, Rollup, Vite and Webpack",
+    "keywords": [
+        "atomizer",
+        "rollup",
+        "rollup-plugin",
+        "unplugin",
+        "vite",
+        "webpack"
+    ],
+    "homepage": "https://github.com/acss-io/atomizer#readme",
+    "bugs": {
+        "url": "https://github.com/acss-io/atomizer/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/acss-io/atomizer.git",
+        "directory": "packages/unplugin-atomizer"
+    },
+    "license": "BSD-3-Clause",
+    "author": "Seth Bertalotto <seth@bertalotto.net>",
+    "type": "module",
+    "exports": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "tsc -p tsconfig.json",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "dependencies": {
+        "atomizer": "^3.18.2",
+        "unplugin": "^0.9.3"
+    },
+    "engines": {
+        "node": ">=16.0",
+        "npm": ">=8.0"
+    }
+}
