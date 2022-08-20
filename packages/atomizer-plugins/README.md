@@ -1,6 +1,6 @@
 # atomizer-plugins
 
-Atomizer plugin for esbuild, Rollup, Vite and Webpack. This library leverages the [unplugin](https://github.com/unjs/unplugin) unified plugin system.
+Atomizer plugins for esbuild, Rollup, Vite and Webpack. This library leverages the [unplugin](https://github.com/unjs/unplugin) unified plugin system.
 
 ## Installation
 
@@ -16,9 +16,29 @@ See the [`Options`](src/types.ts) definition for the available options that each
 
 You can find a running example of each plugin in the `examples/` directory.
 
+### esbuild
+
+```js
+// esbuild.config.js
+import { build } from 'esbuild';
+import { esbuild } from 'atomizer-plugins';
+
+const atomizer = rollup({
+    /* options */
+    config: atomizerConfig,
+    outputFile: 'atomizer.css',
+});
+
+build({
+    // ... esbuild config
+    plugins: [atomizer],
+});
+```
+
 ### rollup
 
 ```js
+// rollup.config.js
 import { rollup } from 'atomizer-plugins';
 
 const atomizer = rollup({
@@ -36,6 +56,7 @@ export default {
 ### vite
 
 ```js
+// vite.config.ts
 import { vite } from 'atomizer-plugins';
 
 const atomizerPlugin = vite({
@@ -53,6 +74,7 @@ export default defineConfig(() => {
 ### webpack
 
 ```js
+// webpack.config.js
 import { webpack } from 'atomizer-plugins';
 
 const atomizer = webpack({
