@@ -1,0 +1,14 @@
+{
+    "name": "unplugin-atomizer-rollup",
+    "private": true,
+    "scripts": {
+        "dev": "rollup --config rollup.config.mjs --watch"
+    },
+    "devDependencies": {
+        "rollup": "2"
+    },
+    "engines": {
+        "node": ">=16.0",
+        "npm": ">=8.0"
+    }
+}

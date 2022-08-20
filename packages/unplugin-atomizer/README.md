@@ -12,20 +12,40 @@ Follow the usage section below depending on the library your project uses.
 
 ## Usage
 
-See the [`Options definition`](src/types.ts) for the available options that each plugin accepts.
+See the [`Options`](src/types.ts) definition for the available options that each plugin accepts.
+
+You can find a running example of each plugin in the `examples/` directory.
+
+### rollup
+
+```js
+import { rollup } from 'unplugin-atomizer';
+
+const atomizer = rollup({
+    /* options */
+    config: atomizerConfig,
+    outputFile: 'atomizer.css',
+});
+
+export default {
+    // ... rollup config
+    plugins: [atomizer],
+};
+```
 
 ### webpack
 
 ```js
 import { webpack } from 'unplugin-atomizer';
 
+const atomizer = webpack({
+    /* options */
+    config: atomizerConfig,
+    outputFile: 'atomizer.css',
+});
+
 export default {
-    plugins: [
-        webpack({
-            /* options */
-        }),
-    ],
+    // ... webpack config
+    plugins: [atomizer],
 };
 ```
-
-> A working example can be tested in the `examples/webpack` directory.
