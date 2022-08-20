@@ -1,5 +1,5 @@
 {
-    "name": "unplugin-atomizer-webpack",
+    "name": "atomizer-plugins-webpack",
     "private": true,
     "scripts": {
         "dev": "webpack watch"

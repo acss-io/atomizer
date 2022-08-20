@@ -1,4 +1,4 @@
-import { rollup } from 'unplugin-atomizer';
+import { rollup } from 'atomizer-plugins';
 import atomizerConfig from '../atomizer.config.mjs';
 
 const atomizer = rollup({

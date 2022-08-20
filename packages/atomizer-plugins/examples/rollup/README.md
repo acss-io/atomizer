@@ -1,4 +1,4 @@
-# unplugin-atomizer > rollup
+# atomizer-plugins > rollup
 
 ## Run the example
 
@@ -20,4 +20,4 @@ Rollup will run in `watch` mode and auto re-compile changes. Open the `index.htm
 
 -   `index.html` - HTML page to execute the bundled `dist/main.js` file
 -   `index.js` - Simulates creating HTML via JS with Atomizer CSS classes included
--   `rollup.config.mjs` - Rollup config using the `unplugin-atomizer` package
+-   `rollup.config.mjs` - Rollup config using the `atomizer-plugins` package

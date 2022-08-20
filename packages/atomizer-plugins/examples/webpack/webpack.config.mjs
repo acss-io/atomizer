@@ -1,6 +1,6 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { webpack } from 'unplugin-atomizer';
+import { webpack } from 'atomizer-plugins';
 import atomizerConfig from '../atomizer.config.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));

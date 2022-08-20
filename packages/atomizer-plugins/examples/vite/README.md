@@ -1,4 +1,4 @@
-# unplugin-atomizer > vite
+# atomizer-plugins > vite
 
 ## Run the example
 
@@ -21,4 +21,4 @@ Vite will run in `watch` mode and auto re-compile changes. Open the `index.html`
 
 -   `index.html` - HTML page to execute the Vite bundled assets
 -   `index.js` - Simulates creating HTML via JS with Atomizer CSS classes included
--   `vite.config.js` - Vite config using the `unplugin-atomizer` package
+-   `vite.config.js` - Vite config using the `atomizer-plugins` package
