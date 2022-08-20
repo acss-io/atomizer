@@ -18,6 +18,6 @@ Rollup will run in `watch` mode and auto re-compile changes. Open the `index.htm
 
 ## Files
 
--   `index.html` - HTML page to execute the webpack JS file
+-   `index.html` - HTML page to execute the bundled `dist/main.js` file
 -   `index.js` - Simulates creating HTML via JS with Atomizer CSS classes included
--   `rollup.config.mjs` - Rollup config using the `unplugin-atomizer` rollup plugin
+-   `rollup.config.mjs` - Rollup config using the `unplugin-atomizer` package

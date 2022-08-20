@@ -1,14 +1,17 @@
 {
     "name": "unplugin-atomizer",
     "version": "1.0.0",
-    "description": "Atomizer plugin for esbuild, Rollup, Vite and Webpack",
+    "description": "Atomizer plugins for esbuild, Rollup, Vite and Webpack",
     "keywords": [
         "atomizer",
+        "plugin",
         "rollup",
         "rollup-plugin",
         "unplugin",
         "vite",
-        "webpack"
+        "vite-plugin",
+        "webpack",
+        "webpack-plugin"
     ],
     "homepage": "https://github.com/acss-io/atomizer#readme",
     "bugs": {

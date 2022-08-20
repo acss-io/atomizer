@@ -21,4 +21,4 @@ Webpack will run in `watch` mode and re-compile when changes are made. Open the 
 -   `atomizer.config.mjs` - Contains Atomizer configuration
 -   `index.html` - HTML page to execute the webpack JS file
 -   `index.js` - Simulates creating HTML via JS with Atomizer CSS classes included
--   `webpack.config.mjs` - Webpack config using the `unplugin-atomizer` webpack plugin
+-   `webpack.config.mjs` - Webpack config using the `unplugin-atomizer` package

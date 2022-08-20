@@ -33,6 +33,23 @@ export default {
 };
 ```
 
+### vite
+
+```js
+import { vite } from 'unplugin-atomizer';
+
+const atomizerPlugin = vite({
+    config: atomizerConfig,
+    outputFile: 'atomizer.css',
+});
+
+export default defineConfig(() => {
+    return {
+        plugins: [atomizerPlugin],
+    };
+});
+```
+
 ### webpack
 
 ```js
