@@ -10,7 +10,7 @@
 
 Atomizer is a tool that helps you create simple, scalable, CSS rules ([acss.io](http://acss.io)).
 
-Atomic CSS is a collection of single purpose styling units for maximum reuse that fits well with components in templated frameworks such as [React](https://github.com/facebook/react), [Ember](https://github.com/emberjs/ember.js/) or [Angular](https://github.com/angular/angular.js). For more information we recommend that you read "[Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/)", watch the Atomic CSS [presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4), or [check this deck](https://www.haikudeck.com/atomic-css-science-and-technology-presentation-dJ0xlFjhBQ).
+For more information we recommend that you read "[Challenging CSS best practices](http://www.smashingmagazine.com/2013/10/21/challenging-css-best-practices-atomic-approach/)", watch the Atomic CSS [presentation](https://www.youtube.com/watch?v=ojj_-6Xiud4), or [check this deck](https://www.haikudeck.com/atomic-css-science-and-technology-presentation-dJ0xlFjhBQ).
 
 ## Install
 
@@ -58,28 +58,20 @@ atomizer -c config.js -n \#myrootclass > atomic.css
 import Atomizer from 'atomizer';
 
 const defaultConfig = {
-    "breakPoints": {
-        'sm': '@media(min-width:750px)',
-        'md': '@media(min-width:1000px)',
-        'lg': '@media(min-width:1200px)'
+    breakPoints: {
+        sm: '@media(min-width:750px)',
+        md: '@media(min-width:1000px)',
+        lg: '@media(min-width:1200px)'
     },
-    "custom": {
-        "1": "1px solid #000",
-        "foo": "2px dotted #f00"
-    },
-    "classNames": [
-        'Bd(1)',
-        'Bd(foo)',
-        'Bd(foo)--sm',
-        'Bd(foo)--md',
-        'D(n)!'
-    ]
+    custom: {
+        border: '2px dotted #f00'
+    }
 };
 
 const atomizer = new Atomizer({verbose: true});
 
 // Parse text to find Atomic CSS classes
-const foundClasses = atomizer.findClassNames('<div class="D(n)! P(10px) M(20%) Bd(1) Bd(foo)--sm"></div>');
+const foundClasses = atomizer.findClassNames('<div class="P(10px) M(20%) Bd(border)--sm"></div>');
 
 // Generate Atomizer configuration from an array of Atomic classnames
 const finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
@@ -87,32 +79,6 @@ const finalConfig = atomizer.getConfig(foundClasses, defaultConfig);
 // Generate Atomic CSS from configuration
 const css = atomizer.getCss(finalConfig);
 ```
-
-### Plugins
-
--   Grunt : [grunt-atomizer](https://github.com/acss-io/grunt-atomizer)
--   Gulp : [gulp-atomizer](https://github.com/acss-io/gulp-atomizer)
--   Metalsmith : [metalsmith-atomizer](https://github.com/tests-always-included/metalsmith-atomizer)
--   Webpack : [webpack-atomizer-loader](https://github.com/acss-io/webpack-atomizer-loader)
--   Boot-clj : [boot-atomizer](https://github.com/azizzaeny/boot-atomizer)
--   Ember : [ember-cli-atomizer](https://github.com/nag5000/ember-cli-atomizer)
-
-### Third Party Extensions
-
-#### For Chrome
-
--   [Atomic CSS Dev Tools](https://chrome.google.com/webstore/detail/atomic-css-devtools/dpkcndhnanpdlppppalhnhfbokhicdmi/related?hl=en)
--   [Web Maker](https://chrome.google.com/webstore/detail/web-maker/lkfkkhfhhdkiemehlpkgjeojomhpccnh?hl=en)
--   [Atomic CSS Helper](https://chrome.google.com/webstore/detail/atomic-css-helper/gpickgadladepnjlmaipnekafhpmangd?hl=en)
-
-#### For VSCode
-
--   [Atomic CSS Snippets](https://marketplace.visualstudio.com/items?itemName=acss-io.atomic-css-snippets) - Provides quick suggestions for Atomic CSS class names
--   [Atomic-css-search](https://marketplace.visualstudio.com/items?itemName=ArvinH.atomic-css-search) - Search Atomic css right in your favorite editor.
-
-## Developer docs
-
-We have [wiki](https://github.com/acss-io/atomizer/wiki) docs for contributors who want to help with the maintenance and development of this tool.
 
 ## License
 
