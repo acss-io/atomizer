@@ -15,4 +15,4 @@ Vite will run in `watch` mode and auto re-compile changes. Open the `index.html`
 
 -   `index.html` - HTML page to execute the Vite bundled assets
 -   `index.js` - Simulates creating HTML via JS with Atomizer CSS classes included
--   `vite.config.js` - Vite config using the `atomizer-plugins` package
+-   `vite.config.mjs` - Vite config using the `atomizer-plugins` package
