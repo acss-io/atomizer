@@ -3,13 +3,5 @@
     "private": true,
     "scripts": {
         "dev": "webpack watch"
-    },
-    "devDependencies": {
-        "webpack": "5",
-        "webpack-cli": "4"
-    },
-    "engines": {
-        "node": ">=16.0",
-        "npm": ">=8.0"
     }
 }

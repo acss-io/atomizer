@@ -2,13 +2,7 @@
 
 ## Run the example
 
-Install the dependencies via npm:
-
-```shell
-npm install
-```
-
-Generate the CSS via the following run script:
+Assuming you installed the dependencies at the root of the repository, you can generate the CSS via the following run script:
 
 ```shell
 npm run build
