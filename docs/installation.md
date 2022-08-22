@@ -87,10 +87,6 @@ If you create your own, please [edit this page]({{ page.githubDocsPath }}{{ page
 
 ### Browser
 
-#### REPL
-
-For a simple web interface to help you learn about Atomizer, try our [REPL](./repl.html). Paste some markup or <b class="Fw(b)">Atomizer</b> classes and the REPL will show you the rendered CSS. The tool also gives you access to the configuration where you can set your own break-points, variables, and more.
-
 #### Chrome
 
 Chrome extensions built and maintained by the Atomizer community
