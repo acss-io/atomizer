@@ -1,5 +1,5 @@
 {
-    "name": "vite-project",
+    "name": "atomizer-plugins-vite",
     "private": true,
     "scripts": {
         "dev": "vite",
