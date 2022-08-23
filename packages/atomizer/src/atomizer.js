@@ -276,7 +276,7 @@ Atomizer.prototype.parseConfig = function (config /*:AtomizerConfig*/, options /
                         matchVal.groups.named = [matchVal.groups.number, matchVal.groups.unit].join('');
                     }
                 }
-                if (matchVal.groups.fraction) {
+                if (matchVal.groups.fraction && rule.calculatePercentage !== false) {
                     // multiplying by 100 then by 10000 on purpose (instead of just multiplying by 1M),
                     // making clear the steps involved:
                     // percentage: (numerator / denominator * 100)
