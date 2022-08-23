@@ -32,7 +32,7 @@
     ],
     "scripts": {
         "build": "tsc -p tsconfig.json",
-        "test": "echo \"No test specified\" && exit 0"
+        "test": "node --experimental-vm-modules ../../node_modules/.bin/jest -c ../../jest.config.js"
     },
     "dependencies": {
         "atomizer": "^3.18.2",
