@@ -583,9 +583,13 @@ describe('Atomizer()', () => {
                     'W(1/3)',
                     'Bgz(45px)',
                     'C(#FFF)',
+                    'Ar(16/9)',
                 ],
             };
             const expected = [
+                '.Ar\\(16\\/9\\) {',
+                '  aspect-ratio: 16/9;',
+                '}',
                 '.Bd\\(0\\) {',
                 '  border: 0;',
                 '}',

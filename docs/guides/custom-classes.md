@@ -51,6 +51,28 @@ Atomizer will merge your custom class rules with the default rule set and produc
 
 The sections below explain each rule property available to configure. _(\*)denotes a required property._
 
+### allowFractions
+
+-   **Type**: `boolean`
+-   **Default**: `true`
+-   **Required**: `false`
+
+Allows Atomizer to calculate the quotient of a given fraction into a percentage (e.g. `W(1/2`) -> `W(50%)`). Some CSS properties like `aspect-ratio` will want to maintain the fraction and can disable the calculation by changing `allowFractions` to `false`.
+
+```json
+{
+    allowFractions: false,
+    matcher: 'Ar',
+    styles: {
+        'aspect-ratio': '$0',
+    },
+}
+```
+
+```html
+<div class="Ar(16/9)"></div>
+```
+
 ### allowParamToValue
 
 -   **Type**: `boolean`
