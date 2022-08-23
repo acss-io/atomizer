@@ -216,7 +216,7 @@ module.exports = [
         type: 'pattern',
         name: 'Aspect ratio',
         matcher: 'Ar',
-        allowFractions: false,
+        calculatePercentage: false,
         allowParamToValue: false,
         styles: {
             'aspect-ratio': '$0',
