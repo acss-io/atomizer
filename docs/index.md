@@ -11,7 +11,7 @@ layout: home
         </p>
         <p>Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
     </div>
-    <img src="{{ "/images/atomic-demo.gif" | relative_url }}" class="H(400px)--sm" alt="Atomizer demo">
+    <img src="{{ "/images/atomic-demo.gif" | relative_url }}" class="Ar(demoImageRatio) W(70%)--md" alt="Atomizer demo">
 </div>
 
 <h2 id="colors">Colors</h2>
