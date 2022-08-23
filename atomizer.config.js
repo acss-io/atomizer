@@ -11,7 +11,6 @@ module.exports = {
         boxShadowLight: '0 2px 3px rgba(0, 0, 0, 0.2)',
         brandColor: '#0280ae',
         columnWidth: '20px',
-        demoImageRatio: '174 / 83',
         hamburgerImage: 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         replBorder: '2px solid #1a1821',
         'RWD-fontSize': {
