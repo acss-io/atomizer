@@ -2,4 +2,4 @@
 'atomizer': minor
 ---
 
-feat(atomizer): add allowFractions rule param
+feat(atomizer): add calculatePercentage rule param
