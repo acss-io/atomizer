@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.19.0
+
+### Minor Changes
+
+-   a6fdfc9: feat(atomizer): add calculatePercentage rule param
+
 ## 3.18.2
 
 ### Patch Changes
@@ -488,7 +494,7 @@
 -   5d8327d: fix: Being more defensive when no classnames are passed
 -   f7904b4: feat: `Bdsw` is now `Bdstartw`, following class name syntax PR
 -   6749f20: feat: parent-namespaced classes with predefined values should have important
--   1c65756: feat: $ symbol in custom is now correctly generated in CSS
+-   1c65756: feat: \$ symbol in custom is now correctly generated in CSS
 -   f58ac4b: feat: `LineClamp` helper fix for Chrome with `display: flex`
 
 ## 3.0.0-alpha.1
