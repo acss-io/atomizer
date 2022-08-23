@@ -1,0 +1,7 @@
+{
+    "name": "atomizer-plugins-rollup",
+    "private": true,
+    "scripts": {
+        "dev": "rollup --config rollup.config.mjs --watch"
+    }
+}

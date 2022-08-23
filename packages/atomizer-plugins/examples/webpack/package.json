@@ -1,0 +1,7 @@
+{
+    "name": "atomizer-plugins-webpack",
+    "private": true,
+    "scripts": {
+        "dev": "webpack watch"
+    }
+}

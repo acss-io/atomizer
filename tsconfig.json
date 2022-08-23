@@ -1,0 +1,15 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "esModuleInterop": true,
+        "incremental": true,
+        "jsx": "react",
+        "module": "es2020",
+        "moduleResolution": "Node",
+        "resolveJsonModule": true,
+        "skipLibCheck": true,
+        "target": "ES2020"
+    },
+    "declaration": true,
+    "exclude": ["**/__mocks__"]
+}

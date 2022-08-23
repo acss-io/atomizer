@@ -4,6 +4,7 @@ node_modules/
 # build files
 dist/
 scripts/*.sh
+*.tsbuildinfo
 
 # test artifacts
 artifacts/
