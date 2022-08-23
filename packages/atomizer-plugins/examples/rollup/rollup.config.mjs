@@ -1,5 +1,9 @@
+import { join } from 'path';
 import { rollup } from 'atomizer-plugins';
 import atomizerConfig from '../atomizer.config.mjs';
+import { getDirname } from '../../../../tests/utils.mjs';
+
+const __dirname = getDirname(import.meta.url);
 
 const atomizer = rollup({
     config: atomizerConfig,
@@ -7,10 +11,10 @@ const atomizer = rollup({
 });
 
 export default {
-    input: 'index.js',
+    input: join(__dirname, 'index.js'),
     plugins: [atomizer],
     output: {
-        file: 'dist/main.js',
+        file: join(__dirname, 'dist', 'main.js'),
         format: 'umd',
     },
 };
