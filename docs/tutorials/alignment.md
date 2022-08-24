@@ -7,7 +7,7 @@ title: Box level alignment
 
 These examples shows different ways to align boxes within their containers in the various CSS box layout models: `block` layout, `table` layout, and `flex` layout.
 
-There is a separate guide for [CSS Grid](cssgrid.html).
+There is a separate guide for [CSS Grid](layout.html).
 
 ## `align-content`
 
