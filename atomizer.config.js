@@ -13,9 +13,6 @@ module.exports = {
         colAside: 'aside',
         colMain: 'main',
         columnWidth: '20px',
-        gridContent: 'c',
-        gridHeader: 'a',
-        gridNav: 'b',
         gridABC: `"a a a"
                  "b c c"
                  "b c c"`,
@@ -25,6 +22,7 @@ module.exports = {
         gridContent: 'c',
         gridHeader: 'a',
         gridMinMax: 'minmax(10px, 120px)',
+        gridNav: 'b',
         hamburgerImage: 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         lineHeight: '0.8',
         primaryFontColor: '#{brandColor}',
