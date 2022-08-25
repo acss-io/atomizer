@@ -3,7 +3,7 @@
 exports[`atomizer options --bump-mq 1`] = `
 "
 @media(min-width:500px) {
-  .D\\\\(b\\\\)--sm {
+  .D\\(b\\)--sm {
     display: block;
   }
 }
@@ -13,7 +13,7 @@ exports[`atomizer options --bump-mq 1`] = `
 exports[`atomizer options --bump-mq 2`] = `
 "
 @media(min-width:500px) {
-  .D\\\\(b\\\\)--sm[class] {
+  .D\\(b\\)--sm[class] {
     display: block;
   }
 }
@@ -22,10 +22,10 @@ exports[`atomizer options --bump-mq 2`] = `
 
 exports[`atomizer options --config 1`] = `
 "
-.C\\\\(\\\\#000\\\\) {
+.C\\(\\#000\\) {
   color: #000;
 }
-.H\\\\(uh\\\\) {
+.H\\(uh\\) {
   height: 79px;
 }
 "
@@ -45,14 +45,14 @@ foo .StretchedBox {
 
 exports[`atomizer options --namespace 1`] = `
 "
-foo .D\\\\(b\\\\) {
+foo .D\\(b\\) {
   display: block;
 }
 "
 `;
 
 exports[`atomizer options --outfile 1`] = `
-".D\\\\(b\\\\) {
+".D\\(b\\) {
   display: block;
 }
 "
@@ -60,10 +60,10 @@ exports[`atomizer options --outfile 1`] = `
 
 exports[`atomizer options --recursive 1`] = `
 "
-.D\\\\(ib\\\\) {
+.D\\(ib\\) {
   display: inline-block;
 }
-.Fw\\\\(b\\\\) {
+.Fw\\(b\\) {
   font-weight: bold;
 }
 "
@@ -71,7 +71,7 @@ exports[`atomizer options --recursive 1`] = `
 
 exports[`atomizer options --rtl 1`] = `
 "
-.Mend\\\\(2px\\\\) {
+.Mend\\(2px\\) {
   margin-left: 2px;
 }
 "
@@ -79,7 +79,7 @@ exports[`atomizer options --rtl 1`] = `
 
 exports[`atomizer options --rules 1`] = `
 "
-.Foo\\\\(1px\\\\) {
+.Foo\\(1px\\) {
   foo: 1px;
 }
 "
@@ -87,7 +87,7 @@ exports[`atomizer options --rules 1`] = `
 
 exports[`atomizer should parse html files for classes 1`] = `
 "
-.D\\\\(b\\\\) {
+.D\\(b\\) {
   display: block;
 }
 "
