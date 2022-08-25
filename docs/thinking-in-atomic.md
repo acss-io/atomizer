@@ -38,7 +38,7 @@ Traditional style sheets may be helpful for styles that <b>ACSS</b> cannot creat
 
 ## Grids
 
-There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, <b>ACSS</b> gives you all the tools you need to create [any grid you want](/tutorials/grid-system.html).
+There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, <b>ACSS</b> gives you all the tools you need to create [any grid you want](/tutorials/layout.html).
 
 ## Specificity
 

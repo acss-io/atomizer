@@ -3,7 +3,7 @@ node_modules/
 
 # build files
 dist/
-scripts/*.sh
+examples/css/atomic.css
 *.tsbuildinfo
 
 # test artifacts

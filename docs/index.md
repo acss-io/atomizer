@@ -135,7 +135,7 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="/tutorials/grid-system.html#layouts">Atomizer supports it all</a>, and you can use <a href="/tutorials/grid-system.html#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
+        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="/tutorials/layout.html#layouts">Atomizer supports it all</a>, and you can use <a href="/tutorials/layout.html#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}

@@ -5,13 +5,13 @@ section: docs
 title: Box level alignment
 ---
 
-These examples shows different ways to align boxes within their containers in the various CSS box layout models: `block` layout, `table` layout, and `flex` layout.
+These examples shows different ways to align boxes within their containers in the various CSS box layout models: `block` layout, `table` layout, and `flex` layout. There is a separate guide for [CSS Grid](layout.html#grids).
 
-<p class="noteBox warning"><strong>NOTE:</strong> Grid is not currently supported</p>
+## [`align-content`](../reference.html#aligncontent)
 
-## `align-content`
+Aligns the contents of the box as a whole (as the alignment subject) within the box itself along the block/column/cross axis of the box.
 
-Aligns the contents of the box as a whole (as the alignment subject) within the box itself along the block/column/cross axis of the box. Following example shows `Ac(sb)`, _align-content: Space between_
+The following example shows `Ac(sb)` -> `align-content: space-between`.
 
 ```html
 <div class="D(f) Ac(sb)">
@@ -33,9 +33,11 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
     <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## `align-items`
+## [`align-items`](../reference.html#alignitems)
 
-This property specifies the default `align-self` for <strong>all</strong> of the child boxes (including anonymous boxes) participating in this box’s formatting context.. Following example shows `Ai(c)`, _align-items: center_
+This property specifies the default `align-items` for **all** of the child boxes (including anonymous boxes) participating in this box’s formatting context.
+
+The following example shows `Ai(c)` -> `align-items: center`.
 
 ```html
 <div class="D(f) Ai(c)">
@@ -57,9 +59,11 @@ This property specifies the default `align-self` for <strong>all</strong> of the
     <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## `align-self`
+## [`align-self`](../reference.html#alignself)
 
-Aligns the box (as the alignment subject) within its containing block (as the alignment container) along the block/column/cross axis of the alignment container: the box’s outer edges are aligned within its alignment container as described by its alignment value. Following example shows `As(fs)`, _align-self: flex-start_
+Aligns the box (as the alignment subject) within its containing block (as the alignment container) along the block/column/cross axis of the alignment container (the box’s outer edges are aligned within its alignment container as described by its alignment value).
+
+The following example shows `As(fs)` -> `align-self: flex-start`.
 
 ```html
 <div class="D(f) Ai(c)">
@@ -81,9 +85,11 @@ Aligns the box (as the alignment subject) within its containing block (as the al
     <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## `justify-content`
+## [`justify-content`](../reference.html#justifycontent)
 
-Aligns the contents of the box as a whole (as the alignment subject) within the box itself (as the alignment container) along the inline/row/main axis of the box. Following example shows `Jc(se)`, _justify-content: space-evenly_
+Aligns the contents of the box as a whole (as the alignment subject) within the box itself (as the alignment container) along the inline/row/main axis of the box.
+
+The following example shows `Jc(se)` ->`justify-content: space-evenly`.
 
 ```html
 <div class="D(f) Jc(se)">
@@ -104,3 +110,65 @@ Aligns the contents of the box as a whole (as the alignment subject) within the 
     <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
     <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
+
+## [`justify-items`](../reference.html#justifyitems)
+
+This property specifies the default `justify-items` for all of the child boxes (including anonymous boxes) participating in this box’s formatting context.
+
+The following example shows `Ji(e)` -> `justify-items: end`.
+
+{% highlight html %}
+
+<div class="D(g) Gtc(threeColEvenGrid) Ji(e)">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+{% endhighlight %}
+
+<div class="D(g) Gtc(threeColEvenGrid) Ji(e) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
+    <div class="D(f) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
+    <div class="D(f) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
+    <div class="D(f) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
+    <div class="D(f) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
+    <div class="D(f) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
+    <div class="D(f) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+</div>
+
+<p class="noteBox warning">
+    <b class="Fw(b)">NOTE:</b> <code>justify-items</code> only works in grid mode.
+</p>
+
+## [`justify-self`](../reference.html#justifyself)
+
+Justifies the box (as the alignment subject) within its containing block (as the alignment container) along the inline/row/main axis of the alignment container (the box’s outer edges are aligned within its alignment container).
+
+The following example shows `Js(s)` -> `justify-self: start`.
+
+{% highlight html %}
+
+<div class="D(g) Gtc(threeColEvenGrid) Ji(e)">
+    <div class="Js(s)">1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+</div>
+{% endhighlight %}
+
+<div class="D(g) Gtc(threeColEvenGrid) Ji(e) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
+    <div class="D(f) Js(s) Ai(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
+    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
+    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
+    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+</div>
+
+<p class="noteBox warning">
+    <b class="Fw(b)">NOTE:</b> <code>justify-self</code> only works in grid mode.
+</p>
