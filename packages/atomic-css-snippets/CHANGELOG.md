@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.7
+
+### Patch Changes
+
+-   c333d79: chore: atomizer@1.20.0 update
+
 ## [1.0.6]
 
 -   Update snippet definitions for atomizer@3.18.1
