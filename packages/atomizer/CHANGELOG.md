@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.20.0
+
+### Minor Changes
+
+-   7641627: feat: add css grids support
+
 ## 3.19.0
 
 ### Minor Changes
