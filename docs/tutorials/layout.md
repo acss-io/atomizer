@@ -5,11 +5,11 @@ section: docs
 title: Layout
 ---
 
-Atomizer does not come with an out-of-the-box grid system. Instead, you can use flexbox or CSS grids to build your layout the way you want. It's up to you to decide which method fits your needs best. Read the sections below to see examples of different layout methods.
+Atomizer does not come with an out-of-the-box grid system. Instead, you can use any layout method you want to build your projects layout. It's up to you to decide which method fits your needs best. Read the sections below to see examples of different layout options.
 
 ## [Float](../reference.html#float)
 
-This styling has great browser support and <a href="https://github.com/acss-io/atomizer">Atomizer</a> makes it &quot;direction&quot; agnostic. Simply use the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
+This styling method was one of the first ways to layout a website without the [spacer.gif](https://en.wikipedia.org/wiki/Spacer_GIF) or table markup hacks. Additionally, <a href="https://github.com/acss-io/atomizer">Atomizer</a> can make it &quot;direction&quot; agnostic by simply using the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
 ```html
 <div class="Cf">
@@ -27,7 +27,7 @@ This styling has great browser support and <a href="https://github.com/acss-io/a
 
 ## [Table](../reference.html#display)
 
-This styling has good browser support and is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
+This styling was a step in up from the float method, but avoids float issues. Table layouts are also direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
 In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with `vertical-align` and `text-align` classes `Va(m)` and `Ta(c)`:
 
