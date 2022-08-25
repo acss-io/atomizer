@@ -13,71 +13,80 @@ This styling has great browser support and <a href="https://github.com/acss-io/a
 
 ```html
 <div class="Cf">
-   <div class="Fl(start) W(50%) P(20px) Bgc(#0280ae.5)">Box 1</div>
-   <div class="Fl(start) W(50%) P(20px) Bgc(#0280ae)">Box 2</div>
+   <div class="Fl(start)">Box 1</div>
+   <div class="Fl(start)">Box 2</div>
 </div>
 ```
 
-<p class="noteBox info">In this example, the class <code>Cf</code> (for &quot;clearfix&quot;) is used to contain the floats, but there is also a <a href="/guides/helper-classes.html-row-"><code>Row</code> helper class</a> to better deal with floats across browsers.</p>
+<div class="Cf">
+   <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(#0280ae.5)">Box 1</div>
+   <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(#0280ae)">Box 2</div>
+</div>
 
-<h4 class="penResult">Result</h4>
-
-<p data-height="200" data-theme-id="12469" data-slug-hash="PwewjM" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/PwewjM/'>PwewjM</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
-<p class="penResult">The <em>exact same markup</em> with the <code>rtl</code> version of the style sheet:</p>
-
-<p data-height="200" data-theme-id="12469" data-slug-hash="OPZPjL" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/OPZPjL/'>OPZPjL</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
-<p class="noteBox info"><a href="https://github.com/acss-io/atomizer">Atomizer</a> can also auto-generate `background-color` and `color`.</p>
+<p class="noteBox info">In this example, the class <code>Cf</code> (for &quot;clearfix&quot;) is used to contain the floats, but there is also a <a href="/guides/helper-classes.html#row"><code>Row</code> helper class</a> to better deal with floats across browsers.</p>
 
 ## [Table](../reference.html#display)
 
 This styling has good browser support and is direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
-In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with `vertical-align` and `text-align` classes (`Va(m)` and `Ta(c)`):
-
-<h4 id="example">Example</h4>
+In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with `vertical-align` and `text-align` classes `Va(m)` and `Ta(c)`:
 
 ```html
+<div class="D(tb) Ta(c)" role="presentation">
+    <div class="D(tbc) Va(m)">Box Number 1</div>
+    <div class="D(tbc) Va(m)">Box Number 2</div>
+    <div class="D(tbc) Va(m)">Box Number 3</div>
+    <div class="D(tbc) Va(m)">Box Number 4</div>
+</div>
+```
+
 <div class="D(tb) W(100%) Ta(c)" role="presentation">
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box Number 1</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">BoxNumber 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">Box Number 4</div>
 </div>
-<hr />
+
+This example shows the same table with `dir="rtl"`:
+
+```html
+<div class="D(tb)" dir="rtl" role="presentation">
+    <div class="D(tbc)">Box <br />Number <br />1</div>
+    <div class="D(tbc)">Box Number 2</div>
+    <div class="D(tbc)">Box Number 3</div>
+    <div class="D(tbc)">Box Number 4</div>
+</div>
+```
+
 <div class="D(tb) W(100%) Va(m) Ta(c)" dir="rtl" role="presentation">
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
     <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">BoxNumber 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">Box Number 4</div>
 </div>
-```
 
-<h4 class="penResult">Result</h4>
-
-<p data-height="350" data-theme-id="12469" data-slug-hash="GgdgMa" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/GgdgMa/'>GgdgMa</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-
-**Tip:** one can also use `table-header-group` and/or `table-footer-group` to swap boxes vertically without removing them from the flow:
+You can also use `table-header-group` and/or `table-footer-group` to swap boxes vertically without changing the markup order:
 
 ```html
-<div class="D(tb) W(100%) Ta(c)" role="presentation">
-    <div class="D(tbfg) Fz(20px) Bgc(#0280ae.5)">Box Number 1</div>
-    <div class="D(tbc) Fz(20px) Bgc(#0280ae.8)">Box Number 2</div>
-    <div class="D(tbhg) Fz(20px)">Box Number 3</div>
+<div class="D(tb)" role="presentation">
+    <div class="D(tbfg)">Box Number 1</div>
+    <div class="D(tbc)">Box Number 2</div>
+    <div class="D(tbhg)">Box Number 3</div>
 </div>
 ```
 
-<h4 class="penResult">Result</h4>
-
-<p data-height="200" data-theme-id="12469" data-slug-hash="MYGYQm" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/MYGYQm/'>MYGYQm</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<div class="D(tb) W(100%) Ta(c)" role="presentation">
+    <div class="D(tbfg) P(20px) Bgc(#0280ae.6)">Box Number 1</div>
+    <div class="D(tbc) P(20px) Bgc(#0280ae.8)">Box Number 2</div>
+    <div class="D(tbhg) P(20px) Bgc(#0280ae)">Box Number 3</div>
+</div>
 
 ## [Flexbox](../reference.html#flex)
 
 Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.
 
--   `D(f)` -> `display:flex`
--   `Jc(sb)` -> `justify-content:space-between`
+-   `D(f)` -> `display: flex`
+-   `Jc(sb)` -> `justify-content: space-between`
 
 ```html
 <div class="D(f) Jc(sb)">
@@ -88,9 +97,12 @@ Flexbox is a one-dimensional layout method for arranging items in rows or column
 </div>
 ```
 
-<h4 class="penResult">Result</h4>
-
-<p data-height="250" data-theme-id="12469" data-slug-hash="Jovoem" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/Jovoem/'>Jovoem</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<div class="D(f) Jc(sb)">
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 1</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 2</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
+</div>
 
 ## [Grids](../reference.html#gridarea)
 
@@ -125,8 +137,8 @@ module.exports = {
 ```
 
 <div class="D(g) Gtc(twoColNamedGrid) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Ga(colMain) Mih(150px)">1</div>
-    <div class="Bgc(#ccc) Ga(colAside) Mih(150px)">2</div>
+    <div class="Bgc(#ccc) P(10px) Ga(colMain) Mih(150px)">1</div>
+    <div class="Bgc(#ccc) P(10px) Ga(colAside) Mih(150px)">2</div>
 </div>
 
 ### [`grid-auto-columns`](../reference.html#gridautocolumns) & [`grid-auto-rows`](../reference.html#gridautorows)
@@ -144,12 +156,12 @@ The following example shows `Gar(150px)` -> `grid-auto-rows: 150px`.
 ```
 
 <div class="D(g) Gac(gridMinMax) Gar(150px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc)">1</div>
-    <div class="Bgc(#ccc) Gc(3)">2</div>
-    <div class="Bgc(#ccc) Gc(5)">3</div>
-    <div class="Bgc(#ccc)">4</div>
-    <div class="Bgc(#ccc)">5</div>
-    <div class="Bgc(#ccc)">6</div>
+    <div class="Bgc(#ccc) P(10px)">1</div>
+    <div class="Bgc(#ccc) P(10px) Gc(3)">2</div>
+    <div class="Bgc(#ccc) P(10px) Gc(5)">3</div>
+    <div class="Bgc(#ccc) P(10px)">4</div>
+    <div class="Bgc(#ccc) P(10px)">5</div>
+    <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
 ### [`grid-auto-flow`](../reference.html#gridautoflow)
@@ -167,12 +179,12 @@ The following example shows `Gaf(rd)` -> `grid-auto-flow: row dense`.
 ```
 
 <div class="D(g) Gtc(threeColEvenGrid) Gaf(rd) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc)">1</div>
-    <div class="Bgc(#ccc) Gc(twoCol)">2</div>
-    <div class="Bgc(#ccc)">3</div>
-    <div class="Bgc(#ccc)">4</div>
-    <div class="Bgc(#ccc) Gc(twoCol)">5</div>
-    <div class="Bgc(#ccc)">6</div>
+    <div class="Bgc(#ccc) P(10px)">1</div>
+    <div class="Bgc(#ccc) P(10px) Gc(twoCol)">2</div>
+    <div class="Bgc(#ccc) P(10px)">3</div>
+    <div class="Bgc(#ccc) P(10px)">4</div>
+    <div class="Bgc(#ccc) P(10px) Gc(twoCol)">5</div>
+    <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
 ### [`grid-column`](../reference.html#gridcolumn) & [`grid-row`](../reference.html#gridrow)
@@ -202,12 +214,12 @@ module.exports = {
 ```
 
 <div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Gr(twoCol)">1</div>
-    <div class="Bgc(#ccc) Gc(twoCol) Gr(4)">2</div>
-    <div class="Bgc(#ccc)">3</div>
-    <div class="Bgc(#ccc) Gr(twoCol)">4</div>
-    <div class="Bgc(#ccc) Gc(twoCol)">5</div>
-    <div class="Bgc(#ccc) Gc(2)">6</div>
+    <div class="Bgc(#ccc) P(10px) Gr(twoCol)">1</div>
+    <div class="Bgc(#ccc) P(10px) Gc(twoCol) Gr(4)">2</div>
+    <div class="Bgc(#ccc) P(10px)">3</div>
+    <div class="Bgc(#ccc) P(10px) Gr(twoCol)">4</div>
+    <div class="Bgc(#ccc) P(10px) Gc(twoCol)">5</div>
+    <div class="Bgc(#ccc) P(10px) Gc(2)">6</div>
 </div>
 
 ### [`grid-column-start`](../reference.html#gridcolumnstart) & [`grid-column-end`](../reference.html#gridcolumnend)
@@ -236,12 +248,12 @@ module.exports = {
 ```
 
 <div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Gcs(2)">1</div>
-    <div class="Bgc(#ccc) Gcs(spanTwo)">2</div>
-    <div class="Bgc(#ccc)">3</div>
-    <div class="Bgc(#ccc) Gce(4)">4</div>
-    <div class="Bgc(#ccc)">5</div>
-    <div class="Bgc(#ccc)">6</div>
+    <div class="Bgc(#ccc) P(10px) Gcs(2)">1</div>
+    <div class="Bgc(#ccc) P(10px) Gcs(spanTwo)">2</div>
+    <div class="Bgc(#ccc) P(10px)">3</div>
+    <div class="Bgc(#ccc) P(10px) Gce(4)">4</div>
+    <div class="Bgc(#ccc) P(10px)">5</div>
+    <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
 ### [`grid-row-start`](../reference.html#gridrowstart) & [`grid-row-end`](../reference.html#gridrowend)
@@ -261,12 +273,12 @@ The following example shows `Gre(1)` -> `grid-row-end: 1`.
 ```
 
 <div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Grs(2)">1</div>
-    <div class="Bgc(#ccc) Grs(spanTwo)">2</div>
-    <div class="Bgc(#ccc)">3</div>
-    <div class="Bgc(#ccc) Gre(1)">4</div>
-    <div class="Bgc(#ccc)">5</div>
-    <div class="Bgc(#ccc)">6</div>
+    <div class="Bgc(#ccc) P(10px) Grs(2)">1</div>
+    <div class="Bgc(#ccc) P(10px) Grs(spanTwo)">2</div>
+    <div class="Bgc(#ccc) P(10px)">3</div>
+    <div class="Bgc(#ccc) P(10px) Gre(1)">4</div>
+    <div class="Bgc(#ccc) P(10px)">5</div>
+    <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
 ### [`grid-template`](../reference.html#gridtemplate)
@@ -308,9 +320,9 @@ module.exports = {
 ```
 
 <div class="D(g) Gt(gridABCUnit) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Ga(gridHeader)">1</div>
-    <div class="Bgc(#ccc) Ga(gridNav)">2</div>
-    <div class="Bgc(#ccc) Ga(gridContent)">3</div>
+    <div class="Bgc(#ccc) P(10px) Ga(gridHeader)">1</div>
+    <div class="Bgc(#ccc) P(10px) Ga(gridNav)">2</div>
+    <div class="Bgc(#ccc) P(10px) Ga(gridContent)">3</div>
 </div>
 
 ### [`grid-template-areas`](../reference.html#gridtemplateareas)
@@ -350,9 +362,9 @@ module.exports = {
 ```
 
 <div class="D(g) Gta(gridABC) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Ga(gridHeader)">1</div>
-    <div class="Bgc(#ccc) Ga(gridNav)">2</div>
-    <div class="Bgc(#ccc) Ga(gridContent)">3</div>
+    <div class="Bgc(#ccc) Ga(gridHeader) P(10px)">1</div>
+    <div class="Bgc(#ccc) Ga(gridNav) P(10px)">2</div>
+    <div class="Bgc(#ccc) Ga(gridContent) P(10px)">3</div>
 </div>
 
 ### [`grid-template-columns`](../reference.html#gridtemplatecolumns) & [`grid-template-rows`](../reference.html#gridtemplaterows)
@@ -382,16 +394,10 @@ module.exports = {
 ```
 
 <div class="D(g) Gtc(threeColEvenGrid) Gtr(rowOneFixed) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc)">1</div>
-    <div class="Bgc(#ccc)">2</div>
-    <div class="Bgc(#ccc)">3</div>
-    <div class="Bgc(#ccc)">4</div>
-    <div class="Bgc(#ccc)">5</div>
-    <div class="Bgc(#ccc)">6</div>
+    <div class="Bgc(#ccc) P(10px)">1</div>
+    <div class="Bgc(#ccc) P(10px)">2</div>
+    <div class="Bgc(#ccc) P(10px)">3</div>
+    <div class="Bgc(#ccc) P(10px)">4</div>
+    <div class="Bgc(#ccc) P(10px)">5</div>
+    <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
-
----
-
-<div id="footnote"></div>
-
-1. Atomizer relies on `start` and `end` instead of `left` and `right` which allows the usage of the **same** classes regardless of script context. <sub><a href="#footnote-1">[↩]</a></sub>
