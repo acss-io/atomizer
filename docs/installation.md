@@ -81,7 +81,7 @@ Then Atomizer would update the style sheet with the following:
 
 ## Integrations
 
-So how do you integrate Atomizer into your project? You can use Rollup, WebPack, Make, Graddle, or any other task runner/build system you&#39;d like. Follow the one of the sections below based on your projects requirements.
+So how do you integrate Atomizer into your project? You can use Rollup, Webpack, Make, Graddle, or any other task runner/build system you&#39;d like. Follow the one of the sections below based on your projects requirements.
 
 If you create your own, please [edit this page]({{ page.githubDocsPath }}{{ page.path }}) so we can share it with the community.
 
