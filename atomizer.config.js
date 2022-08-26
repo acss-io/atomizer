@@ -39,6 +39,7 @@ module.exports = {
         threeColEvenGrid: 'repeat(3, minmax(20px, 1fr))',
         tocEnd: 'max(0px,calc(50% - 40rem))',
         twoCol: '1 / span 2',
+        twoColEvenGrid: 'repeat(2, minmax(20px, 1fr))',
         twoColNamedGrid:
             '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
     },
