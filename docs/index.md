@@ -14,6 +14,36 @@ layout: home
     <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
+<h2>Testimonials</h2>
+
+<div id="testimonials" class="Pos(r)">
+    <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
+        {% for data in site.data.quotes %}
+            <li class="Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight)">
+                <a href="{{ data.link }}" class="C(#000) Td(n):h" target="_blank">
+                    <figure class="M(0px)">
+                        <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                            <p class="Mt(0px) Fz(16px)">{{ data.quote }}</p>
+                        </blockquote>
+                        <figcaption class="D(f) Ai(c) Gp(1rem)">
+                            {% if data.companyLogo %}
+                                {{ data.companyLogo }}
+                            {% endif %}
+                            <p class="M(0)">
+                                <b class="D(b) Fw(b)">{{ data.author }}</b>
+                                {{ data.role }}
+                            </p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(linearGradient)">
+        <button id="toggleTestButton" class="Bgc(#0280ae) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
+    </div>
+</div>
+
 <h2 id="colors">Colors</h2>
 
 <div class="Row">
@@ -135,23 +165,29 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>, and you can use <a href="{% link tutorials/layout.md %}#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
+        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
+<!-- floats -->
 <div class="Row">
-    <div class="Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"></div>
-    <div class="Fl(start) W(1/2) Bgc(#0280ae) H(90px)"></div>
+    <div class="Fl(start) W(1/2)"></div>
+    <div class="Fl(start) W(1/2)"></div>
 </div>
+<!-- table -->
 <div class="D(tb) W(100%)" role="presentation">
-    <div class="D(tbc) Bgc(#0280ae) H(90px)"></div>
-    <div class="D(tbc) Bgc(#0280ae.5) H(90px)"></div>
+    <div class="D(tbc)"></div>
+    <div class="D(tbc)"></div>
 </div>
-   <div class="IbBox W(50%) Bgc(#0280ae.5) H(90px)"></div>
-   <div class="IbBox W(50%) Bgc(#0280ae) H(90px)"></div>
+<!-- flexbox -->
 <div class="D(f)">
-    <div class="Flxg(1) Bgc(#0280ae) H(90px)"></div>
-    <div class="Flxg(1) Bgc(#0280ae.5) H(90px)"></div>
+    <div class="Flxg(1)"></div>
+    <div class="Flxg(1)"></div>
+</div>
+<!-- grids -->
+<div class="D(g) Gtc(twoColEvenGrid)">
+    <div></div>
+    <div></div>
 </div>
 {% endhighlight %}
     </div>
@@ -161,14 +197,16 @@ custom: {
             <div class="Fl(start) W(1/2) Bgc(#0280ae) H(90px)"></div>
         </div>
         <div class="D(tb) W(100%)" role="presentation">
-            <div class=" D(tbc) Bgc(#0280ae) H(90px)"></div>
-            <div class=" D(tbc) Bgc(#0280ae.5) H(90px)"></div>
+            <div class="D(tbc) Bgc(#0280ae) H(90px)"></div>
+            <div class="D(tbc) Bgc(#0280ae.5) H(90px)"></div>
         </div>
-        <div class="IbBox W(50%) Bgc(#0280ae.5) H(90px)"></div><!--
-     --><div class="IbBox W(50%) Bgc(#0280ae) H(90px)"></div>
         <div class="D(f)">
-            <div class=" Flxg(1) Bgc(#0280ae) H(90px)"></div>
-            <div class=" Flxg(1) Bgc(#0280ae.5) H(90px)"></div>
+            <div class="Flxg(1) Bgc(#0280ae.5) H(90px)"></div>
+            <div class="Flxg(1) Bgc(#0280ae) H(90px)"></div>
+        </div>
+        <div class="D(g) Gtc(twoColEvenGrid)">
+            <div class="Bgc(#0280ae) H(90px)"></div>
+            <div class="Bgc(#0280ae.5) H(90px)"></div>
         </div>
     </div>
 </div>
@@ -188,10 +226,10 @@ breakPoints: {
     sm: '@media screen and (min-width:700px)'
 }{% endhighlight %}
 {% highlight html %}
-<div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div>
-<div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
-<div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div>
-<div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
+<div class="D(ib)--sm W(25%)--sm"></div>
+<div class="D(ib)--sm W(25%)--sm"></div>
+<div class="D(ib)--sm W(25%)--sm"></div>
+<div class="D(ib)--sm W(25%)--sm"></div>
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">

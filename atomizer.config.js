@@ -8,6 +8,7 @@ module.exports = {
     content: ['app/components/', 'app/assets/js', 'docs/'],
     custom: {
         borderTopLight: '1px solid rgba(2, 128, 174, 0.3)',
+        boxColorLight: 'rgba(2, 128, 174, 0.05)',
         boxShadowLight: '0 2px 3px rgba(0, 0, 0, 0.2)',
         brandColor: '#0280ae',
         colAside: 'aside',
@@ -25,6 +26,7 @@ module.exports = {
         gridNav: 'b',
         hamburgerImage: 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         lineHeight: '0.8',
+        linearGradient: 'linear-gradient(to top, #fff, rgb(255 255 255/0))',
         primaryFontColor: '#{brandColor}',
         replBorder: '2px solid #1a1821',
         'RWD-fontSize': {
@@ -39,6 +41,7 @@ module.exports = {
         threeColEvenGrid: 'repeat(3, minmax(20px, 1fr))',
         tocEnd: 'max(0px,calc(50% - 40rem))',
         twoCol: '1 / span 2',
+        twoColEvenGrid: 'repeat(2, minmax(20px, 1fr))',
         twoColNamedGrid:
             '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
     },
