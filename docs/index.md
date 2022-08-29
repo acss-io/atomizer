@@ -14,7 +14,21 @@ layout: home
     <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
-<h2 class="Mb(0)">Testimonials</h2>
+<figure class="D(f) W(50%)--md Mx(a) My(5rem) Ai(c) Gp(2rem)">
+    <div>
+        <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+            <p>We released Atomizer almost 10 years ago and to this day it is used on massive web sites by huge front-end teams. If your project calls for an Atomic CSS library, make sure to give it a try. And if you think you don't like the syntax, <a href="https://github.com/acss-io/atomizer/discussions/429">think again</a>!</p>
+        </blockquote>
+        <figcaption>
+            <a href="https://twitter.com/7h1322yk0813n72">Thierry Koblentz</a>, Atomizer Co-Creator
+        </figcaption>
+    </div>
+    <a href="https://twitter.com/7h1322yk0813n72">
+        <img src="{{ "/images/thierry.jpg" | relative_url }}" alt="Thierry Koblentz Picture" class="Bdrs(50px)" />
+    </a>
+</figure>
+
+<h2 class="Hidden">Testimonials</h2>
 
 <ul class="D(f)--md Ai(s) Ac(se) List(n)! Pstart(0)! Gp(2rem)">
     <li class="Fxg(1) Fxb(0) Mx(0px) My(20px) My(0px)--md P(1rem) Bdrs(5px) Bgc(#0280ae.1)">
@@ -37,10 +51,10 @@ layout: home
                         </g>
                     </svg>
                 </a>
-                <cite class="Fs(n)">
+                <p class="M(0)">
                     <b class="D(b) Fw(b)">Pavan Ratnakar</b>
                     Sr Principle Engineer, <a href="https://www.yahoo.com">Yahoo</a>
-                </cite>
+                </p>
             </figcaption>
         </figure>
     </li>
@@ -59,10 +73,10 @@ layout: home
                         </g>
                     </svg>
                 </a>
-                <cite class="Fs(n)">
+                <p class="M(0)">
                     <b class="D(b) Fw(b)">Jitendra Vyas</b>
                     UX Engineer, <a href="https://vwo.com/">VWO</a>
-                </cite>
+                </p>
             </figcaption>
         </figure>
     </li>
@@ -75,10 +89,10 @@ layout: home
                 <a href="https://tinder.com" class="Mend(15px) Lh(0)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="224.419 99.761 584.098 771.733"><path d="M536.9 99.9c6.8 5.2 12.7 11.6 19.2 17.2 58.7 55.4 112.5 116.6 155.8 184.9 41.9 66.1 74.101 139.2 88.4 216.4 7.899 42.3 10.5 85.699 5.899 128.5-2.099 17.9-5.199 35.8-10.899 52.9-8 24.8-18.5 48.9-32.9 70.7-12.4 18.8-27.9 35.6-45.8 49.2-19.7 14.9-42.2 25.8-65.6 33.3-29.101 9.3-59.601 13.9-90 16.4-36.301 2.699-72.801 3.199-109-1.4-41-5.1-81.7-16-118.2-35.7-33.8-18.2-63.5-44.899-82.6-78.5-22.1-38.4-29.4-83.9-25.9-127.8 3.6-46.5 18.4-91.6 38-133.7 17-36.2 37.8-70.5 60.899-103.1 19.7-27.6 40.9-54.1 64.101-78.9.399-.3 1.2-1 1.7-1.3-.4 20.9 1.6 41.9 7.6 62 6.1 20.5 16.4 39.8 30.1 56.3.801 1 1.4 2.4 2.9 2.601 29.7-22.3 57.8-47.3 79.7-77.4C533 321.4 548.199 285 554 246.9c7.699-49.3 1.1-100.6-17.1-147z" fill="#df4723" stroke="#df4723" stroke-width=".094"/></svg>
                 </a>
-                <cite class="Fs(n)">
+                <p class="M(0)">
                     <b class="D(b) Fw(b)">Roderick Hsiao</b>
                     Software Engineer, <a href="https://tinder.com">Tinder</a>
-                </cite>
+                </p>
             </figcaption>
         </figure>
     </li>
