@@ -2,6 +2,7 @@ title: Atomizer
 description: 'An unopinionated CSS utility library for modern websites.'
 destination: ./_site
 baseurl: '/'
+disable_disk_cache: true
 markdown: kramdown
 highlighter: rouge
 defaults:

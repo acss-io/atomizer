@@ -8,6 +8,7 @@ module.exports = {
     content: ['app/components/', 'app/assets/js', 'docs/'],
     custom: {
         borderTopLight: '1px solid rgba(2, 128, 174, 0.3)',
+        boxColorLight: 'rgba(2, 128, 174, 0.05)',
         boxShadowLight: '0 2px 3px rgba(0, 0, 0, 0.2)',
         brandColor: '#0280ae',
         colAside: 'aside',
@@ -25,6 +26,7 @@ module.exports = {
         gridNav: 'b',
         hamburgerImage: 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         lineHeight: '0.8',
+        linearGradient: 'linear-gradient(to top, #fff, rgb(255 255 255/0))',
         primaryFontColor: '#{brandColor}',
         replBorder: '2px solid #1a1821',
         'RWD-fontSize': {

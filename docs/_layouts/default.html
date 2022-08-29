@@ -40,6 +40,23 @@
                 const header = document.getElementById('header');
                 header.classList.toggle('nav-on');
             });
+
+            // handle testimonial more toggle
+            const toggleTestButton = document.getElementById('toggleTestButton');
+            let currentScroll = 0;
+            toggleTestButton?.addEventListener('click', () => {
+                const wrapper = document.getElementById('testimonials');
+                wrapper.classList.toggle('expand');
+
+                // scroll back to top of testimonials when closed
+                if (!wrapper.classList.contains('expand')) {
+                    window.scrollTo(0, currentScroll);
+                    toggleTestButton.innerHTML = 'Expand...';
+                } else {
+                    currentScroll = window.pageYOffset;
+                    toggleTestButton.innerHTML = 'Collapse...';
+                }
+            });
         }());
     </script>
 </html>

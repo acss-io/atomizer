@@ -1,0 +1,41 @@
+[
+    {
+        "author": "Thierry Koblentz",
+        "companyLogo": "<img src=\"/images/thierry.jpg\" alt=\"Thierry Koblentz Picture\" class=\"W(50px) Bdrs(50px)\" />",
+        "link": "https://twitter.com/7h1322yk0813n72",
+        "role": "Atomizer Co-Creator",
+        "quote": "We released Atomizer almost 10 years ago and to this day it is used on massive web sites by huge front-end teams. If your project calls for an Atomic CSS library, make sure to give it a try. And if you think you don't like the syntax, <a href=\"https://github.com/acss-io/atomizer/discussions/429\">think again</a>!"
+    },
+    {
+        "author": "Jitendra Vyas",
+        "companyLogo": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"75\" viewBox=\"0 0 300 100\"><g fill=\"none\" fill-rule=\"nonzero\"><path fill=\"#BF3078\" d=\"M250.498 0c-1.842 0-4.052 0-5.894.367l-10.683 18.7c4.789-2.934 10.683-4.4 16.577-4.4 19.156 0 34.996 15.766 34.996 34.833s-15.84 34.833-34.996 34.833c-19.156 0-34.628-15.4-34.996-34.466l-11.051 18.7C211.818 86.533 229.869 99 250.13 99c27.26 0 49.731-22.367 49.731-49.5C300.23 22.367 277.758 0 250.498 0z\"/><path fill=\"#802050\" d=\"m100.2 51.7 8.472-14.667 19.156 32.634L149.93 31.9l22.102 37.767L209.976 5.5c1.842-3.3 5.526-5.5 9.578-5.5h10.683l-58.204 99-22.102-37.767L127.828 99l-27.629-47.3z\"/><path fill=\"#26134D\" d=\"M116.04 0 57.836 99 0 0h10.683c4.052 0 7.736 2.2 9.578 5.5l37.575 64.533L95.779 5.5c1.842-3.3 5.525-5.5 9.578-5.5h10.683z\"/></g></svg>",
+        "link": "https://vwo.com/",
+        "role": "UX Engineer, VWO",
+        "quote": "Initially I did not like the concept, I had experience in using Bootstrap UI Library and BEM methodology to manage CSS. It took 5 - 6 months to realize that Atomizer was the best and true CSS framework which solves many problems we were facing. Thierry Koblentz helped me a lot to understand the concept and the reason behind their decisions to build Atomizer."
+    },
+    {
+        "author": "Roderick Hsiao",
+        "companyLogo": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"30\" viewBox=\"224.419 99.761 584.098 771.733\"><path d=\"M536.9 99.9c6.8 5.2 12.7 11.6 19.2 17.2 58.7 55.4 112.5 116.6 155.8 184.9 41.9 66.1 74.101 139.2 88.4 216.4 7.899 42.3 10.5 85.699 5.899 128.5-2.099 17.9-5.199 35.8-10.899 52.9-8 24.8-18.5 48.9-32.9 70.7-12.4 18.8-27.9 35.6-45.8 49.2-19.7 14.9-42.2 25.8-65.6 33.3-29.101 9.3-59.601 13.9-90 16.4-36.301 2.699-72.801 3.199-109-1.4-41-5.1-81.7-16-118.2-35.7-33.8-18.2-63.5-44.899-82.6-78.5-22.1-38.4-29.4-83.9-25.9-127.8 3.6-46.5 18.4-91.6 38-133.7 17-36.2 37.8-70.5 60.899-103.1 19.7-27.6 40.9-54.1 64.101-78.9.399-.3 1.2-1 1.7-1.3-.4 20.9 1.6 41.9 7.6 62 6.1 20.5 16.4 39.8 30.1 56.3.801 1 1.4 2.4 2.9 2.601 29.7-22.3 57.8-47.3 79.7-77.4C533 321.4 548.199 285 554 246.9c7.699-49.3 1.1-100.6-17.1-147z\" fill=\"#df4723\" stroke=\"#df4723\" stroke-width=\".094\"/></svg>",
+        "link": "https://tinder.com",
+        "role": "Software Engineer, Tinder",
+        "quote": "Atomizer is a well-designed library which solves lots CSS management challenges of large scale applications. It helps to promote good html structure, clean and reusable CSS and rapid development process."
+    },
+    {
+        "author": "Max Heiber",
+        "link": "https://twitter.com/maxheiber/status/1334247383455117321?s=20&t=yMffS2mp0eK9GhavtsYX1Q",
+        "role": "@maxheiber",
+        "quote": "Atomic CSS tickles me: https://acss.io. It's a DSL that you write in class names. Atomizer makes the browser understand the subset you use. There's potential to take this much further"
+    },
+    {
+        "author": "Peter Hecker",
+        "link": "https://twitter.com/phecker65/status/1195622252873682944?s=20&t=yMffS2mp0eK9GhavtsYX1Q",
+        "role": "@phecker65",
+        "quote": "#CSS is painful. Style with class. Meet #Atomizer a tool that helps you create #AtomicCSS rules"
+    },
+    {
+        "author": "Pankaj Parashar",
+        "link": "https://twitter.com/pankajparashar/status/713735727608008705?s=20&t=yMffS2mp0eK9GhavtsYX1Q",
+        "role": "@pankajparashar",
+        "quote": "Naming selectors in CSS is hard! Thankfully Atomizer saves you the trouble from writing CSS altogether!"
+    }
+]

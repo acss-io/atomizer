@@ -14,89 +14,35 @@ layout: home
     <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
-<figure class="D(f) W(50%)--md Mx(a) My(5rem) Ai(c) Gp(2rem)">
-    <div>
-        <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
-            <p>We released Atomizer almost 10 years ago and to this day it is used on massive web sites by huge front-end teams. If your project calls for an Atomic CSS library, make sure to give it a try. And if you think you don't like the syntax, <a href="https://github.com/acss-io/atomizer/discussions/429">think again</a>!</p>
-        </blockquote>
-        <figcaption>
-            <a href="https://twitter.com/7h1322yk0813n72">Thierry Koblentz</a>, Atomizer Co-Creator
-        </figcaption>
+<h2>Testimonials</h2>
+
+<div id="testimonials" class="Pos(r)">
+    <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
+        {% for data in site.data.quotes %}
+            <li class="Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight)">
+                <a href="{{ data.link }}" class="C(#000) Td(n):h" target="_blank">
+                    <figure class="M(0px)">
+                        <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                            <p class="Mt(0px) Fz(16px)">{{ data.quote }}</p>
+                        </blockquote>
+                        <figcaption class="D(f) Ai(c) Gp(1rem)">
+                            {% if data.companyLogo %}
+                                {{ data.companyLogo }}
+                            {% endif %}
+                            <p class="M(0)">
+                                <b class="D(b) Fw(b)">{{ data.author }}</b>
+                                {{ data.role }}
+                            </p>
+                        </figcaption>
+                    </figure>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(linearGradient)">
+        <button id="toggleTestButton" class="Bgc(#0280ae) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
     </div>
-    <a href="https://twitter.com/7h1322yk0813n72">
-        <img src="{{ "/images/thierry.jpg" | relative_url }}" alt="Thierry Koblentz Picture" class="Bdrs(50px)" />
-    </a>
-</figure>
-
-<h2 class="Hidden">Testimonials</h2>
-
-<ul class="D(f)--md Ai(s) Ac(se) List(n)! Pstart(0)! Gp(2rem)">
-    <li class="Fxg(1) Fxb(0) Mx(0px) My(20px) My(0px)--md P(1rem) Bdrs(5px) Bgc(#0280ae.1)">
-        <figure class="M(0px)">
-            <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
-                <p class="Mt(0px) Fz(16px)">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </blockquote>
-            <figcaption class="D(f) Ai(c)">
-                <a href="https://www.yahoo.com" class="Mend(10px) Lh(0)">
-                    <svg version="1.1"  xmlns="http://www.w3.org/2000/svg" width="50" viewBox="0 0 300 300">
-                        <polygon points="458.4,255.5 524.8,95.3 481,95.3 454.2,162.5 429,95.3 384,95.3 431.8,212.6 414.5,255.5" />
-                        <g>
-                            <path fill="#fff" d="M503.6,187.4c0,14.7,11.4,26.8,26.8,26.8c15.9,0,27.8-12.6,27.8-27.7c0-14.7-11.4-26.8-26.8-26.8 C515.5,159.7,503.6,172.3,503.6,187.4L503.6,187.4z" />
-                            <polygon points="562.2,43.6 518.3,149.4 567.7,149.4 611.6,43.6" />
-                        </g>
-                        <polygon fill="#6001D2" points="110.9,255.5 177.4,95.3 133.5,95.3 106.7,162.5 81.5,95.3 36.5,95.3 84.3,212.6 67.1,255.5" />
-                        <g>
-                            <path fill="#6001D2" d="M156.1,187.4c0,14.7,11.4,26.8,26.8,26.8c15.9,0,27.8-12.6,27.8-27.7c0-14.7-11.4-26.8-26.8-26.8 C168,159.7,156.2,172.3,156.1,187.4L156.1,187.4z"/>
-                            <polygon fill="#6001D2" points="214.7,43.6 170.8,149.4 220.3,149.4 264.2,43.6" />
-                        </g>
-                    </svg>
-                </a>
-                <p class="M(0)">
-                    <b class="D(b) Fw(b)">Pavan Ratnakar</b>
-                    Sr Principle Engineer, <a href="https://www.yahoo.com">Yahoo</a>
-                </p>
-            </figcaption>
-        </figure>
-    </li>
-    <li class="Fxg(1) Fxb(0) Mx(0px) My(20px) My(0px)--md P(1rem) Bdrs(5px) Bgc(#0280ae.1)">
-        <figure class="M(0px)">
-            <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
-                <p class="Mt(0px) Fz(16px)">Initially I did not like the concept, I had experience in using Bootstrap UI Library and BEM methodology to manage CSS. It took 5 - 6 months to realize that Atomizer was the best and true CSS framework which solves many problems we were facing. Thierry Koblentz helped me a lot to understand the concept and the reason behind their decisions to build Atomizer.</p>
-            </blockquote>
-            <figcaption class="D(f) Ai(c)">
-                <a href="https://vwo.com/" class="Mend(15px) Lh(0)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="75" viewBox="0 0 300 100">
-                        <g fill="none" fill-rule="nonzero">
-                            <path fill="#BF3078" d="M250.498 0c-1.842 0-4.052 0-5.894.367l-10.683 18.7c4.789-2.934 10.683-4.4 16.577-4.4 19.156 0 34.996 15.766 34.996 34.833s-15.84 34.833-34.996 34.833c-19.156 0-34.628-15.4-34.996-34.466l-11.051 18.7C211.818 86.533 229.869 99 250.13 99c27.26 0 49.731-22.367 49.731-49.5C300.23 22.367 277.758 0 250.498 0z"/>
-                            <path fill="#802050" d="m100.2 51.7 8.472-14.667 19.156 32.634L149.93 31.9l22.102 37.767L209.976 5.5c1.842-3.3 5.526-5.5 9.578-5.5h10.683l-58.204 99-22.102-37.767L127.828 99l-27.629-47.3z"/>
-                            <path fill="#26134D" d="M116.04 0 57.836 99 0 0h10.683c4.052 0 7.736 2.2 9.578 5.5l37.575 64.533L95.779 5.5c1.842-3.3 5.525-5.5 9.578-5.5h10.683z"/>
-                        </g>
-                    </svg>
-                </a>
-                <p class="M(0)">
-                    <b class="D(b) Fw(b)">Jitendra Vyas</b>
-                    UX Engineer, <a href="https://vwo.com/">VWO</a>
-                </p>
-            </figcaption>
-        </figure>
-    </li>
-    <li class="Fxg(1) Fxb(0) Mx(0px) P(1rem) Bdrs(5px) Bgc(#0280ae.1)">
-        <figure class="M(0px)">
-            <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
-                <p class="Mt(0px) Fz(16px)">Atomizer is a well-designed library which solves lots CSS management challenges of large scale applications. It helps to promote good html structure, clean and reusable CSS and rapid development process.</p>
-            </blockquote>
-            <figcaption class="D(f) Ai(c)">
-                <a href="https://tinder.com" class="Mend(15px) Lh(0)">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="30" viewBox="224.419 99.761 584.098 771.733"><path d="M536.9 99.9c6.8 5.2 12.7 11.6 19.2 17.2 58.7 55.4 112.5 116.6 155.8 184.9 41.9 66.1 74.101 139.2 88.4 216.4 7.899 42.3 10.5 85.699 5.899 128.5-2.099 17.9-5.199 35.8-10.899 52.9-8 24.8-18.5 48.9-32.9 70.7-12.4 18.8-27.9 35.6-45.8 49.2-19.7 14.9-42.2 25.8-65.6 33.3-29.101 9.3-59.601 13.9-90 16.4-36.301 2.699-72.801 3.199-109-1.4-41-5.1-81.7-16-118.2-35.7-33.8-18.2-63.5-44.899-82.6-78.5-22.1-38.4-29.4-83.9-25.9-127.8 3.6-46.5 18.4-91.6 38-133.7 17-36.2 37.8-70.5 60.899-103.1 19.7-27.6 40.9-54.1 64.101-78.9.399-.3 1.2-1 1.7-1.3-.4 20.9 1.6 41.9 7.6 62 6.1 20.5 16.4 39.8 30.1 56.3.801 1 1.4 2.4 2.9 2.601 29.7-22.3 57.8-47.3 79.7-77.4C533 321.4 548.199 285 554 246.9c7.699-49.3 1.1-100.6-17.1-147z" fill="#df4723" stroke="#df4723" stroke-width=".094"/></svg>
-                </a>
-                <p class="M(0)">
-                    <b class="D(b) Fw(b)">Roderick Hsiao</b>
-                    Software Engineer, <a href="https://tinder.com">Tinder</a>
-                </p>
-            </figcaption>
-        </figure>
-    </li>
-</ul>
+</div>
 
 <h2 id="colors">Colors</h2>
 
