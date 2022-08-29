@@ -13,9 +13,9 @@ If you are unsure if a particular CSS feature is ready for production, use the [
 
 ## Vendor Prefixing
 
-Some CSS properties require [Vendor Prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) for experimental or nonstandard CSS features. In rare cases that Atomizer supports these new features, the [Atomizer CLI](./installation.html#atomizer-cli) will automatically output the vendor prefixes for you.
+Some CSS properties require [Vendor Prefixes](https://developer.mozilla.org/en-US/docs/Glossary/Vendor_Prefix) for experimental or nonstandard CSS features. In rare cases that Atomizer supports these new features, the [Atomizer CLI]({% link installation.md %}#atomizer-cli) will automatically output the vendor prefixes for you.
 
-If you are not using the CLI and prefer a different [build integration](./installation.html#build), you can leverage the [Autoprefixer](https://github.com/postcss/autoprefixer) npm package to automatically add vendor prefixes to the outputted Atomizer CSS file.
+If you are not using the CLI and prefer a different [build integration]({% link installation.md %}#build), you can leverage the [Autoprefixer](https://github.com/postcss/autoprefixer) npm package to automatically add vendor prefixes to the outputted Atomizer CSS file.
 
 Setting up Autoprefixer is easy, just run:
 

@@ -7,7 +7,7 @@ title: Atomizer classes
 
 Atomizer classes are simple, single-purpose units of styling. Much like inline styles, these styles only apply a single style declaration. Unlike inline styles, Atomizer classes have a lower specificity, making them easier to override, and can be modified using pseudo-classes, media queries, and more.
 
-<div class="noteBox info">Atomizer let's you define your own custom classes, please follow our <a href="./custom-classes.html">Custom classes</a> guide.</div>
+<div class="noteBox info">Atomizer let's you define your own custom classes, please follow our <a href="{% link guides/custom-classes.md %}">Custom classes</a> guide.</div>
 
 ## Overview
 
@@ -19,7 +19,7 @@ Complex Atomizer classes use custom identifiers known as &quot;variables&quot;, 
 
 For more on the syntax of Atomizer classes and their value parameters, see [the Class Syntax guide](/guides/syntax.html).
 
-<div class="noteBox info">The <a href="/reference.html">searchable reference page</a> gives you a complete listing of Atomizer classes and their supported values.</div>
+<div class="noteBox info">The <a href="{% link reference.md %}">searchable reference page</a> gives you a complete listing of Atomizer classes and their supported values.</div>
 
 ## Aliases
 
@@ -159,7 +159,7 @@ Atomizer provides aliases for most properties <sup>[[1]](#footnote)<a id="footno
     </table>
 </div>
 
-<div class="noteBox info">It is possible to apply multiple filters at once by creating a <a href="../configuration.html#custom">custom value</a> or class in Atomizer&#39;s configuration.  For example:
+<div class="noteBox info">It is possible to apply multiple filters at once by creating a <a href="{% link configuration.md %}#custom">custom value</a> or class in Atomizer&#39;s configuration.  For example:
 
 {% highlight js %} custom: { 'Fil(myCustomFilter)': 'contrast(150%) brightness(10%)', } {% endhighlight %}
 

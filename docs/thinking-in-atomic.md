@@ -9,7 +9,7 @@ title: Thinking in Atomic
 
 <p class="noteBox info">Be sure to read an interview with Atomizer Co-Founder Thierry Koblentz, <a href="https://css-tricks.com/thierry-koblentz-atomic-css/">The Making of Atomic CSS</a> on CSS Tricks.</p>
 
-**Atomizer** implements the a specific [syntax](/guides/syntax.html) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
+**Atomizer** implements the a specific [syntax]({% link guides/syntax.md %}) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
 
 Adopting an Atomic CSS methodology addresses common CSS challenges:
 
@@ -38,7 +38,7 @@ Traditional style sheets may be helpful for styles that <b>ACSS</b> cannot creat
 
 ## Grids
 
-There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, <b>ACSS</b> gives you all the tools you need to create [any grid you want](/tutorials/layout.html).
+There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, <b>ACSS</b> gives you all the tools you need to create [any grid you want]({% link tutorials/layout.md %}).
 
 ## Specificity
 
@@ -102,7 +102,7 @@ This table suggests the namespace to use depending on the weight of your other r
     </tbody>
 </table>
 
-<p class="noteBox info">You can set up a namespace in <a href="https://github.com/acss-io/grunt-atomizer#examples">grunt-atomizer</a> or via the <a href="./installation.html#atomizer-cli">Atomizer command line</a>.</p>
+<p class="noteBox info">You can set up a namespace in <a href="https://github.com/acss-io/grunt-atomizer#examples">grunt-atomizer</a> or via the <a href="{% link installation.md %}#atomizer-cli">Atomizer command line</a>.</p>
 
 ### Style sheets organization
 

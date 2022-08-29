@@ -7,7 +7,7 @@ title: Layout
 
 Atomizer does not come with an out-of-the-box grid system. Instead, you can use any layout method you want to build your projects layout. It's up to you to decide which method fits your needs best. Read the sections below to see examples of different layout options.
 
-## [Float](../reference.html#float)
+## [Float]({% link reference.md %}#float)
 
 This styling method was one of the first ways to layout a website without the [spacer.gif](https://en.wikipedia.org/wiki/Spacer_GIF) or table markup hacks. Additionally, <a href="https://github.com/acss-io/atomizer">Atomizer</a> can make it &quot;direction&quot; agnostic by simply using the `Fl()` class (e.g., `Fl(start)` or `Fl(end)`).
 
@@ -23,9 +23,9 @@ This styling method was one of the first ways to layout a website without the [s
    <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(#0280ae)">Box 2</div>
 </div>
 
-<p class="noteBox info">In this example, the class <code>Cf</code> (for &quot;clearfix&quot;) is used to contain the floats, but there is also a <a href="/guides/helper-classes.html#row"><code>Row</code> helper class</a> to better deal with floats across browsers.</p>
+<p class="noteBox info">In this example, the class <code>Cf</code> (for &quot;clearfix&quot;) is used to contain the floats, but there is also a <a href="{% link guides/helper-classes.md %}#row"><code>Row</code> helper class</a> to better deal with floats across browsers.</p>
 
-## [Table](../reference.html#display)
+## [Table]({% link reference.md %}#display)
 
 This styling was a step in up from the float method, but avoids float issues. Table layouts are also direction-friendly (boxes are displayed according to `ltr` / `rtl` contexts).
 
@@ -81,7 +81,7 @@ You can also use `table-header-group` and/or `table-footer-group` to swap boxes 
     <div class="D(tbhg) P(20px) Bgc(#0280ae)">Box Number 3</div>
 </div>
 
-## [Flexbox](../reference.html#flex)
+## [Flexbox]({% link reference.md %}#flex)
 
 Flexbox is a one-dimensional layout method for arranging items in rows or columns. Items flex (expand) to fill additional space or shrink to fit into smaller spaces.
 
@@ -104,17 +104,17 @@ Flexbox is a one-dimensional layout method for arranging items in rows or column
     <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
 </div>
 
-## [Grids](../reference.html#gridarea)
+## [Grids]({% link reference.md %}#gridarea)
 
-<p class="noteBox warning"><strong>NOTE:</strong> Due to the complex nature of <a href="https://www.w3.org/TR/css-grid-1">CSS Grid</a>, some of these properties can only use <a href="/configuration.html#custom">custom variables</a>.</p>
+<p class="noteBox warning"><strong>NOTE:</strong> Due to the complex nature of <a href="https://www.w3.org/TR/css-grid-1">CSS Grid</a>, some of these properties can only use <a href="{% link configuration.md %}#custom">custom variables</a>.</p>
 
 Use `D(g)` for `display: grid` or `D(ig)` for `display: inline-grid` on the chosen node, you can then specify any required additional grid classes.
 
-For alignment of child elements please see the <a href="alignment.html">Alignment</a> guide.
+For alignment of child elements please see the <a href="{% link tutorials/alignment.md %}">Alignment</a> guide.
 
-### [`grid-area`](../reference.html#gridarea)
+### [`grid-area`]({% link reference.md %}#gridarea)
 
-The [`grid-area`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area) property is a shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`. Based on the complexity of value configuration, its best to use custom variables for style declarations. Additionally, you can also use <a href="/configuration.html#substitution">substitution</a> tokens like in the examples below.
+The [`grid-area`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area) property is a shorthand for `grid-row-start`, `grid-column-start`, `grid-row-end` and `grid-column-end`. Based on the complexity of value configuration, its best to use custom variables for style declarations. Additionally, you can also use <a href="{% link configuration.md %}#substitution">substitution</a> tokens like in the examples below.
 
 The following example shows `Ga(colMain)` -> `grid-area: 'main'`.
 
@@ -141,7 +141,7 @@ module.exports = {
     <div class="Bgc(#ccc) P(10px) Ga(colAside) Mih(150px)">2</div>
 </div>
 
-### [`grid-auto-columns`](../reference.html#gridautocolumns) & [`grid-auto-rows`](../reference.html#gridautorows)
+### [`grid-auto-columns`]({% link reference.md %}#gridautocolumns) & [`grid-auto-rows`]({% link reference.md %}#gridautorows)
 
 The [`grid-auto-columns`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns) and [`grid-auto-rows`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows) properties specify the size of tracks not assigned a size by `grid-template-rows` or `grid-template-columns`. You can use keywords, single values or custom variables.
 
@@ -164,7 +164,7 @@ The following example shows `Gar(150px)` -> `grid-auto-rows: 150px`.
     <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
-### [`grid-auto-flow`](../reference.html#gridautoflow)
+### [`grid-auto-flow`]({% link reference.md %}#gridautoflow)
 
 Grid items that aren’t explicitly placed are automatically placed into an unoccupied space in the grid container by the [auto-placement algorithm](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Auto-placement_in_CSS_Grid_Layout). [`grid-auto-flow`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow) controls how the auto-placement algorithm works, specifying exactly how auto-placed items get flowed into the grid.
 
@@ -187,7 +187,7 @@ The following example shows `Gaf(rd)` -> `grid-auto-flow: row dense`.
     <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
-### [`grid-column`](../reference.html#gridcolumn) & [`grid-row`](../reference.html#gridrow)
+### [`grid-column`]({% link reference.md %}#gridcolumn) & [`grid-row`]({% link reference.md %}#gridrow)
 
 The [`grid-row`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row) and [`grid-column`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) properties are shorthands for `grid-row-start/grid-row-end` and `grid-column-start/grid-column-end`, respectively. Uses values and variables.
 
@@ -222,7 +222,7 @@ module.exports = {
     <div class="Bgc(#ccc) P(10px) Gc(2)">6</div>
 </div>
 
-### [`grid-column-start`](../reference.html#gridcolumnstart) & [`grid-column-end`](../reference.html#gridcolumnend)
+### [`grid-column-start`]({% link reference.md %}#gridcolumnstart) & [`grid-column-end`]({% link reference.md %}#gridcolumnend)
 
 The [`grid-column-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-start) and [`grid-column-end`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement. Thereby specifying the `inline-start`, `block-start`, `inline-end`, and `block-end` edges of its grid area.
 
@@ -256,7 +256,7 @@ module.exports = {
     <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
-### [`grid-row-start`](../reference.html#gridrowstart) & [`grid-row-end`](../reference.html#gridrowend)
+### [`grid-row-start`]({% link reference.md %}#gridrowstart) & [`grid-row-end`]({% link reference.md %}#gridrowend)
 
 The [`grid-row-start`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start) and [`grid-row-end`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-end) properties determine a grid item’s size and location within the grid by contributing a line, a span, or nothing (automatic) to its grid placement, thereby specifying the `inline-start`, `block-start`, `inline-end`, and `block-end` edges of its grid area.
 
@@ -281,13 +281,13 @@ The following example shows `Gre(1)` -> `grid-row-end: 1`.
     <div class="Bgc(#ccc) P(10px)">6</div>
 </div>
 
-### [`grid-template`](../reference.html#gridtemplate)
+### [`grid-template`]({% link reference.md %}#gridtemplate)
 
 The [`grid-template`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template) CSS property is a shorthand property for defining grid columns, rows, and areas. This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties.
 
 The syntax of the `grid-template-areas` property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
-Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> which can be configured using a template literal.
+Since this property has numerous complex possibilities, we only allow using <a href="{% link configuration.md %}#custom">custom variables</a> which can be configured using a template literal.
 
 The following example shows `Gt(gridABCUnit)` ->
 
@@ -325,11 +325,11 @@ module.exports = {
     <div class="Bgc(#ccc) P(10px) Ga(gridContent)">3</div>
 </div>
 
-### [`grid-template-areas`](../reference.html#gridtemplateareas)
+### [`grid-template-areas`]({% link reference.md %}#gridtemplateareas)
 
 This property specifies named grid areas, which are not associated with any particular grid item, but can be referenced from the grid-placement properties. The syntax of the [`grid-template-areas`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas) property also provides a visualization of the structure of the grid, making the overall layout of the grid container easier to understand.
 
-Since this property has numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a> which can be configured using a template literal.
+Since this property has numerous complex possibilities, we only allow using <a href="{% link configuration.md %}#custom">custom variables</a> which can be configured using a template literal.
 
 The following example shows `Gta(gridABC)` ->
 
@@ -367,11 +367,11 @@ module.exports = {
     <div class="Bgc(#ccc) Ga(gridContent) P(10px)">3</div>
 </div>
 
-### [`grid-template-columns`](../reference.html#gridtemplatecolumns) & [`grid-template-rows`](../reference.html#gridtemplaterows)
+### [`grid-template-columns`]({% link reference.md %}#gridtemplatecolumns) & [`grid-template-rows`]({% link reference.md %}#gridtemplaterows)
 
 These properties specify, as a space-separated track list, the line names and track sizing functions of the grid. The [`grid-template-columns`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) property specifies the track list for the grid’s columns, while [`grid-template-rows`](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows) specifies the track list for the grid’s rows.
 
-Since these properties have numerous complex possibilities, we only allow using <a href="/configuration.html#custom">custom variables</a>.
+Since these properties have numerous complex possibilities, we only allow using <a href="{% link configuration.md %}#custom">custom variables</a>.
 
 The following example shows `Gtc(threeColEvenGrid)` -> `grid-template-columns: repeat(3, minmax(20px, 1fr)).`
 

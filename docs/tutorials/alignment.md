@@ -5,9 +5,9 @@ section: docs
 title: Box level alignment
 ---
 
-These examples shows different ways to align boxes within their containers in the various CSS box layout models: `block` layout, `table` layout, and `flex` layout. There is a separate guide for [CSS Grid](layout.html#grids).
+These examples shows different ways to align boxes within their containers in the various CSS box layout models: `block` layout, `table` layout, and `flex` layout. There is a separate guide for [CSS Grid]({% link tutorials/layout.md %}#grids).
 
-## [`align-content`](../reference.html#aligncontent)
+## [`align-content`]({% link reference.md %}#aligncontent)
 
 Aligns the contents of the box as a whole (as the alignment subject) within the box itself along the block/column/cross axis of the box.
 
@@ -33,7 +33,7 @@ The following example shows `Ac(sb)` -> `align-content: space-between`.
     <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## [`align-items`](../reference.html#alignitems)
+## [`align-items`]({% link reference.md %}#alignitems)
 
 This property specifies the default `align-items` for **all** of the child boxes (including anonymous boxes) participating in this box’s formatting context.
 
@@ -59,7 +59,7 @@ The following example shows `Ai(c)` -> `align-items: center`.
     <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## [`align-self`](../reference.html#alignself)
+## [`align-self`]({% link reference.md %}#alignself)
 
 Aligns the box (as the alignment subject) within its containing block (as the alignment container) along the block/column/cross axis of the alignment container (the box’s outer edges are aligned within its alignment container as described by its alignment value).
 
@@ -85,7 +85,7 @@ The following example shows `As(fs)` -> `align-self: flex-start`.
     <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## [`justify-content`](../reference.html#justifycontent)
+## [`justify-content`]({% link reference.md %}#justifycontent)
 
 Aligns the contents of the box as a whole (as the alignment subject) within the box itself (as the alignment container) along the inline/row/main axis of the box.
 
@@ -111,7 +111,7 @@ The following example shows `Jc(se)` ->`justify-content: space-evenly`.
     <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
 </div>
 
-## [`justify-items`](../reference.html#justifyitems)
+## [`justify-items`]({% link reference.md %}#justifyitems)
 
 This property specifies the default `justify-items` for all of the child boxes (including anonymous boxes) participating in this box’s formatting context.
 
@@ -142,7 +142,7 @@ The following example shows `Ji(e)` -> `justify-items: end`.
     <b class="Fw(b)">NOTE:</b> <code>justify-items</code> only works in grid mode.
 </p>
 
-## [`justify-self`](../reference.html#justifyself)
+## [`justify-self`]({% link reference.md %}#justifyself)
 
 Justifies the box (as the alignment subject) within its containing block (as the alignment container) along the inline/row/main axis of the alignment container (the box’s outer edges are aligned within its alignment container).
 

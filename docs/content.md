@@ -133,7 +133,7 @@ This ensures Atomizer can adequately parse the files.
 
 ## Explicit classes
 
-If you need to specify Atomizer class names that are not present in any of your source paths, then you can use the [classNames](./configuration.html#classnames) property from the `atomizer.config.js` file to manual define the classes:
+If you need to specify Atomizer class names that are not present in any of your source paths, then you can use the [classNames]({% link configuration.md %}#classnames) property from the `atomizer.config.js` file to manual define the classes:
 
 ```js
 module.exports = {

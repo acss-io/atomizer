@@ -1,70 +1,103 @@
+{% if include.showSearch != false %}
 <div class="Mb(20px) Pend(20px)--sm">
     {% include search.html %}
 </div>
+{% endif %}
 
-<ul class="M(0) P(0)">
-    <li class="{% if page.url == '/quick-start.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/quick-start.html" | relative_url }}">Quick Start</a>
-    </li>
-    <li class="{% if page.url == '/installation.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/installation.html" | relative_url }}">Installation</a>
-    </li>
-    <li class="{% if page.url == '/editor-setup.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/editor-setup.html" | relative_url }}">Editor Setup</a>
-    </li>
-    <li class="{% if page.url == '/browser-support.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/browser-support.html" | relative_url }}">Browser Support</a>
-    </li>
-</ul>
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Getting Started</h3>
 
-<h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Core Concepts</h3>
+    <ul class="M(0) P(0)">
+        <li class="{% if page.url == '/quick-start.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link quick-start.md %}">Quick Start</a>
+        </li>
+        <li class="{% if page.url == '/installation.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link installation.md %}">Installation</a>
+        </li>
+        <li class="{% if page.url == '/editor-setup.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link editor-setup.md %}">Editor Setup</a>
+        </li>
+        <li class="{% if page.url == '/browser-support.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link browser-support.md %}">Browser Support</a>
+        </li>
+    </ul>
+</div>
 
-<ul class="M(0) P(0)">
-    <li class="{% if page.url == '/thinking-in-atomic.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/thinking-in-atomic.html" | relative_url }}">Thinking in Atomic</a>
-    </li>
-    <li class="{% if page.url == '/guides/syntax.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/syntax.html" | relative_url }}">Class syntax</a>
-    </li>
-    <li class="{% if page.url == '/guides/atomizer-classes.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/atomizer-classes.html" | relative_url }}">Atomizer classes</a>
-    </li>
-    <li class="{% if page.url == '/guides/helper-classes.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/helper-classes.html" | relative_url }}">Helper classes</a>
-    </li>
-    <li class="{% if page.url == '/guides/shorthand.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/shorthand.html" | relative_url }}">Shorthand</a>
-    </li>
-</ul>
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Core Concepts</h3>
 
-<h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Customization</h3>
+    <ul class="M(0) P(0)">
+        <li class="{% if page.url == '/thinking-in-atomic.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link thinking-in-atomic.md %}">Thinking in Atomic</a>
+        </li>
+        <li class="{% if page.url == '/guides/syntax.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link guides/syntax.md %}">Class syntax</a>
+        </li>
+        <li class="{% if page.url == '/guides/atomizer-classes.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link guides/atomizer-classes.md %}">Atomizer classes</a>
+        </li>
+        <li class="{% if page.url == '/guides/helper-classes.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link guides/helper-classes.md %}">Helper classes</a>
+        </li>
+        <li class="{% if page.url == '/guides/shorthand.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link guides/shorthand.md %}">Shorthand</a>
+        </li>
+    </ul>
+</div>
 
-<ul class="M(0) P(0)">
-    <li class="{% if page.url == '/configuration.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/configuration.html" | relative_url }}">Configuration</a>
-    </li>
-    <li class="{% if page.url == '/content.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/content.html" | relative_url }}">Content</a>
-    </li>
-    <li class="{% if page.url == '/breakpoints.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/breakpoints.html" | relative_url }}">Breakpoints</a>
-    </li>
-    <li class="{% if page.url == '/guides/custom-classes.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/guides/custom-classes.html" | relative_url }}">Custom classes</a>
-    </li>
-</ul>
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Customization</h3>
 
+    <ul class="M(0) P(0)">
+        <li class="{% if page.url == '/configuration.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link configuration.md %}">Configuration</a>
+        </li>
+        <li class="{% if page.url == '/content.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link content.md %}">Content</a>
+        </li>
+        <li class="{% if page.url == '/breakpoints.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link breakpoints.md %}">Breakpoints</a>
+        </li>
+        <li class="{% if page.url == '/guides/custom-classes.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link guides/custom-classes.md %}">Custom classes</a>
+        </li>
+    </ul>
+</div>
 
-<h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Tutorials</h3>
+{% if include.showCommunity == true %}
 
-<ul class="M(0) P(0)">
-    <li class="{% if page.url == '/tutorials/alignment.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/alignment.html" | relative_url }}">Alignment</a>
-    </li>
-    <li class="{% if page.url == '/tutorials/layout.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/layout.html" | relative_url }}">Layout</a>
-    </li>
-    <li class="{% if page.url == '/tutorials/scroll.html' %}selected{% endif %}">
-        <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ "/tutorials/scroll.html" | relative_url }}">Scroll Snap</a>
-    </li>
-</ul>
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Community</h3>
+
+    <ul class="M(0) P(0)">
+        <li>
+            <a class="D(b) Py(5px)" href="https://github.com/acss-io/atomizer">GitHub</a>
+        </li>
+        <li>
+            <a class="D(b) Py(5px)" href="https://join.slack.com/t/atomiccss/shared_invite/zt-1cibei9yf-uzzDdDRLrLUgHkNDEFkjjw">Slack</a>
+        </li>
+        <li>
+            <a class="D(b) Py(5px)" href="https://twitter.com/atomiccss">Twitter</a>
+        </li>
+    </ul>
+</div>
+
+{% else %}
+
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Tutorials</h3>
+
+    <ul class="M(0) P(0)">
+        <li class="{% if page.url == '/tutorials/alignment.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link tutorials/alignment.md %}">Alignment</a>
+        </li>
+        <li class="{% if page.url == '/tutorials/layout.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link tutorials/layout.md %}">Layout</a>
+        </li>
+        <li class="{% if page.url == '/tutorials/scroll.html' %}selected{% endif %}">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{% link tutorials/scroll.md %}">Scroll Snap</a>
+        </li>
+    </ul>
+</div>
+
+{% endif %}

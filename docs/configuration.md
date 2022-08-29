@@ -42,11 +42,11 @@ module.exports = {
 }
 ```
 
-Read more about how to use the `content` property in our [Content guide](./content.html).
+Read more about how to use the `content` property in our [Content guide]({% link content.md %}).
 
 ### Breakpoints
 
-The `breakpoints` section defines the [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) your templates will use when using the [breakpoint suffix](./guides/syntax.html#breakpoint_identifier) or [automatic breakpoints](./guides/syntax.html#automatic-breakpoints).
+The `breakpoints` section defines the [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) your templates will use when using the [breakpoint suffix]({% link guides/syntax.md %}#breakpoint_identifier) or [automatic breakpoints]({% link guides/syntax.md %}#automatic-breakpoints).
 
 ```js
 module.exports = {
@@ -58,7 +58,7 @@ module.exports = {
 };
 ```
 
-Read more about how breakpoints work from our [Breakpoints guide](./breakpoints.html).
+Read more about how breakpoints work from our [Breakpoints guide]({% link breakpoints.md %}).
 
 ### Custom
 

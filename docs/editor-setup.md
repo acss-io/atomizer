@@ -7,7 +7,7 @@ title: Editor Setup
 
 Atomizer automatically scans your project for Atomic CSS class names. No configuration or packages are needed to work in your favorite editor. However, we provide extensions for VS Code to help improve your developer experience.
 
-If you have a configuration setup or editor extension that you want to share, please [let us know](./support.html); we will include it here.
+If you have a configuration setup or editor extension that you want to share, please [let us know]({% link support.md %}); we will include it here.
 
 ## Extensions for VS Code
 

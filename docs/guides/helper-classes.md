@@ -5,9 +5,9 @@ section: docs
 title: Helper classes
 ---
 
-Unlike [Atomizer classes](/guides/atomizer-classes.html), helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.
+Unlike [Atomizer classes]({% link guides/atomizer-classes.md %}), helper classes apply multiple style declarations from a single class, but still are intended to provide a low-level, single-purpose unit of style.
 
-<div class="noteBox info">Atomizer let's you define your own custom helper classes, please follow our <a href="./custom-classes.html">Custom classes</a> guide.</div>
+<div class="noteBox info">Atomizer let's you define your own custom helper classes, please follow our <a href="{% link guides/custom-classes.md %}">Custom classes</a> guide.</div>
 
 ## `Bd*` (Borders)
 

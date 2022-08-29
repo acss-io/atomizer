@@ -5,9 +5,9 @@ section: docs
 title: Quick Start
 ---
 
-Atomizer works by scanning HTML, JS and any other text file for [Atomizer classes](./guides/atomizer-classes.html). The classes are tranformed into style declarations and outputted to a CSS file. Add this generated CSS file to your site and you are done!
+Atomizer works by scanning HTML, JS and any other text file for [Atomizer classes]({% link guides/atomizer-classes.md %}). The classes are tranformed into style declarations and outputted to a CSS file. Add this generated CSS file to your site and you are done!
 
-We have created a few examples that you can check out before [setting up](./installation.html) Atomizer on your own site. Please follow the instructions below.
+We have created a few examples that you can check out before [setting up]({% link installation.md %}) Atomizer on your own site. Please follow the instructions below.
 
 ## Playground
 
@@ -29,7 +29,7 @@ This should open a page in your browser at [http://localhost:3000](http://localh
 Now try this:
 
 -   Open the index page in a text editor
--   Edit, add, or remove **Atomizer** classes in the markup (get help from the [reference page](/reference.html))
+-   Edit, add, or remove **Atomizer** classes in the markup (get help from the [reference page]({% link reference.md %}))
 -   Save the file
 
 The browser should reload the page, displaying all your changes. Check the [atomic.css](http://localhost:3000/css/atomic.css) file to see that it only contains the rules for the classes that are being used in the project.
@@ -38,6 +38,6 @@ The browser should reload the page, displaying all your changes. Check the [atom
 
 ## Next Steps
 
-From here, [install](./installation.html) Atomizer in your site, learn about [Atomic CSS Architecture](/thinking-in-atomic.html), read the [FAQ](/frequently-asked-questions.html), learn more about [Atomizer](/guides/atomizer-classes.html) classes and their [syntax](/guides/syntax.html).
+From here, [install]({% link installation.md %}) Atomizer in your site, learn about [Atomic CSS Architecture]({% link thinking-in-atomic.md %}), read the [FAQ]({% link frequently-asked-questions.md %}), learn more about [Atomizer]({% link guides/atomizer-classes.md %}) classes and their [syntax]({% link guides/syntax.md %}).
 
 Please visit the [Atomizer](https://github.com/acss-io/atomizer) repository for more information.
