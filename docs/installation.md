@@ -7,9 +7,9 @@ title: Installation
 
 [Atomizer](https://github.com/acss-io/atomizer) is a tool ([npm](https://www.npmjs.com/package/atomizer), [github](https://github.com/acss-io/atomizer)) for generating **Atomic CSS (ACSS)** stylesheets.
 
-Atomizer creates CSS style declarations based on [Atomizer classes](./guides/atomizer-classes.html) it finds in your project. This means that your style sheets are always up-to-date _without the need for writing a single CSS declaration manually_ <sup>[[1]](#footnote)</sup><a id="footnote-1"></a>.
+Atomizer creates CSS style declarations based on [Atomizer classes]({% link guides/atomizer-classes.md %}) it finds in your project. This means that your style sheets are always up-to-date _without the need for writing a single CSS declaration manually_ <sup>[[1]](#footnote)</sup><a id="footnote-1"></a>.
 
-This guide explains various solutions to setup Atomizer in your website. Have an integration we do not cover? Please [let us know](https://github.com/acss-io/atomizer/discussions). If you want to see Atomizer in action, please check out the [quick start guide](./quick-start.html).
+This guide explains various solutions to setup Atomizer in your website. Have an integration we do not cover? Please [let us know](https://github.com/acss-io/atomizer/discussions). If you want to see Atomizer in action, please check out the [quick start guide]({% link quick-start.md %}).
 
 ## Atomizer CLI
 

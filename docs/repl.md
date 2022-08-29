@@ -43,8 +43,8 @@ title: Hello world - REPL
 &lt;!-- Edit the HTML markup here. --&gt;
 <div class="W(30%)--sm Mx(a) Mt(3rem) P(20px) Bg(#0280ae) C(#fff) Bdrs(15px) Ff(arial)">
     <h1 class="Ta(c)">Hello world!</h1>
-    <p class="My(10px) Lh(1.3)">Modify the markup by changing the code in the "html" box. As you add and remove <a href="./guides/atomizer-classes.html">Atomizer classes</a>, this preview will update live and the CSS will be auto generated in the "css" box above.</p>
-    <p class="Lh(1.3)">You can further customize Atomizer by adding your own breakpoints or custom values. Take a look at the <a href="./configuration.html">Configuration guide</a> for more information.</p>
+    <p class="My(10px) Lh(1.3)">Modify the markup by changing the code in the "html" box. As you add and remove <a href="{% link guides/atomizer-classes.md %}">Atomizer classes</a>, this preview will update live and the CSS will be auto generated in the "css" box above.</p>
+    <p class="Lh(1.3)">You can further customize Atomizer by adding your own breakpoints or custom values. Take a look at the <a href="{% link configuration.md %}">Configuration guide</a> for more information.</p>
     <p>Like what you see? Use the Download button to save it locally and build your next project!</p>
 </div>
             </textarea>
@@ -52,7 +52,7 @@ title: Hello world - REPL
 
         <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) Bdstart(replBorder) Bdend(replBorder)">
             <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">
-                <a href="./configuration.html" target="_blank">
+                <a href="{% link configuration.md %}" target="_blank">
                     config
                     <svg class="W(14px) H(14px) Va(m)" viewBox="0 0 24 24">
                         <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
@@ -85,4 +85,4 @@ title: Hello world - REPL
 
 </div>
 
-<script src="{{'/assets/js/repl.js' | relative_url }}"></script>
+<script src="/assets/js/repl.js"></script>

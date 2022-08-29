@@ -11,10 +11,10 @@ title: Get Help with Atomizer
 
 Find what you need in our documentation and tutorials
 
--   Learn how to [get started](./quick-start.html) with Atomizer.
--   Use our [FAQ](./frequently-asked-questions.html) page for common questions and troubleshooting.
--   Learn how to [Configure](./configuration.html) Atomizer.
--   Look at the full class [Reference](./reference.html) page.
+-   Learn how to [get started]({% link quick-start.md %}) with Atomizer.
+-   Use our [FAQ]({% link frequently-asked-questions.md %}) page for common questions and troubleshooting.
+-   Learn how to [Configure]({% link configuration.md %}) Atomizer.
+-   Look at the full class [Reference]({% link reference.md %}) page.
 
 ### Join the community
 

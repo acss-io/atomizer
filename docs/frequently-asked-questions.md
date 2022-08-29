@@ -5,7 +5,7 @@ section: docs
 title: Frequently Asked Questions
 ---
 
-This section is intended to answer common questions related to Atomic CSS and Atomizer. If you&#39;re unable to find an answer to your question, [you can find support here](/support.html) or [start a discussion here](https://github.com/acss-io/atomizer/discussions).
+This section is intended to answer common questions related to Atomic CSS and Atomizer. If you&#39;re unable to find an answer to your question, [you can find support here]({% link support.md %}) or [start a discussion here](https://github.com/acss-io/atomizer/discussions).
 
 ## Atomic CSS architecture
 
@@ -278,7 +278,7 @@ If we put Gzip into the picture, then things look even better. That’s because 
 
 ### How can you distribute presentation changes without asking everyone to change their markup?
 
-Use atomic classes where it makes sense; for example the following creates much of the content of our <a href="./reference">reference</a> page. If we decided to change the styling of this content this would be the only place we&#39;d need to go to.
+Use atomic classes where it makes sense; for example the following creates much of the content of our <a href="{% link reference.md %}">reference</a> page. If we decided to change the styling of this content this would be the only place we&#39;d need to go to.
 
 ```jsx
 return (
@@ -291,7 +291,7 @@ return (
 
 ### How does Atomic CSS work with <abbr title="Responsive Web Design">RWD</abbr>?
 
-Please visit our <a href="tutorials/responsive-web-design.html">RWD docs</a> to see examples of how you can use <b class="Fw(b)">Atomizer</b> to create styles in the context of breakpoints.
+Please visit our <a href="{% link breakpoints.md %}">RWD docs</a> to see examples of how you can use <b class="Fw(b)">Atomizer</b> to create styles in the context of breakpoints.
 
 ## Answers related to Atomizer
 
@@ -299,7 +299,7 @@ Please visit our <a href="tutorials/responsive-web-design.html">RWD docs</a> to 
 
 <b class="Fw(b)">Atomizer</b> is not a framework; it does not contain UI components nor a grid system. It is a solution that allows you to to create **your own UI** while preventing bloat.
 
-<b class="Fw(b)">Atomizer</b>&#39;s &quot;footprint&quot; is limited to what a project uses - meaning there is no &quot;entry cost&quot;. Simply installing <a href="/guides/atomizer.html">Atomizer</a> in your project does not add any bytes to your pages.
+<b class="Fw(b)">Atomizer</b>&#39;s &quot;footprint&quot; is limited to what a project uses - meaning there is no &quot;entry cost&quot;. Simply installing <a href="{% link installation.md %}">Atomizer</a> in your project does not add any bytes to your pages.
 
 ### Do I need to specify a namespace? And if yes, what should I use?
 

@@ -11,7 +11,7 @@ layout: home
         </p>
         <p>Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
     </div>
-    <img src="{{ "/images/atomic-demo.gif" | relative_url }}" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
+    <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
 <h2 id="colors">Colors</h2>
@@ -38,7 +38,7 @@ layout: home
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>&quot;<a href="/guides/syntax.html#variable-values">Variables</a>&quot; are useful for theming but they can also be used to share a common value across style declarations.</p>
+        <p>&quot;<a href="{% link guides/syntax.md %}#variable-values">Variables</a>&quot; are useful for theming but they can also be used to share a common value across style declarations.</p>
         <p>In this example, <code>brandColor</code> is responsible for setting the text color, background color and border color, while <code>columnWidth</code> dictates the width of the first box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -68,7 +68,7 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomizer syntax allows you to style elements <a href="/guides/syntax.html#combinator">depending on their ancestors or siblings</a>.</p>
+        <p>Atomizer syntax allows you to style elements <a href="{% link guides/syntax.md %}#combinator">depending on their ancestors or siblings</a>.</p>
         <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -101,7 +101,7 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Create styles that rely on <a href="/guides/syntax.html#pseudo-class">pseudo-classes</a>.</p>
+        <p>Create styles that rely on <a href="{% link guides/syntax.md %}#pseudo-class">pseudo-classes</a>.</p>
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -135,7 +135,7 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="/tutorials/layout.html#layouts">Atomizer supports it all</a>, and you can use <a href="/tutorials/layout.html#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
+        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>, and you can use <a href="{% link tutorials/layout.md %}#widths">any measurement style you want</a> (fraction, percentage, em, rem, px, etc.)</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
@@ -177,7 +177,7 @@ custom: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Define your responsive &quot;<a href="/breakpoints.html">breakpoints</a>&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
+        <p>Define your responsive &quot;<a href="{% link breakpoints.md %}">breakpoints</a>&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
         <h3>Classes mapped to a single breakpoint</h3>
         <p>Reference your breakpoints in your classnames using a double-dash suffix (eg, <code>--sm</code>).</p>
         <p>In this example, the four boxes are styled as <code>inline-block</code>, with a <code>width</code> of <code>25%</code> when the viewport is more than <code>700px</code> wide.</p>
@@ -225,7 +225,7 @@ breakPoints: {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Atomizer offers a selection of <a href="/guides/helper-classes.html">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="guides/helper-classes.html#bd-borders">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
+        <p>Atomizer offers a selection of <a href="{% link guides/helper-classes.md %}">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="{% link guides/helper-classes.md %}#bd-borders">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
         <p>For example <code>LineClamp()</code>, which takes two parameters:</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -240,6 +240,6 @@ breakPoints: {
     </div>
 </div>
 
-<hr>
-
-<p class="Ta(c)"><a class="M(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#0280ae.8) Bdrs(2px) Bxsh(boxShadowLight) Tsh(textShadowLight) Fw(b) Td(n):h" href="quick-start.html">Get Started</a></p>
+<div class="D(f)--md Ac(sb) Mt(1rem)--sm Mb(2rem)--sm">
+    {% include menu.html showSearch=false showCommunity=true %}
+</div>

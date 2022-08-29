@@ -7,7 +7,7 @@ title: Custom classes
 
 Atomizer allows you to create custom classes for your project. Custom classes can be helpful when you want to share a common group of styles or a utility across your project.
 
-The Atomizer [cli](../installation.html#atomizer-cli) provides a `--rules [file]` option, which maps to a file of available rules.
+The Atomizer [cli]({% link installation.md %}#atomizer-cli) provides a `--rules [file]` option, which maps to a file of available rules.
 
 ## Creating a rules file
 
@@ -59,7 +59,7 @@ The sections below explain each rule property available to configure. _(\*)denot
 
 If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pass a value with a supported unit of measure. The `value` of the style property will be the replacement token `$0`, which Atomizer will replace with the declared value.
 
-```json
+```js
 {
     allowParamToValue: true,
     matcher: 'Fsize',
@@ -83,7 +83,7 @@ An `array` of objects used to specify predefined values for the class. Each inde
 
 In the following example, the first argument `object` in the `array`, would replace the `$0` token in the `font-style` property.
 
-```json
+```js
 {
     type: 'pattern',
     name: 'Font style',
@@ -113,7 +113,7 @@ In the example below, the `arguments` array takes two `objects` (they are the sa
 
 In other words, the first object in the array will replace the `$0` token, the second object will replace the `$1` token and so on.
 
-```json
+```js
 {
     type: 'pattern',
     name: 'Transform origin',
@@ -150,7 +150,7 @@ Will translate to `transform-origin: left bottom`.
 
 `allowParamToValue` can be enabled to also pass in a unit of measure to the class. This is useful for classes like `H` (height) that support named arguments and a unit of measurement:
 
-```json
+```js
 {
     type: 'pattern',
     name: 'Height',
@@ -184,7 +184,7 @@ Will translate to `transform-origin: left bottom`.
 
 Allows Atomizer to calculate the quotient of a given fraction into a percentage (e.g. `W(1/2`) -> `W(50%)`). Some CSS properties like `aspect-ratio` will want to maintain the fraction and can disable the calculation by changing `calculatePercentage` to `false`.
 
-```json
+```js
 {
     calculatePercentage: false,
     matcher: 'Ar',
@@ -220,7 +220,7 @@ Used internally by Atomizer for documentation purposes.
 -   **Default**: `undefined`
 -   **Required**: `false`
 
-A `URL` used by the <a href="../reference.html">Reference</a> page for helpers to link to internal or external sources.
+A `URL` used by the <a href="{% link reference.md %}">Reference</a> page for helpers to link to internal or external sources.
 
 ### matcher\*
 
@@ -254,7 +254,7 @@ Used internally by Atomizer to reduce the time complexity when building the gram
 
 An `object` of custom rules used by helper classes. `rules` can be defined if the helper class needs to define additional Atomizer rules not available by default. Each `key` of the object is the CSS rule. The `value` of the property is an `object` of `key` `value` CSS styles.
 
-```json
+```js
 {
     type: 'helper',
     name: 'Ellipsis',
@@ -291,7 +291,7 @@ An `object` of custom rules used by helper classes. `rules` can be defined if th
 
 Whether or not the rule is a [shorthand](https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties) CSS property (i.e., a property that sets the value of multiple other CSS properties simultaneously).
 
-```json
+```js
 {
     type: 'pattern',
     name: 'Flex',
@@ -330,7 +330,7 @@ A CSS object where keys are CSS properties and values are CSS values. If a param
 
 #### RTL support
 
-To support [RTL languages](./syntax.html#rtlltr), special tokens are available (`__START__` and `__END__`) to dynamically change the value if the `--rtl` cli option is used.
+To support [RTL languages]({% link guides/syntax.md %}#rtlltr), special tokens are available (`__START__` and `__END__`) to dynamically change the value if the `--rtl` cli option is used.
 
 ```js
 {

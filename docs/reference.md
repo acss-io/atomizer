@@ -9,8 +9,8 @@ title: Reference
 
 Use this page to search for [Atomizer](#atomizer-classes) and [Helper](#helper-classes) classes.
 
-You can also [learn about the syntax]({{'/guides/syntax.html' | relative_url }}), [look at some examples]({{'/guides/syntax.html#examples' | relative_url }}), [learn about custom classes]({{'/guides/atomizer-classes.html' | relative_url }}), or [learn about helper/utility classes]({{'/guides/helper-classes.html' | relative_url }}). There is also an interactive [REPL]({{'/repl.html' | relative_url }}) to help you experiment with the Atomizer syntax.
+You can also [learn about the syntax]({% link guides/syntax.md %}), [look at some examples]({% link guides/syntax.md %}#examples), [learn about custom classes]({% link guides/atomizer-classes.md %}), or [learn about helper/utility classes]({% link guides/helper-classes.md %}). There is also an interactive [REPL]({% link repl.md %}) to help you experiment with the Atomizer syntax.
 
 <div id="reference-app"></div>
 
-<script src="{{'/assets/js/main.js' | relative_url }}"></script>
+<script src="/assets/js/main.js"></script>

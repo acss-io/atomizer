@@ -13,7 +13,7 @@ title: Class syntax
 
 At its core, a Atomizer or Helper class is represented by a [&lt;Style&gt;](#style).
 
-Atomizer classes typically require one [&lt;value&gt;](#value), enclosed in parentheses, though some classes may accept more (eg, the helper class [`LineClamp()`](/guides/helper-classes.html#lineclamp) accepts two.) Helper classes may not require a [&lt;value&gt;](#value), in which case the parentheses may be omitted.
+Atomizer classes typically require one [&lt;value&gt;](#value), enclosed in parentheses, though some classes may accept more (eg, the helper class [`LineClamp()`]({% link guides/helper-classes.md %}#lineclamp) accepts two.) Helper classes may not require a [&lt;value&gt;](#value), in which case the parentheses may be omitted.
 
 Optionally, you may prefix the style with a [&lt;context&gt;](#context) class and [&lt;combinator&gt;](#combinator). The context class may optionally include a [&lt;pseudo-class&gt;](#pseudo-class).
 
@@ -78,7 +78,7 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b>bar</b>)</code></th>
-            <td class="Va-t P(10px)">This applies a <a href="../configuration.html#custom">custom</a> value to <code>margin</code> <sup><a href="#footnote" id="footnote-2">[2]</a></sup></td>
+            <td class="Va-t P(10px)">This applies a <a href="{% link configuration.md %}#custom">custom</a> value to <code>margin</code> <sup><a href="#footnote" id="footnote-2">[2]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Mend(<b>0</b>)</code></th>
@@ -98,11 +98,11 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b>-90deg</b>)</code></th>
-            <td class="Va-t P(10px)">This is an <a href="atomizer-classes.html#aliases">alias</a> mapped to <code>transform: rotate(-90deg)</code> <sup><a href="#footnote" id="footnote-4">[4]</a></sup></td>
+            <td class="Va-t P(10px)">This is an <a href="{% link guides/atomizer-classes.md %}#aliases">alias</a> mapped to <code>transform: rotate(-90deg)</code> <sup><a href="#footnote" id="footnote-4">[4]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>LineClamp(<b>2,50px</b>)</code></th>
-            <td class="Va-t P(10px)">This is a <a href="helper-classes.html">helper</a> which truncates text after 2 lines <sup><a href="#footnote" id="footnote-5">[5]</a></sup></td>
+            <td class="Va-t P(10px)">This is a <a href="{% link guides/helper-classes.md %}">helper</a> which truncates text after 2 lines <sup><a href="#footnote" id="footnote-5">[5]</a></sup></td>
         </tr>
         <tr class="BdT Bdc(#0280ae.3)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>list_</b>D(<b>ib</b>)</code></th>
@@ -119,7 +119,7 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
     </tbody>
 </table>
 
-<div class="noteBox info">The <a href="/reference">reference page</a> lets you quickly search for properties, values, or class names.</div>
+<div class="noteBox info">The <a href="{% link reference.md %}">reference page</a> lets you quickly search for properties, values, or class names.</div>
 
 ## Syntax Definitions
 

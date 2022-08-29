@@ -1,7 +1,7 @@
 <header id="header" class="P(10px) Ov(h) home_Ov(v) Z(7) Pos(f) T(0) Start(0) End(0) Bgc(brandColor) optLegibility">
     <div class="D(f) Ac(c) Jc(sb) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm">
         <a href="{{ '/' | relative_url }}" class="Fz(20px) Lh(1.2) C(#fff) Td(n):h">
-            <img id="logo" class="H(25px) Mt(4px) docs_Mstart(40px)--xs support_Mstart(40px)--xs" alt='ACSS Logo' src="{{ "/images/atomic-css-logo.png" | relative_url }}">
+            <img id="logo" class="H(25px) Mt(4px) docs_Mstart(40px)--xs support_Mstart(40px)--xs" alt='ACSS Logo' src="/images/atomic-css-logo.png">
             <b class="D(n)--xs home_D(ib) Td(n) Bd(0)! Fw(b)">Atomizer</b>
         </a>
 
@@ -14,20 +14,20 @@
         <nav class="home_D(n)--xs">
             <ul class="M(0) Mt(3px) P(0)">
                 <li class="{% if page.section == 'docs' %}selected{% endif %} D(ib) Va(m) Pos(r)">
-                    <a href="{{ "/quick-start.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Docs</a>
+                    <a href="{% link quick-start.md %}" class="D(b) C(#fff) Td(n):h">Docs</a>
                 </li>
                 <li class="{% if page.section == 'repl' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
-                    <a href="{{ "/repl.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">REPL</a>
+                    <a href="{% link repl.md %}" class="D(b) C(#fff) Td(n):h">REPL</a>
                 </li>
                 <li class="{% if page.section == 'reference' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
-                    <a href="{{ "/reference.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Reference</a>
+                    <a href="{% link reference.md %}" class="D(b) C(#fff) Td(n):h">Reference</a>
                 </li>
                 <li class="{% if page.section == 'support' %}selected{% endif %} D(ib) Va(m) Pos(r) Mstart(15px)">
-                    <a href="{{ "/support.html" | relative_url }}" class="D(b) C(#fff) Td(n):h">Support</a>
+                    <a href="{% link support.md %}" class="D(b) C(#fff) Td(n):h">Support</a>
                 </li>
                 <li class="D(n)--xs D(ib) Mstart(15px) Pos(r)">
                     <a class="D(b) C(#fff) Td(n):h" href="https://github.com/acss-io/atomizer">
-                        <img class="nav-on_D(n)--xs Va(m) Pos(r)" alt="GitHub" width="30" src="{{ "/images/github-logo.png" | relative_url }}">
+                        <img class="nav-on_D(n)--xs Va(m) Pos(r)" alt="GitHub" width="30" src="/images/github-logo.png">
                         <span class="D(n) nav-on_D(b)">GitHub</span>
                     </a>
                 </li>

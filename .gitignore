@@ -19,7 +19,7 @@ npm-debug.log
 app/assets/css/atomic.css
 build/
 docs/_site
-docs/.jekyll-metadata
+docs/.jekyll-*
 docs/.sass-cache/
 docs/assets
 vendor/bundle

@@ -5,7 +5,7 @@ section: docs
 title: Scroll Snap
 ---
 
-## [`scroll-behavior`](../reference.html#scrollbehavior)
+## [`scroll-behavior`]({% link reference.md %}#scrollbehavior)
 
 The [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) CSS property sets the behavior for a scrolling box when scrolling is triggered by the navigation, `CSSOM` scrolling APIs or `SCROLL-SNAP`.
 
@@ -25,7 +25,7 @@ Following example shows `Sb(s)` = `scroll-behavior: smooth`.
     <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
 </div>
 
-## [`scroll-snap-align`](../reference.html#scrollsnapalign)
+## [`scroll-snap-align`]({% link reference.md %}#scrollsnapalign)
 
 The [scroll-snap-align](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-align) property specifies the box's snap position as an alignment of its snap area (as the alignment subject) within its snap container's snapport (as the alignment container). You can specify up to 2 values for this property, representing the block and inline axes, respectively. If you only give 1 value, that value will be used for both axes.
 
@@ -45,7 +45,7 @@ Following example shows `Ssa(s)` = `scroll-snap-align: start`.
     <div class="Ssa(e) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
 </div>
 
-## [`scroll-snap-type`](../reference.html#scrollsnaptype)
+## [`scroll-snap-type`]({% link reference.md %}#scrollsnaptype)
 
 The [scroll-snap-type](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type) property specifies whether a scroll container is a scroll snap container, how strictly it snaps, and which axes are considered. If no strictness value is specified, proximity is assumed.
 
@@ -65,7 +65,7 @@ Following example shows `Sst(x_p)` = `scroll-snap-type: x proximity`.
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
 </div>
 
-## [`scroll-margin`](../reference.html#scrollmarginalledges) && [`scroll-margin-*`](../reference.html#scrollmargintop)
+## [`scroll-margin`]({% link reference.md %}#scrollmarginalledges) && [`scroll-margin-*`]({% link reference.md %}#scrollmargintop)
 
 The [scroll-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin) shorthand property sets scroll margin on all sides of an element at once, much like the `margin` property does for margin on an element, can also use longhand versions like [scroll-margin-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-left) etc. If all elements have the same spacing requirements, consider using `scroll-padding` on the parent container instead of `scroll-margin` because that affects spacing for all elements within the container.
 
@@ -85,7 +85,7 @@ Following example shows `Smstart(2em)` = `scroll-margin-left: 2em`.
     <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
 </div>
 
-## [`scroll-padding`](../reference.html#scrollpaddingalledges) & [`scroll-padding-*`](../reference.html#scrollpaddingtop)constructs
+## [`scroll-padding`]({% link reference.md %}#scrollpaddingalledges) & [`scroll-padding-*`]({% link reference.md %}#scrollpaddingtop)constructs
 
 The [scroll-padding](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding) shorthand property sets scroll padding on all sides of an element at once, much like the `padding` property does for padding on an element, can also use longhand versions like [scroll-padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-padding-left) etc.
 
@@ -110,7 +110,7 @@ Following example shows `Spx(20px)` = `scroll-padding-left: 20px; scroll-padding
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">7 </div>
 </div>
 
-## [`scroll-snap-stop`](../reference.html#scrollsnapstop)
+## [`scroll-snap-stop`]({% link reference.md %}#scrollsnapstop)
 
 The [scroll-snap-stop](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-stop) CSS property defines whether or not the scroll container is allowed to "pass over" possible snap positions.
 

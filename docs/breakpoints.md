@@ -5,7 +5,7 @@ section: docs
 title: Breakpoints
 ---
 
-You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomizer classes through <a href="/guides/syntax.html#breakpoint_identifier">the breakpoint suffix</a> or automatic breakpoints.
+You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomizer classes through <a href="{% link guides/syntax.md %}#breakpoint_identifier">the breakpoint suffix</a> or automatic breakpoints.
 
 ## Setting up Breakpoints
 
@@ -45,7 +45,7 @@ Append `--<breakpoint name>` to any Atomic class to associate that styling with 
 
 ### Automatic Breakpoints
 
-[Variable values](/guides/syntax.html#variable-values) and [custom classes](/guides/atomizer-classes.html#aliases) may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the [breakpoint identifier](/guides/syntax.html#breakpoint_identifier) suffix on your class.
+[Variable values]({% link guides/syntax.md %}#variable-values) and [custom classes]({% link guides/atomizer-classes.md %}#aliases) may also be mapped to breakpoints in configuration to simplify the process of applying styles. In this case, you would not be required to use the [breakpoint identifier]({% link guides/syntax.md %}#breakpoint_identifier) suffix on your class.
 
 Simply set the value of your variable or custom class identifier to an object containing breakpoint names as the keys:
 
