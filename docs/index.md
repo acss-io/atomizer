@@ -19,23 +19,24 @@ layout: home
 <div id="testimonials" class="Pos(r)">
     <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
         {% for data in site.data.quotes %}
-            <li class="Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight)">
-                <a href="{{ data.link }}" class="C(#000) Td(n):h" target="_blank">
-                    <figure class="M(0px)">
-                        <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
-                            <p class="Mt(0px) Fz(16px)">{{ data.quote }}</p>
-                        </blockquote>
-                        <figcaption class="D(f) Ai(c) Gp(1rem)">
-                            {% if data.companyLogo %}
-                                {{ data.companyLogo }}
-                            {% endif %}
-                            <p class="M(0)">
-                                <b class="D(b) Fw(b)">{{ data.author }}</b>
-                                {{ data.role }}
-                            </p>
-                        </figcaption>
-                    </figure>
-                </a>
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">{{ data.quote }}</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        {% if data.companyLogo %}
+                            {{ data.companyLogo }}
+                        {% endif %}
+                        <p class="M(0)">
+                            <a href="{{ data.link }}" class="D(b) Fw(b) C(#000) Td(n):h" target="_blank">
+                                {{ data.author }}
+                                <u class="StretchedBox"></u>
+                            </a>
+                            {{ data.role }}
+                        </p>
+                    </figcaption>
+                </figure>
             </li>
         {% endfor %}
     </ul>
