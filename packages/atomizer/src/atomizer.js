@@ -23,9 +23,11 @@ const GLOBAL_VALUES = {
 };
 
 /**
- * constructor
+ * @constructor
+ * @param {import('atomizer').AtomizerOptions} options Atomizer options
+ * @param {Array<import('atomizer').AtomizerRule>} [rules] List of custom rules
  */
-function Atomizer(options /*:AtomizerOptions*/, rules /*:AtomizerRules*/) {
+function Atomizer(options, rules) {
     this.verbose = (options && options.verbose) || false;
     this.rules = [];
     // we have two different objects to avoid name collision
@@ -37,10 +39,12 @@ function Atomizer(options /*:AtomizerOptions*/, rules /*:AtomizerRules*/) {
 }
 
 /**
- * addRules
+ * Add custom rules to Atomizer
+ * @param {Array<import('atomizer').AtomizerRule>} rules List of custom rules
+ * @return {void}
  * @public
  */
-Atomizer.prototype.addRules = function (rules /*:AtomizerRules*/) /*:void*/ {
+Atomizer.prototype.addRules = function (rules) {
     rules.forEach((rule) => {
         const ruleFound = rule.type === 'pattern' && Object.prototype.hasOwnProperty.call(this.rulesMap, rule.matcher);
         const helperFound =
@@ -71,7 +75,9 @@ Atomizer.prototype.addRules = function (rules /*:AtomizerRules*/) /*:void*/ {
 };
 
 /**
- * getClassNameSyntax()
+ * Returns class name syntax
+ * @param {boolean} [isSimple] Whether to return the simple syntax
+ * @return {string} Class name syntax
  * @private
  */
 Atomizer.prototype.getSyntax = function (isSimple) /*:string*/ {
@@ -87,9 +93,11 @@ Atomizer.prototype.getSyntax = function (isSimple) /*:string*/ {
 };
 
 /**
- * findClassNames
+ * Given a string find CSS class names
+ * @param {string} src String to parse
+ * @return {string[]} List of class names
  */
-Atomizer.prototype.findClassNames = function (src /*:string*/) /*:string[]*/ {
+Atomizer.prototype.findClassNames = function (src) {
     // using object to remove dupes
     const classNamesObj = {};
     let className;
@@ -114,28 +122,28 @@ Atomizer.prototype.findClassNames = function (src /*:string*/) /*:string[]*/ {
 
 /**
  * Get Atomizer config given an array of class names and an optional config object
- * examples:
  *
- * getConfig(['Op(1)', 'D(n):h', 'Fz(heading)'], {
- *     custom: {
- *         heading: '80px'
- *     },
- *     breakPoints: {
- *         'sm': '@media(min-width:500px)',
- *         'md': '@media(min-width:900px)',
- *         'lg': '@media(min-width:1200px)'
- *     },
- *     classNames: ['D(b)']
- * }, {
- *     rtl: true
- * });
+ * @example
+ *     getConfig(['Op(1)', 'D(n):h', 'Fz(heading)'], {
+ *         custom: {
+ *             heading: '80px'
+ *         },
+ *         breakPoints: {
+ *             sm: '@media(min-width:500px)',
+ *             md: '@media(min-width:900px)',
+ *             lg: '@media(min-width:1200px)'
+ *         },
+ *         classNames: ['D(b)']
+ *     });
  *
- * getConfig(['Op(1)', 'D(n):h']);
+ * @example
+ *     getConfig(['Op(1)', 'D(n):h']);
+ *
+ * @param {string[]} [classNames] List of Atomizer class names
+ * @param {import('atomizer').AtomizerConfig} [existingConfig] Existing Atomizer config
+ * @return {import('atomizer').AtomizerConfig} Final Atomizer config
  */
-Atomizer.prototype.getConfig = function (
-    classNames /*:string[]*/,
-    existingConfig /*:AtomizerConfig*/
-) /*:AtomizerConfig*/ {
+Atomizer.prototype.getConfig = function (classNames, existingConfig) {
     const config = (existingConfig && _.cloneDeep(existingConfig)) || { classNames: [] };
     // merge classnames with config
     config.classNames = this.sortCSS(_.union(classNames || [], config.classNames));
@@ -143,9 +151,11 @@ Atomizer.prototype.getConfig = function (
 };
 
 /**
- * return sorted rule
+ * Return sorted rule
+ * @param {string[]} classNames List of classes to sort
+ * @return {string[]} List of sorted classes
  */
-Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
+Atomizer.prototype.sortCSS = function (classNames) {
     // 1. sort by alphabetical order
     classNames = classNames.sort();
 
@@ -175,9 +185,12 @@ Atomizer.prototype.sortCSS = function (classNames /*string[]*/) {
 };
 
 /**
- * return a parsed tree given a config and css options
+ * Return a parsed tree given a config and css options
+ * @param {import('atomizer').AtomizerConfig} config
+ * @param {import('atomizer').CSSOptions} options
+ * @return {object} Final CSS tree structure
  */
-Atomizer.prototype.parseConfig = function (config /*:AtomizerConfig*/, options /*:CSSOptions*/) /*:Tree*/ {
+Atomizer.prototype.parseConfig = function (config, options) {
     const tree = {};
     const classNameSyntax = this.getSyntax(true);
     const warnings = [];
@@ -445,25 +458,28 @@ Atomizer.prototype.parseConfig = function (config /*:AtomizerConfig*/, options /
 
 /**
  * Get CSS given an array of class names, a config and css options.
- * examples:
  *
- * getCss({
- *     custom: {
- *         heading: '80px'
- *     },
- *     breakPoints: {
- *         'sm': '@media(min-width:500px)',
- *         'md': '@media(min-width:900px)',
- *         'lg': '@media(min-width:1200px)'
- *     },
- *     classNames: ['D(b)', 'Op(1)', 'D(n):h', 'Fz(heading)']
- * }, {
- *     rtl: true
- * });
+ * @example
+ *     getCss({
+ *         custom: {
+ *             heading: '80px'
+ *         },
+ *         breakPoints: {
+ *             sm: '@media(min-width:500px)',
+ *             md: '@media(min-width:900px)',
+ *             lg: '@media(min-width:1200px)'
+ *         },
+ *         classNames: ['D(b)', 'Op(1)', 'D(n):h', 'Fz(heading)']
+ *     }, {
+ *         rtl: true
+ *     });
  *
+ * @param {import('atomizer').AtomizerConfig} config Atomizer config
+ * @param {import('atomizer').CSSOptions} options CSS options
+ * @return {string} Final atomizer CSS
  * @public
  */
-Atomizer.prototype.getCss = function (config /*:AtomizerConfig*/, options /*:CSSOptions*/) /*:string*/ {
+Atomizer.prototype.getCss = function (config, options) {
     const jss = {};
     let content = '';
     let breakPoints;
@@ -593,9 +609,12 @@ Atomizer.prototype.getCss = function (config /*:AtomizerConfig*/, options /*:CSS
 
 /**
  * Escape CSS selectors with a backslash
- * e.g. ".W-100%" => ".W-100\%"
+ * @example
+ *     ".W-100%" => ".W-100\%"
+ * @param {string} str String to parse
+ * @return {string} String with escaped selectors
  */
-Atomizer.escapeSelector = function (str /*:string*/) /*:string*/ {
+Atomizer.escapeSelector = function (str) {
     if (!str && str !== 0) {
         throw new TypeError('str must be present');
     }
@@ -621,6 +640,9 @@ Atomizer.escapeSelector = function (str /*:string*/) /*:string*/ {
 
 /**
  * Replace LTR/RTL placeholders with actual left/right strings
+ * @param {string} str String to parse
+ * @param {boolean} [rtl] Whether to replace with RTL
+ * @return {string} Replaced string
  */
 Atomizer.replaceConstants = function (str /*:string*/, rtl /*:boolean*/) {
     const start = rtl ? 'right' : 'left';
