@@ -13,20 +13,9 @@ process.title = 'atomizer';
 var chalk = require('chalk');
 var chokidar = require('chokidar');
 var fs = require('fs');
-var glob = require('glob');
-var minimatch = require('minimatch');
-var path = require('path');
 var program = require('commander');
 var empty = require('lodash/isEmpty');
-var some = require('lodash/some');
-var union = require('lodash/union');
-var Atomizer = require('../src/atomizer');
-
-var content = '';
-var config = {};
-var classnames = [];
-var cwd = process.cwd();
-var defaultConfigPath = path.resolve(cwd, 'atomizer.config.js');
+var { buildAtomicCss, getConfig, findFiles } = require('../src/build');
 
 function collect(val, memo) {
     memo.push(val);
@@ -34,148 +23,33 @@ function collect(val, memo) {
 }
 
 program
-  .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
-  .usage('[options] [path]')
-  .option('-R, --recursive', 'process all files recursively in the path')
-  .option('-c, --config [file]', 'source config file')
-  .option('-r, --rules [file]', 'custom rules file (argument may be passed multiple times)', collect, [])
-  .option('-o, --outfile [file]', 'destination config file')
-  .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
-  .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors')
-  .option('-w, --watch [target]', 'rebuilds when changes are detected in the file, directory, or glob (argument may be passed multiple times and are parsed for Atomic CSS classes)', collect, [])
-  .option('--exclude [pattern]', 'excluded file pattern', collect, [])
-  .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
-  .option('--bump-mq', 'increases specificity of media queries a small amount')
-  .option('--ie', '[deprecated] no longer used')
-  .option('--verbose', 'show additional log info (warnings)')
-  .option('--quiet', 'hide processing info')
-  .parse(process.argv);
+    .version(JSON.parse(fs.readFileSync(__dirname + '/../package.json', 'utf8')).version)
+    .usage('[options] [path]')
+    .option('-R, --recursive', 'process all files recursively in the path')
+    .option('-c, --config [file]', 'source config file')
+    .option('-r, --rules [file]', 'custom rules file (argument may be passed multiple times)', collect, [])
+    .option('-o, --outfile [file]', 'destination config file')
+    .option('-n, --namespace [namespace]', 'adds the given namespace to all generated Atomic CSS selectors')
+    .option('-H, --helpersNamespace [namespace]', 'adds the given namespace to all helper selectors')
+    .option(
+        '-w, --watch [target]',
+        'rebuilds when changes are detected in the file, directory, or glob (argument may be passed multiple times and are parsed for Atomic CSS classes)',
+        collect,
+        []
+    )
+    .option('--exclude [pattern]', 'excluded file pattern', collect, [])
+    .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
+    .option('--bump-mq', 'increases specificity of media queries a small amount')
+    .option('--ie', '[deprecated] no longer used')
+    .option('--verbose', 'show additional log info (warnings)')
+    .option('--quiet', 'hide processing info')
+    .parse(process.argv);
 
-function warn() {
-    if (!programOpts.quiet) console.warn.apply(console, arguments);
-}
-
-function parseFiles (files, recursive, dir) {
-    var classNames = [];
-
-    for (var i=0, iLen=files.length; i < iLen; i++) {
-        classNames = union(classNames, parseFile(files[i], recursive, dir));
-    }
-
-    return classNames;
-}
-
-function parseFile (file, recursive, dir) {
-    var classNames = [],
-        fileContents,
-        filepath,
-        relative,
-        stat;
-
-    if (file) {
-        filepath = dir ? path.resolve(dir, file) : path.resolve(file);
-        relative = path.relative(cwd, filepath);
-        stat = fs.statSync(filepath);
-
-        if (stat.isFile()) {
-            var isExcluded = false;
-            if (programOpts.exclude && programOpts.exclude.length) {
-              isExcluded = some(programOpts.exclude, function excludeFile(value) {
-                return minimatch(filepath, value, {matchBase: true});
-              });
-            }
-            if (!isExcluded) {
-              warn('Parsing file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
-              fileContents = fs.readFileSync(filepath, {encoding: 'utf-8'});
-              classNames = atomizer.findClassNames(fileContents);
-            } else {
-              warn('Excluding file ' + chalk.cyan(relative) + ' for Atomic CSS classes');
-            }
-        } else if (stat.isDirectory()) {
-            if (!dir || dir && recursive) {
-                warn('Inspecting directory ' + chalk.cyan(path.relative(cwd, filepath)));
-                classNames = parseFiles(fs.readdirSync(filepath), recursive, filepath);
-            }
-        }
-    }
-    return classNames;
-}
-
-function buildAtomicCss(additionalFiles, done) {
-    // Add additional files, if any, from the watcher
-    var finalFilesToParse = additionalFiles.concat(filesToParse);
-    if (finalFilesToParse.length) {
-        classnames = parseFiles(finalFilesToParse, !!programOpts.recursive);
-    }
-
-    // Finalize the config
-    config = atomizer.getConfig(classnames, config);
-
-    // Create the CSS
-    content = atomizer.getCss(config, options);
-
-    // Output the CSS
-    var outfile = programOpts.outfile;
-    if (outfile) {
-        fs.readFile(outfile, {encoding: 'utf-8'}, function(err, data) {
-            if (data === content) {
-                console.log('Content of ' + chalk.cyan(outfile) + ' has not changed.');
-                done();
-            } else {
-                fs.mkdir(path.dirname(outfile), function (err) {
-                    // Fail silently
-                    fs.writeFile(path.resolve(outfile), content, function (err) {
-                        if (!err) {
-                            console.log('File ' + chalk.cyan(outfile) + ' created.');
-                        }
-                        done(err);
-                    });
-                });
-            }
-        });
-    } else {
-        process.stdout.write("\n" + content);
-        done();
-    }
-}
-
-function triggerBuild(state) {
-    // Ensure only one build happens at a time.
-    if (state.building) {
-        state.queued = true;
-
-        return;
-    }
-
-    state.building = true;
-    buildAtomicCss(Object.keys(state.files), function (err) {
-        if (err) {
-            throw err;
-        }
-        state.building = false;
-        if (state.queued) {
-            state.queued = false;
-            triggerBuild(state);
-        }
-    });
-}
-
-// Setup Atomizer instance
+// Gather cli arguments and options
 var programOpts = program.opts();
-var atomizer = new Atomizer({ verbose: !!programOpts.verbose });
 
-// Attempt to load config from `--config` option first, otherwise
-// check for a default config file in the current working directory
-var configFile = programOpts.config;
-if (configFile) {
-    if (!fs.existsSync(configFile)) {
-        console.error('Configuration file ' + chalk.cyan(configFile) + ' not found.');
-        return;
-    }
-    config = require(path.resolve(configFile));
-} else if (fs.existsSync(defaultConfigPath)) {
-    config = require(defaultConfigPath);
-}
+// Load the atomizer config file
+var config = getConfig(programOpts.config);
 
 // Print help menu if no config is loaded and no arguments are passed in
 if (empty(config) && process.argv.length <= 2) {
@@ -187,42 +61,28 @@ if (empty(config) && process.argv.length <= 2) {
 var filesToParse = program.args || [];
 
 // Add more src files from "content" property of config
-if (config.content && Array.isArray(config.content)) {
-    filesToParse = config.content
-        .reduce(function (files, pattern) {
-            var found = glob.sync(pattern, { matchBase: true });
-            return files.concat(found);
-        }, [])
-        .concat(filesToParse);
-}
+filesToParse = filesToParse.concat(findFiles(config.content));
 
-// Custom rulesets
-var rulesFiles = programOpts.rules;
-if (rulesFiles) {
-    rulesFiles.forEach(function (rulesFile) {
-        if (!fs.existsSync(rulesFile)) {
-            done(new Error('Rule file ' + chalk.cyan(rulesFile) + ' not found.'));
-            return false;
+// Used by the watcher to watch additional files
+function triggerBuild(state) {
+    // Ensure only one build happens at a time.
+    if (state.building) {
+        state.queued = true;
+
+        return;
+    }
+
+    state.building = true;
+    buildAtomicCss(Object.keys(state.files), config, programOpts, function (err) {
+        if (err) {
+            throw err;
         }
-        warn('Adding rules from ' + chalk.cyan(rulesFile) + '.');
-        atomizer.addRules(require(path.resolve(rulesFile)));
+        state.building = false;
+        if (state.queued) {
+            state.queued = false;
+            triggerBuild(state);
+        }
     });
-}
-
-// Options
-var options = {
-    rtl: programOpts.rtl,
-    bumpMQ: programOpts.bumpMq
-};
-
-// Options: Namespace
-if (typeof programOpts.namespace !== 'undefined') {
-    options.namespace = programOpts.namespace;
-}
-
-// Options: Helpers Namespace
-if (typeof programOpts.helpersNamespace !== 'undefined') {
-    options.helpersNamespace = programOpts.helpersNamespace;
 }
 
 // Setup Watcher
@@ -234,11 +94,11 @@ if (programOpts.watch === true || programOpts.watch.length) {
     if (Array.isArray(programOpts.watch) && programOpts.watch.length) {
         filesToWatch = filesToWatch.concat(programOpts.watch);
     }
-    
+
     // used for testing --watch input
     if (typeof process.env.TEST !== 'undefined') {
         console.log('Watching ' + chalk.cyan(filesToWatch.join(', ')) + ' for changes.');
-        buildAtomicCss([], function () {});
+        buildAtomicCss(filesToParse, config, programOpts, function () {});
     } else {
         var buildTriggerState = { files: {} };
         var watcher = chokidar.watch(filesToWatch);
@@ -256,6 +116,5 @@ if (programOpts.watch === true || programOpts.watch.length) {
         });
     }
 } else {
-    buildAtomicCss([], function () {});
+    buildAtomicCss(filesToParse, config, programOpts, function () {});
 }
-

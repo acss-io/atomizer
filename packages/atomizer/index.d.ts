@@ -1,11 +1,46 @@
 declare module 'atomizer' {
+    export interface Options {
+        /** Increases specificity of media queries a small amount */
+        bumpMq?: boolean;
+        /** Source config file, defaults to "atomizer.config.js" */
+        config?: string;
+        /** Excluded file pattern */
+        exclude?: string;
+        /** Adds the given namespace to all helper selectors */
+        helpersNamespace?: string;
+        /** @deprecated */
+        ie?: boolean;
+        /** Adds the given namespace to all generated Atomic CSS selectors */
+        namespace?: string;
+        /** Destination of CSS output file */
+        outfile?: string;
+        /** Hide processing info */
+        quiet?: boolean;
+        /** Process all files recursively in the path */
+        recursive?: boolean;
+        /** Swaps `start` and `end` keyword replacements with `right` and `left` */
+        rtl?: boolean;
+        /** Path to custom rules file */
+        rules?: string;
+        /** Show additional log info (warnings) */
+        verbose?: boolean;
+        /** Rebuilds when changes are detected in the file, directory, or glob */
+        watch?: string;
+    }
+
     export interface AtomizerConfig {
-        custom?: Record<string, string | Record<string, string>>;
+        /** Custom media queries */
         breakPoints?: Record<string, string>;
+        /** List of allow listed Atomizer class names */
         classNames?: string[];
+        /** List of glob patterns paths to find parseable content */
+        content?: string[];
+        /** Custom CSS variables */
+        custom?: Record<string, string | Record<string, string>>;
     }
 
     export interface AtomizerOptions {
+        /** Show additional log info (warnings) */
         verbose?: boolean;
     }
 
@@ -13,14 +48,10 @@ declare module 'atomizer' {
         [key: string]: any;
     }
 
-    export interface CSSOptions {
+    export type CSSOptions = Pick<Options, 'banner' | 'bumpMq' | 'helpersNamespace' | 'namespace' | 'rtl'> & {
+        /** Adds a comment to the top of the generated Atomizer style sheet */
         banner?: string;
-        bumpMQ?: boolean;
-        helpersNamespace?: string;
-        ie?: boolean;
-        namespace?: string;
-        rtl?: boolean;
-    }
+    };
 
     export default class {
         public static escapeSelector: (str: string) => string;
