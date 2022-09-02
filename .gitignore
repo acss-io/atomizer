@@ -33,6 +33,8 @@ vendor/bundle
 snippets.json
 *.vsix
 
-# webpack-atomizer-loader
+# example generated files
 **/example/*.css
 **/example/bundle.js
+# postcss requires this file for the demo
+!packages/postcss-atomizer/example/main.css
