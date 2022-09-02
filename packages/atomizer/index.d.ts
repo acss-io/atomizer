@@ -8,8 +8,6 @@ declare module 'atomizer' {
         exclude?: string;
         /** Adds the given namespace to all helper selectors */
         helpersNamespace?: string;
-        /** @deprecated */
-        ie?: boolean;
         /** Adds the given namespace to all generated Atomic CSS selectors */
         namespace?: string;
         /** Destination of CSS output file */
@@ -24,8 +22,6 @@ declare module 'atomizer' {
         rules?: string;
         /** Show additional log info (warnings) */
         verbose?: boolean;
-        /** Rebuilds when changes are detected in the file, directory, or glob */
-        watch?: string;
     }
 
     export interface AtomizerConfig {

@@ -63,6 +63,16 @@ var filesToParse = program.args || [];
 // Add more src files from "content" property of config
 filesToParse = filesToParse.concat(findFiles(config.content));
 
+// Run atomizer build, output to stdout if css returned
+function runAtomizer(files, config = {}, options = {}, done) {
+    buildAtomicCss(files, config, options, function (err, css) {
+        done(err, css);
+        if (css) {
+            process.stdout.write(`\n${css}`);
+        }
+    });
+}
+
 // Used by the watcher to watch additional files
 function triggerBuild(state) {
     // Ensure only one build happens at a time.
@@ -73,7 +83,7 @@ function triggerBuild(state) {
     }
 
     state.building = true;
-    buildAtomicCss(Object.keys(state.files), config, programOpts, function (err) {
+    runAtomizer(Object.keys(state.files), config, programOpts, function (err) {
         if (err) {
             throw err;
         }
@@ -98,7 +108,7 @@ if (programOpts.watch === true || programOpts.watch.length) {
     // used for testing --watch input
     if (typeof process.env.TEST !== 'undefined') {
         console.log('Watching ' + chalk.cyan(filesToWatch.join(', ')) + ' for changes.');
-        buildAtomicCss(filesToParse, config, programOpts, function () {});
+        runAtomizer(filesToParse, config, programOpts, function () {});
     } else {
         var buildTriggerState = { files: {} };
         var watcher = chokidar.watch(filesToWatch);
@@ -116,5 +126,5 @@ if (programOpts.watch === true || programOpts.watch.length) {
         });
     }
 } else {
-    buildAtomicCss(filesToParse, config, programOpts, function () {});
+    runAtomizer(filesToParse, config, programOpts, function () {});
 }

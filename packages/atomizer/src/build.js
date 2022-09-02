@@ -49,11 +49,12 @@ module.exports.getConfig = function (configFile) {
 };
 
 /**
- * Executes Atomizer on a given set of files, creating an atomic CSS file (if provided) or outputting to stdout
+ * Executes Atomizer on a given set of files, creating an atomic CSS file (if provided) or returning the atomic CSS as a string
  * @param {string[]} files List of files to parse
  * @param {import('atomizer').AtomizerConfig} config Atomizer config object
  * @param {import('atomizer').Options} [options] Additional options
- * @param {Function} [done] Optional callback function
+ * @param {function} [done] Optional callback function
+ * @return {string} Atomic CSS if no output file is provided
  */
 module.exports.buildAtomicCss = function (files, config = {}, options = {}, done) {
     const cssOptions = {
@@ -103,7 +104,7 @@ module.exports.buildAtomicCss = function (files, config = {}, options = {}, done
     // Create the CSS
     const content = atomizer.getCss(config, cssOptions);
 
-    // Output the CSS
+    // Output the CSS to a file, otherwise return CSS content
     const { outfile } = options;
     if (outfile) {
         fs.readFile(outfile, { encoding: 'utf-8' }, function (err, data) {
@@ -115,7 +116,7 @@ module.exports.buildAtomicCss = function (files, config = {}, options = {}, done
                     // Fail silently
                     fs.writeFile(path.resolve(outfile), content, function (err) {
                         if (!err) {
-                            console.log(`File ${chalk.cyan(outfile)} created.`);
+                            console.log(`File ${chalk.cyan(outfile)} updated.`);
                         }
                         done && done(err);
                     });
@@ -123,8 +124,10 @@ module.exports.buildAtomicCss = function (files, config = {}, options = {}, done
             }
         });
     } else {
-        process.stdout.write(`\n${content}`);
-        done && done();
+        if (done) {
+            return done(null, content);
+        }
+        return content;
     }
 };
 
