@@ -153,7 +153,6 @@ pre code {
 /* info/warning/important/success boxes ============================= */
 
 .noteBox {
-    font-style: italic;
     padding: 7px 20px;
     border-radius: 2px;
 }
@@ -162,7 +161,7 @@ pre code {
 .important,
 .success {
     border-style: solid;
-    border-width: 0 7px;
+    border-width: 0 0 0 7px;
 }
 .warning {
     border-color: #ff8b00;
