@@ -12,15 +12,14 @@ If you do not have a project setup already, you can create a new one using the [
 ```shell
 npx create-next-app my-app
 cd my-app
-npm install
 ```
 
 ## Install the plugin
 
-For a [Next.js](https://nextjs.org/) project, the [`webpack`](https://github.com/acss-io/atomizer/tree/main/packages/atomizer-plugins#webpack) plugin can be used from our [`atomizer-plugins`](https://github.com/acss-io/atomizer/tree/main/packages/atomizer-plugins) package to compile Atomizer classes.
+For a [Next.js](https://nextjs.org/) project, the [`postcss-atomizer`](https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer) library makes it easy to setup Atomizer. Install the dependency first.
 
 ```shell
-npm i atomizer-plugins -D
+npm i postcss-atomizer -D
 ```
 
 ## Create your Atomizer config
@@ -36,30 +35,22 @@ module.exports = {
 }
 ```
 
-## Update the Next.js config
+## Create the postcss config file
 
-Then configure your `next.config.mjs` like to add the webpack plugin.
+In order to add the PostCSS plugin, you must create a `postcss.config.js` file at your project root. Be sure to follow the [Customizing Plugins](https://nextjs.org/docs/advanced-features/customizing-postcss-config#customizing-plugins) guide from Next.js as it requires additional steps to add non-Next.js plugins.
+
+After following their guide, you will add the Atomizer PostCSS plugin like so.
 
 ```js
-import { webpack } from 'atomizer-plugins';
-import atomizerConfig from './atomizer.config.js';
-
-const atomizer = webpack({
-    /* options */
-    config: atomizerConfig,
-    outputFile: 'atomizer.css',
-});
-
-export default {
-    reactStrictMode: true,
-    webpack: (config) => {
-        config.plugins.push(atomizer);
-        return config;
-    }
+module.exports = {
+    plugins: {
+        'postcss-atomizer': {},
+        // ...
+    },
 }
 ```
 
-Configuration information and examples are available in the [`atomizer-plugins` repository](https://github.com/acss-io/atomizer/tree/main/packages/atomizer-plugins).
+<p class="noteBox info">Plugin options are available in the <a href="https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer">postcss-atomizer</a> README.</p>
 
 ## Start your build process
 
@@ -71,7 +62,7 @@ npm run dev
 
 ## Begin using Atomizer
 
-Start adding Atomizer classes to your code base.
+Update the `pages/index.js` file to start adding Atomizer classes to your code base.
 
 ```js
 export default function Home() {
