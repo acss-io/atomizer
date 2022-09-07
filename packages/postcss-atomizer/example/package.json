@@ -1,0 +1,7 @@
+{
+    "name": "postcss-atomizer-example",
+    "private": true,
+    "scripts": {
+        "dev": "postcss *.css -o dist/main.css"
+    }
+}

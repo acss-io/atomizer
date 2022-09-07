@@ -1,0 +1,37 @@
+{
+    "name": "postcss-atomizer",
+    "version": "1.0.0",
+    "description": "PostCSS Atomizer plugin",
+    "keywords": [
+        "atomizer",
+        "postcss-plugin"
+    ],
+    "homepage": "https://github.com/acss-io/atomizer#readme",
+    "bugs": {
+        "url": "https://github.com/acss-io/atomizer/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/acss-io/atomizer.git",
+        "directory": "packages/postcss-atomizer"
+    },
+    "license": "BSD-3-Clause",
+    "author": "Seth Bertalotto <seth@bertalotto.net>",
+    "exports": "./src/index.js",
+    "files": [
+        "src"
+    ],
+    "scripts": {
+        "test": "jest ."
+    },
+    "dependencies": {
+        "atomizer": "^3.18.2"
+    },
+    "peerDependencies": {
+        "postcss": "^8.3.0"
+    },
+    "engines": {
+        "node": ">=16.0",
+        "npm": ">=8.0"
+    }
+}

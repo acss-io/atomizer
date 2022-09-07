@@ -44,7 +44,7 @@ describe('atomizer', () => {
 
         it('--exclude', async () => {
             const { stdout } = await execFileAsync('node', [atomizer, htmlFixture, '--exclude', 'test.html']);
-            expect(stdout).toEqual('\n'); // exluding the default file should result in an empty output
+            expect(stdout).toEqual(''); // exluding the default file should result in an empty output
         });
 
         it('--helpersNamespace', async () => {
