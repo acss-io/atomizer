@@ -7,7 +7,7 @@ title: Node.js
 
 ## Install Atomizer
 
-You can leverage the same libraries that the [cli]({% link /installation.md %}#atomizer-cli) uses to integrate Atomizer in your project. The Atomizer npm package exports an Atomizer class that you can use to parse config and generate Atomizer CSS.
+You can leverage the same libraries that the [cli]({% link installation.md %}#atomizer-cli) uses to integrate Atomizer in your project. The Atomizer npm package exports an Atomizer class that you can use to parse config and generate Atomizer CSS.
 
 ```shell
 npm i atomizer -D
