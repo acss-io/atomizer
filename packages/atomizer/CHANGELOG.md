@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.21.0
+
+### Minor Changes
+
+-   bb3138f: feat(atomizer): refactor binary to use build utils
+
 ## 3.20.0
 
 ### Minor Changes
