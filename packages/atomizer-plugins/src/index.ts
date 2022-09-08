@@ -28,7 +28,7 @@ export const unplugin = createUnplugin<Options>((options) => {
             this.emitFile({
                 type: 'asset',
                 source: css,
-                fileName: options.outputFile || 'atomizer.css',
+                fileName: options.outfile || 'atomizer.css',
             });
         },
     };

@@ -26,7 +26,6 @@ import { esbuild } from 'atomizer-plugins';
 const atomizer = rollup({
     /* options */
     config: atomizerConfig,
-    outputFile: 'atomizer.css',
 });
 
 build({
@@ -44,7 +43,6 @@ import { rollup } from 'atomizer-plugins';
 const atomizer = rollup({
     /* options */
     config: atomizerConfig,
-    outputFile: 'atomizer.css',
 });
 
 export default {
@@ -61,7 +59,6 @@ import { vite } from 'atomizer-plugins';
 
 const atomizerPlugin = vite({
     config: atomizerConfig,
-    outputFile: 'atomizer.css',
 });
 
 export default defineConfig(() => {
@@ -80,7 +77,6 @@ import { webpack } from 'atomizer-plugins';
 const atomizer = webpack({
     /* options */
     config: atomizerConfig,
-    outputFile: 'atomizer.css',
 });
 
 export default {

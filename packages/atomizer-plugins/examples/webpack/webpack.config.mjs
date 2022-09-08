@@ -7,7 +7,7 @@ const __dirname = getDirname(import.meta.url);
 
 const atomizer = webpack({
     config: atomizerConfig,
-    outputFile: './dist/atomizer.css',
+    outfile: './dist/atomizer.css',
 });
 
 export default {

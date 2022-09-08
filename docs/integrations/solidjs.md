@@ -46,7 +46,7 @@ import atomizerConfig from './atomizer.config.js';
 
 const atomizerPlugin = vite({
     config: atomizerConfig,
-    outputFile: 'atomizer.css',
+    outfile: 'atomizer.css',
 });
 
 export default defineConfig({
