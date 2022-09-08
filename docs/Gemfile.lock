@@ -74,6 +74,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-toc
   kramdown-parser-gfm
+  rouge
   webrick
 
 BUNDLED WITH

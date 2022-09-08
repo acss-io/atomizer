@@ -9,6 +9,7 @@ module.exports = {
     custom: {
         borderTopLight: '1px solid rgba(2, 128, 174, 0.3)',
         boxColorLight: 'rgba(2, 128, 174, 0.05)',
+        boxColorDarker: 'rgba(2, 128, 174, 0.2)',
         boxShadowLight: '0 2px 3px rgba(0, 0, 0, 0.2)',
         brandColor: '#0280ae',
         colAside: 'aside',

@@ -4,6 +4,7 @@ gem "kramdown-parser-gfm"
 gem "jekyll", "~> 4.0"
 gem "jekyll-toc"
 gem "webrick"
+gem "rouge"
 
 group :jekyll_plugins do
   gem 'jekyll-seo-tag'
