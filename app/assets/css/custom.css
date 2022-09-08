@@ -196,19 +196,19 @@ pre code {
 }
 
 /* octicon icons =================================================== */
-h2:hover,
-h3:hover {
+#main h2:hover,
+#main h3:hover {
     margin-left: -20px;
     padding-left: 20px;
     position: relative;
 }
-h2:hover .anchor,
-h3:hover .anchor {
+#main h2:hover .anchor,
+#main h3:hover .anchor {
     position: absolute;
     margin-left: -21px;
 }
-h2:hover .octicon,
-h3:hover .octicon {
+#main h2:hover .octicon,
+#main h3:hover .octicon {
     display: inline-block;
     fill: currentColor;
 }

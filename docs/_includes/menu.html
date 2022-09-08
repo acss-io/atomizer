@@ -106,7 +106,12 @@
     <ul class="M(0) P(0)">
         {% for library in site.data.frameworks %}
             <li class="{% if page.url == library.link %}selected{% endif %}">
-                <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ library.link }}">{{ library.name }}</a>
+                <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ library.link }}">
+                    <span class="D(ib) W(24px) Ta(c) Va(tt) Pend(5px)">
+                        <span class="D(ib) W(20px) H(20px)">{{ library.logo }}</span>
+                    </span>
+                    {{ library.name }}
+                </a>
             </li>
         {% endfor %}
     </ul>
