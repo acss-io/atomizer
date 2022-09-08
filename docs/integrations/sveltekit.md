@@ -17,17 +17,32 @@ npm install
 
 ## Install the plugin
 
-As SvelteKit is really just a [Vite project](https://kit.svelte.dev/docs/project-structure#project-files-vite-config-js), you can use the [vite](https://vitejs.dev/) plugin from the [`atomizer-plugins`](https://github.com/acss-io/atomizer/tree/main/packages/atomizer-plugins) package to load Atomizer.
-
-First, install the dependencies:
+For a [SvelteKit](https://kit.svelte.dev/) project, the [`postcss-atomizer`](https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer) library makes it easy to setup Atomizer. SvelteKit [recommends](https://kit.svelte.dev/docs/additional-resources#integrations) installing the `svelte-preprocess` module to automatically transform the code in your Svelte templates.
 
 ```shell
-npm i atomizer-plugins @sveltejs/vite-plugin-svelte -D
+npm i postcss-atomizer svelte-preprocess postcss postcss-load-config -D
+```
+
+## Enable PostCSS
+
+Update the `svelte.config.js` to include the `svelte-preprocess` library.
+
+```js
+import preprocess from "svelte-preprocess";
+
+const config = {
+    // ...
+    preprocess: [
+        preprocess({
+            postcss: true,
+        }),
+    ],
+}
 ```
 
 ## Create your Atomizer config
 
-Create the `atomizer.config.js` config file so that Atomizer can find your SvelteKit files.
+Create the `atomizer.config.cjs` config file so that Atomizer can parse your SvelteKit files.
 
 ```js
 module.exports = {
@@ -37,38 +52,30 @@ module.exports = {
 }
 ```
 
-## Update the Vite config
+## Create the PostCSS config
 
-Add the Atomizer plugin to your `vite.config.js` config file.
+Create the `postcss.config.cjs` file to configure the Atomizer plugin.
 
 ```js
-import { defineConfig } from 'vite';
-import { svelte } from '@sveltejs/vite-plugin-svelte';
-import { vite } from 'atomizer-plugins';
-import atomizerConfig from './atomizer.config.js';
+const atomizer = require('postcss-atomizer');
 
-const atomizerPlugin = vite({
-    config: atomizerConfig,
-    outputFile: 'dist/atomizer.css',
-});
-
-export default defineConfig(() => {
-    return {
-        plugins: [atomizerPlugin, svelte()],
-    };
-});
+module.exports = {
+    plugins: [
+        atomizer({
+            config: './atomizer.config.cjs',
+        }),
+    ],
+};
 ```
 
-## Add the Atomizer CSS
+## Add the CSS file
 
-Make sure your `atomizer.css` file is built by SvelteKit by adding it to your `+layout.svelte` file.
+Create an empty `src/app.css` file for PostCSS to process and then import it at the top of the `src/routes/+page.svelte` file.
 
-```js
+```html
 <script>
-    import "../dist/atomizer.css";
+    import "../app.css";
 </script>
-
-<slot />
 ```
 
 ## Start your build process
@@ -81,7 +88,7 @@ npm run dev
 
 ## Begin using Atomizer
 
-Start adding Atomizer classes to your code base, an example `+page.svelte` file.
+Start adding Atomizer classes to the `src/routes/+page.svelte` file.
 
 ```html
 <h1 className="Fw(b) Fz(2rem)">Welcome!</h1>
