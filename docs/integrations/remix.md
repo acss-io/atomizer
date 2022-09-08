@@ -12,7 +12,6 @@ If you do not have a project setup already, you can create a new one using Remix
 ```shell
 npx create-remix@latest my-app
 cd my-app
-npm install
 ```
 
 ## Install Atomizer
@@ -43,8 +42,9 @@ You will need to execute Atomizer when you start your app. The easiest way to do
 {
   "scripts": {
     "build": "npm run build:css && remix build",
-    "build:css": "atomizer -o app/styles/atomizer.css",
-    "dev": "concurrently \"npm run build:css\" \"remix dev\""
+    "build:css": "atomizer -o app/styles/atomizer.css -w",
+    "dev": "concurrently \"npm run build:css\" \"run-p \"dev:*\"\""
+    // ...
   }
 }
 ```
@@ -78,7 +78,7 @@ Start adding Atomizer classes to your code base, an example `app/routes/index.js
 ```js
 export default function Index() {
     return (
-        <h1 className="Fw(b) Fz(2rem)">Welcome!</h1>
+        <h1 className="Fw(b) Fz(2rem)">Welcome to Remix</h1>
     );
 }
 ```

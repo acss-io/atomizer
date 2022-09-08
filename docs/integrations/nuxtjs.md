@@ -12,7 +12,6 @@ If you do not have a project setup already, you can create a new one using the [
 ```shell
 npx create-nuxt-app my-app
 cd my-app
-npm install
 ```
 
 ## Install the module
