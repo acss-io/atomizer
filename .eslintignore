@@ -4,6 +4,7 @@ bin
 artifacts
 node_nodules
 dist
+dist-*
 
 # docs
 docs/assets/js/
