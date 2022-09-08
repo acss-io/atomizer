@@ -3,6 +3,7 @@ description: 'An unopinionated CSS utility library for modern websites.'
 destination: ./_site
 baseurl: '/'
 disable_disk_cache: true
+logo: /images/background.png
 markdown: kramdown
 highlighter: rouge
 defaults:
@@ -19,3 +20,5 @@ toc:
     list_id: toc-wrap
     min_level: 2
     max_level: 3
+twitter:
+    username: AtomicCSS
