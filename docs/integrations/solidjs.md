@@ -17,10 +17,10 @@ npm install
 
 ## Install the plugin
 
-A [PostCSS](https://postcss.org/) plugin is available as part of the [`postcss-atomizer`](https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer) package. Install the package in your project first.
+SolidJS uses vite to build the application. You can use our [vite](https://vitejs.dev/) plugin as part of the [`atomizer-plugins`](https://github.com/acss-io/atomizer/tree/main/packages/atomizer-plugins) package to setup Atomizer. First you must install the dependency.
 
 ```shell
-npm i postcss-atomizer postcss -D
+npm i atomizer-plugins -D
 ```
 
 ## Create your Atomizer config
@@ -35,25 +35,29 @@ module.exports = {
 }
 ```
 
-## Create your PostCSS config
+## Update the vite config
 
-Create a `postcss.config.js` config file and add the Atomizer plugin.
+Update the `vite.config.js` config file and add the Atomizer plugin.
 
 ```js
-const atomizer = require('postcss-atomizer');
+// ...
+import { vite } from 'atomizer-plugins';
+import atomizerConfig from './atomizer.config.js';
 
-module.exports = {
-    plugins: [
-        atomizer({
-            outfile: 'dist/atomizer',
-        }),
-    ]
-};
+const atomizerPlugin = vite({
+    config: atomizerConfig,
+    outputFile: 'atomizer.css',
+});
+
+export default defineConfig({
+    plugins: [atomizerPlugin, solidPlugin()],
+    // ...
+});
 ```
 
 ## Add the Atomizer CSS
 
-Add the generated `dist/atomizer.css` file to your `index.tsx` file:
+Add the generated `dist/atomizer.css` file to your `src/index.jsx` file:
 
 ```js
 import '../dist/atomizer.css';
@@ -65,12 +69,13 @@ import '../dist/atomizer.css';
 Run your build setup as configured in your project's `package.json`.
 
 ```shell
+npm run build
 npm run dev
 ```
 
 ## Begin using Atomizer
 
-Start adding Atomizer classes to your code base, `App.js` example.
+Start adding Atomizer classes to your code base; `src/App.js` for example.
 
 ```js
 export default function App() {
