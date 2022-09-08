@@ -100,4 +100,16 @@
     </ul>
 </div>
 
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) Bdt(borderTopLight) Fw(b) Pt(20px)">Integrations</h3>
+
+    <ul class="M(0) P(0)">
+        {% for library in site.data.frameworks %}
+            <li class="{% if page.url == library.link %}selected{% endif %}">
+                <a class="D(b) Td(n):h Py(5px) Pos(r)" href="{{ library.link }}">{{ library.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
 {% endif %}

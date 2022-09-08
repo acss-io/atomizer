@@ -82,14 +82,16 @@ Then Atomizer would update the style sheet with the following:
 Follow the one of the bundler guides below to integrate Atomizer into your project.
 
 <ul class="D(f) List(n)! Pstart(0)! Gp(.5rem) Gp(1rem)--sm Ovx(s) Mt(2rem)">
-    {% for library in site.data.bundlers %}
-        <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Ta(c)">
-            <div class="Mih(80px)">{{ library.logo }}</div>
-            <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
-                {{ library.name }}
-                <u class="StretchedBox"></u>
-            </a>
-        </li>
+    {% for library in site.data.frameworks %}
+        {% if library.type == 'bundler' %}
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Ta(c)">
+                <div class="Mih(80px)">{{ library.logo }}</div>
+                <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
+                    {{ library.name }}
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
 
@@ -99,13 +101,15 @@ Atomizer easily integrates with many of the most popular JavaScript frameworks, 
 
 <ul class="D(f) List(n)! Pstart(0)! Gp(.5rem) Gp(1rem)--sm Ovx(s) Mt(2rem)">
     {% for library in site.data.frameworks %}
-        <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Ta(c)">
-            <div class="Mih(70px)">{{ library.logo }}</div>
-            <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
-                {{ library.name }}
-                <u class="StretchedBox"></u>
-            </a>
-        </li>
+        {% if library.type == 'framework' %}
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Ta(c)">
+                <div class="Mih(70px)">{{ library.logo }}</div>
+                <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
+                    {{ library.name }}
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
 
