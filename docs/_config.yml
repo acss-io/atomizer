@@ -3,15 +3,15 @@ description: 'An unopinionated CSS utility library for modern websites.'
 destination: ./_site
 baseurl: '/'
 disable_disk_cache: true
-logo: /images/background.png
+logo: https://acss.io/images/android-chrome-512x512.png
 markdown: kramdown
 highlighter: rouge
 defaults:
     - scope:
           path: ''
-          type: 'pages'
       values:
           githubDocsPath: 'https://github.com/acss-io/atomizer/tree/main/docs/'
+          image: https://acss.io/images/background.png
           toc: true
 plugins:
     - jekyll-seo-tag
