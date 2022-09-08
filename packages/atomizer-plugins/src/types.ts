@@ -5,6 +5,6 @@ export interface Options extends AtomizerOptions {
     cssOptions?: CSSOptions;
     /* Atomizer config options */
     config: AtomizerConfig;
-    /* Output file name, relative to cwd */
-    outputFile?: string;
+    /* Output file name, relative to cwd. Defaults to atomizer.css */
+    outfile?: string;
 }

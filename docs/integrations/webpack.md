@@ -67,7 +67,7 @@ import { webpack } from 'atomizer-plugins';
 const atomizer = webpack({
     /* options */
     config: atomizerConfig,
-    outputFile: 'dist/atomizer.css',
+    outfile: 'dist/atomizer.css',
 });
 
 export default {

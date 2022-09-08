@@ -36,7 +36,7 @@ import { esbuild } from 'atomizer-plugins';
 const atomizer = esbuild({
     /* options */
     config: atomizerConfig,
-    outputFile: 'dist/atomizer.css',
+    outfile: 'dist/atomizer.css',
 });
 
 build({

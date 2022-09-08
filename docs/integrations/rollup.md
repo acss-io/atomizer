@@ -35,7 +35,7 @@ import { rollup } from 'atomizer-plugins';
 const atomizer = rollup({
     /* options */
     config: atomizerConfig,
-    outputFile: 'dist/atomizer.css',
+    outfile: 'dist/atomizer.css',
 });
 
 export default {

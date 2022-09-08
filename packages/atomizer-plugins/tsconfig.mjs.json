@@ -2,7 +2,7 @@
     "extends": "../../tsconfig.json",
     "compilerOptions": {
         "baseUrl": ".",
-        "outDir": "dist",
+        "outDir": "dist-mjs",
         "rootDir": "src"
     },
     "include": ["src"]
