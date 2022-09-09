@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.21.1
+
+### Patch Changes
+
+-   ef6b9a9: fix: rename bumpMq to bumpMQ
+
 ## 3.21.0
 
 ### Minor Changes
