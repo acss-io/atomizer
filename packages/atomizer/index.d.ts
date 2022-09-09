@@ -1,7 +1,7 @@
 declare module 'atomizer' {
     export interface Options {
         /** Increases specificity of media queries a small amount */
-        bumpMq?: boolean;
+        bumpMQ?: boolean;
         /** Source config file, defaults to "atomizer.config.js" */
         config?: string;
         /** Excluded file pattern */
