@@ -44,7 +44,7 @@ declare module 'atomizer' {
         [key: string]: any;
     }
 
-    export type CSSOptions = Partial<Pick<Options, 'bumpMq' | 'helpersNamespace' | 'namespace' | 'rtl'>> & {
+    export type CSSOptions = Partial<Pick<Options, 'bumpMQ' | 'helpersNamespace' | 'namespace' | 'rtl'>> & {
         /** Adds a comment to the top of the generated Atomizer style sheet */
         banner?: string;
     };
