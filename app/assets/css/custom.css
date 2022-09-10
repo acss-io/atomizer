@@ -128,25 +128,6 @@ li.selected a {
     color: var(--color-link);
 }
 
-/* Colors =========================================================== */
-
-/**
- * Background
- */
-pre,
-input,
-textarea,
-.textarea,
-code,
-#footer {
-    background: rgba(2, 128, 174, 0.05);
-}
-
-pre code {
-    background: none;
-    padding: 0;
-}
-
 /* info/warning/important/success boxes ============================= */
 
 .noteBox {
@@ -154,6 +135,15 @@ pre code {
     border-radius: 2px;
     border-style: solid;
     border-width: 0 0 0 7px;
+}
+
+.noteBox code {
+    background: none;
+    border: none;
+}
+
+.noteBox strong {
+    color: #000000;
 }
 
 .important {

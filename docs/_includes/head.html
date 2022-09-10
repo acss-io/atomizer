@@ -8,4 +8,5 @@
     {%- if jekyll.environment == 'production' -%}
       {%- include analytics.html -%}
     {%- endif -%}
+    <script>window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.classList.add('dark');</script>
 </head>

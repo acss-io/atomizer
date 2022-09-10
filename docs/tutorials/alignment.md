@@ -24,13 +24,13 @@ The following example shows `Ac(sb)` -> `align-content: space-between`.
 </div>
 ```
 
-<div class="D(f) Ac(sb) W(160px) H(300px) Bgc(#add8e6) P(10px) Gp(10px) Fxf(w)">
-    <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
-    <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">2</div>
-    <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">3</div>
-    <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">4</div>
-    <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">5</div>
-    <div class="W(20px) H(20px) P(1rem) Bgc(#ccc)">6</div>
+<div class="D(f) Ac(sb) W(160px) H(300px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Fxf(w)">
+    <div class="W(20px) H(20px) P(1rem) Bgc(--example-box-1)">1</div>
+    <div class="W(20px) H(20px) P(1rem) Bgc(--example-box-4)">2</div>
+    <div class="W(20px) H(20px) P(1rem) Bgc(--example-box-4)">3</div>
+    <div class="W(20px) H(20px) P(1rem) Bgc(--example-box-1)">4</div>
+    <div class="W(20px) H(20px) P(1rem) Bgc(--example-box-1)">5</div>
+    <div class="W(20px) H(20px) P(1rem) Bgc(--example-box-4)">6</div>
 </div>
 
 ## [`align-items`]({% link reference.md %}#alignitems)
@@ -50,13 +50,13 @@ The following example shows `Ai(c)` -> `align-items: center`.
 </div>
 ```
 
-<div class="D(f) Ai(c) H(100px) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
-    <div class="D(f) Ai(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
-    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
-    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
-    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+<div class="D(f) Ai(c) H(100px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mend(1rem)">
+    <div class="D(f) Ai(c) W(20px) H(20px) P(1rem) Bgc(--example-box-1)">1</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-4)">2</div>
+    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(--example-box-1)">3</div>
+    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(--example-box-4)">4</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-1)">5</div>
+    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(--example-box-4)">6</div>
 </div>
 
 ## [`align-self`]({% link reference.md %}#alignself)
@@ -76,13 +76,13 @@ The following example shows `As(fs)` -> `align-self: flex-start`.
 </div>
 ```
 
-<div class="D(f) Ai(c) H(100px) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
-    <div class="As(fs) D(f) Ai(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
-    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
-    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
-    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+<div class="D(f) Ai(c) H(100px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mend(1rem)">
+    <div class="As(fs) D(f) Ai(c) W(20px) H(20px) P(1rem) Bgc(--example-box-1)">1</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-4)">2</div>
+    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(--example-box-1)">3</div>
+    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(--example-box-4)">4</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-1)">5</div>
+    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(--example-box-4)">6</div>
 </div>
 
 ## [`justify-content`]({% link reference.md %}#justifycontent)
@@ -102,13 +102,13 @@ The following example shows `Jc(se)` ->`justify-content: space-evenly`.
 </div>
 ```
 
-<div class="D(f) Jc(se) H(100px) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
-    <div class="D(f) Ai(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
-    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
-    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
-    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+<div class="D(f) Jc(se) H(100px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mend(1rem)">
+    <div class="D(f) Ai(c) W(20px) H(20px) P(1rem) Bgc(--example-box-1)">1</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-4)">2</div>
+    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(--example-box-1)">3</div>
+    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(--example-box-4)">4</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-1)">5</div>
+    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(--example-box-4)">6</div>
 </div>
 
 ## [`justify-items`]({% link reference.md %}#justifyitems)
@@ -129,13 +129,13 @@ The following example shows `Ji(e)` -> `justify-items: end`.
 </div>
 {% endhighlight %}
 
-<div class="D(g) Gtc(threeColEvenGrid) Ji(e) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
-    <div class="D(f) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
-    <div class="D(f) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
-    <div class="D(f) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
-    <div class="D(f) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
-    <div class="D(f) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
-    <div class="D(f) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Ji(e) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mend(1rem)">
+    <div class="D(f) W(20px) H(20px) P(1rem) Bgc(--example-box-1)">1</div>
+    <div class="D(f) W(20px) H(30px) P(1rem) Bgc(--example-box-3)">2</div>
+    <div class="D(f) W(20px) H(10px) P(1rem) Bgc(--example-box-1)">3</div>
+    <div class="D(f) W(20px) H(40px) P(1rem) Bgc(--example-box-3)">4</div>
+    <div class="D(f) W(20px) H(30px) P(1rem) Bgc(--example-box-2)">5</div>
+    <div class="D(f) W(20px) H(50px) P(1rem) Bgc(--example-box-4)">6</div>
 </div>
 
 <p class="noteBox warning">
@@ -160,13 +160,13 @@ The following example shows `Js(s)` -> `justify-self: start`.
 </div>
 {% endhighlight %}
 
-<div class="D(g) Gtc(threeColEvenGrid) Ji(e) Bgc(#add8e6) P(10px) Gp(10px) Mend(1rem)">
-    <div class="D(f) Js(s) Ai(c) W(20px) H(20px) P(1rem) Bgc(#ccc)">1</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">2</div>
-    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(#ccc)">3</div>
-    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(#ccc)">4</div>
-    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(#ccc)">5</div>
-    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(#ccc)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Ji(e) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mend(1rem)">
+    <div class="D(f) Js(s) Ai(c) W(20px) H(20px) P(1rem) Bgc(--example-box-1)">1</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-1)">2</div>
+    <div class="D(f) Ai(c) W(20px) H(10px) P(1rem) Bgc(--example-box-4)">3</div>
+    <div class="D(f) Ai(c) W(20px) H(40px) P(1rem) Bgc(--example-box-3)">4</div>
+    <div class="D(f) Ai(c) W(20px) H(30px) P(1rem) Bgc(--example-box-2)">5</div>
+    <div class="D(f) Ai(c) W(20px) H(50px) P(1rem) Bgc(--example-box-1)">6</div>
 </div>
 
 <p class="noteBox warning">

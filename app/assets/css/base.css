@@ -150,10 +150,6 @@ hr {
     margin: 35px 0 30px;
 }
 
-code {
-    padding: 0.2em 0.2em 0.1em;
-}
-
 /**
  * =============================================================================
  * Headings
@@ -322,7 +318,17 @@ textarea {
     resize: vertical; /* 1 */
 }
 
-pre,
+/**
+ * Form background colors
+ */
+input,
+textarea,
+.textarea {
+    background: var(--color-code-bg);
+}
+
+input,
+textarea pre,
 textarea,
 .textarea,
 input[type='search'] {
@@ -330,17 +336,34 @@ input[type='search'] {
     border-radius: 3px;
     border: 0;
 }
+
+/**
+ * Preformatted text and code elements
+ */
+pre,
+code {
+    background: var(--color-code-bg);
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    max-width: 738px; /* this is inside a table-cell */
+}
 code {
     box-shadow: none;
     border: 1px solid var(--color-code-bd);
     border-radius: 3px;
+    padding: 0.2em 0.2em 0.1em;
     white-space: nowrap;
 }
 pre {
+    border: 1px solid var(--color-code-bd);
+    border-radius: 3px;
+    line-height: 1.45;
+    padding: 10px 16px 10px 7px;
     position: relative;
 }
 pre code {
+    background: none;
     border: 0;
+    padding: 0;
     white-space: pre;
 }
 

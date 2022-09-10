@@ -19,10 +19,10 @@ Following example shows `Sb(s)` = `scroll-behavior: smooth`.
 </div>
 ```
 
-<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(200px) H(200px) D(f) Mt(20px)">
-    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">1</div>
-    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">2</div>
-    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
+<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(200px) H(200px) D(f) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
+    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">1</div>
+    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">2</div>
+    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">3</div>
 </div>
 
 ## [`scroll-snap-align`]({% link reference.md %}#scrollsnapalign)
@@ -39,10 +39,10 @@ Following example shows `Ssa(s)` = `scroll-snap-align: start`.
 </div>
 ```
 
-<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(200px) H(200px) D(f) Mt(20px)">
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">1</div>
-    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">2</div>
-    <div class="Ssa(e) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
+<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(200px) H(200px) D(f) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">1</div>
+    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">2</div>
+    <div class="Ssa(e) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">3</div>
 </div>
 
 ## [`scroll-snap-type`]({% link reference.md %}#scrollsnaptype)
@@ -59,10 +59,10 @@ Following example shows `Sst(x_p)` = `scroll-snap-type: x proximity`.
 </div>
 ```
 
-<div class="Sb(s) Sst(x_p) Ovx(s) Ovy(h) W(160px) H(200px) D(f) Mt(20px)">
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">1</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">2</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
+<div class="Sb(s) Sst(x_p) Ovx(s) Ovy(h) W(160px) H(200px) D(f) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">1</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">2</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">3</div>
 </div>
 
 ## [`scroll-margin`]({% link reference.md %}#scrollmarginalledges) && [`scroll-margin-*`]({% link reference.md %}#scrollmargintop)
@@ -79,10 +79,10 @@ Following example shows `Smstart(2em)` = `scroll-margin-left: 2em`.
 </div>
 ```
 
-<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(180px) H(200px) D(f) Gp(20px) Mt(20px)">
-    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">1</div>
-    <div class="Ssa(c) Smstart(2em) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">2</div>
-    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
+<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(180px) H(200px) D(f) Gp(20px) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
+    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">1</div>
+    <div class="Ssa(c) Smstart(2em) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">2</div>
+    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">3</div>
 </div>
 
 ## [`scroll-padding`]({% link reference.md %}#scrollpaddingalledges) & [`scroll-padding-*`]({% link reference.md %}#scrollpaddingtop)constructs
@@ -100,14 +100,14 @@ Following example shows `Spx(20px)` = `scroll-padding-left: 20px; scroll-padding
 </div>
 ```
 
-<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) Maw(738px) H(200px) D(f) Gp(20px) Spx(20px) Px(20px) Bdc(#add8e6) Bdw(1px) Bds(s) Mt(20px)">
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">1</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">2</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">4</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">5</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">6</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">7 </div>
+<div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) Maw(738px) H(200px) D(f) Gp(20px) Spx(20px) Px(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) Bdw(1px) Bds(s) Mt(20px)">
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">1</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">2</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">3</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-4)">4</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">5</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">6</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">7 </div>
 </div>
 
 ## [`scroll-snap-stop`]({% link reference.md %}#scrollsnapstop)
@@ -125,12 +125,12 @@ Following example shows `Sst(x_m)` = `scroll-snap-stop: x mandatory`.
 </div>
 ```
 
-<div class="Sb(s) Sst(x_m) Sss(a) Ovx(s) Ovy(h) W(160px) H(200px) D(f) Gp(20px) Spx(20px) Px(20px) Bdc(#add8e6) Bdw(1px) Bds(s) Mt(20px)">
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">1</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">2</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">3</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">4</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">5</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#ccc)">6</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(#add8e6) C(#ff)">7 </div>
+<div class="Sb(s) Sst(x_m) Sss(a) Ovx(s) Ovy(h) W(160px) H(200px) D(f) Gp(20px) Spx(20px) Px(20px) Bdc(--color-code-bg) Bdw(1px) Bds(s) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">1</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">2</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">3</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-4)">4</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-1)">5</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-2)">6</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--example-box-3)">7 </div>
 </div>
