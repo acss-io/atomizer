@@ -29,7 +29,7 @@ layout: home
                             {{ data.companyLogo }}
                         {% endif %}
                         <p class="M(0)">
-                            <a href="{{ data.link }}" class="D(b) Fw(b) C(#000) Td(n):h" target="_blank">
+                            <a href="{{ data.link }}" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
                                 {{ data.author }}
                                 <u class="StretchedBox"></u>
                             </a>
