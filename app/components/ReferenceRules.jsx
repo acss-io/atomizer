@@ -103,7 +103,7 @@ const ReferenceRules = ({ store }) => {
                     rawDeclaration: rawDeclarationBlock,
                     selector: (
                         <b>
-                            {prefix}(<b className="C(#000)">{suffix}</b>)
+                            {prefix}(<strong>{suffix}</strong>)
                         </b>
                     ),
                     declaration: styledDeclarationBlock,

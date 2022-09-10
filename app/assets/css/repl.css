@@ -1,11 +1,11 @@
-.textarea,
-input[type='search'],
-pre,
-textarea {
+.repl .textarea,
+.repl input[type='search'],
+.repl pre,
+.repl textarea {
     box-shadow: none;
 }
 
-textarea {
+.repl textarea {
     background: none;
     border: 0;
     color: #2a2734;
@@ -17,7 +17,7 @@ textarea {
     width: 100%;
 }
 
-textarea:focus {
+.repl textarea:focus {
     outline: none;
 }
 
