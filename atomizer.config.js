@@ -7,7 +7,7 @@ module.exports = {
     },
     content: ['app/components/', 'app/assets/js', 'docs/'],
     custom: {
-        borderTopLight: '1px solid rgba(2, 128, 174, 0.3)',
+        borderTopLight: '1px solid var(--color-border-light)',
         boxColorLight: 'rgba(2, 128, 174, 0.05)',
         boxColorDarker: 'rgba(2, 128, 174, 0.2)',
         boxShadowLight: '0 2px 3px rgba(0, 0, 0, 0.2)',

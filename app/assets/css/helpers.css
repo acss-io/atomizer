@@ -22,7 +22,7 @@
 
 .dl-list dt,
 #main dt {
-    color: #000;
+    color: var(--color-emphasis);
     font-weight: 400;
 }
 

@@ -81,7 +81,7 @@ li.selected a {
 }
 
 #nav li.selected a:after {
-    background: #0280ae;
+    background: var(--color-link);
 }
 
 /* Table of Contents =============================================== */
@@ -125,7 +125,7 @@ li.selected a {
     margin: 15px 0 15px 0;
 }
 .nav-on nav a {
-    color: #0280ae;
+    color: var(--color-link);
 }
 
 /* Colors =========================================================== */
@@ -152,32 +152,30 @@ pre code {
 .noteBox {
     padding: 7px 20px;
     border-radius: 2px;
-}
-.warning,
-.info,
-.important,
-.success {
     border-style: solid;
     border-width: 0 0 0 7px;
 }
-.warning {
-    border-color: #ff8b00;
-    background: #ffe8be;
+
+.important {
+    background: var(--notebox-important-bg);
+    border-color: var(--notebox-important-bd);
 }
 
 .info {
-    border-color: #1d5cab;
-    background: #d0e8fd;
-}
-
-.important {
-    border-color: #ff0061;
-    background: #ffddea;
+    background: var(--notebox-info-bg);
+    border-color: var(--notebox-info-bd);
 }
 
 .success {
-    border-color: #5ed500;
-    background: #e0f9c5;
+    background: var(--notebox-success-bg);
+    border-color: var(--notebox-success-bd);
+    color: var(--notebox-success-text);
+}
+
+.warning {
+    background: var(--notebox-warning-bg);
+    border-color: var(--notebox-warning-bd);
+    color: var(--notebox-warning-text);
 }
 
 /* embedded Code Pens =============================================== */

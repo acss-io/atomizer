@@ -86,7 +86,7 @@ Follow the one of the bundler guides below to integrate Atomizer into your proje
         {% if library.type == 'bundler' %}
             <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Bgc(boxColorDarker):h Ta(c)">
                 <div class="W(60px) H(60px) Mb(10px)">{{ library.logo }}</div>
-                <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
+                <a href="{{ library.link | escape }}" class="D(b) C(--color-text) Td(n):h">
                     {{ library.name }}
                     <u class="StretchedBox"></u>
                 </a>
@@ -104,7 +104,7 @@ Atomizer easily integrates with many of the most popular JavaScript frameworks, 
         {% if library.type == 'framework' %}
             <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Bgc(boxColorDarker):h Ta(c)">
                 <div class="W(60px) H(60px) Mb(10px)">{{ library.logo }}</div>
-                <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
+                <a href="{{ library.link | escape }}" class="D(b) C(--color-text) Td(n):h">
                     {{ library.name }}
                     <u class="StretchedBox"></u>
                 </a>

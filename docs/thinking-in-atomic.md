@@ -14,7 +14,7 @@ title: Thinking in Atomic
 Adopting an Atomic CSS methodology addresses common CSS challenges:
 
 <dl class="Mb(30px)">
-    <dt class="Fs(i) C(#000)">Changes are predictable</dt>
+    <dt class="Fs(i) C(--color-emphasis)">Changes are predictable</dt>
     <dd class="Mstart(20px) Mt(5px)">Because of the single responsibility principle (one class == one style) it is easy to predict what removing or adding a class will do.</dd>
     <dt class="Fs(i) C(#000)">Scope is limited</dt>
     <dd class="Mstart(20px) Mt(5px)">There is no reliance on descendant/contextual selectors &mdash; styling is done inside &quot;[specificity layers](#style-sheets-organization)&quot;.</dd>
