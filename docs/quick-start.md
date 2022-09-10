@@ -24,7 +24,7 @@ npm install
 npm run examples
 ```
 
-This should open a page in your browser at [http://localhost:8080/](http://localhost:8080/)
+This should open a page in your browser at [http://localhost:8080](http://localhost:8080)
 
 Now try this:
 
