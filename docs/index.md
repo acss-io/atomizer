@@ -41,7 +41,7 @@ layout: home
         {% endfor %}
     </ul>
     <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(linearGradient)">
-        <button id="toggleTestButton" class="Bgc(#0280ae) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
+        <button id="toggleTestButton" class="Bgc(--color-blue-5) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
     </div>
 </div>
 
@@ -59,7 +59,7 @@ layout: home
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bgc(#0280ae.5) C(#fff) P(20px)">
+        <div class="Bgc(--color-blue-2) C(#fff) P(20px)">
             Lorem ipsum
         </div>
     </div>
@@ -105,25 +105,25 @@ custom: {
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
 <div>
-   <div class="Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"></div>
-   <div class="Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"></div>
+   <div class="foo_W(100%)"></div>
+   <div class="foo_W(100%)"></div>
 </div>
 <hr>
 <div class="foo">
-   <div class="Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"></div>
-   <div class="Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"></div>
+   <div class="foo_W(100%)"></div>
+   <div class="foo_W(100%)"></div>
 </div>
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div>
-            <div class="Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
-         --><div class="Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"></div>
+            <div class="Bgc(--color-blue-2) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(--color-blue-5) H(90px) IbBox W(50%) foo_W(100%)"></div>
         </div>
         <hr>
         <div class="foo">
-            <div class="Bgc(#0280ae.5) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
-         --><div class="Bgc(#0280ae) H(90px) IbBox W(50%) foo_W(100%)"></div>
+            <div class="Bgc(--color-blue-2) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(--color-blue-5) H(90px) IbBox W(50%) foo_W(100%)"></div>
         </div>
     </div>
 </div>
@@ -137,26 +137,26 @@ custom: {
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
-<div class="Bd Bgc(#0280ae):h C(#0280ae) C(#fff):h P(20px)">
+<div class="Bgc(#0280ae):h C(#0280ae) C(#fff):h">
     Lorem ipsum
 </div>
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bd Bgc(#0280ae):h C(#0280ae) C(#fff):h P(20px)">
+        <div class="Bd Bgc(--color-blue-5):h C(--color-blue-5) C(#fff):h P(20px)">
             Lorem ipsum
         </div>
     </div>
     <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs">You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over <strong>its parent</strong>:</p>
         <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
-<div class="foo Bd C(#0280ae) Ta(c)">
+<div class="foo">
     <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
 </div>
 {% endhighlight %}
         </div>
         <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-            <div class="foo Bd C(#0280ae) Ta(c)">
+            <div class="foo Bd C(--color-blue-5) Ta(c)">
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
@@ -194,20 +194,20 @@ custom: {
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
-            <div class="Fl(start) W(1/2) Bgc(#0280ae.5) H(90px)"></div>
-            <div class="Fl(start) W(1/2) Bgc(#0280ae) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(--color-blue-2) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(--color-blue-5) H(90px)"></div>
         </div>
         <div class="D(tb) W(100%)" role="presentation">
-            <div class="D(tbc) Bgc(#0280ae) H(90px)"></div>
-            <div class="D(tbc) Bgc(#0280ae.5) H(90px)"></div>
+            <div class="D(tbc) Bgc(--color-blue-5) H(90px)"></div>
+            <div class="D(tbc) Bgc(--color-blue-2) H(90px)"></div>
         </div>
         <div class="D(f)">
-            <div class="Flxg(1) Bgc(#0280ae.5) H(90px)"></div>
-            <div class="Flxg(1) Bgc(#0280ae) H(90px)"></div>
+            <div class="Flxg(1) Bgc(--color-blue-2) H(90px)"></div>
+            <div class="Flxg(1) Bgc(--color-blue-5) H(90px)"></div>
         </div>
         <div class="D(g) Gtc(twoColEvenGrid)">
-            <div class="Bgc(#0280ae) H(90px)"></div>
-            <div class="Bgc(#0280ae.5) H(90px)"></div>
+            <div class="Bgc(--color-blue-5) H(90px)"></div>
+            <div class="Bgc(--color-blue-2) H(90px)"></div>
         </div>
     </div>
 </div>
@@ -234,7 +234,7 @@ breakPoints: {
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(#0280ae.5) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(#0280ae) H(90px) D(ib)--sm W(25%)--sm"></div>
+        <div class="Bgc(--color-blue-2) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-5) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-2) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-5) H(90px) D(ib)--sm W(25%)--sm"></div>
     </div>
 </div>
 

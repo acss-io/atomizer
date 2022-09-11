@@ -9,10 +9,11 @@
     --color-text: #4c4c4c;
 
     /* code example boxes */
-    --example-box-1: #0280ae80; /* #0280ae.5 */
-    --example-box-2: #0280ae99; /* #0280ae.6 */
-    --example-box-3: #0280aecc; /* #0280ae.8 */
-    --example-box-4: #0280ae;
+    --color-blue-1: #0280ae4d; /* #0280ae.3 */
+    --color-blue-2: #0280ae80; /* #0280ae.5 */
+    --color-blue-3: #0280aeb3; /* #0280ae.7 */
+    --color-blue-4: #0280aee6; /* #0280ae.9 */
+    --color-blue-5: #0280ae;
 
     /* notebox */
     --notebox-important-bd: #ff0061;

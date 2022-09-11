@@ -79,23 +79,23 @@ This table suggests the namespace to use depending on the weight of your other r
         </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>0,0,1,1</code></th>
             <td class="Va(t) P(10px)">No need for a namespace</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">Less or equal to <code>0,0,1,1</code></th>
             <td class="Va(t) P(10px)">Use <code>html</code> (type) for namespace</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">Less or equal to <code>0,0,2,0</code></th>
             <td class="Va(t) P(10px)">Use a <code>class</code> for namespace</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">Less or equal to <code>0,1,1,0</code></th>
             <td class="Va(t) P(10px)">Use a <code>id</code> for namespace</td>
         </tr>
-            <tr class="BdT Bdc(#0280ae.3)">
+            <tr class="BdT Bdc(--color-blue-1)">
                 <th scope="row" class="Va(t) Whs(nw) P(10px)">More than <code>0,1,1,0</code></th>
                 <td class="Va(t) P(10px)">Use whatever it takes <sup><a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></sup></td>
             </tr>
@@ -118,32 +118,32 @@ Take advantage of the _cascade_ by creating &quot;specificity layers&quot; <sup>
         </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">type selectors</th>
             <td class="Va(t) P(10px)"><code>0,0,0,x</code></td>
             <td class="Va(t) P(10px)">normalize.css,<br> base.css,<br> etc.</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">single class</th>
             <td class="Va(t) P(10px)"><code>0,0,1,0</code></td>
             <td class="Va(t) P(10px)">helpers.css,<br> utility.css,<br> etc.</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">contextual selectors<br> (any number of classes)</th>
             <td class="Va(t) P(10px)"><code>0,0,x,x</code></td>
             <td class="Va(t) P(10px)">layout.css,<br> custom.css,<br> etc.</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">Atomizer classes</th>
             <td class="Va(t) P(10px)"><code>0,1,1,0</code></td>
             <td class="Va(t) P(10px)">atomic.css</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)"><code>@style</code></th>
             <td class="Va(t) P(10px)"><code>1,0,0,0</code></td>
             <td class="Va(t) P(10px)">Inline Styles</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)"><code>!important</code> rule</th>
             <td class="Va(t) P(10px)">Trumps all the above <sup><a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a></sup></td>
             <td class="Va(t) P(10px)">Can be anywhere<br> (as an exception)</td>

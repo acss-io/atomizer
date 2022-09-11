@@ -36,83 +36,83 @@ For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margi
         </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b>n</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>display: none</code></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>D(<b>n</b>)<b>!</b></code></th>
             <td class="Va-t P(10px)">This is mapped to <code>display: none !important</code></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b>1em</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>font-size: 1em</code></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Fz(<b>18px</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>font-size: 18px</code></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Td(<b>u</b>)<b>:h</b></code></th>
             <td class="Va-t P(10px)">This underlines text on mouseover</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b>n</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>box-shadow: none</code></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b>foo</b>)<b>--lg</b></code></th>
             <td class="Va-t P(10px)">This applies a custom box-shadow inside the &quot;lg&quot; breakpoint <sup><a href="#footnote" id="footnote-1">[1]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bxs(<b>foo</b>)<b>:h--lg</b></code></th>
             <td class="Va-t P(10px)">Same styling as above but on mouseover only <sup><a href="#footnote" id="footnote-1">[1]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b>#000</b>)</code></th>
             <td class="Va-t P(10px)">This sets the color to black</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>C(<b>#000.5</b>)</code></th>
             <td class="Va-t P(10px)">This sets the color to black with a 50% opacity</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>M(<b>bar</b>)</code></th>
             <td class="Va-t P(10px)">This applies a <a href="{% link configuration.md %}#custom">custom</a> value to <code>margin</code> <sup><a href="#footnote" id="footnote-2">[2]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Mend(<b>0</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>margin-right: 0</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Ta(<b>start</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>text-align:left</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Cl(<b>start</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>clear:left</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Bdstartw(<b>0</b>)</code></th>
             <td class="Va-t P(10px)">This is mapped to <code>border-left-width:0</code> in a LTR context <sup><a href="#footnote" id="footnote-3">[3]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>Rotate(<b>-90deg</b>)</code></th>
             <td class="Va-t P(10px)">This is an <a href="{% link guides/atomizer-classes.md %}#aliases">alias</a> mapped to <code>transform: rotate(-90deg)</code> <sup><a href="#footnote" id="footnote-4">[4]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>LineClamp(<b>2,50px</b>)</code></th>
             <td class="Va-t P(10px)">This is a <a href="{% link guides/helper-classes.md %}">helper</a> which truncates text after 2 lines <sup><a href="#footnote" id="footnote-5">[5]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>list_</b>D(<b>ib</b>)</code></th>
             <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a descendant of a node to which the class <code>list</code> is applied <sup><a href="#footnote" id="footnote-6">[6]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>list&gt;</b>D(<b>ib</b>)</code></th>
             <td class="Va-t P(10px)">This element is styled with <code>display:inline-block</code> when it is a direct child of a node to which the class <code>list</code> is applied to <sup><a href="#footnote" id="footnote-6">[6]</a></sup></td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-1)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code><b>box:h_</b>D(<b>n</b>)</code></th>
             <td class="Va-t P(10px)">This element is hidden when users hover over its ancestor with the class <code>.box</code> <sup><a href="#footnote" id="footnote-6">[6]</a></sup></td>
         </tr>
