@@ -92,8 +92,8 @@ When using explicit breakpoints, use multiple classes to have styles applied in 
 <p class="noteBox info">The breakpoints for the example below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>
 
 <div class="D(f)--sm Fxw(w)">
-    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-2)">1</div>
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-4)">1</div>
     <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-3)">2</div>
-    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-4)">3</div>
-    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-5)">4</div>
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-2)">3</div>
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-1)">4</div>
 </div>

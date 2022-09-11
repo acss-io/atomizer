@@ -41,7 +41,7 @@ layout: home
         {% endfor %}
     </ul>
     <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(linearGradient)">
-        <button id="toggleTestButton" class="Bgc(--color-blue-5) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
+        <button id="toggleTestButton" class="Bgc(--color-blue-1) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
     </div>
 </div>
 
@@ -59,7 +59,7 @@ layout: home
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bgc(--color-blue-2) C(#fff) P(20px)">
+        <div class="Bgc(--color-blue-4) C(#fff) P(20px)">
             Lorem ipsum
         </div>
     </div>
@@ -88,8 +88,8 @@ custom: {
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"></div>
-        <div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)">
+        <div class="Pos(a) Bgc(--color-blue-1) W(columnWidth) H(90px)"></div>
+        <div class="C(--color-blue-1) BdB Bdc(--color-blue-1) Mstart(columnWidth) P(10px)">
             Lorem ipsum
         </div>
     </div>
@@ -117,13 +117,13 @@ custom: {
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div>
-            <div class="Bgc(--color-blue-2) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
-         --><div class="Bgc(--color-blue-5) H(90px) IbBox W(50%) foo_W(100%)"></div>
+            <div class="Bgc(--color-blue-4) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(--color-blue-1) H(90px) IbBox W(50%) foo_W(100%)"></div>
         </div>
         <hr>
         <div class="foo">
-            <div class="Bgc(--color-blue-2) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
-         --><div class="Bgc(--color-blue-5) H(90px) IbBox W(50%) foo_W(100%)"></div>
+            <div class="Bgc(--color-blue-4) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(--color-blue-1) H(90px) IbBox W(50%) foo_W(100%)"></div>
         </div>
     </div>
 </div>
@@ -143,7 +143,7 @@ custom: {
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bd Bgc(--color-blue-5):h C(--color-blue-5) C(#fff):h P(20px)">
+        <div class="Bd Bgc(--color-blue-1):h C(--color-blue-1) C(#fff):h P(20px)">
             Lorem ipsum
         </div>
     </div>
@@ -156,7 +156,7 @@ custom: {
 {% endhighlight %}
         </div>
         <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-            <div class="foo Bd C(--color-blue-5) Ta(c)">
+            <div class="foo Bd C(--color-blue-1) Ta(c)">
                 <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
             </div>
         </div>
@@ -194,20 +194,20 @@ custom: {
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
-            <div class="Fl(start) W(1/2) Bgc(--color-blue-2) H(90px)"></div>
-            <div class="Fl(start) W(1/2) Bgc(--color-blue-5) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(--color-blue-4) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(--color-blue-1) H(90px)"></div>
         </div>
         <div class="D(tb) W(100%)" role="presentation">
-            <div class="D(tbc) Bgc(--color-blue-5) H(90px)"></div>
-            <div class="D(tbc) Bgc(--color-blue-2) H(90px)"></div>
+            <div class="D(tbc) Bgc(--color-blue-1) H(90px)"></div>
+            <div class="D(tbc) Bgc(--color-blue-4) H(90px)"></div>
         </div>
         <div class="D(f)">
-            <div class="Flxg(1) Bgc(--color-blue-2) H(90px)"></div>
-            <div class="Flxg(1) Bgc(--color-blue-5) H(90px)"></div>
+            <div class="Flxg(1) Bgc(--color-blue-4) H(90px)"></div>
+            <div class="Flxg(1) Bgc(--color-blue-1) H(90px)"></div>
         </div>
         <div class="D(g) Gtc(twoColEvenGrid)">
-            <div class="Bgc(--color-blue-5) H(90px)"></div>
-            <div class="Bgc(--color-blue-2) H(90px)"></div>
+            <div class="Bgc(--color-blue-1) H(90px)"></div>
+            <div class="Bgc(--color-blue-4) H(90px)"></div>
         </div>
     </div>
 </div>
@@ -234,7 +234,7 @@ breakPoints: {
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Bgc(--color-blue-2) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-5) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-2) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-5) H(90px) D(ib)--sm W(25%)--sm"></div>
+        <div class="Bgc(--color-blue-4) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-1) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-4) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-1) H(90px) D(ib)--sm W(25%)--sm"></div>
     </div>
 </div>
 

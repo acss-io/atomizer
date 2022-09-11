@@ -29,7 +29,7 @@ Example with a initial border color (and `border-width` set to `1px`):
 <p class="Bd">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.
 ```
 
-<p class="Bd C(--color-blue-5) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(--color-blue-1) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 Example with a custom color:
 
@@ -99,8 +99,8 @@ vertical-align: top;
 
 Example:
 
-<div class="IbBox W(50%) Ta(c) Bgc(--color-blue-2) C(#fff)">Box-1</div><!--
---><div class="IbBox W(50%) Ta(c) Bgc(--color-blue-5) C(#fff)">Box-2</div>
+<div class="IbBox W(50%) Ta(c) Bgc(--color-blue-4) C(#fff)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(--color-blue-1) C(#fff)">Box-2</div>
 
 <p class="noteBox info">Remember to remove the white-space between nodes when creating inline-block constructs.</p>
 
@@ -136,7 +136,7 @@ Example:
 </div>
 ```
 
-<div class="Row Bgc(--color-blue-5) C(#fff)">
+<div class="Row Bgc(--color-blue-1) C(#fff)">
     <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
     <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
@@ -164,7 +164,7 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 ```
 
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(--color-blue-5) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc(--color-blue-1) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 
 ---

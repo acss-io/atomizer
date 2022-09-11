@@ -20,9 +20,9 @@ Following example shows `Sb(s)` = `scroll-behavior: smooth`.
 ```
 
 <div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(200px) H(200px) D(f) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
-    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">1</div>
+    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">1</div>
     <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">2</div>
-    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">3</div>
+    <div class="Ssa(s) Miw(200px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">3</div>
 </div>
 
 ## [`scroll-snap-align`]({% link reference.md %}#scrollsnapalign)
@@ -40,9 +40,9 @@ Following example shows `Ssa(s)` = `scroll-snap-align: start`.
 ```
 
 <div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(200px) H(200px) D(f) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">1</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">1</div>
     <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">2</div>
-    <div class="Ssa(e) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">3</div>
+    <div class="Ssa(e) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">3</div>
 </div>
 
 ## [`scroll-snap-type`]({% link reference.md %}#scrollsnaptype)
@@ -60,9 +60,9 @@ Following example shows `Sst(x_p)` = `scroll-snap-type: x proximity`.
 ```
 
 <div class="Sb(s) Sst(x_p) Ovx(s) Ovy(h) W(160px) H(200px) D(f) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">1</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">1</div>
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">2</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">3</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">3</div>
 </div>
 
 ## [`scroll-margin`]({% link reference.md %}#scrollmarginalledges) && [`scroll-margin-*`]({% link reference.md %}#scrollmargintop)
@@ -80,9 +80,9 @@ Following example shows `Smstart(2em)` = `scroll-margin-left: 2em`.
 ```
 
 <div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) W(180px) H(200px) D(f) Gp(20px) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
-    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">1</div>
+    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">1</div>
     <div class="Ssa(c) Smstart(2em) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">2</div>
-    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">3</div>
+    <div class="Ssa(c) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">3</div>
 </div>
 
 ## [`scroll-padding`]({% link reference.md %}#scrollpaddingalledges) & [`scroll-padding-*`]({% link reference.md %}#scrollpaddingtop)constructs
@@ -101,13 +101,13 @@ Following example shows `Spx(20px)` = `scroll-padding-left: 20px; scroll-padding
 ```
 
 <div class="Sb(s) Sst(x_m) Ovx(s) Ovy(h) Maw(738px) H(200px) D(f) Gp(20px) Spx(20px) Px(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) Bdw(1px) Bds(s) Mt(20px)">
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">1</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">1</div>
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">2</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">3</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-5)">4</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">5</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">3</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-1)">4</div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">5</div>
     <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">6</div>
-    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">7 </div>
+    <div class="Ssa(s) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">7 </div>
 </div>
 
 ## [`scroll-snap-stop`]({% link reference.md %}#scrollsnapstop)
@@ -126,11 +126,11 @@ Following example shows `Sst(x_m)` = `scroll-snap-stop: x mandatory`.
 ```
 
 <div class="Sb(s) Sst(x_m) Sss(a) Ovx(s) Ovy(h) W(160px) H(200px) D(f) Gp(20px) Spx(20px) Px(20px) Bdc(--color-code-bg) Bdw(1px) Bds(s) Mt(20px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd)">
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">1</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">1</div>
     <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">2</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">3</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-5)">4</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">5</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">3</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-1)">4</div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">5</div>
     <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-3)">6</div>
-    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-4)">7 </div>
+    <div class="Ssa(s) Sss(a) Miw(160px) H(200px) D(f) Ai(c) Jc(c) Fz(2em) Bgc(--color-blue-2)">7 </div>
 </div>
