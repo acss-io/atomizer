@@ -8,6 +8,13 @@
     --color-link: #0280ae;
     --color-text: #4c4c4c;
 
+    /* gradients */
+    --gradient-1: linear-gradient(to top, #fff, rgb(255 255 255/0));
+
+    /* shadows */
+    --shadow-1: 0 2px 3px rgba(0, 0, 0, 0.2);
+    --shadow-2: 0 1px 0 rgba(0, 0, 0, 0.8);
+
     /* blue scale */
     --color-blue-1: #0280ae;
     --color-blue-2: #0280aee6; /* #0280ae.9 */
@@ -49,6 +56,8 @@
         --color-emphasis: #ffffff;
         --color-headers: #ffffff;
         --color-text: #b0b9c1;
+
+        --gradient-1: linear-gradient(to top, #101518, rgb(16 21 24/0));
 
         /* notebox */
         --notebox-important-bd: #ff0061;

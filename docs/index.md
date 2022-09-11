@@ -40,7 +40,7 @@ layout: home
             </li>
         {% endfor %}
     </ul>
-    <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(linearGradient)">
+    <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(--gradient-1)">
         <button id="toggleTestButton" class="Bgc(--color-blue-1) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
     </div>
 </div>
