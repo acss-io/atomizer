@@ -85,7 +85,7 @@ npm run dev
 
 This will start Grunt to watch for asset changes and execute Jekyll to run the server. Jekyll will watch for any file changes and automatically reload the browser after saving.
 
-Once the server is started open `http://localhost:8000` to see the website locally.
+Once the server is started open `http://localhost:4000` to see the website locally.
 
 The website files are located in a few directories:
 
