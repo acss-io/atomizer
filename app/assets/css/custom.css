@@ -68,12 +68,12 @@ li.selected a {
     width: 1px;
     top: 0;
     bottom: 0;
-    background: rgba(2, 128, 174, 0.3);
+    background: var(--color-border-light);
 }
 
 #nav li:hover a,
 #nav li.selected a {
-    color: #0280ae99;
+    color: var(--color-blue-3);
 }
 
 #nav li:hover a:after,
@@ -86,7 +86,7 @@ li.selected a {
 }
 
 #nav li.selected a:after {
-    background: var(--color-link);
+    background: var(--color-blue-1);
 }
 
 /* Table of Contents =============================================== */
@@ -130,7 +130,7 @@ li.selected a {
     margin: 15px 0 15px 0;
 }
 .nav-on nav a {
-    color: var(--color-link);
+    color: var(--color-blue-1);
 }
 
 /* info/warning/important/success boxes ============================= */

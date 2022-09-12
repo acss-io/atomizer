@@ -19,7 +19,7 @@ layout: home
 <div id="testimonials" class="Pos(r)">
     <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
         {% for data in site.data.quotes %}
-            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight)">
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
                 <figure class="M(0px)">
                     <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
                         <p class="Mt(0px) Fz(16px)">{{ data.quote }}</p>
