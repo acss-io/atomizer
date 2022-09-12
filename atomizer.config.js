@@ -7,9 +7,6 @@ module.exports = {
     },
     content: ['app/components/', 'app/assets/js', 'docs/'],
     custom: {
-        borderTopLight: '1px solid var(--color-border-light)',
-        boxColorLight: 'rgba(2, 128, 174, 0.05)',
-        boxColorDarker: 'rgba(2, 128, 174, 0.2)',
         hamburgerImage: 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
         replBorder: '2px solid #1a1821',
         'RWD-fontSize': {

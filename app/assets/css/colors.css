@@ -5,8 +5,11 @@
     --color-code-bd: #e5e7eb;
     --color-emphasis: #000000;
     --color-headers: #4c4c4c;
-    --color-link: #0280ae;
     --color-text: #4c4c4c;
+
+    /* ui elements */
+    --ui-box-light: rgba(2, 128, 174, 0.05);
+    --ui-box-dark: rgba(2, 128, 174, 0.2);
 
     /* gradients */
     --gradient-1: linear-gradient(to top, #fff, rgb(255 255 255/0));
