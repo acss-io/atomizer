@@ -60,6 +60,7 @@
         --color-headers: #ffffff;
         --color-text: #b0b9c1;
 
+        /* gradients */
         --gradient-1: linear-gradient(to top, #101518, rgb(16 21 24/0));
 
         /* notebox */

@@ -1,5 +1,10 @@
 /**
+ * Ensure scrollbars and other features use dark mode enabled browser scheme
+ * https://www.amitmerchant.com/darkmode-aware-scrollbars-using-css/
  */
+.dark {
+    color-scheme: dark;
+}
 
 /* always-at-the-bottom-footer ====================================== */
 

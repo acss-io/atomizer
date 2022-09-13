@@ -50,7 +50,7 @@ title: Hello world - REPL
             </textarea>
         </div>
 
-        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) Bdstart(replBorder) Bdend(replBorder)">
+        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) BdStart Bdc(#1a1821)">
             <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">
                 <a href="{% link configuration.md %}" target="_blank">
                     config
@@ -73,7 +73,7 @@ title: Hello world - REPL
             }
             </textarea>
         </div>
-        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r)">
+        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) BdStart Bdc(#1a1821)">
             <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">css</h2>
             <textarea id="css"></textarea>
         </div>

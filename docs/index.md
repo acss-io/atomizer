@@ -14,7 +14,7 @@ layout: home
     <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
-<h2>Testimonials</h2>
+<h2 class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Testimonials</h2>
 
 <div id="testimonials" class="Pos(r)">
     <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
@@ -45,15 +45,30 @@ layout: home
     </div>
 </div>
 
-<h2 id="colors">Colors</h2>
+<h2 id="colors" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Colors</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        Colors are set using hexadecimal values. Alpha transparency is created by appending the opacity value to the <code>hex</code> color.
+        Colors are set using hexadecimal values.
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
-<div class="Bgc(#0280ae.5) C(#fff) P(20px)">
+<div class="Bgc(#0280ae) C(#fff)">
+    Lorem ipsum
+</div>
+{% endhighlight %}
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Bgc(--color-blue-1) C(#fff) P(20px)">
+            Lorem ipsum
+        </div>
+    </div>
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+        Alpha transparency is created by appending the opacity value to the <code>hex</code> color.
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+{% highlight html %}
+<div class="Bgc(#0280ae.5) C(#fff)">
     Lorem ipsum
 </div>
 {% endhighlight %}
@@ -65,27 +80,38 @@ layout: home
     </div>
 </div>
 
-<h2 id="variables">Variables</h2>
+<h2 id="variables" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Variables</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>&quot;<a href="{% link guides/syntax.md %}#variable-values">Variables</a>&quot; are useful for theming but they can also be used to share a common value across style declarations.</p>
-        <p>In this example, <code>brandColor</code> is responsible for setting the text color, background color and border color, while <code>columnWidth</code> dictates the width of the first box and the left offset of its sibling.</p>
+        <p><a href="{% link guides/syntax.md %}#variable-values">Variables</a> are useful for theming but they can also be used to share a common value across style declarations. In this example, <code>brandColor</code> is responsible for setting the text color, background color and border color, while <code>columnWidth</code> dictates the width of the first box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight js %}
-// config object
-custom: {
-    brandColor: '#0280ae',
-    columnWidth: '20px',
-}
+module.exports = {
+    custom: {
+        brandColor: '#0280ae',
+        columnWidth: '20px',
+    },
+};
 {% endhighlight %}
 {% highlight html %}
 <div class="Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"></div>
 <div class="C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)">
-     Lorem ipsum
+    Lorem ipsum
 </div>
 {% endhighlight %}
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a> (variables) can also be referenced as class values. Note that values are not managed by Atomizer, and must be defined independently.</p>
+{% highlight css %}
+/* external style sheet */
+:root {
+    --primary-color: #400090
+}
+{% endhighlight %}
+{% highlight html %}
+<div class="C(--primary-color)">Hello World</div>
+{% endhighlight %}
+        <a href="{% link configuration.md %}#custom" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">Read more &raquo;</a>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Pos(a) Bgc(--color-blue-1) W(columnWidth) H(90px)"></div>
@@ -93,9 +119,10 @@ custom: {
             Lorem ipsum
         </div>
     </div>
+
 </div>
 
-<h2 id="contextual-selectors">Contextual selectors</h2>
+<h2 id="contextual-selectors" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Contextual selectors</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
@@ -128,7 +155,7 @@ custom: {
     </div>
 </div>
 
-<h2 id="pseudo-classes">Pseudo-classes</h2>
+<h2 id="pseudo-classes" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Pseudo-classes</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
@@ -162,7 +189,7 @@ custom: {
         </div>
 </div>
 
-<h2 id="grids">Grids</h2>
+<h2 id="grids" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Grids</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
@@ -212,20 +239,25 @@ custom: {
     </div>
 </div>
 
-<h2 id="responsive-web-design-rwd-">Responsive Web Design (RWD)</h2>
+<h2 id="responsive-web-design-rwd-" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Responsive Web Design (RWD)</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p>Define your responsive &quot;<a href="{% link breakpoints.md %}">breakpoints</a>&quot; in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
+        <p>Define your responsive <a href="{% link breakpoints.md %}">breakpoints</a> in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
         <h3>Classes mapped to a single breakpoint</h3>
         <p>Reference your breakpoints in your classnames using a double-dash suffix (eg, <code>--sm</code>).</p>
         <p>In this example, the four boxes are styled as <code>inline-block</code>, with a <code>width</code> of <code>25%</code> when the viewport is more than <code>700px</code> wide.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight js %}
-breakPoints: {
-    sm: '@media screen and (min-width:700px)'
-}{% endhighlight %}
+module.exports = {
+    custom: {
+        breakPoints: {
+            sm: '@media screen and (min-width:700px)',
+        },
+    },
+};
+{% endhighlight %}
 {% highlight html %}
 <div class="D(ib)--sm W(25%)--sm"></div>
 <div class="D(ib)--sm W(25%)--sm"></div>
@@ -245,22 +277,27 @@ breakPoints: {
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight js %}
-'RWD-fontSize': {
-    'xs': '12px',
-    'sm': '22px',
-    'md': '32px',
-    'lg': '42px'
-}{% endhighlight %}
+module.exports = {
+    custom: {
+        rwdFontSize: {
+            xs: '12px',
+            sm: '22px',
+            md: '32px',
+            lg: '42px',
+        },
+    },
+};
+{% endhighlight %}
 {% highlight html %}
-<div class="Fz(RWD-fontSize)">Responsive font-size</div>
+<div class="Fz(rwdFontSize)">Responsive font-size</div>
 {% endhighlight %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
-        <div class="Fz(RWD-fontSize)">Responsive font-size</div>
+        <div class="Fz(rwdFontSize)">Responsive font-size</div>
     </div>
 </div>
 
-<h2 id="helpers">Helpers</h2>
+<h2 id="helpers" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Helpers</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">

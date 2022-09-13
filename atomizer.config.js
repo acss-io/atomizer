@@ -8,12 +8,11 @@ module.exports = {
     content: ['app/components/', 'app/assets/js', 'docs/'],
     custom: {
         hamburgerImage: 'url(https://s.yimg.com/os/acss/images/menu.d6610eea.png)',
-        replBorder: '2px solid #1a1821',
-        'RWD-fontSize': {
-            xs: '40px',
-            sm: '19px',
-            md: '28px',
-            lg: '55px',
+        rwdFontSize: {
+            xs: '12px',
+            sm: '22px',
+            md: '32px',
+            lg: '42px',
         },
 
         // grid related custom variables
