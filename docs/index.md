@@ -194,7 +194,7 @@ module.exports = {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
-        <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>.</p>
+        <p>What do you prefer? Floats? Flexbox? CSS Grids? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
