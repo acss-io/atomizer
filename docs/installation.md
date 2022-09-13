@@ -77,7 +77,9 @@ Then Atomizer would update the style sheet with the following:
 }
 ```
 
-## Bundler Integrations
+## Integrations
+
+### Bundlers
 
 Follow the one of the bundler guides below to integrate Atomizer into your project.
 
@@ -95,7 +97,7 @@ Follow the one of the bundler guides below to integrate Atomizer into your proje
     {% endfor %}
 </ul>
 
-## Framework Integrations
+### Frameworks
 
 Atomizer easily integrates with many of the most popular JavaScript frameworks, read one of the guides below to integrate Atomizer into your project.
 
@@ -113,7 +115,7 @@ Atomizer easily integrates with many of the most popular JavaScript frameworks, 
     {% endfor %}
 </ul>
 
-## Browser Integrations
+### Browsers
 
 Chrome extensions built and maintained by the Atomizer community
 

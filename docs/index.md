@@ -5,16 +5,16 @@ layout: home
 
 <div class="D(f)--lg Jc(sb) Gp(2rem)">
     <div>
-        <h2 class="Fz(24px) My(0) Mt(2em)--lg Mb(1em)--lg">Meet Atomizer!</h2>
-        <p>
+        <h2 class="Fz(2.25rem)--md My(0) Mt(2em)--lg Mb(0)">Meet Atomizer!</h2>
+        <p class="Fz(1.1rem)--md">
             Atomizer generates a simple static CSS stylesheet from the Atomizer classes you define in your project or predeclared configured styles - it&#39;s up to you.
         </p>
-        <p>Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
+        <p class="Fz(1.1rem)--md">Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
     </div>
     <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
-<h2 class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Testimonials</h2>
+<h2 class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Testimonials</h2>
 
 <div id="testimonials" class="Pos(r)">
     <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
@@ -45,10 +45,10 @@ layout: home
     </div>
 </div>
 
-<h2 id="colors" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Colors</h2>
+<h2 id="colors" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Colors</h2>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         Colors are set using hexadecimal values.
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -63,7 +63,7 @@ layout: home
             Lorem ipsum
         </div>
     </div>
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         Alpha transparency is created by appending the opacity value to the <code>hex</code> color.
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -80,11 +80,11 @@ layout: home
     </div>
 </div>
 
-<h2 id="variables" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Variables</h2>
+<h2 id="variables" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Variables</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
-        <p><a href="{% link guides/syntax.md %}#variable-values">Variables</a> are useful for theming but they can also be used to share a common value across style declarations. In this example, <code>brandColor</code> is responsible for setting the text color, background color and border color, while <code>columnWidth</code> dictates the width of the first box and the left offset of its sibling.</p>
+        <p class="Fz(1.1rem)--md"><a href="{% link guides/syntax.md %}#variable-values">Variables</a> are useful for theming but they can also be used to share a common value across style declarations. In this example, <code>brandColor</code> is responsible for setting the text color, background color and border color, while <code>columnWidth</code> dictates the width of the first box and the left offset of its sibling.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight js %}
@@ -101,7 +101,7 @@ module.exports = {
     Lorem ipsum
 </div>
 {% endhighlight %}
-    <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a> (variables) can also be referenced as class values. Note that values are not managed by Atomizer, and must be defined independently.</p>
+    <p class="Fz(1.1rem)--md"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a> (variables) can also be referenced as class values. Note that values are not managed by Atomizer, and must be defined independently.</p>
 {% highlight css %}
 /* external style sheet */
 :root {
@@ -119,13 +119,12 @@ module.exports = {
             Lorem ipsum
         </div>
     </div>
-
 </div>
 
-<h2 id="contextual-selectors" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Contextual selectors</h2>
+<h2 id="contextual-selectors" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Contextual selectors</h2>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         <p>Atomizer syntax allows you to style elements <a href="{% link guides/syntax.md %}#combinator">depending on their ancestors or siblings</a>.</p>
         <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
     </div>
@@ -156,10 +155,10 @@ module.exports = {
     </div>
 </div>
 
-<h2 id="pseudo-classes" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Pseudo-classes</h2>
+<h2 id="pseudo-classes" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Pseudo-classes</h2>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         <p>Create styles that rely on <a href="{% link guides/syntax.md %}#pseudo-class">pseudo-classes</a>.</p>
         <p>In this example, the foreground and background color change when users hover over the box.</p>
     </div>
@@ -175,7 +174,7 @@ module.exports = {
             Lorem ipsum
         </div>
     </div>
-    <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs">You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over <strong>its parent</strong>:</p>
+    <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over <strong>its parent</strong>:</p>
         <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
 <div class="foo">
@@ -191,10 +190,10 @@ module.exports = {
         </div>
 </div>
 
-<h2 id="grids" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Grids</h2>
+<h2 id="grids" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Grids</h2>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         <p>What do you prefer? Floats? Flexbox? Inline-block? CSS table? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
@@ -242,10 +241,10 @@ module.exports = {
     </div>
 </div>
 
-<h2 id="responsive-web-design-rwd-" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Responsive Web Design (RWD)</h2>
+<h2 id="responsive-web-design-rwd-" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Responsive Web Design</h2>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         <p>Define your responsive <a href="{% link breakpoints.md %}">breakpoints</a> in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
         <h3>Classes mapped to a single breakpoint</h3>
         <p>Reference your breakpoints in your classnames using a double-dash suffix (eg, <code>--sm</code>).</p>
@@ -274,7 +273,7 @@ module.exports = {
 </div>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         <h3>Classes mapped to multiple breakpoints</h3>
         <p>Classes may have different values associated with different breakpoints; meaning the same class applies different styles depending on media queries.</p>
     </div>
@@ -301,10 +300,10 @@ module.exports = {
     </div>
 </div>
 
-<h2 id="helpers" class="Fz(1.75rem)--md Mt(5em)--md Mb(0px)">Helpers</h2>
+<h2 id="helpers" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Helpers</h2>
 
 <div class="Row">
-    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
         <p>Atomizer offers a selection of <a href="{% link guides/helper-classes.md %}">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="{% link guides/helper-classes.md %}#bd-borders">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
         <p>For example <code>LineClamp()</code>, which takes two parameters:</p>
     </div>
@@ -320,6 +319,28 @@ module.exports = {
         <p class="Fz(12px) Lh(1.5) LineClamp(3,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
     </div>
 </div>
+
+<h2 id="integrations" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Easily Integratable</h2>
+
+<div class="W(60%) W(a)--xs">
+    <p class="Fz(1.1rem)--md">Atomizers can be easily integrated into some of the most popular web frameworks. Here are some of the guides you can choose from.</p>
+</div>
+
+<ul class="D(f) List(n)! Pstart(0)! Gp(.5rem) Gp(1rem)--sm Ovx(s) Mt(2rem)">
+    {% for library in site.data.frameworks %}
+        {% if library.type == 'framework' %}
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)">{{ library.logo }}</div>
+                <a href="{{ library.link | escape }}" class="D(b) C(--color-text) Td(n):h">
+                    {{ library.name }}
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+{% include button.html link="installation.md" hash="integrations" text="See all of our guides &raquo;" %}
 
 <div class="D(f)--md Ac(sb) Mt(5rem)--sm Mb(2rem)--sm">
     {% include menu.html showSearch=false showCommunity=true %}
