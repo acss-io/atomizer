@@ -1,0 +1,4 @@
+{% capture link %}{% link {{ include.link }} %}{% endcapture %}
+{% capture hash %}{% if include.hash %}#{{ include.hash }}{% endif %}{% endcapture %}
+
+<a href="{{ link }}{{ hash }}" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">Read more &raquo;</a>

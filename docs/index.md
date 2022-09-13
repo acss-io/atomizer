@@ -111,6 +111,7 @@ module.exports = {
 {% highlight html %}
 <div class="C(--primary-color)">Hello World</div>
 {% endhighlight %}
+        {% include button.html link="configuration.md" hash="custom" %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Pos(a) Bgc(--color-blue-1) W(columnWidth) H(90px)"></div>
@@ -140,6 +141,7 @@ module.exports = {
    <div class="foo_W(100%)"></div>
 </div>
 {% endhighlight %}
+        {% include button.html link="guides/syntax.md" hash="combinator" %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div>
@@ -180,6 +182,7 @@ module.exports = {
     <p class="Op(0) foo:h>Op(1)">Lorem ipsum</p>
 </div>
 {% endhighlight %}
+            {% include button.html link="guides/syntax.md" hash="pseudo-class" %}
         </div>
         <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
             <div class="foo Bd C(--color-blue-1) Ta(c)">
@@ -217,6 +220,7 @@ module.exports = {
     <div></div>
 </div>
 {% endhighlight %}
+        {% include button.html link="tutorials/layout.md" %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Row">
@@ -290,6 +294,7 @@ module.exports = {
 {% highlight html %}
 <div class="Fz(rwdFontSize)">Responsive font-size</div>
 {% endhighlight %}
+        {% include button.html link="breakpoints.md" %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Fz(rwdFontSize)">Responsive font-size</div>
@@ -309,12 +314,13 @@ module.exports = {
     Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.
 </p>
 {% endhighlight %}
+        {% include button.html link="guides/helper-classes.md" %}
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <p class="Fz(12px) Lh(1.5) LineClamp(3,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
     </div>
 </div>
 
-<div class="D(f)--md Ac(sb) Mt(1rem)--sm Mb(2rem)--sm">
+<div class="D(f)--md Ac(sb) Mt(5rem)--sm Mb(2rem)--sm">
     {% include menu.html showSearch=false showCommunity=true %}
 </div>
