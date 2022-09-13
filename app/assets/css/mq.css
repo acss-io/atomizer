@@ -8,7 +8,6 @@
     .menu-on #nav {
         animation: slide 0.3s ease-out;
         background: var(--color-bg);
-        box-shadow: 1px 0 9px 1px #555;
         box-sizing: border-box;
         display: block;
         left: 0;

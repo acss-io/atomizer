@@ -14,15 +14,15 @@ title: Thinking in Atomic
 Adopting an Atomic CSS methodology addresses common CSS challenges:
 
 <dl class="Mb(30px)">
-    <dt class="Fs(i) C(--color-emphasis)">Changes are predictable</dt>
+    <dt class="Fs(i)">Changes are predictable</dt>
     <dd class="Mstart(20px) Mt(5px)">Because of the single responsibility principle (one class == one style) it is easy to predict what removing or adding a class will do.</dd>
-    <dt class="Fs(i) C(#000)">Scope is limited</dt>
+    <dt class="Fs(i)">Scope is limited</dt>
     <dd class="Mstart(20px) Mt(5px)">There is no reliance on descendant/contextual selectors &mdash; styling is done inside &quot;[specificity layers](#style-sheets-organization)&quot;.</dd>
-    <dt class="Fs(i) C(#000)">CSS is lean</dt>
+    <dt class="Fs(i)">CSS is lean</dt>
     <dd class="Mstart(20px) Mt(5px)">There is very little redundancy and no dead weight (all styles are relevant to the project).</dd>
-    <dt class="Fs(i) C(#000)">Components are portable</dt>
+    <dt class="Fs(i)">Components are portable</dt>
     <dd class="Mstart(20px) Mt(5px)">Classes used to style a component are not specific to that component, hence components can live in any other project that uses Atomizer <sup><a href="#footnote" id="footnote-1">[1]</a></sup>.</dd>
-    <dt class="Fs(i) C(#000)">Beginner-friendly</dt>
+    <dt class="Fs(i)">Beginner-friendly</dt>
     <dd class="Mstart(20px) Mt(5px)">Writing efficient and correct selectors is often one of the hardest parts of CSS for new developers to master. With Atomic CSS, developers don&#39;t create bloat because they don&#39;t write the selectors, instead they mostly re-use existing classes. This can greatly simplify the learning curve for inexperienced developers.</dd>
 </dl>
 
