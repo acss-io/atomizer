@@ -111,7 +111,6 @@ module.exports = {
 {% highlight html %}
 <div class="C(--primary-color)">Hello World</div>
 {% endhighlight %}
-        <a href="{% link configuration.md %}#custom" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">Read more &raquo;</a>
     </div>
     <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
         <div class="Pos(a) Bgc(--color-blue-1) W(columnWidth) H(90px)"></div>
