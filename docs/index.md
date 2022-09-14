@@ -131,13 +131,13 @@ module.exports = {
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
 <div>
-   <div class="foo_W(100%)"></div>
-   <div class="foo_W(100%)"></div>
+   <div class="W(50%) foo_W(100%)"></div>
+   <div class="W(50%) foo_W(100%)"></div>
 </div>
 <hr>
 <div class="foo">
-   <div class="foo_W(100%)"></div>
-   <div class="foo_W(100%)"></div>
+   <div class="W(50%) foo_W(100%)"></div>
+   <div class="W(50%) foo_W(100%)"></div>
 </div>
 {% endhighlight %}
         {% include button.html link="guides/syntax.md" hash="combinator" %}
@@ -194,7 +194,7 @@ module.exports = {
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
-        <p>What do you prefer? Floats? Flexbox? CSS Grids? <a href="{% link tutorials/layout.md %}#layouts">Atomizer supports it all</a>.</p>
+        <p>What do you prefer? Floats? Flexbox? CSS Grids? <a href="{% link tutorials/layout.md %}">Atomizer supports it all</a>.</p>
     </div>
     <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
 {% highlight html %}
@@ -241,7 +241,7 @@ module.exports = {
     </div>
 </div>
 
-<h2 id="responsive-web-design-rwd-" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Responsive Web Design</h2>
+<h2 id="responsive-design-rwd" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Responsive Design</h2>
 
 <div class="Row">
     <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
