@@ -26,10 +26,10 @@ You can combine one of the classes above with a `border-color` of your choice (i
 Example with a initial border color (and `border-width` set to `1px`):
 
 ```html
-<p class="Bd C(#0280ae) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.
+<p class="Bd">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.
 ```
 
-<p class="Bd C(#0280ae) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+<p class="Bd C(--color-blue-1) P(10px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
 
 Example with a custom color:
 
@@ -45,7 +45,7 @@ The default `width` of these helpers is `1px` as it is the most common use case.
 -   create a custom class via config, for example: `Bd(myCustomBorder)`
 -   use <strong>the same helper classes</strong> with [different values](helper-classes.htmlthe-special-case-of-border-)
 
-<p class="noteBox info">You can find abbreviated versions of `style` keywords in [rules.js](https://github.com/acss-io/atomizer/blob/main/src/rules.js#L289).</p>
+<p class="noteBox info">You can find abbreviated versions of <code>style</code> keywords in <a href="https://github.com/acss-io/atomizer/blob/2419d312c7387e76908e5a6d62e14c42af262c71/packages/atomizer/src/rules.js#L463">rules.js</a>.</p>
 
 ## `BfcHack` (Block-formatting context)
 
@@ -93,14 +93,14 @@ vertical-align: top;
 ```
 
 ```html
-   <div class="IbBox W(50%) Ta(c) Bgc(#0280ae.5) C(#fff)">Box-1</div><!--
---><div class="IbBox W(50%) Ta(c) Bgc(#0280ae) C(#fff)">Box-2</div>
+   <div class="IbBox">Box-1</div><!--
+--><div class="IbBox">Box-2</div>
 ```
 
 Example:
 
-<div class="IbBox W(50%) Ta(c) Bgc(#0280ae.5) C(#fff)">Box-1</div><!--
---><div class="IbBox W(50%) Ta(c) Bgc(#0280ae) C(#fff)">Box-2</div>
+<div class="IbBox W(50%) Ta(c) Bgc(--color-blue-4) C(#fff)">Box-1</div><!--
+--><div class="IbBox W(50%) Ta(c) Bgc(--color-blue-1) C(#fff)">Box-2</div>
 
 <p class="noteBox info">Remember to remove the white-space between nodes when creating inline-block constructs.</p>
 
@@ -130,13 +130,13 @@ Use the class `Row` to style a box that expands to fill its container, contains 
 Example:
 
 ```html
-<div class="Row Bgc(#0280ae) C(#fff)">
-    <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
-    <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
+<div class="Row">
+    <div class="Fl(start)">Box-1</div>
+    <div class="Fl(end)">Box-2</div>
 </div>
 ```
 
-<div class="Row Bgc(#0280ae) C(#fff)">
+<div class="Row Bgc(--color-blue-1) C(#fff)">
     <div class="Fl(start) W(300px) Ta(c) P(10px)">Box-1</div>
     <div class="Fl(end) W(300px) Ta(c) P(10px)">Box-2</div>
 </div>
@@ -159,12 +159,12 @@ This is handy to create boxes with a [intrinsic aspect ratio](http://alistapart.
 
 ```html
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0280ae) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox">I am a box with an intrinsic aspect ratio</div>
 </div>
 ```
 
 <div class="Pos(r) H(0) Pt(10%)">
-    <div class="StretchedBox Bgc(#0280ae) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
+    <div class="StretchedBox Bgc(--color-blue-1) P(10px) C(#fff)">I am a box with an intrinsic aspect ratio</div>
 </div>
 
 ---

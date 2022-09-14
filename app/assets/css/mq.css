@@ -7,16 +7,15 @@
      */
     .menu-on #nav {
         animation: slide 0.3s ease-out;
-        box-shadow: 1px 0 9px 1px #555;
+        background: var(--color-bg);
         box-sizing: border-box;
         display: block;
-        transform: translateY(0);
-        z-index: 4;
-        width: 100%;
-        background: #fff;
         left: 0;
         padding-left: 10px;
         top: 4.2em;
+        transform: translateY(0);
+        z-index: 4;
+        width: 100%;
     }
 
     /**
@@ -35,14 +34,14 @@
         filter: blur(2px);
     }
     #nav {
+        backface-visibility: hidden;
         transform: translateY(-100%);
         will-change: transform;
-        backface-visibility: hidden;
     }
     @keyframes slide {
         0% {
-            transform: translateY(-100%);
             filter: blur(5px);
+            transform: translateY(-100%);
         }
         100% {
             transform: translateY(0);

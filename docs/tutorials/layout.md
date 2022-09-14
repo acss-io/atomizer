@@ -19,8 +19,8 @@ This styling method was one of the first ways to layout a website without the [s
 ```
 
 <div class="Cf">
-   <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(#0280ae.5)">Box 1</div>
-   <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(#0280ae)">Box 2</div>
+   <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(--color-blue-4)">Box 1</div>
+   <div class="Bxz(bb) Fl(start) W(50%) P(20px) Bgc(--color-blue-1)">Box 2</div>
 </div>
 
 <p class="noteBox info">In this example, the class <code>Cf</code> (for &quot;clearfix&quot;) is used to contain the floats, but there is also a <a href="{% link guides/helper-classes.md %}#row"><code>Row</code> helper class</a> to better deal with floats across browsers.</p>
@@ -41,10 +41,10 @@ In this example, the `display` classes `D(tb)` and `D(tbc)` are used, along with
 ```
 
 <div class="D(tb) W(100%) Ta(c)" role="presentation">
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box Number 1</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">Box Number 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-4)">Box Number 1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-3)">Box Number 2</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-2)">Box Number 3</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-1)">Box Number 4</div>
 </div>
 
 This example shows the same table with `dir="rtl"`:
@@ -59,10 +59,10 @@ This example shows the same table with `dir="rtl"`:
 ```
 
 <div class="D(tb) W(100%) Va(m) Ta(c)" dir="rtl" role="presentation">
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.5)">Box <br />Number <br />1</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.6)">Box Number 2</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae.8)">Box Number 3</div>
-    <div class="D(tbc) Va(m) P(20px) Bgc(#0280ae)">Box Number 4</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-4)">Box <br />Number <br />1</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-3)">Box Number 2</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-2)">Box Number 3</div>
+    <div class="D(tbc) Va(m) P(20px) Bgc(--color-blue-1)">Box Number 4</div>
 </div>
 
 You can also use `table-header-group` and/or `table-footer-group` to swap boxes vertically without changing the markup order:
@@ -76,9 +76,9 @@ You can also use `table-header-group` and/or `table-footer-group` to swap boxes 
 ```
 
 <div class="D(tb) W(100%) Ta(c)" role="presentation">
-    <div class="D(tbfg) P(20px) Bgc(#0280ae.6)">Box Number 1</div>
-    <div class="D(tbc) P(20px) Bgc(#0280ae.8)">Box Number 2</div>
-    <div class="D(tbhg) P(20px) Bgc(#0280ae)">Box Number 3</div>
+    <div class="D(tbfg) P(20px) Bgc(--color-blue-3)">Box Number 1</div>
+    <div class="D(tbc) P(20px) Bgc(--color-blue-2)">Box Number 2</div>
+    <div class="D(tbhg) P(20px) Bgc(--color-blue-1)">Box Number 3</div>
 </div>
 
 ## [Flexbox]({% link reference.md %}#flex)
@@ -98,10 +98,10 @@ Flexbox is a one-dimensional layout method for arranging items in rows or column
 ```
 
 <div class="D(f) Jc(sb)">
-    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 1</div>
-    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 2</div>
-    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
-    <div class="W(100px) Lh(100px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(--color-blue-4)">Box 1</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(--color-blue-3)">Box 2</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(--color-blue-2)">Box 3</div>
+    <div class="W(100px) Lh(100px) Ta(c) Bgc(--color-blue-1)">Box 3</div>
 </div>
 
 ## [Grids]({% link reference.md %}#gridarea)
@@ -136,9 +136,9 @@ module.exports = {
 </div>
 ```
 
-<div class="D(g) Gtc(twoColNamedGrid) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px) Ga(colMain) Mih(150px)">1</div>
-    <div class="Bgc(#ccc) P(10px) Ga(colAside) Mih(150px)">2</div>
+<div class="D(g) Gtc(twoColNamedGrid) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px) Ga(colMain) Mih(150px)">1</div>
+    <div class="Bgc(--color-blue-1) P(10px) Ga(colAside) Mih(150px)">2</div>
 </div>
 
 ### [`grid-auto-columns`]({% link reference.md %}#gridautocolumns) & [`grid-auto-rows`]({% link reference.md %}#gridautorows)
@@ -155,13 +155,13 @@ The following example shows `Gar(150px)` -> `grid-auto-rows: 150px`.
 </div>
 ```
 
-<div class="D(g) Gac(gridMinMax) Gar(150px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px)">1</div>
-    <div class="Bgc(#ccc) P(10px) Gc(3)">2</div>
-    <div class="Bgc(#ccc) P(10px) Gc(5)">3</div>
-    <div class="Bgc(#ccc) P(10px)">4</div>
-    <div class="Bgc(#ccc) P(10px)">5</div>
-    <div class="Bgc(#ccc) P(10px)">6</div>
+<div class="D(g) Gac(gridMinMax) Gar(150px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px)">1</div>
+    <div class="Bgc(--color-blue-2) P(10px) Gc(3)">2</div>
+    <div class="Bgc(--color-blue-3) P(10px) Gc(5)">3</div>
+    <div class="Bgc(--color-blue-1) P(10px)">4</div>
+    <div class="Bgc(--color-blue-2) P(10px)">5</div>
+    <div class="Bgc(--color-blue-4) P(10px)">6</div>
 </div>
 
 ### [`grid-auto-flow`]({% link reference.md %}#gridautoflow)
@@ -178,13 +178,13 @@ The following example shows `Gaf(rd)` -> `grid-auto-flow: row dense`.
 </div>
 ```
 
-<div class="D(g) Gtc(threeColEvenGrid) Gaf(rd) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px)">1</div>
-    <div class="Bgc(#ccc) P(10px) Gc(twoCol)">2</div>
-    <div class="Bgc(#ccc) P(10px)">3</div>
-    <div class="Bgc(#ccc) P(10px)">4</div>
-    <div class="Bgc(#ccc) P(10px) Gc(twoCol)">5</div>
-    <div class="Bgc(#ccc) P(10px)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Gaf(rd) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px)">1</div>
+    <div class="Bgc(--color-blue-1) P(10px) Gc(twoCol)">2</div>
+    <div class="Bgc(--color-blue-2) P(10px)">3</div>
+    <div class="Bgc(--color-blue-1) P(10px)">4</div>
+    <div class="Bgc(--color-blue-3) P(10px) Gc(twoCol)">5</div>
+    <div class="Bgc(--color-blue-4) P(10px)">6</div>
 </div>
 
 ### [`grid-column`]({% link reference.md %}#gridcolumn) & [`grid-row`]({% link reference.md %}#gridrow)
@@ -213,13 +213,13 @@ module.exports = {
 </div>
 ```
 
-<div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px) Gr(twoCol)">1</div>
-    <div class="Bgc(#ccc) P(10px) Gc(twoCol) Gr(4)">2</div>
-    <div class="Bgc(#ccc) P(10px)">3</div>
-    <div class="Bgc(#ccc) P(10px) Gr(twoCol)">4</div>
-    <div class="Bgc(#ccc) P(10px) Gc(twoCol)">5</div>
-    <div class="Bgc(#ccc) P(10px) Gc(2)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px) Gr(twoCol)">1</div>
+    <div class="Bgc(--color-blue-1) P(10px) Gc(twoCol) Gr(4)">2</div>
+    <div class="Bgc(--color-blue-2) P(10px)">3</div>
+    <div class="Bgc(--color-blue-1) P(10px) Gr(twoCol)">4</div>
+    <div class="Bgc(--color-blue-3) P(10px) Gc(twoCol)">5</div>
+    <div class="Bgc(--color-blue-4) P(10px) Gc(2)">6</div>
 </div>
 
 ### [`grid-column-start`]({% link reference.md %}#gridcolumnstart) & [`grid-column-end`]({% link reference.md %}#gridcolumnend)
@@ -247,13 +247,13 @@ module.exports = {
 </div>
 ```
 
-<div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px) Gcs(2)">1</div>
-    <div class="Bgc(#ccc) P(10px) Gcs(spanTwo)">2</div>
-    <div class="Bgc(#ccc) P(10px)">3</div>
-    <div class="Bgc(#ccc) P(10px) Gce(4)">4</div>
-    <div class="Bgc(#ccc) P(10px)">5</div>
-    <div class="Bgc(#ccc) P(10px)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px) Gcs(2)">1</div>
+    <div class="Bgc(--color-blue-1) P(10px) Gcs(spanTwo)">2</div>
+    <div class="Bgc(--color-blue-2) P(10px)">3</div>
+    <div class="Bgc(--color-blue-3) P(10px) Gce(4)">4</div>
+    <div class="Bgc(--color-blue-4) P(10px)">5</div>
+    <div class="Bgc(--color-blue-1) P(10px)">6</div>
 </div>
 
 ### [`grid-row-start`]({% link reference.md %}#gridrowstart) & [`grid-row-end`]({% link reference.md %}#gridrowend)
@@ -272,13 +272,13 @@ The following example shows `Gre(1)` -> `grid-row-end: 1`.
 </div>
 ```
 
-<div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px) Grs(2)">1</div>
-    <div class="Bgc(#ccc) P(10px) Grs(spanTwo)">2</div>
-    <div class="Bgc(#ccc) P(10px)">3</div>
-    <div class="Bgc(#ccc) P(10px) Gre(1)">4</div>
-    <div class="Bgc(#ccc) P(10px)">5</div>
-    <div class="Bgc(#ccc) P(10px)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Gar(50px) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px) Grs(2)">1</div>
+    <div class="Bgc(--color-blue-2) P(10px) Grs(spanTwo)">2</div>
+    <div class="Bgc(--color-blue-4) P(10px)">3</div>
+    <div class="Bgc(--color-blue-4) P(10px) Gre(1)">4</div>
+    <div class="Bgc(--color-blue-1) P(10px)">5</div>
+    <div class="Bgc(--color-blue-1) P(10px)">6</div>
 </div>
 
 ### [`grid-template`]({% link reference.md %}#gridtemplate)
@@ -319,10 +319,10 @@ module.exports = {
 </div>
 ```
 
-<div class="D(g) Gt(gridABCUnit) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px) Ga(gridHeader)">1</div>
-    <div class="Bgc(#ccc) P(10px) Ga(gridNav)">2</div>
-    <div class="Bgc(#ccc) P(10px) Ga(gridContent)">3</div>
+<div class="D(g) Gt(gridABCUnit) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px) Ga(gridHeader)">1</div>
+    <div class="Bgc(--color-blue-2) P(10px) Ga(gridNav)">2</div>
+    <div class="Bgc(--color-blue-1) P(10px) Ga(gridContent)">3</div>
 </div>
 
 ### [`grid-template-areas`]({% link reference.md %}#gridtemplateareas)
@@ -361,10 +361,10 @@ module.exports = {
 </div>
 ```
 
-<div class="D(g) Gta(gridABC) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) Ga(gridHeader) P(10px)">1</div>
-    <div class="Bgc(#ccc) Ga(gridNav) P(10px)">2</div>
-    <div class="Bgc(#ccc) Ga(gridContent) P(10px)">3</div>
+<div class="D(g) Gta(gridABC) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) Ga(gridHeader) P(10px)">1</div>
+    <div class="Bgc(--color-blue-2) Ga(gridNav) P(10px)">2</div>
+    <div class="Bgc(--color-blue-1) Ga(gridContent) P(10px)">3</div>
 </div>
 
 ### [`grid-template-columns`]({% link reference.md %}#gridtemplatecolumns) & [`grid-template-rows`]({% link reference.md %}#gridtemplaterows)
@@ -393,11 +393,11 @@ module.exports = {
 </div>
 ```
 
-<div class="D(g) Gtc(threeColEvenGrid) Gtr(rowOneFixed) Bgc(#add8e6) P(10px) Gp(10px) Mt(20px)">
-    <div class="Bgc(#ccc) P(10px)">1</div>
-    <div class="Bgc(#ccc) P(10px)">2</div>
-    <div class="Bgc(#ccc) P(10px)">3</div>
-    <div class="Bgc(#ccc) P(10px)">4</div>
-    <div class="Bgc(#ccc) P(10px)">5</div>
-    <div class="Bgc(#ccc) P(10px)">6</div>
+<div class="D(g) Gtc(threeColEvenGrid) Gtr(rowOneFixed) Bgc(--color-code-bg) Bd Bdc(--color-code-bd) P(10px) Gp(10px) Mt(20px)">
+    <div class="Bgc(--color-blue-4) P(10px)">1</div>
+    <div class="Bgc(--color-blue-1) P(10px)">2</div>
+    <div class="Bgc(--color-blue-2) P(10px)">3</div>
+    <div class="Bgc(--color-blue-2) P(10px)">4</div>
+    <div class="Bgc(--color-blue-3) P(10px)">5</div>
+    <div class="Bgc(--color-blue-1) P(10px)">6</div>
 </div>

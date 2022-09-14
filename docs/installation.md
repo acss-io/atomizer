@@ -77,16 +77,18 @@ Then Atomizer would update the style sheet with the following:
 }
 ```
 
-## Bundler Integrations
+## Integrations
+
+### Bundlers
 
 Follow the one of the bundler guides below to integrate Atomizer into your project.
 
 <ul class="D(f) List(n)! Pstart(0)! Gp(.5rem) Gp(1rem)--sm Ovx(s) Mt(2rem)">
     {% for library in site.data.frameworks %}
         {% if library.type == 'bundler' %}
-            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Bgc(boxColorDarker):h Ta(c)">
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
                 <div class="W(60px) H(60px) Mb(10px)">{{ library.logo }}</div>
-                <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
+                <a href="{{ library.link | escape }}" class="D(b) C(--color-text) Td(n):h">
                     {{ library.name }}
                     <u class="StretchedBox"></u>
                 </a>
@@ -95,16 +97,16 @@ Follow the one of the bundler guides below to integrate Atomizer into your proje
     {% endfor %}
 </ul>
 
-## Framework Integrations
+### Frameworks
 
 Atomizer easily integrates with many of the most popular JavaScript frameworks, read one of the guides below to integrate Atomizer into your project.
 
 <ul class="D(f) List(n)! Pstart(0)! Gp(.5rem) Gp(1rem)--sm Ovx(s) Mt(2rem)">
     {% for library in site.data.frameworks %}
         {% if library.type == 'framework' %}
-            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(boxColorLight) Bgc(boxColorDarker):h Ta(c)">
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
                 <div class="W(60px) H(60px) Mb(10px)">{{ library.logo }}</div>
-                <a href="{{ library.link | escape }}" class="D(b) C(#000) Td(n):h">
+                <a href="{{ library.link | escape }}" class="D(b) C(--color-text) Td(n):h">
                     {{ library.name }}
                     <u class="StretchedBox"></u>
                 </a>
@@ -113,7 +115,7 @@ Atomizer easily integrates with many of the most popular JavaScript frameworks, 
     {% endfor %}
 </ul>
 
-## Browser Integrations
+### Browsers
 
 Chrome extensions built and maintained by the Atomizer community
 

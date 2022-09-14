@@ -77,18 +77,23 @@ Likewise, any class that uses the variable `gutter` will receive different value
 When using explicit breakpoints, use multiple classes to have styles applied in the context of various breakpoints, for example:
 
 ```html
-   <div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.5)">1</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.6)">2</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae.8)">3</div><!--
---><div class="D(ib)--sm W(50%)--sm W(25%)--lg P(20px) Bgc(#0280ae)">4</div>
+<div class="D(f)--sm Fxw(w)">
+    <div class="W(50%)--sm W(25%)--lg">1</div>
+    <div class="W(50%)--sm W(25%)--lg">2</div>
+    <div class="W(50%)--sm W(25%)--lg">3</div>
+    <div class="W(50%)--sm W(25%)--lg">4</div>
+</div>
 ```
 
--   Below 700px, the boxes are displayed on top of each other (`div` are block-level elements)
--   Above 999px, the boxes are displayed on 2 rows, 2 by 2 (`D(ib)--sm` + `W(50%)--sm`)
--   Above 1200px, the boxes are displayed side-by-side, on a single row (`D(ib)--sm` + `W(25%)--lg`)
+-   Below 700px, the boxes are displayed on top of each other (`D(f)--sm` on applies over this width)
+-   Above 999px, the boxes are displayed on 2 rows, 2 by 2 (`W(50%)--sm`)
+-   Above 1200px, the boxes are displayed side-by-side, on a single row (`W(25%)--lg`)
 
 <p class="noteBox info">The breakpoints for the example below have been chosen so you can see the changes within this page. <strong>Give it a try, resize your viewport!</strong></p>
 
-### Result
-
-<p data-height="265" data-theme-id="12469" data-slug-hash="jExMYr" data-default-tab="result" data-user="thierry" class='codepen'>See the Pen <a href='http://codepen.io/thierry/pen/jExMYr/'>jExMYr</a> by Thierry (<a href='http://codepen.io/thierry'>@thierry</a>) on <a href='http://codepen.io'>CodePen</a>.
+<div class="D(f)--sm Fxw(w)">
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-4)">1</div>
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-3)">2</div>
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-2)">3</div>
+    <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-1)">4</div>
+</div>

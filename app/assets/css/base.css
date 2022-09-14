@@ -19,8 +19,8 @@ html {
 }
 
 body {
-    background: #fff;
-    color: #4c4c4c;
+    background: var(--color-bg);
+    color: var(--color-text);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased;
@@ -98,16 +98,13 @@ i {
     font-style: normal;
 }
 
+strong,
 em {
-    color: #000;
+    color: var(--color-emphasis);
 }
 
 a em {
-    color: #0280ae;
-}
-
-strong {
-    color: #000;
+    color: var(--color-blue-1);
 }
 
 /**
@@ -149,12 +146,8 @@ hr {
     box-sizing: content-box; /* 1/2 */
     height: 0; /* 1/2 */
     border: 0;
-    border-top: 4px solid rgba(2, 128, 174, 0.3);
+    border-top: 1px solid var(--color-border-light);
     margin: 35px 0 30px;
-}
-
-code {
-    padding: 0.2em 0.2em 0.1em;
 }
 
 /**
@@ -200,6 +193,7 @@ h3,
 h4,
 h5,
 h6 {
+    color: var(--color-headers);
     font-family: Nobile;
 }
 
@@ -220,7 +214,7 @@ a:hover {
 :link,
 :visited {
     text-decoration: none;
-    color: #0280ae;
+    color: var(--color-blue-1);
 }
 
 a:hover {
@@ -288,13 +282,6 @@ input::-moz-focus-inner {
     padding: 0;
 }
 
-input:focus,
-textarea:focus {
-    outline: 0;
-    border-color: rgba(82, 168, 236, 0.8);
-    box-shadow: inset 0 0 8px #0280ae !important;
-}
-
 /**
  * It's recommended that you don't attempt to style these elements.
  * Firefox's implementation doesn't respect box-sizing, padding, or width.
@@ -324,25 +311,58 @@ textarea {
     resize: vertical; /* 1 */
 }
 
-pre,
+/**
+ * Form background colors
+ */
+input,
+textarea,
+.textarea {
+    background: var(--color-code-bg);
+}
+
+input,
+textarea pre,
 textarea,
 .textarea,
 input[type='search'] {
-    box-shadow: inset 0 0 3px rgba(2, 128, 174, 0.3);
+    border: 1px solid var(--color-border-light);
     border-radius: 3px;
-    border: 0;
+    color: var(--color-text);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-blue-1);
+    outline: 0;
+}
+
+/**
+ * Preformatted text and code elements
+ */
+pre,
+code {
+    background: var(--color-code-bg);
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    max-width: 738px; /* this is inside a table-cell */
 }
 code {
     box-shadow: none;
-    border: 1px solid rgba(2, 128, 174, 0.2);
+    border: 1px solid var(--color-code-bd);
     border-radius: 3px;
+    padding: 0.2em 0.2em 0.1em;
     white-space: nowrap;
 }
 pre {
+    border: 1px solid var(--color-code-bd);
+    border-radius: 3px;
+    line-height: 1.45;
+    padding: 10px 16px 10px 7px;
     position: relative;
 }
 pre code {
+    background: none;
     border: 0;
+    padding: 0;
     white-space: pre;
 }
 

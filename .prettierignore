@@ -24,3 +24,6 @@ examples/layout.html
 
 # grunt test files
 packages/grunt-atomizer/test/
+
+# snippets
+packages/atomic-css-snippets/snippets.json

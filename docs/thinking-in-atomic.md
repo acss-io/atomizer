@@ -14,15 +14,15 @@ title: Thinking in Atomic
 Adopting an Atomic CSS methodology addresses common CSS challenges:
 
 <dl class="Mb(30px)">
-    <dt class="Fs(i) C(#000)">Changes are predictable</dt>
+    <dt class="Fs(i)">Changes are predictable</dt>
     <dd class="Mstart(20px) Mt(5px)">Because of the single responsibility principle (one class == one style) it is easy to predict what removing or adding a class will do.</dd>
-    <dt class="Fs(i) C(#000)">Scope is limited</dt>
+    <dt class="Fs(i)">Scope is limited</dt>
     <dd class="Mstart(20px) Mt(5px)">There is no reliance on descendant/contextual selectors &mdash; styling is done inside &quot;[specificity layers](#style-sheets-organization)&quot;.</dd>
-    <dt class="Fs(i) C(#000)">CSS is lean</dt>
+    <dt class="Fs(i)">CSS is lean</dt>
     <dd class="Mstart(20px) Mt(5px)">There is very little redundancy and no dead weight (all styles are relevant to the project).</dd>
-    <dt class="Fs(i) C(#000)">Components are portable</dt>
+    <dt class="Fs(i)">Components are portable</dt>
     <dd class="Mstart(20px) Mt(5px)">Classes used to style a component are not specific to that component, hence components can live in any other project that uses Atomizer <sup><a href="#footnote" id="footnote-1">[1]</a></sup>.</dd>
-    <dt class="Fs(i) C(#000)">Beginner-friendly</dt>
+    <dt class="Fs(i)">Beginner-friendly</dt>
     <dd class="Mstart(20px) Mt(5px)">Writing efficient and correct selectors is often one of the hardest parts of CSS for new developers to master. With Atomic CSS, developers don&#39;t create bloat because they don&#39;t write the selectors, instead they mostly re-use existing classes. This can greatly simplify the learning curve for inexperienced developers.</dd>
 </dl>
 
@@ -79,23 +79,23 @@ This table suggests the namespace to use depending on the weight of your other r
         </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)"><code>0,0,1,1</code></th>
             <td class="Va(t) P(10px)">No need for a namespace</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">Less or equal to <code>0,0,1,1</code></th>
             <td class="Va(t) P(10px)">Use <code>html</code> (type) for namespace</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">Less or equal to <code>0,0,2,0</code></th>
             <td class="Va(t) P(10px)">Use a <code>class</code> for namespace</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(nw) P(10px)">Less or equal to <code>0,1,1,0</code></th>
             <td class="Va(t) P(10px)">Use a <code>id</code> for namespace</td>
         </tr>
-            <tr class="BdT Bdc(#0280ae.3)">
+            <tr class="BdT Bdc(--color-blue-5)">
                 <th scope="row" class="Va(t) Whs(nw) P(10px)">More than <code>0,1,1,0</code></th>
                 <td class="Va(t) P(10px)">Use whatever it takes <sup><a href="#footnote">[3]</a><a id="footnote-3" class="D(ib)"></a></sup></td>
             </tr>
@@ -118,32 +118,32 @@ Take advantage of the _cascade_ by creating &quot;specificity layers&quot; <sup>
         </tr>
     </thead>
     <tbody>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">type selectors</th>
             <td class="Va(t) P(10px)"><code>0,0,0,x</code></td>
             <td class="Va(t) P(10px)">normalize.css,<br> base.css,<br> etc.</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">single class</th>
             <td class="Va(t) P(10px)"><code>0,0,1,0</code></td>
             <td class="Va(t) P(10px)">helpers.css,<br> utility.css,<br> etc.</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">contextual selectors<br> (any number of classes)</th>
             <td class="Va(t) P(10px)"><code>0,0,x,x</code></td>
             <td class="Va(t) P(10px)">layout.css,<br> custom.css,<br> etc.</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)">Atomizer classes</th>
             <td class="Va(t) P(10px)"><code>0,1,1,0</code></td>
             <td class="Va(t) P(10px)">atomic.css</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)"><code>@style</code></th>
             <td class="Va(t) P(10px)"><code>1,0,0,0</code></td>
             <td class="Va(t) P(10px)">Inline Styles</td>
         </tr>
-        <tr class="BdT Bdc(#0280ae.3)">
+        <tr class="BdT Bdc(--color-blue-5)">
             <th scope="row" class="Va(t) Whs(pl) P(10px)"><code>!important</code> rule</th>
             <td class="Va(t) P(10px)">Trumps all the above <sup><a href="#footnote">[5]</a><a id="footnote-5" class="D(ib)"></a></sup></td>
             <td class="Va(t) P(10px)">Can be anywhere<br> (as an exception)</td>

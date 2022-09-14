@@ -91,10 +91,10 @@ Atomizer parses any text document you define in your `atomizer.config.js` config
 
 ```html
 <div class="D(f) Jc(sb)">
-    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 1</div>
-    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 2</div>
-    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
-    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c) Bgc(#0280ae.5)">Box 3</div>
+    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c)">Box 1</div>
+    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c)">Box 2</div>
+    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c)">Box 3</div>
+    <div class="W(100px) H(100px) Lh(100px) Fz(30px) Ta(c)">Box 4</div>
 </div>
 ```
 
