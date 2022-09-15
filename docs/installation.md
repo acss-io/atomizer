@@ -36,7 +36,7 @@ Next, create a simple html file, `index.html` and copy the following HTML into i
 Run atomizer on the file to generate the CSS _(NOTE: the command will not finish because the `--watch` command is listening for changes)_:
 
 ```shell
-atomizer -o ./dist/output.css --watch index.html index.html
+atomizer -o ./dist/output.css --watch index.html
 ```
 
 A new CSS file at `./dist/output.css` will be created with the following content:

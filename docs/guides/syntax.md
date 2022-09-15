@@ -129,6 +129,22 @@ Optional.
 
 A **class** applied to an ancestor or sibling of the node (see [examples](#examples)).
 
+```html
+<div class="foo">
+    <div class="foo:h_D(n)"></div>
+</div>
+```
+
+The above creates the following rule:
+
+```css
+.foo:hover .foo:h_D(n) {
+  display: none;
+}
+```
+
+This class hides the current element whenever its ancestor (`.foo`) is hovered over.
+
 ### &lt;pseudo-class&gt;
 
 Optional.
@@ -198,13 +214,21 @@ A suffix mapped to a [pseudo-element](https://developer.mozilla.org/en-US/docs/W
 -   `ph` for `::placeholder`
 -   `s` for `::selection`
 
+This example uses the `content` property to add open and closed quotes with the `::b` and `::a` pseudo-elements.
+
+```html
+<p class="Cnt(oq)::b Cnt(cq)::a">Hello world!</p>
+```
+
+<p class="Cnt(oq)::b Cnt(cq)::a Fz(30px)::b Fz(30px)::a Fz(20px)">Hello world!</p>
+
 ### &lt;combinator&gt;
 
 Required if &lt;context&gt; is provided. One of the following may be used:
 
 #### The underscore character (`_`)
 
-Use this to create a contextual style based on the [descendant combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/descendant).
+Use this to create a contextual style based on the [descendant combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Descendant_combinator).
 
 ```html
 <div class="foo">
@@ -216,7 +240,7 @@ This class hides the element whenever one of its ancestor has the class `foo` at
 
 #### The right angle bracket character (`&gt;`)
 
-Use this to create a contextual style based on the [child combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/child).
+Use this to create a contextual style based on the [child combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Child_combinator).
 
 Example:
 
@@ -230,7 +254,7 @@ This class hides the element if its parent has the class `foo` attached to it.
 
 #### The plus sign (`+`)
 
-Use the [adjacent sibling combinator](http://www.w3.org/wiki/CSS/Selectors/combinators/adjacent) to style only if the immediate next sibling of an particular element.
+Use the [adjacent sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/Adjacent_sibling_combinator) to style only if the immediate next sibling of an particular element.
 
 Example:
 
