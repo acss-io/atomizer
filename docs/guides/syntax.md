@@ -129,6 +129,22 @@ Optional.
 
 A **class** applied to an ancestor or sibling of the node (see [examples](#examples)).
 
+```html
+<div class="foo">
+    <div class="foo:h_D(n)"></div>
+</div>
+```
+
+The above creates the following rule:
+
+```css
+.foo:hover .foo:h_D(n) {
+  display: none;
+}
+```
+
+This class hides the current element whenever its ancestor (`.foo`) is hovered over.
+
 ### &lt;pseudo-class&gt;
 
 Optional.
