@@ -204,7 +204,7 @@ This example uses the `content` property to add open and closed quotes with the 
 <q class="Cnt(oq)::b Cnt(cq)::a">Hello world!</q>
 ```
 
-<q class="Cnt(oq)::b Cnt(cq)::a Fz(20px)">Hello world!</q>
+<q class="Cnt(oq)::b Cnt(cq)::a Fz(30px)::b Fz(30px)::a Fz(20px) C(--color-blue-4)::b C(--color-blue-4)::a">Hello world!</q>
 
 ### &lt;combinator&gt;
 
