@@ -3,6 +3,7 @@ const webpack = require('webpack');
 
 const baseConfig = {
     entry: {
+        copyCode: './app/assets/js/copy-code.js',
         page: './app/assets/js/page.js',
         main: './app/client-reference.js',
         repl: './app/assets/js/repl.js',

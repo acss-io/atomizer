@@ -1,3 +1,49 @@
+/* Copy code button */
+.highlighter-rouge {
+    position: relative;
+}
+
+.highlighter-rouge button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.5;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    z-index: 2;
+}
+
+.highlighter-rouge button.copied,
+.highlighter-rouge button:focus,
+.highlighter-rouge button:hover {
+    opacity: 1;
+}
+
+.highlighter-rouge button svg {
+    fill: var(--color-text);
+}
+
+.highlighter-rouge button::before {
+    position: absolute;
+    background: var(--color-blue-1);
+    border-radius: 3px;
+    bottom: -30px;
+    color: #fff;
+    content: 'Copied!';
+    display: none;
+    font-size: 10px;
+    opacity: 0;
+    padding: 8px;
+    right: -50%;
+    transition: opacity 0.1s ease-in;
+}
+
+.highlighter-rouge button.copied::before {
+    display: block;
+    opacity: 1;
+}
+
 /* https://github.com/jwarby/jekyll-pygments-themes/blob/master/github.css */
 .highlight {
     margin: 0 0 1em;
