@@ -42,38 +42,11 @@ In the example below, we set an initial style for a `div` with the `.intro` clas
     <div class="Bgc(#333) C(#fff) P(10px) Bdrs(10px)">Hello World!</div>
 </div>
 
-## With Atomizer
+## Using CSS Variables
 
-In Atomizer, you can leverage the [`context`] class syntax to apply styles based on the existence of a class earlier in the HTML tree.
+You could further optimize the approaches mentioned above by using [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (a.k.a CSS variables) to manage the color changes via the `prefers-color-scheme` media feature.
 
-In the example below, the default styles for the `div` would be `background-color: #eee;` and `color: #000;`.
-
-```html
-<div class="Bgc(#eee) C(#000)">Hello World!</div>
-```
-
-You can prepend a class, `dark` (_the name is arbitrary and can be whatever you want_) to styles you want to override in dark mode.
-
-```diff
-- <div class="Bgc(#eee) C(#000)">Hello World!</div>
-+ <div class="Bgc(#eee) C(#000) dark_Bgc(#333) dark_C(#fff)">Hello World!</div>
-```
-
-When the `dark` class is added earlier in the HTML tree, the styles will change to `background-color: #333;` and `color: #fff`.
-
-```html
-<body class="dark">
-    <div class="Bgc(#eee) C(#000) dark_Bgc(#333) dark_C(#fff)">Hello World!</div>
-</body>
-```
-
-<p class="noteBox info">By default, nothing will happen, even if the user has the dark mode scheme enabled. You would need to add the <code>dark</code> class to your website to "enable" the dark mode classes. Read the <a href="#enabling-dark-mode">Enabling Dark Mode</a> section for tips on how to add the class to your project.</p>
-
-## Optimizing with CSS Variables
-
-You could further optimize the approaches mentioned above by combining with [CSS custom properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) (a.k.a CSS variables) to manage the color changes via the `prefers-color-scheme` media feature. Building off the examples above, you would move the color definitions to an external style sheet managed outside Atomizer.
-
-The example below defines the default colors in the `:root` block, and their `dark` mode overrides via the `prefers-color-scheme` block.
+The example below defines the default colors in the `:root` block, and their `dark` mode overrides via the `prefers-color-scheme: dark` block.
 
 ```css
 /* define the default colors */
@@ -89,15 +62,52 @@ The example below defines the default colors in the `:root` block, and their `da
         --text-color: #fff;
     }
 }
+
+/* initial style */
+.intro {
+    background: var(--background-color);
+    color: var(--text-color);
+}
 ```
 
-You would use the CSS variables instead of the hardcoded hex values in your HTML.
+The benefit of this approach is that you can re-use colors across many different CSS properties without having to redeclare color overrides multiple times.
+
+## With Atomizer
+
+Building off the examples in previous sections, the Atomizer classes can leverage the existing CSS variables to add style to elements.
 
 ```html
 <div class="Bgc(--background-color) C(--text-color)">Hello World!</div>
 ```
 
-The benefit of this approach is that you use the built-in `prefers-color-scheme` browser feature and reduce the number of classes you need to manage in the markup.
+Re-using the same CSS variables makes it easy to apply styles consistently across your CSS files and Atomizer class usage.
+
+## Using Context Classes
+
+In most cases, the previous section will work for your project. However, if you want more control of when dark mode is enabled, you can use the [`context`] class syntax to apply styles based on the existence of a class earlier in the HTML tree.
+
+Say for example, you want to give the user the ability to toggle dark mode via a drop down menu on your page. Perhaps you have markup with default styles declared as seen below.
+
+```html
+<div class="Bgc(#eee) C(#000)">Hello World!</div>
+```
+
+You can prepend an Atomizer class, `dark` (_the name is arbitrary and can be whatever you want_) to styles you want to override in dark mode.
+
+```diff
+- <div class="Bgc(#eee) C(#000)">Hello World!</div>
++ <div class="Bgc(#eee) C(#000) dark_Bgc(#333) dark_C(#fff)">Hello World!</div>
+```
+
+When the `dark` class is added earlier in the HTML tree, the styles will change to `background-color: #333;` and `color: #fff`.
+
+```html
+<body class="dark">
+    <div class="Bgc(#eee) C(#000) dark_Bgc(#333) dark_C(#fff)">Hello World!</div>
+</body>
+```
+
+<p class="noteBox info">By default, without the <code>dark</code> class on the page, the dark mode classes will not be applied (even if the user has the dark mode scheme enabled). You would need to add the <code>dark</code> class to your website to "enable" the dark mode classes. Read the <a href="#enabling-dark-mode">Enabling Dark Mode</a> section for tips on how to add the class to your project.</p>
 
 ## Enabling Dark Mode
 
