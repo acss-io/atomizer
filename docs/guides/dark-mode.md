@@ -55,12 +55,18 @@ The example below defines the default colors in the `:root` block, and their `da
     --text-color: #000;
 }
 
-/* overrides for dark mode */
+/* using @media override for dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --background-color: #333;
         --text-color: #fff;
     }
+}
+
+/* alternatively, you can add a "dark" class earlier in the HTML tree to overwrite the varibles for dark mode */
+.dark {
+    --background-color: #333;
+    --text-color: #fff;
 }
 
 /* initial style */
