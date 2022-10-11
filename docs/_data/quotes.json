@@ -21,6 +21,12 @@
         "quote": "Atomizer is a well-designed library which solves lots CSS management challenges of large scale applications. It helps to promote good html structure, clean and reusable CSS and rapid development process."
     },
     {
+        "author": "rogueyoshi",
+        "link": "https://twitter.com/rogueyoshi_FGC/status/1579098120348372993",
+        "role": "@rogueyoshi_FGC",
+        "quote": "I'm convinced @AtomicCSS is a superior product to Tailwind. It representing CSS in an unopinionated matter is just objectively good practice to me, but their compiler virtually allows neat stuff like parent and dynamic conditional selectors. I should have looked into it sooner."
+    },
+    {
         "author": "Max Heiber",
         "link": "https://twitter.com/maxheiber/status/1334247383455117321?s=20&t=yMffS2mp0eK9GhavtsYX1Q",
         "role": "@maxheiber",
