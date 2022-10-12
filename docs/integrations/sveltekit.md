@@ -91,5 +91,5 @@ npm run dev
 Start adding Atomizer classes to the `src/routes/+page.svelte` file.
 
 ```html
-<h1 className="Fw(b) Fz(2rem)">Welcome!</h1>
+<h1 class="Fw(b) Fz(2rem)">Welcome!</h1>
 ```
