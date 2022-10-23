@@ -43,7 +43,7 @@
     },
     "dependencies": {
         "atomizer": "^3.18.2",
-        "unplugin": "^0.9.3"
+        "unplugin": "^0.10.0"
     },
     "engines": {
         "node": ">=16.0",
