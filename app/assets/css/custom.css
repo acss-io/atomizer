@@ -217,3 +217,23 @@ li.selected a {
         fill: #fff;
     }
 }
+
+/* table styles ============================= */
+#main table {
+    table-layout: fixed;
+    text-align: left;
+    width: 100%;
+}
+
+#main thead th {
+    padding: 10px;
+}
+
+#main tbody tr {
+    border-top: 1px solid var(--color-blue-5);
+}
+
+#main tbody td {
+    padding: 10px;
+    vertical-align: top;
+}
