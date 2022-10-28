@@ -151,13 +151,43 @@ Optional.
 
 A suffix mapped to a [pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes), for example:
 
--   `a` for `:active`
--   `c` for `:checked`
--   `f` for `:focus`
--   `h` for `:hover`
--   etc.
-
-<p class="noteBox info">You can find the complete list of pseudo-classes and their abbreviations in <a href="https://github.com/acss-io/atomizer/blob/main/packages/atomizer/src/lib/grammar.js#L7">Atomizer&#39;s grammar library</a>.</p>
+-   `:active` => `:a`,
+-   `:checked` => `:c`,
+-   `:default` => `:d`,
+-   `:disabled` => `:di`,
+-   `:empty` => `:e`,
+-   `:enabled` => `:en`,
+-   `:nth-child(even)` => `:even`,
+-   `:first` => `:fi`,
+-   `:first-child` => `:fc`,
+-   `:first-of-type` => `:fot`,
+-   `:fullscreen` => `:fs`,
+-   `:focus` => `:f`,
+-   `:focus-within` => `:fw`,
+-   `:focus-visible` => `:fv`,
+-   `:hover` => `:h`,
+-   `:indeterminate` => `:ind`,
+-   `:in-range` => `:ir`,
+-   `:invalid` => `:inv`,
+-   `:last-child` => `:lc`,
+-   `:last-of-type` => `:lot`,
+-   `:left` => `:l`,
+-   `:link` => `:li`,
+-   `:nth-child(odd)` => `:odd`,
+-   `:only-child` => `:oc`,
+-   `:only-of-type` => `:oot`,
+-   `:optional` => `:o`,
+-   `:out-of-range` => `:oor`,
+-   `:placeholder-shown` => `:ps`,
+-   `:read-only` => `:ro`,
+-   `:read-write` => `:rw`,
+-   `:required` => `:req`,
+-   `:right` => `:r`,
+-   `:root` => `:rt`,
+-   `:scope` => `:s`,
+-   `:target` => `:t`,
+-   `:valid` => `:va`,
+-   `:visited` => `:vi`,
 
 Pseudo-classes may be applied to any regular class or &lt;context&gt; class. For example:
 
@@ -203,16 +233,16 @@ Optional.
 
 A suffix mapped to a [pseudo-element](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements). The following pseudo-elements are supported:
 
--   `a` for `::after`
--   `b` for `::before`
--   `bd` for `::backdrop`
--   `c` for `::cue`
--   `fsb` for `::file-selector-button`
--   `fl` for `::first-letter`
--   `fli` for `::first-line`
--   `m` for `::marker`
--   `ph` for `::placeholder`
--   `s` for `::selection`
+-   `::after` => `::a`
+-   `::before` => `::b`
+-   `::backdrop` => `::bd`
+-   `::cue` => `::c`
+-   `::file-selector-button` => `::fsb`
+-   `::first-letter` => `::fl`
+-   `::first-line` => `::fli`
+-   `::marker` => `::m`
+-   `::placeholder` => `::ph`
+-   `::selection` => `::s`
 
 This example uses the `content` property to add open and closed quotes with the `::b` and `::a` pseudo-elements.
 

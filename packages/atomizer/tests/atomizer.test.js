@@ -33,7 +33,7 @@ describe('Atomizer()', () => {
             const atomizer = new Atomizer();
             // duplicate Pos(r) to make sure we get only one
             const result = atomizer.findClassNames(
-                "<div className={classNames('sibling:c+D(n) sibling:c~D(i) Pos(r) Pos(r) Ov(h) H(0) test:h>Op(1):h test:test>Op(1)', 'test-open_Ov(v) test-open_H(a) Cnt(hello)::b Cnt(goodbye)::a}>"
+                "<div className={classNames('sibling:c+D(n) sibling:c~D(i) Pos(r) Pos(r) Ov(h) H(0) test:h>Op(1):h test:test>Op(1)', 'test-open_Ov(v) test-open_H(a) Cnt(hello)::b Cnt(goodbye)::a C(yellow):odd'}>"
             );
             const expected = [
                 'sibling:c+D(n)',
@@ -46,6 +46,7 @@ describe('Atomizer()', () => {
                 'test-open_H(a)',
                 'Cnt(hello)::b',
                 'Cnt(goodbye)::a',
+                'C(yellow):odd',
             ];
             expect(result).toEqual(expected);
         });
@@ -579,6 +580,7 @@ describe('Atomizer()', () => {
                     'D(n)!',
                     'C(#333)',
                     'C(#333):li',
+                    'C(yellow):odd',
                     'Mt(-10px)',
                     'W(1/3)',
                     'Bgz(45px)',
@@ -610,6 +612,9 @@ describe('Atomizer()', () => {
                 '}',
                 '.C\\(\\#333\\), .C\\(\\#333\\)\\:li:link {',
                 '  color: #333;',
+                '}',
+                '.C\\(yellow\\)\\:odd:nth-child(odd) {',
+                '  color: yellow;',
                 '}',
                 '.Cnt\\(cq\\)\\:h\\:\\:b:hover::before {',
                 '  content: close-quote;',
