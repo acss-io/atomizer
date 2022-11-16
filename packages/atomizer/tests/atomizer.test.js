@@ -362,6 +362,24 @@ describe('Atomizer()', () => {
         });
     });
     describe('getCss()', () => {
+        it('should bail if a breakpoint is missing in strict mode', () => {
+            const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+            const processExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
+
+            new Atomizer({ strict: true }).getCss({ classNames: ['W(100%)--sm'] });
+
+            expect(consoleError).toHaveBeenCalledWith(
+                'Error:',
+                expect.stringContaining(
+                    'Class `W(100%)--sm` contains breakpoint `sm` which does not exist and must be manually added to your config file'
+                )
+            );
+            consoleError.mockRestore();
+
+            expect(processExit).toHaveBeenCalledWith(1);
+            processExit.mockRestore();
+        });
+
         it('returns expected css for custom classes with break points', () => {
             // set rules here so if helper change, we don't fail the test
             const atomizer = new Atomizer();

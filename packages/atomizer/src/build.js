@@ -80,7 +80,7 @@ module.exports.buildAtomicCss = function (files, config = {}, options = {}, done
     }
 
     // Instantiate Atomizer
-    const atomizer = new Atomizer({ verbose: !!options.verbose });
+    const atomizer = new Atomizer({ strict: !!options.strict, verbose: !!options.verbose });
 
     // Custom rulesets
     const rulesFiles = options.rules;

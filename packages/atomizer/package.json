@@ -24,8 +24,8 @@
         "*.d.ts"
     ],
     "scripts": {
-        "lint": "eslint --ext .js .",
-        "lint:fix": "eslint --ext .js . --fix",
+        "lint": "eslint --ext .js . && prettier . --check",
+        "lint:fix": "eslint --ext .js . --fix && prettier . --write",
         "test": "jest tests/"
     },
     "bin": {

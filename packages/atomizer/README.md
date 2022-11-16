@@ -40,6 +40,7 @@ Usage: atomizer [options] [path]
     --rtl                               swaps `start` and `end` keyword replacements with `right` and `left`.
     --exclude=[pattern]                 pattern to exclude file to be scanned
     --bump-mq                           increases specificity of media queries a small amount
+    --strict                            bail if missing configs such as breakpoints.
     --verbose                           show additional log info (warnings).
 ```
 

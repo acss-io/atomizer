@@ -28,7 +28,9 @@ const GLOBAL_VALUES = {
  * @param {Array<import('atomizer').AtomizerRule>} [rules] List of custom rules
  */
 function Atomizer(options, rules) {
-    this.verbose = (options && options.verbose) || false;
+    options = options || {};
+    this.strict = options.strict || false;
+    this.verbose = options.verbose || false;
     this.rules = [];
     // we have two different objects to avoid name collision
     this.rulesMap = {};
@@ -481,6 +483,8 @@ Atomizer.prototype.parseConfig = function (config, options) {
  */
 Atomizer.prototype.getCss = function (config, options) {
     const jss = {};
+    const isStrict = this.strict;
+    const isVerbose = this.verbose;
     let content = '';
     let breakPoints;
 
@@ -532,6 +536,20 @@ Atomizer.prototype.getCss = function (config, options) {
                 }
 
                 const breakPoint = breakPoints && breakPoints[treeo.breakPoint];
+                if (treeo.breakPoint && !breakPoint) {
+                    const message = [
+                        `Class \`${treeo.className}\` contains breakpoint \`${treeo.breakPoint}\` which does not exist and must be manually added to your config file:`,
+                        '"breakPoints": {',
+                        `    "${treeo.breakPoint}": <YOUR-CUSTOM-VALUE>`,
+                        '}',
+                    ].join('\n');
+                    if (isStrict) {
+                        console.error('Error:', message);
+                        process.exit(1);
+                    } else if (isVerbose) {
+                        console.warn('Warning:', message);
+                    }
+                }
 
                 // this is where we start writing the selector
                 selector = Atomizer.escapeSelector(treeo.className);
