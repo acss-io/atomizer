@@ -2,7 +2,6 @@
 
 import Atomizer, { CSSOptions } from 'atomizer';
 import cssnano from 'cssnano';
-import { getOptions } from 'loader-utils';
 import postcss from 'postcss';
 
 import { writeCssFile, ensureExists } from './utils';
@@ -101,7 +100,7 @@ const atomicLoader = function (source, map) {
         this.cacheable();
     }
 
-    const query = getOptions(this) || {};
+    const query = this.getOptions() || {};
     const { config, configPath = [], minimize = false, postcssPlugins = [] } = query;
     const validPostcssPlugins = Array.isArray(postcssPlugins) ? postcssPlugins : DEFAULT_POSTCSS_PLUGIN_LIST;
     const addDependency = this.addDependency;

@@ -6,6 +6,7 @@ const stealthyRequire = require('stealthy-require');
 describe('atomic loader', () => {
     it('can generate correct css', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
+        this.getOptions = () => {};
         this.async = () => () => {
             const cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
             const cssFile = fs.readFileSync('./build/css/atomic.css');
@@ -17,6 +18,7 @@ describe('atomic loader', () => {
     it('keeps already-generated css', (done) => {
         const atomicLoader = stealthyRequire(require.cache, () => require('../dist/atomicLoader'));
         let iteration = 0;
+        this.getOptions = () => {};
         this.async = () => () => {
             if (iteration >= 1) {
                 const cssReg = new RegExp(/\.Bgc\\\(yellow\\\)/);
@@ -37,9 +39,11 @@ describe('atomic loader', () => {
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
         };
-        this.query = {
+        const query = {
             configPath: path.resolve(__dirname, 'fixtures', 'rules-path.config.js'),
         };
+        this.query = query;
+        this.getOptions = () => query;
         atomicLoader.call(this, '<div class="Foo"></div>');
     });
     it('rules object', (done) => {
@@ -50,9 +54,11 @@ describe('atomic loader', () => {
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
         };
-        this.query = {
+        const query = {
             configPath: path.resolve(__dirname, 'fixtures', 'rules-object.config.js'),
         };
+        this.query = query;
+        this.getOptions = () => query;
         atomicLoader.call(this, '<div class="Foo"></div>');
     });
     it('config path', (done) => {
@@ -64,9 +70,11 @@ describe('atomic loader', () => {
             expect(cssReg.test(cssFile)).to.equal(true);
             done();
         };
-        this.query = {
+        const query = {
             configPath: path.resolve(__dirname, 'fixtures', 'simple.config.js'),
         };
+        this.query = query;
+        this.getOptions = () => query;
         atomicLoader.call(this, '<div class="Bgc(foo)"></div>');
     });
 
@@ -78,12 +86,14 @@ describe('atomic loader', () => {
             expect(/\.C\\\(bar\\\)/.test(cssFile)).to.equal(true);
             done();
         };
-        this.query = {
+        const query = {
             configPath: [
                 path.resolve(__dirname, 'fixtures', 'simple.config.js'),
                 path.resolve(__dirname, 'fixtures', 'simple2.config.js'),
             ],
         };
+        this.query = query;
+        this.getOptions = () => query;
         atomicLoader.call(this, '<div class="Bgc(foo) C(bar)"></div>');
     });
 
@@ -94,7 +104,7 @@ describe('atomic loader', () => {
             expect(/\.Bgc\\\(foo\\\)/.test(cssFile)).to.equal(true);
             done();
         };
-        this.query = {
+        const query = {
             config: {
                 configs: {
                     classNames: [],
@@ -104,6 +114,8 @@ describe('atomic loader', () => {
                 },
             },
         };
+        this.query = query;
+        this.getOptions = () => query;
         atomicLoader.call(this, '<div class="Bgc(foo)"></div>');
     });
 });
