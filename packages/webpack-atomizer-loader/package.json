@@ -1,6 +1,6 @@
 {
     "name": "webpack-atomizer-loader",
-    "version": "1.3.2",
+    "version": "2.0.0",
     "description": "Webpack loader for compiling atomic css",
     "main": "index.js",
     "scripts": {
@@ -22,7 +22,7 @@
     "author": "tom76kimo <tom76kimo@gmail.com> ",
     "license": "MIT",
     "dependencies": {
-        "atomizer": "^3.9.2",
+        "atomizer": "^3.22.0",
         "cssnano": "^5.0.7",
         "postcss": "^8.3.6"
     },

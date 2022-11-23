@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.22.0
+
+### Minor Changes
+
+-   2041b46: feat: add strict option
+
 ## 3.21.2
 
 ### Patch Changes
