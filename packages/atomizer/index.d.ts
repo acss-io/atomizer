@@ -20,6 +20,8 @@ declare module 'atomizer' {
         rtl?: boolean;
         /** Path to custom rules file */
         rules?: string;
+        /** Bail if missing declarations such as break points */
+        strict?: boolean;
         /** Show additional log info (warnings) */
         verbose?: boolean;
     }

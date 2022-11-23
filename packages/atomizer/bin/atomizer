@@ -41,6 +41,7 @@ program
     .option('--rtl', 'swaps `start` and `end` keyword replacements with `right` and `left`')
     .option('--bump-mq', 'increases specificity of media queries a small amount')
     .option('--ie', '[deprecated] no longer used')
+    .option('--strict', 'bail if missing configs such as breakpoints')
     .option('--verbose', 'show additional log info (warnings)')
     .option('--quiet', 'hide processing info')
     .parse(process.argv);
