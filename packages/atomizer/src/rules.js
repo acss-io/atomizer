@@ -77,9 +77,13 @@ module.exports = [
         },
         arguments: [colors],
     },
-    // align-items (previously flex-item-align)
-    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
+    /**
+    ==================================================================
+    ALIGN-ITEMS (previously flex-item-align)
+    - Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    - Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
+    ==================================================================
+    */
     {
         type: 'pattern',
         name: 'Align items',
@@ -90,10 +94,14 @@ module.exports = [
         },
         arguments: [sortKeys({ ...alignItems })],
     },
-    // align-content (previously flex-line-pack)
-    // Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
-    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-content-property
-    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-content
+    /**
+    ==================================================================
+    ALIGN-CONTENT (previously flex-item-pack)
+    - Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
+    - Previous version: http://www.w3.org/TR/css3-flexbox/#align-content-property
+    - Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-content
+    ==================================================================
+    */
     {
         type: 'pattern',
         name: 'Align content',
@@ -111,9 +119,13 @@ module.exports = [
             }),
         ],
     },
-    // align-self (previously flex-align)
-    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-self
+    /**
+    ==================================================================
+    ALIGN-SELF (previously flex-align)
+    - Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    - Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-self
+    ==================================================================
+    */
     {
         type: 'pattern',
         name: 'Align self',
