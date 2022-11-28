@@ -1859,6 +1859,27 @@ module.exports = [
         ],
     },
     /**
+     ==================================================================
+     FONT-KERNING
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        name: 'Font kerning',
+        matcher: 'Fk',
+        allowParamToValue: false,
+        styles: {
+            'font-kerning': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                n: 'none',
+                nor: 'normal',
+            },
+        ],
+    },
+    /**
     ==================================================================
     FONT-SIZE
     ==================================================================
@@ -1871,6 +1892,33 @@ module.exports = [
         styles: {
             'font-size': '$0',
         },
+    },
+    /**
+    ==================================================================
+    FONT-STRETCH
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Font stretch',
+        matcher: 'Fst',
+        allowParamToValue: true,
+        styles: {
+            'font-stretch': '$0',
+        },
+        arguments: [
+            {
+                uc: 'ultra-condensed',
+                ec: 'extra-condensed',
+                c: 'condensed',
+                sc: 'semi-condensed',
+                n: 'normal',
+                se: 'semi-expanded',
+                e: 'expanded',
+                ee: 'extra-expanded',
+                ue: 'ultra-expanded',
+            },
+        ],
     },
     /**
      ==================================================================
