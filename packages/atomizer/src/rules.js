@@ -62,6 +62,21 @@ const justifyItems = {
     ...selfPosition,
 };
 module.exports = [
+    /**
+    ==================================================================
+    ACCENT-COLOR
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Accent color',
+        matcher: 'Acc',
+        allowParamToValue: false,
+        styles: {
+            'accent-color': '$0',
+        },
+        arguments: [colors],
+    },
     // align-items (previously flex-item-align)
     // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
     // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
