@@ -1988,6 +1988,42 @@ module.exports = [
     },
     /**
     ==================================================================
+    IMAGES
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Image orientation',
+        matcher: 'Ior',
+        allowParamToValue: false,
+        styles: {
+            'image-orientation': '$0',
+        },
+        arguments: [
+            {
+                fi: 'from-image',
+                n: 'none',
+            },
+        ],
+    },
+    {
+        type: 'pattern',
+        name: 'Image rendering',
+        matcher: 'Iren',
+        allowParamToValue: false,
+        styles: {
+            'image-rendering': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                ce: 'crisp-edges',
+                p: 'pixelated',
+            },
+        ],
+    },
+    /**
+    ==================================================================
     ISOLATE
     ==================================================================
     */
