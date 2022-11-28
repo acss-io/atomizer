@@ -67,11 +67,10 @@ GEM
     webrick (1.7.0)
 
 PLATFORMS
-  x86_64-linux
   x86_64-linux-musl
 
 DEPENDENCIES
-  jekyll (~> 4.0)
+  jekyll (~> 4.2.2)
   jekyll-seo-tag
   jekyll-toc
   kramdown-parser-gfm
@@ -79,4 +78,4 @@ DEPENDENCIES
   webrick
 
 BUNDLED WITH
-   2.3.15
+   2.3.25
