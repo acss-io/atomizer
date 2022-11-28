@@ -36,6 +36,7 @@ const { baselinePosition, contentDistribution, contentPosition } = require('./bo
 const blendModes = require('./blendmodes');
 const mixBlendModes = Object.assign(blendModes, { pd: 'plus-darker', pl: 'plus-lighter' });
 const colors = require('./colors');
+const { borderStyles, borderWidths } = require('./border');
 const selfPosition = { ...contentPosition, se: 'self-end', ss: 'self-start' };
 
 // not adding to utils so it doesn't get bundled to the client
@@ -473,20 +474,7 @@ module.exports = [
         styles: {
             'border-style': '$0',
         },
-        arguments: [
-            {
-                d: 'dotted',
-                da: 'dashed',
-                do: 'double',
-                g: 'groove',
-                h: 'hidden',
-                i: 'inset',
-                n: 'none',
-                o: 'outset',
-                r: 'ridge',
-                s: 'solid',
-            },
-        ],
+        arguments: [borderStyles],
     },
     // top
     {
@@ -497,20 +485,7 @@ module.exports = [
         styles: {
             'border-top-style': '$0',
         },
-        arguments: [
-            {
-                d: 'dotted',
-                da: 'dashed',
-                do: 'double',
-                g: 'groove',
-                h: 'hidden',
-                i: 'inset',
-                n: 'none',
-                o: 'outset',
-                r: 'ridge',
-                s: 'solid',
-            },
-        ],
+        arguments: [borderStyles],
     },
     // end
     {
@@ -521,20 +496,7 @@ module.exports = [
         styles: {
             'border-__END__-style': '$0',
         },
-        arguments: [
-            {
-                d: 'dotted',
-                da: 'dashed',
-                do: 'double',
-                g: 'groove',
-                h: 'hidden',
-                i: 'inset',
-                n: 'none',
-                o: 'outset',
-                r: 'ridge',
-                s: 'solid',
-            },
-        ],
+        arguments: [borderStyles],
     },
     // bottom
     {
@@ -545,20 +507,7 @@ module.exports = [
         styles: {
             'border-bottom-style': '$0',
         },
-        arguments: [
-            {
-                d: 'dotted',
-                da: 'dashed',
-                do: 'double',
-                g: 'groove',
-                h: 'hidden',
-                i: 'inset',
-                n: 'none',
-                o: 'outset',
-                r: 'ridge',
-                s: 'solid',
-            },
-        ],
+        arguments: [borderStyles],
     },
     // start
     {
@@ -569,20 +518,7 @@ module.exports = [
         styles: {
             'border-__START__-style': '$0',
         },
-        arguments: [
-            {
-                d: 'dotted',
-                da: 'dashed',
-                do: 'double',
-                g: 'groove',
-                h: 'hidden',
-                i: 'inset',
-                n: 'none',
-                o: 'outset',
-                r: 'ridge',
-                s: 'solid',
-            },
-        ],
+        arguments: [borderStyles],
     },
     /**
     ==================================================================
@@ -599,13 +535,7 @@ module.exports = [
         styles: {
             'border-width': '$0',
         },
-        arguments: [
-            {
-                m: 'medium',
-                t: 'thin',
-                th: 'thick',
-            },
-        ],
+        arguments: [borderWidths],
     },
     // top
     {
@@ -616,13 +546,7 @@ module.exports = [
         styles: {
             'border-top-width': '$0',
         },
-        arguments: [
-            {
-                m: 'medium',
-                t: 'thin',
-                th: 'thick',
-            },
-        ],
+        arguments: [borderWidths],
     },
     // end
     {
@@ -633,13 +557,7 @@ module.exports = [
         styles: {
             'border-__END__-width': '$0',
         },
-        arguments: [
-            {
-                m: 'medium',
-                t: 'thin',
-                th: 'thick',
-            },
-        ],
+        arguments: [borderWidths],
     },
     // bottom
     {
@@ -650,13 +568,7 @@ module.exports = [
         styles: {
             'border-bottom-width': '$0',
         },
-        arguments: [
-            {
-                m: 'medium',
-                t: 'thin',
-                th: 'thick',
-            },
-        ],
+        arguments: [borderWidths],
     },
     // start
     {
@@ -667,13 +579,7 @@ module.exports = [
         styles: {
             'border-__START__-width': '$0',
         },
-        arguments: [
-            {
-                m: 'medium',
-                t: 'thin',
-                th: 'thick',
-            },
-        ],
+        arguments: [borderWidths],
     },
     /**
     ==================================================================
@@ -1137,20 +1043,7 @@ module.exports = [
         styles: {
             'column-rule-style': '$0',
         },
-        arguments: [
-            {
-                d: 'dotted',
-                da: 'dashed',
-                do: 'double',
-                g: 'groove',
-                h: 'hidden',
-                i: 'inset',
-                n: 'none',
-                o: 'outset',
-                r: 'ridge',
-                s: 'solid',
-            },
-        ],
+        arguments: [borderStyles],
     },
     {
         type: 'pattern',
@@ -2496,6 +2389,16 @@ module.exports = [
     },
     {
         type: 'pattern',
+        name: 'Outline-color',
+        matcher: 'Oc',
+        allowParamToValue: true,
+        styles: {
+            'outline-color': '$0',
+        },
+        arguments: [colors],
+    },
+    {
+        type: 'pattern',
         name: 'Outline-offset',
         matcher: 'Oo',
         shorthand: true,
@@ -2503,6 +2406,26 @@ module.exports = [
         styles: {
             'outline-offset': '$0',
         },
+    },
+    {
+        type: 'pattern',
+        name: 'Outline-style',
+        matcher: 'Os',
+        allowParamToValue: false,
+        styles: {
+            'outline-style': '$0',
+        },
+        arguments: [borderStyles],
+    },
+    {
+        type: 'pattern',
+        name: 'Outline-width',
+        matcher: 'Ow',
+        allowParamToValue: true,
+        styles: {
+            'outline-width': '$0',
+        },
+        arguments: [borderWidths],
     },
     /**
     ==================================================================
