@@ -1988,9 +1988,24 @@ module.exports = [
     },
     /**
     ==================================================================
-    IMAGE-RENDERING
+    IMAGES
     ==================================================================
     */
+    {
+        type: 'pattern',
+        name: 'Image orientation',
+        matcher: 'Ior',
+        allowParamToValue: false,
+        styles: {
+            'image-orientation': '$0',
+        },
+        arguments: [
+            {
+                fi: 'from-image',
+                n: 'none',
+            },
+        ],
+    },
     {
         type: 'pattern',
         name: 'Image rendering',
