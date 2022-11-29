@@ -2496,7 +2496,7 @@ module.exports = [
     },
     /**
     ==================================================================
-    OBJECTS
+    OBJECT-FIT
     ==================================================================
     */
     {
@@ -2514,6 +2514,29 @@ module.exports = [
                 f: 'fill',
                 n: 'none',
                 sd: 'scale-down',
+            },
+        ],
+    },
+    /**
+    ==================================================================
+    OBJECT-POSITION
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Object position',
+        matcher: 'Objp',
+        allowParamToValue: true,
+        styles: {
+            'object-position': '$0 $1',
+        },
+        arguments: [
+            {
+                t: 'top',
+                end: '__END__',
+                bottom: 'bottom',
+                start: '__START__',
+                c: 'center',
             },
         ],
     },
