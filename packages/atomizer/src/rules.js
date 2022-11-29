@@ -62,9 +62,28 @@ const justifyItems = {
     ...selfPosition,
 };
 module.exports = [
-    // align-items (previously flex-item-align)
-    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
+    /**
+    ==================================================================
+    ACCENT-COLOR
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Accent color',
+        matcher: 'Acc',
+        allowParamToValue: false,
+        styles: {
+            'accent-color': '$0',
+        },
+        arguments: [colors],
+    },
+    /**
+    ==================================================================
+    ALIGN-ITEMS (previously flex-item-align)
+    - Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    - Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-items
+    ==================================================================
+    */
     {
         type: 'pattern',
         name: 'Align items',
@@ -75,10 +94,14 @@ module.exports = [
         },
         arguments: [sortKeys({ ...alignItems })],
     },
-    // align-content (previously flex-line-pack)
-    // Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
-    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-content-property
-    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-content
+    /**
+    ==================================================================
+    ALIGN-CONTENT (previously flex-item-pack)
+    - Source: http://msdn.microsoft.com/en-us/library/ie/jj127302%28v=vs.85%29.aspx
+    - Previous version: http://www.w3.org/TR/css3-flexbox/#align-content-property
+    - Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-content
+    ==================================================================
+    */
     {
         type: 'pattern',
         name: 'Align content',
@@ -96,9 +119,13 @@ module.exports = [
             }),
         ],
     },
-    // align-self (previously flex-align)
-    // Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
-    // Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-self
+    /**
+    ==================================================================
+    ALIGN-SELF (previously flex-align)
+    - Previous version: http://www.w3.org/TR/css3-flexbox/#align-items-property
+    - Latest version: https://www.w3.org/TR/css-align-3/#propdef-align-self
+    ==================================================================
+    */
     {
         type: 'pattern',
         name: 'Align self',
@@ -898,6 +925,26 @@ module.exports = [
         arguments: [
             {
                 n: 'none',
+            },
+        ],
+    },
+    /**
+    ==================================================================
+    CARET-COLOR
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Caret color',
+        matcher: 'Cac',
+        allowParamToValue: false,
+        styles: {
+            'caret-color': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                ...colors,
             },
         ],
     },
@@ -1859,6 +1906,27 @@ module.exports = [
         ],
     },
     /**
+     ==================================================================
+     FONT-KERNING
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        name: 'Font kerning',
+        matcher: 'Fk',
+        allowParamToValue: false,
+        styles: {
+            'font-kerning': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                n: 'none',
+                nor: 'normal',
+            },
+        ],
+    },
+    /**
     ==================================================================
     FONT-SIZE
     ==================================================================
@@ -1871,6 +1939,33 @@ module.exports = [
         styles: {
             'font-size': '$0',
         },
+    },
+    /**
+    ==================================================================
+    FONT-STRETCH
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Font stretch',
+        matcher: 'Fst',
+        allowParamToValue: true,
+        styles: {
+            'font-stretch': '$0',
+        },
+        arguments: [
+            {
+                uc: 'ultra-condensed',
+                ec: 'extra-condensed',
+                c: 'condensed',
+                sc: 'semi-condensed',
+                n: 'normal',
+                se: 'semi-expanded',
+                e: 'expanded',
+                ee: 'extra-expanded',
+                ue: 'ultra-expanded',
+            },
+        ],
     },
     /**
      ==================================================================
@@ -2761,6 +2856,25 @@ module.exports = [
                 r: 'relative',
                 s: 'static',
                 st: 'sticky',
+            },
+        ],
+    },
+    /**
+    ==================================================================
+    PRINT-COLOR-ADJUST
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Print color adjust',
+        matcher: 'Pca',
+        styles: {
+            'print-color-adjust': '$0',
+        },
+        arguments: [
+            {
+                ec: 'economy',
+                ex: 'exact',
             },
         ],
     },
@@ -3833,6 +3947,27 @@ module.exports = [
             {
                 bw: 'break-word',
                 n: 'normal',
+            },
+        ],
+    },
+    /**
+     ==================================================================
+     WRITING-MODE
+     ==================================================================
+     */
+    {
+        type: 'pattern',
+        name: 'Writing mode',
+        matcher: 'Wm',
+        allowParamToValue: false,
+        styles: {
+            'writing-mode': '$0',
+        },
+        arguments: [
+            {
+                htb: 'horizontal-tb',
+                vlr: 'vertical-lr',
+                vrl: 'vertical-rl',
             },
         ],
     },
