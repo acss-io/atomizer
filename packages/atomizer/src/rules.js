@@ -3386,6 +3386,34 @@ module.exports = [
     },
     /**
     ==================================================================
+    TOUCH-ACTION
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Touch action',
+        matcher: 'Tcha',
+        allowParamToValue: false,
+        styles: {
+            'touch-action': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                m: 'manipulation',
+                n: 'none',
+                pd: 'pan-down',
+                pl: 'pan-left',
+                pr: 'pan-right',
+                pu: 'pan-up',
+                px: 'pan-x',
+                py: 'pan-y',
+                pz: 'pinch-zoom',
+            },
+        ],
+    },
+    /**
+    ==================================================================
     TRANSFORM
     http://www.w3.org/TR/css3-3d-transforms/
     ==================================================================
@@ -3906,6 +3934,27 @@ module.exports = [
                 minc: 'min-content',
                 maxc: 'max-content',
                 fc: 'fit-content',
+            },
+        ],
+    },
+    /**
+    ==================================================================
+    WILL-CHANGE
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Will change',
+        matcher: 'Wc',
+        allowParamToValue: true,
+        styles: {
+            'will-change': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                c: 'contents',
+                sp: 'scroll-position',
             },
         ],
     },
