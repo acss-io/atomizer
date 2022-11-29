@@ -3946,7 +3946,7 @@ module.exports = [
         type: 'pattern',
         name: 'Will change',
         matcher: 'Wc',
-        allowParamToValue: false,
+        allowParamToValue: true,
         styles: {
             'will-change': '$0',
         },
