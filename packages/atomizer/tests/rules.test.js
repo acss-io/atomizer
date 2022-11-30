@@ -5,7 +5,7 @@ const Atomizer = require('../src/atomizer');
 const atomizer = new Atomizer();
 
 describe('Rules', () => {
-    for (const { allowParamToValue, arguments: args, matcher, styles } of rules) {
+    for (const { allowParamToValue, arguments: args, calculatePercentage, matcher, styles } of rules) {
         const styleNames = Object.keys(styles);
 
         // loop through each style to build a list of all the possible styles
@@ -34,6 +34,11 @@ describe('Rules', () => {
             // if this flag is set, then add an arbitrary unit to the class name
             if (allowParamToValue) {
                 classNames.push(`${matcher}(1px)`);
+            }
+
+            // handle aspect-ratio use case
+            if (calculatePercentage === false) {
+                classNames.push(`${matcher}(1/1)`);
             }
 
             // handles shorthand classes with no arguments or "param to value" (e.g. Bdy)

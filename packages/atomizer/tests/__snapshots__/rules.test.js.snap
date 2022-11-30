@@ -690,7 +690,12 @@ exports[`Rules appearance 1`] = `
 "
 `;
 
-exports[`Rules aspect-ratio 1`] = `""`;
+exports[`Rules aspect-ratio 1`] = `
+".Ar\\(1\\/1\\) {
+  aspect-ratio: 1/1;
+}
+"
+`;
 
 exports[`Rules backface-visibility 1`] = `
 ".Bfv\\(h\\) {
