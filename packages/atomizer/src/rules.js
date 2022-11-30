@@ -2867,7 +2867,7 @@ module.exports = [
     },
     /**
     ==================================================================
-    PLACE-CONTENT
+    PLACE-CONTENT: <'align-content'> <'justify-content'>?
     ==================================================================
     */
     {
@@ -2885,7 +2885,9 @@ module.exports = [
                 ...contentPosition,
             }),
             sortKeys({
-                ...baselinePosition,
+                n: 'normal',
+                l: 'left',
+                r: 'right',
                 ...contentDistribution,
                 ...contentPosition,
             }),
@@ -2893,7 +2895,7 @@ module.exports = [
     },
     /**
     ==================================================================
-    PLACE-ITEMS
+    PLACE-ITEMS: <'align-items'> <'justify-items'>?
     ==================================================================
     */
     {
@@ -2904,11 +2906,11 @@ module.exports = [
         styles: {
             'place-items': '$0 $1',
         },
-        arguments: [sortKeys({ ...alignItems }), sortKeys({ ...alignItems })],
+        arguments: [sortKeys({ ...alignItems }), sortKeys({ ...justifyItems })],
     },
     /**
     ==================================================================
-    PLACE-SELF
+    PLACE-SELF: <'align-self'> <'justify-self'>?
     ==================================================================
     */
     {
@@ -2925,7 +2927,7 @@ module.exports = [
                 a: 'auto',
             }),
             sortKeys({
-                ...alignItems,
+                ...justifyItems,
                 a: 'auto',
             }),
         ],
