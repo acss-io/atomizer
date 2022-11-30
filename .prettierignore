@@ -7,7 +7,9 @@ node_modules/
 vendor/
 
 # files
+.*
 package-lock.json
+*.snap
 
 # docs
 app/assets/css/atomic.css
