@@ -2867,6 +2867,73 @@ module.exports = [
     },
     /**
     ==================================================================
+    PLACE-CONTENT: <'align-content'> <'justify-content'>?
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Place content',
+        matcher: 'Pc',
+        allowParamToValue: false,
+        styles: {
+            'place-content': '$0 $1',
+        },
+        arguments: [
+            sortKeys({
+                ...baselinePosition,
+                ...contentDistribution,
+                ...contentPosition,
+            }),
+            sortKeys({
+                n: 'normal',
+                l: 'left',
+                r: 'right',
+                ...contentDistribution,
+                ...contentPosition,
+            }),
+        ],
+    },
+    /**
+    ==================================================================
+    PLACE-ITEMS: <'align-items'> <'justify-items'>?
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Place items',
+        matcher: 'Pi',
+        allowParamToValue: false,
+        styles: {
+            'place-items': '$0 $1',
+        },
+        arguments: [sortKeys({ ...alignItems }), sortKeys({ ...justifyItems })],
+    },
+    /**
+    ==================================================================
+    PLACE-SELF: <'align-self'> <'justify-self'>?
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Place self',
+        matcher: 'Ps',
+        allowParamToValue: false,
+        styles: {
+            'place-self': '$0 $1',
+        },
+        arguments: [
+            sortKeys({
+                ...alignItems,
+                a: 'auto',
+            }),
+            sortKeys({
+                ...justifyItems,
+                a: 'auto',
+            }),
+        ],
+    },
+    /**
+    ==================================================================
     POINTER-EVENTS
     ==================================================================
     */
