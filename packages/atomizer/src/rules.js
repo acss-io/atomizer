@@ -2867,6 +2867,71 @@ module.exports = [
     },
     /**
     ==================================================================
+    PLACE-CONTENT
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Place content',
+        matcher: 'Pc',
+        allowParamToValue: false,
+        styles: {
+            'place-content': '$0 $1',
+        },
+        arguments: [
+            sortKeys({
+                ...baselinePosition,
+                ...contentDistribution,
+                ...contentPosition,
+            }),
+            sortKeys({
+                ...baselinePosition,
+                ...contentDistribution,
+                ...contentPosition,
+            }),
+        ],
+    },
+    /**
+    ==================================================================
+    PLACE-ITEMS
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Place items',
+        matcher: 'Pi',
+        allowParamToValue: false,
+        styles: {
+            'place-items': '$0 $1',
+        },
+        arguments: [sortKeys({ ...alignItems }), sortKeys({ ...alignItems })],
+    },
+    /**
+    ==================================================================
+    PLACE-SELF
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Place self',
+        matcher: 'Ps',
+        allowParamToValue: false,
+        styles: {
+            'place-self': '$0 $1',
+        },
+        arguments: [
+            sortKeys({
+                ...alignItems,
+                a: 'auto',
+            }),
+            sortKeys({
+                ...alignItems,
+                a: 'auto',
+            }),
+        ],
+    },
+    /**
+    ==================================================================
     POINTER-EVENTS
     ==================================================================
     */
