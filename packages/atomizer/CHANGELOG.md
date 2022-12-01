@@ -203,8 +203,7 @@ The `writing-mode` CSS property sets whether lines of text are laid out horizont
 
 #### Dependencies
 
-- 44515c1: chore(deps): bump minimatch from 4.2.1 to 5.1.1
-
+-   44515c1: chore(deps): bump minimatch from 4.2.1 to 5.1.1
 
 ## 3.22.0
 
