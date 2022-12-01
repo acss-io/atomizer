@@ -1,0 +1,9357 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rules -webkit-overflow-scrolling 1`] = `
+".Ovs\\(a\\) {
+  -webkit-overflow-scrolling: auto;
+}
+.Ovs\\(touch\\) {
+  -webkit-overflow-scrolling: touch;
+}
+"
+`;
+
+exports[`Rules accent-color 1`] = `
+".Acc\\(t\\) {
+  accent-color: transparent;
+}
+.Acc\\(cc\\) {
+  accent-color: currentColor;
+}
+.Acc\\(n\\) {
+  accent-color: none;
+}
+.Acc\\(aliceblue\\) {
+  accent-color: aliceblue;
+}
+.Acc\\(antiquewhite\\) {
+  accent-color: antiquewhite;
+}
+.Acc\\(aqua\\) {
+  accent-color: aqua;
+}
+.Acc\\(aquamarine\\) {
+  accent-color: aquamarine;
+}
+.Acc\\(azure\\) {
+  accent-color: azure;
+}
+.Acc\\(beige\\) {
+  accent-color: beige;
+}
+.Acc\\(bisque\\) {
+  accent-color: bisque;
+}
+.Acc\\(black\\) {
+  accent-color: black;
+}
+.Acc\\(blanchedalmond\\) {
+  accent-color: blanchedalmond;
+}
+.Acc\\(blue\\) {
+  accent-color: blue;
+}
+.Acc\\(blueviolet\\) {
+  accent-color: blueviolet;
+}
+.Acc\\(brown\\) {
+  accent-color: brown;
+}
+.Acc\\(burlywood\\) {
+  accent-color: burlywood;
+}
+.Acc\\(cadetblue\\) {
+  accent-color: cadetblue;
+}
+.Acc\\(chartreuse\\) {
+  accent-color: chartreuse;
+}
+.Acc\\(chocolate\\) {
+  accent-color: chocolate;
+}
+.Acc\\(coral\\) {
+  accent-color: coral;
+}
+.Acc\\(cornflowerblue\\) {
+  accent-color: cornflowerblue;
+}
+.Acc\\(cornsilk\\) {
+  accent-color: cornsilk;
+}
+.Acc\\(crimson\\) {
+  accent-color: crimson;
+}
+.Acc\\(cyan\\) {
+  accent-color: cyan;
+}
+.Acc\\(darkblue\\) {
+  accent-color: darkblue;
+}
+.Acc\\(darkcyan\\) {
+  accent-color: darkcyan;
+}
+.Acc\\(darkgoldenrod\\) {
+  accent-color: darkgoldenrod;
+}
+.Acc\\(darkgray\\) {
+  accent-color: darkgray;
+}
+.Acc\\(darkgreen\\) {
+  accent-color: darkgreen;
+}
+.Acc\\(darkgrey\\) {
+  accent-color: darkgrey;
+}
+.Acc\\(darkkhaki\\) {
+  accent-color: darkkhaki;
+}
+.Acc\\(darkmagenta\\) {
+  accent-color: darkmagenta;
+}
+.Acc\\(darkolivegreen\\) {
+  accent-color: darkolivegreen;
+}
+.Acc\\(darkorange\\) {
+  accent-color: darkorange;
+}
+.Acc\\(darkorchid\\) {
+  accent-color: darkorchid;
+}
+.Acc\\(darkred\\) {
+  accent-color: darkred;
+}
+.Acc\\(darksalmon\\) {
+  accent-color: darksalmon;
+}
+.Acc\\(darkseagreen\\) {
+  accent-color: darkseagreen;
+}
+.Acc\\(darkslateblue\\) {
+  accent-color: darkslateblue;
+}
+.Acc\\(darkslategray\\) {
+  accent-color: darkslategray;
+}
+.Acc\\(darkslategrey\\) {
+  accent-color: darkslategrey;
+}
+.Acc\\(darkturquoise\\) {
+  accent-color: darkturquoise;
+}
+.Acc\\(darkviolet\\) {
+  accent-color: darkviolet;
+}
+.Acc\\(deeppink\\) {
+  accent-color: deeppink;
+}
+.Acc\\(deepskyblue\\) {
+  accent-color: deepskyblue;
+}
+.Acc\\(dimgray\\) {
+  accent-color: dimgray;
+}
+.Acc\\(dimgrey\\) {
+  accent-color: dimgrey;
+}
+.Acc\\(dodgerblue\\) {
+  accent-color: dodgerblue;
+}
+.Acc\\(firebrick\\) {
+  accent-color: firebrick;
+}
+.Acc\\(floralwhite\\) {
+  accent-color: floralwhite;
+}
+.Acc\\(forestgreen\\) {
+  accent-color: forestgreen;
+}
+.Acc\\(fuchsia\\) {
+  accent-color: fuchsia;
+}
+.Acc\\(gainsboro\\) {
+  accent-color: gainsboro;
+}
+.Acc\\(ghostwhite\\) {
+  accent-color: ghostwhite;
+}
+.Acc\\(gold\\) {
+  accent-color: gold;
+}
+.Acc\\(goldenrod\\) {
+  accent-color: goldenrod;
+}
+.Acc\\(gray\\) {
+  accent-color: gray;
+}
+.Acc\\(green\\) {
+  accent-color: green;
+}
+.Acc\\(greenyellow\\) {
+  accent-color: greenyellow;
+}
+.Acc\\(grey\\) {
+  accent-color: grey;
+}
+.Acc\\(honeydew\\) {
+  accent-color: honeydew;
+}
+.Acc\\(hotpink\\) {
+  accent-color: hotpink;
+}
+.Acc\\(indianred\\) {
+  accent-color: indianred;
+}
+.Acc\\(indigo\\) {
+  accent-color: indigo;
+}
+.Acc\\(ivory\\) {
+  accent-color: ivory;
+}
+.Acc\\(khaki\\) {
+  accent-color: khaki;
+}
+.Acc\\(lavender\\) {
+  accent-color: lavender;
+}
+.Acc\\(lavenderblush\\) {
+  accent-color: lavenderblush;
+}
+.Acc\\(lawngreen\\) {
+  accent-color: lawngreen;
+}
+.Acc\\(lemonchiffon\\) {
+  accent-color: lemonchiffon;
+}
+.Acc\\(lightblue\\) {
+  accent-color: lightblue;
+}
+.Acc\\(lightcoral\\) {
+  accent-color: lightcoral;
+}
+.Acc\\(lightcyan\\) {
+  accent-color: lightcyan;
+}
+.Acc\\(lightgoldenrodyellow\\) {
+  accent-color: lightgoldenrodyellow;
+}
+.Acc\\(lightgray\\) {
+  accent-color: lightgray;
+}
+.Acc\\(lightgreen\\) {
+  accent-color: lightgreen;
+}
+.Acc\\(lightgrey\\) {
+  accent-color: lightgrey;
+}
+.Acc\\(lightpink\\) {
+  accent-color: lightpink;
+}
+.Acc\\(lightsalmon\\) {
+  accent-color: lightsalmon;
+}
+.Acc\\(lightseagreen\\) {
+  accent-color: lightseagreen;
+}
+.Acc\\(lightskyblue\\) {
+  accent-color: lightskyblue;
+}
+.Acc\\(lightslategray\\) {
+  accent-color: lightslategray;
+}
+.Acc\\(lightslategrey\\) {
+  accent-color: lightslategrey;
+}
+.Acc\\(lightsteelblue\\) {
+  accent-color: lightsteelblue;
+}
+.Acc\\(lightyellow\\) {
+  accent-color: lightyellow;
+}
+.Acc\\(lime\\) {
+  accent-color: lime;
+}
+.Acc\\(limegreen\\) {
+  accent-color: limegreen;
+}
+.Acc\\(linen\\) {
+  accent-color: linen;
+}
+.Acc\\(magenta\\) {
+  accent-color: magenta;
+}
+.Acc\\(maroon\\) {
+  accent-color: maroon;
+}
+.Acc\\(mediumaquamarine\\) {
+  accent-color: mediumaquamarine;
+}
+.Acc\\(mediumblue\\) {
+  accent-color: mediumblue;
+}
+.Acc\\(mediumorchid\\) {
+  accent-color: mediumorchid;
+}
+.Acc\\(mediumpurple\\) {
+  accent-color: mediumpurple;
+}
+.Acc\\(mediumseagreen\\) {
+  accent-color: mediumseagreen;
+}
+.Acc\\(mediumslateblue\\) {
+  accent-color: mediumslateblue;
+}
+.Acc\\(mediumspringgreen\\) {
+  accent-color: mediumspringgreen;
+}
+.Acc\\(mediumturquoise\\) {
+  accent-color: mediumturquoise;
+}
+.Acc\\(mediumvioletred\\) {
+  accent-color: mediumvioletred;
+}
+.Acc\\(midnightblue\\) {
+  accent-color: midnightblue;
+}
+.Acc\\(mintcream\\) {
+  accent-color: mintcream;
+}
+.Acc\\(mistyrose\\) {
+  accent-color: mistyrose;
+}
+.Acc\\(moccasin\\) {
+  accent-color: moccasin;
+}
+.Acc\\(navajowhite\\) {
+  accent-color: navajowhite;
+}
+.Acc\\(navy\\) {
+  accent-color: navy;
+}
+.Acc\\(oldlace\\) {
+  accent-color: oldlace;
+}
+.Acc\\(olive\\) {
+  accent-color: olive;
+}
+.Acc\\(olivedrab\\) {
+  accent-color: olivedrab;
+}
+.Acc\\(orange\\) {
+  accent-color: orange;
+}
+.Acc\\(orangered\\) {
+  accent-color: orangered;
+}
+.Acc\\(orchid\\) {
+  accent-color: orchid;
+}
+.Acc\\(palegoldenrod\\) {
+  accent-color: palegoldenrod;
+}
+.Acc\\(palegreen\\) {
+  accent-color: palegreen;
+}
+.Acc\\(paleturquoise\\) {
+  accent-color: paleturquoise;
+}
+.Acc\\(palevioletred\\) {
+  accent-color: palevioletred;
+}
+.Acc\\(papayawhip\\) {
+  accent-color: papayawhip;
+}
+.Acc\\(peachpuff\\) {
+  accent-color: peachpuff;
+}
+.Acc\\(peru\\) {
+  accent-color: peru;
+}
+.Acc\\(pink\\) {
+  accent-color: pink;
+}
+.Acc\\(plum\\) {
+  accent-color: plum;
+}
+.Acc\\(powderblue\\) {
+  accent-color: powderblue;
+}
+.Acc\\(purple\\) {
+  accent-color: purple;
+}
+.Acc\\(red\\) {
+  accent-color: red;
+}
+.Acc\\(rosybrown\\) {
+  accent-color: rosybrown;
+}
+.Acc\\(royalblue\\) {
+  accent-color: royalblue;
+}
+.Acc\\(saddlebrown\\) {
+  accent-color: saddlebrown;
+}
+.Acc\\(salmon\\) {
+  accent-color: salmon;
+}
+.Acc\\(sandybrown\\) {
+  accent-color: sandybrown;
+}
+.Acc\\(seagreen\\) {
+  accent-color: seagreen;
+}
+.Acc\\(seashell\\) {
+  accent-color: seashell;
+}
+.Acc\\(sienna\\) {
+  accent-color: sienna;
+}
+.Acc\\(silver\\) {
+  accent-color: silver;
+}
+.Acc\\(skyblue\\) {
+  accent-color: skyblue;
+}
+.Acc\\(slateblue\\) {
+  accent-color: slateblue;
+}
+.Acc\\(slategray\\) {
+  accent-color: slategray;
+}
+.Acc\\(slategrey\\) {
+  accent-color: slategrey;
+}
+.Acc\\(snow\\) {
+  accent-color: snow;
+}
+.Acc\\(springgreen\\) {
+  accent-color: springgreen;
+}
+.Acc\\(steelblue\\) {
+  accent-color: steelblue;
+}
+.Acc\\(tan\\) {
+  accent-color: tan;
+}
+.Acc\\(teal\\) {
+  accent-color: teal;
+}
+.Acc\\(thistle\\) {
+  accent-color: thistle;
+}
+.Acc\\(tomato\\) {
+  accent-color: tomato;
+}
+.Acc\\(turquoise\\) {
+  accent-color: turquoise;
+}
+.Acc\\(violet\\) {
+  accent-color: violet;
+}
+.Acc\\(wheat\\) {
+  accent-color: wheat;
+}
+.Acc\\(white\\) {
+  accent-color: white;
+}
+.Acc\\(whitesmoke\\) {
+  accent-color: whitesmoke;
+}
+.Acc\\(yellow\\) {
+  accent-color: yellow;
+}
+.Acc\\(yellowgreen\\) {
+  accent-color: yellowgreen;
+}
+"
+`;
+
+exports[`Rules align-content 1`] = `
+".Ac\\(b\\) {
+  align-content: baseline;
+}
+.Ac\\(c\\) {
+  align-content: center;
+}
+.Ac\\(e\\) {
+  align-content: end;
+}
+.Ac\\(fe\\) {
+  align-content: flex-end;
+}
+.Ac\\(fs\\) {
+  align-content: flex-start;
+}
+.Ac\\(n\\) {
+  align-content: normal;
+}
+.Ac\\(s\\) {
+  align-content: start;
+}
+.Ac\\(sa\\) {
+  align-content: space-around;
+}
+.Ac\\(sb\\) {
+  align-content: space-between;
+}
+.Ac\\(se\\) {
+  align-content: space-evenly;
+}
+.Ac\\(st\\) {
+  align-content: stretch;
+}
+"
+`;
+
+exports[`Rules align-items 1`] = `
+".Ai\\(b\\) {
+  align-items: baseline;
+}
+.Ai\\(c\\) {
+  align-items: center;
+}
+.Ai\\(e\\) {
+  align-items: end;
+}
+.Ai\\(fe\\) {
+  align-items: flex-end;
+}
+.Ai\\(fs\\) {
+  align-items: flex-start;
+}
+.Ai\\(n\\) {
+  align-items: normal;
+}
+.Ai\\(s\\) {
+  align-items: start;
+}
+.Ai\\(se\\) {
+  align-items: self-end;
+}
+.Ai\\(ss\\) {
+  align-items: self-start;
+}
+.Ai\\(st\\) {
+  align-items: stretch;
+}
+"
+`;
+
+exports[`Rules align-self 1`] = `
+".As\\(a\\) {
+  align-self: auto;
+}
+.As\\(b\\) {
+  align-self: baseline;
+}
+.As\\(c\\) {
+  align-self: center;
+}
+.As\\(e\\) {
+  align-self: end;
+}
+.As\\(fe\\) {
+  align-self: flex-end;
+}
+.As\\(fs\\) {
+  align-self: flex-start;
+}
+.As\\(n\\) {
+  align-self: normal;
+}
+.As\\(s\\) {
+  align-self: start;
+}
+.As\\(se\\) {
+  align-self: self-end;
+}
+.As\\(ss\\) {
+  align-self: self-start;
+}
+.As\\(st\\) {
+  align-self: stretch;
+}
+"
+`;
+
+exports[`Rules animation 1`] = `
+".Anim\\(1px\\) {
+  animation: 1px;
+}
+"
+`;
+
+exports[`Rules animation-delay 1`] = `
+".Animdel\\(1px\\) {
+  animation-delay: 1px;
+}
+"
+`;
+
+exports[`Rules animation-direction 1`] = `
+".Animdir\\(a\\) {
+  animation-direction: alternate;
+}
+.Animdir\\(ar\\) {
+  animation-direction: alternate-reverse;
+}
+.Animdir\\(n\\) {
+  animation-direction: normal;
+}
+.Animdir\\(r\\) {
+  animation-direction: reverse;
+}
+"
+`;
+
+exports[`Rules animation-duration 1`] = `
+".Animdur\\(1px\\) {
+  animation-duration: 1px;
+}
+"
+`;
+
+exports[`Rules animation-fill-mode 1`] = `
+".Animfm\\(b\\) {
+  animation-fill-mode: backwards;
+}
+.Animfm\\(bo\\) {
+  animation-fill-mode: both;
+}
+.Animfm\\(f\\) {
+  animation-fill-mode: forwards;
+}
+.Animfm\\(n\\) {
+  animation-fill-mode: none;
+}
+"
+`;
+
+exports[`Rules animation-iteration-count 1`] = `
+".Animic\\(i\\) {
+  animation-iteration-count: infinite;
+}
+.Animic\\(1px\\) {
+  animation-iteration-count: 1px;
+}
+"
+`;
+
+exports[`Rules animation-name 1`] = `
+".Animn\\(n\\) {
+  animation-name: none;
+}
+.Animn\\(1px\\) {
+  animation-name: 1px;
+}
+"
+`;
+
+exports[`Rules animation-play-state 1`] = `
+".Animps\\(p\\) {
+  animation-play-state: paused;
+}
+.Animps\\(r\\) {
+  animation-play-state: running;
+}
+"
+`;
+
+exports[`Rules animation-timing-function 1`] = `
+".Animtf\\(e\\) {
+  animation-timing-function: ease;
+}
+.Animtf\\(ei\\) {
+  animation-timing-function: ease-in;
+}
+.Animtf\\(eo\\) {
+  animation-timing-function: ease-out;
+}
+.Animtf\\(eio\\) {
+  animation-timing-function: ease-in-out;
+}
+.Animtf\\(l\\) {
+  animation-timing-function: linear;
+}
+.Animtf\\(se\\) {
+  animation-timing-function: step-end;
+}
+.Animtf\\(ss\\) {
+  animation-timing-function: step-start;
+}
+"
+`;
+
+exports[`Rules appearance 1`] = `
+".Ap\\(a\\) {
+  appearance: auto;
+}
+.Ap\\(n\\) {
+  appearance: none;
+}
+"
+`;
+
+exports[`Rules aspect-ratio 1`] = `
+".Ar\\(1\\/1\\) {
+  aspect-ratio: 1/1;
+}
+"
+`;
+
+exports[`Rules backface-visibility 1`] = `
+".Bfv\\(h\\) {
+  backface-visibility: hidden;
+}
+.Bfv\\(v\\) {
+  backface-visibility: visible;
+}
+"
+`;
+
+exports[`Rules background 1`] = `
+".Bg\\(n\\) {
+  background: none;
+}
+.Bg\\(t\\) {
+  background: transparent;
+}
+"
+`;
+
+exports[`Rules background-attachment 1`] = `
+".Bga\\(f\\) {
+  background-attachment: fixed;
+}
+.Bga\\(l\\) {
+  background-attachment: local;
+}
+.Bga\\(s\\) {
+  background-attachment: scroll;
+}
+"
+`;
+
+exports[`Rules background-blend-mode 1`] = `
+".Bgbm\\(c\\) {
+  background-blend-mode: color;
+}
+.Bgbm\\(cb\\) {
+  background-blend-mode: color-burn;
+}
+.Bgbm\\(cd\\) {
+  background-blend-mode: color-dodge;
+}
+.Bgbm\\(d\\) {
+  background-blend-mode: darken;
+}
+.Bgbm\\(di\\) {
+  background-blend-mode: difference;
+}
+.Bgbm\\(e\\) {
+  background-blend-mode: exclusion;
+}
+.Bgbm\\(h\\) {
+  background-blend-mode: hue;
+}
+.Bgbm\\(hl\\) {
+  background-blend-mode: hard-light;
+}
+.Bgbm\\(l\\) {
+  background-blend-mode: lighten;
+}
+.Bgbm\\(lu\\) {
+  background-blend-mode: luminosity;
+}
+.Bgbm\\(m\\) {
+  background-blend-mode: multiply;
+}
+.Bgbm\\(n\\) {
+  background-blend-mode: normal;
+}
+.Bgbm\\(o\\) {
+  background-blend-mode: overlay;
+}
+.Bgbm\\(s\\) {
+  background-blend-mode: saturation;
+}
+.Bgbm\\(sc\\) {
+  background-blend-mode: screen;
+}
+.Bgbm\\(sl\\) {
+  background-blend-mode: soft-light;
+}
+.Bgbm\\(pd\\) {
+  background-blend-mode: plus-darker;
+}
+.Bgbm\\(pl\\) {
+  background-blend-mode: plus-lighter;
+}
+"
+`;
+
+exports[`Rules background-clip 1`] = `
+".Bgcp\\(bb\\) {
+  background-clip: border-box;
+}
+.Bgcp\\(cb\\) {
+  background-clip: content-box;
+}
+.Bgcp\\(pb\\) {
+  background-clip: padding-box;
+}
+"
+`;
+
+exports[`Rules background-color 1`] = `
+".Bgc\\(t\\) {
+  background-color: transparent;
+}
+.Bgc\\(cc\\) {
+  background-color: currentColor;
+}
+.Bgc\\(n\\) {
+  background-color: none;
+}
+.Bgc\\(aliceblue\\) {
+  background-color: aliceblue;
+}
+.Bgc\\(antiquewhite\\) {
+  background-color: antiquewhite;
+}
+.Bgc\\(aqua\\) {
+  background-color: aqua;
+}
+.Bgc\\(aquamarine\\) {
+  background-color: aquamarine;
+}
+.Bgc\\(azure\\) {
+  background-color: azure;
+}
+.Bgc\\(beige\\) {
+  background-color: beige;
+}
+.Bgc\\(bisque\\) {
+  background-color: bisque;
+}
+.Bgc\\(black\\) {
+  background-color: black;
+}
+.Bgc\\(blanchedalmond\\) {
+  background-color: blanchedalmond;
+}
+.Bgc\\(blue\\) {
+  background-color: blue;
+}
+.Bgc\\(blueviolet\\) {
+  background-color: blueviolet;
+}
+.Bgc\\(brown\\) {
+  background-color: brown;
+}
+.Bgc\\(burlywood\\) {
+  background-color: burlywood;
+}
+.Bgc\\(cadetblue\\) {
+  background-color: cadetblue;
+}
+.Bgc\\(chartreuse\\) {
+  background-color: chartreuse;
+}
+.Bgc\\(chocolate\\) {
+  background-color: chocolate;
+}
+.Bgc\\(coral\\) {
+  background-color: coral;
+}
+.Bgc\\(cornflowerblue\\) {
+  background-color: cornflowerblue;
+}
+.Bgc\\(cornsilk\\) {
+  background-color: cornsilk;
+}
+.Bgc\\(crimson\\) {
+  background-color: crimson;
+}
+.Bgc\\(cyan\\) {
+  background-color: cyan;
+}
+.Bgc\\(darkblue\\) {
+  background-color: darkblue;
+}
+.Bgc\\(darkcyan\\) {
+  background-color: darkcyan;
+}
+.Bgc\\(darkgoldenrod\\) {
+  background-color: darkgoldenrod;
+}
+.Bgc\\(darkgray\\) {
+  background-color: darkgray;
+}
+.Bgc\\(darkgreen\\) {
+  background-color: darkgreen;
+}
+.Bgc\\(darkgrey\\) {
+  background-color: darkgrey;
+}
+.Bgc\\(darkkhaki\\) {
+  background-color: darkkhaki;
+}
+.Bgc\\(darkmagenta\\) {
+  background-color: darkmagenta;
+}
+.Bgc\\(darkolivegreen\\) {
+  background-color: darkolivegreen;
+}
+.Bgc\\(darkorange\\) {
+  background-color: darkorange;
+}
+.Bgc\\(darkorchid\\) {
+  background-color: darkorchid;
+}
+.Bgc\\(darkred\\) {
+  background-color: darkred;
+}
+.Bgc\\(darksalmon\\) {
+  background-color: darksalmon;
+}
+.Bgc\\(darkseagreen\\) {
+  background-color: darkseagreen;
+}
+.Bgc\\(darkslateblue\\) {
+  background-color: darkslateblue;
+}
+.Bgc\\(darkslategray\\) {
+  background-color: darkslategray;
+}
+.Bgc\\(darkslategrey\\) {
+  background-color: darkslategrey;
+}
+.Bgc\\(darkturquoise\\) {
+  background-color: darkturquoise;
+}
+.Bgc\\(darkviolet\\) {
+  background-color: darkviolet;
+}
+.Bgc\\(deeppink\\) {
+  background-color: deeppink;
+}
+.Bgc\\(deepskyblue\\) {
+  background-color: deepskyblue;
+}
+.Bgc\\(dimgray\\) {
+  background-color: dimgray;
+}
+.Bgc\\(dimgrey\\) {
+  background-color: dimgrey;
+}
+.Bgc\\(dodgerblue\\) {
+  background-color: dodgerblue;
+}
+.Bgc\\(firebrick\\) {
+  background-color: firebrick;
+}
+.Bgc\\(floralwhite\\) {
+  background-color: floralwhite;
+}
+.Bgc\\(forestgreen\\) {
+  background-color: forestgreen;
+}
+.Bgc\\(fuchsia\\) {
+  background-color: fuchsia;
+}
+.Bgc\\(gainsboro\\) {
+  background-color: gainsboro;
+}
+.Bgc\\(ghostwhite\\) {
+  background-color: ghostwhite;
+}
+.Bgc\\(gold\\) {
+  background-color: gold;
+}
+.Bgc\\(goldenrod\\) {
+  background-color: goldenrod;
+}
+.Bgc\\(gray\\) {
+  background-color: gray;
+}
+.Bgc\\(green\\) {
+  background-color: green;
+}
+.Bgc\\(greenyellow\\) {
+  background-color: greenyellow;
+}
+.Bgc\\(grey\\) {
+  background-color: grey;
+}
+.Bgc\\(honeydew\\) {
+  background-color: honeydew;
+}
+.Bgc\\(hotpink\\) {
+  background-color: hotpink;
+}
+.Bgc\\(indianred\\) {
+  background-color: indianred;
+}
+.Bgc\\(indigo\\) {
+  background-color: indigo;
+}
+.Bgc\\(ivory\\) {
+  background-color: ivory;
+}
+.Bgc\\(khaki\\) {
+  background-color: khaki;
+}
+.Bgc\\(lavender\\) {
+  background-color: lavender;
+}
+.Bgc\\(lavenderblush\\) {
+  background-color: lavenderblush;
+}
+.Bgc\\(lawngreen\\) {
+  background-color: lawngreen;
+}
+.Bgc\\(lemonchiffon\\) {
+  background-color: lemonchiffon;
+}
+.Bgc\\(lightblue\\) {
+  background-color: lightblue;
+}
+.Bgc\\(lightcoral\\) {
+  background-color: lightcoral;
+}
+.Bgc\\(lightcyan\\) {
+  background-color: lightcyan;
+}
+.Bgc\\(lightgoldenrodyellow\\) {
+  background-color: lightgoldenrodyellow;
+}
+.Bgc\\(lightgray\\) {
+  background-color: lightgray;
+}
+.Bgc\\(lightgreen\\) {
+  background-color: lightgreen;
+}
+.Bgc\\(lightgrey\\) {
+  background-color: lightgrey;
+}
+.Bgc\\(lightpink\\) {
+  background-color: lightpink;
+}
+.Bgc\\(lightsalmon\\) {
+  background-color: lightsalmon;
+}
+.Bgc\\(lightseagreen\\) {
+  background-color: lightseagreen;
+}
+.Bgc\\(lightskyblue\\) {
+  background-color: lightskyblue;
+}
+.Bgc\\(lightslategray\\) {
+  background-color: lightslategray;
+}
+.Bgc\\(lightslategrey\\) {
+  background-color: lightslategrey;
+}
+.Bgc\\(lightsteelblue\\) {
+  background-color: lightsteelblue;
+}
+.Bgc\\(lightyellow\\) {
+  background-color: lightyellow;
+}
+.Bgc\\(lime\\) {
+  background-color: lime;
+}
+.Bgc\\(limegreen\\) {
+  background-color: limegreen;
+}
+.Bgc\\(linen\\) {
+  background-color: linen;
+}
+.Bgc\\(magenta\\) {
+  background-color: magenta;
+}
+.Bgc\\(maroon\\) {
+  background-color: maroon;
+}
+.Bgc\\(mediumaquamarine\\) {
+  background-color: mediumaquamarine;
+}
+.Bgc\\(mediumblue\\) {
+  background-color: mediumblue;
+}
+.Bgc\\(mediumorchid\\) {
+  background-color: mediumorchid;
+}
+.Bgc\\(mediumpurple\\) {
+  background-color: mediumpurple;
+}
+.Bgc\\(mediumseagreen\\) {
+  background-color: mediumseagreen;
+}
+.Bgc\\(mediumslateblue\\) {
+  background-color: mediumslateblue;
+}
+.Bgc\\(mediumspringgreen\\) {
+  background-color: mediumspringgreen;
+}
+.Bgc\\(mediumturquoise\\) {
+  background-color: mediumturquoise;
+}
+.Bgc\\(mediumvioletred\\) {
+  background-color: mediumvioletred;
+}
+.Bgc\\(midnightblue\\) {
+  background-color: midnightblue;
+}
+.Bgc\\(mintcream\\) {
+  background-color: mintcream;
+}
+.Bgc\\(mistyrose\\) {
+  background-color: mistyrose;
+}
+.Bgc\\(moccasin\\) {
+  background-color: moccasin;
+}
+.Bgc\\(navajowhite\\) {
+  background-color: navajowhite;
+}
+.Bgc\\(navy\\) {
+  background-color: navy;
+}
+.Bgc\\(oldlace\\) {
+  background-color: oldlace;
+}
+.Bgc\\(olive\\) {
+  background-color: olive;
+}
+.Bgc\\(olivedrab\\) {
+  background-color: olivedrab;
+}
+.Bgc\\(orange\\) {
+  background-color: orange;
+}
+.Bgc\\(orangered\\) {
+  background-color: orangered;
+}
+.Bgc\\(orchid\\) {
+  background-color: orchid;
+}
+.Bgc\\(palegoldenrod\\) {
+  background-color: palegoldenrod;
+}
+.Bgc\\(palegreen\\) {
+  background-color: palegreen;
+}
+.Bgc\\(paleturquoise\\) {
+  background-color: paleturquoise;
+}
+.Bgc\\(palevioletred\\) {
+  background-color: palevioletred;
+}
+.Bgc\\(papayawhip\\) {
+  background-color: papayawhip;
+}
+.Bgc\\(peachpuff\\) {
+  background-color: peachpuff;
+}
+.Bgc\\(peru\\) {
+  background-color: peru;
+}
+.Bgc\\(pink\\) {
+  background-color: pink;
+}
+.Bgc\\(plum\\) {
+  background-color: plum;
+}
+.Bgc\\(powderblue\\) {
+  background-color: powderblue;
+}
+.Bgc\\(purple\\) {
+  background-color: purple;
+}
+.Bgc\\(red\\) {
+  background-color: red;
+}
+.Bgc\\(rosybrown\\) {
+  background-color: rosybrown;
+}
+.Bgc\\(royalblue\\) {
+  background-color: royalblue;
+}
+.Bgc\\(saddlebrown\\) {
+  background-color: saddlebrown;
+}
+.Bgc\\(salmon\\) {
+  background-color: salmon;
+}
+.Bgc\\(sandybrown\\) {
+  background-color: sandybrown;
+}
+.Bgc\\(seagreen\\) {
+  background-color: seagreen;
+}
+.Bgc\\(seashell\\) {
+  background-color: seashell;
+}
+.Bgc\\(sienna\\) {
+  background-color: sienna;
+}
+.Bgc\\(silver\\) {
+  background-color: silver;
+}
+.Bgc\\(skyblue\\) {
+  background-color: skyblue;
+}
+.Bgc\\(slateblue\\) {
+  background-color: slateblue;
+}
+.Bgc\\(slategray\\) {
+  background-color: slategray;
+}
+.Bgc\\(slategrey\\) {
+  background-color: slategrey;
+}
+.Bgc\\(snow\\) {
+  background-color: snow;
+}
+.Bgc\\(springgreen\\) {
+  background-color: springgreen;
+}
+.Bgc\\(steelblue\\) {
+  background-color: steelblue;
+}
+.Bgc\\(tan\\) {
+  background-color: tan;
+}
+.Bgc\\(teal\\) {
+  background-color: teal;
+}
+.Bgc\\(thistle\\) {
+  background-color: thistle;
+}
+.Bgc\\(tomato\\) {
+  background-color: tomato;
+}
+.Bgc\\(turquoise\\) {
+  background-color: turquoise;
+}
+.Bgc\\(violet\\) {
+  background-color: violet;
+}
+.Bgc\\(wheat\\) {
+  background-color: wheat;
+}
+.Bgc\\(white\\) {
+  background-color: white;
+}
+.Bgc\\(whitesmoke\\) {
+  background-color: whitesmoke;
+}
+.Bgc\\(yellow\\) {
+  background-color: yellow;
+}
+.Bgc\\(yellowgreen\\) {
+  background-color: yellowgreen;
+}
+.Bgc\\(1px\\) {
+  background-color: 1px;
+}
+"
+`;
+
+exports[`Rules background-image 1`] = `
+".Bgi\\(n\\) {
+  background-image: none;
+}
+"
+`;
+
+exports[`Rules background-origin 1`] = `
+".Bgo\\(bb\\) {
+  background-origin: border-box;
+}
+.Bgo\\(cb\\) {
+  background-origin: content-box;
+}
+.Bgo\\(pb\\) {
+  background-origin: padding-box;
+}
+"
+`;
+
+exports[`Rules background-position 1`] = `
+".Bgp\\(start_t\\) {
+  background-position: left 0;
+}
+.Bgp\\(end_t\\) {
+  background-position: right 0;
+}
+.Bgp\\(start_b\\) {
+  background-position: left 100%;
+}
+.Bgp\\(end_b\\) {
+  background-position: right 100%;
+}
+.Bgp\\(start_c\\) {
+  background-position: left center;
+}
+.Bgp\\(end_c\\) {
+  background-position: right center;
+}
+.Bgp\\(c_b\\) {
+  background-position: center 100%;
+}
+.Bgp\\(c_t\\) {
+  background-position: center 0;
+}
+.Bgp\\(c\\) {
+  background-position: center;
+}
+.Bgp\\(1px\\) {
+  background-position: 1px;
+}
+"
+`;
+
+exports[`Rules background-position-x 1`] = `
+".Bgpx\\(start\\) {
+  background-position-x: left;
+}
+.Bgpx\\(end\\) {
+  background-position-x: right;
+}
+.Bgpx\\(c\\) {
+  background-position-x: 50%;
+}
+.Bgpx\\(1px\\) {
+  background-position-x: 1px;
+}
+"
+`;
+
+exports[`Rules background-position-y 1`] = `
+".Bgpy\\(t\\) {
+  background-position-y: 0;
+}
+.Bgpy\\(b\\) {
+  background-position-y: 100%;
+}
+.Bgpy\\(c\\) {
+  background-position-y: 50%;
+}
+.Bgpy\\(1px\\) {
+  background-position-y: 1px;
+}
+"
+`;
+
+exports[`Rules background-repeat 1`] = `
+".Bgr\\(nr\\) {
+  background-repeat: no-repeat;
+}
+.Bgr\\(rx\\) {
+  background-repeat: repeat-x;
+}
+.Bgr\\(ry\\) {
+  background-repeat: repeat-y;
+}
+.Bgr\\(r\\) {
+  background-repeat: repeat;
+}
+.Bgr\\(s\\) {
+  background-repeat: space;
+}
+.Bgr\\(ro\\) {
+  background-repeat: round;
+}
+"
+`;
+
+exports[`Rules background-size 1`] = `
+".Bgz\\(a\\) {
+  background-size: auto;
+}
+.Bgz\\(ct\\) {
+  background-size: contain;
+}
+.Bgz\\(cv\\) {
+  background-size: cover;
+}
+.Bgz\\(1px\\) {
+  background-size: 1px;
+}
+"
+`;
+
+exports[`Rules border 1`] = `
+".Bd\\(0\\) {
+  border: 0;
+}
+.Bd\\(n\\) {
+  border: none;
+}
+"
+`;
+
+exports[`Rules border-bottom 1`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-bottom 2`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-bottom-color 1`] = `
+".Bdbc\\(t\\) {
+  border-bottom-color: transparent;
+}
+.Bdbc\\(cc\\) {
+  border-bottom-color: currentColor;
+}
+.Bdbc\\(n\\) {
+  border-bottom-color: none;
+}
+.Bdbc\\(aliceblue\\) {
+  border-bottom-color: aliceblue;
+}
+.Bdbc\\(antiquewhite\\) {
+  border-bottom-color: antiquewhite;
+}
+.Bdbc\\(aqua\\) {
+  border-bottom-color: aqua;
+}
+.Bdbc\\(aquamarine\\) {
+  border-bottom-color: aquamarine;
+}
+.Bdbc\\(azure\\) {
+  border-bottom-color: azure;
+}
+.Bdbc\\(beige\\) {
+  border-bottom-color: beige;
+}
+.Bdbc\\(bisque\\) {
+  border-bottom-color: bisque;
+}
+.Bdbc\\(black\\) {
+  border-bottom-color: black;
+}
+.Bdbc\\(blanchedalmond\\) {
+  border-bottom-color: blanchedalmond;
+}
+.Bdbc\\(blue\\) {
+  border-bottom-color: blue;
+}
+.Bdbc\\(blueviolet\\) {
+  border-bottom-color: blueviolet;
+}
+.Bdbc\\(brown\\) {
+  border-bottom-color: brown;
+}
+.Bdbc\\(burlywood\\) {
+  border-bottom-color: burlywood;
+}
+.Bdbc\\(cadetblue\\) {
+  border-bottom-color: cadetblue;
+}
+.Bdbc\\(chartreuse\\) {
+  border-bottom-color: chartreuse;
+}
+.Bdbc\\(chocolate\\) {
+  border-bottom-color: chocolate;
+}
+.Bdbc\\(coral\\) {
+  border-bottom-color: coral;
+}
+.Bdbc\\(cornflowerblue\\) {
+  border-bottom-color: cornflowerblue;
+}
+.Bdbc\\(cornsilk\\) {
+  border-bottom-color: cornsilk;
+}
+.Bdbc\\(crimson\\) {
+  border-bottom-color: crimson;
+}
+.Bdbc\\(cyan\\) {
+  border-bottom-color: cyan;
+}
+.Bdbc\\(darkblue\\) {
+  border-bottom-color: darkblue;
+}
+.Bdbc\\(darkcyan\\) {
+  border-bottom-color: darkcyan;
+}
+.Bdbc\\(darkgoldenrod\\) {
+  border-bottom-color: darkgoldenrod;
+}
+.Bdbc\\(darkgray\\) {
+  border-bottom-color: darkgray;
+}
+.Bdbc\\(darkgreen\\) {
+  border-bottom-color: darkgreen;
+}
+.Bdbc\\(darkgrey\\) {
+  border-bottom-color: darkgrey;
+}
+.Bdbc\\(darkkhaki\\) {
+  border-bottom-color: darkkhaki;
+}
+.Bdbc\\(darkmagenta\\) {
+  border-bottom-color: darkmagenta;
+}
+.Bdbc\\(darkolivegreen\\) {
+  border-bottom-color: darkolivegreen;
+}
+.Bdbc\\(darkorange\\) {
+  border-bottom-color: darkorange;
+}
+.Bdbc\\(darkorchid\\) {
+  border-bottom-color: darkorchid;
+}
+.Bdbc\\(darkred\\) {
+  border-bottom-color: darkred;
+}
+.Bdbc\\(darksalmon\\) {
+  border-bottom-color: darksalmon;
+}
+.Bdbc\\(darkseagreen\\) {
+  border-bottom-color: darkseagreen;
+}
+.Bdbc\\(darkslateblue\\) {
+  border-bottom-color: darkslateblue;
+}
+.Bdbc\\(darkslategray\\) {
+  border-bottom-color: darkslategray;
+}
+.Bdbc\\(darkslategrey\\) {
+  border-bottom-color: darkslategrey;
+}
+.Bdbc\\(darkturquoise\\) {
+  border-bottom-color: darkturquoise;
+}
+.Bdbc\\(darkviolet\\) {
+  border-bottom-color: darkviolet;
+}
+.Bdbc\\(deeppink\\) {
+  border-bottom-color: deeppink;
+}
+.Bdbc\\(deepskyblue\\) {
+  border-bottom-color: deepskyblue;
+}
+.Bdbc\\(dimgray\\) {
+  border-bottom-color: dimgray;
+}
+.Bdbc\\(dimgrey\\) {
+  border-bottom-color: dimgrey;
+}
+.Bdbc\\(dodgerblue\\) {
+  border-bottom-color: dodgerblue;
+}
+.Bdbc\\(firebrick\\) {
+  border-bottom-color: firebrick;
+}
+.Bdbc\\(floralwhite\\) {
+  border-bottom-color: floralwhite;
+}
+.Bdbc\\(forestgreen\\) {
+  border-bottom-color: forestgreen;
+}
+.Bdbc\\(fuchsia\\) {
+  border-bottom-color: fuchsia;
+}
+.Bdbc\\(gainsboro\\) {
+  border-bottom-color: gainsboro;
+}
+.Bdbc\\(ghostwhite\\) {
+  border-bottom-color: ghostwhite;
+}
+.Bdbc\\(gold\\) {
+  border-bottom-color: gold;
+}
+.Bdbc\\(goldenrod\\) {
+  border-bottom-color: goldenrod;
+}
+.Bdbc\\(gray\\) {
+  border-bottom-color: gray;
+}
+.Bdbc\\(green\\) {
+  border-bottom-color: green;
+}
+.Bdbc\\(greenyellow\\) {
+  border-bottom-color: greenyellow;
+}
+.Bdbc\\(grey\\) {
+  border-bottom-color: grey;
+}
+.Bdbc\\(honeydew\\) {
+  border-bottom-color: honeydew;
+}
+.Bdbc\\(hotpink\\) {
+  border-bottom-color: hotpink;
+}
+.Bdbc\\(indianred\\) {
+  border-bottom-color: indianred;
+}
+.Bdbc\\(indigo\\) {
+  border-bottom-color: indigo;
+}
+.Bdbc\\(ivory\\) {
+  border-bottom-color: ivory;
+}
+.Bdbc\\(khaki\\) {
+  border-bottom-color: khaki;
+}
+.Bdbc\\(lavender\\) {
+  border-bottom-color: lavender;
+}
+.Bdbc\\(lavenderblush\\) {
+  border-bottom-color: lavenderblush;
+}
+.Bdbc\\(lawngreen\\) {
+  border-bottom-color: lawngreen;
+}
+.Bdbc\\(lemonchiffon\\) {
+  border-bottom-color: lemonchiffon;
+}
+.Bdbc\\(lightblue\\) {
+  border-bottom-color: lightblue;
+}
+.Bdbc\\(lightcoral\\) {
+  border-bottom-color: lightcoral;
+}
+.Bdbc\\(lightcyan\\) {
+  border-bottom-color: lightcyan;
+}
+.Bdbc\\(lightgoldenrodyellow\\) {
+  border-bottom-color: lightgoldenrodyellow;
+}
+.Bdbc\\(lightgray\\) {
+  border-bottom-color: lightgray;
+}
+.Bdbc\\(lightgreen\\) {
+  border-bottom-color: lightgreen;
+}
+.Bdbc\\(lightgrey\\) {
+  border-bottom-color: lightgrey;
+}
+.Bdbc\\(lightpink\\) {
+  border-bottom-color: lightpink;
+}
+.Bdbc\\(lightsalmon\\) {
+  border-bottom-color: lightsalmon;
+}
+.Bdbc\\(lightseagreen\\) {
+  border-bottom-color: lightseagreen;
+}
+.Bdbc\\(lightskyblue\\) {
+  border-bottom-color: lightskyblue;
+}
+.Bdbc\\(lightslategray\\) {
+  border-bottom-color: lightslategray;
+}
+.Bdbc\\(lightslategrey\\) {
+  border-bottom-color: lightslategrey;
+}
+.Bdbc\\(lightsteelblue\\) {
+  border-bottom-color: lightsteelblue;
+}
+.Bdbc\\(lightyellow\\) {
+  border-bottom-color: lightyellow;
+}
+.Bdbc\\(lime\\) {
+  border-bottom-color: lime;
+}
+.Bdbc\\(limegreen\\) {
+  border-bottom-color: limegreen;
+}
+.Bdbc\\(linen\\) {
+  border-bottom-color: linen;
+}
+.Bdbc\\(magenta\\) {
+  border-bottom-color: magenta;
+}
+.Bdbc\\(maroon\\) {
+  border-bottom-color: maroon;
+}
+.Bdbc\\(mediumaquamarine\\) {
+  border-bottom-color: mediumaquamarine;
+}
+.Bdbc\\(mediumblue\\) {
+  border-bottom-color: mediumblue;
+}
+.Bdbc\\(mediumorchid\\) {
+  border-bottom-color: mediumorchid;
+}
+.Bdbc\\(mediumpurple\\) {
+  border-bottom-color: mediumpurple;
+}
+.Bdbc\\(mediumseagreen\\) {
+  border-bottom-color: mediumseagreen;
+}
+.Bdbc\\(mediumslateblue\\) {
+  border-bottom-color: mediumslateblue;
+}
+.Bdbc\\(mediumspringgreen\\) {
+  border-bottom-color: mediumspringgreen;
+}
+.Bdbc\\(mediumturquoise\\) {
+  border-bottom-color: mediumturquoise;
+}
+.Bdbc\\(mediumvioletred\\) {
+  border-bottom-color: mediumvioletred;
+}
+.Bdbc\\(midnightblue\\) {
+  border-bottom-color: midnightblue;
+}
+.Bdbc\\(mintcream\\) {
+  border-bottom-color: mintcream;
+}
+.Bdbc\\(mistyrose\\) {
+  border-bottom-color: mistyrose;
+}
+.Bdbc\\(moccasin\\) {
+  border-bottom-color: moccasin;
+}
+.Bdbc\\(navajowhite\\) {
+  border-bottom-color: navajowhite;
+}
+.Bdbc\\(navy\\) {
+  border-bottom-color: navy;
+}
+.Bdbc\\(oldlace\\) {
+  border-bottom-color: oldlace;
+}
+.Bdbc\\(olive\\) {
+  border-bottom-color: olive;
+}
+.Bdbc\\(olivedrab\\) {
+  border-bottom-color: olivedrab;
+}
+.Bdbc\\(orange\\) {
+  border-bottom-color: orange;
+}
+.Bdbc\\(orangered\\) {
+  border-bottom-color: orangered;
+}
+.Bdbc\\(orchid\\) {
+  border-bottom-color: orchid;
+}
+.Bdbc\\(palegoldenrod\\) {
+  border-bottom-color: palegoldenrod;
+}
+.Bdbc\\(palegreen\\) {
+  border-bottom-color: palegreen;
+}
+.Bdbc\\(paleturquoise\\) {
+  border-bottom-color: paleturquoise;
+}
+.Bdbc\\(palevioletred\\) {
+  border-bottom-color: palevioletred;
+}
+.Bdbc\\(papayawhip\\) {
+  border-bottom-color: papayawhip;
+}
+.Bdbc\\(peachpuff\\) {
+  border-bottom-color: peachpuff;
+}
+.Bdbc\\(peru\\) {
+  border-bottom-color: peru;
+}
+.Bdbc\\(pink\\) {
+  border-bottom-color: pink;
+}
+.Bdbc\\(plum\\) {
+  border-bottom-color: plum;
+}
+.Bdbc\\(powderblue\\) {
+  border-bottom-color: powderblue;
+}
+.Bdbc\\(purple\\) {
+  border-bottom-color: purple;
+}
+.Bdbc\\(red\\) {
+  border-bottom-color: red;
+}
+.Bdbc\\(rosybrown\\) {
+  border-bottom-color: rosybrown;
+}
+.Bdbc\\(royalblue\\) {
+  border-bottom-color: royalblue;
+}
+.Bdbc\\(saddlebrown\\) {
+  border-bottom-color: saddlebrown;
+}
+.Bdbc\\(salmon\\) {
+  border-bottom-color: salmon;
+}
+.Bdbc\\(sandybrown\\) {
+  border-bottom-color: sandybrown;
+}
+.Bdbc\\(seagreen\\) {
+  border-bottom-color: seagreen;
+}
+.Bdbc\\(seashell\\) {
+  border-bottom-color: seashell;
+}
+.Bdbc\\(sienna\\) {
+  border-bottom-color: sienna;
+}
+.Bdbc\\(silver\\) {
+  border-bottom-color: silver;
+}
+.Bdbc\\(skyblue\\) {
+  border-bottom-color: skyblue;
+}
+.Bdbc\\(slateblue\\) {
+  border-bottom-color: slateblue;
+}
+.Bdbc\\(slategray\\) {
+  border-bottom-color: slategray;
+}
+.Bdbc\\(slategrey\\) {
+  border-bottom-color: slategrey;
+}
+.Bdbc\\(snow\\) {
+  border-bottom-color: snow;
+}
+.Bdbc\\(springgreen\\) {
+  border-bottom-color: springgreen;
+}
+.Bdbc\\(steelblue\\) {
+  border-bottom-color: steelblue;
+}
+.Bdbc\\(tan\\) {
+  border-bottom-color: tan;
+}
+.Bdbc\\(teal\\) {
+  border-bottom-color: teal;
+}
+.Bdbc\\(thistle\\) {
+  border-bottom-color: thistle;
+}
+.Bdbc\\(tomato\\) {
+  border-bottom-color: tomato;
+}
+.Bdbc\\(turquoise\\) {
+  border-bottom-color: turquoise;
+}
+.Bdbc\\(violet\\) {
+  border-bottom-color: violet;
+}
+.Bdbc\\(wheat\\) {
+  border-bottom-color: wheat;
+}
+.Bdbc\\(white\\) {
+  border-bottom-color: white;
+}
+.Bdbc\\(whitesmoke\\) {
+  border-bottom-color: whitesmoke;
+}
+.Bdbc\\(yellow\\) {
+  border-bottom-color: yellow;
+}
+.Bdbc\\(yellowgreen\\) {
+  border-bottom-color: yellowgreen;
+}
+.Bdbc\\(1px\\) {
+  border-bottom-color: 1px;
+}
+"
+`;
+
+exports[`Rules border-bottom-left-radius 1`] = `
+".Bdrsbstart\\(1px\\) {
+  border-bottom-left-radius: 1px;
+}
+"
+`;
+
+exports[`Rules border-bottom-right-radius 1`] = `
+".Bdrsbend\\(1px\\) {
+  border-bottom-right-radius: 1px;
+}
+"
+`;
+
+exports[`Rules border-bottom-style 1`] = `
+".Bdbs\\(a\\) {
+  border-bottom-style: auto;
+}
+.Bdbs\\(d\\) {
+  border-bottom-style: dotted;
+}
+.Bdbs\\(da\\) {
+  border-bottom-style: dashed;
+}
+.Bdbs\\(do\\) {
+  border-bottom-style: double;
+}
+.Bdbs\\(g\\) {
+  border-bottom-style: groove;
+}
+.Bdbs\\(h\\) {
+  border-bottom-style: hidden;
+}
+.Bdbs\\(i\\) {
+  border-bottom-style: inset;
+}
+.Bdbs\\(n\\) {
+  border-bottom-style: none;
+}
+.Bdbs\\(o\\) {
+  border-bottom-style: outset;
+}
+.Bdbs\\(r\\) {
+  border-bottom-style: ridge;
+}
+.Bdbs\\(s\\) {
+  border-bottom-style: solid;
+}
+"
+`;
+
+exports[`Rules border-bottom-width 1`] = `
+".Bdbw\\(m\\) {
+  border-bottom-width: medium;
+}
+.Bdbw\\(t\\) {
+  border-bottom-width: thin;
+}
+.Bdbw\\(th\\) {
+  border-bottom-width: thick;
+}
+.Bdbw\\(1px\\) {
+  border-bottom-width: 1px;
+}
+"
+`;
+
+exports[`Rules border-collapse 1`] = `
+".Bdcl\\(c\\) {
+  border-collapse: collapse;
+}
+.Bdcl\\(s\\) {
+  border-collapse: separate;
+}
+"
+`;
+
+exports[`Rules border-color 1`] = `
+".Bdc\\(t\\) {
+  border-color: transparent;
+}
+.Bdc\\(cc\\) {
+  border-color: currentColor;
+}
+.Bdc\\(n\\) {
+  border-color: none;
+}
+.Bdc\\(aliceblue\\) {
+  border-color: aliceblue;
+}
+.Bdc\\(antiquewhite\\) {
+  border-color: antiquewhite;
+}
+.Bdc\\(aqua\\) {
+  border-color: aqua;
+}
+.Bdc\\(aquamarine\\) {
+  border-color: aquamarine;
+}
+.Bdc\\(azure\\) {
+  border-color: azure;
+}
+.Bdc\\(beige\\) {
+  border-color: beige;
+}
+.Bdc\\(bisque\\) {
+  border-color: bisque;
+}
+.Bdc\\(black\\) {
+  border-color: black;
+}
+.Bdc\\(blanchedalmond\\) {
+  border-color: blanchedalmond;
+}
+.Bdc\\(blue\\) {
+  border-color: blue;
+}
+.Bdc\\(blueviolet\\) {
+  border-color: blueviolet;
+}
+.Bdc\\(brown\\) {
+  border-color: brown;
+}
+.Bdc\\(burlywood\\) {
+  border-color: burlywood;
+}
+.Bdc\\(cadetblue\\) {
+  border-color: cadetblue;
+}
+.Bdc\\(chartreuse\\) {
+  border-color: chartreuse;
+}
+.Bdc\\(chocolate\\) {
+  border-color: chocolate;
+}
+.Bdc\\(coral\\) {
+  border-color: coral;
+}
+.Bdc\\(cornflowerblue\\) {
+  border-color: cornflowerblue;
+}
+.Bdc\\(cornsilk\\) {
+  border-color: cornsilk;
+}
+.Bdc\\(crimson\\) {
+  border-color: crimson;
+}
+.Bdc\\(cyan\\) {
+  border-color: cyan;
+}
+.Bdc\\(darkblue\\) {
+  border-color: darkblue;
+}
+.Bdc\\(darkcyan\\) {
+  border-color: darkcyan;
+}
+.Bdc\\(darkgoldenrod\\) {
+  border-color: darkgoldenrod;
+}
+.Bdc\\(darkgray\\) {
+  border-color: darkgray;
+}
+.Bdc\\(darkgreen\\) {
+  border-color: darkgreen;
+}
+.Bdc\\(darkgrey\\) {
+  border-color: darkgrey;
+}
+.Bdc\\(darkkhaki\\) {
+  border-color: darkkhaki;
+}
+.Bdc\\(darkmagenta\\) {
+  border-color: darkmagenta;
+}
+.Bdc\\(darkolivegreen\\) {
+  border-color: darkolivegreen;
+}
+.Bdc\\(darkorange\\) {
+  border-color: darkorange;
+}
+.Bdc\\(darkorchid\\) {
+  border-color: darkorchid;
+}
+.Bdc\\(darkred\\) {
+  border-color: darkred;
+}
+.Bdc\\(darksalmon\\) {
+  border-color: darksalmon;
+}
+.Bdc\\(darkseagreen\\) {
+  border-color: darkseagreen;
+}
+.Bdc\\(darkslateblue\\) {
+  border-color: darkslateblue;
+}
+.Bdc\\(darkslategray\\) {
+  border-color: darkslategray;
+}
+.Bdc\\(darkslategrey\\) {
+  border-color: darkslategrey;
+}
+.Bdc\\(darkturquoise\\) {
+  border-color: darkturquoise;
+}
+.Bdc\\(darkviolet\\) {
+  border-color: darkviolet;
+}
+.Bdc\\(deeppink\\) {
+  border-color: deeppink;
+}
+.Bdc\\(deepskyblue\\) {
+  border-color: deepskyblue;
+}
+.Bdc\\(dimgray\\) {
+  border-color: dimgray;
+}
+.Bdc\\(dimgrey\\) {
+  border-color: dimgrey;
+}
+.Bdc\\(dodgerblue\\) {
+  border-color: dodgerblue;
+}
+.Bdc\\(firebrick\\) {
+  border-color: firebrick;
+}
+.Bdc\\(floralwhite\\) {
+  border-color: floralwhite;
+}
+.Bdc\\(forestgreen\\) {
+  border-color: forestgreen;
+}
+.Bdc\\(fuchsia\\) {
+  border-color: fuchsia;
+}
+.Bdc\\(gainsboro\\) {
+  border-color: gainsboro;
+}
+.Bdc\\(ghostwhite\\) {
+  border-color: ghostwhite;
+}
+.Bdc\\(gold\\) {
+  border-color: gold;
+}
+.Bdc\\(goldenrod\\) {
+  border-color: goldenrod;
+}
+.Bdc\\(gray\\) {
+  border-color: gray;
+}
+.Bdc\\(green\\) {
+  border-color: green;
+}
+.Bdc\\(greenyellow\\) {
+  border-color: greenyellow;
+}
+.Bdc\\(grey\\) {
+  border-color: grey;
+}
+.Bdc\\(honeydew\\) {
+  border-color: honeydew;
+}
+.Bdc\\(hotpink\\) {
+  border-color: hotpink;
+}
+.Bdc\\(indianred\\) {
+  border-color: indianred;
+}
+.Bdc\\(indigo\\) {
+  border-color: indigo;
+}
+.Bdc\\(ivory\\) {
+  border-color: ivory;
+}
+.Bdc\\(khaki\\) {
+  border-color: khaki;
+}
+.Bdc\\(lavender\\) {
+  border-color: lavender;
+}
+.Bdc\\(lavenderblush\\) {
+  border-color: lavenderblush;
+}
+.Bdc\\(lawngreen\\) {
+  border-color: lawngreen;
+}
+.Bdc\\(lemonchiffon\\) {
+  border-color: lemonchiffon;
+}
+.Bdc\\(lightblue\\) {
+  border-color: lightblue;
+}
+.Bdc\\(lightcoral\\) {
+  border-color: lightcoral;
+}
+.Bdc\\(lightcyan\\) {
+  border-color: lightcyan;
+}
+.Bdc\\(lightgoldenrodyellow\\) {
+  border-color: lightgoldenrodyellow;
+}
+.Bdc\\(lightgray\\) {
+  border-color: lightgray;
+}
+.Bdc\\(lightgreen\\) {
+  border-color: lightgreen;
+}
+.Bdc\\(lightgrey\\) {
+  border-color: lightgrey;
+}
+.Bdc\\(lightpink\\) {
+  border-color: lightpink;
+}
+.Bdc\\(lightsalmon\\) {
+  border-color: lightsalmon;
+}
+.Bdc\\(lightseagreen\\) {
+  border-color: lightseagreen;
+}
+.Bdc\\(lightskyblue\\) {
+  border-color: lightskyblue;
+}
+.Bdc\\(lightslategray\\) {
+  border-color: lightslategray;
+}
+.Bdc\\(lightslategrey\\) {
+  border-color: lightslategrey;
+}
+.Bdc\\(lightsteelblue\\) {
+  border-color: lightsteelblue;
+}
+.Bdc\\(lightyellow\\) {
+  border-color: lightyellow;
+}
+.Bdc\\(lime\\) {
+  border-color: lime;
+}
+.Bdc\\(limegreen\\) {
+  border-color: limegreen;
+}
+.Bdc\\(linen\\) {
+  border-color: linen;
+}
+.Bdc\\(magenta\\) {
+  border-color: magenta;
+}
+.Bdc\\(maroon\\) {
+  border-color: maroon;
+}
+.Bdc\\(mediumaquamarine\\) {
+  border-color: mediumaquamarine;
+}
+.Bdc\\(mediumblue\\) {
+  border-color: mediumblue;
+}
+.Bdc\\(mediumorchid\\) {
+  border-color: mediumorchid;
+}
+.Bdc\\(mediumpurple\\) {
+  border-color: mediumpurple;
+}
+.Bdc\\(mediumseagreen\\) {
+  border-color: mediumseagreen;
+}
+.Bdc\\(mediumslateblue\\) {
+  border-color: mediumslateblue;
+}
+.Bdc\\(mediumspringgreen\\) {
+  border-color: mediumspringgreen;
+}
+.Bdc\\(mediumturquoise\\) {
+  border-color: mediumturquoise;
+}
+.Bdc\\(mediumvioletred\\) {
+  border-color: mediumvioletred;
+}
+.Bdc\\(midnightblue\\) {
+  border-color: midnightblue;
+}
+.Bdc\\(mintcream\\) {
+  border-color: mintcream;
+}
+.Bdc\\(mistyrose\\) {
+  border-color: mistyrose;
+}
+.Bdc\\(moccasin\\) {
+  border-color: moccasin;
+}
+.Bdc\\(navajowhite\\) {
+  border-color: navajowhite;
+}
+.Bdc\\(navy\\) {
+  border-color: navy;
+}
+.Bdc\\(oldlace\\) {
+  border-color: oldlace;
+}
+.Bdc\\(olive\\) {
+  border-color: olive;
+}
+.Bdc\\(olivedrab\\) {
+  border-color: olivedrab;
+}
+.Bdc\\(orange\\) {
+  border-color: orange;
+}
+.Bdc\\(orangered\\) {
+  border-color: orangered;
+}
+.Bdc\\(orchid\\) {
+  border-color: orchid;
+}
+.Bdc\\(palegoldenrod\\) {
+  border-color: palegoldenrod;
+}
+.Bdc\\(palegreen\\) {
+  border-color: palegreen;
+}
+.Bdc\\(paleturquoise\\) {
+  border-color: paleturquoise;
+}
+.Bdc\\(palevioletred\\) {
+  border-color: palevioletred;
+}
+.Bdc\\(papayawhip\\) {
+  border-color: papayawhip;
+}
+.Bdc\\(peachpuff\\) {
+  border-color: peachpuff;
+}
+.Bdc\\(peru\\) {
+  border-color: peru;
+}
+.Bdc\\(pink\\) {
+  border-color: pink;
+}
+.Bdc\\(plum\\) {
+  border-color: plum;
+}
+.Bdc\\(powderblue\\) {
+  border-color: powderblue;
+}
+.Bdc\\(purple\\) {
+  border-color: purple;
+}
+.Bdc\\(red\\) {
+  border-color: red;
+}
+.Bdc\\(rosybrown\\) {
+  border-color: rosybrown;
+}
+.Bdc\\(royalblue\\) {
+  border-color: royalblue;
+}
+.Bdc\\(saddlebrown\\) {
+  border-color: saddlebrown;
+}
+.Bdc\\(salmon\\) {
+  border-color: salmon;
+}
+.Bdc\\(sandybrown\\) {
+  border-color: sandybrown;
+}
+.Bdc\\(seagreen\\) {
+  border-color: seagreen;
+}
+.Bdc\\(seashell\\) {
+  border-color: seashell;
+}
+.Bdc\\(sienna\\) {
+  border-color: sienna;
+}
+.Bdc\\(silver\\) {
+  border-color: silver;
+}
+.Bdc\\(skyblue\\) {
+  border-color: skyblue;
+}
+.Bdc\\(slateblue\\) {
+  border-color: slateblue;
+}
+.Bdc\\(slategray\\) {
+  border-color: slategray;
+}
+.Bdc\\(slategrey\\) {
+  border-color: slategrey;
+}
+.Bdc\\(snow\\) {
+  border-color: snow;
+}
+.Bdc\\(springgreen\\) {
+  border-color: springgreen;
+}
+.Bdc\\(steelblue\\) {
+  border-color: steelblue;
+}
+.Bdc\\(tan\\) {
+  border-color: tan;
+}
+.Bdc\\(teal\\) {
+  border-color: teal;
+}
+.Bdc\\(thistle\\) {
+  border-color: thistle;
+}
+.Bdc\\(tomato\\) {
+  border-color: tomato;
+}
+.Bdc\\(turquoise\\) {
+  border-color: turquoise;
+}
+.Bdc\\(violet\\) {
+  border-color: violet;
+}
+.Bdc\\(wheat\\) {
+  border-color: wheat;
+}
+.Bdc\\(white\\) {
+  border-color: white;
+}
+.Bdc\\(whitesmoke\\) {
+  border-color: whitesmoke;
+}
+.Bdc\\(yellow\\) {
+  border-color: yellow;
+}
+.Bdc\\(yellowgreen\\) {
+  border-color: yellowgreen;
+}
+.Bdc\\(1px\\) {
+  border-color: 1px;
+}
+"
+`;
+
+exports[`Rules border-left 1`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-left 2`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-left-color 1`] = `
+".Bdstartc\\(t\\) {
+  border-left-color: transparent;
+}
+.Bdstartc\\(cc\\) {
+  border-left-color: currentColor;
+}
+.Bdstartc\\(n\\) {
+  border-left-color: none;
+}
+.Bdstartc\\(aliceblue\\) {
+  border-left-color: aliceblue;
+}
+.Bdstartc\\(antiquewhite\\) {
+  border-left-color: antiquewhite;
+}
+.Bdstartc\\(aqua\\) {
+  border-left-color: aqua;
+}
+.Bdstartc\\(aquamarine\\) {
+  border-left-color: aquamarine;
+}
+.Bdstartc\\(azure\\) {
+  border-left-color: azure;
+}
+.Bdstartc\\(beige\\) {
+  border-left-color: beige;
+}
+.Bdstartc\\(bisque\\) {
+  border-left-color: bisque;
+}
+.Bdstartc\\(black\\) {
+  border-left-color: black;
+}
+.Bdstartc\\(blanchedalmond\\) {
+  border-left-color: blanchedalmond;
+}
+.Bdstartc\\(blue\\) {
+  border-left-color: blue;
+}
+.Bdstartc\\(blueviolet\\) {
+  border-left-color: blueviolet;
+}
+.Bdstartc\\(brown\\) {
+  border-left-color: brown;
+}
+.Bdstartc\\(burlywood\\) {
+  border-left-color: burlywood;
+}
+.Bdstartc\\(cadetblue\\) {
+  border-left-color: cadetblue;
+}
+.Bdstartc\\(chartreuse\\) {
+  border-left-color: chartreuse;
+}
+.Bdstartc\\(chocolate\\) {
+  border-left-color: chocolate;
+}
+.Bdstartc\\(coral\\) {
+  border-left-color: coral;
+}
+.Bdstartc\\(cornflowerblue\\) {
+  border-left-color: cornflowerblue;
+}
+.Bdstartc\\(cornsilk\\) {
+  border-left-color: cornsilk;
+}
+.Bdstartc\\(crimson\\) {
+  border-left-color: crimson;
+}
+.Bdstartc\\(cyan\\) {
+  border-left-color: cyan;
+}
+.Bdstartc\\(darkblue\\) {
+  border-left-color: darkblue;
+}
+.Bdstartc\\(darkcyan\\) {
+  border-left-color: darkcyan;
+}
+.Bdstartc\\(darkgoldenrod\\) {
+  border-left-color: darkgoldenrod;
+}
+.Bdstartc\\(darkgray\\) {
+  border-left-color: darkgray;
+}
+.Bdstartc\\(darkgreen\\) {
+  border-left-color: darkgreen;
+}
+.Bdstartc\\(darkgrey\\) {
+  border-left-color: darkgrey;
+}
+.Bdstartc\\(darkkhaki\\) {
+  border-left-color: darkkhaki;
+}
+.Bdstartc\\(darkmagenta\\) {
+  border-left-color: darkmagenta;
+}
+.Bdstartc\\(darkolivegreen\\) {
+  border-left-color: darkolivegreen;
+}
+.Bdstartc\\(darkorange\\) {
+  border-left-color: darkorange;
+}
+.Bdstartc\\(darkorchid\\) {
+  border-left-color: darkorchid;
+}
+.Bdstartc\\(darkred\\) {
+  border-left-color: darkred;
+}
+.Bdstartc\\(darksalmon\\) {
+  border-left-color: darksalmon;
+}
+.Bdstartc\\(darkseagreen\\) {
+  border-left-color: darkseagreen;
+}
+.Bdstartc\\(darkslateblue\\) {
+  border-left-color: darkslateblue;
+}
+.Bdstartc\\(darkslategray\\) {
+  border-left-color: darkslategray;
+}
+.Bdstartc\\(darkslategrey\\) {
+  border-left-color: darkslategrey;
+}
+.Bdstartc\\(darkturquoise\\) {
+  border-left-color: darkturquoise;
+}
+.Bdstartc\\(darkviolet\\) {
+  border-left-color: darkviolet;
+}
+.Bdstartc\\(deeppink\\) {
+  border-left-color: deeppink;
+}
+.Bdstartc\\(deepskyblue\\) {
+  border-left-color: deepskyblue;
+}
+.Bdstartc\\(dimgray\\) {
+  border-left-color: dimgray;
+}
+.Bdstartc\\(dimgrey\\) {
+  border-left-color: dimgrey;
+}
+.Bdstartc\\(dodgerblue\\) {
+  border-left-color: dodgerblue;
+}
+.Bdstartc\\(firebrick\\) {
+  border-left-color: firebrick;
+}
+.Bdstartc\\(floralwhite\\) {
+  border-left-color: floralwhite;
+}
+.Bdstartc\\(forestgreen\\) {
+  border-left-color: forestgreen;
+}
+.Bdstartc\\(fuchsia\\) {
+  border-left-color: fuchsia;
+}
+.Bdstartc\\(gainsboro\\) {
+  border-left-color: gainsboro;
+}
+.Bdstartc\\(ghostwhite\\) {
+  border-left-color: ghostwhite;
+}
+.Bdstartc\\(gold\\) {
+  border-left-color: gold;
+}
+.Bdstartc\\(goldenrod\\) {
+  border-left-color: goldenrod;
+}
+.Bdstartc\\(gray\\) {
+  border-left-color: gray;
+}
+.Bdstartc\\(green\\) {
+  border-left-color: green;
+}
+.Bdstartc\\(greenyellow\\) {
+  border-left-color: greenyellow;
+}
+.Bdstartc\\(grey\\) {
+  border-left-color: grey;
+}
+.Bdstartc\\(honeydew\\) {
+  border-left-color: honeydew;
+}
+.Bdstartc\\(hotpink\\) {
+  border-left-color: hotpink;
+}
+.Bdstartc\\(indianred\\) {
+  border-left-color: indianred;
+}
+.Bdstartc\\(indigo\\) {
+  border-left-color: indigo;
+}
+.Bdstartc\\(ivory\\) {
+  border-left-color: ivory;
+}
+.Bdstartc\\(khaki\\) {
+  border-left-color: khaki;
+}
+.Bdstartc\\(lavender\\) {
+  border-left-color: lavender;
+}
+.Bdstartc\\(lavenderblush\\) {
+  border-left-color: lavenderblush;
+}
+.Bdstartc\\(lawngreen\\) {
+  border-left-color: lawngreen;
+}
+.Bdstartc\\(lemonchiffon\\) {
+  border-left-color: lemonchiffon;
+}
+.Bdstartc\\(lightblue\\) {
+  border-left-color: lightblue;
+}
+.Bdstartc\\(lightcoral\\) {
+  border-left-color: lightcoral;
+}
+.Bdstartc\\(lightcyan\\) {
+  border-left-color: lightcyan;
+}
+.Bdstartc\\(lightgoldenrodyellow\\) {
+  border-left-color: lightgoldenrodyellow;
+}
+.Bdstartc\\(lightgray\\) {
+  border-left-color: lightgray;
+}
+.Bdstartc\\(lightgreen\\) {
+  border-left-color: lightgreen;
+}
+.Bdstartc\\(lightgrey\\) {
+  border-left-color: lightgrey;
+}
+.Bdstartc\\(lightpink\\) {
+  border-left-color: lightpink;
+}
+.Bdstartc\\(lightsalmon\\) {
+  border-left-color: lightsalmon;
+}
+.Bdstartc\\(lightseagreen\\) {
+  border-left-color: lightseagreen;
+}
+.Bdstartc\\(lightskyblue\\) {
+  border-left-color: lightskyblue;
+}
+.Bdstartc\\(lightslategray\\) {
+  border-left-color: lightslategray;
+}
+.Bdstartc\\(lightslategrey\\) {
+  border-left-color: lightslategrey;
+}
+.Bdstartc\\(lightsteelblue\\) {
+  border-left-color: lightsteelblue;
+}
+.Bdstartc\\(lightyellow\\) {
+  border-left-color: lightyellow;
+}
+.Bdstartc\\(lime\\) {
+  border-left-color: lime;
+}
+.Bdstartc\\(limegreen\\) {
+  border-left-color: limegreen;
+}
+.Bdstartc\\(linen\\) {
+  border-left-color: linen;
+}
+.Bdstartc\\(magenta\\) {
+  border-left-color: magenta;
+}
+.Bdstartc\\(maroon\\) {
+  border-left-color: maroon;
+}
+.Bdstartc\\(mediumaquamarine\\) {
+  border-left-color: mediumaquamarine;
+}
+.Bdstartc\\(mediumblue\\) {
+  border-left-color: mediumblue;
+}
+.Bdstartc\\(mediumorchid\\) {
+  border-left-color: mediumorchid;
+}
+.Bdstartc\\(mediumpurple\\) {
+  border-left-color: mediumpurple;
+}
+.Bdstartc\\(mediumseagreen\\) {
+  border-left-color: mediumseagreen;
+}
+.Bdstartc\\(mediumslateblue\\) {
+  border-left-color: mediumslateblue;
+}
+.Bdstartc\\(mediumspringgreen\\) {
+  border-left-color: mediumspringgreen;
+}
+.Bdstartc\\(mediumturquoise\\) {
+  border-left-color: mediumturquoise;
+}
+.Bdstartc\\(mediumvioletred\\) {
+  border-left-color: mediumvioletred;
+}
+.Bdstartc\\(midnightblue\\) {
+  border-left-color: midnightblue;
+}
+.Bdstartc\\(mintcream\\) {
+  border-left-color: mintcream;
+}
+.Bdstartc\\(mistyrose\\) {
+  border-left-color: mistyrose;
+}
+.Bdstartc\\(moccasin\\) {
+  border-left-color: moccasin;
+}
+.Bdstartc\\(navajowhite\\) {
+  border-left-color: navajowhite;
+}
+.Bdstartc\\(navy\\) {
+  border-left-color: navy;
+}
+.Bdstartc\\(oldlace\\) {
+  border-left-color: oldlace;
+}
+.Bdstartc\\(olive\\) {
+  border-left-color: olive;
+}
+.Bdstartc\\(olivedrab\\) {
+  border-left-color: olivedrab;
+}
+.Bdstartc\\(orange\\) {
+  border-left-color: orange;
+}
+.Bdstartc\\(orangered\\) {
+  border-left-color: orangered;
+}
+.Bdstartc\\(orchid\\) {
+  border-left-color: orchid;
+}
+.Bdstartc\\(palegoldenrod\\) {
+  border-left-color: palegoldenrod;
+}
+.Bdstartc\\(palegreen\\) {
+  border-left-color: palegreen;
+}
+.Bdstartc\\(paleturquoise\\) {
+  border-left-color: paleturquoise;
+}
+.Bdstartc\\(palevioletred\\) {
+  border-left-color: palevioletred;
+}
+.Bdstartc\\(papayawhip\\) {
+  border-left-color: papayawhip;
+}
+.Bdstartc\\(peachpuff\\) {
+  border-left-color: peachpuff;
+}
+.Bdstartc\\(peru\\) {
+  border-left-color: peru;
+}
+.Bdstartc\\(pink\\) {
+  border-left-color: pink;
+}
+.Bdstartc\\(plum\\) {
+  border-left-color: plum;
+}
+.Bdstartc\\(powderblue\\) {
+  border-left-color: powderblue;
+}
+.Bdstartc\\(purple\\) {
+  border-left-color: purple;
+}
+.Bdstartc\\(red\\) {
+  border-left-color: red;
+}
+.Bdstartc\\(rosybrown\\) {
+  border-left-color: rosybrown;
+}
+.Bdstartc\\(royalblue\\) {
+  border-left-color: royalblue;
+}
+.Bdstartc\\(saddlebrown\\) {
+  border-left-color: saddlebrown;
+}
+.Bdstartc\\(salmon\\) {
+  border-left-color: salmon;
+}
+.Bdstartc\\(sandybrown\\) {
+  border-left-color: sandybrown;
+}
+.Bdstartc\\(seagreen\\) {
+  border-left-color: seagreen;
+}
+.Bdstartc\\(seashell\\) {
+  border-left-color: seashell;
+}
+.Bdstartc\\(sienna\\) {
+  border-left-color: sienna;
+}
+.Bdstartc\\(silver\\) {
+  border-left-color: silver;
+}
+.Bdstartc\\(skyblue\\) {
+  border-left-color: skyblue;
+}
+.Bdstartc\\(slateblue\\) {
+  border-left-color: slateblue;
+}
+.Bdstartc\\(slategray\\) {
+  border-left-color: slategray;
+}
+.Bdstartc\\(slategrey\\) {
+  border-left-color: slategrey;
+}
+.Bdstartc\\(snow\\) {
+  border-left-color: snow;
+}
+.Bdstartc\\(springgreen\\) {
+  border-left-color: springgreen;
+}
+.Bdstartc\\(steelblue\\) {
+  border-left-color: steelblue;
+}
+.Bdstartc\\(tan\\) {
+  border-left-color: tan;
+}
+.Bdstartc\\(teal\\) {
+  border-left-color: teal;
+}
+.Bdstartc\\(thistle\\) {
+  border-left-color: thistle;
+}
+.Bdstartc\\(tomato\\) {
+  border-left-color: tomato;
+}
+.Bdstartc\\(turquoise\\) {
+  border-left-color: turquoise;
+}
+.Bdstartc\\(violet\\) {
+  border-left-color: violet;
+}
+.Bdstartc\\(wheat\\) {
+  border-left-color: wheat;
+}
+.Bdstartc\\(white\\) {
+  border-left-color: white;
+}
+.Bdstartc\\(whitesmoke\\) {
+  border-left-color: whitesmoke;
+}
+.Bdstartc\\(yellow\\) {
+  border-left-color: yellow;
+}
+.Bdstartc\\(yellowgreen\\) {
+  border-left-color: yellowgreen;
+}
+.Bdstartc\\(1px\\) {
+  border-left-color: 1px;
+}
+"
+`;
+
+exports[`Rules border-left-style 1`] = `
+".Bdstarts\\(a\\) {
+  border-left-style: auto;
+}
+.Bdstarts\\(d\\) {
+  border-left-style: dotted;
+}
+.Bdstarts\\(da\\) {
+  border-left-style: dashed;
+}
+.Bdstarts\\(do\\) {
+  border-left-style: double;
+}
+.Bdstarts\\(g\\) {
+  border-left-style: groove;
+}
+.Bdstarts\\(h\\) {
+  border-left-style: hidden;
+}
+.Bdstarts\\(i\\) {
+  border-left-style: inset;
+}
+.Bdstarts\\(n\\) {
+  border-left-style: none;
+}
+.Bdstarts\\(o\\) {
+  border-left-style: outset;
+}
+.Bdstarts\\(r\\) {
+  border-left-style: ridge;
+}
+.Bdstarts\\(s\\) {
+  border-left-style: solid;
+}
+"
+`;
+
+exports[`Rules border-left-width 1`] = `
+".Bdstartw\\(m\\) {
+  border-left-width: medium;
+}
+.Bdstartw\\(t\\) {
+  border-left-width: thin;
+}
+.Bdstartw\\(th\\) {
+  border-left-width: thick;
+}
+.Bdstartw\\(1px\\) {
+  border-left-width: 1px;
+}
+"
+`;
+
+exports[`Rules border-radius 1`] = `
+".Bdrs\\(1px\\) {
+  border-radius: 1px;
+}
+"
+`;
+
+exports[`Rules border-right 1`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-right 2`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-right-color 1`] = `
+".Bdendc\\(t\\) {
+  border-right-color: transparent;
+}
+.Bdendc\\(cc\\) {
+  border-right-color: currentColor;
+}
+.Bdendc\\(n\\) {
+  border-right-color: none;
+}
+.Bdendc\\(aliceblue\\) {
+  border-right-color: aliceblue;
+}
+.Bdendc\\(antiquewhite\\) {
+  border-right-color: antiquewhite;
+}
+.Bdendc\\(aqua\\) {
+  border-right-color: aqua;
+}
+.Bdendc\\(aquamarine\\) {
+  border-right-color: aquamarine;
+}
+.Bdendc\\(azure\\) {
+  border-right-color: azure;
+}
+.Bdendc\\(beige\\) {
+  border-right-color: beige;
+}
+.Bdendc\\(bisque\\) {
+  border-right-color: bisque;
+}
+.Bdendc\\(black\\) {
+  border-right-color: black;
+}
+.Bdendc\\(blanchedalmond\\) {
+  border-right-color: blanchedalmond;
+}
+.Bdendc\\(blue\\) {
+  border-right-color: blue;
+}
+.Bdendc\\(blueviolet\\) {
+  border-right-color: blueviolet;
+}
+.Bdendc\\(brown\\) {
+  border-right-color: brown;
+}
+.Bdendc\\(burlywood\\) {
+  border-right-color: burlywood;
+}
+.Bdendc\\(cadetblue\\) {
+  border-right-color: cadetblue;
+}
+.Bdendc\\(chartreuse\\) {
+  border-right-color: chartreuse;
+}
+.Bdendc\\(chocolate\\) {
+  border-right-color: chocolate;
+}
+.Bdendc\\(coral\\) {
+  border-right-color: coral;
+}
+.Bdendc\\(cornflowerblue\\) {
+  border-right-color: cornflowerblue;
+}
+.Bdendc\\(cornsilk\\) {
+  border-right-color: cornsilk;
+}
+.Bdendc\\(crimson\\) {
+  border-right-color: crimson;
+}
+.Bdendc\\(cyan\\) {
+  border-right-color: cyan;
+}
+.Bdendc\\(darkblue\\) {
+  border-right-color: darkblue;
+}
+.Bdendc\\(darkcyan\\) {
+  border-right-color: darkcyan;
+}
+.Bdendc\\(darkgoldenrod\\) {
+  border-right-color: darkgoldenrod;
+}
+.Bdendc\\(darkgray\\) {
+  border-right-color: darkgray;
+}
+.Bdendc\\(darkgreen\\) {
+  border-right-color: darkgreen;
+}
+.Bdendc\\(darkgrey\\) {
+  border-right-color: darkgrey;
+}
+.Bdendc\\(darkkhaki\\) {
+  border-right-color: darkkhaki;
+}
+.Bdendc\\(darkmagenta\\) {
+  border-right-color: darkmagenta;
+}
+.Bdendc\\(darkolivegreen\\) {
+  border-right-color: darkolivegreen;
+}
+.Bdendc\\(darkorange\\) {
+  border-right-color: darkorange;
+}
+.Bdendc\\(darkorchid\\) {
+  border-right-color: darkorchid;
+}
+.Bdendc\\(darkred\\) {
+  border-right-color: darkred;
+}
+.Bdendc\\(darksalmon\\) {
+  border-right-color: darksalmon;
+}
+.Bdendc\\(darkseagreen\\) {
+  border-right-color: darkseagreen;
+}
+.Bdendc\\(darkslateblue\\) {
+  border-right-color: darkslateblue;
+}
+.Bdendc\\(darkslategray\\) {
+  border-right-color: darkslategray;
+}
+.Bdendc\\(darkslategrey\\) {
+  border-right-color: darkslategrey;
+}
+.Bdendc\\(darkturquoise\\) {
+  border-right-color: darkturquoise;
+}
+.Bdendc\\(darkviolet\\) {
+  border-right-color: darkviolet;
+}
+.Bdendc\\(deeppink\\) {
+  border-right-color: deeppink;
+}
+.Bdendc\\(deepskyblue\\) {
+  border-right-color: deepskyblue;
+}
+.Bdendc\\(dimgray\\) {
+  border-right-color: dimgray;
+}
+.Bdendc\\(dimgrey\\) {
+  border-right-color: dimgrey;
+}
+.Bdendc\\(dodgerblue\\) {
+  border-right-color: dodgerblue;
+}
+.Bdendc\\(firebrick\\) {
+  border-right-color: firebrick;
+}
+.Bdendc\\(floralwhite\\) {
+  border-right-color: floralwhite;
+}
+.Bdendc\\(forestgreen\\) {
+  border-right-color: forestgreen;
+}
+.Bdendc\\(fuchsia\\) {
+  border-right-color: fuchsia;
+}
+.Bdendc\\(gainsboro\\) {
+  border-right-color: gainsboro;
+}
+.Bdendc\\(ghostwhite\\) {
+  border-right-color: ghostwhite;
+}
+.Bdendc\\(gold\\) {
+  border-right-color: gold;
+}
+.Bdendc\\(goldenrod\\) {
+  border-right-color: goldenrod;
+}
+.Bdendc\\(gray\\) {
+  border-right-color: gray;
+}
+.Bdendc\\(green\\) {
+  border-right-color: green;
+}
+.Bdendc\\(greenyellow\\) {
+  border-right-color: greenyellow;
+}
+.Bdendc\\(grey\\) {
+  border-right-color: grey;
+}
+.Bdendc\\(honeydew\\) {
+  border-right-color: honeydew;
+}
+.Bdendc\\(hotpink\\) {
+  border-right-color: hotpink;
+}
+.Bdendc\\(indianred\\) {
+  border-right-color: indianred;
+}
+.Bdendc\\(indigo\\) {
+  border-right-color: indigo;
+}
+.Bdendc\\(ivory\\) {
+  border-right-color: ivory;
+}
+.Bdendc\\(khaki\\) {
+  border-right-color: khaki;
+}
+.Bdendc\\(lavender\\) {
+  border-right-color: lavender;
+}
+.Bdendc\\(lavenderblush\\) {
+  border-right-color: lavenderblush;
+}
+.Bdendc\\(lawngreen\\) {
+  border-right-color: lawngreen;
+}
+.Bdendc\\(lemonchiffon\\) {
+  border-right-color: lemonchiffon;
+}
+.Bdendc\\(lightblue\\) {
+  border-right-color: lightblue;
+}
+.Bdendc\\(lightcoral\\) {
+  border-right-color: lightcoral;
+}
+.Bdendc\\(lightcyan\\) {
+  border-right-color: lightcyan;
+}
+.Bdendc\\(lightgoldenrodyellow\\) {
+  border-right-color: lightgoldenrodyellow;
+}
+.Bdendc\\(lightgray\\) {
+  border-right-color: lightgray;
+}
+.Bdendc\\(lightgreen\\) {
+  border-right-color: lightgreen;
+}
+.Bdendc\\(lightgrey\\) {
+  border-right-color: lightgrey;
+}
+.Bdendc\\(lightpink\\) {
+  border-right-color: lightpink;
+}
+.Bdendc\\(lightsalmon\\) {
+  border-right-color: lightsalmon;
+}
+.Bdendc\\(lightseagreen\\) {
+  border-right-color: lightseagreen;
+}
+.Bdendc\\(lightskyblue\\) {
+  border-right-color: lightskyblue;
+}
+.Bdendc\\(lightslategray\\) {
+  border-right-color: lightslategray;
+}
+.Bdendc\\(lightslategrey\\) {
+  border-right-color: lightslategrey;
+}
+.Bdendc\\(lightsteelblue\\) {
+  border-right-color: lightsteelblue;
+}
+.Bdendc\\(lightyellow\\) {
+  border-right-color: lightyellow;
+}
+.Bdendc\\(lime\\) {
+  border-right-color: lime;
+}
+.Bdendc\\(limegreen\\) {
+  border-right-color: limegreen;
+}
+.Bdendc\\(linen\\) {
+  border-right-color: linen;
+}
+.Bdendc\\(magenta\\) {
+  border-right-color: magenta;
+}
+.Bdendc\\(maroon\\) {
+  border-right-color: maroon;
+}
+.Bdendc\\(mediumaquamarine\\) {
+  border-right-color: mediumaquamarine;
+}
+.Bdendc\\(mediumblue\\) {
+  border-right-color: mediumblue;
+}
+.Bdendc\\(mediumorchid\\) {
+  border-right-color: mediumorchid;
+}
+.Bdendc\\(mediumpurple\\) {
+  border-right-color: mediumpurple;
+}
+.Bdendc\\(mediumseagreen\\) {
+  border-right-color: mediumseagreen;
+}
+.Bdendc\\(mediumslateblue\\) {
+  border-right-color: mediumslateblue;
+}
+.Bdendc\\(mediumspringgreen\\) {
+  border-right-color: mediumspringgreen;
+}
+.Bdendc\\(mediumturquoise\\) {
+  border-right-color: mediumturquoise;
+}
+.Bdendc\\(mediumvioletred\\) {
+  border-right-color: mediumvioletred;
+}
+.Bdendc\\(midnightblue\\) {
+  border-right-color: midnightblue;
+}
+.Bdendc\\(mintcream\\) {
+  border-right-color: mintcream;
+}
+.Bdendc\\(mistyrose\\) {
+  border-right-color: mistyrose;
+}
+.Bdendc\\(moccasin\\) {
+  border-right-color: moccasin;
+}
+.Bdendc\\(navajowhite\\) {
+  border-right-color: navajowhite;
+}
+.Bdendc\\(navy\\) {
+  border-right-color: navy;
+}
+.Bdendc\\(oldlace\\) {
+  border-right-color: oldlace;
+}
+.Bdendc\\(olive\\) {
+  border-right-color: olive;
+}
+.Bdendc\\(olivedrab\\) {
+  border-right-color: olivedrab;
+}
+.Bdendc\\(orange\\) {
+  border-right-color: orange;
+}
+.Bdendc\\(orangered\\) {
+  border-right-color: orangered;
+}
+.Bdendc\\(orchid\\) {
+  border-right-color: orchid;
+}
+.Bdendc\\(palegoldenrod\\) {
+  border-right-color: palegoldenrod;
+}
+.Bdendc\\(palegreen\\) {
+  border-right-color: palegreen;
+}
+.Bdendc\\(paleturquoise\\) {
+  border-right-color: paleturquoise;
+}
+.Bdendc\\(palevioletred\\) {
+  border-right-color: palevioletred;
+}
+.Bdendc\\(papayawhip\\) {
+  border-right-color: papayawhip;
+}
+.Bdendc\\(peachpuff\\) {
+  border-right-color: peachpuff;
+}
+.Bdendc\\(peru\\) {
+  border-right-color: peru;
+}
+.Bdendc\\(pink\\) {
+  border-right-color: pink;
+}
+.Bdendc\\(plum\\) {
+  border-right-color: plum;
+}
+.Bdendc\\(powderblue\\) {
+  border-right-color: powderblue;
+}
+.Bdendc\\(purple\\) {
+  border-right-color: purple;
+}
+.Bdendc\\(red\\) {
+  border-right-color: red;
+}
+.Bdendc\\(rosybrown\\) {
+  border-right-color: rosybrown;
+}
+.Bdendc\\(royalblue\\) {
+  border-right-color: royalblue;
+}
+.Bdendc\\(saddlebrown\\) {
+  border-right-color: saddlebrown;
+}
+.Bdendc\\(salmon\\) {
+  border-right-color: salmon;
+}
+.Bdendc\\(sandybrown\\) {
+  border-right-color: sandybrown;
+}
+.Bdendc\\(seagreen\\) {
+  border-right-color: seagreen;
+}
+.Bdendc\\(seashell\\) {
+  border-right-color: seashell;
+}
+.Bdendc\\(sienna\\) {
+  border-right-color: sienna;
+}
+.Bdendc\\(silver\\) {
+  border-right-color: silver;
+}
+.Bdendc\\(skyblue\\) {
+  border-right-color: skyblue;
+}
+.Bdendc\\(slateblue\\) {
+  border-right-color: slateblue;
+}
+.Bdendc\\(slategray\\) {
+  border-right-color: slategray;
+}
+.Bdendc\\(slategrey\\) {
+  border-right-color: slategrey;
+}
+.Bdendc\\(snow\\) {
+  border-right-color: snow;
+}
+.Bdendc\\(springgreen\\) {
+  border-right-color: springgreen;
+}
+.Bdendc\\(steelblue\\) {
+  border-right-color: steelblue;
+}
+.Bdendc\\(tan\\) {
+  border-right-color: tan;
+}
+.Bdendc\\(teal\\) {
+  border-right-color: teal;
+}
+.Bdendc\\(thistle\\) {
+  border-right-color: thistle;
+}
+.Bdendc\\(tomato\\) {
+  border-right-color: tomato;
+}
+.Bdendc\\(turquoise\\) {
+  border-right-color: turquoise;
+}
+.Bdendc\\(violet\\) {
+  border-right-color: violet;
+}
+.Bdendc\\(wheat\\) {
+  border-right-color: wheat;
+}
+.Bdendc\\(white\\) {
+  border-right-color: white;
+}
+.Bdendc\\(whitesmoke\\) {
+  border-right-color: whitesmoke;
+}
+.Bdendc\\(yellow\\) {
+  border-right-color: yellow;
+}
+.Bdendc\\(yellowgreen\\) {
+  border-right-color: yellowgreen;
+}
+.Bdendc\\(1px\\) {
+  border-right-color: 1px;
+}
+"
+`;
+
+exports[`Rules border-right-style 1`] = `
+".Bdends\\(a\\) {
+  border-right-style: auto;
+}
+.Bdends\\(d\\) {
+  border-right-style: dotted;
+}
+.Bdends\\(da\\) {
+  border-right-style: dashed;
+}
+.Bdends\\(do\\) {
+  border-right-style: double;
+}
+.Bdends\\(g\\) {
+  border-right-style: groove;
+}
+.Bdends\\(h\\) {
+  border-right-style: hidden;
+}
+.Bdends\\(i\\) {
+  border-right-style: inset;
+}
+.Bdends\\(n\\) {
+  border-right-style: none;
+}
+.Bdends\\(o\\) {
+  border-right-style: outset;
+}
+.Bdends\\(r\\) {
+  border-right-style: ridge;
+}
+.Bdends\\(s\\) {
+  border-right-style: solid;
+}
+"
+`;
+
+exports[`Rules border-right-width 1`] = `
+".Bdendw\\(m\\) {
+  border-right-width: medium;
+}
+.Bdendw\\(t\\) {
+  border-right-width: thin;
+}
+.Bdendw\\(th\\) {
+  border-right-width: thick;
+}
+.Bdendw\\(1px\\) {
+  border-right-width: 1px;
+}
+"
+`;
+
+exports[`Rules border-spacing 1`] = `
+".Bdsp\\(i\\) {
+  border-spacing: inherit;
+}
+.Bdsp\\(i\\,i\\) {
+  border-spacing: inherit inherit;
+}
+.Bdsp\\(1px\\) {
+  border-spacing: 1px;
+}
+"
+`;
+
+exports[`Rules border-style 1`] = `
+".Bds\\(a\\) {
+  border-style: auto;
+}
+.Bds\\(d\\) {
+  border-style: dotted;
+}
+.Bds\\(da\\) {
+  border-style: dashed;
+}
+.Bds\\(do\\) {
+  border-style: double;
+}
+.Bds\\(g\\) {
+  border-style: groove;
+}
+.Bds\\(h\\) {
+  border-style: hidden;
+}
+.Bds\\(i\\) {
+  border-style: inset;
+}
+.Bds\\(n\\) {
+  border-style: none;
+}
+.Bds\\(o\\) {
+  border-style: outset;
+}
+.Bds\\(r\\) {
+  border-style: ridge;
+}
+.Bds\\(s\\) {
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-top 1`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-top 2`] = `
+".Bd {
+  border-width: 1px;
+  border-style: solid;
+}
+"
+`;
+
+exports[`Rules border-top-color 1`] = `
+".Bdtc\\(t\\) {
+  border-top-color: transparent;
+}
+.Bdtc\\(cc\\) {
+  border-top-color: currentColor;
+}
+.Bdtc\\(n\\) {
+  border-top-color: none;
+}
+.Bdtc\\(aliceblue\\) {
+  border-top-color: aliceblue;
+}
+.Bdtc\\(antiquewhite\\) {
+  border-top-color: antiquewhite;
+}
+.Bdtc\\(aqua\\) {
+  border-top-color: aqua;
+}
+.Bdtc\\(aquamarine\\) {
+  border-top-color: aquamarine;
+}
+.Bdtc\\(azure\\) {
+  border-top-color: azure;
+}
+.Bdtc\\(beige\\) {
+  border-top-color: beige;
+}
+.Bdtc\\(bisque\\) {
+  border-top-color: bisque;
+}
+.Bdtc\\(black\\) {
+  border-top-color: black;
+}
+.Bdtc\\(blanchedalmond\\) {
+  border-top-color: blanchedalmond;
+}
+.Bdtc\\(blue\\) {
+  border-top-color: blue;
+}
+.Bdtc\\(blueviolet\\) {
+  border-top-color: blueviolet;
+}
+.Bdtc\\(brown\\) {
+  border-top-color: brown;
+}
+.Bdtc\\(burlywood\\) {
+  border-top-color: burlywood;
+}
+.Bdtc\\(cadetblue\\) {
+  border-top-color: cadetblue;
+}
+.Bdtc\\(chartreuse\\) {
+  border-top-color: chartreuse;
+}
+.Bdtc\\(chocolate\\) {
+  border-top-color: chocolate;
+}
+.Bdtc\\(coral\\) {
+  border-top-color: coral;
+}
+.Bdtc\\(cornflowerblue\\) {
+  border-top-color: cornflowerblue;
+}
+.Bdtc\\(cornsilk\\) {
+  border-top-color: cornsilk;
+}
+.Bdtc\\(crimson\\) {
+  border-top-color: crimson;
+}
+.Bdtc\\(cyan\\) {
+  border-top-color: cyan;
+}
+.Bdtc\\(darkblue\\) {
+  border-top-color: darkblue;
+}
+.Bdtc\\(darkcyan\\) {
+  border-top-color: darkcyan;
+}
+.Bdtc\\(darkgoldenrod\\) {
+  border-top-color: darkgoldenrod;
+}
+.Bdtc\\(darkgray\\) {
+  border-top-color: darkgray;
+}
+.Bdtc\\(darkgreen\\) {
+  border-top-color: darkgreen;
+}
+.Bdtc\\(darkgrey\\) {
+  border-top-color: darkgrey;
+}
+.Bdtc\\(darkkhaki\\) {
+  border-top-color: darkkhaki;
+}
+.Bdtc\\(darkmagenta\\) {
+  border-top-color: darkmagenta;
+}
+.Bdtc\\(darkolivegreen\\) {
+  border-top-color: darkolivegreen;
+}
+.Bdtc\\(darkorange\\) {
+  border-top-color: darkorange;
+}
+.Bdtc\\(darkorchid\\) {
+  border-top-color: darkorchid;
+}
+.Bdtc\\(darkred\\) {
+  border-top-color: darkred;
+}
+.Bdtc\\(darksalmon\\) {
+  border-top-color: darksalmon;
+}
+.Bdtc\\(darkseagreen\\) {
+  border-top-color: darkseagreen;
+}
+.Bdtc\\(darkslateblue\\) {
+  border-top-color: darkslateblue;
+}
+.Bdtc\\(darkslategray\\) {
+  border-top-color: darkslategray;
+}
+.Bdtc\\(darkslategrey\\) {
+  border-top-color: darkslategrey;
+}
+.Bdtc\\(darkturquoise\\) {
+  border-top-color: darkturquoise;
+}
+.Bdtc\\(darkviolet\\) {
+  border-top-color: darkviolet;
+}
+.Bdtc\\(deeppink\\) {
+  border-top-color: deeppink;
+}
+.Bdtc\\(deepskyblue\\) {
+  border-top-color: deepskyblue;
+}
+.Bdtc\\(dimgray\\) {
+  border-top-color: dimgray;
+}
+.Bdtc\\(dimgrey\\) {
+  border-top-color: dimgrey;
+}
+.Bdtc\\(dodgerblue\\) {
+  border-top-color: dodgerblue;
+}
+.Bdtc\\(firebrick\\) {
+  border-top-color: firebrick;
+}
+.Bdtc\\(floralwhite\\) {
+  border-top-color: floralwhite;
+}
+.Bdtc\\(forestgreen\\) {
+  border-top-color: forestgreen;
+}
+.Bdtc\\(fuchsia\\) {
+  border-top-color: fuchsia;
+}
+.Bdtc\\(gainsboro\\) {
+  border-top-color: gainsboro;
+}
+.Bdtc\\(ghostwhite\\) {
+  border-top-color: ghostwhite;
+}
+.Bdtc\\(gold\\) {
+  border-top-color: gold;
+}
+.Bdtc\\(goldenrod\\) {
+  border-top-color: goldenrod;
+}
+.Bdtc\\(gray\\) {
+  border-top-color: gray;
+}
+.Bdtc\\(green\\) {
+  border-top-color: green;
+}
+.Bdtc\\(greenyellow\\) {
+  border-top-color: greenyellow;
+}
+.Bdtc\\(grey\\) {
+  border-top-color: grey;
+}
+.Bdtc\\(honeydew\\) {
+  border-top-color: honeydew;
+}
+.Bdtc\\(hotpink\\) {
+  border-top-color: hotpink;
+}
+.Bdtc\\(indianred\\) {
+  border-top-color: indianred;
+}
+.Bdtc\\(indigo\\) {
+  border-top-color: indigo;
+}
+.Bdtc\\(ivory\\) {
+  border-top-color: ivory;
+}
+.Bdtc\\(khaki\\) {
+  border-top-color: khaki;
+}
+.Bdtc\\(lavender\\) {
+  border-top-color: lavender;
+}
+.Bdtc\\(lavenderblush\\) {
+  border-top-color: lavenderblush;
+}
+.Bdtc\\(lawngreen\\) {
+  border-top-color: lawngreen;
+}
+.Bdtc\\(lemonchiffon\\) {
+  border-top-color: lemonchiffon;
+}
+.Bdtc\\(lightblue\\) {
+  border-top-color: lightblue;
+}
+.Bdtc\\(lightcoral\\) {
+  border-top-color: lightcoral;
+}
+.Bdtc\\(lightcyan\\) {
+  border-top-color: lightcyan;
+}
+.Bdtc\\(lightgoldenrodyellow\\) {
+  border-top-color: lightgoldenrodyellow;
+}
+.Bdtc\\(lightgray\\) {
+  border-top-color: lightgray;
+}
+.Bdtc\\(lightgreen\\) {
+  border-top-color: lightgreen;
+}
+.Bdtc\\(lightgrey\\) {
+  border-top-color: lightgrey;
+}
+.Bdtc\\(lightpink\\) {
+  border-top-color: lightpink;
+}
+.Bdtc\\(lightsalmon\\) {
+  border-top-color: lightsalmon;
+}
+.Bdtc\\(lightseagreen\\) {
+  border-top-color: lightseagreen;
+}
+.Bdtc\\(lightskyblue\\) {
+  border-top-color: lightskyblue;
+}
+.Bdtc\\(lightslategray\\) {
+  border-top-color: lightslategray;
+}
+.Bdtc\\(lightslategrey\\) {
+  border-top-color: lightslategrey;
+}
+.Bdtc\\(lightsteelblue\\) {
+  border-top-color: lightsteelblue;
+}
+.Bdtc\\(lightyellow\\) {
+  border-top-color: lightyellow;
+}
+.Bdtc\\(lime\\) {
+  border-top-color: lime;
+}
+.Bdtc\\(limegreen\\) {
+  border-top-color: limegreen;
+}
+.Bdtc\\(linen\\) {
+  border-top-color: linen;
+}
+.Bdtc\\(magenta\\) {
+  border-top-color: magenta;
+}
+.Bdtc\\(maroon\\) {
+  border-top-color: maroon;
+}
+.Bdtc\\(mediumaquamarine\\) {
+  border-top-color: mediumaquamarine;
+}
+.Bdtc\\(mediumblue\\) {
+  border-top-color: mediumblue;
+}
+.Bdtc\\(mediumorchid\\) {
+  border-top-color: mediumorchid;
+}
+.Bdtc\\(mediumpurple\\) {
+  border-top-color: mediumpurple;
+}
+.Bdtc\\(mediumseagreen\\) {
+  border-top-color: mediumseagreen;
+}
+.Bdtc\\(mediumslateblue\\) {
+  border-top-color: mediumslateblue;
+}
+.Bdtc\\(mediumspringgreen\\) {
+  border-top-color: mediumspringgreen;
+}
+.Bdtc\\(mediumturquoise\\) {
+  border-top-color: mediumturquoise;
+}
+.Bdtc\\(mediumvioletred\\) {
+  border-top-color: mediumvioletred;
+}
+.Bdtc\\(midnightblue\\) {
+  border-top-color: midnightblue;
+}
+.Bdtc\\(mintcream\\) {
+  border-top-color: mintcream;
+}
+.Bdtc\\(mistyrose\\) {
+  border-top-color: mistyrose;
+}
+.Bdtc\\(moccasin\\) {
+  border-top-color: moccasin;
+}
+.Bdtc\\(navajowhite\\) {
+  border-top-color: navajowhite;
+}
+.Bdtc\\(navy\\) {
+  border-top-color: navy;
+}
+.Bdtc\\(oldlace\\) {
+  border-top-color: oldlace;
+}
+.Bdtc\\(olive\\) {
+  border-top-color: olive;
+}
+.Bdtc\\(olivedrab\\) {
+  border-top-color: olivedrab;
+}
+.Bdtc\\(orange\\) {
+  border-top-color: orange;
+}
+.Bdtc\\(orangered\\) {
+  border-top-color: orangered;
+}
+.Bdtc\\(orchid\\) {
+  border-top-color: orchid;
+}
+.Bdtc\\(palegoldenrod\\) {
+  border-top-color: palegoldenrod;
+}
+.Bdtc\\(palegreen\\) {
+  border-top-color: palegreen;
+}
+.Bdtc\\(paleturquoise\\) {
+  border-top-color: paleturquoise;
+}
+.Bdtc\\(palevioletred\\) {
+  border-top-color: palevioletred;
+}
+.Bdtc\\(papayawhip\\) {
+  border-top-color: papayawhip;
+}
+.Bdtc\\(peachpuff\\) {
+  border-top-color: peachpuff;
+}
+.Bdtc\\(peru\\) {
+  border-top-color: peru;
+}
+.Bdtc\\(pink\\) {
+  border-top-color: pink;
+}
+.Bdtc\\(plum\\) {
+  border-top-color: plum;
+}
+.Bdtc\\(powderblue\\) {
+  border-top-color: powderblue;
+}
+.Bdtc\\(purple\\) {
+  border-top-color: purple;
+}
+.Bdtc\\(red\\) {
+  border-top-color: red;
+}
+.Bdtc\\(rosybrown\\) {
+  border-top-color: rosybrown;
+}
+.Bdtc\\(royalblue\\) {
+  border-top-color: royalblue;
+}
+.Bdtc\\(saddlebrown\\) {
+  border-top-color: saddlebrown;
+}
+.Bdtc\\(salmon\\) {
+  border-top-color: salmon;
+}
+.Bdtc\\(sandybrown\\) {
+  border-top-color: sandybrown;
+}
+.Bdtc\\(seagreen\\) {
+  border-top-color: seagreen;
+}
+.Bdtc\\(seashell\\) {
+  border-top-color: seashell;
+}
+.Bdtc\\(sienna\\) {
+  border-top-color: sienna;
+}
+.Bdtc\\(silver\\) {
+  border-top-color: silver;
+}
+.Bdtc\\(skyblue\\) {
+  border-top-color: skyblue;
+}
+.Bdtc\\(slateblue\\) {
+  border-top-color: slateblue;
+}
+.Bdtc\\(slategray\\) {
+  border-top-color: slategray;
+}
+.Bdtc\\(slategrey\\) {
+  border-top-color: slategrey;
+}
+.Bdtc\\(snow\\) {
+  border-top-color: snow;
+}
+.Bdtc\\(springgreen\\) {
+  border-top-color: springgreen;
+}
+.Bdtc\\(steelblue\\) {
+  border-top-color: steelblue;
+}
+.Bdtc\\(tan\\) {
+  border-top-color: tan;
+}
+.Bdtc\\(teal\\) {
+  border-top-color: teal;
+}
+.Bdtc\\(thistle\\) {
+  border-top-color: thistle;
+}
+.Bdtc\\(tomato\\) {
+  border-top-color: tomato;
+}
+.Bdtc\\(turquoise\\) {
+  border-top-color: turquoise;
+}
+.Bdtc\\(violet\\) {
+  border-top-color: violet;
+}
+.Bdtc\\(wheat\\) {
+  border-top-color: wheat;
+}
+.Bdtc\\(white\\) {
+  border-top-color: white;
+}
+.Bdtc\\(whitesmoke\\) {
+  border-top-color: whitesmoke;
+}
+.Bdtc\\(yellow\\) {
+  border-top-color: yellow;
+}
+.Bdtc\\(yellowgreen\\) {
+  border-top-color: yellowgreen;
+}
+.Bdtc\\(1px\\) {
+  border-top-color: 1px;
+}
+"
+`;
+
+exports[`Rules border-top-left-radius 1`] = `
+".Bdrststart\\(1px\\) {
+  border-top-left-radius: 1px;
+}
+"
+`;
+
+exports[`Rules border-top-right-radius 1`] = `
+".Bdrstend\\(1px\\) {
+  border-top-right-radius: 1px;
+}
+"
+`;
+
+exports[`Rules border-top-style 1`] = `
+".Bdts\\(a\\) {
+  border-top-style: auto;
+}
+.Bdts\\(d\\) {
+  border-top-style: dotted;
+}
+.Bdts\\(da\\) {
+  border-top-style: dashed;
+}
+.Bdts\\(do\\) {
+  border-top-style: double;
+}
+.Bdts\\(g\\) {
+  border-top-style: groove;
+}
+.Bdts\\(h\\) {
+  border-top-style: hidden;
+}
+.Bdts\\(i\\) {
+  border-top-style: inset;
+}
+.Bdts\\(n\\) {
+  border-top-style: none;
+}
+.Bdts\\(o\\) {
+  border-top-style: outset;
+}
+.Bdts\\(r\\) {
+  border-top-style: ridge;
+}
+.Bdts\\(s\\) {
+  border-top-style: solid;
+}
+"
+`;
+
+exports[`Rules border-top-width 1`] = `
+".Bdtw\\(m\\) {
+  border-top-width: medium;
+}
+.Bdtw\\(t\\) {
+  border-top-width: thin;
+}
+.Bdtw\\(th\\) {
+  border-top-width: thick;
+}
+.Bdtw\\(1px\\) {
+  border-top-width: 1px;
+}
+"
+`;
+
+exports[`Rules border-width 1`] = `
+".Bdw\\(m\\) {
+  border-width: medium;
+}
+.Bdw\\(t\\) {
+  border-width: thin;
+}
+.Bdw\\(th\\) {
+  border-width: thick;
+}
+.Bdw\\(1px\\) {
+  border-width: 1px;
+}
+"
+`;
+
+exports[`Rules bottom 1`] = `
+".B\\(a\\) {
+  bottom: auto;
+}
+.B\\(1px\\) {
+  bottom: 1px;
+}
+"
+`;
+
+exports[`Rules box-decoration-break 1`] = `
+".Bxdb\\(c\\) {
+  box-decoration-break: clone;
+}
+.Bxdb\\(s\\) {
+  box-decoration-break: slice;
+}
+"
+`;
+
+exports[`Rules box-shadow 1`] = `
+".Bxsh\\(n\\) {
+  box-shadow: none;
+}
+"
+`;
+
+exports[`Rules box-sizing 1`] = `
+".Bxz\\(cb\\) {
+  box-sizing: content-box;
+}
+.Bxz\\(pb\\) {
+  box-sizing: padding-box;
+}
+.Bxz\\(bb\\) {
+  box-sizing: border-box;
+}
+"
+`;
+
+exports[`Rules caret-color 1`] = `
+".Cac\\(a\\) {
+  caret-color: auto;
+}
+.Cac\\(t\\) {
+  caret-color: transparent;
+}
+.Cac\\(cc\\) {
+  caret-color: currentColor;
+}
+.Cac\\(n\\) {
+  caret-color: none;
+}
+.Cac\\(aliceblue\\) {
+  caret-color: aliceblue;
+}
+.Cac\\(antiquewhite\\) {
+  caret-color: antiquewhite;
+}
+.Cac\\(aqua\\) {
+  caret-color: aqua;
+}
+.Cac\\(aquamarine\\) {
+  caret-color: aquamarine;
+}
+.Cac\\(azure\\) {
+  caret-color: azure;
+}
+.Cac\\(beige\\) {
+  caret-color: beige;
+}
+.Cac\\(bisque\\) {
+  caret-color: bisque;
+}
+.Cac\\(black\\) {
+  caret-color: black;
+}
+.Cac\\(blanchedalmond\\) {
+  caret-color: blanchedalmond;
+}
+.Cac\\(blue\\) {
+  caret-color: blue;
+}
+.Cac\\(blueviolet\\) {
+  caret-color: blueviolet;
+}
+.Cac\\(brown\\) {
+  caret-color: brown;
+}
+.Cac\\(burlywood\\) {
+  caret-color: burlywood;
+}
+.Cac\\(cadetblue\\) {
+  caret-color: cadetblue;
+}
+.Cac\\(chartreuse\\) {
+  caret-color: chartreuse;
+}
+.Cac\\(chocolate\\) {
+  caret-color: chocolate;
+}
+.Cac\\(coral\\) {
+  caret-color: coral;
+}
+.Cac\\(cornflowerblue\\) {
+  caret-color: cornflowerblue;
+}
+.Cac\\(cornsilk\\) {
+  caret-color: cornsilk;
+}
+.Cac\\(crimson\\) {
+  caret-color: crimson;
+}
+.Cac\\(cyan\\) {
+  caret-color: cyan;
+}
+.Cac\\(darkblue\\) {
+  caret-color: darkblue;
+}
+.Cac\\(darkcyan\\) {
+  caret-color: darkcyan;
+}
+.Cac\\(darkgoldenrod\\) {
+  caret-color: darkgoldenrod;
+}
+.Cac\\(darkgray\\) {
+  caret-color: darkgray;
+}
+.Cac\\(darkgreen\\) {
+  caret-color: darkgreen;
+}
+.Cac\\(darkgrey\\) {
+  caret-color: darkgrey;
+}
+.Cac\\(darkkhaki\\) {
+  caret-color: darkkhaki;
+}
+.Cac\\(darkmagenta\\) {
+  caret-color: darkmagenta;
+}
+.Cac\\(darkolivegreen\\) {
+  caret-color: darkolivegreen;
+}
+.Cac\\(darkorange\\) {
+  caret-color: darkorange;
+}
+.Cac\\(darkorchid\\) {
+  caret-color: darkorchid;
+}
+.Cac\\(darkred\\) {
+  caret-color: darkred;
+}
+.Cac\\(darksalmon\\) {
+  caret-color: darksalmon;
+}
+.Cac\\(darkseagreen\\) {
+  caret-color: darkseagreen;
+}
+.Cac\\(darkslateblue\\) {
+  caret-color: darkslateblue;
+}
+.Cac\\(darkslategray\\) {
+  caret-color: darkslategray;
+}
+.Cac\\(darkslategrey\\) {
+  caret-color: darkslategrey;
+}
+.Cac\\(darkturquoise\\) {
+  caret-color: darkturquoise;
+}
+.Cac\\(darkviolet\\) {
+  caret-color: darkviolet;
+}
+.Cac\\(deeppink\\) {
+  caret-color: deeppink;
+}
+.Cac\\(deepskyblue\\) {
+  caret-color: deepskyblue;
+}
+.Cac\\(dimgray\\) {
+  caret-color: dimgray;
+}
+.Cac\\(dimgrey\\) {
+  caret-color: dimgrey;
+}
+.Cac\\(dodgerblue\\) {
+  caret-color: dodgerblue;
+}
+.Cac\\(firebrick\\) {
+  caret-color: firebrick;
+}
+.Cac\\(floralwhite\\) {
+  caret-color: floralwhite;
+}
+.Cac\\(forestgreen\\) {
+  caret-color: forestgreen;
+}
+.Cac\\(fuchsia\\) {
+  caret-color: fuchsia;
+}
+.Cac\\(gainsboro\\) {
+  caret-color: gainsboro;
+}
+.Cac\\(ghostwhite\\) {
+  caret-color: ghostwhite;
+}
+.Cac\\(gold\\) {
+  caret-color: gold;
+}
+.Cac\\(goldenrod\\) {
+  caret-color: goldenrod;
+}
+.Cac\\(gray\\) {
+  caret-color: gray;
+}
+.Cac\\(green\\) {
+  caret-color: green;
+}
+.Cac\\(greenyellow\\) {
+  caret-color: greenyellow;
+}
+.Cac\\(grey\\) {
+  caret-color: grey;
+}
+.Cac\\(honeydew\\) {
+  caret-color: honeydew;
+}
+.Cac\\(hotpink\\) {
+  caret-color: hotpink;
+}
+.Cac\\(indianred\\) {
+  caret-color: indianred;
+}
+.Cac\\(indigo\\) {
+  caret-color: indigo;
+}
+.Cac\\(ivory\\) {
+  caret-color: ivory;
+}
+.Cac\\(khaki\\) {
+  caret-color: khaki;
+}
+.Cac\\(lavender\\) {
+  caret-color: lavender;
+}
+.Cac\\(lavenderblush\\) {
+  caret-color: lavenderblush;
+}
+.Cac\\(lawngreen\\) {
+  caret-color: lawngreen;
+}
+.Cac\\(lemonchiffon\\) {
+  caret-color: lemonchiffon;
+}
+.Cac\\(lightblue\\) {
+  caret-color: lightblue;
+}
+.Cac\\(lightcoral\\) {
+  caret-color: lightcoral;
+}
+.Cac\\(lightcyan\\) {
+  caret-color: lightcyan;
+}
+.Cac\\(lightgoldenrodyellow\\) {
+  caret-color: lightgoldenrodyellow;
+}
+.Cac\\(lightgray\\) {
+  caret-color: lightgray;
+}
+.Cac\\(lightgreen\\) {
+  caret-color: lightgreen;
+}
+.Cac\\(lightgrey\\) {
+  caret-color: lightgrey;
+}
+.Cac\\(lightpink\\) {
+  caret-color: lightpink;
+}
+.Cac\\(lightsalmon\\) {
+  caret-color: lightsalmon;
+}
+.Cac\\(lightseagreen\\) {
+  caret-color: lightseagreen;
+}
+.Cac\\(lightskyblue\\) {
+  caret-color: lightskyblue;
+}
+.Cac\\(lightslategray\\) {
+  caret-color: lightslategray;
+}
+.Cac\\(lightslategrey\\) {
+  caret-color: lightslategrey;
+}
+.Cac\\(lightsteelblue\\) {
+  caret-color: lightsteelblue;
+}
+.Cac\\(lightyellow\\) {
+  caret-color: lightyellow;
+}
+.Cac\\(lime\\) {
+  caret-color: lime;
+}
+.Cac\\(limegreen\\) {
+  caret-color: limegreen;
+}
+.Cac\\(linen\\) {
+  caret-color: linen;
+}
+.Cac\\(magenta\\) {
+  caret-color: magenta;
+}
+.Cac\\(maroon\\) {
+  caret-color: maroon;
+}
+.Cac\\(mediumaquamarine\\) {
+  caret-color: mediumaquamarine;
+}
+.Cac\\(mediumblue\\) {
+  caret-color: mediumblue;
+}
+.Cac\\(mediumorchid\\) {
+  caret-color: mediumorchid;
+}
+.Cac\\(mediumpurple\\) {
+  caret-color: mediumpurple;
+}
+.Cac\\(mediumseagreen\\) {
+  caret-color: mediumseagreen;
+}
+.Cac\\(mediumslateblue\\) {
+  caret-color: mediumslateblue;
+}
+.Cac\\(mediumspringgreen\\) {
+  caret-color: mediumspringgreen;
+}
+.Cac\\(mediumturquoise\\) {
+  caret-color: mediumturquoise;
+}
+.Cac\\(mediumvioletred\\) {
+  caret-color: mediumvioletred;
+}
+.Cac\\(midnightblue\\) {
+  caret-color: midnightblue;
+}
+.Cac\\(mintcream\\) {
+  caret-color: mintcream;
+}
+.Cac\\(mistyrose\\) {
+  caret-color: mistyrose;
+}
+.Cac\\(moccasin\\) {
+  caret-color: moccasin;
+}
+.Cac\\(navajowhite\\) {
+  caret-color: navajowhite;
+}
+.Cac\\(navy\\) {
+  caret-color: navy;
+}
+.Cac\\(oldlace\\) {
+  caret-color: oldlace;
+}
+.Cac\\(olive\\) {
+  caret-color: olive;
+}
+.Cac\\(olivedrab\\) {
+  caret-color: olivedrab;
+}
+.Cac\\(orange\\) {
+  caret-color: orange;
+}
+.Cac\\(orangered\\) {
+  caret-color: orangered;
+}
+.Cac\\(orchid\\) {
+  caret-color: orchid;
+}
+.Cac\\(palegoldenrod\\) {
+  caret-color: palegoldenrod;
+}
+.Cac\\(palegreen\\) {
+  caret-color: palegreen;
+}
+.Cac\\(paleturquoise\\) {
+  caret-color: paleturquoise;
+}
+.Cac\\(palevioletred\\) {
+  caret-color: palevioletred;
+}
+.Cac\\(papayawhip\\) {
+  caret-color: papayawhip;
+}
+.Cac\\(peachpuff\\) {
+  caret-color: peachpuff;
+}
+.Cac\\(peru\\) {
+  caret-color: peru;
+}
+.Cac\\(pink\\) {
+  caret-color: pink;
+}
+.Cac\\(plum\\) {
+  caret-color: plum;
+}
+.Cac\\(powderblue\\) {
+  caret-color: powderblue;
+}
+.Cac\\(purple\\) {
+  caret-color: purple;
+}
+.Cac\\(red\\) {
+  caret-color: red;
+}
+.Cac\\(rosybrown\\) {
+  caret-color: rosybrown;
+}
+.Cac\\(royalblue\\) {
+  caret-color: royalblue;
+}
+.Cac\\(saddlebrown\\) {
+  caret-color: saddlebrown;
+}
+.Cac\\(salmon\\) {
+  caret-color: salmon;
+}
+.Cac\\(sandybrown\\) {
+  caret-color: sandybrown;
+}
+.Cac\\(seagreen\\) {
+  caret-color: seagreen;
+}
+.Cac\\(seashell\\) {
+  caret-color: seashell;
+}
+.Cac\\(sienna\\) {
+  caret-color: sienna;
+}
+.Cac\\(silver\\) {
+  caret-color: silver;
+}
+.Cac\\(skyblue\\) {
+  caret-color: skyblue;
+}
+.Cac\\(slateblue\\) {
+  caret-color: slateblue;
+}
+.Cac\\(slategray\\) {
+  caret-color: slategray;
+}
+.Cac\\(slategrey\\) {
+  caret-color: slategrey;
+}
+.Cac\\(snow\\) {
+  caret-color: snow;
+}
+.Cac\\(springgreen\\) {
+  caret-color: springgreen;
+}
+.Cac\\(steelblue\\) {
+  caret-color: steelblue;
+}
+.Cac\\(tan\\) {
+  caret-color: tan;
+}
+.Cac\\(teal\\) {
+  caret-color: teal;
+}
+.Cac\\(thistle\\) {
+  caret-color: thistle;
+}
+.Cac\\(tomato\\) {
+  caret-color: tomato;
+}
+.Cac\\(turquoise\\) {
+  caret-color: turquoise;
+}
+.Cac\\(violet\\) {
+  caret-color: violet;
+}
+.Cac\\(wheat\\) {
+  caret-color: wheat;
+}
+.Cac\\(white\\) {
+  caret-color: white;
+}
+.Cac\\(whitesmoke\\) {
+  caret-color: whitesmoke;
+}
+.Cac\\(yellow\\) {
+  caret-color: yellow;
+}
+.Cac\\(yellowgreen\\) {
+  caret-color: yellowgreen;
+}
+"
+`;
+
+exports[`Rules clear 1`] = `
+".Cl\\(n\\) {
+  clear: none;
+}
+.Cl\\(b\\) {
+  clear: both;
+}
+.Cl\\(start\\) {
+  clear: left;
+}
+.Cl\\(end\\) {
+  clear: right;
+}
+"
+`;
+
+exports[`Rules clip-path 1`] = `
+".Cp\\(bb\\) {
+  clip-path: border-box;
+}
+.Cp\\(cb\\) {
+  clip-path: content-box;
+}
+.Cp\\(fb\\) {
+  clip-path: fill-box;
+}
+.Cp\\(mb\\) {
+  clip-path: margin-box;
+}
+.Cp\\(n\\) {
+  clip-path: none;
+}
+.Cp\\(pb\\) {
+  clip-path: padding-box;
+}
+.Cp\\(sb\\) {
+  clip-path: stroke-box;
+}
+.Cp\\(vb\\) {
+  clip-path: view-box;
+}
+"
+`;
+
+exports[`Rules color 1`] = `
+".C\\(t\\) {
+  color: transparent;
+}
+.C\\(cc\\) {
+  color: currentColor;
+}
+.C\\(n\\) {
+  color: none;
+}
+.C\\(aliceblue\\) {
+  color: aliceblue;
+}
+.C\\(antiquewhite\\) {
+  color: antiquewhite;
+}
+.C\\(aqua\\) {
+  color: aqua;
+}
+.C\\(aquamarine\\) {
+  color: aquamarine;
+}
+.C\\(azure\\) {
+  color: azure;
+}
+.C\\(beige\\) {
+  color: beige;
+}
+.C\\(bisque\\) {
+  color: bisque;
+}
+.C\\(black\\) {
+  color: black;
+}
+.C\\(blanchedalmond\\) {
+  color: blanchedalmond;
+}
+.C\\(blue\\) {
+  color: blue;
+}
+.C\\(blueviolet\\) {
+  color: blueviolet;
+}
+.C\\(brown\\) {
+  color: brown;
+}
+.C\\(burlywood\\) {
+  color: burlywood;
+}
+.C\\(cadetblue\\) {
+  color: cadetblue;
+}
+.C\\(chartreuse\\) {
+  color: chartreuse;
+}
+.C\\(chocolate\\) {
+  color: chocolate;
+}
+.C\\(coral\\) {
+  color: coral;
+}
+.C\\(cornflowerblue\\) {
+  color: cornflowerblue;
+}
+.C\\(cornsilk\\) {
+  color: cornsilk;
+}
+.C\\(crimson\\) {
+  color: crimson;
+}
+.C\\(cyan\\) {
+  color: cyan;
+}
+.C\\(darkblue\\) {
+  color: darkblue;
+}
+.C\\(darkcyan\\) {
+  color: darkcyan;
+}
+.C\\(darkgoldenrod\\) {
+  color: darkgoldenrod;
+}
+.C\\(darkgray\\) {
+  color: darkgray;
+}
+.C\\(darkgreen\\) {
+  color: darkgreen;
+}
+.C\\(darkgrey\\) {
+  color: darkgrey;
+}
+.C\\(darkkhaki\\) {
+  color: darkkhaki;
+}
+.C\\(darkmagenta\\) {
+  color: darkmagenta;
+}
+.C\\(darkolivegreen\\) {
+  color: darkolivegreen;
+}
+.C\\(darkorange\\) {
+  color: darkorange;
+}
+.C\\(darkorchid\\) {
+  color: darkorchid;
+}
+.C\\(darkred\\) {
+  color: darkred;
+}
+.C\\(darksalmon\\) {
+  color: darksalmon;
+}
+.C\\(darkseagreen\\) {
+  color: darkseagreen;
+}
+.C\\(darkslateblue\\) {
+  color: darkslateblue;
+}
+.C\\(darkslategray\\) {
+  color: darkslategray;
+}
+.C\\(darkslategrey\\) {
+  color: darkslategrey;
+}
+.C\\(darkturquoise\\) {
+  color: darkturquoise;
+}
+.C\\(darkviolet\\) {
+  color: darkviolet;
+}
+.C\\(deeppink\\) {
+  color: deeppink;
+}
+.C\\(deepskyblue\\) {
+  color: deepskyblue;
+}
+.C\\(dimgray\\) {
+  color: dimgray;
+}
+.C\\(dimgrey\\) {
+  color: dimgrey;
+}
+.C\\(dodgerblue\\) {
+  color: dodgerblue;
+}
+.C\\(firebrick\\) {
+  color: firebrick;
+}
+.C\\(floralwhite\\) {
+  color: floralwhite;
+}
+.C\\(forestgreen\\) {
+  color: forestgreen;
+}
+.C\\(fuchsia\\) {
+  color: fuchsia;
+}
+.C\\(gainsboro\\) {
+  color: gainsboro;
+}
+.C\\(ghostwhite\\) {
+  color: ghostwhite;
+}
+.C\\(gold\\) {
+  color: gold;
+}
+.C\\(goldenrod\\) {
+  color: goldenrod;
+}
+.C\\(gray\\) {
+  color: gray;
+}
+.C\\(green\\) {
+  color: green;
+}
+.C\\(greenyellow\\) {
+  color: greenyellow;
+}
+.C\\(grey\\) {
+  color: grey;
+}
+.C\\(honeydew\\) {
+  color: honeydew;
+}
+.C\\(hotpink\\) {
+  color: hotpink;
+}
+.C\\(indianred\\) {
+  color: indianred;
+}
+.C\\(indigo\\) {
+  color: indigo;
+}
+.C\\(ivory\\) {
+  color: ivory;
+}
+.C\\(khaki\\) {
+  color: khaki;
+}
+.C\\(lavender\\) {
+  color: lavender;
+}
+.C\\(lavenderblush\\) {
+  color: lavenderblush;
+}
+.C\\(lawngreen\\) {
+  color: lawngreen;
+}
+.C\\(lemonchiffon\\) {
+  color: lemonchiffon;
+}
+.C\\(lightblue\\) {
+  color: lightblue;
+}
+.C\\(lightcoral\\) {
+  color: lightcoral;
+}
+.C\\(lightcyan\\) {
+  color: lightcyan;
+}
+.C\\(lightgoldenrodyellow\\) {
+  color: lightgoldenrodyellow;
+}
+.C\\(lightgray\\) {
+  color: lightgray;
+}
+.C\\(lightgreen\\) {
+  color: lightgreen;
+}
+.C\\(lightgrey\\) {
+  color: lightgrey;
+}
+.C\\(lightpink\\) {
+  color: lightpink;
+}
+.C\\(lightsalmon\\) {
+  color: lightsalmon;
+}
+.C\\(lightseagreen\\) {
+  color: lightseagreen;
+}
+.C\\(lightskyblue\\) {
+  color: lightskyblue;
+}
+.C\\(lightslategray\\) {
+  color: lightslategray;
+}
+.C\\(lightslategrey\\) {
+  color: lightslategrey;
+}
+.C\\(lightsteelblue\\) {
+  color: lightsteelblue;
+}
+.C\\(lightyellow\\) {
+  color: lightyellow;
+}
+.C\\(lime\\) {
+  color: lime;
+}
+.C\\(limegreen\\) {
+  color: limegreen;
+}
+.C\\(linen\\) {
+  color: linen;
+}
+.C\\(magenta\\) {
+  color: magenta;
+}
+.C\\(maroon\\) {
+  color: maroon;
+}
+.C\\(mediumaquamarine\\) {
+  color: mediumaquamarine;
+}
+.C\\(mediumblue\\) {
+  color: mediumblue;
+}
+.C\\(mediumorchid\\) {
+  color: mediumorchid;
+}
+.C\\(mediumpurple\\) {
+  color: mediumpurple;
+}
+.C\\(mediumseagreen\\) {
+  color: mediumseagreen;
+}
+.C\\(mediumslateblue\\) {
+  color: mediumslateblue;
+}
+.C\\(mediumspringgreen\\) {
+  color: mediumspringgreen;
+}
+.C\\(mediumturquoise\\) {
+  color: mediumturquoise;
+}
+.C\\(mediumvioletred\\) {
+  color: mediumvioletred;
+}
+.C\\(midnightblue\\) {
+  color: midnightblue;
+}
+.C\\(mintcream\\) {
+  color: mintcream;
+}
+.C\\(mistyrose\\) {
+  color: mistyrose;
+}
+.C\\(moccasin\\) {
+  color: moccasin;
+}
+.C\\(navajowhite\\) {
+  color: navajowhite;
+}
+.C\\(navy\\) {
+  color: navy;
+}
+.C\\(oldlace\\) {
+  color: oldlace;
+}
+.C\\(olive\\) {
+  color: olive;
+}
+.C\\(olivedrab\\) {
+  color: olivedrab;
+}
+.C\\(orange\\) {
+  color: orange;
+}
+.C\\(orangered\\) {
+  color: orangered;
+}
+.C\\(orchid\\) {
+  color: orchid;
+}
+.C\\(palegoldenrod\\) {
+  color: palegoldenrod;
+}
+.C\\(palegreen\\) {
+  color: palegreen;
+}
+.C\\(paleturquoise\\) {
+  color: paleturquoise;
+}
+.C\\(palevioletred\\) {
+  color: palevioletred;
+}
+.C\\(papayawhip\\) {
+  color: papayawhip;
+}
+.C\\(peachpuff\\) {
+  color: peachpuff;
+}
+.C\\(peru\\) {
+  color: peru;
+}
+.C\\(pink\\) {
+  color: pink;
+}
+.C\\(plum\\) {
+  color: plum;
+}
+.C\\(powderblue\\) {
+  color: powderblue;
+}
+.C\\(purple\\) {
+  color: purple;
+}
+.C\\(red\\) {
+  color: red;
+}
+.C\\(rosybrown\\) {
+  color: rosybrown;
+}
+.C\\(royalblue\\) {
+  color: royalblue;
+}
+.C\\(saddlebrown\\) {
+  color: saddlebrown;
+}
+.C\\(salmon\\) {
+  color: salmon;
+}
+.C\\(sandybrown\\) {
+  color: sandybrown;
+}
+.C\\(seagreen\\) {
+  color: seagreen;
+}
+.C\\(seashell\\) {
+  color: seashell;
+}
+.C\\(sienna\\) {
+  color: sienna;
+}
+.C\\(silver\\) {
+  color: silver;
+}
+.C\\(skyblue\\) {
+  color: skyblue;
+}
+.C\\(slateblue\\) {
+  color: slateblue;
+}
+.C\\(slategray\\) {
+  color: slategray;
+}
+.C\\(slategrey\\) {
+  color: slategrey;
+}
+.C\\(snow\\) {
+  color: snow;
+}
+.C\\(springgreen\\) {
+  color: springgreen;
+}
+.C\\(steelblue\\) {
+  color: steelblue;
+}
+.C\\(tan\\) {
+  color: tan;
+}
+.C\\(teal\\) {
+  color: teal;
+}
+.C\\(thistle\\) {
+  color: thistle;
+}
+.C\\(tomato\\) {
+  color: tomato;
+}
+.C\\(turquoise\\) {
+  color: turquoise;
+}
+.C\\(violet\\) {
+  color: violet;
+}
+.C\\(wheat\\) {
+  color: wheat;
+}
+.C\\(white\\) {
+  color: white;
+}
+.C\\(whitesmoke\\) {
+  color: whitesmoke;
+}
+.C\\(yellow\\) {
+  color: yellow;
+}
+.C\\(yellowgreen\\) {
+  color: yellowgreen;
+}
+.C\\(1px\\) {
+  color: 1px;
+}
+"
+`;
+
+exports[`Rules column-count 1`] = `""`;
+
+exports[`Rules column-fill 1`] = `
+".Colmf\\(a\\) {
+  column-fill: auto;
+}
+.Colmf\\(b\\) {
+  column-fill: balance;
+}
+"
+`;
+
+exports[`Rules column-gap 1`] = `
+".Colmg\\(n\\) {
+  column-gap: normal;
+}
+.Colmg\\(1px\\) {
+  column-gap: 1px;
+}
+"
+`;
+
+exports[`Rules column-rule 1`] = `
+".Colmr\\(1px\\) {
+  column-rule: 1px;
+}
+"
+`;
+
+exports[`Rules column-rule-color 1`] = `""`;
+
+exports[`Rules column-rule-style 1`] = `
+".Colmrs\\(a\\) {
+  column-rule-style: auto;
+}
+.Colmrs\\(d\\) {
+  column-rule-style: dotted;
+}
+.Colmrs\\(da\\) {
+  column-rule-style: dashed;
+}
+.Colmrs\\(do\\) {
+  column-rule-style: double;
+}
+.Colmrs\\(g\\) {
+  column-rule-style: groove;
+}
+.Colmrs\\(h\\) {
+  column-rule-style: hidden;
+}
+.Colmrs\\(i\\) {
+  column-rule-style: inset;
+}
+.Colmrs\\(n\\) {
+  column-rule-style: none;
+}
+.Colmrs\\(o\\) {
+  column-rule-style: outset;
+}
+.Colmrs\\(r\\) {
+  column-rule-style: ridge;
+}
+.Colmrs\\(s\\) {
+  column-rule-style: solid;
+}
+"
+`;
+
+exports[`Rules column-rule-width 1`] = `""`;
+
+exports[`Rules column-span 1`] = `
+".Colms\\(a\\) {
+  column-span: all;
+}
+.Colms\\(n\\) {
+  column-span: none;
+}
+"
+`;
+
+exports[`Rules column-width 1`] = `
+".Colmw\\(a\\) {
+  column-width: auto;
+}
+.Colmw\\(1px\\) {
+  column-width: 1px;
+}
+"
+`;
+
+exports[`Rules columns 1`] = `
+".Colm\\(1px\\) {
+  columns: 1px;
+}
+"
+`;
+
+exports[`Rules contain 1`] = `
+".Ctn\\(n\\) {
+  contain: none;
+}
+.Ctn\\(st\\) {
+  contain: strict;
+}
+.Ctn\\(c\\) {
+  contain: content;
+}
+.Ctn\\(z\\) {
+  contain: size;
+}
+.Ctn\\(l\\) {
+  contain: layout;
+}
+.Ctn\\(s\\) {
+  contain: style;
+}
+.Ctn\\(p\\) {
+  contain: paint;
+}
+"
+`;
+
+exports[`Rules content 1`] = `
+".Cnt\\(n\\) {
+  content: none;
+}
+.Cnt\\(nor\\) {
+  content: normal;
+}
+.Cnt\\(oq\\) {
+  content: open-quote;
+}
+.Cnt\\(cq\\) {
+  content: close-quote;
+}
+.Cnt\\(noq\\) {
+  content: no-open-quote;
+}
+.Cnt\\(ncq\\) {
+  content: no-close-quote;
+}
+.Cnt\\(1px\\) {
+  content: 1px;
+}
+"
+`;
+
+exports[`Rules cursor 1`] = `
+".Cur\\(a\\) {
+  cursor: auto;
+}
+.Cur\\(as\\) {
+  cursor: all-scroll;
+}
+.Cur\\(c\\) {
+  cursor: cell;
+}
+.Cur\\(cr\\) {
+  cursor: col-resize;
+}
+.Cur\\(co\\) {
+  cursor: copy;
+}
+.Cur\\(cro\\) {
+  cursor: crosshair;
+}
+.Cur\\(d\\) {
+  cursor: default;
+}
+.Cur\\(er\\) {
+  cursor: e-resize;
+}
+.Cur\\(ewr\\) {
+  cursor: ew-resize;
+}
+.Cur\\(g\\) {
+  cursor: grab;
+}
+.Cur\\(gr\\) {
+  cursor: grabbing;
+}
+.Cur\\(h\\) {
+  cursor: help;
+}
+.Cur\\(m\\) {
+  cursor: move;
+}
+.Cur\\(n\\) {
+  cursor: none;
+}
+.Cur\\(nd\\) {
+  cursor: no-drop;
+}
+.Cur\\(na\\) {
+  cursor: not-allowed;
+}
+.Cur\\(nr\\) {
+  cursor: n-resize;
+}
+.Cur\\(ner\\) {
+  cursor: ne-resize;
+}
+.Cur\\(neswr\\) {
+  cursor: nesw-resize;
+}
+.Cur\\(nwser\\) {
+  cursor: nwse-resize;
+}
+.Cur\\(nsr\\) {
+  cursor: ns-resize;
+}
+.Cur\\(nwr\\) {
+  cursor: nw-resize;
+}
+.Cur\\(p\\) {
+  cursor: pointer;
+}
+.Cur\\(pr\\) {
+  cursor: progress;
+}
+.Cur\\(rr\\) {
+  cursor: row-resize;
+}
+.Cur\\(sr\\) {
+  cursor: s-resize;
+}
+.Cur\\(ser\\) {
+  cursor: se-resize;
+}
+.Cur\\(swr\\) {
+  cursor: sw-resize;
+}
+.Cur\\(t\\) {
+  cursor: text;
+}
+.Cur\\(vt\\) {
+  cursor: vertical-text;
+}
+.Cur\\(w\\) {
+  cursor: wait;
+}
+.Cur\\(wr\\) {
+  cursor: w-resize;
+}
+.Cur\\(zi\\) {
+  cursor: zoom-in;
+}
+.Cur\\(zo\\) {
+  cursor: zoom-out;
+}
+"
+`;
+
+exports[`Rules display 1`] = `
+".D\\(n\\) {
+  display: none;
+}
+.D\\(b\\) {
+  display: block;
+}
+.D\\(f\\) {
+  display: flex;
+}
+.D\\(g\\) {
+  display: grid;
+}
+.D\\(i\\) {
+  display: inline;
+}
+.D\\(ib\\) {
+  display: inline-block;
+}
+.D\\(if\\) {
+  display: inline-flex;
+}
+.D\\(ig\\) {
+  display: inline-grid;
+}
+.D\\(tb\\) {
+  display: table;
+}
+.D\\(tbr\\) {
+  display: table-row;
+}
+.D\\(tbc\\) {
+  display: table-cell;
+}
+.D\\(li\\) {
+  display: list-item;
+}
+.D\\(ri\\) {
+  display: run-in;
+}
+.D\\(cp\\) {
+  display: compact;
+}
+.D\\(itb\\) {
+  display: inline-table;
+}
+.D\\(tbcl\\) {
+  display: table-column;
+}
+.D\\(tbclg\\) {
+  display: table-column-group;
+}
+.D\\(tbhg\\) {
+  display: table-header-group;
+}
+.D\\(tbfg\\) {
+  display: table-footer-group;
+}
+.D\\(tbrg\\) {
+  display: table-row-group;
+}
+"
+`;
+
+exports[`Rules fill 1`] = `
+".Fill\\(t\\) {
+  fill: transparent;
+}
+.Fill\\(cc\\) {
+  fill: currentColor;
+}
+.Fill\\(n\\) {
+  fill: none;
+}
+.Fill\\(aliceblue\\) {
+  fill: aliceblue;
+}
+.Fill\\(antiquewhite\\) {
+  fill: antiquewhite;
+}
+.Fill\\(aqua\\) {
+  fill: aqua;
+}
+.Fill\\(aquamarine\\) {
+  fill: aquamarine;
+}
+.Fill\\(azure\\) {
+  fill: azure;
+}
+.Fill\\(beige\\) {
+  fill: beige;
+}
+.Fill\\(bisque\\) {
+  fill: bisque;
+}
+.Fill\\(black\\) {
+  fill: black;
+}
+.Fill\\(blanchedalmond\\) {
+  fill: blanchedalmond;
+}
+.Fill\\(blue\\) {
+  fill: blue;
+}
+.Fill\\(blueviolet\\) {
+  fill: blueviolet;
+}
+.Fill\\(brown\\) {
+  fill: brown;
+}
+.Fill\\(burlywood\\) {
+  fill: burlywood;
+}
+.Fill\\(cadetblue\\) {
+  fill: cadetblue;
+}
+.Fill\\(chartreuse\\) {
+  fill: chartreuse;
+}
+.Fill\\(chocolate\\) {
+  fill: chocolate;
+}
+.Fill\\(coral\\) {
+  fill: coral;
+}
+.Fill\\(cornflowerblue\\) {
+  fill: cornflowerblue;
+}
+.Fill\\(cornsilk\\) {
+  fill: cornsilk;
+}
+.Fill\\(crimson\\) {
+  fill: crimson;
+}
+.Fill\\(cyan\\) {
+  fill: cyan;
+}
+.Fill\\(darkblue\\) {
+  fill: darkblue;
+}
+.Fill\\(darkcyan\\) {
+  fill: darkcyan;
+}
+.Fill\\(darkgoldenrod\\) {
+  fill: darkgoldenrod;
+}
+.Fill\\(darkgray\\) {
+  fill: darkgray;
+}
+.Fill\\(darkgreen\\) {
+  fill: darkgreen;
+}
+.Fill\\(darkgrey\\) {
+  fill: darkgrey;
+}
+.Fill\\(darkkhaki\\) {
+  fill: darkkhaki;
+}
+.Fill\\(darkmagenta\\) {
+  fill: darkmagenta;
+}
+.Fill\\(darkolivegreen\\) {
+  fill: darkolivegreen;
+}
+.Fill\\(darkorange\\) {
+  fill: darkorange;
+}
+.Fill\\(darkorchid\\) {
+  fill: darkorchid;
+}
+.Fill\\(darkred\\) {
+  fill: darkred;
+}
+.Fill\\(darksalmon\\) {
+  fill: darksalmon;
+}
+.Fill\\(darkseagreen\\) {
+  fill: darkseagreen;
+}
+.Fill\\(darkslateblue\\) {
+  fill: darkslateblue;
+}
+.Fill\\(darkslategray\\) {
+  fill: darkslategray;
+}
+.Fill\\(darkslategrey\\) {
+  fill: darkslategrey;
+}
+.Fill\\(darkturquoise\\) {
+  fill: darkturquoise;
+}
+.Fill\\(darkviolet\\) {
+  fill: darkviolet;
+}
+.Fill\\(deeppink\\) {
+  fill: deeppink;
+}
+.Fill\\(deepskyblue\\) {
+  fill: deepskyblue;
+}
+.Fill\\(dimgray\\) {
+  fill: dimgray;
+}
+.Fill\\(dimgrey\\) {
+  fill: dimgrey;
+}
+.Fill\\(dodgerblue\\) {
+  fill: dodgerblue;
+}
+.Fill\\(firebrick\\) {
+  fill: firebrick;
+}
+.Fill\\(floralwhite\\) {
+  fill: floralwhite;
+}
+.Fill\\(forestgreen\\) {
+  fill: forestgreen;
+}
+.Fill\\(fuchsia\\) {
+  fill: fuchsia;
+}
+.Fill\\(gainsboro\\) {
+  fill: gainsboro;
+}
+.Fill\\(ghostwhite\\) {
+  fill: ghostwhite;
+}
+.Fill\\(gold\\) {
+  fill: gold;
+}
+.Fill\\(goldenrod\\) {
+  fill: goldenrod;
+}
+.Fill\\(gray\\) {
+  fill: gray;
+}
+.Fill\\(green\\) {
+  fill: green;
+}
+.Fill\\(greenyellow\\) {
+  fill: greenyellow;
+}
+.Fill\\(grey\\) {
+  fill: grey;
+}
+.Fill\\(honeydew\\) {
+  fill: honeydew;
+}
+.Fill\\(hotpink\\) {
+  fill: hotpink;
+}
+.Fill\\(indianred\\) {
+  fill: indianred;
+}
+.Fill\\(indigo\\) {
+  fill: indigo;
+}
+.Fill\\(ivory\\) {
+  fill: ivory;
+}
+.Fill\\(khaki\\) {
+  fill: khaki;
+}
+.Fill\\(lavender\\) {
+  fill: lavender;
+}
+.Fill\\(lavenderblush\\) {
+  fill: lavenderblush;
+}
+.Fill\\(lawngreen\\) {
+  fill: lawngreen;
+}
+.Fill\\(lemonchiffon\\) {
+  fill: lemonchiffon;
+}
+.Fill\\(lightblue\\) {
+  fill: lightblue;
+}
+.Fill\\(lightcoral\\) {
+  fill: lightcoral;
+}
+.Fill\\(lightcyan\\) {
+  fill: lightcyan;
+}
+.Fill\\(lightgoldenrodyellow\\) {
+  fill: lightgoldenrodyellow;
+}
+.Fill\\(lightgray\\) {
+  fill: lightgray;
+}
+.Fill\\(lightgreen\\) {
+  fill: lightgreen;
+}
+.Fill\\(lightgrey\\) {
+  fill: lightgrey;
+}
+.Fill\\(lightpink\\) {
+  fill: lightpink;
+}
+.Fill\\(lightsalmon\\) {
+  fill: lightsalmon;
+}
+.Fill\\(lightseagreen\\) {
+  fill: lightseagreen;
+}
+.Fill\\(lightskyblue\\) {
+  fill: lightskyblue;
+}
+.Fill\\(lightslategray\\) {
+  fill: lightslategray;
+}
+.Fill\\(lightslategrey\\) {
+  fill: lightslategrey;
+}
+.Fill\\(lightsteelblue\\) {
+  fill: lightsteelblue;
+}
+.Fill\\(lightyellow\\) {
+  fill: lightyellow;
+}
+.Fill\\(lime\\) {
+  fill: lime;
+}
+.Fill\\(limegreen\\) {
+  fill: limegreen;
+}
+.Fill\\(linen\\) {
+  fill: linen;
+}
+.Fill\\(magenta\\) {
+  fill: magenta;
+}
+.Fill\\(maroon\\) {
+  fill: maroon;
+}
+.Fill\\(mediumaquamarine\\) {
+  fill: mediumaquamarine;
+}
+.Fill\\(mediumblue\\) {
+  fill: mediumblue;
+}
+.Fill\\(mediumorchid\\) {
+  fill: mediumorchid;
+}
+.Fill\\(mediumpurple\\) {
+  fill: mediumpurple;
+}
+.Fill\\(mediumseagreen\\) {
+  fill: mediumseagreen;
+}
+.Fill\\(mediumslateblue\\) {
+  fill: mediumslateblue;
+}
+.Fill\\(mediumspringgreen\\) {
+  fill: mediumspringgreen;
+}
+.Fill\\(mediumturquoise\\) {
+  fill: mediumturquoise;
+}
+.Fill\\(mediumvioletred\\) {
+  fill: mediumvioletred;
+}
+.Fill\\(midnightblue\\) {
+  fill: midnightblue;
+}
+.Fill\\(mintcream\\) {
+  fill: mintcream;
+}
+.Fill\\(mistyrose\\) {
+  fill: mistyrose;
+}
+.Fill\\(moccasin\\) {
+  fill: moccasin;
+}
+.Fill\\(navajowhite\\) {
+  fill: navajowhite;
+}
+.Fill\\(navy\\) {
+  fill: navy;
+}
+.Fill\\(oldlace\\) {
+  fill: oldlace;
+}
+.Fill\\(olive\\) {
+  fill: olive;
+}
+.Fill\\(olivedrab\\) {
+  fill: olivedrab;
+}
+.Fill\\(orange\\) {
+  fill: orange;
+}
+.Fill\\(orangered\\) {
+  fill: orangered;
+}
+.Fill\\(orchid\\) {
+  fill: orchid;
+}
+.Fill\\(palegoldenrod\\) {
+  fill: palegoldenrod;
+}
+.Fill\\(palegreen\\) {
+  fill: palegreen;
+}
+.Fill\\(paleturquoise\\) {
+  fill: paleturquoise;
+}
+.Fill\\(palevioletred\\) {
+  fill: palevioletred;
+}
+.Fill\\(papayawhip\\) {
+  fill: papayawhip;
+}
+.Fill\\(peachpuff\\) {
+  fill: peachpuff;
+}
+.Fill\\(peru\\) {
+  fill: peru;
+}
+.Fill\\(pink\\) {
+  fill: pink;
+}
+.Fill\\(plum\\) {
+  fill: plum;
+}
+.Fill\\(powderblue\\) {
+  fill: powderblue;
+}
+.Fill\\(purple\\) {
+  fill: purple;
+}
+.Fill\\(red\\) {
+  fill: red;
+}
+.Fill\\(rosybrown\\) {
+  fill: rosybrown;
+}
+.Fill\\(royalblue\\) {
+  fill: royalblue;
+}
+.Fill\\(saddlebrown\\) {
+  fill: saddlebrown;
+}
+.Fill\\(salmon\\) {
+  fill: salmon;
+}
+.Fill\\(sandybrown\\) {
+  fill: sandybrown;
+}
+.Fill\\(seagreen\\) {
+  fill: seagreen;
+}
+.Fill\\(seashell\\) {
+  fill: seashell;
+}
+.Fill\\(sienna\\) {
+  fill: sienna;
+}
+.Fill\\(silver\\) {
+  fill: silver;
+}
+.Fill\\(skyblue\\) {
+  fill: skyblue;
+}
+.Fill\\(slateblue\\) {
+  fill: slateblue;
+}
+.Fill\\(slategray\\) {
+  fill: slategray;
+}
+.Fill\\(slategrey\\) {
+  fill: slategrey;
+}
+.Fill\\(snow\\) {
+  fill: snow;
+}
+.Fill\\(springgreen\\) {
+  fill: springgreen;
+}
+.Fill\\(steelblue\\) {
+  fill: steelblue;
+}
+.Fill\\(tan\\) {
+  fill: tan;
+}
+.Fill\\(teal\\) {
+  fill: teal;
+}
+.Fill\\(thistle\\) {
+  fill: thistle;
+}
+.Fill\\(tomato\\) {
+  fill: tomato;
+}
+.Fill\\(turquoise\\) {
+  fill: turquoise;
+}
+.Fill\\(violet\\) {
+  fill: violet;
+}
+.Fill\\(wheat\\) {
+  fill: wheat;
+}
+.Fill\\(white\\) {
+  fill: white;
+}
+.Fill\\(whitesmoke\\) {
+  fill: whitesmoke;
+}
+.Fill\\(yellow\\) {
+  fill: yellow;
+}
+.Fill\\(yellowgreen\\) {
+  fill: yellowgreen;
+}
+"
+`;
+
+exports[`Rules filter 1`] = `
+".Fil\\(n\\) {
+  filter: none;
+}
+"
+`;
+
+exports[`Rules filter 2`] = `
+".Blur\\(1px\\) {
+  filter: blur(1px);
+}
+"
+`;
+
+exports[`Rules filter 3`] = `
+".Brightness\\(1px\\) {
+  filter: brightness(1px);
+}
+"
+`;
+
+exports[`Rules filter 4`] = `
+".Contrast\\(1px\\) {
+  filter: contrast(1px);
+}
+"
+`;
+
+exports[`Rules filter 5`] = `""`;
+
+exports[`Rules filter 6`] = `
+".Grayscale\\(1px\\) {
+  filter: grayscale(1px);
+}
+"
+`;
+
+exports[`Rules filter 7`] = `
+".HueRotate\\(1px\\) {
+  filter: hue-rotate(1px);
+}
+"
+`;
+
+exports[`Rules filter 8`] = `
+".Invert\\(1px\\) {
+  filter: invert(1px);
+}
+"
+`;
+
+exports[`Rules filter 9`] = `
+".Opacity\\(1px\\) {
+  filter: opacity(1px);
+}
+"
+`;
+
+exports[`Rules filter 10`] = `
+".Saturate\\(1px\\) {
+  filter: saturate(1px);
+}
+"
+`;
+
+exports[`Rules filter 11`] = `
+".Sepia\\(1px\\) {
+  filter: sepia(1px);
+}
+"
+`;
+
+exports[`Rules flex 1`] = `
+".Flx\\(a\\) {
+  flex: auto;
+}
+.Flx\\(n\\) {
+  flex: none;
+}
+"
+`;
+
+exports[`Rules flex 2`] = `
+".Fx\\(a\\) {
+  flex: auto;
+}
+.Fx\\(n\\) {
+  flex: none;
+}
+"
+`;
+
+exports[`Rules flex-basis 1`] = `
+".Flxb\\(a\\) {
+  flex-basis: auto;
+}
+.Flxb\\(n\\) {
+  flex-basis: none;
+}
+.Flxb\\(1px\\) {
+  flex-basis: 1px;
+}
+"
+`;
+
+exports[`Rules flex-basis 2`] = `
+".Fxb\\(a\\) {
+  flex-basis: auto;
+}
+.Fxb\\(n\\) {
+  flex-basis: none;
+}
+.Fxb\\(1px\\) {
+  flex-basis: 1px;
+}
+"
+`;
+
+exports[`Rules flex-direction 1`] = `
+".Fld\\(r\\) {
+  flex-direction: row;
+}
+.Fld\\(rr\\) {
+  flex-direction: row-reverse;
+}
+.Fld\\(c\\) {
+  flex-direction: column;
+}
+.Fld\\(cr\\) {
+  flex-direction: column-reverse;
+}
+"
+`;
+
+exports[`Rules flex-direction 2`] = `
+".Fxd\\(r\\) {
+  flex-direction: row;
+}
+.Fxd\\(rr\\) {
+  flex-direction: row-reverse;
+}
+.Fxd\\(c\\) {
+  flex-direction: column;
+}
+.Fxd\\(cr\\) {
+  flex-direction: column-reverse;
+}
+"
+`;
+
+exports[`Rules flex-flow 1`] = `
+".Flf\\(r\\) {
+  flex-flow: row;
+}
+.Flf\\(rr\\) {
+  flex-flow: row-reverse;
+}
+.Flf\\(c\\) {
+  flex-flow: column;
+}
+.Flf\\(cr\\) {
+  flex-flow: column-reverse;
+}
+.Flf\\(nw\\) {
+  flex-flow: nowrap;
+}
+.Flf\\(w\\) {
+  flex-flow: wrap;
+}
+.Flf\\(wr\\) {
+  flex-flow: wrap-reverse;
+}
+"
+`;
+
+exports[`Rules flex-flow 2`] = `
+".Fxf\\(r\\) {
+  flex-flow: row;
+}
+.Fxf\\(rr\\) {
+  flex-flow: row-reverse;
+}
+.Fxf\\(c\\) {
+  flex-flow: column;
+}
+.Fxf\\(cr\\) {
+  flex-flow: column-reverse;
+}
+.Fxf\\(nw\\) {
+  flex-flow: nowrap;
+}
+.Fxf\\(w\\) {
+  flex-flow: wrap;
+}
+.Fxf\\(wr\\) {
+  flex-flow: wrap-reverse;
+}
+"
+`;
+
+exports[`Rules flex-grow 1`] = `
+".Flxg\\(1px\\) {
+  flex-grow: 1px;
+}
+"
+`;
+
+exports[`Rules flex-grow 2`] = `
+".Fxg\\(1px\\) {
+  flex-grow: 1px;
+}
+"
+`;
+
+exports[`Rules flex-shrink 1`] = `
+".Flxs\\(1px\\) {
+  flex-shrink: 1px;
+}
+"
+`;
+
+exports[`Rules flex-shrink 2`] = `
+".Fxs\\(1px\\) {
+  flex-shrink: 1px;
+}
+"
+`;
+
+exports[`Rules flex-wrap 1`] = `
+".Flw\\(nw\\) {
+  flex-wrap: nowrap;
+}
+.Flw\\(w\\) {
+  flex-wrap: wrap;
+}
+.Flw\\(wr\\) {
+  flex-wrap: wrap-reverse;
+}
+"
+`;
+
+exports[`Rules flex-wrap 2`] = `
+".Fxw\\(nw\\) {
+  flex-wrap: nowrap;
+}
+.Fxw\\(w\\) {
+  flex-wrap: wrap;
+}
+.Fxw\\(wr\\) {
+  flex-wrap: wrap-reverse;
+}
+"
+`;
+
+exports[`Rules float 1`] = `
+".Fl\\(n\\) {
+  float: none;
+}
+.Fl\\(start\\) {
+  float: left;
+}
+.Fl\\(end\\) {
+  float: right;
+}
+"
+`;
+
+exports[`Rules font-family 1`] = `
+".Ff\\(c\\) {
+  font-family: "Monotype Corsiva", "Comic Sans MS", cursive;
+}
+.Ff\\(f\\) {
+  font-family: Capitals, Impact, fantasy;
+}
+.Ff\\(m\\) {
+  font-family: Monaco, "Courier New", monospace;
+}
+.Ff\\(s\\) {
+  font-family: Georgia, "Times New Roman", serif;
+}
+.Ff\\(ss\\) {
+  font-family: Helvetica, Arial, sans-serif;
+}
+"
+`;
+
+exports[`Rules font-kerning 1`] = `
+".Fk\\(a\\) {
+  font-kerning: auto;
+}
+.Fk\\(n\\) {
+  font-kerning: none;
+}
+.Fk\\(nor\\) {
+  font-kerning: normal;
+}
+"
+`;
+
+exports[`Rules font-size 1`] = `
+".Fz\\(1px\\) {
+  font-size: 1px;
+}
+"
+`;
+
+exports[`Rules font-stretch 1`] = `
+".Fst\\(uc\\) {
+  font-stretch: ultra-condensed;
+}
+.Fst\\(ec\\) {
+  font-stretch: extra-condensed;
+}
+.Fst\\(c\\) {
+  font-stretch: condensed;
+}
+.Fst\\(sc\\) {
+  font-stretch: semi-condensed;
+}
+.Fst\\(n\\) {
+  font-stretch: normal;
+}
+.Fst\\(se\\) {
+  font-stretch: semi-expanded;
+}
+.Fst\\(e\\) {
+  font-stretch: expanded;
+}
+.Fst\\(ee\\) {
+  font-stretch: extra-expanded;
+}
+.Fst\\(ue\\) {
+  font-stretch: ultra-expanded;
+}
+.Fst\\(1px\\) {
+  font-stretch: 1px;
+}
+"
+`;
+
+exports[`Rules font-style 1`] = `
+".Fs\\(n\\) {
+  font-style: normal;
+}
+.Fs\\(i\\) {
+  font-style: italic;
+}
+.Fs\\(o\\) {
+  font-style: oblique;
+}
+"
+`;
+
+exports[`Rules font-variant 1`] = `
+".Fv\\(n\\) {
+  font-variant: normal;
+}
+.Fv\\(sc\\) {
+  font-variant: small-caps;
+}
+"
+`;
+
+exports[`Rules font-weight 1`] = `
+".Fw\\(100\\) {
+  font-weight: 100;
+}
+.Fw\\(200\\) {
+  font-weight: 200;
+}
+.Fw\\(300\\) {
+  font-weight: 300;
+}
+.Fw\\(400\\) {
+  font-weight: 400;
+}
+.Fw\\(500\\) {
+  font-weight: 500;
+}
+.Fw\\(600\\) {
+  font-weight: 600;
+}
+.Fw\\(700\\) {
+  font-weight: 700;
+}
+.Fw\\(800\\) {
+  font-weight: 800;
+}
+.Fw\\(900\\) {
+  font-weight: 900;
+}
+.Fw\\(b\\) {
+  font-weight: bold;
+}
+.Fw\\(br\\) {
+  font-weight: bolder;
+}
+.Fw\\(lr\\) {
+  font-weight: lighter;
+}
+.Fw\\(n\\) {
+  font-weight: normal;
+}
+"
+`;
+
+exports[`Rules gap 1`] = `
+".Gp\\(1px\\) {
+  gap: 1px;
+}
+"
+`;
+
+exports[`Rules grid-area 1`] = `""`;
+
+exports[`Rules grid-auto-columns 1`] = `
+".Gac\\(a\\) {
+  grid-auto-columns: auto;
+}
+.Gac\\(mc\\) {
+  grid-auto-columns: min-content;
+}
+.Gac\\(ma\\) {
+  grid-auto-columns: max-content;
+}
+.Gac\\(1px\\) {
+  grid-auto-columns: 1px;
+}
+"
+`;
+
+exports[`Rules grid-auto-flow 1`] = `
+".Gaf\\(c\\) {
+  grid-auto-flow: column;
+}
+.Gaf\\(d\\) {
+  grid-auto-flow: dense;
+}
+.Gaf\\(cd\\) {
+  grid-auto-flow: column dense;
+}
+.Gaf\\(r\\) {
+  grid-auto-flow: row;
+}
+.Gaf\\(rd\\) {
+  grid-auto-flow: row dense;
+}
+"
+`;
+
+exports[`Rules grid-auto-rows 1`] = `
+".Gar\\(a\\) {
+  grid-auto-rows: auto;
+}
+.Gar\\(mc\\) {
+  grid-auto-rows: min-content;
+}
+.Gar\\(ma\\) {
+  grid-auto-rows: max-content;
+}
+.Gar\\(1px\\) {
+  grid-auto-rows: 1px;
+}
+"
+`;
+
+exports[`Rules grid-column 1`] = `
+".Gc\\(1px\\) {
+  grid-column: 1px;
+}
+"
+`;
+
+exports[`Rules grid-column-end 1`] = `
+".Gce\\(1px\\) {
+  grid-column-end: 1px;
+}
+"
+`;
+
+exports[`Rules grid-column-start 1`] = `
+".Gcs\\(1px\\) {
+  grid-column-start: 1px;
+}
+"
+`;
+
+exports[`Rules grid-row 1`] = `
+".Gr\\(1px\\) {
+  grid-row: 1px;
+}
+"
+`;
+
+exports[`Rules grid-row-end 1`] = `
+".Gre\\(1px\\) {
+  grid-row-end: 1px;
+}
+"
+`;
+
+exports[`Rules grid-row-start 1`] = `
+".Grs\\(1px\\) {
+  grid-row-start: 1px;
+}
+"
+`;
+
+exports[`Rules grid-template 1`] = `""`;
+
+exports[`Rules grid-template-areas 1`] = `""`;
+
+exports[`Rules grid-template-columns 1`] = `""`;
+
+exports[`Rules grid-template-rows 1`] = `""`;
+
+exports[`Rules height 1`] = `
+".H\\(0\\) {
+  height: 0;
+}
+.H\\(a\\) {
+  height: auto;
+}
+.H\\(av\\) {
+  height: available;
+}
+.H\\(bb\\) {
+  height: border-box;
+}
+.H\\(cb\\) {
+  height: content-box;
+}
+.H\\(fc\\) {
+  height: fit-content;
+}
+.H\\(maxc\\) {
+  height: max-content;
+}
+.H\\(minc\\) {
+  height: min-content;
+}
+.H\\(1px\\) {
+  height: 1px;
+}
+"
+`;
+
+exports[`Rules hyphens 1`] = `
+".Hy\\(a\\) {
+  hyphens: auto;
+}
+.Hy\\(n\\) {
+  hyphens: normal;
+}
+.Hy\\(m\\) {
+  hyphens: manual;
+}
+"
+`;
+
+exports[`Rules image-orientation 1`] = `
+".Ior\\(fi\\) {
+  image-orientation: from-image;
+}
+.Ior\\(n\\) {
+  image-orientation: none;
+}
+"
+`;
+
+exports[`Rules image-rendering 1`] = `
+".Iren\\(a\\) {
+  image-rendering: auto;
+}
+.Iren\\(ce\\) {
+  image-rendering: crisp-edges;
+}
+.Iren\\(p\\) {
+  image-rendering: pixelated;
+}
+"
+`;
+
+exports[`Rules isolation 1`] = `
+".Iso\\(a\\) {
+  isolation: auto;
+}
+.Iso\\(i\\) {
+  isolation: isolate;
+}
+"
+`;
+
+exports[`Rules justify-content 1`] = `
+".Jc\\(c\\) {
+  justify-content: center;
+}
+.Jc\\(e\\) {
+  justify-content: end;
+}
+.Jc\\(fe\\) {
+  justify-content: flex-end;
+}
+.Jc\\(fs\\) {
+  justify-content: flex-start;
+}
+.Jc\\(l\\) {
+  justify-content: left;
+}
+.Jc\\(n\\) {
+  justify-content: normal;
+}
+.Jc\\(r\\) {
+  justify-content: right;
+}
+.Jc\\(s\\) {
+  justify-content: start;
+}
+.Jc\\(sa\\) {
+  justify-content: space-around;
+}
+.Jc\\(sb\\) {
+  justify-content: space-between;
+}
+.Jc\\(se\\) {
+  justify-content: space-evenly;
+}
+.Jc\\(st\\) {
+  justify-content: stretch;
+}
+"
+`;
+
+exports[`Rules justify-items 1`] = `
+".Ji\\(b\\) {
+  justify-items: baseline;
+}
+.Ji\\(c\\) {
+  justify-items: center;
+}
+.Ji\\(e\\) {
+  justify-items: end;
+}
+.Ji\\(fe\\) {
+  justify-items: flex-end;
+}
+.Ji\\(fs\\) {
+  justify-items: flex-start;
+}
+.Ji\\(l\\) {
+  justify-items: left;
+}
+.Ji\\(n\\) {
+  justify-items: normal;
+}
+.Ji\\(r\\) {
+  justify-items: right;
+}
+.Ji\\(s\\) {
+  justify-items: start;
+}
+.Ji\\(se\\) {
+  justify-items: self-end;
+}
+.Ji\\(ss\\) {
+  justify-items: self-start;
+}
+"
+`;
+
+exports[`Rules justify-self 1`] = `
+".Js\\(a\\) {
+  justify-self: auto;
+}
+.Js\\(b\\) {
+  justify-self: baseline;
+}
+.Js\\(c\\) {
+  justify-self: center;
+}
+.Js\\(e\\) {
+  justify-self: end;
+}
+.Js\\(fe\\) {
+  justify-self: flex-end;
+}
+.Js\\(fs\\) {
+  justify-self: flex-start;
+}
+.Js\\(l\\) {
+  justify-self: left;
+}
+.Js\\(n\\) {
+  justify-self: normal;
+}
+.Js\\(r\\) {
+  justify-self: right;
+}
+.Js\\(s\\) {
+  justify-self: start;
+}
+.Js\\(se\\) {
+  justify-self: self-end;
+}
+.Js\\(ss\\) {
+  justify-self: self-start;
+}
+"
+`;
+
+exports[`Rules left 1`] = `
+".Start\\(a\\) {
+  left: auto;
+}
+.Start\\(1px\\) {
+  left: 1px;
+}
+"
+`;
+
+exports[`Rules letter-spacing 1`] = `
+".Lts\\(n\\) {
+  letter-spacing: normal;
+}
+.Lts\\(1px\\) {
+  letter-spacing: 1px;
+}
+"
+`;
+
+exports[`Rules line-height 1`] = `
+".Lh\\(n\\) {
+  line-height: normal;
+}
+.Lh\\(1px\\) {
+  line-height: 1px;
+}
+"
+`;
+
+exports[`Rules list-style-image 1`] = `
+".Lisi\\(n\\) {
+  list-style-image: none;
+}
+"
+`;
+
+exports[`Rules list-style-position 1`] = `
+".Lisp\\(i\\) {
+  list-style-position: inside;
+}
+.Lisp\\(o\\) {
+  list-style-position: outside;
+}
+"
+`;
+
+exports[`Rules list-style-type 1`] = `
+".List\\(n\\) {
+  list-style-type: none;
+}
+.List\\(d\\) {
+  list-style-type: disc;
+}
+.List\\(c\\) {
+  list-style-type: circle;
+}
+.List\\(s\\) {
+  list-style-type: square;
+}
+.List\\(dc\\) {
+  list-style-type: decimal;
+}
+.List\\(dclz\\) {
+  list-style-type: decimal-leading-zero;
+}
+.List\\(lr\\) {
+  list-style-type: lower-roman;
+}
+.List\\(lg\\) {
+  list-style-type: lower-greek;
+}
+.List\\(ll\\) {
+  list-style-type: lower-latin;
+}
+.List\\(ur\\) {
+  list-style-type: upper-roman;
+}
+.List\\(ul\\) {
+  list-style-type: upper-latin;
+}
+.List\\(a\\) {
+  list-style-type: armenian;
+}
+.List\\(g\\) {
+  list-style-type: georgian;
+}
+.List\\(la\\) {
+  list-style-type: lower-alpha;
+}
+.List\\(ua\\) {
+  list-style-type: upper-alpha;
+}
+"
+`;
+
+exports[`Rules margin 1`] = `
+".M\\(0\\) {
+  margin: 0;
+}
+.M\\(a\\) {
+  margin: auto;
+}
+.M\\(1px\\) {
+  margin: 1px;
+}
+"
+`;
+
+exports[`Rules margin-bottom 1`] = `
+".My\\(0\\) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.My\\(a\\) {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.My\\(1px\\) {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules margin-bottom 2`] = `
+".Mb\\(0\\) {
+  margin-bottom: 0;
+}
+.Mb\\(a\\) {
+  margin-bottom: auto;
+}
+.Mb\\(1px\\) {
+  margin-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules margin-left 1`] = `
+".Mx\\(0\\) {
+  margin-left: 0;
+  margin-right: 0;
+}
+.Mx\\(a\\) {
+  margin-left: auto;
+  margin-right: auto;
+}
+.Mx\\(1px\\) {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+"
+`;
+
+exports[`Rules margin-left 2`] = `
+".Mstart\\(0\\) {
+  margin-left: 0;
+}
+.Mstart\\(a\\) {
+  margin-left: auto;
+}
+.Mstart\\(1px\\) {
+  margin-left: 1px;
+}
+"
+`;
+
+exports[`Rules margin-right 1`] = `
+".Mx\\(0\\) {
+  margin-left: 0;
+  margin-right: 0;
+}
+.Mx\\(a\\) {
+  margin-left: auto;
+  margin-right: auto;
+}
+.Mx\\(1px\\) {
+  margin-left: 1px;
+  margin-right: 1px;
+}
+"
+`;
+
+exports[`Rules margin-right 2`] = `
+".Mend\\(0\\) {
+  margin-right: 0;
+}
+.Mend\\(a\\) {
+  margin-right: auto;
+}
+.Mend\\(1px\\) {
+  margin-right: 1px;
+}
+"
+`;
+
+exports[`Rules margin-top 1`] = `
+".My\\(0\\) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.My\\(a\\) {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.My\\(1px\\) {
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules margin-top 2`] = `
+".Mt\\(0\\) {
+  margin-top: 0;
+}
+.Mt\\(a\\) {
+  margin-top: auto;
+}
+.Mt\\(1px\\) {
+  margin-top: 1px;
+}
+"
+`;
+
+exports[`Rules max-height 1`] = `
+".Mah\\(a\\) {
+  max-height: auto;
+}
+.Mah\\(maxc\\) {
+  max-height: max-content;
+}
+.Mah\\(minc\\) {
+  max-height: min-content;
+}
+.Mah\\(fa\\) {
+  max-height: fill-available;
+}
+.Mah\\(fc\\) {
+  max-height: fit-content;
+}
+.Mah\\(1px\\) {
+  max-height: 1px;
+}
+"
+`;
+
+exports[`Rules max-width 1`] = `
+".Maw\\(n\\) {
+  max-width: none;
+}
+.Maw\\(fa\\) {
+  max-width: fill-available;
+}
+.Maw\\(fc\\) {
+  max-width: fit-content;
+}
+.Maw\\(maxc\\) {
+  max-width: max-content;
+}
+.Maw\\(minc\\) {
+  max-width: min-content;
+}
+.Maw\\(1px\\) {
+  max-width: 1px;
+}
+"
+`;
+
+exports[`Rules min-height 1`] = `
+".Mih\\(a\\) {
+  min-height: auto;
+}
+.Mih\\(fa\\) {
+  min-height: fill-available;
+}
+.Mih\\(fc\\) {
+  min-height: fit-content;
+}
+.Mih\\(maxc\\) {
+  min-height: max-content;
+}
+.Mih\\(minc\\) {
+  min-height: min-content;
+}
+.Mih\\(1px\\) {
+  min-height: 1px;
+}
+"
+`;
+
+exports[`Rules min-width 1`] = `
+".Miw\\(a\\) {
+  min-width: auto;
+}
+.Miw\\(fa\\) {
+  min-width: fill-available;
+}
+.Miw\\(fc\\) {
+  min-width: fit-content;
+}
+.Miw\\(maxc\\) {
+  min-width: max-content;
+}
+.Miw\\(minc\\) {
+  min-width: min-content;
+}
+.Miw\\(1px\\) {
+  min-width: 1px;
+}
+"
+`;
+
+exports[`Rules mix-blend-mode 1`] = `
+".Mbm\\(c\\) {
+  mix-blend-mode: color;
+}
+.Mbm\\(cb\\) {
+  mix-blend-mode: color-burn;
+}
+.Mbm\\(cd\\) {
+  mix-blend-mode: color-dodge;
+}
+.Mbm\\(d\\) {
+  mix-blend-mode: darken;
+}
+.Mbm\\(di\\) {
+  mix-blend-mode: difference;
+}
+.Mbm\\(e\\) {
+  mix-blend-mode: exclusion;
+}
+.Mbm\\(h\\) {
+  mix-blend-mode: hue;
+}
+.Mbm\\(hl\\) {
+  mix-blend-mode: hard-light;
+}
+.Mbm\\(l\\) {
+  mix-blend-mode: lighten;
+}
+.Mbm\\(lu\\) {
+  mix-blend-mode: luminosity;
+}
+.Mbm\\(m\\) {
+  mix-blend-mode: multiply;
+}
+.Mbm\\(n\\) {
+  mix-blend-mode: normal;
+}
+.Mbm\\(o\\) {
+  mix-blend-mode: overlay;
+}
+.Mbm\\(s\\) {
+  mix-blend-mode: saturation;
+}
+.Mbm\\(sc\\) {
+  mix-blend-mode: screen;
+}
+.Mbm\\(sl\\) {
+  mix-blend-mode: soft-light;
+}
+.Mbm\\(pd\\) {
+  mix-blend-mode: plus-darker;
+}
+.Mbm\\(pl\\) {
+  mix-blend-mode: plus-lighter;
+}
+"
+`;
+
+exports[`Rules object-fit 1`] = `
+".Objf\\(ct\\) {
+  object-fit: contain;
+}
+.Objf\\(cv\\) {
+  object-fit: cover;
+}
+.Objf\\(f\\) {
+  object-fit: fill;
+}
+.Objf\\(n\\) {
+  object-fit: none;
+}
+.Objf\\(sd\\) {
+  object-fit: scale-down;
+}
+"
+`;
+
+exports[`Rules object-position 1`] = `
+".Objp\\(t\\) {
+  object-position: top;
+}
+.Objp\\(end\\) {
+  object-position: right;
+}
+.Objp\\(bottom\\) {
+  object-position: bottom;
+}
+.Objp\\(start\\) {
+  object-position: left;
+}
+.Objp\\(c\\) {
+  object-position: center;
+}
+.Objp\\(1px\\) {
+  object-position: 1px;
+}
+"
+`;
+
+exports[`Rules opacity 1`] = `
+".Op\\(0\\) {
+  opacity: 0;
+}
+.Op\\(1\\) {
+  opacity: 1;
+}
+.Op\\(1px\\) {
+  opacity: 1px;
+}
+"
+`;
+
+exports[`Rules order 1`] = `
+".Or\\(1px\\) {
+  order: 1px;
+}
+"
+`;
+
+exports[`Rules orphans 1`] = `
+".Orp\\(1px\\) {
+  orphans: 1px;
+}
+"
+`;
+
+exports[`Rules outline 1`] = `
+".O\\(0\\) {
+  outline: 0;
+}
+.O\\(n\\) {
+  outline: none;
+}
+"
+`;
+
+exports[`Rules outline-color 1`] = `
+".Oc\\(t\\) {
+  outline-color: transparent;
+}
+.Oc\\(cc\\) {
+  outline-color: currentColor;
+}
+.Oc\\(n\\) {
+  outline-color: none;
+}
+.Oc\\(aliceblue\\) {
+  outline-color: aliceblue;
+}
+.Oc\\(antiquewhite\\) {
+  outline-color: antiquewhite;
+}
+.Oc\\(aqua\\) {
+  outline-color: aqua;
+}
+.Oc\\(aquamarine\\) {
+  outline-color: aquamarine;
+}
+.Oc\\(azure\\) {
+  outline-color: azure;
+}
+.Oc\\(beige\\) {
+  outline-color: beige;
+}
+.Oc\\(bisque\\) {
+  outline-color: bisque;
+}
+.Oc\\(black\\) {
+  outline-color: black;
+}
+.Oc\\(blanchedalmond\\) {
+  outline-color: blanchedalmond;
+}
+.Oc\\(blue\\) {
+  outline-color: blue;
+}
+.Oc\\(blueviolet\\) {
+  outline-color: blueviolet;
+}
+.Oc\\(brown\\) {
+  outline-color: brown;
+}
+.Oc\\(burlywood\\) {
+  outline-color: burlywood;
+}
+.Oc\\(cadetblue\\) {
+  outline-color: cadetblue;
+}
+.Oc\\(chartreuse\\) {
+  outline-color: chartreuse;
+}
+.Oc\\(chocolate\\) {
+  outline-color: chocolate;
+}
+.Oc\\(coral\\) {
+  outline-color: coral;
+}
+.Oc\\(cornflowerblue\\) {
+  outline-color: cornflowerblue;
+}
+.Oc\\(cornsilk\\) {
+  outline-color: cornsilk;
+}
+.Oc\\(crimson\\) {
+  outline-color: crimson;
+}
+.Oc\\(cyan\\) {
+  outline-color: cyan;
+}
+.Oc\\(darkblue\\) {
+  outline-color: darkblue;
+}
+.Oc\\(darkcyan\\) {
+  outline-color: darkcyan;
+}
+.Oc\\(darkgoldenrod\\) {
+  outline-color: darkgoldenrod;
+}
+.Oc\\(darkgray\\) {
+  outline-color: darkgray;
+}
+.Oc\\(darkgreen\\) {
+  outline-color: darkgreen;
+}
+.Oc\\(darkgrey\\) {
+  outline-color: darkgrey;
+}
+.Oc\\(darkkhaki\\) {
+  outline-color: darkkhaki;
+}
+.Oc\\(darkmagenta\\) {
+  outline-color: darkmagenta;
+}
+.Oc\\(darkolivegreen\\) {
+  outline-color: darkolivegreen;
+}
+.Oc\\(darkorange\\) {
+  outline-color: darkorange;
+}
+.Oc\\(darkorchid\\) {
+  outline-color: darkorchid;
+}
+.Oc\\(darkred\\) {
+  outline-color: darkred;
+}
+.Oc\\(darksalmon\\) {
+  outline-color: darksalmon;
+}
+.Oc\\(darkseagreen\\) {
+  outline-color: darkseagreen;
+}
+.Oc\\(darkslateblue\\) {
+  outline-color: darkslateblue;
+}
+.Oc\\(darkslategray\\) {
+  outline-color: darkslategray;
+}
+.Oc\\(darkslategrey\\) {
+  outline-color: darkslategrey;
+}
+.Oc\\(darkturquoise\\) {
+  outline-color: darkturquoise;
+}
+.Oc\\(darkviolet\\) {
+  outline-color: darkviolet;
+}
+.Oc\\(deeppink\\) {
+  outline-color: deeppink;
+}
+.Oc\\(deepskyblue\\) {
+  outline-color: deepskyblue;
+}
+.Oc\\(dimgray\\) {
+  outline-color: dimgray;
+}
+.Oc\\(dimgrey\\) {
+  outline-color: dimgrey;
+}
+.Oc\\(dodgerblue\\) {
+  outline-color: dodgerblue;
+}
+.Oc\\(firebrick\\) {
+  outline-color: firebrick;
+}
+.Oc\\(floralwhite\\) {
+  outline-color: floralwhite;
+}
+.Oc\\(forestgreen\\) {
+  outline-color: forestgreen;
+}
+.Oc\\(fuchsia\\) {
+  outline-color: fuchsia;
+}
+.Oc\\(gainsboro\\) {
+  outline-color: gainsboro;
+}
+.Oc\\(ghostwhite\\) {
+  outline-color: ghostwhite;
+}
+.Oc\\(gold\\) {
+  outline-color: gold;
+}
+.Oc\\(goldenrod\\) {
+  outline-color: goldenrod;
+}
+.Oc\\(gray\\) {
+  outline-color: gray;
+}
+.Oc\\(green\\) {
+  outline-color: green;
+}
+.Oc\\(greenyellow\\) {
+  outline-color: greenyellow;
+}
+.Oc\\(grey\\) {
+  outline-color: grey;
+}
+.Oc\\(honeydew\\) {
+  outline-color: honeydew;
+}
+.Oc\\(hotpink\\) {
+  outline-color: hotpink;
+}
+.Oc\\(indianred\\) {
+  outline-color: indianred;
+}
+.Oc\\(indigo\\) {
+  outline-color: indigo;
+}
+.Oc\\(ivory\\) {
+  outline-color: ivory;
+}
+.Oc\\(khaki\\) {
+  outline-color: khaki;
+}
+.Oc\\(lavender\\) {
+  outline-color: lavender;
+}
+.Oc\\(lavenderblush\\) {
+  outline-color: lavenderblush;
+}
+.Oc\\(lawngreen\\) {
+  outline-color: lawngreen;
+}
+.Oc\\(lemonchiffon\\) {
+  outline-color: lemonchiffon;
+}
+.Oc\\(lightblue\\) {
+  outline-color: lightblue;
+}
+.Oc\\(lightcoral\\) {
+  outline-color: lightcoral;
+}
+.Oc\\(lightcyan\\) {
+  outline-color: lightcyan;
+}
+.Oc\\(lightgoldenrodyellow\\) {
+  outline-color: lightgoldenrodyellow;
+}
+.Oc\\(lightgray\\) {
+  outline-color: lightgray;
+}
+.Oc\\(lightgreen\\) {
+  outline-color: lightgreen;
+}
+.Oc\\(lightgrey\\) {
+  outline-color: lightgrey;
+}
+.Oc\\(lightpink\\) {
+  outline-color: lightpink;
+}
+.Oc\\(lightsalmon\\) {
+  outline-color: lightsalmon;
+}
+.Oc\\(lightseagreen\\) {
+  outline-color: lightseagreen;
+}
+.Oc\\(lightskyblue\\) {
+  outline-color: lightskyblue;
+}
+.Oc\\(lightslategray\\) {
+  outline-color: lightslategray;
+}
+.Oc\\(lightslategrey\\) {
+  outline-color: lightslategrey;
+}
+.Oc\\(lightsteelblue\\) {
+  outline-color: lightsteelblue;
+}
+.Oc\\(lightyellow\\) {
+  outline-color: lightyellow;
+}
+.Oc\\(lime\\) {
+  outline-color: lime;
+}
+.Oc\\(limegreen\\) {
+  outline-color: limegreen;
+}
+.Oc\\(linen\\) {
+  outline-color: linen;
+}
+.Oc\\(magenta\\) {
+  outline-color: magenta;
+}
+.Oc\\(maroon\\) {
+  outline-color: maroon;
+}
+.Oc\\(mediumaquamarine\\) {
+  outline-color: mediumaquamarine;
+}
+.Oc\\(mediumblue\\) {
+  outline-color: mediumblue;
+}
+.Oc\\(mediumorchid\\) {
+  outline-color: mediumorchid;
+}
+.Oc\\(mediumpurple\\) {
+  outline-color: mediumpurple;
+}
+.Oc\\(mediumseagreen\\) {
+  outline-color: mediumseagreen;
+}
+.Oc\\(mediumslateblue\\) {
+  outline-color: mediumslateblue;
+}
+.Oc\\(mediumspringgreen\\) {
+  outline-color: mediumspringgreen;
+}
+.Oc\\(mediumturquoise\\) {
+  outline-color: mediumturquoise;
+}
+.Oc\\(mediumvioletred\\) {
+  outline-color: mediumvioletred;
+}
+.Oc\\(midnightblue\\) {
+  outline-color: midnightblue;
+}
+.Oc\\(mintcream\\) {
+  outline-color: mintcream;
+}
+.Oc\\(mistyrose\\) {
+  outline-color: mistyrose;
+}
+.Oc\\(moccasin\\) {
+  outline-color: moccasin;
+}
+.Oc\\(navajowhite\\) {
+  outline-color: navajowhite;
+}
+.Oc\\(navy\\) {
+  outline-color: navy;
+}
+.Oc\\(oldlace\\) {
+  outline-color: oldlace;
+}
+.Oc\\(olive\\) {
+  outline-color: olive;
+}
+.Oc\\(olivedrab\\) {
+  outline-color: olivedrab;
+}
+.Oc\\(orange\\) {
+  outline-color: orange;
+}
+.Oc\\(orangered\\) {
+  outline-color: orangered;
+}
+.Oc\\(orchid\\) {
+  outline-color: orchid;
+}
+.Oc\\(palegoldenrod\\) {
+  outline-color: palegoldenrod;
+}
+.Oc\\(palegreen\\) {
+  outline-color: palegreen;
+}
+.Oc\\(paleturquoise\\) {
+  outline-color: paleturquoise;
+}
+.Oc\\(palevioletred\\) {
+  outline-color: palevioletred;
+}
+.Oc\\(papayawhip\\) {
+  outline-color: papayawhip;
+}
+.Oc\\(peachpuff\\) {
+  outline-color: peachpuff;
+}
+.Oc\\(peru\\) {
+  outline-color: peru;
+}
+.Oc\\(pink\\) {
+  outline-color: pink;
+}
+.Oc\\(plum\\) {
+  outline-color: plum;
+}
+.Oc\\(powderblue\\) {
+  outline-color: powderblue;
+}
+.Oc\\(purple\\) {
+  outline-color: purple;
+}
+.Oc\\(red\\) {
+  outline-color: red;
+}
+.Oc\\(rosybrown\\) {
+  outline-color: rosybrown;
+}
+.Oc\\(royalblue\\) {
+  outline-color: royalblue;
+}
+.Oc\\(saddlebrown\\) {
+  outline-color: saddlebrown;
+}
+.Oc\\(salmon\\) {
+  outline-color: salmon;
+}
+.Oc\\(sandybrown\\) {
+  outline-color: sandybrown;
+}
+.Oc\\(seagreen\\) {
+  outline-color: seagreen;
+}
+.Oc\\(seashell\\) {
+  outline-color: seashell;
+}
+.Oc\\(sienna\\) {
+  outline-color: sienna;
+}
+.Oc\\(silver\\) {
+  outline-color: silver;
+}
+.Oc\\(skyblue\\) {
+  outline-color: skyblue;
+}
+.Oc\\(slateblue\\) {
+  outline-color: slateblue;
+}
+.Oc\\(slategray\\) {
+  outline-color: slategray;
+}
+.Oc\\(slategrey\\) {
+  outline-color: slategrey;
+}
+.Oc\\(snow\\) {
+  outline-color: snow;
+}
+.Oc\\(springgreen\\) {
+  outline-color: springgreen;
+}
+.Oc\\(steelblue\\) {
+  outline-color: steelblue;
+}
+.Oc\\(tan\\) {
+  outline-color: tan;
+}
+.Oc\\(teal\\) {
+  outline-color: teal;
+}
+.Oc\\(thistle\\) {
+  outline-color: thistle;
+}
+.Oc\\(tomato\\) {
+  outline-color: tomato;
+}
+.Oc\\(turquoise\\) {
+  outline-color: turquoise;
+}
+.Oc\\(violet\\) {
+  outline-color: violet;
+}
+.Oc\\(wheat\\) {
+  outline-color: wheat;
+}
+.Oc\\(white\\) {
+  outline-color: white;
+}
+.Oc\\(whitesmoke\\) {
+  outline-color: whitesmoke;
+}
+.Oc\\(yellow\\) {
+  outline-color: yellow;
+}
+.Oc\\(yellowgreen\\) {
+  outline-color: yellowgreen;
+}
+.Oc\\(1px\\) {
+  outline-color: 1px;
+}
+"
+`;
+
+exports[`Rules outline-offset 1`] = `
+".Oo\\(1px\\) {
+  outline-offset: 1px;
+}
+"
+`;
+
+exports[`Rules outline-style 1`] = `
+".Os\\(a\\) {
+  outline-style: auto;
+}
+.Os\\(d\\) {
+  outline-style: dotted;
+}
+.Os\\(da\\) {
+  outline-style: dashed;
+}
+.Os\\(do\\) {
+  outline-style: double;
+}
+.Os\\(g\\) {
+  outline-style: groove;
+}
+.Os\\(h\\) {
+  outline-style: hidden;
+}
+.Os\\(i\\) {
+  outline-style: inset;
+}
+.Os\\(n\\) {
+  outline-style: none;
+}
+.Os\\(o\\) {
+  outline-style: outset;
+}
+.Os\\(r\\) {
+  outline-style: ridge;
+}
+.Os\\(s\\) {
+  outline-style: solid;
+}
+"
+`;
+
+exports[`Rules outline-width 1`] = `
+".Ow\\(m\\) {
+  outline-width: medium;
+}
+.Ow\\(t\\) {
+  outline-width: thin;
+}
+.Ow\\(th\\) {
+  outline-width: thick;
+}
+.Ow\\(1px\\) {
+  outline-width: 1px;
+}
+"
+`;
+
+exports[`Rules overflow 1`] = `
+".Ov\\(a\\) {
+  overflow: auto;
+}
+.Ov\\(h\\) {
+  overflow: hidden;
+}
+.Ov\\(s\\) {
+  overflow: scroll;
+}
+.Ov\\(v\\) {
+  overflow: visible;
+}
+"
+`;
+
+exports[`Rules overflow-x 1`] = `
+".Ovx\\(a\\) {
+  overflow-x: auto;
+}
+.Ovx\\(h\\) {
+  overflow-x: hidden;
+}
+.Ovx\\(s\\) {
+  overflow-x: scroll;
+}
+.Ovx\\(v\\) {
+  overflow-x: visible;
+}
+"
+`;
+
+exports[`Rules overflow-y 1`] = `
+".Ovy\\(a\\) {
+  overflow-y: auto;
+}
+.Ovy\\(h\\) {
+  overflow-y: hidden;
+}
+.Ovy\\(s\\) {
+  overflow-y: scroll;
+}
+.Ovy\\(v\\) {
+  overflow-y: visible;
+}
+"
+`;
+
+exports[`Rules padding 1`] = `
+".P\\(1px\\) {
+  padding: 1px;
+}
+"
+`;
+
+exports[`Rules padding-bottom 1`] = `
+".Py\\(1px\\) {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules padding-bottom 2`] = `
+".Pb\\(1px\\) {
+  padding-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules padding-left 1`] = `
+".Px\\(1px\\) {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+"
+`;
+
+exports[`Rules padding-left 2`] = `
+".Pstart\\(1px\\) {
+  padding-left: 1px;
+}
+"
+`;
+
+exports[`Rules padding-right 1`] = `
+".Px\\(1px\\) {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+"
+`;
+
+exports[`Rules padding-right 2`] = `
+".Pend\\(1px\\) {
+  padding-right: 1px;
+}
+"
+`;
+
+exports[`Rules padding-top 1`] = `
+".Py\\(1px\\) {
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules padding-top 2`] = `
+".Pt\\(1px\\) {
+  padding-top: 1px;
+}
+"
+`;
+
+exports[`Rules perspective 1`] = `
+".Prs\\(n\\) {
+  perspective: none;
+}
+.Prs\\(1px\\) {
+  perspective: 1px;
+}
+"
+`;
+
+exports[`Rules perspective-origin 1`] = `
+".Prso\\(t\\) {
+  perspective-origin: top;
+}
+.Prso\\(end\\) {
+  perspective-origin: right;
+}
+.Prso\\(bottom\\) {
+  perspective-origin: bottom;
+}
+.Prso\\(start\\) {
+  perspective-origin: left;
+}
+.Prso\\(c\\) {
+  perspective-origin: center;
+}
+.Prso\\(t\\,t\\) {
+  perspective-origin: top top;
+}
+.Prso\\(t\\,end\\) {
+  perspective-origin: top right;
+}
+.Prso\\(t\\,bottom\\) {
+  perspective-origin: top bottom;
+}
+.Prso\\(t\\,start\\) {
+  perspective-origin: top left;
+}
+.Prso\\(t\\,c\\) {
+  perspective-origin: top center;
+}
+.Prso\\(1px\\) {
+  perspective-origin: 1px;
+}
+"
+`;
+
+exports[`Rules place-content 1`] = `
+".Pc\\(b\\) {
+  place-content: baseline;
+}
+.Pc\\(c\\) {
+  place-content: center;
+}
+.Pc\\(e\\) {
+  place-content: end;
+}
+.Pc\\(fe\\) {
+  place-content: flex-end;
+}
+.Pc\\(fs\\) {
+  place-content: flex-start;
+}
+.Pc\\(s\\) {
+  place-content: start;
+}
+.Pc\\(sa\\) {
+  place-content: space-around;
+}
+.Pc\\(sb\\) {
+  place-content: space-between;
+}
+.Pc\\(se\\) {
+  place-content: space-evenly;
+}
+.Pc\\(st\\) {
+  place-content: stretch;
+}
+.Pc\\(b\\,c\\) {
+  place-content: baseline center;
+}
+.Pc\\(b\\,e\\) {
+  place-content: baseline end;
+}
+.Pc\\(b\\,fe\\) {
+  place-content: baseline flex-end;
+}
+.Pc\\(b\\,fs\\) {
+  place-content: baseline flex-start;
+}
+.Pc\\(b\\,l\\) {
+  place-content: baseline left;
+}
+.Pc\\(b\\,n\\) {
+  place-content: baseline normal;
+}
+.Pc\\(b\\,r\\) {
+  place-content: baseline right;
+}
+.Pc\\(b\\,s\\) {
+  place-content: baseline start;
+}
+.Pc\\(b\\,sa\\) {
+  place-content: baseline space-around;
+}
+.Pc\\(b\\,sb\\) {
+  place-content: baseline space-between;
+}
+.Pc\\(b\\,se\\) {
+  place-content: baseline space-evenly;
+}
+.Pc\\(b\\,st\\) {
+  place-content: baseline stretch;
+}
+"
+`;
+
+exports[`Rules place-items 1`] = `
+".Pi\\(b\\) {
+  place-items: baseline;
+}
+.Pi\\(c\\) {
+  place-items: center;
+}
+.Pi\\(e\\) {
+  place-items: end;
+}
+.Pi\\(fe\\) {
+  place-items: flex-end;
+}
+.Pi\\(fs\\) {
+  place-items: flex-start;
+}
+.Pi\\(n\\) {
+  place-items: normal;
+}
+.Pi\\(s\\) {
+  place-items: start;
+}
+.Pi\\(se\\) {
+  place-items: self-end;
+}
+.Pi\\(ss\\) {
+  place-items: self-start;
+}
+.Pi\\(st\\) {
+  place-items: stretch;
+}
+.Pi\\(b\\,b\\) {
+  place-items: baseline baseline;
+}
+.Pi\\(b\\,c\\) {
+  place-items: baseline center;
+}
+.Pi\\(b\\,e\\) {
+  place-items: baseline end;
+}
+.Pi\\(b\\,fe\\) {
+  place-items: baseline flex-end;
+}
+.Pi\\(b\\,fs\\) {
+  place-items: baseline flex-start;
+}
+.Pi\\(b\\,l\\) {
+  place-items: baseline left;
+}
+.Pi\\(b\\,n\\) {
+  place-items: baseline normal;
+}
+.Pi\\(b\\,r\\) {
+  place-items: baseline right;
+}
+.Pi\\(b\\,s\\) {
+  place-items: baseline start;
+}
+.Pi\\(b\\,se\\) {
+  place-items: baseline self-end;
+}
+.Pi\\(b\\,ss\\) {
+  place-items: baseline self-start;
+}
+"
+`;
+
+exports[`Rules place-self 1`] = `
+".Ps\\(a\\) {
+  place-self: auto;
+}
+.Ps\\(b\\) {
+  place-self: baseline;
+}
+.Ps\\(c\\) {
+  place-self: center;
+}
+.Ps\\(e\\) {
+  place-self: end;
+}
+.Ps\\(fe\\) {
+  place-self: flex-end;
+}
+.Ps\\(fs\\) {
+  place-self: flex-start;
+}
+.Ps\\(n\\) {
+  place-self: normal;
+}
+.Ps\\(s\\) {
+  place-self: start;
+}
+.Ps\\(se\\) {
+  place-self: self-end;
+}
+.Ps\\(ss\\) {
+  place-self: self-start;
+}
+.Ps\\(st\\) {
+  place-self: stretch;
+}
+.Ps\\(a\\,a\\) {
+  place-self: auto auto;
+}
+.Ps\\(a\\,b\\) {
+  place-self: auto baseline;
+}
+.Ps\\(a\\,c\\) {
+  place-self: auto center;
+}
+.Ps\\(a\\,e\\) {
+  place-self: auto end;
+}
+.Ps\\(a\\,fe\\) {
+  place-self: auto flex-end;
+}
+.Ps\\(a\\,fs\\) {
+  place-self: auto flex-start;
+}
+.Ps\\(a\\,l\\) {
+  place-self: auto left;
+}
+.Ps\\(a\\,n\\) {
+  place-self: auto normal;
+}
+.Ps\\(a\\,r\\) {
+  place-self: auto right;
+}
+.Ps\\(a\\,s\\) {
+  place-self: auto start;
+}
+.Ps\\(a\\,se\\) {
+  place-self: auto self-end;
+}
+.Ps\\(a\\,ss\\) {
+  place-self: auto self-start;
+}
+"
+`;
+
+exports[`Rules pointer-events 1`] = `
+".Pe\\(a\\) {
+  pointer-events: auto;
+}
+.Pe\\(all\\) {
+  pointer-events: all;
+}
+.Pe\\(f\\) {
+  pointer-events: fill;
+}
+.Pe\\(n\\) {
+  pointer-events: none;
+}
+.Pe\\(p\\) {
+  pointer-events: painted;
+}
+.Pe\\(s\\) {
+  pointer-events: stroke;
+}
+.Pe\\(v\\) {
+  pointer-events: visible;
+}
+.Pe\\(vf\\) {
+  pointer-events: visibleFill;
+}
+.Pe\\(vp\\) {
+  pointer-events: visiblePainted;
+}
+.Pe\\(vs\\) {
+  pointer-events: visibleStroke;
+}
+"
+`;
+
+exports[`Rules position 1`] = `
+".Pos\\(a\\) {
+  position: absolute;
+}
+.Pos\\(f\\) {
+  position: fixed;
+}
+.Pos\\(r\\) {
+  position: relative;
+}
+.Pos\\(s\\) {
+  position: static;
+}
+.Pos\\(st\\) {
+  position: sticky;
+}
+"
+`;
+
+exports[`Rules print-color-adjust 1`] = `
+".Pca\\(ec\\) {
+  print-color-adjust: economy;
+}
+.Pca\\(ex\\) {
+  print-color-adjust: exact;
+}
+"
+`;
+
+exports[`Rules resize 1`] = `
+".Rsz\\(n\\) {
+  resize: none;
+}
+.Rsz\\(b\\) {
+  resize: both;
+}
+.Rsz\\(h\\) {
+  resize: horizontal;
+}
+.Rsz\\(v\\) {
+  resize: vertical;
+}
+"
+`;
+
+exports[`Rules right 1`] = `
+".End\\(a\\) {
+  right: auto;
+}
+.End\\(1px\\) {
+  right: 1px;
+}
+"
+`;
+
+exports[`Rules row-gap 1`] = `
+".Rowg\\(1px\\) {
+  row-gap: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-behavior 1`] = `
+".Sb\\(a\\) {
+  scroll-behavior: auto;
+}
+.Sb\\(s\\) {
+  scroll-behavior: smooth;
+}
+"
+`;
+
+exports[`Rules scroll-margin 1`] = `
+".Sm\\(1px\\) {
+  scroll-margin: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-bottom 1`] = `
+".Smy\\(1px\\) {
+  scroll-margin-top: 1px;
+  scroll-margin-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-bottom 2`] = `
+".Smb\\(1px\\) {
+  scroll-margin-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-left 1`] = `
+".Smx\\(1px\\) {
+  scroll-margin-left: 1px;
+  scroll-margin-right: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-left 2`] = `
+".Smstart\\(1px\\) {
+  scroll-margin-left: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-right 1`] = `
+".Smx\\(1px\\) {
+  scroll-margin-left: 1px;
+  scroll-margin-right: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-right 2`] = `
+".Smend\\(1px\\) {
+  scroll-margin-right: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-top 1`] = `
+".Smy\\(1px\\) {
+  scroll-margin-top: 1px;
+  scroll-margin-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-margin-top 2`] = `
+".Smt\\(1px\\) {
+  scroll-margin-top: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding 1`] = `
+".Sp\\(a\\) {
+  scroll-padding: auto;
+}
+.Sp\\(1px\\) {
+  scroll-padding: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-bottom 1`] = `
+".Spy\\(1px\\) {
+  scroll-padding-top: 1px;
+  scroll-padding-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-bottom 2`] = `
+".Spb\\(a\\) {
+  scroll-padding-bottom: auto;
+}
+.Spb\\(1px\\) {
+  scroll-padding-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-left 1`] = `
+".Spx\\(1px\\) {
+  scroll-padding-left: 1px;
+  scroll-padding-right: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-left 2`] = `
+".Spstart\\(a\\) {
+  scroll-padding-left: auto;
+}
+.Spstart\\(1px\\) {
+  scroll-padding-left: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-right 1`] = `
+".Spx\\(1px\\) {
+  scroll-padding-left: 1px;
+  scroll-padding-right: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-right 2`] = `
+".Spend\\(a\\) {
+  scroll-padding-right: auto;
+}
+.Spend\\(1px\\) {
+  scroll-padding-right: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-top 1`] = `
+".Spy\\(1px\\) {
+  scroll-padding-top: 1px;
+  scroll-padding-bottom: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-padding-top 2`] = `
+".Spt\\(a\\) {
+  scroll-padding-top: auto;
+}
+.Spt\\(1px\\) {
+  scroll-padding-top: 1px;
+}
+"
+`;
+
+exports[`Rules scroll-snap-align 1`] = `
+".Ssa\\(c\\) {
+  scroll-snap-align: center;
+}
+.Ssa\\(c_e\\) {
+  scroll-snap-align: center end;
+}
+.Ssa\\(c_n\\) {
+  scroll-snap-align: center none;
+}
+.Ssa\\(c_s\\) {
+  scroll-snap-align: center start;
+}
+.Ssa\\(e\\) {
+  scroll-snap-align: end;
+}
+.Ssa\\(e_c\\) {
+  scroll-snap-align: end center;
+}
+.Ssa\\(e_n\\) {
+  scroll-snap-align: end none;
+}
+.Ssa\\(e_s\\) {
+  scroll-snap-align: end start;
+}
+.Ssa\\(n\\) {
+  scroll-snap-align: none;
+}
+.Ssa\\(n_c\\) {
+  scroll-snap-align: none center;
+}
+.Ssa\\(n_e\\) {
+  scroll-snap-align: none end;
+}
+.Ssa\\(n_s\\) {
+  scroll-snap-align: none start;
+}
+.Ssa\\(s\\) {
+  scroll-snap-align: start;
+}
+.Ssa\\(s_c\\) {
+  scroll-snap-align: start center;
+}
+.Ssa\\(s_n\\) {
+  scroll-snap-align: start none;
+}
+.Ssa\\(s_e\\) {
+  scroll-snap-align: start end;
+}
+"
+`;
+
+exports[`Rules scroll-snap-stop 1`] = `
+".Sss\\(a\\) {
+  scroll-snap-stop: always;
+}
+.Sss\\(n\\) {
+  scroll-snap-stop: normal;
+}
+"
+`;
+
+exports[`Rules scroll-snap-type 1`] = `
+".Sst\\(b\\) {
+  scroll-snap-type: block;
+}
+.Sst\\(b_m\\) {
+  scroll-snap-type: block mandatory;
+}
+.Sst\\(b_p\\) {
+  scroll-snap-type: block proximity;
+}
+.Sst\\(bo\\) {
+  scroll-snap-type: both;
+}
+.Sst\\(bo_m\\) {
+  scroll-snap-type: both mandatory;
+}
+.Sst\\(bo_p\\) {
+  scroll-snap-type: both proximity;
+}
+.Sst\\(i\\) {
+  scroll-snap-type: inline;
+}
+.Sst\\(i_m\\) {
+  scroll-snap-type: inline mandatory;
+}
+.Sst\\(i_p\\) {
+  scroll-snap-type: inline proximity;
+}
+.Sst\\(n\\) {
+  scroll-snap-type: none;
+}
+.Sst\\(x\\) {
+  scroll-snap-type: x;
+}
+.Sst\\(x_m\\) {
+  scroll-snap-type: x mandatory;
+}
+.Sst\\(x_p\\) {
+  scroll-snap-type: x proximity;
+}
+.Sst\\(y\\) {
+  scroll-snap-type: y;
+}
+.Sst\\(y_m\\) {
+  scroll-snap-type: y mandatory;
+}
+.Sst\\(y_p\\) {
+  scroll-snap-type: y proximity;
+}
+"
+`;
+
+exports[`Rules stroke 1`] = `
+".Stk\\(t\\) {
+  stroke: transparent;
+}
+.Stk\\(cc\\) {
+  stroke: currentColor;
+}
+.Stk\\(n\\) {
+  stroke: none;
+}
+.Stk\\(aliceblue\\) {
+  stroke: aliceblue;
+}
+.Stk\\(antiquewhite\\) {
+  stroke: antiquewhite;
+}
+.Stk\\(aqua\\) {
+  stroke: aqua;
+}
+.Stk\\(aquamarine\\) {
+  stroke: aquamarine;
+}
+.Stk\\(azure\\) {
+  stroke: azure;
+}
+.Stk\\(beige\\) {
+  stroke: beige;
+}
+.Stk\\(bisque\\) {
+  stroke: bisque;
+}
+.Stk\\(black\\) {
+  stroke: black;
+}
+.Stk\\(blanchedalmond\\) {
+  stroke: blanchedalmond;
+}
+.Stk\\(blue\\) {
+  stroke: blue;
+}
+.Stk\\(blueviolet\\) {
+  stroke: blueviolet;
+}
+.Stk\\(brown\\) {
+  stroke: brown;
+}
+.Stk\\(burlywood\\) {
+  stroke: burlywood;
+}
+.Stk\\(cadetblue\\) {
+  stroke: cadetblue;
+}
+.Stk\\(chartreuse\\) {
+  stroke: chartreuse;
+}
+.Stk\\(chocolate\\) {
+  stroke: chocolate;
+}
+.Stk\\(coral\\) {
+  stroke: coral;
+}
+.Stk\\(cornflowerblue\\) {
+  stroke: cornflowerblue;
+}
+.Stk\\(cornsilk\\) {
+  stroke: cornsilk;
+}
+.Stk\\(crimson\\) {
+  stroke: crimson;
+}
+.Stk\\(cyan\\) {
+  stroke: cyan;
+}
+.Stk\\(darkblue\\) {
+  stroke: darkblue;
+}
+.Stk\\(darkcyan\\) {
+  stroke: darkcyan;
+}
+.Stk\\(darkgoldenrod\\) {
+  stroke: darkgoldenrod;
+}
+.Stk\\(darkgray\\) {
+  stroke: darkgray;
+}
+.Stk\\(darkgreen\\) {
+  stroke: darkgreen;
+}
+.Stk\\(darkgrey\\) {
+  stroke: darkgrey;
+}
+.Stk\\(darkkhaki\\) {
+  stroke: darkkhaki;
+}
+.Stk\\(darkmagenta\\) {
+  stroke: darkmagenta;
+}
+.Stk\\(darkolivegreen\\) {
+  stroke: darkolivegreen;
+}
+.Stk\\(darkorange\\) {
+  stroke: darkorange;
+}
+.Stk\\(darkorchid\\) {
+  stroke: darkorchid;
+}
+.Stk\\(darkred\\) {
+  stroke: darkred;
+}
+.Stk\\(darksalmon\\) {
+  stroke: darksalmon;
+}
+.Stk\\(darkseagreen\\) {
+  stroke: darkseagreen;
+}
+.Stk\\(darkslateblue\\) {
+  stroke: darkslateblue;
+}
+.Stk\\(darkslategray\\) {
+  stroke: darkslategray;
+}
+.Stk\\(darkslategrey\\) {
+  stroke: darkslategrey;
+}
+.Stk\\(darkturquoise\\) {
+  stroke: darkturquoise;
+}
+.Stk\\(darkviolet\\) {
+  stroke: darkviolet;
+}
+.Stk\\(deeppink\\) {
+  stroke: deeppink;
+}
+.Stk\\(deepskyblue\\) {
+  stroke: deepskyblue;
+}
+.Stk\\(dimgray\\) {
+  stroke: dimgray;
+}
+.Stk\\(dimgrey\\) {
+  stroke: dimgrey;
+}
+.Stk\\(dodgerblue\\) {
+  stroke: dodgerblue;
+}
+.Stk\\(firebrick\\) {
+  stroke: firebrick;
+}
+.Stk\\(floralwhite\\) {
+  stroke: floralwhite;
+}
+.Stk\\(forestgreen\\) {
+  stroke: forestgreen;
+}
+.Stk\\(fuchsia\\) {
+  stroke: fuchsia;
+}
+.Stk\\(gainsboro\\) {
+  stroke: gainsboro;
+}
+.Stk\\(ghostwhite\\) {
+  stroke: ghostwhite;
+}
+.Stk\\(gold\\) {
+  stroke: gold;
+}
+.Stk\\(goldenrod\\) {
+  stroke: goldenrod;
+}
+.Stk\\(gray\\) {
+  stroke: gray;
+}
+.Stk\\(green\\) {
+  stroke: green;
+}
+.Stk\\(greenyellow\\) {
+  stroke: greenyellow;
+}
+.Stk\\(grey\\) {
+  stroke: grey;
+}
+.Stk\\(honeydew\\) {
+  stroke: honeydew;
+}
+.Stk\\(hotpink\\) {
+  stroke: hotpink;
+}
+.Stk\\(indianred\\) {
+  stroke: indianred;
+}
+.Stk\\(indigo\\) {
+  stroke: indigo;
+}
+.Stk\\(ivory\\) {
+  stroke: ivory;
+}
+.Stk\\(khaki\\) {
+  stroke: khaki;
+}
+.Stk\\(lavender\\) {
+  stroke: lavender;
+}
+.Stk\\(lavenderblush\\) {
+  stroke: lavenderblush;
+}
+.Stk\\(lawngreen\\) {
+  stroke: lawngreen;
+}
+.Stk\\(lemonchiffon\\) {
+  stroke: lemonchiffon;
+}
+.Stk\\(lightblue\\) {
+  stroke: lightblue;
+}
+.Stk\\(lightcoral\\) {
+  stroke: lightcoral;
+}
+.Stk\\(lightcyan\\) {
+  stroke: lightcyan;
+}
+.Stk\\(lightgoldenrodyellow\\) {
+  stroke: lightgoldenrodyellow;
+}
+.Stk\\(lightgray\\) {
+  stroke: lightgray;
+}
+.Stk\\(lightgreen\\) {
+  stroke: lightgreen;
+}
+.Stk\\(lightgrey\\) {
+  stroke: lightgrey;
+}
+.Stk\\(lightpink\\) {
+  stroke: lightpink;
+}
+.Stk\\(lightsalmon\\) {
+  stroke: lightsalmon;
+}
+.Stk\\(lightseagreen\\) {
+  stroke: lightseagreen;
+}
+.Stk\\(lightskyblue\\) {
+  stroke: lightskyblue;
+}
+.Stk\\(lightslategray\\) {
+  stroke: lightslategray;
+}
+.Stk\\(lightslategrey\\) {
+  stroke: lightslategrey;
+}
+.Stk\\(lightsteelblue\\) {
+  stroke: lightsteelblue;
+}
+.Stk\\(lightyellow\\) {
+  stroke: lightyellow;
+}
+.Stk\\(lime\\) {
+  stroke: lime;
+}
+.Stk\\(limegreen\\) {
+  stroke: limegreen;
+}
+.Stk\\(linen\\) {
+  stroke: linen;
+}
+.Stk\\(magenta\\) {
+  stroke: magenta;
+}
+.Stk\\(maroon\\) {
+  stroke: maroon;
+}
+.Stk\\(mediumaquamarine\\) {
+  stroke: mediumaquamarine;
+}
+.Stk\\(mediumblue\\) {
+  stroke: mediumblue;
+}
+.Stk\\(mediumorchid\\) {
+  stroke: mediumorchid;
+}
+.Stk\\(mediumpurple\\) {
+  stroke: mediumpurple;
+}
+.Stk\\(mediumseagreen\\) {
+  stroke: mediumseagreen;
+}
+.Stk\\(mediumslateblue\\) {
+  stroke: mediumslateblue;
+}
+.Stk\\(mediumspringgreen\\) {
+  stroke: mediumspringgreen;
+}
+.Stk\\(mediumturquoise\\) {
+  stroke: mediumturquoise;
+}
+.Stk\\(mediumvioletred\\) {
+  stroke: mediumvioletred;
+}
+.Stk\\(midnightblue\\) {
+  stroke: midnightblue;
+}
+.Stk\\(mintcream\\) {
+  stroke: mintcream;
+}
+.Stk\\(mistyrose\\) {
+  stroke: mistyrose;
+}
+.Stk\\(moccasin\\) {
+  stroke: moccasin;
+}
+.Stk\\(navajowhite\\) {
+  stroke: navajowhite;
+}
+.Stk\\(navy\\) {
+  stroke: navy;
+}
+.Stk\\(oldlace\\) {
+  stroke: oldlace;
+}
+.Stk\\(olive\\) {
+  stroke: olive;
+}
+.Stk\\(olivedrab\\) {
+  stroke: olivedrab;
+}
+.Stk\\(orange\\) {
+  stroke: orange;
+}
+.Stk\\(orangered\\) {
+  stroke: orangered;
+}
+.Stk\\(orchid\\) {
+  stroke: orchid;
+}
+.Stk\\(palegoldenrod\\) {
+  stroke: palegoldenrod;
+}
+.Stk\\(palegreen\\) {
+  stroke: palegreen;
+}
+.Stk\\(paleturquoise\\) {
+  stroke: paleturquoise;
+}
+.Stk\\(palevioletred\\) {
+  stroke: palevioletred;
+}
+.Stk\\(papayawhip\\) {
+  stroke: papayawhip;
+}
+.Stk\\(peachpuff\\) {
+  stroke: peachpuff;
+}
+.Stk\\(peru\\) {
+  stroke: peru;
+}
+.Stk\\(pink\\) {
+  stroke: pink;
+}
+.Stk\\(plum\\) {
+  stroke: plum;
+}
+.Stk\\(powderblue\\) {
+  stroke: powderblue;
+}
+.Stk\\(purple\\) {
+  stroke: purple;
+}
+.Stk\\(red\\) {
+  stroke: red;
+}
+.Stk\\(rosybrown\\) {
+  stroke: rosybrown;
+}
+.Stk\\(royalblue\\) {
+  stroke: royalblue;
+}
+.Stk\\(saddlebrown\\) {
+  stroke: saddlebrown;
+}
+.Stk\\(salmon\\) {
+  stroke: salmon;
+}
+.Stk\\(sandybrown\\) {
+  stroke: sandybrown;
+}
+.Stk\\(seagreen\\) {
+  stroke: seagreen;
+}
+.Stk\\(seashell\\) {
+  stroke: seashell;
+}
+.Stk\\(sienna\\) {
+  stroke: sienna;
+}
+.Stk\\(silver\\) {
+  stroke: silver;
+}
+.Stk\\(skyblue\\) {
+  stroke: skyblue;
+}
+.Stk\\(slateblue\\) {
+  stroke: slateblue;
+}
+.Stk\\(slategray\\) {
+  stroke: slategray;
+}
+.Stk\\(slategrey\\) {
+  stroke: slategrey;
+}
+.Stk\\(snow\\) {
+  stroke: snow;
+}
+.Stk\\(springgreen\\) {
+  stroke: springgreen;
+}
+.Stk\\(steelblue\\) {
+  stroke: steelblue;
+}
+.Stk\\(tan\\) {
+  stroke: tan;
+}
+.Stk\\(teal\\) {
+  stroke: teal;
+}
+.Stk\\(thistle\\) {
+  stroke: thistle;
+}
+.Stk\\(tomato\\) {
+  stroke: tomato;
+}
+.Stk\\(turquoise\\) {
+  stroke: turquoise;
+}
+.Stk\\(violet\\) {
+  stroke: violet;
+}
+.Stk\\(wheat\\) {
+  stroke: wheat;
+}
+.Stk\\(white\\) {
+  stroke: white;
+}
+.Stk\\(whitesmoke\\) {
+  stroke: whitesmoke;
+}
+.Stk\\(yellow\\) {
+  stroke: yellow;
+}
+.Stk\\(yellowgreen\\) {
+  stroke: yellowgreen;
+}
+"
+`;
+
+exports[`Rules stroke-linecap 1`] = `
+".Stklc\\(i\\) {
+  stroke-linecap: inherit;
+}
+.Stklc\\(b\\) {
+  stroke-linecap: butt;
+}
+.Stklc\\(r\\) {
+  stroke-linecap: round;
+}
+.Stklc\\(s\\) {
+  stroke-linecap: square;
+}
+"
+`;
+
+exports[`Rules stroke-linejoin 1`] = `
+".Stklj\\(i\\) {
+  stroke-linejoin: inherit;
+}
+.Stklj\\(b\\) {
+  stroke-linejoin: bevel;
+}
+.Stklj\\(r\\) {
+  stroke-linejoin: round;
+}
+.Stklj\\(m\\) {
+  stroke-linejoin: miter;
+}
+"
+`;
+
+exports[`Rules stroke-width 1`] = `
+".Stkw\\(i\\) {
+  stroke-width: inherit;
+}
+.Stkw\\(1px\\) {
+  stroke-width: 1px;
+}
+"
+`;
+
+exports[`Rules table-layout 1`] = `
+".Tbl\\(a\\) {
+  table-layout: auto;
+}
+.Tbl\\(f\\) {
+  table-layout: fixed;
+}
+"
+`;
+
+exports[`Rules text-align 1`] = `
+".Ta\\(c\\) {
+  text-align: center;
+}
+.Ta\\(e\\) {
+  text-align: end;
+}
+.Ta\\(end\\) {
+  text-align: right;
+}
+.Ta\\(j\\) {
+  text-align: justify;
+}
+.Ta\\(mp\\) {
+  text-align: match-parent;
+}
+.Ta\\(s\\) {
+  text-align: start;
+}
+.Ta\\(start\\) {
+  text-align: left;
+}
+"
+`;
+
+exports[`Rules text-align-last 1`] = `
+".Tal\\(a\\) {
+  text-align-last: auto;
+}
+.Tal\\(c\\) {
+  text-align-last: center;
+}
+.Tal\\(e\\) {
+  text-align-last: end;
+}
+.Tal\\(end\\) {
+  text-align-last: right;
+}
+.Tal\\(j\\) {
+  text-align-last: justify;
+}
+.Tal\\(s\\) {
+  text-align-last: start;
+}
+.Tal\\(start\\) {
+  text-align-last: left;
+}
+"
+`;
+
+exports[`Rules text-decoration 1`] = `
+".Td\\(lt\\) {
+  text-decoration: line-through;
+}
+.Td\\(n\\) {
+  text-decoration: none;
+}
+.Td\\(o\\) {
+  text-decoration: overline;
+}
+.Td\\(u\\) {
+  text-decoration: underline;
+}
+"
+`;
+
+exports[`Rules text-indent 1`] = `
+".Ti\\(1px\\) {
+  text-indent: 1px;
+}
+"
+`;
+
+exports[`Rules text-overflow 1`] = `
+".Tov\\(c\\) {
+  text-overflow: clip;
+}
+.Tov\\(e\\) {
+  text-overflow: ellipsis;
+}
+"
+`;
+
+exports[`Rules text-rendering 1`] = `
+".Tren\\(a\\) {
+  text-rendering: auto;
+}
+.Tren\\(os\\) {
+  text-rendering: optimizeSpeed;
+}
+.Tren\\(ol\\) {
+  text-rendering: optimizeLegibility;
+}
+.Tren\\(gp\\) {
+  text-rendering: geometricPrecision;
+}
+"
+`;
+
+exports[`Rules text-replace 1`] = `
+".Tr\\(n\\) {
+  text-replace: none;
+}
+"
+`;
+
+exports[`Rules text-shadow 1`] = `
+".Tsh\\(n\\) {
+  text-shadow: none;
+}
+"
+`;
+
+exports[`Rules text-transform 1`] = `
+".Tt\\(n\\) {
+  text-transform: none;
+}
+.Tt\\(c\\) {
+  text-transform: capitalize;
+}
+.Tt\\(u\\) {
+  text-transform: uppercase;
+}
+.Tt\\(l\\) {
+  text-transform: lowercase;
+}
+"
+`;
+
+exports[`Rules top 1`] = `
+".T\\(a\\) {
+  top: auto;
+}
+.T\\(1px\\) {
+  top: 1px;
+}
+"
+`;
+
+exports[`Rules touch-action 1`] = `
+".Tcha\\(a\\) {
+  touch-action: auto;
+}
+.Tcha\\(m\\) {
+  touch-action: manipulation;
+}
+.Tcha\\(n\\) {
+  touch-action: none;
+}
+.Tcha\\(pd\\) {
+  touch-action: pan-down;
+}
+.Tcha\\(pl\\) {
+  touch-action: pan-left;
+}
+.Tcha\\(pr\\) {
+  touch-action: pan-right;
+}
+.Tcha\\(pu\\) {
+  touch-action: pan-up;
+}
+.Tcha\\(px\\) {
+  touch-action: pan-x;
+}
+.Tcha\\(py\\) {
+  touch-action: pan-y;
+}
+.Tcha\\(pz\\) {
+  touch-action: pinch-zoom;
+}
+"
+`;
+
+exports[`Rules transform 1`] = `""`;
+
+exports[`Rules transform 2`] = `""`;
+
+exports[`Rules transform 3`] = `""`;
+
+exports[`Rules transform 4`] = `
+".Rotate\\(1px\\) {
+  transform: rotate(1px);
+}
+"
+`;
+
+exports[`Rules transform 5`] = `
+".Rotate3d\\(1px\\) {
+  transform: rotate3d(1px);
+}
+"
+`;
+
+exports[`Rules transform 6`] = `
+".RotateX\\(1px\\) {
+  transform: rotateX(1px);
+}
+"
+`;
+
+exports[`Rules transform 7`] = `
+".RotateY\\(1px\\) {
+  transform: rotateY(1px);
+}
+"
+`;
+
+exports[`Rules transform 8`] = `
+".RotateZ\\(1px\\) {
+  transform: rotateZ(1px);
+}
+"
+`;
+
+exports[`Rules transform 9`] = `
+".Scale\\(1px\\) {
+  transform: scale(1px);
+}
+"
+`;
+
+exports[`Rules transform 10`] = `
+".Scale3d\\(1px\\) {
+  transform: scale3d(1px);
+}
+"
+`;
+
+exports[`Rules transform 11`] = `
+".ScaleX\\(1px\\) {
+  transform: scaleX(1px);
+}
+"
+`;
+
+exports[`Rules transform 12`] = `
+".ScaleY\\(1px\\) {
+  transform: scaleY(1px);
+}
+"
+`;
+
+exports[`Rules transform 13`] = `
+".Skew\\(1px\\) {
+  transform: skew(1px);
+}
+"
+`;
+
+exports[`Rules transform 14`] = `
+".SkewX\\(1px\\) {
+  transform: skewX(1px);
+}
+"
+`;
+
+exports[`Rules transform 15`] = `
+".SkewY\\(1px\\) {
+  transform: skewY(1px);
+}
+"
+`;
+
+exports[`Rules transform 16`] = `
+".Translate\\(1px\\) {
+  transform: translate(1px);
+}
+"
+`;
+
+exports[`Rules transform 17`] = `
+".Translate3d\\(1px\\) {
+  transform: translate3d(1px);
+}
+"
+`;
+
+exports[`Rules transform 18`] = `
+".TranslateX\\(1px\\) {
+  transform: translateX(1px);
+}
+"
+`;
+
+exports[`Rules transform 19`] = `
+".TranslateY\\(1px\\) {
+  transform: translateY(1px);
+}
+"
+`;
+
+exports[`Rules transform 20`] = `
+".TranslateZ\\(1px\\) {
+  transform: translateZ(1px);
+}
+"
+`;
+
+exports[`Rules transform-origin 1`] = `
+".Trfo\\(t\\) {
+  transform-origin: top;
+}
+.Trfo\\(end\\) {
+  transform-origin: right;
+}
+.Trfo\\(bottom\\) {
+  transform-origin: bottom;
+}
+.Trfo\\(start\\) {
+  transform-origin: left;
+}
+.Trfo\\(c\\) {
+  transform-origin: center;
+}
+.Trfo\\(t\\,t\\) {
+  transform-origin: top top;
+}
+.Trfo\\(t\\,end\\) {
+  transform-origin: top right;
+}
+.Trfo\\(t\\,bottom\\) {
+  transform-origin: top bottom;
+}
+.Trfo\\(t\\,start\\) {
+  transform-origin: top left;
+}
+.Trfo\\(t\\,c\\) {
+  transform-origin: top center;
+}
+.Trfo\\(1px\\) {
+  transform-origin: 1px;
+}
+"
+`;
+
+exports[`Rules transform-style 1`] = `
+".Trfs\\(f\\) {
+  transform-style: flat;
+}
+.Trfs\\(p\\) {
+  transform-style: preserve-3d;
+}
+"
+`;
+
+exports[`Rules transition 1`] = `""`;
+
+exports[`Rules transition-delay 1`] = `
+".Trsde\\(i\\) {
+  transition-delay: initial;
+}
+.Trsde\\(1px\\) {
+  transition-delay: 1px;
+}
+"
+`;
+
+exports[`Rules transition-duration 1`] = `
+".Trsdu\\(1px\\) {
+  transition-duration: 1px;
+}
+"
+`;
+
+exports[`Rules transition-property 1`] = `
+".Trsp\\(a\\) {
+  transition-property: all;
+}
+"
+`;
+
+exports[`Rules transition-timing-function 1`] = `
+".Trstf\\(e\\) {
+  transition-timing-function: ease;
+}
+.Trstf\\(ei\\) {
+  transition-timing-function: ease-in;
+}
+.Trstf\\(eo\\) {
+  transition-timing-function: ease-out;
+}
+.Trstf\\(eio\\) {
+  transition-timing-function: ease-in-out;
+}
+.Trstf\\(l\\) {
+  transition-timing-function: linear;
+}
+.Trstf\\(ss\\) {
+  transition-timing-function: step-start;
+}
+.Trstf\\(se\\) {
+  transition-timing-function: step-end;
+}
+"
+`;
+
+exports[`Rules user-select 1`] = `
+".Us\\(a\\) {
+  user-select: all;
+}
+.Us\\(el\\) {
+  user-select: element;
+}
+.Us\\(els\\) {
+  user-select: elements;
+}
+.Us\\(n\\) {
+  user-select: none;
+}
+.Us\\(t\\) {
+  user-select: text;
+}
+.Us\\(to\\) {
+  user-select: toggle;
+}
+"
+`;
+
+exports[`Rules vertical-align 1`] = `
+".Va\\(b\\) {
+  vertical-align: bottom;
+}
+.Va\\(bl\\) {
+  vertical-align: baseline;
+}
+.Va\\(m\\) {
+  vertical-align: middle;
+}
+.Va\\(sub\\) {
+  vertical-align: sub;
+}
+.Va\\(sup\\) {
+  vertical-align: super;
+}
+.Va\\(t\\) {
+  vertical-align: top;
+}
+.Va\\(tb\\) {
+  vertical-align: text-bottom;
+}
+.Va\\(tt\\) {
+  vertical-align: text-top;
+}
+.Va\\(1px\\) {
+  vertical-align: 1px;
+}
+"
+`;
+
+exports[`Rules visibility 1`] = `
+".V\\(v\\) {
+  visibility: visible;
+}
+.V\\(h\\) {
+  visibility: hidden;
+}
+.V\\(c\\) {
+  visibility: collapse;
+}
+"
+`;
+
+exports[`Rules white-space 1`] = `
+".Whs\\(n\\) {
+  white-space: normal;
+}
+.Whs\\(p\\) {
+  white-space: pre;
+}
+.Whs\\(nw\\) {
+  white-space: nowrap;
+}
+.Whs\\(pw\\) {
+  white-space: pre-wrap;
+}
+.Whs\\(pl\\) {
+  white-space: pre-line;
+}
+"
+`;
+
+exports[`Rules white-space-collapse 1`] = `
+".Whsc\\(n\\) {
+  white-space-collapse: normal;
+}
+.Whsc\\(ka\\) {
+  white-space-collapse: keep-all;
+}
+.Whsc\\(l\\) {
+  white-space-collapse: loose;
+}
+.Whsc\\(bs\\) {
+  white-space-collapse: break-strict;
+}
+.Whsc\\(ba\\) {
+  white-space-collapse: break-all;
+}
+"
+`;
+
+exports[`Rules widows 1`] = `
+".Wid\\(1px\\) {
+  widows: 1px;
+}
+"
+`;
+
+exports[`Rules width 1`] = `
+".W\\(0\\) {
+  width: 0;
+}
+.W\\(a\\) {
+  width: auto;
+}
+.W\\(bb\\) {
+  width: border-box;
+}
+.W\\(cb\\) {
+  width: content-box;
+}
+.W\\(av\\) {
+  width: available;
+}
+.W\\(minc\\) {
+  width: min-content;
+}
+.W\\(maxc\\) {
+  width: max-content;
+}
+.W\\(fc\\) {
+  width: fit-content;
+}
+.W\\(1px\\) {
+  width: 1px;
+}
+"
+`;
+
+exports[`Rules will-change 1`] = `
+".Wc\\(a\\) {
+  will-change: auto;
+}
+.Wc\\(c\\) {
+  will-change: contents;
+}
+.Wc\\(sp\\) {
+  will-change: scroll-position;
+}
+.Wc\\(1px\\) {
+  will-change: 1px;
+}
+"
+`;
+
+exports[`Rules word-break 1`] = `
+".Wob\\(ba\\) {
+  word-break: break-all;
+}
+.Wob\\(ka\\) {
+  word-break: keep-all;
+}
+.Wob\\(n\\) {
+  word-break: normal;
+}
+"
+`;
+
+exports[`Rules word-wrap 1`] = `
+".Wow\\(bw\\) {
+  word-wrap: break-word;
+}
+.Wow\\(n\\) {
+  word-wrap: normal;
+}
+"
+`;
+
+exports[`Rules writing-mode 1`] = `
+".Wm\\(htb\\) {
+  writing-mode: horizontal-tb;
+}
+.Wm\\(vlr\\) {
+  writing-mode: vertical-lr;
+}
+.Wm\\(vrl\\) {
+  writing-mode: vertical-rl;
+}
+"
+`;
+
+exports[`Rules z-index 1`] = `
+".Z\\(a\\) {
+  z-index: auto;
+}
+.Z\\(1px\\) {
+  z-index: 1px;
+}
+"
+`;
