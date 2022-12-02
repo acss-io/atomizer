@@ -30,7 +30,7 @@ npm i atomizer-plugins -D
 Create the `atomizer.config.js` config file so that Atomizer can find your source files.
 
 ```js
-module.exports = {
+export default {
     content: [
         './index.html',
         './src/**/*.{vue,js,ts,jsx,tsx}',
@@ -49,7 +49,7 @@ import atomizerConfig from './atomizer.config.js';
 
 const atomizerPlugin = vite({
     config: atomizerConfig,
-    outfile: 'dist/atomizer.css',
+    outfile: 'atomizer.css',
 });
 
 export default defineConfig(() => {
@@ -64,7 +64,7 @@ export default defineConfig(() => {
 Make sure your `dist/atomizer.css` file is built by Vite by adding it to your `index.html` file.
 
 ```html
-<link href="dist/atomizer.css" />
+<link href="/dist/atomizer.css" />
 ```
 
 ## Start your build process
@@ -80,5 +80,9 @@ npm run dev
 Start adding Atomizer classes to your code base, an example `index.html` file.
 
 ```html
-<h1 className="Fw(b) Fz(2rem)">Welcome!</h1>
+<h1 class="Fw(b) Fz(2rem) C(red)">Welcome!</h1>
 ```
+
+Then run `npm run build` to re-run Atomizer to generic the CSS.
+
+> NOTE: Unfortunately, vite does not re-run atomizer when files are changed, so this is a manual process for now.
