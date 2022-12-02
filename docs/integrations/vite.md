@@ -27,7 +27,7 @@ npm i atomizer-plugins -D
 
 ## Create your Atomizer config
 
-Create the `atomizer.config.js` config file so that Atomizer can find your SvelteKit files.
+Create the `atomizer.config.js` config file so that Atomizer can find your source files.
 
 ```js
 module.exports = {
@@ -61,7 +61,7 @@ export default defineConfig(() => {
 
 ## Add the Atomizer CSS
 
-Make sure your `dist/atomizer.css` file is built by SvelteKit by adding it to your `index.html` file.
+Make sure your `dist/atomizer.css` file is built by Vite by adding it to your `index.html` file.
 
 ```html
 <link href="dist/atomizer.css" />
