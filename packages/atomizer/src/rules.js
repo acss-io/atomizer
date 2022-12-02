@@ -3300,6 +3300,74 @@ module.exports = [
     },
     /**
     ==================================================================
+    SCROLLBAR-COLOR
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Scrollbar color',
+        matcher: 'Sbc',
+        allowParamToValue: false,
+        styles: {
+            'scrollbar-color': '$0 $1',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                ...colors,
+            },
+            {
+                a: 'auto',
+                ...colors,
+            },
+        ],
+    },
+    /**
+    ==================================================================
+    SCROLLBAR-GUTTER
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Scrollbar gutter',
+        matcher: 'Sbg',
+        allowParamToValue: false,
+        styles: {
+            'scrollbar-gutter': '$0 $1',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                s: 'stable',
+            },
+            {
+                be: 'both-edges',
+            },
+        ],
+    },
+    /**
+    ==================================================================
+    SCROLLBAR-WIDTH
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Scrollbar width',
+        matcher: 'Sbw',
+        allowParamToValue: false,
+        styles: {
+            'scrollbar-gutter': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                n: 'none',
+                t: 'thin',
+            },
+        ],
+    },
+    /**
+    ==================================================================
     TABLE-LAYOUT (checked)
     ==================================================================
     */

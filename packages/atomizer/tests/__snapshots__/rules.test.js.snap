@@ -8250,6 +8250,942 @@ exports[`Rules scroll-snap-type 1`] = `
 "
 `;
 
+exports[`Rules scrollbar-color 1`] = `
+".Sbc\\(a\\) {
+  scrollbar-color: auto;
+}
+.Sbc\\(t\\) {
+  scrollbar-color: transparent;
+}
+.Sbc\\(cc\\) {
+  scrollbar-color: currentColor;
+}
+.Sbc\\(n\\) {
+  scrollbar-color: none;
+}
+.Sbc\\(aliceblue\\) {
+  scrollbar-color: aliceblue;
+}
+.Sbc\\(antiquewhite\\) {
+  scrollbar-color: antiquewhite;
+}
+.Sbc\\(aqua\\) {
+  scrollbar-color: aqua;
+}
+.Sbc\\(aquamarine\\) {
+  scrollbar-color: aquamarine;
+}
+.Sbc\\(azure\\) {
+  scrollbar-color: azure;
+}
+.Sbc\\(beige\\) {
+  scrollbar-color: beige;
+}
+.Sbc\\(bisque\\) {
+  scrollbar-color: bisque;
+}
+.Sbc\\(black\\) {
+  scrollbar-color: black;
+}
+.Sbc\\(blanchedalmond\\) {
+  scrollbar-color: blanchedalmond;
+}
+.Sbc\\(blue\\) {
+  scrollbar-color: blue;
+}
+.Sbc\\(blueviolet\\) {
+  scrollbar-color: blueviolet;
+}
+.Sbc\\(brown\\) {
+  scrollbar-color: brown;
+}
+.Sbc\\(burlywood\\) {
+  scrollbar-color: burlywood;
+}
+.Sbc\\(cadetblue\\) {
+  scrollbar-color: cadetblue;
+}
+.Sbc\\(chartreuse\\) {
+  scrollbar-color: chartreuse;
+}
+.Sbc\\(chocolate\\) {
+  scrollbar-color: chocolate;
+}
+.Sbc\\(coral\\) {
+  scrollbar-color: coral;
+}
+.Sbc\\(cornflowerblue\\) {
+  scrollbar-color: cornflowerblue;
+}
+.Sbc\\(cornsilk\\) {
+  scrollbar-color: cornsilk;
+}
+.Sbc\\(crimson\\) {
+  scrollbar-color: crimson;
+}
+.Sbc\\(cyan\\) {
+  scrollbar-color: cyan;
+}
+.Sbc\\(darkblue\\) {
+  scrollbar-color: darkblue;
+}
+.Sbc\\(darkcyan\\) {
+  scrollbar-color: darkcyan;
+}
+.Sbc\\(darkgoldenrod\\) {
+  scrollbar-color: darkgoldenrod;
+}
+.Sbc\\(darkgray\\) {
+  scrollbar-color: darkgray;
+}
+.Sbc\\(darkgreen\\) {
+  scrollbar-color: darkgreen;
+}
+.Sbc\\(darkgrey\\) {
+  scrollbar-color: darkgrey;
+}
+.Sbc\\(darkkhaki\\) {
+  scrollbar-color: darkkhaki;
+}
+.Sbc\\(darkmagenta\\) {
+  scrollbar-color: darkmagenta;
+}
+.Sbc\\(darkolivegreen\\) {
+  scrollbar-color: darkolivegreen;
+}
+.Sbc\\(darkorange\\) {
+  scrollbar-color: darkorange;
+}
+.Sbc\\(darkorchid\\) {
+  scrollbar-color: darkorchid;
+}
+.Sbc\\(darkred\\) {
+  scrollbar-color: darkred;
+}
+.Sbc\\(darksalmon\\) {
+  scrollbar-color: darksalmon;
+}
+.Sbc\\(darkseagreen\\) {
+  scrollbar-color: darkseagreen;
+}
+.Sbc\\(darkslateblue\\) {
+  scrollbar-color: darkslateblue;
+}
+.Sbc\\(darkslategray\\) {
+  scrollbar-color: darkslategray;
+}
+.Sbc\\(darkslategrey\\) {
+  scrollbar-color: darkslategrey;
+}
+.Sbc\\(darkturquoise\\) {
+  scrollbar-color: darkturquoise;
+}
+.Sbc\\(darkviolet\\) {
+  scrollbar-color: darkviolet;
+}
+.Sbc\\(deeppink\\) {
+  scrollbar-color: deeppink;
+}
+.Sbc\\(deepskyblue\\) {
+  scrollbar-color: deepskyblue;
+}
+.Sbc\\(dimgray\\) {
+  scrollbar-color: dimgray;
+}
+.Sbc\\(dimgrey\\) {
+  scrollbar-color: dimgrey;
+}
+.Sbc\\(dodgerblue\\) {
+  scrollbar-color: dodgerblue;
+}
+.Sbc\\(firebrick\\) {
+  scrollbar-color: firebrick;
+}
+.Sbc\\(floralwhite\\) {
+  scrollbar-color: floralwhite;
+}
+.Sbc\\(forestgreen\\) {
+  scrollbar-color: forestgreen;
+}
+.Sbc\\(fuchsia\\) {
+  scrollbar-color: fuchsia;
+}
+.Sbc\\(gainsboro\\) {
+  scrollbar-color: gainsboro;
+}
+.Sbc\\(ghostwhite\\) {
+  scrollbar-color: ghostwhite;
+}
+.Sbc\\(gold\\) {
+  scrollbar-color: gold;
+}
+.Sbc\\(goldenrod\\) {
+  scrollbar-color: goldenrod;
+}
+.Sbc\\(gray\\) {
+  scrollbar-color: gray;
+}
+.Sbc\\(green\\) {
+  scrollbar-color: green;
+}
+.Sbc\\(greenyellow\\) {
+  scrollbar-color: greenyellow;
+}
+.Sbc\\(grey\\) {
+  scrollbar-color: grey;
+}
+.Sbc\\(honeydew\\) {
+  scrollbar-color: honeydew;
+}
+.Sbc\\(hotpink\\) {
+  scrollbar-color: hotpink;
+}
+.Sbc\\(indianred\\) {
+  scrollbar-color: indianred;
+}
+.Sbc\\(indigo\\) {
+  scrollbar-color: indigo;
+}
+.Sbc\\(ivory\\) {
+  scrollbar-color: ivory;
+}
+.Sbc\\(khaki\\) {
+  scrollbar-color: khaki;
+}
+.Sbc\\(lavender\\) {
+  scrollbar-color: lavender;
+}
+.Sbc\\(lavenderblush\\) {
+  scrollbar-color: lavenderblush;
+}
+.Sbc\\(lawngreen\\) {
+  scrollbar-color: lawngreen;
+}
+.Sbc\\(lemonchiffon\\) {
+  scrollbar-color: lemonchiffon;
+}
+.Sbc\\(lightblue\\) {
+  scrollbar-color: lightblue;
+}
+.Sbc\\(lightcoral\\) {
+  scrollbar-color: lightcoral;
+}
+.Sbc\\(lightcyan\\) {
+  scrollbar-color: lightcyan;
+}
+.Sbc\\(lightgoldenrodyellow\\) {
+  scrollbar-color: lightgoldenrodyellow;
+}
+.Sbc\\(lightgray\\) {
+  scrollbar-color: lightgray;
+}
+.Sbc\\(lightgreen\\) {
+  scrollbar-color: lightgreen;
+}
+.Sbc\\(lightgrey\\) {
+  scrollbar-color: lightgrey;
+}
+.Sbc\\(lightpink\\) {
+  scrollbar-color: lightpink;
+}
+.Sbc\\(lightsalmon\\) {
+  scrollbar-color: lightsalmon;
+}
+.Sbc\\(lightseagreen\\) {
+  scrollbar-color: lightseagreen;
+}
+.Sbc\\(lightskyblue\\) {
+  scrollbar-color: lightskyblue;
+}
+.Sbc\\(lightslategray\\) {
+  scrollbar-color: lightslategray;
+}
+.Sbc\\(lightslategrey\\) {
+  scrollbar-color: lightslategrey;
+}
+.Sbc\\(lightsteelblue\\) {
+  scrollbar-color: lightsteelblue;
+}
+.Sbc\\(lightyellow\\) {
+  scrollbar-color: lightyellow;
+}
+.Sbc\\(lime\\) {
+  scrollbar-color: lime;
+}
+.Sbc\\(limegreen\\) {
+  scrollbar-color: limegreen;
+}
+.Sbc\\(linen\\) {
+  scrollbar-color: linen;
+}
+.Sbc\\(magenta\\) {
+  scrollbar-color: magenta;
+}
+.Sbc\\(maroon\\) {
+  scrollbar-color: maroon;
+}
+.Sbc\\(mediumaquamarine\\) {
+  scrollbar-color: mediumaquamarine;
+}
+.Sbc\\(mediumblue\\) {
+  scrollbar-color: mediumblue;
+}
+.Sbc\\(mediumorchid\\) {
+  scrollbar-color: mediumorchid;
+}
+.Sbc\\(mediumpurple\\) {
+  scrollbar-color: mediumpurple;
+}
+.Sbc\\(mediumseagreen\\) {
+  scrollbar-color: mediumseagreen;
+}
+.Sbc\\(mediumslateblue\\) {
+  scrollbar-color: mediumslateblue;
+}
+.Sbc\\(mediumspringgreen\\) {
+  scrollbar-color: mediumspringgreen;
+}
+.Sbc\\(mediumturquoise\\) {
+  scrollbar-color: mediumturquoise;
+}
+.Sbc\\(mediumvioletred\\) {
+  scrollbar-color: mediumvioletred;
+}
+.Sbc\\(midnightblue\\) {
+  scrollbar-color: midnightblue;
+}
+.Sbc\\(mintcream\\) {
+  scrollbar-color: mintcream;
+}
+.Sbc\\(mistyrose\\) {
+  scrollbar-color: mistyrose;
+}
+.Sbc\\(moccasin\\) {
+  scrollbar-color: moccasin;
+}
+.Sbc\\(navajowhite\\) {
+  scrollbar-color: navajowhite;
+}
+.Sbc\\(navy\\) {
+  scrollbar-color: navy;
+}
+.Sbc\\(oldlace\\) {
+  scrollbar-color: oldlace;
+}
+.Sbc\\(olive\\) {
+  scrollbar-color: olive;
+}
+.Sbc\\(olivedrab\\) {
+  scrollbar-color: olivedrab;
+}
+.Sbc\\(orange\\) {
+  scrollbar-color: orange;
+}
+.Sbc\\(orangered\\) {
+  scrollbar-color: orangered;
+}
+.Sbc\\(orchid\\) {
+  scrollbar-color: orchid;
+}
+.Sbc\\(palegoldenrod\\) {
+  scrollbar-color: palegoldenrod;
+}
+.Sbc\\(palegreen\\) {
+  scrollbar-color: palegreen;
+}
+.Sbc\\(paleturquoise\\) {
+  scrollbar-color: paleturquoise;
+}
+.Sbc\\(palevioletred\\) {
+  scrollbar-color: palevioletred;
+}
+.Sbc\\(papayawhip\\) {
+  scrollbar-color: papayawhip;
+}
+.Sbc\\(peachpuff\\) {
+  scrollbar-color: peachpuff;
+}
+.Sbc\\(peru\\) {
+  scrollbar-color: peru;
+}
+.Sbc\\(pink\\) {
+  scrollbar-color: pink;
+}
+.Sbc\\(plum\\) {
+  scrollbar-color: plum;
+}
+.Sbc\\(powderblue\\) {
+  scrollbar-color: powderblue;
+}
+.Sbc\\(purple\\) {
+  scrollbar-color: purple;
+}
+.Sbc\\(red\\) {
+  scrollbar-color: red;
+}
+.Sbc\\(rosybrown\\) {
+  scrollbar-color: rosybrown;
+}
+.Sbc\\(royalblue\\) {
+  scrollbar-color: royalblue;
+}
+.Sbc\\(saddlebrown\\) {
+  scrollbar-color: saddlebrown;
+}
+.Sbc\\(salmon\\) {
+  scrollbar-color: salmon;
+}
+.Sbc\\(sandybrown\\) {
+  scrollbar-color: sandybrown;
+}
+.Sbc\\(seagreen\\) {
+  scrollbar-color: seagreen;
+}
+.Sbc\\(seashell\\) {
+  scrollbar-color: seashell;
+}
+.Sbc\\(sienna\\) {
+  scrollbar-color: sienna;
+}
+.Sbc\\(silver\\) {
+  scrollbar-color: silver;
+}
+.Sbc\\(skyblue\\) {
+  scrollbar-color: skyblue;
+}
+.Sbc\\(slateblue\\) {
+  scrollbar-color: slateblue;
+}
+.Sbc\\(slategray\\) {
+  scrollbar-color: slategray;
+}
+.Sbc\\(slategrey\\) {
+  scrollbar-color: slategrey;
+}
+.Sbc\\(snow\\) {
+  scrollbar-color: snow;
+}
+.Sbc\\(springgreen\\) {
+  scrollbar-color: springgreen;
+}
+.Sbc\\(steelblue\\) {
+  scrollbar-color: steelblue;
+}
+.Sbc\\(tan\\) {
+  scrollbar-color: tan;
+}
+.Sbc\\(teal\\) {
+  scrollbar-color: teal;
+}
+.Sbc\\(thistle\\) {
+  scrollbar-color: thistle;
+}
+.Sbc\\(tomato\\) {
+  scrollbar-color: tomato;
+}
+.Sbc\\(turquoise\\) {
+  scrollbar-color: turquoise;
+}
+.Sbc\\(violet\\) {
+  scrollbar-color: violet;
+}
+.Sbc\\(wheat\\) {
+  scrollbar-color: wheat;
+}
+.Sbc\\(white\\) {
+  scrollbar-color: white;
+}
+.Sbc\\(whitesmoke\\) {
+  scrollbar-color: whitesmoke;
+}
+.Sbc\\(yellow\\) {
+  scrollbar-color: yellow;
+}
+.Sbc\\(yellowgreen\\) {
+  scrollbar-color: yellowgreen;
+}
+.Sbc\\(a\\,a\\) {
+  scrollbar-color: auto auto;
+}
+.Sbc\\(a\\,t\\) {
+  scrollbar-color: auto transparent;
+}
+.Sbc\\(a\\,cc\\) {
+  scrollbar-color: auto currentColor;
+}
+.Sbc\\(a\\,n\\) {
+  scrollbar-color: auto none;
+}
+.Sbc\\(a\\,aliceblue\\) {
+  scrollbar-color: auto aliceblue;
+}
+.Sbc\\(a\\,antiquewhite\\) {
+  scrollbar-color: auto antiquewhite;
+}
+.Sbc\\(a\\,aqua\\) {
+  scrollbar-color: auto aqua;
+}
+.Sbc\\(a\\,aquamarine\\) {
+  scrollbar-color: auto aquamarine;
+}
+.Sbc\\(a\\,azure\\) {
+  scrollbar-color: auto azure;
+}
+.Sbc\\(a\\,beige\\) {
+  scrollbar-color: auto beige;
+}
+.Sbc\\(a\\,bisque\\) {
+  scrollbar-color: auto bisque;
+}
+.Sbc\\(a\\,black\\) {
+  scrollbar-color: auto black;
+}
+.Sbc\\(a\\,blanchedalmond\\) {
+  scrollbar-color: auto blanchedalmond;
+}
+.Sbc\\(a\\,blue\\) {
+  scrollbar-color: auto blue;
+}
+.Sbc\\(a\\,blueviolet\\) {
+  scrollbar-color: auto blueviolet;
+}
+.Sbc\\(a\\,brown\\) {
+  scrollbar-color: auto brown;
+}
+.Sbc\\(a\\,burlywood\\) {
+  scrollbar-color: auto burlywood;
+}
+.Sbc\\(a\\,cadetblue\\) {
+  scrollbar-color: auto cadetblue;
+}
+.Sbc\\(a\\,chartreuse\\) {
+  scrollbar-color: auto chartreuse;
+}
+.Sbc\\(a\\,chocolate\\) {
+  scrollbar-color: auto chocolate;
+}
+.Sbc\\(a\\,coral\\) {
+  scrollbar-color: auto coral;
+}
+.Sbc\\(a\\,cornflowerblue\\) {
+  scrollbar-color: auto cornflowerblue;
+}
+.Sbc\\(a\\,cornsilk\\) {
+  scrollbar-color: auto cornsilk;
+}
+.Sbc\\(a\\,crimson\\) {
+  scrollbar-color: auto crimson;
+}
+.Sbc\\(a\\,cyan\\) {
+  scrollbar-color: auto cyan;
+}
+.Sbc\\(a\\,darkblue\\) {
+  scrollbar-color: auto darkblue;
+}
+.Sbc\\(a\\,darkcyan\\) {
+  scrollbar-color: auto darkcyan;
+}
+.Sbc\\(a\\,darkgoldenrod\\) {
+  scrollbar-color: auto darkgoldenrod;
+}
+.Sbc\\(a\\,darkgray\\) {
+  scrollbar-color: auto darkgray;
+}
+.Sbc\\(a\\,darkgreen\\) {
+  scrollbar-color: auto darkgreen;
+}
+.Sbc\\(a\\,darkgrey\\) {
+  scrollbar-color: auto darkgrey;
+}
+.Sbc\\(a\\,darkkhaki\\) {
+  scrollbar-color: auto darkkhaki;
+}
+.Sbc\\(a\\,darkmagenta\\) {
+  scrollbar-color: auto darkmagenta;
+}
+.Sbc\\(a\\,darkolivegreen\\) {
+  scrollbar-color: auto darkolivegreen;
+}
+.Sbc\\(a\\,darkorange\\) {
+  scrollbar-color: auto darkorange;
+}
+.Sbc\\(a\\,darkorchid\\) {
+  scrollbar-color: auto darkorchid;
+}
+.Sbc\\(a\\,darkred\\) {
+  scrollbar-color: auto darkred;
+}
+.Sbc\\(a\\,darksalmon\\) {
+  scrollbar-color: auto darksalmon;
+}
+.Sbc\\(a\\,darkseagreen\\) {
+  scrollbar-color: auto darkseagreen;
+}
+.Sbc\\(a\\,darkslateblue\\) {
+  scrollbar-color: auto darkslateblue;
+}
+.Sbc\\(a\\,darkslategray\\) {
+  scrollbar-color: auto darkslategray;
+}
+.Sbc\\(a\\,darkslategrey\\) {
+  scrollbar-color: auto darkslategrey;
+}
+.Sbc\\(a\\,darkturquoise\\) {
+  scrollbar-color: auto darkturquoise;
+}
+.Sbc\\(a\\,darkviolet\\) {
+  scrollbar-color: auto darkviolet;
+}
+.Sbc\\(a\\,deeppink\\) {
+  scrollbar-color: auto deeppink;
+}
+.Sbc\\(a\\,deepskyblue\\) {
+  scrollbar-color: auto deepskyblue;
+}
+.Sbc\\(a\\,dimgray\\) {
+  scrollbar-color: auto dimgray;
+}
+.Sbc\\(a\\,dimgrey\\) {
+  scrollbar-color: auto dimgrey;
+}
+.Sbc\\(a\\,dodgerblue\\) {
+  scrollbar-color: auto dodgerblue;
+}
+.Sbc\\(a\\,firebrick\\) {
+  scrollbar-color: auto firebrick;
+}
+.Sbc\\(a\\,floralwhite\\) {
+  scrollbar-color: auto floralwhite;
+}
+.Sbc\\(a\\,forestgreen\\) {
+  scrollbar-color: auto forestgreen;
+}
+.Sbc\\(a\\,fuchsia\\) {
+  scrollbar-color: auto fuchsia;
+}
+.Sbc\\(a\\,gainsboro\\) {
+  scrollbar-color: auto gainsboro;
+}
+.Sbc\\(a\\,ghostwhite\\) {
+  scrollbar-color: auto ghostwhite;
+}
+.Sbc\\(a\\,gold\\) {
+  scrollbar-color: auto gold;
+}
+.Sbc\\(a\\,goldenrod\\) {
+  scrollbar-color: auto goldenrod;
+}
+.Sbc\\(a\\,gray\\) {
+  scrollbar-color: auto gray;
+}
+.Sbc\\(a\\,green\\) {
+  scrollbar-color: auto green;
+}
+.Sbc\\(a\\,greenyellow\\) {
+  scrollbar-color: auto greenyellow;
+}
+.Sbc\\(a\\,grey\\) {
+  scrollbar-color: auto grey;
+}
+.Sbc\\(a\\,honeydew\\) {
+  scrollbar-color: auto honeydew;
+}
+.Sbc\\(a\\,hotpink\\) {
+  scrollbar-color: auto hotpink;
+}
+.Sbc\\(a\\,indianred\\) {
+  scrollbar-color: auto indianred;
+}
+.Sbc\\(a\\,indigo\\) {
+  scrollbar-color: auto indigo;
+}
+.Sbc\\(a\\,ivory\\) {
+  scrollbar-color: auto ivory;
+}
+.Sbc\\(a\\,khaki\\) {
+  scrollbar-color: auto khaki;
+}
+.Sbc\\(a\\,lavender\\) {
+  scrollbar-color: auto lavender;
+}
+.Sbc\\(a\\,lavenderblush\\) {
+  scrollbar-color: auto lavenderblush;
+}
+.Sbc\\(a\\,lawngreen\\) {
+  scrollbar-color: auto lawngreen;
+}
+.Sbc\\(a\\,lemonchiffon\\) {
+  scrollbar-color: auto lemonchiffon;
+}
+.Sbc\\(a\\,lightblue\\) {
+  scrollbar-color: auto lightblue;
+}
+.Sbc\\(a\\,lightcoral\\) {
+  scrollbar-color: auto lightcoral;
+}
+.Sbc\\(a\\,lightcyan\\) {
+  scrollbar-color: auto lightcyan;
+}
+.Sbc\\(a\\,lightgoldenrodyellow\\) {
+  scrollbar-color: auto lightgoldenrodyellow;
+}
+.Sbc\\(a\\,lightgray\\) {
+  scrollbar-color: auto lightgray;
+}
+.Sbc\\(a\\,lightgreen\\) {
+  scrollbar-color: auto lightgreen;
+}
+.Sbc\\(a\\,lightgrey\\) {
+  scrollbar-color: auto lightgrey;
+}
+.Sbc\\(a\\,lightpink\\) {
+  scrollbar-color: auto lightpink;
+}
+.Sbc\\(a\\,lightsalmon\\) {
+  scrollbar-color: auto lightsalmon;
+}
+.Sbc\\(a\\,lightseagreen\\) {
+  scrollbar-color: auto lightseagreen;
+}
+.Sbc\\(a\\,lightskyblue\\) {
+  scrollbar-color: auto lightskyblue;
+}
+.Sbc\\(a\\,lightslategray\\) {
+  scrollbar-color: auto lightslategray;
+}
+.Sbc\\(a\\,lightslategrey\\) {
+  scrollbar-color: auto lightslategrey;
+}
+.Sbc\\(a\\,lightsteelblue\\) {
+  scrollbar-color: auto lightsteelblue;
+}
+.Sbc\\(a\\,lightyellow\\) {
+  scrollbar-color: auto lightyellow;
+}
+.Sbc\\(a\\,lime\\) {
+  scrollbar-color: auto lime;
+}
+.Sbc\\(a\\,limegreen\\) {
+  scrollbar-color: auto limegreen;
+}
+.Sbc\\(a\\,linen\\) {
+  scrollbar-color: auto linen;
+}
+.Sbc\\(a\\,magenta\\) {
+  scrollbar-color: auto magenta;
+}
+.Sbc\\(a\\,maroon\\) {
+  scrollbar-color: auto maroon;
+}
+.Sbc\\(a\\,mediumaquamarine\\) {
+  scrollbar-color: auto mediumaquamarine;
+}
+.Sbc\\(a\\,mediumblue\\) {
+  scrollbar-color: auto mediumblue;
+}
+.Sbc\\(a\\,mediumorchid\\) {
+  scrollbar-color: auto mediumorchid;
+}
+.Sbc\\(a\\,mediumpurple\\) {
+  scrollbar-color: auto mediumpurple;
+}
+.Sbc\\(a\\,mediumseagreen\\) {
+  scrollbar-color: auto mediumseagreen;
+}
+.Sbc\\(a\\,mediumslateblue\\) {
+  scrollbar-color: auto mediumslateblue;
+}
+.Sbc\\(a\\,mediumspringgreen\\) {
+  scrollbar-color: auto mediumspringgreen;
+}
+.Sbc\\(a\\,mediumturquoise\\) {
+  scrollbar-color: auto mediumturquoise;
+}
+.Sbc\\(a\\,mediumvioletred\\) {
+  scrollbar-color: auto mediumvioletred;
+}
+.Sbc\\(a\\,midnightblue\\) {
+  scrollbar-color: auto midnightblue;
+}
+.Sbc\\(a\\,mintcream\\) {
+  scrollbar-color: auto mintcream;
+}
+.Sbc\\(a\\,mistyrose\\) {
+  scrollbar-color: auto mistyrose;
+}
+.Sbc\\(a\\,moccasin\\) {
+  scrollbar-color: auto moccasin;
+}
+.Sbc\\(a\\,navajowhite\\) {
+  scrollbar-color: auto navajowhite;
+}
+.Sbc\\(a\\,navy\\) {
+  scrollbar-color: auto navy;
+}
+.Sbc\\(a\\,oldlace\\) {
+  scrollbar-color: auto oldlace;
+}
+.Sbc\\(a\\,olive\\) {
+  scrollbar-color: auto olive;
+}
+.Sbc\\(a\\,olivedrab\\) {
+  scrollbar-color: auto olivedrab;
+}
+.Sbc\\(a\\,orange\\) {
+  scrollbar-color: auto orange;
+}
+.Sbc\\(a\\,orangered\\) {
+  scrollbar-color: auto orangered;
+}
+.Sbc\\(a\\,orchid\\) {
+  scrollbar-color: auto orchid;
+}
+.Sbc\\(a\\,palegoldenrod\\) {
+  scrollbar-color: auto palegoldenrod;
+}
+.Sbc\\(a\\,palegreen\\) {
+  scrollbar-color: auto palegreen;
+}
+.Sbc\\(a\\,paleturquoise\\) {
+  scrollbar-color: auto paleturquoise;
+}
+.Sbc\\(a\\,palevioletred\\) {
+  scrollbar-color: auto palevioletred;
+}
+.Sbc\\(a\\,papayawhip\\) {
+  scrollbar-color: auto papayawhip;
+}
+.Sbc\\(a\\,peachpuff\\) {
+  scrollbar-color: auto peachpuff;
+}
+.Sbc\\(a\\,peru\\) {
+  scrollbar-color: auto peru;
+}
+.Sbc\\(a\\,pink\\) {
+  scrollbar-color: auto pink;
+}
+.Sbc\\(a\\,plum\\) {
+  scrollbar-color: auto plum;
+}
+.Sbc\\(a\\,powderblue\\) {
+  scrollbar-color: auto powderblue;
+}
+.Sbc\\(a\\,purple\\) {
+  scrollbar-color: auto purple;
+}
+.Sbc\\(a\\,red\\) {
+  scrollbar-color: auto red;
+}
+.Sbc\\(a\\,rosybrown\\) {
+  scrollbar-color: auto rosybrown;
+}
+.Sbc\\(a\\,royalblue\\) {
+  scrollbar-color: auto royalblue;
+}
+.Sbc\\(a\\,saddlebrown\\) {
+  scrollbar-color: auto saddlebrown;
+}
+.Sbc\\(a\\,salmon\\) {
+  scrollbar-color: auto salmon;
+}
+.Sbc\\(a\\,sandybrown\\) {
+  scrollbar-color: auto sandybrown;
+}
+.Sbc\\(a\\,seagreen\\) {
+  scrollbar-color: auto seagreen;
+}
+.Sbc\\(a\\,seashell\\) {
+  scrollbar-color: auto seashell;
+}
+.Sbc\\(a\\,sienna\\) {
+  scrollbar-color: auto sienna;
+}
+.Sbc\\(a\\,silver\\) {
+  scrollbar-color: auto silver;
+}
+.Sbc\\(a\\,skyblue\\) {
+  scrollbar-color: auto skyblue;
+}
+.Sbc\\(a\\,slateblue\\) {
+  scrollbar-color: auto slateblue;
+}
+.Sbc\\(a\\,slategray\\) {
+  scrollbar-color: auto slategray;
+}
+.Sbc\\(a\\,slategrey\\) {
+  scrollbar-color: auto slategrey;
+}
+.Sbc\\(a\\,snow\\) {
+  scrollbar-color: auto snow;
+}
+.Sbc\\(a\\,springgreen\\) {
+  scrollbar-color: auto springgreen;
+}
+.Sbc\\(a\\,steelblue\\) {
+  scrollbar-color: auto steelblue;
+}
+.Sbc\\(a\\,tan\\) {
+  scrollbar-color: auto tan;
+}
+.Sbc\\(a\\,teal\\) {
+  scrollbar-color: auto teal;
+}
+.Sbc\\(a\\,thistle\\) {
+  scrollbar-color: auto thistle;
+}
+.Sbc\\(a\\,tomato\\) {
+  scrollbar-color: auto tomato;
+}
+.Sbc\\(a\\,turquoise\\) {
+  scrollbar-color: auto turquoise;
+}
+.Sbc\\(a\\,violet\\) {
+  scrollbar-color: auto violet;
+}
+.Sbc\\(a\\,wheat\\) {
+  scrollbar-color: auto wheat;
+}
+.Sbc\\(a\\,white\\) {
+  scrollbar-color: auto white;
+}
+.Sbc\\(a\\,whitesmoke\\) {
+  scrollbar-color: auto whitesmoke;
+}
+.Sbc\\(a\\,yellow\\) {
+  scrollbar-color: auto yellow;
+}
+.Sbc\\(a\\,yellowgreen\\) {
+  scrollbar-color: auto yellowgreen;
+}
+"
+`;
+
+exports[`Rules scrollbar-gutter 1`] = `
+".Sbg\\(a\\) {
+  scrollbar-gutter: auto;
+}
+.Sbg\\(s\\) {
+  scrollbar-gutter: stable;
+}
+.Sbg\\(a\\,be\\) {
+  scrollbar-gutter: auto both-edges;
+}
+"
+`;
+
+exports[`Rules scrollbar-gutter 2`] = `
+".Sbw\\(a\\) {
+  scrollbar-gutter: auto;
+}
+.Sbw\\(n\\) {
+  scrollbar-gutter: none;
+}
+.Sbw\\(t\\) {
+  scrollbar-gutter: thin;
+}
+"
+`;
+
 exports[`Rules stroke 1`] = `
 ".Stk\\(t\\) {
   stroke: transparent;
