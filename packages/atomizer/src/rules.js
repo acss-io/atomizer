@@ -3333,15 +3333,13 @@ module.exports = [
         matcher: 'Sbg',
         allowParamToValue: false,
         styles: {
-            'scrollbar-gutter': '$0 $1',
+            'scrollbar-gutter': '$0',
         },
         arguments: [
             {
                 a: 'auto',
                 s: 'stable',
-            },
-            {
-                be: 'both-edges',
+                s_be: 'stable both-edges',
             },
         ],
     },

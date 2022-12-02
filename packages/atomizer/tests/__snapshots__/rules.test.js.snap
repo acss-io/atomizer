@@ -9167,8 +9167,8 @@ exports[`Rules scrollbar-gutter 1`] = `
 .Sbg\\(s\\) {
   scrollbar-gutter: stable;
 }
-.Sbg\\(a\\,be\\) {
-  scrollbar-gutter: auto both-edges;
+.Sbg\\(s_be\\) {
+  scrollbar-gutter: stable both-edges;
 }
 "
 `;
