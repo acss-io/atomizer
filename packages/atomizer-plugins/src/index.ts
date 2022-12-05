@@ -1,7 +1,7 @@
 import Atomizer from 'atomizer';
 import { createUnplugin } from 'unplugin';
 import type { Options } from './types';
-import fs from 'fs';
+import { outputFile } from 'fs-extra';
 import { debounce } from 'lodash-es';
 
 export const unplugin = createUnplugin<Options>((options) => {
@@ -26,7 +26,7 @@ export const unplugin = createUnplugin<Options>((options) => {
             const source = css;
             const fileName = options.outfile || 'atomizer.css';
 
-            fs.writeFile(fileName, source, (_err) => {});
+            outputFile(fileName, source, (e) => {});
         },
         1000,
         { leading: true }

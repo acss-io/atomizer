@@ -7,7 +7,7 @@ const __dirname = getDirname(import.meta.url);
 
 const atomizer = rollup({
     config: atomizerConfig,
-    outfile: './dist/atomizer.css',
+    outfile: join(__dirname, 'dist', 'atomizer.css'),
 });
 
 export default {

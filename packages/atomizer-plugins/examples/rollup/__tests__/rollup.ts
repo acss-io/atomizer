@@ -16,6 +16,9 @@ describe('rollup', () => {
         });
         await bundle.close();
 
+        // due to debounce method, give time for file to be written
+        // await new Promise((resolve) => setTimeout(resolve, 2000));
+
         // assert that the css file was created
         const css = readFileSync(atomizerCssPath, 'utf8');
         expect(css).toMatchSnapshot();
