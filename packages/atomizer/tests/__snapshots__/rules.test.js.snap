@@ -4136,31 +4136,31 @@ exports[`Rules break-after 1`] = `
 `;
 
 exports[`Rules break-before 1`] = `
-".Bf\\(a\\) {
+".Bb\\(a\\) {
   break-before: auto;
 }
-.Bf\\(al\\) {
+.Bb\\(al\\) {
   break-before: all;
 }
-.Bf\\(av\\) {
+.Bb\\(av\\) {
   break-before: avoid;
 }
-.Bf\\(avc\\) {
+.Bb\\(avc\\) {
   break-before: avoid-column;
 }
-.Bf\\(avp\\) {
+.Bb\\(avp\\) {
   break-before: avoid-page;
 }
-.Bf\\(c\\) {
+.Bb\\(c\\) {
   break-before: column;
 }
-.Bf\\(end\\) {
+.Bb\\(end\\) {
   break-before: right;
 }
-.Bf\\(p\\) {
+.Bb\\(p\\) {
   break-before: page;
 }
-.Bf\\(start\\) {
+.Bb\\(start\\) {
   break-before: left;
 }
 "

@@ -968,7 +968,7 @@ module.exports = [
     {
         type: 'pattern',
         name: 'Break before',
-        matcher: 'Bf',
+        matcher: 'Bb',
         allowParamToValue: false,
         styles: {
             'break-before': '$0',
