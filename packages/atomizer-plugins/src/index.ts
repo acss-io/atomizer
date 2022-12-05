@@ -18,8 +18,6 @@ export const unplugin = createUnplugin<Options>((options) => {
             const css = atomizer.getCss(config, options.cssOptions);
 
             // don't try to write if contents are gonna be same
-            console.log('lastComputedCss', typeof lastComputedCss, lastComputedCss);
-            console.log('new css', typeof css, css);
             if (lastComputedCss === css) {
                 return;
             }
@@ -27,7 +25,6 @@ export const unplugin = createUnplugin<Options>((options) => {
 
             const source = css;
             const fileName = options.outfile || 'atomizer.css';
-            console.log('write css', css);
 
             fs.writeFile(fileName, source, (_err) => {});
         },
@@ -50,7 +47,6 @@ export const unplugin = createUnplugin<Options>((options) => {
         },
 
         transformIndexHtml(html) {
-            console.log('transformIndexHtml');
             lookup.set('html-entry-point', atomizer.findClassNames(html));
             writeToFile();
             return html;
