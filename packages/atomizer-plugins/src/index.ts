@@ -10,6 +10,7 @@ export const unplugin = createUnplugin<Options>((options) => {
     });
     const lookup = new Map<string, Array<string>>();
     let lastComputedCss = null;
+    const isDev = process.env.NODE_ENV === 'development';
 
     const writeToFile = debounce(
         () => {
@@ -37,19 +38,33 @@ export const unplugin = createUnplugin<Options>((options) => {
 
         /* Extract atomic css classes from each file that has changed */
         transform(code, id) {
+            // Skip css files as atomizer classes do not exist there
             if (id.includes('.css') || id.includes('.scss')) {
                 return null;
             }
+
             // Find atomic classes and add them to our cache
             lookup.set(id, atomizer.findClassNames(code));
-            writeToFile();
+
+            // only execute in dev mode to avoid writing to disk for production builds
+            // buildEnd will handle production builds
+            if (isDev) {
+                writeToFile();
+            }
+
             return null;
         },
 
+        /* Vite only hook to parse entry point files */
         transformIndexHtml(html) {
             lookup.set('html-entry-point', atomizer.findClassNames(html));
             writeToFile();
             return html;
+        },
+
+        /* Hook used to at the end of the build lifecycle */
+        buildEnd() {
+            writeToFile();
         },
     };
 });
