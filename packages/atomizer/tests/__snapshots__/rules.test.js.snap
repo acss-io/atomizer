@@ -8822,6 +8822,492 @@ exports[`Rules text-decoration 1`] = `
 "
 `;
 
+exports[`Rules text-decoration-color 1`] = `
+".Tdc\\(t\\) {
+  text-decoration-color: transparent;
+}
+.Tdc\\(cc\\) {
+  text-decoration-color: currentColor;
+}
+.Tdc\\(n\\) {
+  text-decoration-color: none;
+}
+.Tdc\\(aliceblue\\) {
+  text-decoration-color: aliceblue;
+}
+.Tdc\\(antiquewhite\\) {
+  text-decoration-color: antiquewhite;
+}
+.Tdc\\(aqua\\) {
+  text-decoration-color: aqua;
+}
+.Tdc\\(aquamarine\\) {
+  text-decoration-color: aquamarine;
+}
+.Tdc\\(azure\\) {
+  text-decoration-color: azure;
+}
+.Tdc\\(beige\\) {
+  text-decoration-color: beige;
+}
+.Tdc\\(bisque\\) {
+  text-decoration-color: bisque;
+}
+.Tdc\\(black\\) {
+  text-decoration-color: black;
+}
+.Tdc\\(blanchedalmond\\) {
+  text-decoration-color: blanchedalmond;
+}
+.Tdc\\(blue\\) {
+  text-decoration-color: blue;
+}
+.Tdc\\(blueviolet\\) {
+  text-decoration-color: blueviolet;
+}
+.Tdc\\(brown\\) {
+  text-decoration-color: brown;
+}
+.Tdc\\(burlywood\\) {
+  text-decoration-color: burlywood;
+}
+.Tdc\\(cadetblue\\) {
+  text-decoration-color: cadetblue;
+}
+.Tdc\\(chartreuse\\) {
+  text-decoration-color: chartreuse;
+}
+.Tdc\\(chocolate\\) {
+  text-decoration-color: chocolate;
+}
+.Tdc\\(coral\\) {
+  text-decoration-color: coral;
+}
+.Tdc\\(cornflowerblue\\) {
+  text-decoration-color: cornflowerblue;
+}
+.Tdc\\(cornsilk\\) {
+  text-decoration-color: cornsilk;
+}
+.Tdc\\(crimson\\) {
+  text-decoration-color: crimson;
+}
+.Tdc\\(cyan\\) {
+  text-decoration-color: cyan;
+}
+.Tdc\\(darkblue\\) {
+  text-decoration-color: darkblue;
+}
+.Tdc\\(darkcyan\\) {
+  text-decoration-color: darkcyan;
+}
+.Tdc\\(darkgoldenrod\\) {
+  text-decoration-color: darkgoldenrod;
+}
+.Tdc\\(darkgray\\) {
+  text-decoration-color: darkgray;
+}
+.Tdc\\(darkgreen\\) {
+  text-decoration-color: darkgreen;
+}
+.Tdc\\(darkgrey\\) {
+  text-decoration-color: darkgrey;
+}
+.Tdc\\(darkkhaki\\) {
+  text-decoration-color: darkkhaki;
+}
+.Tdc\\(darkmagenta\\) {
+  text-decoration-color: darkmagenta;
+}
+.Tdc\\(darkolivegreen\\) {
+  text-decoration-color: darkolivegreen;
+}
+.Tdc\\(darkorange\\) {
+  text-decoration-color: darkorange;
+}
+.Tdc\\(darkorchid\\) {
+  text-decoration-color: darkorchid;
+}
+.Tdc\\(darkred\\) {
+  text-decoration-color: darkred;
+}
+.Tdc\\(darksalmon\\) {
+  text-decoration-color: darksalmon;
+}
+.Tdc\\(darkseagreen\\) {
+  text-decoration-color: darkseagreen;
+}
+.Tdc\\(darkslateblue\\) {
+  text-decoration-color: darkslateblue;
+}
+.Tdc\\(darkslategray\\) {
+  text-decoration-color: darkslategray;
+}
+.Tdc\\(darkslategrey\\) {
+  text-decoration-color: darkslategrey;
+}
+.Tdc\\(darkturquoise\\) {
+  text-decoration-color: darkturquoise;
+}
+.Tdc\\(darkviolet\\) {
+  text-decoration-color: darkviolet;
+}
+.Tdc\\(deeppink\\) {
+  text-decoration-color: deeppink;
+}
+.Tdc\\(deepskyblue\\) {
+  text-decoration-color: deepskyblue;
+}
+.Tdc\\(dimgray\\) {
+  text-decoration-color: dimgray;
+}
+.Tdc\\(dimgrey\\) {
+  text-decoration-color: dimgrey;
+}
+.Tdc\\(dodgerblue\\) {
+  text-decoration-color: dodgerblue;
+}
+.Tdc\\(firebrick\\) {
+  text-decoration-color: firebrick;
+}
+.Tdc\\(floralwhite\\) {
+  text-decoration-color: floralwhite;
+}
+.Tdc\\(forestgreen\\) {
+  text-decoration-color: forestgreen;
+}
+.Tdc\\(fuchsia\\) {
+  text-decoration-color: fuchsia;
+}
+.Tdc\\(gainsboro\\) {
+  text-decoration-color: gainsboro;
+}
+.Tdc\\(ghostwhite\\) {
+  text-decoration-color: ghostwhite;
+}
+.Tdc\\(gold\\) {
+  text-decoration-color: gold;
+}
+.Tdc\\(goldenrod\\) {
+  text-decoration-color: goldenrod;
+}
+.Tdc\\(gray\\) {
+  text-decoration-color: gray;
+}
+.Tdc\\(green\\) {
+  text-decoration-color: green;
+}
+.Tdc\\(greenyellow\\) {
+  text-decoration-color: greenyellow;
+}
+.Tdc\\(grey\\) {
+  text-decoration-color: grey;
+}
+.Tdc\\(honeydew\\) {
+  text-decoration-color: honeydew;
+}
+.Tdc\\(hotpink\\) {
+  text-decoration-color: hotpink;
+}
+.Tdc\\(indianred\\) {
+  text-decoration-color: indianred;
+}
+.Tdc\\(indigo\\) {
+  text-decoration-color: indigo;
+}
+.Tdc\\(ivory\\) {
+  text-decoration-color: ivory;
+}
+.Tdc\\(khaki\\) {
+  text-decoration-color: khaki;
+}
+.Tdc\\(lavender\\) {
+  text-decoration-color: lavender;
+}
+.Tdc\\(lavenderblush\\) {
+  text-decoration-color: lavenderblush;
+}
+.Tdc\\(lawngreen\\) {
+  text-decoration-color: lawngreen;
+}
+.Tdc\\(lemonchiffon\\) {
+  text-decoration-color: lemonchiffon;
+}
+.Tdc\\(lightblue\\) {
+  text-decoration-color: lightblue;
+}
+.Tdc\\(lightcoral\\) {
+  text-decoration-color: lightcoral;
+}
+.Tdc\\(lightcyan\\) {
+  text-decoration-color: lightcyan;
+}
+.Tdc\\(lightgoldenrodyellow\\) {
+  text-decoration-color: lightgoldenrodyellow;
+}
+.Tdc\\(lightgray\\) {
+  text-decoration-color: lightgray;
+}
+.Tdc\\(lightgreen\\) {
+  text-decoration-color: lightgreen;
+}
+.Tdc\\(lightgrey\\) {
+  text-decoration-color: lightgrey;
+}
+.Tdc\\(lightpink\\) {
+  text-decoration-color: lightpink;
+}
+.Tdc\\(lightsalmon\\) {
+  text-decoration-color: lightsalmon;
+}
+.Tdc\\(lightseagreen\\) {
+  text-decoration-color: lightseagreen;
+}
+.Tdc\\(lightskyblue\\) {
+  text-decoration-color: lightskyblue;
+}
+.Tdc\\(lightslategray\\) {
+  text-decoration-color: lightslategray;
+}
+.Tdc\\(lightslategrey\\) {
+  text-decoration-color: lightslategrey;
+}
+.Tdc\\(lightsteelblue\\) {
+  text-decoration-color: lightsteelblue;
+}
+.Tdc\\(lightyellow\\) {
+  text-decoration-color: lightyellow;
+}
+.Tdc\\(lime\\) {
+  text-decoration-color: lime;
+}
+.Tdc\\(limegreen\\) {
+  text-decoration-color: limegreen;
+}
+.Tdc\\(linen\\) {
+  text-decoration-color: linen;
+}
+.Tdc\\(magenta\\) {
+  text-decoration-color: magenta;
+}
+.Tdc\\(maroon\\) {
+  text-decoration-color: maroon;
+}
+.Tdc\\(mediumaquamarine\\) {
+  text-decoration-color: mediumaquamarine;
+}
+.Tdc\\(mediumblue\\) {
+  text-decoration-color: mediumblue;
+}
+.Tdc\\(mediumorchid\\) {
+  text-decoration-color: mediumorchid;
+}
+.Tdc\\(mediumpurple\\) {
+  text-decoration-color: mediumpurple;
+}
+.Tdc\\(mediumseagreen\\) {
+  text-decoration-color: mediumseagreen;
+}
+.Tdc\\(mediumslateblue\\) {
+  text-decoration-color: mediumslateblue;
+}
+.Tdc\\(mediumspringgreen\\) {
+  text-decoration-color: mediumspringgreen;
+}
+.Tdc\\(mediumturquoise\\) {
+  text-decoration-color: mediumturquoise;
+}
+.Tdc\\(mediumvioletred\\) {
+  text-decoration-color: mediumvioletred;
+}
+.Tdc\\(midnightblue\\) {
+  text-decoration-color: midnightblue;
+}
+.Tdc\\(mintcream\\) {
+  text-decoration-color: mintcream;
+}
+.Tdc\\(mistyrose\\) {
+  text-decoration-color: mistyrose;
+}
+.Tdc\\(moccasin\\) {
+  text-decoration-color: moccasin;
+}
+.Tdc\\(navajowhite\\) {
+  text-decoration-color: navajowhite;
+}
+.Tdc\\(navy\\) {
+  text-decoration-color: navy;
+}
+.Tdc\\(oldlace\\) {
+  text-decoration-color: oldlace;
+}
+.Tdc\\(olive\\) {
+  text-decoration-color: olive;
+}
+.Tdc\\(olivedrab\\) {
+  text-decoration-color: olivedrab;
+}
+.Tdc\\(orange\\) {
+  text-decoration-color: orange;
+}
+.Tdc\\(orangered\\) {
+  text-decoration-color: orangered;
+}
+.Tdc\\(orchid\\) {
+  text-decoration-color: orchid;
+}
+.Tdc\\(palegoldenrod\\) {
+  text-decoration-color: palegoldenrod;
+}
+.Tdc\\(palegreen\\) {
+  text-decoration-color: palegreen;
+}
+.Tdc\\(paleturquoise\\) {
+  text-decoration-color: paleturquoise;
+}
+.Tdc\\(palevioletred\\) {
+  text-decoration-color: palevioletred;
+}
+.Tdc\\(papayawhip\\) {
+  text-decoration-color: papayawhip;
+}
+.Tdc\\(peachpuff\\) {
+  text-decoration-color: peachpuff;
+}
+.Tdc\\(peru\\) {
+  text-decoration-color: peru;
+}
+.Tdc\\(pink\\) {
+  text-decoration-color: pink;
+}
+.Tdc\\(plum\\) {
+  text-decoration-color: plum;
+}
+.Tdc\\(powderblue\\) {
+  text-decoration-color: powderblue;
+}
+.Tdc\\(purple\\) {
+  text-decoration-color: purple;
+}
+.Tdc\\(red\\) {
+  text-decoration-color: red;
+}
+.Tdc\\(rosybrown\\) {
+  text-decoration-color: rosybrown;
+}
+.Tdc\\(royalblue\\) {
+  text-decoration-color: royalblue;
+}
+.Tdc\\(saddlebrown\\) {
+  text-decoration-color: saddlebrown;
+}
+.Tdc\\(salmon\\) {
+  text-decoration-color: salmon;
+}
+.Tdc\\(sandybrown\\) {
+  text-decoration-color: sandybrown;
+}
+.Tdc\\(seagreen\\) {
+  text-decoration-color: seagreen;
+}
+.Tdc\\(seashell\\) {
+  text-decoration-color: seashell;
+}
+.Tdc\\(sienna\\) {
+  text-decoration-color: sienna;
+}
+.Tdc\\(silver\\) {
+  text-decoration-color: silver;
+}
+.Tdc\\(skyblue\\) {
+  text-decoration-color: skyblue;
+}
+.Tdc\\(slateblue\\) {
+  text-decoration-color: slateblue;
+}
+.Tdc\\(slategray\\) {
+  text-decoration-color: slategray;
+}
+.Tdc\\(slategrey\\) {
+  text-decoration-color: slategrey;
+}
+.Tdc\\(snow\\) {
+  text-decoration-color: snow;
+}
+.Tdc\\(springgreen\\) {
+  text-decoration-color: springgreen;
+}
+.Tdc\\(steelblue\\) {
+  text-decoration-color: steelblue;
+}
+.Tdc\\(tan\\) {
+  text-decoration-color: tan;
+}
+.Tdc\\(teal\\) {
+  text-decoration-color: teal;
+}
+.Tdc\\(thistle\\) {
+  text-decoration-color: thistle;
+}
+.Tdc\\(tomato\\) {
+  text-decoration-color: tomato;
+}
+.Tdc\\(turquoise\\) {
+  text-decoration-color: turquoise;
+}
+.Tdc\\(violet\\) {
+  text-decoration-color: violet;
+}
+.Tdc\\(wheat\\) {
+  text-decoration-color: wheat;
+}
+.Tdc\\(white\\) {
+  text-decoration-color: white;
+}
+.Tdc\\(whitesmoke\\) {
+  text-decoration-color: whitesmoke;
+}
+.Tdc\\(yellow\\) {
+  text-decoration-color: yellow;
+}
+.Tdc\\(yellowgreen\\) {
+  text-decoration-color: yellowgreen;
+}
+"
+`;
+
+exports[`Rules text-decoration-style 1`] = `
+".Tds\\(d\\) {
+  text-decoration-style: dotted;
+}
+.Tds\\(da\\) {
+  text-decoration-style: dashed;
+}
+.Tds\\(do\\) {
+  text-decoration-style: double;
+}
+.Tds\\(s\\) {
+  text-decoration-style: solid;
+}
+.Tds\\(w\\) {
+  text-decoration-style: wavy;
+}
+"
+`;
+
+exports[`Rules text-decoration-thickness 1`] = `
+".Tdt\\(a\\) {
+  text-decoration-thickness: auto;
+}
+.Tdt\\(ff\\) {
+  text-decoration-thickness: from-font;
+}
+.Tdt\\(1px\\) {
+  text-decoration-thickness: 1px;
+}
+"
+`;
+
 exports[`Rules text-indent 1`] = `
 ".Ti\\(1px\\) {
   text-indent: 1px;
@@ -8881,6 +9367,16 @@ exports[`Rules text-transform 1`] = `
 }
 .Tt\\(l\\) {
   text-transform: lowercase;
+}
+"
+`;
+
+exports[`Rules text-underline-offset 1`] = `
+".Tuo\\(a\\) {
+  text-underline-offset: auto;
+}
+.Tuo\\(1px\\) {
+  text-underline-offset: 1px;
 }
 "
 `;

@@ -3391,6 +3391,63 @@ module.exports = [
             },
         ],
     },
+    {
+        type: 'pattern',
+        name: 'Text decoration color',
+        matcher: 'Tdc',
+        allowParamToValue: false,
+        styles: {
+            'text-decoration-color': '$0',
+        },
+        arguments: [colors],
+    },
+    {
+        type: 'pattern',
+        name: 'Text decoration style',
+        matcher: 'Tds',
+        allowParamToValue: false,
+        styles: {
+            'text-decoration-style': '$0',
+        },
+        arguments: [
+            {
+                d: 'dotted',
+                da: 'dashed',
+                do: 'double',
+                s: 'solid',
+                w: 'wavy',
+            },
+        ],
+    },
+    {
+        type: 'pattern',
+        name: 'Text decoration thickness',
+        matcher: 'Tdt',
+        allowParamToValue: true,
+        styles: {
+            'text-decoration-thickness': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                ff: 'from-font',
+            },
+        ],
+    },
+    {
+        type: 'pattern',
+        name: 'Text underline offset',
+        matcher: 'Tuo',
+        allowParamToValue: true,
+        styles: {
+            'text-underline-offset': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+            },
+        ],
+    },
     /**
     ==================================================================
     TEXT-INDENT
