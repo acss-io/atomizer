@@ -4104,6 +4104,84 @@ exports[`Rules box-sizing 1`] = `
 "
 `;
 
+exports[`Rules break-after 1`] = `
+".Ba\\(a\\) {
+  break-after: auto;
+}
+.Ba\\(al\\) {
+  break-after: all;
+}
+.Ba\\(av\\) {
+  break-after: avoid;
+}
+.Ba\\(avc\\) {
+  break-after: avoid-column;
+}
+.Ba\\(avp\\) {
+  break-after: avoid-page;
+}
+.Ba\\(c\\) {
+  break-after: column;
+}
+.Ba\\(end\\) {
+  break-after: right;
+}
+.Ba\\(p\\) {
+  break-after: page;
+}
+.Ba\\(start\\) {
+  break-after: left;
+}
+"
+`;
+
+exports[`Rules break-before 1`] = `
+".Bf\\(a\\) {
+  break-before: auto;
+}
+.Bf\\(al\\) {
+  break-before: all;
+}
+.Bf\\(av\\) {
+  break-before: avoid;
+}
+.Bf\\(avc\\) {
+  break-before: avoid-column;
+}
+.Bf\\(avp\\) {
+  break-before: avoid-page;
+}
+.Bf\\(c\\) {
+  break-before: column;
+}
+.Bf\\(end\\) {
+  break-before: right;
+}
+.Bf\\(p\\) {
+  break-before: page;
+}
+.Bf\\(start\\) {
+  break-before: left;
+}
+"
+`;
+
+exports[`Rules break-inside 1`] = `
+".Bi\\(a\\) {
+  break-inside: auto;
+}
+.Bi\\(av\\) {
+  break-inside: avoid;
+}
+.Bi\\(avc\\) {
+  break-inside: avoid-column;
+}
+.Bi\\(avp\\) {
+  break-inside: avoid-page;
+}
+"
+`;
+
 exports[`Rules caret-color 1`] = `
 ".Cac\\(a\\) {
   caret-color: auto;

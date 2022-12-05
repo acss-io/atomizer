@@ -34,6 +34,7 @@
  **/
 const { baselinePosition, contentDistribution, contentPosition } = require('./boxAlignment');
 const blendModes = require('./blendmodes');
+const breakValues = require('./break');
 const mixBlendModes = Object.assign(blendModes, { pd: 'plus-darker', pl: 'plus-lighter' });
 const colors = require('./colors');
 const { borderStyles, borderWidths } = require('./border');
@@ -945,6 +946,49 @@ module.exports = [
         arguments: [
             {
                 n: 'none',
+            },
+        ],
+    },
+
+    /**
+    ==================================================================
+    BREAK
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Break after',
+        matcher: 'Ba',
+        allowParamToValue: false,
+        styles: {
+            'break-after': '$0',
+        },
+        arguments: [breakValues],
+    },
+    {
+        type: 'pattern',
+        name: 'Break before',
+        matcher: 'Bf',
+        allowParamToValue: false,
+        styles: {
+            'break-before': '$0',
+        },
+        arguments: [breakValues],
+    },
+    {
+        type: 'pattern',
+        name: 'Break inside',
+        matcher: 'Bi',
+        allowParamToValue: false,
+        styles: {
+            'break-inside': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                av: 'avoid',
+                avc: 'avoid-column',
+                avp: 'avoid-page',
             },
         ],
     },
