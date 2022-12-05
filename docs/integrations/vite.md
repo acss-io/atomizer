@@ -49,7 +49,7 @@ import atomizerConfig from './atomizer.config.js';
 
 const atomizerPlugin = vite({
     config: atomizerConfig,
-    outfile: 'atomizer.css',
+    outfile: 'dist/atomizer.css',
 });
 
 export default defineConfig(() => {
@@ -82,7 +82,3 @@ Start adding Atomizer classes to your code base, an example `index.html` file.
 ```html
 <h1 class="Fw(b) Fz(2rem) C(red)">Welcome!</h1>
 ```
-
-Then run `npm run build` to re-run Atomizer to generic the CSS.
-
-> NOTE: Unfortunately, vite does not re-run atomizer when files are changed, so this is a manual process for now.
