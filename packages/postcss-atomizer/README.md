@@ -14,11 +14,11 @@ Update your project's `postcss.config.js` file by adding the atomizer plugin:
 
 ```js
 // postcss.config.js
-const atomizerPlugin = require('postcss-atomizer');
+const atomizer = require('postcss-atomizer');
 
 module.exports = {
     plugins: [
-        atomizerPlugin({ /* options */ }),
+        atomizer({ /* options */ }),
     ]
 };
 ```
