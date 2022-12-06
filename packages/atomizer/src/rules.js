@@ -34,6 +34,7 @@
  **/
 const { baselinePosition, contentDistribution, contentPosition } = require('./boxAlignment');
 const blendModes = require('./blendmodes');
+const breakValues = require('./break');
 const mixBlendModes = Object.assign(blendModes, { pd: 'plus-darker', pl: 'plus-lighter' });
 const colors = require('./colors');
 const { borderStyles, borderWidths } = require('./border');
@@ -666,6 +667,127 @@ module.exports = [
     },
     /**
     ==================================================================
+    BACKDROP-FILTER FUNCTIONS
+    https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty
+    ==================================================================
+    */
+    // filter for custom
+    {
+        type: 'pattern',
+        name: 'Backdrop Filter',
+        matcher: 'Bkdp',
+        allowParamToValue: false,
+        styles: {
+            'backdrop-filter': '$0',
+        },
+        arguments: [
+            {
+                n: 'none',
+            },
+        ],
+    },
+    // blur
+    {
+        type: 'pattern',
+        name: 'Backdrop Blur (filter)',
+        matcher: 'BkdpBlur',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'blur($0)',
+        },
+    },
+    // brightness
+    {
+        type: 'pattern',
+        name: 'Backdrop Brightness (filter)',
+        matcher: 'BkdpBrightness',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'brightness($0)',
+        },
+    },
+    // contrast
+    {
+        type: 'pattern',
+        name: 'Backdrop Contrast (filter)',
+        matcher: 'BkdpContrast',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'contrast($0)',
+        },
+    },
+    // dropshadow
+    {
+        type: 'pattern',
+        name: 'Backdrop Drop shadow (filter)',
+        matcher: 'BkdpDropshadow',
+        allowParamToValue: false,
+        styles: {
+            'backdrop-filter': 'drop-shadow($0)',
+        },
+    },
+    // grayscale
+    {
+        type: 'pattern',
+        name: 'Backdrop Grayscale (filter)',
+        matcher: 'BkdpGrayscale',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'grayscale($0)',
+        },
+    },
+    // hue-rotate
+    {
+        type: 'pattern',
+        name: 'Backdrop Hue Rotate (filter)',
+        matcher: 'BkdpHueRotate',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'hue-rotate($0)',
+        },
+    },
+    // invert
+    {
+        type: 'pattern',
+        name: 'Backdrop Invert (filter)',
+        matcher: 'BkdpInvert',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'invert($0)',
+        },
+    },
+    // opacity
+    {
+        type: 'pattern',
+        name: 'Backdrop Opacity (filter)',
+        matcher: 'BkdpOpacity',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'opacity($0)',
+        },
+    },
+    // saturate
+    {
+        type: 'pattern',
+        name: 'Backdrop Saturate (filter)',
+        matcher: 'BkdpSaturate',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'saturate($0)',
+        },
+    },
+    // sepia
+    {
+        type: 'pattern',
+        name: 'Backdrop Sepia (filter)',
+        matcher: 'BkdpSepia',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'sepia($0)',
+        },
+    },
+    /**
+    ==================================================================
     BACKGROUNDS
     ==================================================================
     */
@@ -945,6 +1067,49 @@ module.exports = [
         arguments: [
             {
                 n: 'none',
+            },
+        ],
+    },
+
+    /**
+    ==================================================================
+    BREAK
+    ==================================================================
+    */
+    {
+        type: 'pattern',
+        name: 'Break after',
+        matcher: 'Ba',
+        allowParamToValue: false,
+        styles: {
+            'break-after': '$0',
+        },
+        arguments: [breakValues],
+    },
+    {
+        type: 'pattern',
+        name: 'Break before',
+        matcher: 'Bb',
+        allowParamToValue: false,
+        styles: {
+            'break-before': '$0',
+        },
+        arguments: [breakValues],
+    },
+    {
+        type: 'pattern',
+        name: 'Break inside',
+        matcher: 'Bi',
+        allowParamToValue: false,
+        styles: {
+            'break-inside': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                av: 'avoid',
+                avc: 'avoid-column',
+                avp: 'avoid-page',
             },
         ],
     },
@@ -3388,6 +3553,63 @@ module.exports = [
                 n: 'none',
                 o: 'overline',
                 u: 'underline',
+            },
+        ],
+    },
+    {
+        type: 'pattern',
+        name: 'Text decoration color',
+        matcher: 'Tdc',
+        allowParamToValue: false,
+        styles: {
+            'text-decoration-color': '$0',
+        },
+        arguments: [colors],
+    },
+    {
+        type: 'pattern',
+        name: 'Text decoration style',
+        matcher: 'Tds',
+        allowParamToValue: false,
+        styles: {
+            'text-decoration-style': '$0',
+        },
+        arguments: [
+            {
+                d: 'dotted',
+                da: 'dashed',
+                do: 'double',
+                s: 'solid',
+                w: 'wavy',
+            },
+        ],
+    },
+    {
+        type: 'pattern',
+        name: 'Text decoration thickness',
+        matcher: 'Tdt',
+        allowParamToValue: true,
+        styles: {
+            'text-decoration-thickness': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
+                ff: 'from-font',
+            },
+        ],
+    },
+    {
+        type: 'pattern',
+        name: 'Text underline offset',
+        matcher: 'Tuo',
+        allowParamToValue: true,
+        styles: {
+            'text-underline-offset': '$0',
+        },
+        arguments: [
+            {
+                a: 'auto',
             },
         ],
     },
