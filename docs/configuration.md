@@ -38,7 +38,7 @@ module.exports = {
     content: [
         './components/**/*.js',
         './templates/**/*.html',
-    },
+    ],
 }
 ```
 
@@ -75,7 +75,7 @@ module.exports = {
     classNames: [
         'H(uh)',
         'C(primary)',
-    },
+    ],
 };
 ```
 
@@ -103,7 +103,7 @@ module.exports = {
     classNames: [
         'H(uh)',
         'C(primary)',
-    }
+    ]
 }
 ```
 
