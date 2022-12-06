@@ -697,6 +697,78 @@ exports[`Rules aspect-ratio 1`] = `
 "
 `;
 
+exports[`Rules backdrop-filter 1`] = `
+".Bkdp\\(n\\) {
+  backdrop-filter: none;
+}
+"
+`;
+
+exports[`Rules backdrop-filter 2`] = `
+".BkdpBlur\\(1px\\) {
+  backdrop-filter: blur(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 3`] = `
+".BkdpBrightness\\(1px\\) {
+  backdrop-filter: brightness(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 4`] = `
+".BkdpContrast\\(1px\\) {
+  backdrop-filter: contrast(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 5`] = `""`;
+
+exports[`Rules backdrop-filter 6`] = `
+".BkdpGrayscale\\(1px\\) {
+  backdrop-filter: grayscale(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 7`] = `
+".BkdpHueRotate\\(1px\\) {
+  backdrop-filter: hue-rotate(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 8`] = `
+".BkdpInvert\\(1px\\) {
+  backdrop-filter: invert(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 9`] = `
+".BkdpOpacity\\(1px\\) {
+  backdrop-filter: opacity(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 10`] = `
+".BkdpSaturate\\(1px\\) {
+  backdrop-filter: saturate(1px);
+}
+"
+`;
+
+exports[`Rules backdrop-filter 11`] = `
+".BkdpSepia\\(1px\\) {
+  backdrop-filter: sepia(1px);
+}
+"
+`;
+
 exports[`Rules backface-visibility 1`] = `
 ".Bfv\\(h\\) {
   backface-visibility: hidden;

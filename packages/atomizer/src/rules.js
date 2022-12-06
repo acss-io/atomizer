@@ -667,6 +667,127 @@ module.exports = [
     },
     /**
     ==================================================================
+    BACKDROP-FILTER FUNCTIONS
+    https://drafts.fxtf.org/filter-effects-2/#BackdropFilterProperty
+    ==================================================================
+    */
+    // filter for custom
+    {
+        type: 'pattern',
+        name: 'Backdrop Filter',
+        matcher: 'Bkdp',
+        allowParamToValue: false,
+        styles: {
+            'backdrop-filter': '$0',
+        },
+        arguments: [
+            {
+                n: 'none',
+            },
+        ],
+    },
+    // blur
+    {
+        type: 'pattern',
+        name: 'Backdrop Blur (filter)',
+        matcher: 'BkdpBlur',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'blur($0)',
+        },
+    },
+    // brightness
+    {
+        type: 'pattern',
+        name: 'Backdrop Brightness (filter)',
+        matcher: 'BkdpBrightness',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'brightness($0)',
+        },
+    },
+    // contrast
+    {
+        type: 'pattern',
+        name: 'Backdrop Contrast (filter)',
+        matcher: 'BkdpContrast',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'contrast($0)',
+        },
+    },
+    // dropshadow
+    {
+        type: 'pattern',
+        name: 'Backdrop Drop shadow (filter)',
+        matcher: 'BkdpDropshadow',
+        allowParamToValue: false,
+        styles: {
+            'backdrop-filter': 'drop-shadow($0)',
+        },
+    },
+    // grayscale
+    {
+        type: 'pattern',
+        name: 'Backdrop Grayscale (filter)',
+        matcher: 'BkdpGrayscale',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'grayscale($0)',
+        },
+    },
+    // hue-rotate
+    {
+        type: 'pattern',
+        name: 'Backdrop Hue Rotate (filter)',
+        matcher: 'BkdpHueRotate',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'hue-rotate($0)',
+        },
+    },
+    // invert
+    {
+        type: 'pattern',
+        name: 'Backdrop Invert (filter)',
+        matcher: 'BkdpInvert',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'invert($0)',
+        },
+    },
+    // opacity
+    {
+        type: 'pattern',
+        name: 'Backdrop Opacity (filter)',
+        matcher: 'BkdpOpacity',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'opacity($0)',
+        },
+    },
+    // saturate
+    {
+        type: 'pattern',
+        name: 'Backdrop Saturate (filter)',
+        matcher: 'BkdpSaturate',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'saturate($0)',
+        },
+    },
+    // sepia
+    {
+        type: 'pattern',
+        name: 'Backdrop Sepia (filter)',
+        matcher: 'BkdpSepia',
+        allowParamToValue: true,
+        styles: {
+            'backdrop-filter': 'sepia($0)',
+        },
+    },
+    /**
+    ==================================================================
     BACKGROUNDS
     ==================================================================
     */
