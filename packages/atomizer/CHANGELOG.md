@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.24.0
+
+### Minor Changes
+
+-   3e26596: feat: add text-decoration-_, break-_ and backdrop-filter-\* rules
+
 ## 3.23.0
 
 ### Minor Changes
