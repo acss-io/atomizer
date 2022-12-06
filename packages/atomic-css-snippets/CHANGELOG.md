@@ -1,5 +1,11 @@
 # atomic-css-snippets
 
+## 1.0.9
+
+### Patch Changes
+
+-   4efff5e: chore: atomizer@3.24.0
+
 ## 1.0.8
 
 ### Patch Changes
