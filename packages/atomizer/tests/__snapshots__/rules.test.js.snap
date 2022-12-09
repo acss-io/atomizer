@@ -5212,7 +5212,12 @@ exports[`Rules color 1`] = `
 "
 `;
 
-exports[`Rules column-count 1`] = `""`;
+exports[`Rules column-count 1`] = `
+".Colmc\\(1px\\) {
+  column-count: 1px;
+}
+"
+`;
 
 exports[`Rules column-fill 1`] = `
 ".Colmf\\(a\\) {
