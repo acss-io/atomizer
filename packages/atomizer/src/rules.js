@@ -1214,6 +1214,7 @@ module.exports = [
         type: 'pattern',
         name: 'Column count',
         matcher: 'Colmc',
+        allowParamToValue: true,
         styles: {
             'column-count': '$0',
         },
