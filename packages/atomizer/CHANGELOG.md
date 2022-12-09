@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.24.1
+
+### Patch Changes
+
+-   d4346c8: fix(atomizer: add allowParamToValue to column-count
+
 ## 3.24.0
 
 ### Minor Changes
