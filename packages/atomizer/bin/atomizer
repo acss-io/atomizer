@@ -62,7 +62,7 @@ if (empty(config) && process.argv.length <= 2) {
 var filesToParse = program.args || [];
 
 // Add more src files from "content" property of config
-filesToParse = filesToParse.concat(findFiles(config.content));
+filesToParse = findFiles(filesToParse.concat(config.content || []));
 
 // Run atomizer build, output to stdout if css returned
 function runAtomizer(files, config = {}, options = {}, done) {
