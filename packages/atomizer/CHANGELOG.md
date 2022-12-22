@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.24.2
+
+### Patch Changes
+
+-   4d47803: fix(atomizer): run findFiles on bin args
+
 ## 3.24.1
 
 ### Patch Changes
