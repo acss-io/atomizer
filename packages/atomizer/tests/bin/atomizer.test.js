@@ -9,6 +9,7 @@ const atomizer = path.resolve(__dirname, '..', '..', 'bin', 'atomizer');
 const execFileAsync = util.promisify(childProcess.execFile);
 const fixtureDir = path.resolve(__dirname, '..', 'fixtures');
 const htmlFixture = path.resolve(fixtureDir, 'test.html');
+const htmlFixtureGlob = path.resolve(fixtureDir, '*.html');
 
 describe('atomizer', () => {
     it('should return the help menu', async () => {
@@ -18,6 +19,11 @@ describe('atomizer', () => {
 
     it('should parse html files for classes', async () => {
         const { stdout } = await execFileAsync('node', [atomizer, htmlFixture]);
+        expect(stdout).toMatchSnapshot();
+    });
+
+    it('should parse glob patterns', async () => {
+        const { stdout } = await execFileAsync('node', [atomizer, htmlFixtureGlob]);
         expect(stdout).toMatchSnapshot();
     });
 

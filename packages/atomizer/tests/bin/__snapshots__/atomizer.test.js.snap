@@ -85,6 +85,21 @@ exports[`atomizer options --rules 1`] = `
 "
 `;
 
+exports[`atomizer should parse glob patterns 1`] = `
+"
+.D\\(b\\) {
+  display: block;
+}
+.StretchedBox {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+"
+`;
+
 exports[`atomizer should parse html files for classes 1`] = `
 "
 .D\\(b\\) {
