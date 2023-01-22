@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const fs = require('fs');
 const glob = require('glob');
-const minimatch = require('minimatch');
+const { minimatch } = require('minimatch');
 const path = require('path');
 const some = require('lodash/some');
 const union = require('lodash/union');
