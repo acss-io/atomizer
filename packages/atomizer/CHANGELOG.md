@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.25.0
+
+### Minor Changes
+
+-   cd20d0b: chore(atomizer): upgrade minimatch to 6.x
+
 ## 3.24.2
 
 ### Patch Changes
