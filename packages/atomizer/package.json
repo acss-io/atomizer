@@ -41,7 +41,7 @@
         "commander": "^10.0.0",
         "glob": "^8.0.3",
         "lodash": "^4.17.21",
-        "minimatch": "^6.1.5",
+        "minimatch": "^7.3.0",
         "xregexp": "^5.1.0"
     },
     "repository": {
