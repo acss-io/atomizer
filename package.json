@@ -67,7 +67,7 @@
         "codemirror": "^5.65.7",
         "concurrently": "^8.0.1",
         "coveralls": "^3.1.1",
-        "cssnano": "^5.1.12",
+        "cssnano": "^6.0.0",
         "escape-string-regexp": "^5.0.0",
         "eslint": "^8.19.0",
         "eslint-config-prettier": "^8.5.0",
