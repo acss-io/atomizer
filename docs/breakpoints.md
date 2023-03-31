@@ -98,7 +98,6 @@ When using explicit breakpoints, use multiple classes to have styles applied in 
     <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-1)">4</div>
 </div>
 
-
 ## Container Queries
 
 We have added support for container queries using the same syntax as media queries, since you are able to define what the rule is, just ensure the names are different to the media query rules.
