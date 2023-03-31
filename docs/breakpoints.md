@@ -21,7 +21,7 @@ breakPoints: {
 
 Breakpoints may be named anything you want, as long as the characters are valid for use in classnames.
 
-## Usage
+## Media Queries
 
 There are two ways to make use of breakpoints in your Atomizer classes: explicitly and automatically.
 
@@ -72,7 +72,7 @@ In this example, the class `P(logo)` will style a box with a `padding` of `10px`
 
 Likewise, any class that uses the variable `gutter` will receive different values depending on the currently active breakpoint.
 
-## Examples
+### Examples
 
 When using explicit breakpoints, use multiple classes to have styles applied in the context of various breakpoints, for example:
 
