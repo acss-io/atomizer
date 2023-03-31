@@ -153,7 +153,7 @@ li.selected a {
 }
 
 .noteBox strong {
-    color: #000000;
+    font-weight: bold;
 }
 
 .important {
