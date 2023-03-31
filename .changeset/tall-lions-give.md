@@ -2,4 +2,4 @@
 "atomizer": minor
 ---
 
-Added container queries
+feat: Added container queries support
