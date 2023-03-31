@@ -5,11 +5,11 @@ section: docs
 title: Breakpoints
 ---
 
-You can define your breakpoints as media queries in the config object and then apply those breakpoints to your Atomizer classes through <a href="{% link guides/syntax.md %}#breakpoint_identifier">the breakpoint suffix</a> or automatic breakpoints.
+You can define your breakpoints as media or container queries in the config object and then apply those breakpoints to your Atomizer classes through <a href="{% link guides/syntax.md %}#breakpoint_identifier">the breakpoint suffix</a> or automatic breakpoints.
 
 ## Setting up Breakpoints
 
-Pick the breakpoint names and media queries you want, for example:
+Pick the breakpoint names and whichever media or container queries you want, for example:
 
 ```js
 breakPoints: {
