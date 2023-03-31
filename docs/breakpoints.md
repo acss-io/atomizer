@@ -152,6 +152,8 @@ This will output the following CSS
 }
 ```
 
+This example shows how you could change layout and properties in a named container.
+
 ```html
 <div class="ContType(is) ContName(width300)">
     <div class="D(f) Fxd(r) Fxd(c)--contmw300 Gp(20px)">
