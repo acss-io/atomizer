@@ -110,7 +110,7 @@ breakPoints: {
 },
 ```
 
-Same logic as above - append `--<breakpoint name>` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `Fz(1rem)--mw300` will create the following rule in the related container query:
+Same logic as above - append `--<breakpoint name>` to any Atomizer class to associate that styling with the breakpoint of your choice. For example, `Fz(1rem)--mw300` will create the following rule in the related container query:
 
 ```css
 @container (max-width: 300px) {
