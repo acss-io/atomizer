@@ -97,3 +97,84 @@ When using explicit breakpoints, use multiple classes to have styles applied in 
     <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-2)">3</div>
     <div class="Bxz(bb) W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-1)">4</div>
 </div>
+
+
+## Container Queries
+
+We have added support for container queries using the same syntax as media queries, since you are able to define what the rule is, just ensure the names are different to the media query rules.
+
+```js
+breakPoints: {
+    sm: '@media screen and (min-width: 700px)',
+    mw300: '@container (max-width: 300px)',
+},
+```
+
+Same logic as above - append `--<breakpoint name>` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `Fz(1rem)--mw300` will create the following rule in the related container query:
+
+```css
+@container (max-width: 300px) {
+    #atomic .Fz(1rem)--mw300 {
+        font-size: 1rem;
+    }
+}
+```
+
+### Named containers
+
+It requires an additional config step if you are using [named containers](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries#naming_containment_contexts) which is better suited to atomic anyway.
+
+<p class="noteBox info">the custom value of `width300` matches the named container</p>
+
+```js
+breakPoints: {
+    contmw300: '@container width300 (max-width: 300px)',
+},
+custom: {
+    width300: 'width300',
+},
+```
+
+You can define a container and its type by using `ContType()` & `ContName()`, using the named container above, your markup would look something like this:
+
+```html
+<div class="ContType(is) ContName(width300)">
+    <h2 class="Fz(2rem) Fz(1rem)--contmw300">Heading</h2>
+```
+
+This will output the following CSS
+
+```css
+@container width300 (max-width: 300px) {
+  .Fz(1rem)--contmw300 {
+    font-size: 1rem;
+  }
+}
+```
+
+```html
+<div class="ContType(is) ContName(width300)">
+    <div class="D(f) Fxd(r) Fxd(c)--contmw300 Gp(20px)">
+        <div class="W(75%) W(100%)--contmw300">
+            <h1 class="Fz(2.5rem) Fz(1.5rem)--contmw300 ">Resize me</h1>
+            ...
+        </div>
+    </div>
+</div>
+```
+
+-   Below 300px on the container DIV the boxes are displayed on top of each other (`Fxd(c)--contmw300`)
+-   Below 300px on the container DIV the headline size will be (`Fz(1.5rem)`)
+
+<p class="noteBox info">The example below is resizable <strong>Give it a try, resize by dragging the bottom right corner of the rounded box</strong></p>
+
+<div class="ContType(is) ContName(width300) W(50%) Mx(a) P(10px) Bdc(--color-blue-1) Bdw(1px) Bds(s) Bdrs(5px) Rsz(h) Ov(a)">
+    <div class="D(f) Fxd(r) Fxd(c)--contmw300 Gp(20px)">
+        <div class="W(25%) W(100%)--contmw300 Mih(100%) H(40px)--contmw300 Bgc(--color-blue-4)"></div>
+        <div class="D(f) Gp(20px) Fxd(c) W(75%) W(100%)--contmw300">
+            <h1 class="C(--color-blue-1) Fz(2.5rem) Fz(1.5rem)--contmw300 M(0)">Resize me</h1>
+            <div class="P(10px) Bgc(--color-blue-1)"></div>
+            <div class="P(10px) Bgc(--color-blue-1)"></div>
+        </div>
+    </div>
+</div>

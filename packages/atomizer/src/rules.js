@@ -1343,6 +1343,38 @@ module.exports = [
     },
     /**
     ==================================================================
+    CONTAINERS
+    ==================================================================
+    // TODO: Discuss `n` , `nor`, `z`
+    */
+    {
+        type: 'pattern',
+        name: 'Container Name',
+        matcher: 'ContName',
+        allowParamToValue: true,
+        styles: {
+            'container-name': '$0',
+        },
+    },
+    {
+        type: 'pattern',
+        name: 'Container Type',
+        matcher: 'ContType',
+        allowParamToValue: false,
+        styles: {
+            'container-type': '$0',
+        },
+        arguments: [
+            {
+                is: 'inline-size',
+                n: 'none',
+                nor: 'normal',
+                s: 'size',
+            },
+        ],
+    },
+    /**
+    ==================================================================
     CONTENT
     ==================================================================
     */
