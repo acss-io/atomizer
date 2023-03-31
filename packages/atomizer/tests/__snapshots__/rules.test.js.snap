@@ -5339,6 +5339,29 @@ exports[`Rules contain 1`] = `
 "
 `;
 
+exports[`Rules container-name 1`] = `
+".ContName\\(1px\\) {
+  container-name: 1px;
+}
+"
+`;
+
+exports[`Rules container-type 1`] = `
+".ContType\\(is\\) {
+  container-type: inline-size;
+}
+.ContType\\(n\\) {
+  container-type: none;
+}
+.ContType\\(nor\\) {
+  container-type: normal;
+}
+.ContType\\(s\\) {
+  container-type: size;
+}
+"
+`;
+
 exports[`Rules content 1`] = `
 ".Cnt\\(n\\) {
   content: none;
