@@ -26,7 +26,7 @@ Before you can contribute to the codebase, you will need to fork the repo. The f
     cd atomizer
     ```
 3. Install dependencies by running `npm install` This repository is a [monorepo] that leverages npm's [workspaces] to build and test packages together.
-4. Verify you've got everything set up for local development by running `npm test`
+4. Verify you've got everything set up for local development by running `npm run build` then `npm test`
 
 ## Development
 

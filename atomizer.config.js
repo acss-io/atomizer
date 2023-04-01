@@ -4,6 +4,7 @@ module.exports = {
         sm: '@media screen and (min-width:700px)',
         md: '@media screen and (min-width:999px)',
         lg: '@media screen and (min-width:1200px)',
+        contmw300: '@container width300 (max-width: 300px)',
     },
     content: ['app/components/', 'app/assets/js', 'docs/'],
     custom: {
@@ -36,5 +37,6 @@ module.exports = {
         twoColEvenGrid: 'repeat(2, minmax(20px, 1fr))',
         twoColNamedGrid:
             '[#{colMain}-start] repeat(9,minmax(0,1fr)) [#{colMain}-end #{colAside}-start] repeat(3,minmax(0,1fr)) [#{colAside}-end]',
+        width300: 'width300',
     },
 };

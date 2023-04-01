@@ -16,6 +16,7 @@ module.exports = {
         padding: '#{standardPadding} 5px #{standardPadding} 20px', // custom value substitution is supported via #{} syntax
         threeColGrid: 'repeat(3, minmax(20px, 1fr))',
         twoCol: '1 / span 2',
+        width300: 'width300', // value is the name for a named container
     },
     // breakpoints define media queries and is used to contain the style of a class
     // only when that media query is active.
@@ -26,6 +27,7 @@ module.exports = {
         sm: '@media(min-width:500px)', // breakpoint 1 (see classNames below)
         md: '@media(min-width:900px)', // breakpoint 2
         lg: '@media(min-width:1200px)', // breakpoint 3
+        contmw300: '@container width300 (max-width: 300px)', // named container matches custom name above
     },
     // this is the list of atomic class names your project uses.
     // you don't have to explictly declare them like this since atomizer can parse

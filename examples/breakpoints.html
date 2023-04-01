@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Atomizer: Breakpoints</title>
+        <style>
+            :root {
+                --color-blue-1: #0280ae;
+                --color-blue-2: #0280aee6;
+                --color-blue-3: #0280aeb3;
+                --color-blue-4: #0280ae80;
+            }
+        </style>
+        <link rel="stylesheet" href="css/base.css" />
+        <link rel="stylesheet" href="css/atomic.css" />
+    </head>
+    <body>
+        <main>
+            <h1>Breakpoints</h1>
+
+            <p>This examples shows different ways to use breakpoints in atomic.</p>
+
+            <h2>Media Queries</h2>
+            <p>Below 700px, the boxes are displayed on top of each other (D(f)--sm on applies over this width)</p>
+            <p>Above 999px, the boxes are displayed on 2 rows, 2 by 2 (W(50%)--sm)</p>
+            <p>Above 1200px, the boxes are displayed side-by-side, on a single row (W(25%)--lg)</p>
+            <div class="D(f)--sm Fxw(w)">
+                <div class="W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-1)">1</div>
+                <div class="W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-2)">2</div>
+                <div class="W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-3)">3</div>
+                <div class="W(50%)--sm W(25%)--lg P(20px) Bgc(--color-blue-4)">4</div>
+            </div>
+            <h2>Container Queries</h2>
+            <p>Below 300px on the container DIV the boxes are displayed on top of each other Fxd(c)--contmw300</p>
+            <p>Below 300px on the container DIV the headline size will be 1.5rem</p>
+            <p>note: you can resize this container by dragging the corner</p>
+            <div
+                class="ContType(is) ContName(width300) W(50%) Mx(a) P(10px) Bdc(--color-blue-1) Bdw(1px) Bds(s) Bdrs(5px) Rsz(h) Ov(a)"
+            >
+                <div class="D(f) Fxd(r) Fxd(c)--contmw300 Gp(20px)">
+                    <div class="W(25%) W(100%)--contmw300 Mih(100%) H(40px)--contmw300 Bgc(--color-blue-4)"></div>
+                    <div class="D(f) Gp(20px) Fxd(c) W(75%) W(100%)--contmw300">
+                        <h1 class="C(--color-blue-1) Fz(3rem) Fz(1.5rem)--contmw300 M(0)">Resize me</h1>
+                        <div class="P(10px) Bgc(--color-blue-1)"></div>
+                        <div class="P(10px) Bgc(--color-blue-1)"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- this is just to reload the page if you make any changes to the html -->
+        <script src="//localhost:35729/livereload.js"></script>
+    </body>
+</html>

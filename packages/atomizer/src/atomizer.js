@@ -509,8 +509,8 @@ Atomizer.prototype.getCss = function (config, options) {
         /* istanbul ignore else  */
         if (_.size(config.breakPoints) > 0) {
             for (const bp in config.breakPoints) {
-                if (!/^@media/.test(config.breakPoints[bp])) {
-                    throw new Error(`Breakpoint \`${bp}\` must start with \`@media\`.`);
+                if (!/^@media|@container/.test(config.breakPoints[bp])) {
+                    throw new Error(`Breakpoint \`${bp}\` must start with \`@media\` or \`@container\`.`);
                 } else {
                     // eslint-disable-next-line prefer-destructuring
                     breakPoints = config.breakPoints;
