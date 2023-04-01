@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.26.0
+
+### Minor Changes
+
+-   518c2fa: feat: Added container queries support
+
 ## 3.25.0
 
 ### Minor Changes
