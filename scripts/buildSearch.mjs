@@ -8,7 +8,7 @@
  */
 
 import fs from 'fs';
-import glob from 'glob';
+import { sync } from 'glob';
 import lodash from 'lodash';
 import lunr from 'lunr';
 import { marked } from 'marked';
@@ -75,7 +75,7 @@ const globOpts = {
     cwd: DOCS_PATH,
     ignore: ['**/index.md', '404.md', 'README.md'],
 };
-const files = glob.sync(pattern, globOpts);
+const files = sync(pattern, globOpts);
 
 // setup index
 const index = lunr(function () {
