@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.27.0
+
+### Minor Changes
+
+-   3e40974: chore(atomizer): update glob and minimatch to latest versions
+
 ## 3.26.0
 
 ### Minor Changes
