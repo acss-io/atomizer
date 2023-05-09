@@ -59,7 +59,7 @@
         "@lodder/grunt-postcss": "^3.1.1",
         "@types/core-js": "^2.5.5",
         "@types/jest": "^29.0.0",
-        "@types/node": "^18.0.6",
+        "@types/node": "^20.1.1",
         "ajv": "^8.11.2",
         "autoprefixer": "^10.4.7",
         "babel-loader": "^9.1.0",
