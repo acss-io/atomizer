@@ -6594,6 +6594,16 @@ exports[`Rules image-rendering 1`] = `
 "
 `;
 
+exports[`Rules inset 1`] = `
+".In\\(a\\) {
+  inset: auto;
+}
+.In\\(1px\\) {
+  inset: 1px;
+}
+"
+`;
+
 exports[`Rules isolation 1`] = `
 ".Iso\\(a\\) {
   isolation: auto;
