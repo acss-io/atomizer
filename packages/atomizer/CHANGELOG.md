@@ -1,5 +1,11 @@
 # atomizer
 
+## 3.28.0
+
+### Minor Changes
+
+-   cc92940: feat: support inset property
+
 ## 3.27.0
 
 ### Minor Changes
