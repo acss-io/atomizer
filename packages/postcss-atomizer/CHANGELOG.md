@@ -1,5 +1,11 @@
 # postcss-atomizer
 
+## 1.0.2
+
+### Patch Changes
+
+-   c2e6ebc: fix(postcss-atomizer): register file dependency to re-run atomizer on changes
+
 ## 1.0.1
 
 ### Patch Changes
