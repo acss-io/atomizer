@@ -15,7 +15,7 @@ npm i atomizer-plugins -D
 
 ## Create your Atomizer config
 
-Make sure Atomizer can parse your project files in your `atomizer.config.js` file.
+Make sure Atomizer can parse your project files in your `./atomizer.config.js` file.
 
 ```js
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
 
 ## Update the config
 
-Then configure your `rollup.config.js` to include the plugin.
+Then configure your `./rollup.config.js` to include the plugin.
 
 ```js
 import { rollup } from 'atomizer-plugins';
@@ -48,7 +48,7 @@ Configuration information and examples are available in the [`atomizer-plugins` 
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run dev

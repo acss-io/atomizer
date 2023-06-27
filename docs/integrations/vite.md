@@ -27,7 +27,7 @@ npm i atomizer-plugins -D
 
 ## Create your Atomizer config
 
-Create the `atomizer.config.js` config file so that Atomizer can find your source files.
+Create the `./atomizer.config.js` config file so that Atomizer can find your source files.
 
 ```js
 export default {
@@ -40,7 +40,7 @@ export default {
 
 ## Update the Vite config
 
-Add the Atomizer plugin to your `vite.config.js` config file.
+Add the Atomizer plugin to your `./vite.config.js` config file.
 
 ```js
 import { defineConfig } from 'vite';
@@ -61,7 +61,7 @@ export default defineConfig(() => {
 
 ## Add the Atomizer CSS
 
-Make sure your `dist/atomizer.css` file is built by Vite by adding it to your `index.html` file.
+Make sure your `./dist/atomizer.css` file is built by Vite by adding it to your `./index.html` file.
 
 ```html
 <link href="/dist/atomizer.css" />

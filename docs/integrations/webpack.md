@@ -19,7 +19,7 @@ First install the loader in your project.
 npm i webpack-atomizer-loader -D
 ```
 
-Then configure your `webpack.config.js` file like so.
+Then configure your `./webpack.config.js` file like so.
 
 ```js
 import { resolve } from 'path';
@@ -59,7 +59,7 @@ First install the dependency in your project.
 npm i atomizer-plugins -D
 ```
 
-Then configure your `webpack.config.js` file like so.
+Then configure your `./webpack.config.js` file like so.
 
 ```js
 import { webpack } from 'atomizer-plugins';
@@ -80,7 +80,7 @@ Configuration information and examples are available in the [`atomizer-plugins` 
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run dev

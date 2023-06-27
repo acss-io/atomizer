@@ -24,7 +24,7 @@ npm i postcss-atomizer -D
 
 ## Create your Atomizer config
 
-Create an `atomizer.config.js` config file so that Atomizer can parse your JS and JSX files.
+Create an `./atomizer.config.js` config file so that Atomizer can parse your JS and JSX files.
 
 ```js
 module.exports = {
@@ -57,7 +57,7 @@ module.exports = {
 
 ## Begin using Atomizer
 
-Update the `src/app/page.js` file to start adding Atomizer classes to your code base.
+Update the `./src/app/page.js` file to start adding Atomizer classes to your code base.
 
 ```js
 export default function Home() {

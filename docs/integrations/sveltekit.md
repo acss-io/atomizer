@@ -15,34 +15,30 @@ cd my-app
 npm install
 ```
 
-## Install the plugin
+## Install the PostCSS plugin
 
-For a [SvelteKit](https://kit.svelte.dev/) project, the [`postcss-atomizer`](https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer) library makes it easy to setup Atomizer. SvelteKit [recommends](https://kit.svelte.dev/docs/additional-resources#integrations) installing the `svelte-preprocess` module to automatically transform the code in your Svelte templates.
+For a [SvelteKit](https://kit.svelte.dev/) project, the [`postcss-atomizer`](https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer) library makes it easy to setup Atomizer.
 
 ```shell
-npm i postcss-atomizer svelte-preprocess postcss postcss-load-config -D
+npm i postcss-atomizer -D
 ```
 
 ## Enable PostCSS
 
-Update the `svelte.config.js` to include the `svelte-preprocess` library.
+Update your `svelte.config.js` file, to import `vitePreprocess` to enable processing `<style>` blocks as PostCSS.
 
 ```js
-import preprocess from "svelte-preprocess";
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const config = {
     // ...
-    preprocess: [
-        preprocess({
-            postcss: true,
-        }),
-    ],
+    preprocess: vitePreprocess(),
 }
 ```
 
 ## Create your Atomizer config
 
-Create the `atomizer.config.cjs` config file so that Atomizer can parse your SvelteKit files.
+Create the `./atomizer.config.cjs` config file so that Atomizer can parse your SvelteKit files.
 
 ```js
 module.exports = {
@@ -54,7 +50,7 @@ module.exports = {
 
 ## Create the PostCSS config
 
-Create the `postcss.config.cjs` file to configure the Atomizer plugin.
+Create the `./postcss.config.cjs` file to configure the Atomizer plugin.
 
 ```js
 const atomizer = require('postcss-atomizer');
@@ -70,12 +66,22 @@ module.exports = {
 
 ## Add the CSS file
 
-Create an empty `src/app.css` file for PostCSS to process and then import it at the top of the `src/routes/+page.svelte` file.
+Create an a stub `./src/app.css` file with a generic comment (Svelte will not build properly if its empty).
+
+```css
+/** todo */
+```
+
+## Import the CSS
+
+Add a new file `./src/routes/+layout.svelte` which includes the CSS file:
 
 ```html
 <script>
     import "../app.css";
 </script>
+
+<slot />
 ```
 
 ## Start your build process
@@ -88,7 +94,7 @@ npm run dev
 
 ## Begin using Atomizer
 
-Start adding Atomizer classes to the `src/routes/+page.svelte` file.
+Start adding Atomizer classes to the `./src/routes/+page.svelte` file.
 
 ```html
 <h1 class="Fw(b) Fz(2rem)">Welcome!</h1>

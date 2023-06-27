@@ -32,7 +32,7 @@ module.exports = {
 
 ## Start your dev setup
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run dev

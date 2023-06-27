@@ -15,7 +15,7 @@ npm i grunt-atomizer grunt-contrib-watch -D
 
 ## Update the config
 
-Then configure your `Gruntfile.js` with the following tasks.
+Then configure your `./Gruntfile.js` with the following tasks.
 
 ```js
 // load the task
@@ -64,7 +64,7 @@ grunt.registerTask('dev', ['watch:dev']);
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run dev

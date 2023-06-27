@@ -14,17 +14,17 @@ npx create-remix@latest my-app
 cd my-app
 ```
 
-## Install Atomizer
+## Install the PostCSS plugin
 
-Install the Atomizer npm package into your project. [Concurrently](https://www.npmjs.com/package/concurrently), is not required but it makes it easier to run multiple scripts at the same time.
+Remix [supports PostCSS](https://remix.run/docs/en/main/guides/styling#postcss) for CSS integration. Therefore, install the Atomizer PostCSS plugin npm package into your project.
 
 ```shell
-npm install atomizer concurrently -D
+npm install postcss-atomizer -D
 ```
 
 ## Create your Atomizer config
 
-Create an `atomizer.config.js` config file so that Atomizer can parse your Remix files.
+Create an `./atomizer.config.js` config file so that Atomizer can parse your Remix files.
 
 ```js
 module.exports = {
@@ -34,38 +34,25 @@ module.exports = {
 }
 ```
 
-## Update your run scripts
+## Create the PostCSS config
 
-You will need to execute Atomizer when you start your app. The easiest way to do this is by updating the run scripts to execute Atomizer along side other Remix tasks. Make the following modifications to your project's `package.json` file.
-
-```json
-{
-  "scripts": {
-    "build": "npm run build:css && remix build",
-    "build:css": "atomizer -o app/styles/atomizer.css -w",
-    "dev": "concurrently \"npm run build:css\" \"run-p \"dev:*\"\""
-    // ...
-  }
-}
-```
-
-<p class="noteBox info">We recommend adding <code>app/styles</code> to your <code>.gitignore</code>.</p>
-
-## Add the Atomizer CSS
-
-Add the `atomizer.css` file to the Remix `app/root.jsx` file.
+Create the `./postcss.config.cjs` file to configure the Atomizer plugin. Make sure to enable the `postcss: true` flag in your `./remix.config.js` file.
 
 ```js
-import atomizer from './styles/atomizer.css';
+const atomizer = require('postcss-atomizer');
 
-export function links() {
-    return [{ rel: 'stylesheet', href: atomizer }];
-}
+module.exports = {
+    plugins: [
+        atomizer({
+            config: './atomizer.config.js',
+        }),
+    ],
+};
 ```
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run dev
@@ -73,7 +60,7 @@ npm run dev
 
 ## Begin using Atomizer
 
-Start adding Atomizer classes to your code base, an example `app/routes/index.jsx` file.
+Start adding Atomizer classes to your code base, an example `./app/routes/_index.jsx` file.
 
 ```js
 export default function Index() {

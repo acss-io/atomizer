@@ -30,7 +30,7 @@ gulp.task('acss', function() {
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run dev

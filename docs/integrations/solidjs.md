@@ -25,7 +25,7 @@ npm i atomizer-plugins -D
 
 ## Create your Atomizer config
 
-Create an `atomizer.config.js` config file so that SolidJS can parse your project files.
+Create an `./atomizer.config.js` config file so that SolidJS can parse your project files.
 
 ```js
 module.exports = {
@@ -37,7 +37,7 @@ module.exports = {
 
 ## Update the vite config
 
-Update the `vite.config.js` config file and add the Atomizer plugin.
+Update the `./vite.config.js` config file and add the Atomizer plugin.
 
 ```js
 // ...
@@ -57,7 +57,7 @@ export default defineConfig({
 
 ## Add the Atomizer CSS
 
-Add the generated `dist/atomizer.css` file to your `src/index.jsx` file:
+Add the generated `./dist/atomizer.css` file to your `./src/index.jsx` file:
 
 ```js
 import '../dist/atomizer.css';
@@ -66,7 +66,7 @@ import '../dist/atomizer.css';
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`.
+Run your build setup as configured in your project's `./package.json`.
 
 ```shell
 npm run build
@@ -75,7 +75,7 @@ npm run dev
 
 ## Begin using Atomizer
 
-Start adding Atomizer classes to your code base; `src/App.js` for example.
+Start adding Atomizer classes to your code base; `./src/App.js` for example.
 
 ```js
 export default function App() {

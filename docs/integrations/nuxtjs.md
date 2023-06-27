@@ -36,7 +36,7 @@ export default {
 
 ## Create your Atomizer config
 
-Make sure Atomizer can parse your NuxtJS files in your `atomizer.config.js` file.
+Make sure Atomizer can parse your NuxtJS files in your `./atomizer.config.js` file.
 
 ```js
 module.exports = {
@@ -52,7 +52,7 @@ module.exports = {
 
 ## Start your build process
 
-Run your build setup as configured in your project's `package.json`:
+Run your build setup as configured in your project's `./package.json`:
 
 ```shell
 npm run dev
