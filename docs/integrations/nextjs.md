@@ -31,6 +31,9 @@ module.exports = {
     content: [
         './components/**/*.{js,ts,jsx,tsx}',
         './pages/**/*.{js,ts,jsx,tsx}',
+
+        // Or if using `src` directory:
+        './src/**/*.{js,ts,jsx,tsx}'
     ],
 }
 ```
@@ -43,26 +46,18 @@ After following their guide, you will add the Atomizer PostCSS plugin like so.
 
 ```js
 module.exports = {
-    plugins: {
-        'postcss-atomizer': {},
-        // ...
-    },
+    plugins: [
+        // mandatory next.js plugins ...
+        'postcss-atomizer',
+    ],
 }
 ```
 
 <p class="noteBox info">Plugin options are available in the <a href="https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer">postcss-atomizer</a> README.</p>
 
-## Start your build process
-
-Run your build setup as configured in your project's `package.json`.
-
-```shell
-npm run dev
-```
-
 ## Begin using Atomizer
 
-Update the `pages/index.js` file to start adding Atomizer classes to your code base.
+Update the `src/app/page.js` file to start adding Atomizer classes to your code base.
 
 ```js
 export default function Home() {
@@ -70,4 +65,12 @@ export default function Home() {
         <h1 className="Fw(b) Fz(2rem)">Welcome!</h1>
     )
 }
+```
+
+## Start your build process
+
+Run your build setup as configured in your project's `package.json`.
+
+```shell
+npm run dev
 ```
