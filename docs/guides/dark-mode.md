@@ -13,9 +13,9 @@ Continue reading to learn how to use each concept.
 
 ## Browser Basics
 
-All modern browsers [support](https://caniuse.com/prefers-color-scheme) the [`prefers-color-scheme`] CSS media feature. The feature works by defining or overwriting an existing CSS property via the `@media (prefers-color-scheme: dark) {}` directive.
+All modern browsers [support](https://caniuse.com/prefers-color-scheme) the [`prefers-color-scheme`] CSS media feature. The feature defines or overwrites an existing CSS property via the `@media (prefers-color-scheme: dark) {}` directive.
 
-In the example below, we set an initial style for a `div` with the `.intro` class. We overwrite the style when the OS or user-agent preference is set to `dark`.
+In the example below, we set an initial style for a `div` with the `.intro` class. We overwrite the style when the OS or user-agent preference is `dark`.
 
 ```html
 <div class="intro">Hello World!</div>
@@ -63,7 +63,7 @@ The example below defines the default colors in the `:root` block, and their `da
     }
 }
 
-/* alternatively, you can add a "dark" class earlier in the HTML tree to overwrite the varibles for dark mode */
+/* alternatively, you can add a "dark" class earlier in the HTML tree to overwrite the variables for dark mode */
 .dark {
     --background-color: #333;
     --text-color: #fff;
@@ -76,7 +76,7 @@ The example below defines the default colors in the `:root` block, and their `da
 }
 ```
 
-The benefit of this approach is that you can re-use colors across many different CSS properties without having to redeclare color overrides multiple times.
+The benefit of this approach is that you can reuse colors across many different CSS properties without having to redeclare color overrides multiple times.
 
 ## With Atomizer
 
@@ -86,19 +86,19 @@ Building off the examples in previous sections, the Atomizer classes can leverag
 <div class="Bgc(--background-color) C(--text-color)">Hello World!</div>
 ```
 
-Re-using the same CSS variables makes it easy to apply styles consistently across your CSS files and Atomizer class usage.
+Re-using the same CSS variables makes applying styles consistently across your CSS files and Atomizer class usage easy.
 
 ## Using Context Classes
 
-In most cases, the previous section will work for your project. However, if you want more control of when dark mode is enabled, you can use the [`context`] class syntax to apply styles based on the existence of a class earlier in the HTML tree.
+In most cases, the previous section will work for your project. However, if you want more control over when dark mode is enabled, you can use the [`context`] class syntax to apply styles based on the existence of a class earlier in the HTML tree.
 
-Say for example, you want to give the user the ability to toggle dark mode via a drop down menu on your page. Perhaps you have markup with default styles declared as seen below.
+Say, for example, you want to give the user the ability to toggle dark mode via a drop-down menu on your page. You may have markup with default styles declared, as seen below.
 
 ```html
 <div class="Bgc(#eee) C(#000)">Hello World!</div>
 ```
 
-You can prepend an Atomizer class, `dark` (_the name is arbitrary and can be whatever you want_) to styles you want to override in dark mode.
+You can prepend an Atomizer class, `dark` (_the name is arbitrary and can be whatever you want_), to styles you want to override in dark mode.
 
 ```diff
 - <div class="Bgc(#eee) C(#000)">Hello World!</div>
@@ -133,11 +133,11 @@ Your server-side code would then read the color-scheme preference from the cooki
 
 #### [Client Hints](https://developer.mozilla.org/en-US/docs/Web/HTTP/Client_hints)
 
-You can request a set of HTTP headers from the browser to get information about the device and user preferences. The `Sec-CH-Prefers-Color-Scheme` header is relatively new (as of this writing), and modern browser support is ongoing. However, for those browsers that support it, you can get access to the user's color-scheme preference via this HTTP header on the server.
+You can request a set of HTTP headers from the browser to get information about the device and user preferences. The `Sec-CH-Prefers-Color-Scheme` header is relatively new (as of this writing), and modern browser support is ongoing. However, for those browsers that support it, you can access the user's color-scheme preference via this HTTP header on the server.
 
 Your server-side code would initially request this header from the browser, which would return the user's preference. As you generate the server-side markup, you can determine whether to output the `dark` class based on this header.
 
-Please check out the this [web.dev article](https://web.dev/user-preference-media-features-headers/) for more information.
+Please check out this [web.dev article](https://web.dev/user-preference-media-features-headers/) for more information.
 
 ### Static-site Generated
 
@@ -145,7 +145,7 @@ A statically generated site creates its markup at build time. Unpersonalized HTM
 
 <p class="noteBox info">This Atomizer website is statically generated and leverages the <a href="#optimizing-with-css-variables">CSS variables</a> approach to toggle between light and dark mode.</p>
 
-Since you cannot modify the markup on the server, you can leverage JavaScript to add the `dark` class to your HTML. The code below uses the [`Window.matchMedia()`] API to check the users preferred color scheme. If `dark` is chosen, then the `dark` class is added to the `<html>` node.
+Since you cannot modify the markup on the server, you can leverage JavaScript to add the `dark` class to your HTML. The code below uses the [`Window.matchMedia()`] API to check the user's preferred color scheme. If `dark` is chosen, the `dark` class is added to the `<html>` node.
 
 ```html
 <head>
