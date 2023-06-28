@@ -16,7 +16,7 @@ For example, `border-width/style/color` can be specified in any order:
 -   _Bd(#000,1px,solid)_
 -   _Bd(#000,solid,1px)_
 
-The above creates 6 different rules for the exact same styling (a _solid 1px black_ border). While the tool could be smart and assign all those classes to the _same_ declaration, you&#39;d still end up with more bytes than is necessary:
+The above creates six different rules for the exact same styling (a _solid 1px black_ border). While the tool could be smart and assign all those classes to the _same_ declaration, you&#39;d still end up with more bytes than is necessary:
 
 ```css
 .Bd(1px,solid,#000),
@@ -29,7 +29,7 @@ The above creates 6 different rules for the exact same styling (a _solid 1px bla
 }
 ```
 
-It would also be possible to enforce order (i.e., `width,style,color`) to prevent such duplication, but you&#39;d still end up with a lot of redundancy. For example:
+It would also be possible to enforce order (i.e., `width, style, color`) to prevent such duplication, but you&#39;d still have a lot of redundancy. For example:
 
 -   _Bd(1px,solid,#000)_
 -   _Bd(1px,solid,#ccc)_
@@ -38,7 +38,7 @@ It would also be possible to enforce order (i.e., `width,style,color`) to preven
 -   _Bd(3px,solid,#000)_
 -   _Bd(1px,dotted,#000)_
 
-Would result in:
+This would result in the following:
 
 -   4 duplicate declarations for `border-width`
 -   5 duplicate declarations for `border-style`
@@ -81,11 +81,11 @@ Even though Atomizer does not allow shorthand notation, many classes support &qu
 
 ### Border helper classes
 
-When it comes to border styling, initial values exist for `width` and `color` but many authors may still want to set all 3 values: `width`, `color`, and `style`. To make things a bit less verbose, Atomizer offers a set of <a href="{% link guides/helper-classes.md %}#bd-borders">helper classes for borders</a> which set `style` to `solid` and `width` to `1px` (as a default).
+Regarding border styling, initial values exist for `width` and `color`, but many authors may still want to set all three values: `width`, `color`, and `style`. To make things a bit less verbose, Atomizer offers a set of <a href="{% link guides/helper-classes.md %}#bd-borders">helper classes for borders</a> which set `style` to `solid` and `width` to `1px` (as a default).
 
-This allows you to use a single class to create a single pixel border that either &quot;inherits&quot; text color or can be combined with an Atomic class for border-color (e.g., `Bd Bdc(#fff)`).
+This allows you to use a single class to create a single pixel border that either &quot;inherits&quot; text color or can be combined with an Atomic class for `border-color` (e.g., `Bd Bdc(#fff)`).
 
-In case `solid` and `1px` are not the default style you&#39;d prefer, but you still want to use the border helper classes, you can simply redefine those classes in your own style sheet, using the rules below:
+In case `solid` and `1px` are not the default style you&#39;d prefer, but you still want to use the border helper classes, you can redefine those classes in your own style sheet using the rules below:
 
 ```css
 .Bd,
