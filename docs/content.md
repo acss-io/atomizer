@@ -19,7 +19,7 @@ module.exports = {
 
 ## Configuring paths
 
-Atomizer works by scanning all your project's source files for Atomizer classes, then creating a CSS file of used styles. To ensure Atomizer can properly find all of the classes, you can leverage the `content` section of the `atomizer.config.js` config file:
+Atomizer scans all your project's source files for Atomizer classes, then creates a CSS file of used styles. To ensure Atomizer can properly find all of the classes, you can leverage the `content` section of the `atomizer.config.js` config file:
 
 ```js
 module.exports = {
@@ -107,7 +107,7 @@ createElement.classList.add('D(b)');
 
 ### Dynamic class names
 
-Atomizer will only find statically written class names. Statically defined class names are easily parseable and do not require run-time execution or compilation to be parsed. In other words, avoid creating your Atomizer class names dynamically as they will not be parsed.
+Atomizer will only find statically written class names. Statically defined class names are easily parseable and do not require run-time execution or compilation to be parsed. In other words, avoid creating your Atomizer class names dynamically, as they will not be parsed.
 
 In the example below, the strings `C(#ff0000)` and `C(#00ff00)` are dynamically created based on run time logic; Atomizer will not find the classes.
 
@@ -133,7 +133,7 @@ This ensures Atomizer can adequately parse the files.
 
 ## Explicit classes
 
-If you need to specify Atomizer class names that are not present in any of your source paths, then you can use the [classNames]({% link configuration.md %}#classnames) property from the `atomizer.config.js` file to manual define the classes:
+If you need to specify Atomizer class names that are not present in any of your source paths, then you can use the [classNames]({% link configuration.md %}#classnames) property from the `atomizer.config.js` file to manually define the classes:
 
 ```js
 module.exports = {
