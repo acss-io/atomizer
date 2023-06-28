@@ -19,15 +19,15 @@ breakPoints: {
 }
 ```
 
-Breakpoints may be named anything you want, as long as the characters are valid for use in classnames.
+Breakpoints may be named anything you want, as long as the characters are valid for use in class names.
 
 ## Usage
 
-There are two ways to make use of breakpoints in your Atomizer classes: explicitly and automatically.
+There are two ways to use breakpoints in your Atomizer classes: explicitly and automatically.
 
 ### Explicit Breakpoints
 
-Append `--<breakpoint name>` to any Atomic class to associate that styling with the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create the following rules in the related media queries:
+Append `--<breakpoint name>` to any Atomizer class to associate that styling with the breakpoint of your choice. For example, `D(b)--sm` and `C(#000)--md` will create the following rules in the related media queries:
 
 ```css
 @media screen and (min-width:700px) {
@@ -152,7 +152,7 @@ This will output the following CSS
 }
 ```
 
-This example shows how you could change layout and properties in a named container.
+This example shows how you could change the layout and properties in a named container.
 
 ```html
 <div class="ContType(is) ContName(width300)">
@@ -165,10 +165,10 @@ This example shows how you could change layout and properties in a named contain
 </div>
 ```
 
--   Below `300px` on the container `div` the boxes are displayed on top of each other (`Fxd(c)--contmw300`)
--   Below `300px` on the container `div` the headline size will be (`Fz(1.5rem)`)
+-   Below `300px` on the container `div`, the boxes are displayed on top of each other (`Fxd(c)--contmw300`)
+-   Below `300px` on the container `div`, the headline size will be (`Fz(1.5rem)`)
 
-<p class="noteBox info">The example below is resizable <strong>Give it a try, resize by dragging the bottom right corner of the rounded box</strong></p>
+<p class="noteBox info">The example below is resizable <strong>Give it a try; resize by dragging the bottom right corner of the rounded box</strong></p>
 
 <div class="ContType(is) ContName(width300) W(50%) Mx(a) P(10px) Bdc(--color-blue-1) Bdw(1px) Bds(s) Bdrs(5px) Rsz(h) Ov(a)">
     <div class="D(f) Fxd(r) Fxd(c)--contmw300 Gp(20px)">
