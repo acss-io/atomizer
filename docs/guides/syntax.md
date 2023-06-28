@@ -11,9 +11,9 @@ title: Class syntax
 [<b><a href="#context">&lt;context></a></b>[<b>:<a href="#pseudo-class">&lt;pseudo-class></a></b>]<b><a href="#combinator">&lt;combinator></a></b>]<b><a  href="#style">&lt;Style></a></b>[(<b><a href="#value">&lt;value></a>,<a href="#value">&lt;value></a>?,...</b>)][<b><a href="#-important">&lt;!></a></b>][<b><a href="#pseudo-class">:&lt;pseudo-class></a></b>][<b><a href="#pseudo-element">::&lt;pseudo-element></a></b>][<b>--<a href="#breakpoint-identifier">&lt;breakpoint_identifier></a></b>]
 </pre>
 
-At its core, a Atomizer or Helper class is represented by a [&lt;Style&gt;](#style).
+At its core, an Atomizer or Helper class is represented by a [&lt;Style&gt;](#style).
 
-Atomizer classes typically require one [&lt;value&gt;](#value), enclosed in parentheses, though some classes may accept more (eg, the helper class [`LineClamp()`]({% link guides/helper-classes.md %}#lineclamp) accepts two.) Helper classes may not require a [&lt;value&gt;](#value), in which case the parentheses may be omitted.
+Atomizer classes typically require one [&lt;value&gt;](#value), enclosed in parentheses, though some classes may accept more (e.g., the helper class [`LineClamp()`]({% link guides/helper-classes.md %}#lineclamp) accepts two.) Helper classes may not require a [&lt;value&gt;](#value), in which case the parentheses may be omitted.
 
 Optionally, you may prefix the style with a [&lt;context&gt;](#context) class and [&lt;combinator&gt;](#combinator). The context class may optionally include a [&lt;pseudo-class&gt;](#pseudo-class).
 
@@ -21,9 +21,9 @@ You may also optionally suffix the style with [&lt;!&gt;](#-important) (for `!im
 
 ### RTL/LTR
 
-Any occurrence of `left` and `right` keywords or their abbreviated form ala [Emmet](http://docs.emmet.io/cheat-sheet/) (i.e., `l` and `r`) in [&lt;Style&gt;](#style) or [&lt;value&gt;](#value) must be replaced with the keywords `start` and `end`. Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.
+Any occurrence of `left` and `right` keywords or their abbreviated form ala [Emmet](http://docs.emmet.io/cheat-sheet/) (i.e., `l` and `r`) in [&lt;Style&gt;](#style) or [&lt;value&gt;](#value) must be replaced with the keywords `start` and `end.` Atomizer will automatically translate the CSS output for left-to-right (LTR) or right-to-left (RTL) depending on options passed during execution.
 
-For example, `Mend(2px)` maps to `margin-right: 2px` in a LTR context and `margin-left: 2px` in an RTL context, and `Pstart(1em)` would map to `padding-left: 1em` in a LTR context, etc.
+For example, `Mend(2px)` maps to `margin-right: 2px` in an LTR context and `margin-left: 2px` in an RTL context, and `Pstart(1em)` would map to `padding-left: 1em` in an LTR context, etc.
 
 ## Examples
 
@@ -137,7 +137,7 @@ The above creates the following rule:
 }
 ```
 
-This causes the `display:none` style to be applied to the current element when hovered over.
+This causes the `display: none` style to be applied to the current element when hovered over.
 
 #### Context class
 
@@ -198,7 +198,7 @@ Use this to create a contextual style based on the [descendant combinator](https
 </div>
 ```
 
-This class hides the element whenever one of its ancestor has the class `foo` attached to it.
+This class hides the element whenever one of its ancestors has the class `foo' attached.
 
 #### The right angle bracket character (`&gt;`)
 
@@ -239,7 +239,7 @@ Example:
 <div class="foo~D(n)"></div>
 ```
 
-This class hides the element if one of its previous siblings has the class `foo` attached to it.
+This class hides the element if one of its previous siblings has the class `foo' attached.
 
 ### &lt;Style&gt;
 
@@ -264,7 +264,7 @@ Examples:
 }
 ```
 
-There are three value types: Defined, Literal and Variable
+There are three value types: Defined, Literal, and Variable.
 
 #### Defined values
 
@@ -276,7 +276,7 @@ Defined values are enumerated in Atomizer&#39;s ruleset, so there is no need to 
 
 -   Value should be abbreviated with the first letter of the value.
 -   If two values share the same initial letter, then the next value in alphabetical order is [abbreviated](http://en.wikipedia.org/wiki/Abbreviation) in [contracted](http://en.wikipedia.org/wiki/Contraction_%28grammar%29) form.
--   If **one value** is composed by two or more words (e.g. `inline-block`) then the first letter of each word should be used with no separator between them (e.g. `inline-block` becomes `ib`, `space-between` becomes `sb`).
+-   If **one value** is composed of two or more words (e.g., `inline-block`), then the first letter of each word should be used with no separator between them (e.g., `inline-block` becomes `ib,` `space-between` becomes `sb`).
 -   The following values are special exceptions as they are available almost globally:
     -   `inh` = `inherit`
     -   `ini` = `initial`
@@ -286,7 +286,7 @@ Defined values are enumerated in Atomizer&#39;s ruleset, so there is no need to 
 
 #### Literal values
 
-Literals are strings whose values are not defined in configuration, but rather can be machine-interpreted. `1em`, `5px`, `20%`, `1/2`, and `#fff` are examples of literals.
+Literals are strings whose values are not defined in configuration but can be machine-interpreted. `1em`, `5px`, `20%`, `1/2`, and `#fff` are examples of literals.
 
 ##### Units in literal values
 
@@ -304,17 +304,17 @@ Use the minus sign (`-`) to set negative values (e.g., `M(-20px)`)
 
 ##### Hexadecimal colors
 
-Use 3 or 6 character hexadecimal colors with a `#` prefix as a value identifier (e.g., `C(#fff)`).
+Use three or 6-character hexadecimal colors with a `#` prefix as a value identifier (e.g., `C(#fff)`).
 
 <p class="noteBox important"><code>hex</code> values for colors must be written in lowercase (i.e. <code>#ccc</code>, not <code>#CCC</code>).</p>
 
 ##### Hexadecimal colors with alpha
 
-Use hexadecimal colors as value identifier followed by an opacity suffix (e.g., `C(#fff.5)`).
+Use hexadecimal colors as value identifiers followed by an opacity suffix (e.g., `C(#fff.5)`).
 
 ##### Fractions
 
-Use any fraction you want (e.g., `W(1/2)`) and Atomizer will create the proper CSS declaration for you (e.g., `width: 50%`)
+Use any fraction you want (e.g., `W(1/2)`), and Atomizer will create the proper CSS declaration for you (e.g., `width: 50%`)
 
 ##### Multiple values
 
@@ -342,7 +342,7 @@ Changing the value of `gutter` in the config object would change the value of bo
 
 ##### CSS variables
 
-CSS variables can be referenced as class values. Note that values are not managed by Atomizer, and must be defined independently.
+CSS variables can be referenced as class values. Note that Atomizer does not manage values and must be defined independently.
 
 Usage:
 
@@ -387,7 +387,7 @@ Example:
 
 Optional.
 
-A suffix that adds the breakpoint context to the rule. A breakpoint indicates that this rule will only take effect within the scope of a media query. The name and length values of each breakpoint are defined in the config object.
+A suffix that adds the breakpoint context to the rule. A breakpoint indicates that this rule will only take effect within the scope of a media query. Each breakpoint's name and length values are defined in the config object.
 
 Example:
 
@@ -412,6 +412,6 @@ The `width` of the box is `auto` below `500px`, then `50%` between `500px` and `
 <div id="footnote"></div>
 
 1. `Bxs(foo)` uses a custom variable `foo` set in the config object <sub>[[↩]](#footnote-1)</sub>.
-1. `bar` is mapped to a custom value that can be used with any relevant styling (i.e. `P(bar)` for `padding`, `H(bar)` for`height`, etc.) <sub>[[↩]](#footnote-2)</sub>.
+1. `bar` is mapped to a custom value that can be used with any relevant styling (i.e., `P(bar)` for `padding`, `H(bar)` for `height`, etc.) <sub>[[↩]](#footnote-2)</sub>.
 1. `start` is mapped to either &quot;left&quot; or &quot;right&quot; depending on the config file <sub>[[↩]](#footnote-3)</sub>.
 1. Unlike all other Atomizer classes, those containing descendant selectors are **not** sandboxed via the namespace (if you have chosen to set one in the config). Instead, Atomizer adds `!important` to these styles <sub>[[↩]](#footnote-6)</sub>.

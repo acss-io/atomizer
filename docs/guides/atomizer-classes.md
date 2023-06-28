@@ -7,13 +7,13 @@ title: Atomizer classes
 
 Atomizer classes are simple, single-purpose units of styling. Much like inline styles, these styles only apply a single style declaration. Unlike inline styles, Atomizer classes have a lower specificity, making them easier to override, and can be modified using pseudo-classes, media queries, and more.
 
-<div class="noteBox info">Atomizer let's you define your own custom classes, please follow our <a href="{% link guides/custom-classes.md %}">Custom classes</a> guide.</div>
+<div class="noteBox info">Atomizer lets you define your own custom classes; please follow our <a href="{% link guides/custom-classes.md %}">Custom classes</a> guide.</div>
 
 ## Overview
 
 The inspiration for Atomizer syntax comes from [Emmet](http://emmet.io/), a plugin for many popular text editors which improves HTML &amp; CSS workflow.
 
-Simple Atomizer classes are easily interpreted, since they take a simple value as a parameter. For example, `W(**20px**)` clearly maps to `width: 20px`, and `Lh(**1.5**)` clearly maps to `line-height: 1.5`.
+Simple Atomizer classes are easily interpreted since they take a simple value as a parameter. For example, `W(**20px**)` clearly maps to `width: 20px`, and `Lh(**1.5**)` clearly maps to `line-height: 1.5`.
 
 Complex Atomizer classes use custom identifiers known as &quot;variables&quot;, which allow values to be defined in a central location (i.e., the Atomizer [configuration](../configuration.html) file) and reused across styles. For example, if the variable `foo` is set to `20px`, then `P(foo)` and `M(foo)` would map to `padding: 20px` and `margin: 20px`, respectively.
 

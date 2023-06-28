@@ -57,7 +57,7 @@ The sections below explain each rule property available to configure. _(\*)denot
 -   **Default**: `false` (`true` for Helper classes)
 -   **Required**: `false`
 
-If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pass a value with a supported unit of measure. The `value` of the style property will be the replacement token `$0`, which Atomizer will replace with the declared value.
+If the class uses unit values (e.g., `px`, `em`, etc.), enable this option to pass a value with a supported unit of measure. The `value` of the style property will be the replacement token `$0`, which Atomizer will replace with the declared value.
 
 ```js
 {
@@ -79,9 +79,9 @@ If the class uses unit values (e.g., `px`, `em`, etc), enable this option to pas
 -   **Default**: `undefined`
 -   **Required**: `false`
 
-An `array` of objects used to specify predefined values for the class. Each index in the `array` maps to the arguments passed. For each object, keys are names given to the predefined values and values are the CSS values of the predefined value. The `styles` object defines the `key` as the CSS property name and the value as tokens (`$0`) that will be replaced by the corresponding argument object index.
+An `array` of objects is used to specify predefined values for the class. Each index in the `array` maps to the arguments passed. For each object, keys are names given to the predefined values, and values are the CSS values of the predefined value. The `styles` object defines the `key` as the CSS property name and the value as tokens (`$0`) that will be replaced by the corresponding argument object index.
 
-In the following example, the first argument `object` in the `array`, would replace the `$0` token in the `font-style` property.
+In the following example, the first argument, `object` in the `array`, would replace the `$0` token in the `font-style` property.
 
 ```js
 {
@@ -99,7 +99,7 @@ In the following example, the first argument `object` in the `array`, would repl
 }
 ```
 
-The name of the argument can be passed into the class name (e.g., `FS(i)`) to produce the correct style. At build time, Atomizer will read the `i` keyword and replace it with the `italic` value from the arguments object.
+The argument's name can be passed into the class name (e.g., `Fs(i)`) to produce the correct style. At build time, Atomizer will read the `i` keyword and replace it with the `italic` value from the arguments object.
 
 ```html
 <h1 class="Fs(i)">Hello world!</h1>
@@ -109,9 +109,9 @@ The name of the argument can be passed into the class name (e.g., `FS(i)`) to pr
 
 For styles that support multiple values, a rule can define multiple argument `objects` in its arguments `array`. Each `object` mapping to a separate style token value.
 
-In the example below, the `arguments` array takes two `objects` (they are the same in this example but that is not a requirement). The `styles.key` property defines the CSS property name and the value as tokens (e.g., `$0 $1`) that will be replaced by the corresponding argument object index.
+In the example below, the `arguments` array takes two `objects` (they are the same in this example but that is not a requirement). The `styles.key` property defines the CSS property name and the value as tokens (e.g., `$0 $1`); the corresponding argument object index will replace that.
 
-In other words, the first object in the array will replace the `$0` token, the second object will replace the `$1` token and so on.
+In other words, the first object in the array will replace the `$0` token, the second object will replace the `$1` token, and so on.
 
 ```js
 {
@@ -144,11 +144,11 @@ Therefore, the following HTML:
 <div class="Trfo(start, bottom)"></div>
 ```
 
-Will translate to `transform-origin: left bottom`.
+This will translate to `transform-origin: left bottom`.
 
 #### Arguments with `allowParamToValue`
 
-`allowParamToValue` can be enabled to also pass in a unit of measure to the class. This is useful for classes like `H` (height) that support named arguments and a unit of measurement:
+`allowParamToValue` can be enabled also to pass in a unit of measure to the class. This is useful for classes like `H` (height) that support named arguments and a unit of measurement:
 
 ```js
 {
