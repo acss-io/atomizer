@@ -5,11 +5,11 @@ section: docs
 title: Configuration
 ---
 
-Atomizer will automatically parse the content files passed into the cli; no configuration is required. However, in many cases, you may need to customize Atomizer to fit your project's requirements. This guide will help define the configuration options available for Atomizer; each section below is optional.
+Atomizer will automatically parse the content files passed into the cli; no configuration is required. However, you may need to customize Atomizer to fit your project's requirements in many cases. This guide will help define the configuration options available for Atomizer; each section below is optional.
 
 ## Create a configuration file
 
-By default, Atomizer will look for an optional `atomizer.config.js` file at the root of your project where you can define your customizations. Create a file named `atomizer.config.js` at the root of your project (or a directory of your choosing) with the following contents:
+By default, Atomizer will look for an optional `atomizer.config.js` file at the root of your project, where you can define your customizations. Create a file named `atomizer.config.js` at the root of your project (or a directory of your choosing) with the following contents:
 
 ```js
 module.exports = {
@@ -83,7 +83,7 @@ The `H(uh)` will get `height: 79px` and `C(primary)` will get color: `#f6a1e1`.
 
 #### Substitution
 
-Custom values may also be substituted into one another via the `#{}` syntax, which are resolved recursively.
+Custom values may also be substituted into one another via the `#{}` syntax, which is resolved recursively.
 
 ```js
 module.exports = {
@@ -109,7 +109,7 @@ module.exports = {
 
 ### Exclude
 
-This is the opposite of the [classNames](#classnames). There are cases that you may want to tell Atomizer to ignore class names already defined in `classNames`. This is useful when classes are automatically added by the parser or when you want to create different atomic CSS files from the same set of `classNames`.
+This is the opposite of the [classNames](#classnames). In some cases, you may want to tell Atomizer to ignore class names already defined in `classNames`. This is useful when classes are automatically added by the parser or when you want to create different atomic CSS files from the same set of `classNames`.
 
 ```js
 module.exports = {
