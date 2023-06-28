@@ -9,7 +9,7 @@ title: Thinking in Atomic
 
 <p class="noteBox info">Be sure to read an interview with Atomizer Co-Founder Thierry Koblentz, <a href="https://css-tricks.com/thierry-koblentz-atomic-css/">The Making of Atomic CSS</a> on CSS Tricks.</p>
 
-**Atomizer** implements the a specific [syntax]({% link guides/syntax.md %}) to help you generate Atomic rulesets. It only creates a style sheet with declarations that are relevant to your project. These style declarations are generated from Atomizer classes found within your project, or from custom values defined in the Atomizer config file.
+Atomizer implements a specific [syntax]({% link guides/syntax.md %}) to help you generate Atomic rulesets. It only creates a style sheet with relevant declarations to your project. These style declarations are generated from Atomizer classes within your project or custom values defined in the Atomizer config file.
 
 Adopting an Atomic CSS methodology addresses common CSS challenges:
 
@@ -26,25 +26,25 @@ Adopting an Atomic CSS methodology addresses common CSS challenges:
     <dd class="Mstart(20px) Mt(5px)">Writing efficient and correct selectors is often one of the hardest parts of CSS for new developers to master. With Atomic CSS, developers don&#39;t create bloat because they don&#39;t write the selectors, instead they mostly re-use existing classes. This can greatly simplify the learning curve for inexperienced developers.</dd>
 </dl>
 
-## Who&#39;s Atomic CSS for?
+## Who&#39;s Atomizer for?
 
-**Atomic CSS** is for developers who see the benefits of styling &quot;_outside of style sheets_&quot; &mdash; who want to write markup and styles in one place while benefiting from an Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but _components_.
+Atomizer is for developers who see the benefits of styling &quot;_outside of style sheets_&quot; &mdash; who want to write markup and styles in one place while benefiting from an Atomic architecture. It is a switch of priorities. You don&#39;t maintain style sheets but _components_.
 
 ## Be pragmatic
 
-<b>ACSS</b> can live side-by-side with traditional style sheets. In cases where <b>ACSS</b> doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.
+Atomizer can live side-by-side with traditional style sheets. In cases where Atomizer doesn&#39;t seem the most pragmatic, you can always supplement with inline styles or external stylesheets. Use the right tool for the job.
 
-Traditional style sheets may be helpful for styles that <b>ACSS</b> cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <sup>[[2]](#footnote)<a id="footnote-2" class="D(ib)"></a></sup>.
+Traditional style sheets may be helpful for styles that Atomizer cannot create, styles for elements that aren&#39;t under your application&#39;s control, or repeating elements that are not componentized <sup>[[2]](#footnote)<a id="footnote-2" class="D(ib)"></a></sup>.
 
 ## Grids
 
-There is no such thing as a &quot;Grid&quot; in <b>ACSS</b>. <b>ACSS</b> does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, <b>ACSS</b> gives you all the tools you need to create [any grid you want]({% link tutorials/layout.md %}).
+There is no such thing as a &quot;Grid&quot; in Atomizer. Atomizer does not provide classes to create columns based on an opinionated construct (<code>float</code>, <code>inline-block</code>, etc.) Instead, Atomizer gives you all the tools you need to create [any grid you want]({% link tutorials/layout.md %}).
 
 ## Specificity
 
 ### From `0,0,1,0` to &quot;_infinity_&quot;
 
-By nature, <b>ACSS</b> classes have very low specificity (`0,0,1,0`). Atomizer creates a style sheet in which the specificity of every rule can be increased by the use of a _namespace_. The best practice is to keep specificity as low as possible, but depending on other rules in your project, you may want to include a namespace to increase the weight of <b>ACSS</b> classes.
+By nature, Atomizer classes have very low [specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity) (`0,0,1,0`). Atomizer creates a style sheet in which the specificity of every rule can be increased by using a _namespace_. The best practice is to keep specificity as low as possible, but depending on other rules in your project, you may want to include a namespace to increase the weight of Atomizer classes.
 
 Remember that the weight of rules is _not as important as_ making sure specificity is homogeneous across rules. For example, styles like these:
 
@@ -66,7 +66,7 @@ ul.list .active {}             /* 0,0,2,1 */
 .nav .list .item a {}          /* 0,0,3,1 */
 ```
 
-Choosing to include a namespace or not; and to use a _class_ or an _id_ for the namespace; depends on the weight of rules in other style sheets. For atomic classes to be relevant they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the atomic style sheet is included **after** other style sheets.
+Choosing to include a namespace or not, and to use a _class_ or an _id_ for the namespace depends on the weight of rules in other style sheets. For Atomizer classes to be relevant, they must have enough weight to overwrite non-atomic styles. The specificity may be the same as non-atomic styles as long as the Atomizer style sheet is included **after** other style sheets.
 
 This table suggests the namespace to use depending on the weight of your other rules ([Specificity Calculator](http://specificity.keegan.st/)).
 
@@ -102,7 +102,7 @@ This table suggests the namespace to use depending on the weight of your other r
     </tbody>
 </table>
 
-<p class="noteBox info">You can set up a namespace in <a href="https://github.com/acss-io/grunt-atomizer#examples">grunt-atomizer</a> or via the <a href="{% link installation.md %}#atomizer-cli">Atomizer command line</a>.</p>
+<p class="noteBox info">You can set up a namespace in <a href="https://github.com/acss-io/atomizer/tree/main/packages/grunt-atomizer#examples">grunt-atomizer</a> or via the <a href="{% link installation.md %}#atomizer-cli">Atomizer command line</a>.</p>
 
 ### Style sheets organization
 
@@ -151,7 +151,7 @@ Take advantage of the _cascade_ by creating &quot;specificity layers&quot; <sup>
     </tbody>
 </table>
 
-<p class="noteBox info">This web site uses *flat selectors* (<code>0,0,1,0</code>) which allows us to follow the same logic as above without the need for a namespace.</p>
+<p class="noteBox info">This website uses *flat selectors* (<code>0,0,1,0</code>), which allows us to follow the same logic as above without the need for a namespace.</p>
 
 ---
 
