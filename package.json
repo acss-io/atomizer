@@ -42,7 +42,7 @@
         "webpack:prod": "webpack --config webpack.config.js --config-name prod"
     },
     "engines": {
-        "node": ">=16.0",
+        "node": ">=18.0",
         "npm": ">=8.0"
     },
     "workspaces": [
