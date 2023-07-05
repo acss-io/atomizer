@@ -38,7 +38,11 @@ input,
 optgroup,
 select,
 textarea {
-    font: 16px/1.55 'Helvetica Neue', Helvetica, Arial, sans-serif; /* 1 */
+    font:
+        16px/1.55 'Helvetica Neue',
+        Helvetica,
+        Arial,
+        sans-serif; /* 1 */
     margin: 0; /* 2 */
 }
 
