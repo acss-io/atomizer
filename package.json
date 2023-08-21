@@ -138,8 +138,5 @@
         "**/*.*": [
             "npm run format:fix"
         ]
-    },
-    "dependencies": {
-        "commander": "^11.0.0"
     }
 }
