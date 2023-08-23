@@ -6,6 +6,10 @@ updates:
           interval: daily
           time: '13:00'
       open-pull-requests-limit: 10
+      groups:
+          babel-updates:
+              patterns:
+                  - '@babel/*'
     # atomizer
     - package-ecosystem: npm
       directory: '/packages/atomizer'
