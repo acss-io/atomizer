@@ -83,7 +83,7 @@
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-nodeunit": "^5.0.0",
         "husky": "^8.0.1",
-        "jest": "^29.6.3",
+        "jest": "^29.6.4",
         "jszip": "^3.10.0",
         "lint-staged": "^14.0.1",
         "live-server": "^1.2.2",
