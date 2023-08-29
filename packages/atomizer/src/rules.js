@@ -1634,7 +1634,7 @@ module.exports = [
         name: 'Flex',
         matcher: 'Fx',
         shorthand: true,
-        allowParamToValue: false,
+        allowParamToValue: true,
         styles: {
             flex: '$0',
         },

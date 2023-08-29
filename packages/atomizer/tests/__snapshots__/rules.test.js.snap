@@ -6100,6 +6100,9 @@ exports[`Rules flex 2`] = `
 .Fx\\(n\\) {
   flex: none;
 }
+.Fx\\(1px\\) {
+  flex: 1px;
+}
 "
 `;
 
