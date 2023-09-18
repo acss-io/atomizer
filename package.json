@@ -51,9 +51,9 @@
     ],
     "devDependencies": {
         "@babel/cli": "^7.22.15",
-        "@babel/core": "^7.22.19",
+        "@babel/core": "^7.22.20",
         "@babel/eslint-parser": "^7.22.15",
-        "@babel/preset-env": "^7.22.15",
+        "@babel/preset-env": "^7.22.20",
         "@babel/preset-react": "^7.22.15",
         "@changesets/cli": "^2.26.2",
         "@lodder/grunt-postcss": "^3.1.1",
