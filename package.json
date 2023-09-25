@@ -50,8 +50,8 @@
         "site"
     ],
     "devDependencies": {
-        "@babel/cli": "^7.22.15",
-        "@babel/core": "^7.22.20",
+        "@babel/cli": "^7.23.0",
+        "@babel/core": "^7.23.0",
         "@babel/eslint-parser": "^7.22.15",
         "@babel/preset-env": "^7.22.20",
         "@babel/preset-react": "^7.22.15",
