@@ -39,7 +39,7 @@
         "chalk": "^4.0.0",
         "chokidar": "^3.5.3",
         "commander": "^11.0.0",
-        "glob": "^10.3.5",
+        "glob": "^10.3.7",
         "lodash": "^4.17.21",
         "minimatch": "^9.0.0",
         "xregexp": "^5.1.0"
