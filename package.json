@@ -91,7 +91,7 @@
         "lunr": "^2.3.9",
         "marked": "^9.0.3",
         "mocha": "^10.0.0",
-        "postcss": "^8.4.30",
+        "postcss": "^8.4.31",
         "postcss-cli": "^10.0.0",
         "postcss-import": "^15.0.0",
         "prettier": "^3.0.3",
