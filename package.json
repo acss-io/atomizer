@@ -89,7 +89,7 @@
         "live-server": "^1.2.2",
         "load-grunt-tasks": "^5.1.0",
         "lunr": "^2.3.9",
-        "marked": "^9.0.3",
+        "marked": "^9.1.0",
         "mocha": "^10.0.0",
         "postcss": "^8.4.31",
         "postcss-cli": "^10.0.0",
