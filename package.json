@@ -97,7 +97,7 @@
         "prettier": "^3.0.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "rollup": "^4.1.4",
+        "rollup": "^4.2.0",
         "shelljs": "^0.8.5",
         "stealthy-require": "^1.1.1",
         "ts-jest": "^29.1.1",
