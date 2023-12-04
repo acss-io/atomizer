@@ -85,7 +85,7 @@
         "husky": "^8.0.1",
         "jest": "^29.7.0",
         "jszip": "^3.10.0",
-        "lint-staged": "^15.1.0",
+        "lint-staged": "^15.2.0",
         "live-server": "^1.2.2",
         "load-grunt-tasks": "^5.1.0",
         "lunr": "^2.3.9",
