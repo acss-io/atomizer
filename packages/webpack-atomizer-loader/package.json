@@ -24,7 +24,7 @@
     "dependencies": {
         "atomizer": "^3.22.0",
         "cssnano": "^6.0.1",
-        "postcss": "^8.4.31"
+        "postcss": "^8.4.32"
     },
     "repository": {
         "directory": "webpack-atomizer-loader",
