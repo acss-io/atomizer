@@ -3,7 +3,7 @@ updates:
     - package-ecosystem: npm
       directory: '/'
       schedule:
-          interval: daily
+          interval: monthly
           time: '13:00'
       open-pull-requests-limit: 10
       groups:
@@ -14,11 +14,11 @@ updates:
     - package-ecosystem: npm
       directory: '/packages/atomizer'
       schedule:
-          interval: daily
+          interval: monthly
       open-pull-requests-limit: 10
     # grunt-atomizer
     - package-ecosystem: npm
       directory: '/packages/grunt-atomizer'
       schedule:
-          interval: daily
+          interval: monthly
       open-pull-requests-limit: 10
