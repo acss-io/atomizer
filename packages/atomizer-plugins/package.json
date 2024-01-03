@@ -45,7 +45,7 @@
         "atomizer": "^3.18.2",
         "fs-extra": "^11.2.0",
         "lodash-es": "^4.17.21",
-        "unplugin": "^1.5.1"
+        "unplugin": "^1.6.0"
     },
     "engines": {
         "node": ">=16.0",
