@@ -1,0 +1,53 @@
+/*!
+
+JSZip v3.10.1 - A JavaScript class for generating and reading zip files
+<http://stuartk.com/jszip>
+
+(c) 2009-2016 Stuart Knightley <stuart [at] stuartk.com>
+Dual licenced under the MIT license or GPLv3. See https://raw.github.com/Stuk/jszip/main/LICENSE.markdown.
+
+JSZip uses the library pako released under the MIT license :
+https://github.com/nodeca/pako/blob/main/LICENSE
+*/
+
+/*!
+ * XRegExp 5.1.1
+ * <xregexp.com>
+ * Steven Levithan (c) 2007-present MIT License
+ */
+
+/*!
+ * XRegExp Unicode Base 5.1.1
+ * <xregexp.com>
+ * Steven Levithan (c) 2008-present MIT License
+ */
+
+/*!
+ * XRegExp Unicode Categories 5.1.1
+ * <xregexp.com>
+ * Steven Levithan (c) 2010-present MIT License
+ * Unicode data by Mathias Bynens <mathiasbynens.be>
+ */
+
+/*!
+ * XRegExp Unicode Properties 5.1.1
+ * <xregexp.com>
+ * Steven Levithan (c) 2012-present MIT License
+ * Unicode data by Mathias Bynens <mathiasbynens.be>
+ */
+
+/*!
+ * XRegExp Unicode Scripts 5.1.1
+ * <xregexp.com>
+ * Steven Levithan (c) 2010-present MIT License
+ * Unicode data by Mathias Bynens <mathiasbynens.be>
+ */
+
+/**
+ * @license
+ * Lodash <https://lodash.com/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */

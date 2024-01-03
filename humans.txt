@@ -1,0 +1,22 @@
+/* TEAM */
+
+Renato Iwashima.
+renatoi@yahoo-inc.com
+Twitter: @renatoiwa
+Location: Sunnyvale, California (USA)
+
+Steve Carlson
+yasteve@yahoo-inc.com
+Twitter: @stevecarlsonsf
+Location: Sunnyvale, California (USA)
+
+Thierry Koblentz
+thierryk@yahoo-inc.com
+Twitter: @thierrykoblentz
+Location: Sausalito, California (USA)
+
+/* SITE */
+
+Components: Normalize, Atomizer, Grunt
+
+Software: Sublime, WebStorm
