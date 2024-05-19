@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!-- 
+            ___           ___           ___           ___                  
+           /  /\         /  /\         /  /\         /  /\             
+          /  /::\       /  /:/        /  /:/_       /  /:/_               
+         /  /:/\:\     /  /:/        /  /:/ /\     /  /:/ /\           
+        /  /:/~/::\   /  /:/  ___   /  /:/ /::\   /  /:/ /::\           
+       /__/:/ /:/\:\ /__/:/  /  /\ /__/:/ /:/\:\ /__/:/ /:/\:\      
+       \  \:\/:/__\/ \  \:\ /  /:/ \  \:\/:/~/:/ \  \:\/:/~/:/
+        \  \::/       \  \:\  /:/   \  \::/ /:/   \  \::/ /:/     
+         \  \:\        \  \:\/:/     \__\/ /:/     \__\/ /:/     
+          \  \:\        \  \::/        /__/:/        /__/:/           
+           \__\/         \__\/         \__\/         \__\/         
+-->
+<html class="atomic Spt(70px) repl" lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Hello world - REPL | Atomizer</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="Hello world - REPL" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Interactive environment to test the Atomizer sytnax." />
+<meta property="og:description" content="Interactive environment to test the Atomizer sytnax." />
+<meta property="og:site_name" content="Atomizer" />
+<meta property="og:image" content="https://acss.io/images/background.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://acss.io/images/background.png" />
+<meta property="twitter:title" content="Hello world - REPL" />
+<meta name="twitter:site" content="@AtomicCSS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Interactive environment to test the Atomizer sytnax.","headline":"Hello world - REPL","image":"https://acss.io/images/background.png","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://acss.io/images/android-chrome-512x512.png"}},"url":"/repl.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile">
+    <link rel="author" href="humans.txt"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECNF4L245B"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ECNF4L245B');
+</script><script>window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.classList.add('dark');</script>
+</head><body class="Pt(3.2em) fs-on_Pt(0)"><header id="header" class="P(12px) Ov(h) home_Ov(v) Z(7) Pos(f) T(0) Start(0) End(0) Bgc(--color-blue-1) optLegibility">
+    <div class="D(f) Ac(c) Jc(sb) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm">
+        <a href="/" class="Fz(20px) Lh(1.2) C(#fff) Td(n):h">
+            <img id="logo" class="H(25px) Mt(4px) docs_Mstart(40px)--xs support_Mstart(40px)--xs" alt='ACSS Logo' src="/images/logo.svg">
+            <b class="D(n)--xs home_D(ib) Td(n) Bd(0)! Fw(b)">Atomizer</b>
+        </a>
+
+        <button id="toggleNavButton" class="D(n) home_D(b)--xs Bg(n) Bd(n) C(#fff) Py(0px) Mt(4px)">
+            <svg width="24" height="24" fill="none" aria-hidden="true">
+                <path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+
+        <nav class="home_D(n)--xs">
+            <ul class="M(0) Mt(3px) P(0)">
+                <li class=" D(ib) Va(m) Pos(r)">
+                    <a href="/quick-start.html" class="D(b) C(#fff) Td(n):h">Docs</a>
+                </li>
+                <li class="selected D(ib) Va(m) Pos(r) Mstart(15px)">
+                    <a href="/repl.html" class="D(b) C(#fff) Td(n):h">REPL</a>
+                </li>
+                <li class=" D(ib) Va(m) Pos(r) Mstart(15px)">
+                    <a href="/reference.html" class="D(b) C(#fff) Td(n):h">Reference</a>
+                </li>
+                <li class=" D(ib) Va(m) Pos(r) Mstart(15px)">
+                    <a href="/support.html" class="D(b) C(#fff) Td(n):h">Support</a>
+                </li>
+                <li class="D(n)--xs D(ib) Mstart(15px) Pos(r)">
+                    <a class="D(b) C(#fff) Td(n):h" href="https://github.com/acss-io/atomizer">
+                        <svg class="nav-on_D(n)--xs Va(m) Pos(r)" fill="#fff" height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24">
+                            <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        <span class="D(n) nav-on_D(b)">GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css" />
+
+<div class="Bgc(#383838)">
+    <div class="D(f) Ai(c) Jc(sb) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm Pstart(10px) Pstart(0)--lg">
+        <h1 class="D(n)--xs M(0) Mb(-3px) Lh(0) Fz(16px) C(#eee)">Hello world</h1>
+        
+
+
+<div class="Pos(r)">
+    <form id="search" class="D(f) Ai(c) Pos(r)">
+        <label for="q" class="Pos(a) Start(5px) Lh(0)">
+            <svg width="24" height="24" fill="none">
+                <path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle>
+            </svg>
+            <span id="search-label" class="Hidden">Site Search:</span>
+        </label>
+        <input type="search" role="search" placeholder="Class search..." id="q" autocomplete="off" class="W(100%) Py(10px) Pend(5px)--xs Pend(40px) Pstart(35px) repl_Py(5px) repl_Bgc(#ccc) repl_Bgc(#fff):focus" />
+        <span class="D(b) D(n)!--xs Pos(a) End(10px) C(#777)">
+            <kbd class="Va(m)">⌘</kbd><kbd>K</kbd>
+        </span>
+    </form>
+    <div id="resultsCont" class="D(n) Z(3) Pos(a) W(30rem)--sm W(100%)--xs Bxz(bb) Bd Bdc(--color-code-bd) Bgc(--color-code-bg) Bxsh(boxShadowLight)" role="dialog" aria-labelledby="search-label" aria-modal="true">
+        <h2 class="Hidden">Search Results</h2>
+        <div id="results" class="Mah(200px) Ovy(s)"></div>
+    </div>
+</div>
+        <ul class="D(f) M(0)">
+            <li class="Mend(20px)--sm">
+                <button id="fullscreen" class="D(f) Ai(c) Jc(sb) Pt(10px) Pb(10px) Bg(n) Bd(n) C(#ccc) C(#fff):h Cur(p) Fz(14px)" title="Toggle fullscreen mode">
+                    <svg class="D(b) fs-on_D(n)" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z"></path>
+                    </svg>
+                    <svg class="D(n) fs-on_D(b)" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
+                    </svg>
+                    <span class="D(n)--xs Pstart(5px)">Fullscreen</span>
+                </button>
+            </li>
+            <li>
+                <button id="save" class="D(f) Ai(c) Pt(10px) Pb(10px) Bg(n) Bd(n) C(#ccc) C(#fff):h Cur(p) Fz(14px)" title="Download zip file">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M2 12H4V17H20V12H22V17C22 18.11 21.11 19 20 19H4C2.9 19 2 18.11 2 17V12M12 15L17.55 9.54L16.13 8.13L13 11.25V2H11V11.25L7.88 8.13L6.46 9.55L12 15Z"></path>
+                    </svg>
+                    <span class="D(n)--xs Pstart(5px)">Download</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="D(f) Fxf(c) W(100%) H(90vh) Fz(14px)">
+    <div class="D(f) H(39vh)">
+        <div class="Fxb(0%) Fxg(1) Fxs(1) Pos(r) Ovx(s)">
+            <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">html</h2>
+            <textarea id="markup">
+&lt;!-- Edit the HTML markup here. --&gt;
+<div class="W(30%)--sm Mx(a) Mt(3rem) P(20px) Bg(#0280ae) C(#fff) Bdrs(15px) Ff(arial)">
+    <h1 class="Ta(c)">Hello world!</h1>
+    <p class="My(10px) Lh(1.3)">Modify the markup by changing the code in the "html" box. As you add and remove <a href="/guides/atomizer-classes.html">Atomizer classes</a>, this preview will update live and the CSS will be auto generated in the "css" box above.</p>
+    <p class="Lh(1.3)">You can further customize Atomizer by adding your own breakpoints or custom values. Take a look at the <a href="/configuration.html">Configuration guide</a> for more information.</p>
+    <p>Like what you see? Use the Download button to save it locally and build your next project!</p>
+</div>
+            </textarea>
+        </div>
+
+        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) BdStart Bdc(#1a1821)">
+            <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">
+                <a href="/configuration.html" target="_blank">
+                    config
+                    <svg class="W(14px) H(14px) Va(m)" viewBox="0 0 24 24">
+                        <path fill="currentColor" d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" />
+                    </svg>
+                </a>
+            </h2>
+            <textarea id="config">
+            {
+                "breakPoints": {
+                    "sm": "@media(min-width:750px)",
+                    "md": "@media(min-width:1000px)",
+                    "lg": "@media(min-width:1200px)"
+                },
+                "custom": {
+                    "arial": "Arial, sans-serif"
+                },
+                "classNames": []
+            }
+            </textarea>
+        </div>
+        <div class="D(n)--xs Fxb(0%) Fxg(1) Fxs(1) Pos(r) BdStart Bdc(#1a1821)">
+            <h2 class="Pos(a) T(5px) End(10px) Z(2) M(0px) Px(10px) Py(0px) Fz(14px) Bgc(#383838) C(#ccc)">css</h2>
+            <textarea id="css"></textarea>
+        </div>
+    </div>
+    <div style="flex: 1 1 auto">
+        <div id="message" class="D(n) Pos(a) W(100%) Bxz(bb) Px(5px) Py(10px) Bgc(#da101b) C(#fff)"></div>
+        <iframe id="preview" class="Bd(n) W(100%) H(100%) Ovx(s)"></iframe>
+    </div>
+
+</div>
+
+<script src="/assets/js/repl.js"></script>
+
+<footer id="footer" class="Bgc(--color-code-bg) Py(16px) Px(20px) BdT Bdc(--color-blue-5)">
+    <div class="D(f)--sm Ai(c) Jc(sb) Gp(10px) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm">
+        <small>
+            All code on this site is licensed under the <a href="https://github.com/acss-io/atomizer/blob/main/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.<br>
+            © 2015 - present Yahoo Inc. All rights reserved.
+        </small>
+        <small class="D(b)--xs Mt(10px)--xs"><a href="https://github.com/acss-io/atomizer/tree/main/docs/repl.md" target='_blank'>Edit this page on Github</a></small>
+    </div>
+</footer></body>
+
+    <script src="/assets/js/search.js" async></script>
+    <script src="/assets/js/page.js"></script>
+    <script src="/assets/js/copyCode.js"></script>
+    <script>
+        (function() {
+            // handle docs menu toggle
+            const toggleMenuButton = document.getElementById('toggleMenuButton');
+            toggleMenuButton?.addEventListener('click', () => {
+                const wrapper = document.getElementById('toggleMenuWrapper');
+                wrapper.classList.toggle('menu-on');
+                window.scrollTo(0, 0);
+            });
+
+            // handle home navigation toggle
+            const toggleNavButton = document.getElementById('toggleNavButton');
+            toggleNavButton?.addEventListener('click', () => {
+                const header = document.getElementById('header');
+                header.classList.toggle('nav-on');
+            });
+
+            // handle testimonial more toggle
+            const toggleTestButton = document.getElementById('toggleTestButton');
+            let currentScroll = 0;
+            toggleTestButton?.addEventListener('click', () => {
+                const wrapper = document.getElementById('testimonials');
+                wrapper.classList.toggle('expand');
+
+                // scroll back to top of testimonials when closed
+                if (!wrapper.classList.contains('expand')) {
+                    window.scrollTo(0, currentScroll);
+                    toggleTestButton.innerHTML = 'Expand...';
+                } else {
+                    currentScroll = window.pageYOffset;
+                    toggleTestButton.innerHTML = 'Collapse...';
+                }
+            });
+        }());
+    </script>
+</html>

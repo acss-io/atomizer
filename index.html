@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<!-- 
+            ___           ___           ___           ___                  
+           /  /\         /  /\         /  /\         /  /\             
+          /  /::\       /  /:/        /  /:/_       /  /:/_               
+         /  /:/\:\     /  /:/        /  /:/ /\     /  /:/ /\           
+        /  /:/~/::\   /  /:/  ___   /  /:/ /::\   /  /:/ /::\           
+       /__/:/ /:/\:\ /__/:/  /  /\ /__/:/ /:/\:\ /__/:/ /:/\:\      
+       \  \:\/:/__\/ \  \:\ /  /:/ \  \:\/:/~/:/ \  \:\/:/~/:/
+        \  \::/       \  \:\  /:/   \  \::/ /:/   \  \::/ /:/     
+         \  \:\        \  \:\/:/     \__\/ /:/     \__\/ /:/     
+          \  \:\        \  \::/        /__/:/        /__/:/           
+           \__\/         \__\/         \__\/         \__\/         
+-->
+<html class="atomic Spt(70px) home" lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Atomizer | An unopinionated CSS utility library for modern websites.</title>
+<meta name="generator" content="Jekyll v4.3.1" />
+<meta property="og:title" content="Atomizer" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="An unopinionated CSS utility library for modern websites." />
+<meta property="og:description" content="An unopinionated CSS utility library for modern websites." />
+<meta property="og:site_name" content="Atomizer" />
+<meta property="og:image" content="https://acss.io/images/background.png" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://acss.io/images/background.png" />
+<meta property="twitter:title" content="Atomizer" />
+<meta name="twitter:site" content="@AtomicCSS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","description":"An unopinionated CSS utility library for modern websites.","headline":"Atomizer","image":"https://acss.io/images/background.png","name":"Atomizer","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://acss.io/images/android-chrome-512x512.png"}},"url":"/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nobile">
+    <link rel="author" href="humans.txt"><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ECNF4L245B"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ECNF4L245B');
+</script><script>window.matchMedia('(prefers-color-scheme: dark)').matches && document.documentElement.classList.add('dark');</script>
+</head><body class="Pt(3.2em) fs-on_Pt(0)"><header id="header" class="P(12px) Ov(h) home_Ov(v) Z(7) Pos(f) T(0) Start(0) End(0) Bgc(--color-blue-1) optLegibility">
+    <div class="D(f) Ac(c) Jc(sb) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm">
+        <a href="/" class="Fz(20px) Lh(1.2) C(#fff) Td(n):h">
+            <img id="logo" class="H(25px) Mt(4px) docs_Mstart(40px)--xs support_Mstart(40px)--xs" alt='ACSS Logo' src="/images/logo.svg">
+            <b class="D(n)--xs home_D(ib) Td(n) Bd(0)! Fw(b)">Atomizer</b>
+        </a>
+
+        <button id="toggleNavButton" class="D(n) home_D(b)--xs Bg(n) Bd(n) C(#fff) Py(0px) Mt(4px)">
+            <svg width="24" height="24" fill="none" aria-hidden="true">
+                <path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+
+        <nav class="home_D(n)--xs">
+            <ul class="M(0) Mt(3px) P(0)">
+                <li class=" D(ib) Va(m) Pos(r)">
+                    <a href="/quick-start.html" class="D(b) C(#fff) Td(n):h">Docs</a>
+                </li>
+                <li class=" D(ib) Va(m) Pos(r) Mstart(15px)">
+                    <a href="/repl.html" class="D(b) C(#fff) Td(n):h">REPL</a>
+                </li>
+                <li class=" D(ib) Va(m) Pos(r) Mstart(15px)">
+                    <a href="/reference.html" class="D(b) C(#fff) Td(n):h">Reference</a>
+                </li>
+                <li class=" D(ib) Va(m) Pos(r) Mstart(15px)">
+                    <a href="/support.html" class="D(b) C(#fff) Td(n):h">Support</a>
+                </li>
+                <li class="D(n)--xs D(ib) Mstart(15px) Pos(r)">
+                    <a class="D(b) C(#fff) Td(n):h" href="https://github.com/acss-io/atomizer">
+                        <svg class="nav-on_D(n)--xs Va(m) Pos(r)" fill="#fff" height="24" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="24">
+                            <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                        </svg>
+                        <span class="D(n) nav-on_D(b)">GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header><div>
+    <div id="splash" class="Ov(h) BdB Bdc(--color-blue-5) Bgc(--color-blue-1)">
+        <div class="Ta(c) Va(m) Mx(a) Mt(5em)--sm Px(1rem) W(90%)--sm W(80%)--md W(50%)--lg">
+            <h1 class="Pos(r) C(#fff) My(1em)">
+                <div class="My(10px) Fz(28px) Fz(48px)--sm Lh(1.2)">
+                    Create small, reusable CSS that scales as your website grows.
+                </div>
+            </h1>
+            <p class="C(#fff) M(0) Fz(16px) Fz(22px)--sm Py(5px) Fw(400)">
+                Atomizer is an unopinionated CSS utility library for modern websites.
+                Just add classes like <code class="Bd(n) Bgc(t)">D(f)</code> and <code class="Bd(n) Bgc(t)">Fz(1.5rem)</code> to your markup to efficiently style your website. 
+            </p>
+            <p>
+                <a href="/quick-start.html" class="Mt(10px) Mb(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#fff.3) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">Get Started</a>
+                <a href="/repl.html" class="Mt(10px) Mstart(20px) Mb(20px) D(ib) Py(10px) Px(20px) Fz(20px) C(#fff) Bgc(#f38500) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">Try it now!</a>
+            </p>
+        </div>
+    </div>
+    <div class="Bxz(bb) Pt(40px) Px(10px) Mb(50px) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)">
+        <div id="main" role="main" class="D(tbc)--sm home_D(b)! Px(10px) menu-on_Pos(f)">
+            <div><div class="D(f)--lg Jc(sb) Gp(2rem)">
+    <div>
+        <h2 class="Fz(2.25rem)--md My(0) Mt(2em)--lg Mb(0)">Meet Atomizer!</h2>
+        <p class="Fz(1.1rem)--md">
+            Atomizer generates a simple static CSS stylesheet from the Atomizer classes you define in your project or predeclared configured styles - it&#39;s up to you.
+        </p>
+        <p class="Fz(1.1rem)--md">Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
+    </div>
+    <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo" />
+</div>
+
+<h2 class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Testimonials</h2>
+
+<div id="testimonials" class="Pos(r)">
+    <ul class="Ovx(s) Ai(s) D(f)--md List(n)! Pstart(0)! Gp(2rem) H(400px)--xs Ov(h)--xs expand_H(a)">
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">We released Atomizer almost 10 years ago and to this day it is used on massive web sites by huge front-end teams. If your project calls for an Atomic CSS library, make sure to give it a try.</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                            <img src="/images/thierry.jpg" alt="Thierry Koblentz Picture" class="W(50px) Bdrs(50px)" />
+                        
+                        <p class="M(0)">
+                            <a href="https://twitter.com/7h1322yk0813n72" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Thierry Koblentz
+                                <u class="StretchedBox"></u>
+                            </a>
+                            Atomizer Co-Creator
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">Truly pioneering work that deserves an enormous amount of credit — Tailwind works virtually the same way at this point but we stumbled our way here *many* years later.</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                            <svg width="70" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M489.5 226.499C328 231.632 280 346.999 269 409.499C283.333 386.332 328.5 335.5 395 335.5C472.5 335.5 531.5 422 567.5 449C611.237 481.803 699.123 525.115 814.5 490C906.5 462 949.167 364.332 958.5 317.999C914 378.499 846.5 414.838 763 371.999C705.5 342.499 662.5 221 489.5 226.499Z" fill="#07B6D5" /><path d="M261 500.999C99.5 506.132 51.5 621.499 40.5 683.999C54.8333 660.832 100 610 166.5 610C244 610 303 696.5 339 723.5C382.737 756.303 470.623 799.615 586 764.5C678 736.5 720.667 638.832 730 592.499C685.5 652.999 618 689.338 534.5 646.499C477 616.999 434 495.5 261 500.999Z" fill="#07B6D5" /></svg>
+                        
+                        <p class="M(0)">
+                            <a href="https://twitter.com/adamwathan/status/1623358277219192844?s=20" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Adam Wathan
+                                <u class="StretchedBox"></u>
+                            </a>
+                            Creator of Tailwind CSS
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">Initially I did not like the concept, I had experience in using Bootstrap UI Library and BEM methodology to manage CSS. It took 5 - 6 months to realize that Atomizer was the best and true CSS framework which solves many problems we were facing. Thierry Koblentz helped me a lot to understand the concept and the reason behind their decisions to build Atomizer.</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" width="75" viewBox="0 0 300 100"><g fill="none" fill-rule="nonzero"><path fill="#BF3078" d="M250.498 0c-1.842 0-4.052 0-5.894.367l-10.683 18.7c4.789-2.934 10.683-4.4 16.577-4.4 19.156 0 34.996 15.766 34.996 34.833s-15.84 34.833-34.996 34.833c-19.156 0-34.628-15.4-34.996-34.466l-11.051 18.7C211.818 86.533 229.869 99 250.13 99c27.26 0 49.731-22.367 49.731-49.5C300.23 22.367 277.758 0 250.498 0z" /><path fill="#802050" d="m100.2 51.7 8.472-14.667 19.156 32.634L149.93 31.9l22.102 37.767L209.976 5.5c1.842-3.3 5.526-5.5 9.578-5.5h10.683l-58.204 99-22.102-37.767L127.828 99l-27.629-47.3z" /><path fill="#26134D" d="M116.04 0 57.836 99 0 0h10.683c4.052 0 7.736 2.2 9.578 5.5l37.575 64.533L95.779 5.5c1.842-3.3 5.525-5.5 9.578-5.5h10.683z" /></g></svg>
+                        
+                        <p class="M(0)">
+                            <a href="https://vwo.com/" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Jitendra Vyas
+                                <u class="StretchedBox"></u>
+                            </a>
+                            UX Engineer, VWO
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">Atomizer is a well-designed library which solves lots CSS management challenges of large scale applications. It helps to promote good html structure, clean and reusable CSS and rapid development process.</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" height="70" viewBox="-4.608 -8.828925 39.936 52.97355"><defs><radialGradient id="a" cx="173.7628" cy="856.9146" r="35.1884" fx="173.7628" fy="856.9146" gradientTransform="matrix(.93267 0 0 1.0722 -146.703 -883.4623)" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#FF7854" /><stop offset="100%" stop-color="#FD267D" /></radialGradient></defs><path fill="url(#a)" fill-rule="evenodd" d="M9.205 14.2587a.097.097 0 0 1-.108-.03c-1.194-1.581-1.494-4.299-1.567-5.343-.015-.201-.241-.314-.422-.213-3.687 2.071-7.108 6.97-7.108 11.7 0 8.126 5.644 14.943 15.36 14.943 9.103 0 15.36-7.026 15.36-14.942 0-10.358-7.402-17.24-13.995-20.351a.237.237 0 0 0-.336.246c.849 5.582-.324 11.653-7.184 13.99z" /></svg>
+                        
+                        <p class="M(0)">
+                            <a href="https://tinder.com" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Roderick Hsiao
+                                <u class="StretchedBox"></u>
+                            </a>
+                            Software Engineer, Tinder
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">I'm convinced @AtomicCSS is a superior product to Tailwind. It representing CSS in an unopinionated matter is just objectively good practice to me, but their compiler virtually allows neat stuff like parent and dynamic conditional selectors. I should have looked into it sooner.</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                        <p class="M(0)">
+                            <a href="https://twitter.com/rogueyoshi_FGC/status/1579098120348372993" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                rogueyoshi
+                                <u class="StretchedBox"></u>
+                            </a>
+                            @rogueyoshi_FGC
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">Atomic CSS tickles me: https://acss.io. It's a DSL that you write in class names. Atomizer makes the browser understand the subset you use. There's potential to take this much further</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                        <p class="M(0)">
+                            <a href="https://twitter.com/maxheiber/status/1334247383455117321?s=20&amp;t=yMffS2mp0eK9GhavtsYX1Q" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Max Heiber
+                                <u class="StretchedBox"></u>
+                            </a>
+                            @maxheiber
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">#CSS is painful. Style with class. Meet #Atomizer a tool that helps you create #AtomicCSS rules</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                        <p class="M(0)">
+                            <a href="https://twitter.com/phecker65/status/1195622252873682944?s=20&amp;t=yMffS2mp0eK9GhavtsYX1Q" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Peter Hecker
+                                <u class="StretchedBox"></u>
+                            </a>
+                            @phecker65
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+            <li class="Pos(r) Fxb(25%) Fxs(0) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light)">
+                <figure class="M(0px)">
+                    <blockquote class="Bdstartw(0px) M(0px) P(0px) Fs(n)">
+                        <p class="Mt(0px) Fz(16px)">Naming selectors in CSS is hard! Thankfully Atomizer saves you the trouble from writing CSS altogether!</p>
+                    </blockquote>
+                    <figcaption class="D(f) Ai(c) Gp(1rem)">
+                        
+                        <p class="M(0)">
+                            <a href="https://twitter.com/pankajparashar/status/713735727608008705?s=20&amp;t=yMffS2mp0eK9GhavtsYX1Q" class="D(b) Fw(b) C(--color-text) Td(n):h" target="_blank">
+                                Pankaj Parashar
+                                <u class="StretchedBox"></u>
+                            </a>
+                            @pankajparashar
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+        
+    </ul>
+    <div class="D(b) D(n)--sm Pos(a) B(0px) expand_B(-40px) Py(10px) Bxs(bd) W(100%) Mx(a) Ta(c) Bgi(--gradient-1)">
+        <button id="toggleTestButton" class="Bgc(--color-blue-1) C(#fff) Bdrs(10px) Bd(n) Px(15px) Py(10px) Cur(p) Fz(14px)">Expand...</button>
+    </div>
+</div>
+
+<h2 id="colors" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Colors</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        Colors are set using hexadecimal values.
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Bgc(#0280ae) C(#fff)"</span><span class="nt">&gt;</span>
+    Lorem ipsum
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Bgc(--color-blue-1) C(#fff) P(20px)">
+            Lorem ipsum
+        </div>
+    </div>
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        Alpha transparency is created by appending the opacity value to the <code>hex</code> color.
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Bgc(#0280ae.5) C(#fff)"</span><span class="nt">&gt;</span>
+    Lorem ipsum
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Bgc(--color-blue-4) C(#fff) P(20px)">
+            Lorem ipsum
+        </div>
+    </div>
+</div>
+
+<h2 id="variables" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Variables</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs">
+        <p class="Fz(1.1rem)--md"><a href="/guides/syntax.html#variable-values">Variables</a> are useful for theming but they can also be used to share a common value across style declarations. In this example, <code>brandColor</code> is responsible for setting the text color, background color and border color, while <code>columnWidth</code> dictates the width of the first box and the left offset of its sibling.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">custom</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">brandColor</span><span class="p">:</span> <span class="dl">'</span><span class="s1">#0280ae</span><span class="dl">'</span><span class="p">,</span>
+        <span class="na">columnWidth</span><span class="p">:</span> <span class="dl">'</span><span class="s1">20px</span><span class="dl">'</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Pos(a) Bgc(brandColor) W(columnWidth) H(90px)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"C(brandColor) BdB Bdc(brandColor) Mstart(columnWidth) P(10px)"</span><span class="nt">&gt;</span>
+    Lorem ipsum
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+    <p class="Fz(1.1rem)--md"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS custom properties</a> (variables) can also be referenced as class values. Note that values are not managed by Atomizer, and must be defined independently.</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="c">/* external style sheet */</span>
+<span class="nd">:root</span> <span class="p">{</span>
+    <span class="py">--primary-color</span><span class="p">:</span> <span class="m">#400090</span>
+<span class="p">}</span></code></pre></figure>
+
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"C(--primary-color)"</span><span class="nt">&gt;</span>Hello World<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+        
+
+
+<a href="/configuration.html#custom" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    Read more &raquo;
+</a>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Pos(a) Bgc(--color-blue-1) W(columnWidth) H(90px)"></div>
+        <div class="C(--color-blue-1) BdB Bdc(--color-blue-1) Mstart(columnWidth) P(10px)">
+            Lorem ipsum
+        </div>
+    </div>
+</div>
+
+<h2 id="contextual-selectors" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Contextual selectors</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        <p>Atomizer syntax allows you to style elements <a href="/guides/syntax.html#combinator">depending on their ancestors or siblings</a>.</p>
+        <p>In this example, two identical sets of boxes are styled differently depending on the class applied to their parent element.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"W(50%) foo_W(100%)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"W(50%) foo_W(100%)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;hr&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"foo"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"W(50%) foo_W(100%)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"W(50%) foo_W(100%)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+        
+
+
+<a href="/guides/syntax.html#combinator" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    Read more &raquo;
+</a>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div>
+            <div class="Bgc(--color-blue-4) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(--color-blue-1) H(90px) IbBox W(50%) foo_W(100%)"></div>
+        </div>
+        <hr />
+        <div class="foo">
+            <div class="Bgc(--color-blue-4) H(90px) IbBox W(50%) foo_W(100%)"></div><!--
+         --><div class="Bgc(--color-blue-1) H(90px) IbBox W(50%) foo_W(100%)"></div>
+        </div>
+    </div>
+</div>
+
+<h2 id="pseudo-classes" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Pseudo-classes</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        <p>Create styles that rely on <a href="/guides/syntax.html#pseudo-class">pseudo-classes</a>.</p>
+        <p>In this example, the foreground and background color change when users hover over the box.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Bgc(#0280ae):h C(#0280ae) C(#fff):h"</span><span class="nt">&gt;</span>
+    Lorem ipsum
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Bd Bgc(--color-blue-1):h C(--color-blue-1) C(#fff):h P(20px)">
+            Lorem ipsum
+        </div>
+    </div>
+    <p class="Cl(b) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">You can also combine descendant selectors with pseudo-classes. In this example, the nested box is revealed when a user hovers over <strong>its parent</strong>:</p>
+        <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"foo"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"Op(0) foo:h&gt;Op(1)"</span><span class="nt">&gt;</span>Lorem ipsum<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+            
+
+
+<a href="/guides/syntax.html#pseudo-class" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    Read more &raquo;
+</a>
+        </div>
+        <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+            <div class="foo Bd C(--color-blue-1) Ta(c)">
+                <p class="Op(0) foo:h&gt;Op(1)">Lorem ipsum</p>
+            </div>
+        </div>
+</div>
+
+<h2 id="grids" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Grids</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        <p>What do you prefer? Floats? Flexbox? CSS Grids? <a href="/tutorials/layout.html">Atomizer supports it all</a>.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- floats --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Fl(start) W(1/2)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Fl(start) W(1/2)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- table --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(tb) W(100%)"</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(tbc)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(tbc)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- flexbox --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(f)"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Flxg(1)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Flxg(1)"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="c">&lt;!-- grids --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(g) Gtc(twoColEvenGrid)"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+        
+
+
+<a href="/tutorials/layout.html" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    Read more &raquo;
+</a>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Row">
+            <div class="Fl(start) W(1/2) Bgc(--color-blue-4) H(90px)"></div>
+            <div class="Fl(start) W(1/2) Bgc(--color-blue-1) H(90px)"></div>
+        </div>
+        <div class="D(tb) W(100%)" role="presentation">
+            <div class="D(tbc) Bgc(--color-blue-1) H(90px)"></div>
+            <div class="D(tbc) Bgc(--color-blue-4) H(90px)"></div>
+        </div>
+        <div class="D(f)">
+            <div class="Flxg(1) Bgc(--color-blue-4) H(90px)"></div>
+            <div class="Flxg(1) Bgc(--color-blue-1) H(90px)"></div>
+        </div>
+        <div class="D(g) Gtc(twoColEvenGrid)">
+            <div class="Bgc(--color-blue-1) H(90px)"></div>
+            <div class="Bgc(--color-blue-4) H(90px)"></div>
+        </div>
+    </div>
+</div>
+
+<h2 id="responsive-design-rwd" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Responsive Design</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        <p>Define your responsive <a href="/breakpoints.html">breakpoints</a> in configuration using standard media query syntax. Then, reference those breakpoints in your Atomizer classes or configuration.</p>
+        <h3>Classes mapped to a single breakpoint</h3>
+        <p>Reference your breakpoints in your classnames using a double-dash suffix (eg, <code>--sm</code>).</p>
+        <p>In this example, the four boxes are styled as <code>inline-block</code>, with a <code>width</code> of <code>25%</code> when the viewport is more than <code>700px</code> wide.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">custom</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">breakPoints</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">sm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">@media screen and (min-width:700px)</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(ib)--sm W(25%)--sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(ib)--sm W(25%)--sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(ib)--sm W(25%)--sm"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"D(ib)--sm W(25%)--sm"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></figure>
+
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Bgc(--color-blue-4) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-1) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-4) H(90px) D(ib)--sm W(25%)--sm"></div><div class="Bgc(--color-blue-1) H(90px) D(ib)--sm W(25%)--sm"></div>
+    </div>
+</div>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        <h3>Classes mapped to multiple breakpoints</h3>
+        <p>Classes may have different values associated with different breakpoints; meaning the same class applies different styles depending on media queries.</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">custom</span><span class="p">:</span> <span class="p">{</span>
+        <span class="na">rwdFontSize</span><span class="p">:</span> <span class="p">{</span>
+            <span class="na">xs</span><span class="p">:</span> <span class="dl">'</span><span class="s1">12px</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">sm</span><span class="p">:</span> <span class="dl">'</span><span class="s1">22px</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">md</span><span class="p">:</span> <span class="dl">'</span><span class="s1">32px</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">lg</span><span class="p">:</span> <span class="dl">'</span><span class="s1">42px</span><span class="dl">'</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">};</span></code></pre></figure>
+
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"Fz(rwdFontSize)"</span><span class="nt">&gt;</span>Responsive font-size<span class="nt">&lt;/div&gt;</span></code></pre></figure>
+
+        
+
+
+<a href="/breakpoints.html" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    Read more &raquo;
+</a>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <div class="Fz(rwdFontSize)">Responsive font-size</div>
+    </div>
+</div>
+
+<h2 id="helpers" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Helpers</h2>
+
+<div class="Row">
+    <div class="Fl(start) W(60%) Fl(n)--xs W(a)--xs Fz(1.1rem)--md">
+        <p>Atomizer offers a selection of <a href="/guides/helper-classes.html">helper classes</a> for common styling, such as &quot;clearfix&quot; to clear floats (<code>Cf</code>), <code>Bd</code> to help with <a href="/guides/helper-classes.html#bd-borders">setting borders</a>, <code>Ell</code> to truncate text with ellipsis, <code>Hidden</code> to visually hide text, and more.</p>
+        <p>For example <code>LineClamp()</code>, which takes two parameters:</p>
+    </div>
+    <div class="Fl(start) W(60%) Cl(b) Fl(n)--xs W(a)--xs">
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"Fz(12px) Lh(1.5) LineClamp(3,54px)"</span><span class="nt">&gt;</span>
+    Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.
+<span class="nt">&lt;/p&gt;</span></code></pre></figure>
+
+        
+
+
+<a href="/guides/helper-classes.html" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    Read more &raquo;
+</a>
+    </div>
+    <div class="Fl(end) W(30%) My(1em) Fl(n)--xs W(a)--xs">
+        <p class="Fz(12px) Lh(1.5) LineClamp(3,54px)">Lorem ipsum dolor sit amet, id oratio graeco nostrum sit, latine eligendi scribentur mea ex. Tota dolorem voluptua eos at. Ei nec reque viderer facilis. Aliquip necessitatibus ex pri, pertinax atomorum ei sea. Ea omittam appetere posidonium per, te meliore volutpat duo, dolorem ponderum interpretaris sea ut.</p>
+    </div>
+</div>
+
+<h2 id="integrations" class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Easily Integratable</h2>
+
+<div class="W(60%) W(a)--xs">
+    <p class="Fz(1.1rem)--md">Atomizers can be easily integrated into some of the most popular web frameworks. Here are some of the guides you can choose from.</p>
+</div>
+
+<ul class="D(f) List(n)! Pstart(0)! Gp(.5rem) Gp(1rem)--sm Ovx(s) Mt(2rem)">
+    
+        
+    
+        
+    
+        
+    
+        
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 40 40" id="nextjs"><path d="M10.788 14.842h6.865v.557h-6.235v4.189h5.864v.557h-5.864v4.599h6.307v.557h-6.937V14.842zm7.48 0h.73l3.232 4.6 3.304-4.6L30.028 9l-7.383 10.925L26.45 25.3h-.758l-3.462-4.893-3.475 4.893h-.744l3.833-5.376-3.575-5.083zm8.454.557v-.557h7.823v.557h-3.604V25.3h-.63v-9.902h-3.59zm-24.523-.557h.787L13.833 31.4l-4.482-6.1-6.494-9.667-.029 9.668H2.2V14.842zm32.283 9.734a.225.225 0 01-.225-.233.225.225 0 11.45 0 .224.224 0 01-.225.233zm.618-.613h.337c.005.186.138.311.334.311.219 0 .343-.134.343-.386v-1.594h.342v1.596c0 .453-.257.714-.682.714-.4 0-.674-.253-.674-.64zm1.805-.02h.34c.029.214.234.35.53.35.275 0 .477-.145.477-.345 0-.172-.129-.276-.421-.346l-.285-.07c-.4-.096-.582-.293-.582-.624 0-.402.322-.67.804-.67.448 0 .776.268.796.648h-.334c-.032-.208-.21-.338-.467-.338-.27 0-.451.133-.451.336 0 .161.116.254.404.322l.243.061c.453.108.64.296.64.635 0 .432-.328.702-.85.702-.49 0-.82-.258-.844-.661z"></path></svg></div>
+                <a href="/integrations/nextjs.html" class="D(b) C(--color-text) Td(n):h">
+                    Next.js
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        
+    
+        
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 282"><g fill="#8CC84B"><path d="M116.504 3.58c6.962-3.985 16.03-4.003 22.986 0 34.995 19.774 70.001 39.517 104.99 59.303 6.581 3.707 10.983 11.031 10.916 18.614v118.968c.049 7.897-4.788 15.396-11.731 19.019-34.88 19.665-69.742 39.354-104.616 59.019-7.106 4.063-16.356 3.75-23.24-.646-10.457-6.062-20.932-12.094-31.39-18.15-2.137-1.274-4.546-2.288-6.055-4.36 1.334-1.798 3.719-2.022 5.657-2.807 4.365-1.388 8.374-3.616 12.384-5.778 1.014-.694 2.252-.428 3.224.193 8.942 5.127 17.805 10.403 26.777 15.481 1.914 1.105 3.852-.362 5.488-1.274 34.228-19.345 68.498-38.617 102.72-57.968 1.268-.61 1.969-1.956 1.866-3.345.024-39.245.006-78.497.012-117.742.145-1.576-.767-3.025-2.192-3.67-34.759-19.575-69.5-39.18-104.253-58.76a3.621 3.621 0 0 0-4.094-.006C91.2 39.257 56.465 58.88 21.712 78.454c-1.42.646-2.373 2.071-2.204 3.653.006 39.245 0 78.497 0 117.748a3.329 3.329 0 0 0 1.89 3.303c9.274 5.259 18.56 10.481 27.84 15.722 5.228 2.814 11.647 4.486 17.407 2.33 5.083-1.823 8.646-7.01 8.549-12.407.048-39.016-.024-78.038.036-117.048-.127-1.732 1.516-3.163 3.2-3 4.456-.03 8.918-.06 13.374.012 1.86-.042 3.14 1.823 2.91 3.568-.018 39.263.048 78.527-.03 117.79.012 10.464-4.287 21.85-13.966 26.97-11.924 6.177-26.662 4.867-38.442-1.056-10.198-5.09-19.93-11.097-29.947-16.55C5.368 215.886.555 208.357.604 200.466V81.497c-.073-7.74 4.504-15.197 11.29-18.85C46.768 42.966 81.636 23.27 116.504 3.58z" /><path d="M146.928 85.99c15.21-.979 31.493-.58 45.18 6.913 10.597 5.742 16.472 17.793 16.659 29.566-.296 1.588-1.956 2.464-3.472 2.355-4.413-.006-8.827.06-13.24-.03-1.872.072-2.96-1.654-3.195-3.309-1.268-5.633-4.34-11.212-9.642-13.929-8.139-4.075-17.576-3.87-26.451-3.785-6.479.344-13.446.905-18.935 4.715-4.214 2.886-5.494 8.712-3.99 13.404 1.418 3.369 5.307 4.456 8.489 5.458 18.33 4.794 37.754 4.317 55.734 10.626 7.444 2.572 14.726 7.572 17.274 15.366 3.333 10.446 1.872 22.932-5.56 31.318-6.027 6.901-14.805 10.657-23.56 12.697-11.647 2.597-23.734 2.663-35.562 1.51-11.122-1.268-22.696-4.19-31.282-11.768-7.342-6.375-10.928-16.308-10.572-25.895.085-1.619 1.697-2.748 3.248-2.615 4.444-.036 8.888-.048 13.332.006 1.775-.127 3.091 1.407 3.182 3.08.82 5.367 2.837 11 7.517 14.182 9.032 5.827 20.365 5.428 30.707 5.591 8.568-.38 18.186-.495 25.178-6.158 3.689-3.23 4.782-8.634 3.785-13.283-1.08-3.925-5.186-5.754-8.712-6.95-18.095-5.724-37.736-3.647-55.656-10.12-7.275-2.571-14.31-7.432-17.105-14.906-3.9-10.578-2.113-23.662 6.098-31.765 8.006-8.06 19.563-11.164 30.551-12.275z" /></g></svg></div>
+                <a href="/integrations/nodejs.html" class="D(b) C(--color-text) Td(n):h">
+                    Node.js
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        
+    
+        
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 60.333 40.454" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M26.751 2.261c-1.674-2.879-5.861-2.879-7.535 0L.965 33.641c-1.674 2.879.419 6.479 3.768 6.479H18.98c-1.431-1.251-1.961-3.415-.878-5.271l13.822-23.693-5.173-8.895Z" fill="#80EEC0" /><path d="M38.315 9.144c1.386-2.355 4.851-2.355 6.237 0l15.103 25.675c1.386 2.356-.346 5.3-3.118 5.3H26.33c-2.772 0-4.504-2.944-3.119-5.3L38.315 9.144Z" fill="#00DC82" /></svg></div>
+                <a href="/integrations/nuxtjs.html" class="D(b) C(--color-text) Td(n):h">
+                    NuxtJS
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        
+    
+        
+    
+        
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 143.24 166.667" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M133.85 124.16c1.45 18.602 1.45 27.322 1.45 36.84H92.228c0-2.073.037-3.97.075-5.893.117-5.979.238-12.213-.731-24.803-1.282-18.432-9.225-22.528-23.83-22.528H0V74.24h69.792c18.449 0 27.673-5.608 27.673-20.456 0-13.056-9.224-20.968-27.673-20.968H0V0h77.479C119.245 0 140 19.712 140 51.2c0 23.552-14.605 38.912-34.335 41.472 16.655 3.328 26.392 12.8 28.185 31.488Z" fill="currentColor" /><path d="M0 161v-25h45.542c7.607 0 9.258 5.638 9.258 9v16H0Z" fill="currentColor" /></svg></div>
+                <a href="/integrations/remix.html" class="D(b) C(--color-text) Td(n):h">
+                    Remix
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        
+    
+        
+    
+        
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 166 155.3"><path d="M163 35S110-4 69 5l-3 1c-6 2-11 5-14 9l-2 3-15 26 26 5c11 7 25 10 38 7l46 9 18-30z" fill="#76b3e1" /><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="27.5" y1="3" x2="152" y2="63.5"><stop offset=".1" stop-color="#76b3e1" /><stop offset=".3" stop-color="#dcf2fd" /><stop offset="1" stop-color="#76b3e1" /></linearGradient><path d="M163 35S110-4 69 5l-3 1c-6 2-11 5-14 9l-2 3-15 26 26 5c11 7 25 10 38 7l46 9 18-30z" opacity=".3" fill="url(#a)" /><path d="m52 35-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z" fill="#518ac8" /><linearGradient id="b" gradientUnits="userSpaceOnUse" x1="95.8" y1="32.6" x2="74" y2="105.2"><stop offset="0" stop-color="#76b3e1" /><stop offset=".5" stop-color="#4377bb" /><stop offset="1" stop-color="#1f3b77" /></linearGradient><path d="m52 35-4 1c-17 5-22 21-13 35 10 13 31 20 48 15l62-21S92 26 52 35z" opacity=".3" fill="url(#b)" /><linearGradient id="c" gradientUnits="userSpaceOnUse" x1="18.4" y1="64.2" x2="144.3" y2="149.8"><stop offset="0" stop-color="#315aa9" /><stop offset=".5" stop-color="#518ac8" /><stop offset="1" stop-color="#315aa9" /></linearGradient><path d="M134 80a45 45 0 0 0-48-15L24 85 4 120l112 19 20-36c4-7 3-15-2-23z" fill="url(#c)" /><linearGradient id="d" gradientUnits="userSpaceOnUse" x1="75.2" y1="74.5" x2="24.4" y2="260.8"><stop offset="0" stop-color="#4377bb" /><stop offset=".5" stop-color="#1a336b" /><stop offset="1" stop-color="#1a336b" /></linearGradient><path d="M114 115a45 45 0 0 0-48-15L4 120s53 40 94 30l3-1c17-5 23-21 13-34z" fill="url(#d)" /></svg></div>
+                <a href="/integrations/solidjs.html" class="D(b) C(--color-text) Td(n):h">
+                    SolidJS
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        
+    
+        
+            <li class="Pos(r) Mx(0px) Mb(20px) Mb(0px)--md P(1rem) Bdrs(5px) Bgc(--ui-box-light) Bgc(--ui-box-dark):h Ta(c)">
+                <div class="W(60px) H(60px) Mb(10px)"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 98.1 118" style="enable-background:new 0 0 98.1 118" xml:space="preserve"><path d="M91.8 15.6C80.9-.1 59.2-4.7 43.6 5.2L16.1 22.8C8.6 27.5 3.4 35.2 1.9 43.9c-1.3 7.3-.2 14.8 3.3 21.3-2.4 3.6-4 7.6-4.7 11.8-1.6 8.9.5 18.1 5.7 25.4 11 15.7 32.6 20.3 48.2 10.4l27.5-17.5c7.5-4.7 12.7-12.4 14.2-21.1 1.3-7.3.2-14.8-3.3-21.3 2.4-3.6 4-7.6 4.7-11.8 1.7-9-.4-18.2-5.7-25.5" style="fill:#ff3e00" /><path d="M40.9 103.9c-8.9 2.3-18.2-1.2-23.4-8.7-3.2-4.4-4.4-9.9-3.5-15.3.2-.9.4-1.7.6-2.6l.5-1.6 1.4 1c3.3 2.4 6.9 4.2 10.8 5.4l1 .3-.1 1c-.1 1.4.3 2.9 1.1 4.1 1.6 2.3 4.4 3.4 7.1 2.7.6-.2 1.2-.4 1.7-.7L65.5 72c1.4-.9 2.3-2.2 2.6-3.8.3-1.6-.1-3.3-1-4.6-1.6-2.3-4.4-3.3-7.1-2.6-.6.2-1.2.4-1.7.7l-10.5 6.7c-1.7 1.1-3.6 1.9-5.6 2.4-8.9 2.3-18.2-1.2-23.4-8.7-3.1-4.4-4.4-9.9-3.4-15.3.9-5.2 4.1-9.9 8.6-12.7l27.5-17.5c1.7-1.1 3.6-1.9 5.6-2.5 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.2.9-.4 1.7-.7 2.6l-.5 1.6-1.4-1c-3.3-2.4-6.9-4.2-10.8-5.4l-1-.3.1-1c.1-1.4-.3-2.9-1.1-4.1-1.6-2.3-4.4-3.3-7.1-2.6-.6.2-1.2.4-1.7.7L32.4 46.1c-1.4.9-2.3 2.2-2.6 3.8s.1 3.3 1 4.6c1.6 2.3 4.4 3.3 7.1 2.6.6-.2 1.2-.4 1.7-.7l10.5-6.7c1.7-1.1 3.6-1.9 5.6-2.5 8.9-2.3 18.2 1.2 23.4 8.7 3.2 4.4 4.4 9.9 3.5 15.3-.9 5.2-4.1 9.9-8.6 12.7l-27.5 17.5c-1.7 1.1-3.6 1.9-5.6 2.5" style="fill:#fff" /></svg></div>
+                <a href="/integrations/sveltekit.html" class="D(b) C(--color-text) Td(n):h">
+                    SvelteKit
+                    <u class="StretchedBox"></u>
+                </a>
+            </li>
+        
+    
+        
+    
+        
+    
+</ul>
+
+<p><a href="/installation.html#integrations" class="D(ib) Mt(10px) Py(10px) Px(20px) Fz(14px) C(#fff) Bgc(--color-blue-1) Bdrs(10px) Bxsh(--shadow-1) Tsh(--shadow-2) Fw(b) Td(n):h">
+    See all of our guides »
+</a></p>
+
+<div class="D(f)--md Ac(sb) Mt(5rem)--sm Mb(2rem)--sm">
+    
+
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) BdT Bdc(--color-border-light) Fw(b) Pt(20px)">Getting Started</h3>
+
+    <ul class="M(0) P(0)">
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/quick-start.html">Quick Start</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/installation.html">Installation</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/editor-setup.html">Editor Setup</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/browser-support.html">Browser Support</a>
+        </li>
+    </ul>
+</div>
+
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) BdT Bdc(--color-border-light) Fw(b) Pt(20px)">Core Concepts</h3>
+
+    <ul class="M(0) P(0)">
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/thinking-in-atomic.html">Thinking in Atomic</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/guides/syntax.html">Class Syntax</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/guides/atomizer-classes.html">Atomizer Classes</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/guides/helper-classes.html">Helper Classes</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/guides/shorthand.html">Shorthand</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/guides/dark-mode.html">Dark Mode</a>
+        </li>
+    </ul>
+</div>
+
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) BdT Bdc(--color-border-light) Fw(b) Pt(20px)">Customization</h3>
+
+    <ul class="M(0) P(0)">
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/configuration.html">Configuration</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/content.html">Content</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/breakpoints.html">Breakpoints</a>
+        </li>
+        <li class="">
+            <a class="D(b) Td(n):h Py(5px) Pos(r)" href="/guides/custom-classes.html">Custom Classes</a>
+        </li>
+    </ul>
+</div>
+
+
+
+<div class="Fxg(1) Fxb(0)">
+    <h3 class="Fz(15px) BdT Bdc(--color-border-light) Fw(b) Pt(20px)">Community</h3>
+
+    <ul class="M(0) P(0)">
+        <li>
+            <a class="D(b) Py(5px)" href="https://github.com/acss-io/atomizer">GitHub</a>
+        </li>
+        <li>
+            <a class="D(b) Py(5px)" href="https://join.slack.com/t/atomiccss/shared_invite/zt-1cibei9yf-uzzDdDRLrLUgHkNDEFkjjw">Slack</a>
+        </li>
+        <li>
+            <a class="D(b) Py(5px)" href="https://twitter.com/atomiccss">Twitter</a>
+        </li>
+    </ul>
+</div>
+
+
+
+</div>
+</div>
+        </div>
+    </div>
+</div><footer id="footer" class="Bgc(--color-code-bg) Py(16px) Px(20px) BdT Bdc(--color-blue-5)">
+    <div class="D(f)--sm Ai(c) Jc(sb) Gp(10px) Mx(a)--sm Maw(1280px)--sm W(90%)--sm W(a)--sm">
+        <small>
+            All code on this site is licensed under the <a href="https://github.com/acss-io/atomizer/blob/main/LICENSE.md">Yahoo BSD License</a>, unless otherwise stated.<br>
+            © 2015 - present Yahoo Inc. All rights reserved.
+        </small>
+        <small class="D(b)--xs Mt(10px)--xs"><a href="https://github.com/acss-io/atomizer/tree/main/docs/index.md" target='_blank'>Edit this page on Github</a></small>
+    </div>
+</footer></body>
+
+    <script src="/assets/js/search.js" async></script>
+    <script src="/assets/js/page.js"></script>
+    <script src="/assets/js/copyCode.js"></script>
+    <script>
+        (function() {
+            // handle docs menu toggle
+            const toggleMenuButton = document.getElementById('toggleMenuButton');
+            toggleMenuButton?.addEventListener('click', () => {
+                const wrapper = document.getElementById('toggleMenuWrapper');
+                wrapper.classList.toggle('menu-on');
+                window.scrollTo(0, 0);
+            });
+
+            // handle home navigation toggle
+            const toggleNavButton = document.getElementById('toggleNavButton');
+            toggleNavButton?.addEventListener('click', () => {
+                const header = document.getElementById('header');
+                header.classList.toggle('nav-on');
+            });
+
+            // handle testimonial more toggle
+            const toggleTestButton = document.getElementById('toggleTestButton');
+            let currentScroll = 0;
+            toggleTestButton?.addEventListener('click', () => {
+                const wrapper = document.getElementById('testimonials');
+                wrapper.classList.toggle('expand');
+
+                // scroll back to top of testimonials when closed
+                if (!wrapper.classList.contains('expand')) {
+                    window.scrollTo(0, currentScroll);
+                    toggleTestButton.innerHTML = 'Expand...';
+                } else {
+                    currentScroll = window.pageYOffset;
+                    toggleTestButton.innerHTML = 'Collapse...';
+                }
+            });
+        }());
+    </script>
+</html>
