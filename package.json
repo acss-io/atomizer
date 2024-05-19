@@ -42,8 +42,8 @@
         "webpack:prod": "webpack --config webpack.config.js --config-name prod"
     },
     "engines": {
-        "node": ">=18.0",
-        "npm": ">=8.0"
+        "node": ">=20.0",
+        "npm": ">=10.0"
     },
     "workspaces": [
         "packages/*",
