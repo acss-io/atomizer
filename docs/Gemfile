@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 gem "kramdown-parser-gfm"
-gem "jekyll", "~> 4.3.1"
+gem "jekyll", ">= 4.x"
 gem "jekyll-toc"
 gem "webrick"
-gem "rouge", "~> 4.0.0"
+gem "rouge", ">= 4.x"
 
 group :jekyll_plugins do
   gem 'jekyll-seo-tag'
