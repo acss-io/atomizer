@@ -50,10 +50,10 @@
         "site"
     ],
     "devDependencies": {
-        "@babel/cli": "^7.24.1",
-        "@babel/core": "^7.24.3",
-        "@babel/eslint-parser": "^7.24.1",
-        "@babel/preset-env": "^7.24.3",
+        "@babel/cli": "^7.24.5",
+        "@babel/core": "^7.24.5",
+        "@babel/eslint-parser": "^7.24.5",
+        "@babel/preset-env": "^7.24.5",
         "@babel/preset-react": "^7.24.1",
         "@changesets/cli": "^2.27.1",
         "@lodder/grunt-postcss": "^3.1.1",
