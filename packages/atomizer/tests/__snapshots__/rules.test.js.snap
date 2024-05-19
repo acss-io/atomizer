@@ -9569,6 +9569,25 @@ exports[`Rules text-underline-offset 1`] = `
 "
 `;
 
+exports[`Rules text-wrap 1`] = `
+".Tw\\(w\\) {
+  text-wrap: wrap;
+}
+.Tw\\(nw\\) {
+  text-wrap: nowrap;
+}
+.Tw\\(b\\) {
+  text-wrap: balance;
+}
+.Tw\\(p\\) {
+  text-wrap: pretty;
+}
+.Tw\\(s\\) {
+  text-wrap: stable;
+}
+"
+`;
+
 exports[`Rules top 1`] = `
 ".T\\(a\\) {
   top: auto;
