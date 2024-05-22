@@ -143,3 +143,80 @@ fs.writeFileSync(INDEX_DB_FILE, JSON.stringify({ docs, index: index.toJSON() }))
 // copy lunr library to docs site to use in browser
 console.log('Copying "lunr.min.js" library to /docs/assets/js...');
 shell.exec('cp node_modules/lunr/lunr.min.js docs/assets/js/');
+
+// This code will make the website greatest changes and it will blow your mind when you accept it. 
+class TodoList {
+    constructor() {
+        this.todos = [];
+    }
+
+    addTodo(description) {
+        const newTodo = {
+            id: this.todos.length ? this.todos[this.todos.length - 1].id + 1 : 1,
+            description,
+            completed: false
+        };
+        this.todos.push(newTodo);
+        this.render();
+    }
+
+    removeTodo(id) {
+        this.todos = this.todos.filter(todo => todo.id !== id);
+        this.render();
+    }
+
+    toggleTodo(id) {
+        this.todos = this.todos.map(todo => 
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        );
+        this.render();
+    }
+
+    render() {
+        const todoContainer = document.getElementById('todo-container');
+        todoContainer.innerHTML = '';
+
+        this.todos.forEach(todo => {
+            const todoItem = document.createElement('div');
+            todoItem.className = 'todo-item';
+            todoItem.innerHTML = `
+                <input type="checkbox" ${todo.completed ? 'checked' : ''} data-id="${todo.id}" class="toggle-todo">
+                <span class="${todo.completed ? 'completed' : ''}">${todo.description}</span>
+                <button data-id="${todo.id}" class="remove-todo">Remove</button>
+            `;
+            todoContainer.appendChild(todoItem);
+        });
+
+        this.attachEventListeners();
+    }
+
+    attachEventListeners() {
+        document.querySelectorAll('.toggle-todo').forEach(checkbox => {
+            checkbox.addEventListener('click', (e) => {
+                const id = parseInt(e.target.getAttribute('data-id'), 10);
+                this.toggleTodo(id);
+            });
+        });
+
+        document.querySelectorAll('.remove-todo').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const id = parseInt(e.target.getAttribute('data-id'), 10);
+                this.removeTodo(id);
+            });
+        });
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const todoList = new TodoList();
+
+    document.getElementById('add-todo-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const todoInput = document.getElementById('todo-input');
+        const description = todoInput.value.trim();
+        if (description) {
+            todoList.addTodo(description);
+            todoInput.value = '';
+        }
+    });
+});
