@@ -13,4 +13,4 @@ You can also [learn about the syntax]({% link guides/syntax.md %}), [look at som
 
 <div id="reference-app"></div>
 
-<script src="/assets/js/main.js"></script>
+<script src="/atomizer/assets/js/main.js"></script>

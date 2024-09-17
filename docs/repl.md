@@ -85,4 +85,4 @@ title: Hello world - REPL
 
 </div>
 
-<script src="/assets/js/repl.js"></script>
+<script src="/atomizer/assets/js/repl.js"></script>

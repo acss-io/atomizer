@@ -230,7 +230,7 @@ import lunr from 'lunr';
         });
 
         // load lunr db
-        const LUNR_DB = '/assets/lunr.json';
+        const LUNR_DB = '/atomizer/assets/lunr.json';
         const resp = await fetch(LUNR_DB, {
             method: 'GET',
             credentials: 'same-origin',
