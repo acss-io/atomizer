@@ -5,6 +5,7 @@ gem "jekyll", ">= 4.x"
 gem "jekyll-toc"
 gem "webrick"
 gem "rouge", ">= 4.x"
+gem 'faraday-retry'
 
 group :jekyll_plugins do
   gem 'jekyll-seo-tag'
