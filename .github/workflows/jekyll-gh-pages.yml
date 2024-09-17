@@ -44,15 +44,15 @@ jobs:
           working-directory: ./docs
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./_site
       # - name: Build with Jekyll
-      #   run: bundle exec jekyll build -s ./docs -b "${{ steps.pages.outputs.base_path }}"
-      #   env:
-      #     JEKYLL_ENV: production
+      #   uses: actions/jekyll-build-pages@v1
+      #   with:
+      #     source: ./docs
+      #     destination: ./_site
+      - name: Build with Jekyll
+        run: cd docs && bundle exec jekyll build -s ./docs -b "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
