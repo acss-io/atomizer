@@ -35,15 +35,27 @@ jobs:
         run: npm install
       - name: Build code
         run: npm run build
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3' # Not needed with a .ruby-version file
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          cache-version: 0 # Increment this number if you need to re-download cached gems
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      # - name: Build with Jekyll
+      #   uses: actions/jekyll-build-pages@v1
+      #   with:
+      #     source: ./docs
+      #     destination: ./_site
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./_site
+        run: bundle exec jekyll build -s ./docs -b "${{ steps.pages.outputs.base_path }}"
+        env:
+          JEKYLL_ENV: production
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
 
   # Deployment job
   deploy:
