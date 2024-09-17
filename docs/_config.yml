@@ -1,7 +1,7 @@
 title: Atomizer
 description: 'An unopinionated CSS utility library for modern websites.'
 destination: ./_site
-baseurl: '/'
+baseurl: '/atomizer/'
 disable_disk_cache: true
 logo: https://acss.io/images/android-chrome-512x512.png
 markdown: kramdown
@@ -11,7 +11,7 @@ defaults:
           path: ''
       values:
           githubDocsPath: 'https://github.com/acss-io/atomizer/tree/main/docs/'
-          image: https://acss.io/images/background.png
+          image: https://acss-io.github.io/atomizer/images/background.png
           toc: true
 plugins:
     - jekyll-seo-tag
