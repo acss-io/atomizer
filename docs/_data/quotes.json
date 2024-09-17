@@ -1,7 +1,7 @@
 [
     {
         "author": "Thierry Koblentz",
-        "companyLogo": "<img src=\"/images/thierry.jpg\" alt=\"Thierry Koblentz Picture\" class=\"W(50px) Bdrs(50px)\" />",
+        "companyLogo": "<img src=\"/atomizer/images/thierry.jpg\" alt=\"Thierry Koblentz Picture\" class=\"W(50px) Bdrs(50px)\" />",
         "link": "https://twitter.com/7h1322yk0813n72",
         "role": "Atomizer Co-Creator",
         "quote": "We released Atomizer almost 10 years ago and to this day it is used on massive web sites by huge front-end teams. If your project calls for an Atomic CSS library, make sure to give it a try."

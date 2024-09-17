@@ -11,7 +11,7 @@ layout: home
         </p>
         <p class="Fz(1.1rem)--md">Atomizer is not opinionated, brings no CSS of its own and integrates nicely with your favorite task runner.</p>
     </div>
-    <img src="/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
+    <img src="/atomizer/images/atomic-demo.gif" class="Ar(174/83) W(70%)--md" alt="Atomizer demo">
 </div>
 
 <h2 class="Fz(2.25rem)--md Mt(5em)--md Mb(0px)">Testimonials</h2>
