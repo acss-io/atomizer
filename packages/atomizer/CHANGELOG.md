@@ -310,13 +310,13 @@ The `writing-mode` CSS property sets whether lines of text are laid out horizont
 
 ### Minor Changes
 
--   4729532: feat: We have a new `content` option property as part of the `atomizer.config.js` file. Which lets you configure various paths to source files for your project. Please take a look at the [Content guide](https://acss.io/content.html) for more info.
+-   4729532: feat: We have a new `content` option property as part of the `atomizer.config.js` file. Which lets you configure various paths to source files for your project. Please take a look at the [Content guide](https://acss-io.github.io/atomizer/content.html) for more info.
 
 ## 3.17.0
 
 ### Minor Changes
 
--   f4dffac: feat: add scroll snap support. Read the [Scroll Snap](https://acss.io/tutorials/scroll.html) docs for details and examples.
+-   f4dffac: feat: add scroll snap support. Read the [Scroll Snap](https://acss-io.github.io/atomizer/tutorials/scroll.html) docs for details and examples.
 
 ## 3.16.2
 
@@ -340,7 +340,7 @@ The `writing-mode` CSS property sets whether lines of text are laid out horizont
 
 #### New Classes
 
--   389b42e: feat: Updated the box alignment logic to match the spec. Check out the [Alignment guide](https://acss.io/tutorials/alignment.html) for more info
+-   389b42e: feat: Updated the box alignment logic to match the spec. Check out the [Alignment guide](https://acss-io.github.io/atomizer/tutorials/alignment.html) for more info
 -   3b44d94: feat: Added `outline-offset` rule
 -   5b2f69c: feat: Added blend modes
 -   2b0409a: feat: Added missing pseudo elements

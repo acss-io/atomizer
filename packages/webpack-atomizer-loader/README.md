@@ -1,6 +1,6 @@
 # webpack-atomizer-loader [![npm version](https://badge.fury.io/js/webpack-atomizer-loader.svg)](http://badge.fury.io/js/webpack-atomizer-loader)
 
-[Webpack loader](https://webpack.js.org/concepts/loaders) for compiling [Atomic CSS](https://acss.io).
+[Webpack loader](https://webpack.js.org/concepts/loaders) for compiling [Atomic CSS](https://acss-io.github.io/atomizer).
 
 ## Table of Contents
 

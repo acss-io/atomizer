@@ -119,7 +119,7 @@ selector {  property: value  }
 
 The generation process involves 2 main parts:
 
-1. **Rules & Helpers**: All CSS rules available in Atomizer. Atomic rules will map to valid standards-compliant CSS properties. Helpers are rules not related to a single CSS property, but it usually bundles some useful features you will repeteadly find in common CSS constructs (e.g. `Cf` for clearfix, `Hidden` to visually hide content from sighted users but available to screen-readers, `LineClamp` and `Ellipsis` to add ellipsis to lines of text). Both rules and helpers follow the same syntax, read our [guide](https://acss.io/guides/custom-classes.html#rule-options) for more info.
+1. **Rules & Helpers**: All CSS rules available in Atomizer. Atomic rules will map to valid standards-compliant CSS properties. Helpers are rules not related to a single CSS property, but it usually bundles some useful features you will repeteadly find in common CSS constructs (e.g. `Cf` for clearfix, `Hidden` to visually hide content from sighted users but available to screen-readers, `LineClamp` and `Ellipsis` to add ellipsis to lines of text). Both rules and helpers follow the same syntax, read our [guide](https://acss-io.github.io/atomizer/guides/custom-classes.html#rule-options) for more info.
 
 Examples:
 
@@ -161,11 +161,11 @@ Examples:
 }
 ```
 
-2. [Configuration](https://acss.io/configuration.html): This is the actual source of truth for Atomizer when creating the CSS. It is a simple JS object containing 4 keys: `custom`, `breakPoints`, `classNames`, and `exclude`. The configuration file will come from the consumer of Atomizer. It can be manually passed, automatically generated after scanning files or a mix of both (e.g. Manually create a config file, define some custom classes, and let the tool find the classes in my project and merge the results in a final config output). Please note that classes defined in `custom` won't be generated in the final CSS unless they are **used** (passed in `classNames`).
+2. [Configuration](https://acss-io.github.io/atomizer/configuration.html): This is the actual source of truth for Atomizer when creating the CSS. It is a simple JS object containing 4 keys: `custom`, `breakPoints`, `classNames`, and `exclude`. The configuration file will come from the consumer of Atomizer. It can be manually passed, automatically generated after scanning files or a mix of both (e.g. Manually create a config file, define some custom classes, and let the tool find the classes in my project and merge the results in a final config output). Please note that classes defined in `custom` won't be generated in the final CSS unless they are **used** (passed in `classNames`).
 
 Please see the [example config file](https://github.com/acss-io/atomizer/blob/main/examples/atomizer.config.js) as it contains useful comments to understand what each key does.
 
 [bsd license]: https://github.com/acss-io/atomizer/blob/main/LICENSE.md
 [monorepo]: https://en.wikipedia.org/wiki/Monorepo
-[support]: https://acss.io/support.html
+[support]: https://acss-io.github.io/atomizer/support.html
 [workspaces]: https://docs.npmjs.com/cli/v8/using-npm/workspaces

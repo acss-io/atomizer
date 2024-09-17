@@ -3,7 +3,7 @@ description: 'An unopinionated CSS utility library for modern websites.'
 destination: ./_site
 baseurl: '/atomizer/'
 disable_disk_cache: true
-logo: https://acss.io/images/android-chrome-512x512.png
+logo: https://acss-io.github.io/atomizer/images/android-chrome-512x512.png
 markdown: kramdown
 highlighter: rouge
 defaults:

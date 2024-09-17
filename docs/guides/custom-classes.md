@@ -259,7 +259,7 @@ An `object` of custom rules used by helper classes. `rules` can be defined if th
     type: 'helper',
     name: 'Ellipsis',
     description: 'Use to create a one-liner with ellipsis (in browsers that support text-overflow:ellipsis).',
-    link: 'https://acss.io/guides/helper-classes.html#-ell-ellipsis-',
+    link: 'https://acss-io.github.io/atomizer/guides/helper-classes.html#-ell-ellipsis-',
     matcher: 'Ell',
     noParams: true,
     styles: {

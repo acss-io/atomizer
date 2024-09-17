@@ -37,7 +37,7 @@
         "author": "Max Heiber",
         "link": "https://twitter.com/maxheiber/status/1334247383455117321?s=20&t=yMffS2mp0eK9GhavtsYX1Q",
         "role": "@maxheiber",
-        "quote": "Atomic CSS tickles me: https://acss.io. It's a DSL that you write in class names. Atomizer makes the browser understand the subset you use. There's potential to take this much further"
+        "quote": "Atomic CSS tickles me: https://acss-io.github.io/atomizer. It's a DSL that you write in class names. Atomizer makes the browser understand the subset you use. There's potential to take this much further"
     },
     {
         "author": "Peter Hecker",
