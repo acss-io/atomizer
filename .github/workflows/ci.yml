@@ -59,31 +59,3 @@ jobs:
                   npm run deploy -w atomic-css-snippets
               env:
                   VSCE_PAT: ${{ secrets.VSCE_PAT }}
-    site:
-        runs-on: ubuntu-latest
-        if: "${{ github.repository_owner == 'acss-io' && github.event_name == 'push' }}"
-        steps:
-            - name: Checkout code
-              uses: actions/checkout@v4
-            - name: Setup node
-              uses: actions/setup-node@v4
-              with:
-                  node-version: 20
-            - name: Install Dependencies
-              run: npm install
-            - name: Build code
-              run: npm run build
-            # Use GitHub Actions' cache to shorten build times and decrease load on servers
-            - name: Setup vendor cache
-              uses: actions/cache@v2
-              with:
-                  path: vendor/bundle
-                  key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile') }}
-                  restore-keys: |
-                      ${{ runner.os }}-gems-
-            - name: Deploy to GitHub pages
-              uses: helaili/jekyll-action@v2
-              with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  jekyll_src: 'docs'
-                  target_branch: 'gh-pages'
