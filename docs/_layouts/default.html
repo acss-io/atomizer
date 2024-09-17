@@ -21,9 +21,9 @@
         {%- include footer.html -%}
     </body>
 
-    <script src="/assets/js/search.js" async></script>
-    <script src="/assets/js/page.js"></script>
-    <script src="/assets/js/copyCode.js"></script>
+    <script src="{{ "/assets/js/search.js" | relative_url }}" async></script>
+    <script src="{{ "/assets/js/page.js" | relative_url }}"></script>
+    <script src="{{ "/assets/js/copyCode.js" | relative_url }}"></script>
     <script>
         (function() {
             // handle docs menu toggle
