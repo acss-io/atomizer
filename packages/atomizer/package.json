@@ -37,7 +37,7 @@
     "preferGlobal": true,
     "dependencies": {
         "chalk": "^4.0.0",
-        "chokidar": "^3.5.3",
+        "chokidar": "^4.0.1",
         "commander": "^11.1.0",
         "glob": "^10.3.12",
         "lodash": "^4.17.21",
