@@ -10033,6 +10033,9 @@ exports[`Rules word-wrap 1`] = `
 .Wow\\(n\\) {
   word-wrap: normal;
 }
+.Wow\\(a\\) {
+  word-wrap: anywhere;
+}
 "
 `;
 

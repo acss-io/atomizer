@@ -4430,6 +4430,7 @@ module.exports = [
             {
                 bw: 'break-word',
                 n: 'normal',
+                a: 'anywhere'
             },
         ],
     },
