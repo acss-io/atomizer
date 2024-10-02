@@ -4428,6 +4428,7 @@ module.exports = [
         },
         arguments: [
             {
+                a: 'anywhere',
                 bw: 'break-word',
                 n: 'normal',
             },

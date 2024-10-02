@@ -10027,7 +10027,10 @@ exports[`Rules word-break 1`] = `
 `;
 
 exports[`Rules word-wrap 1`] = `
-".Wow\\(bw\\) {
+".Wow\\(a\\) {
+  word-wrap: anywhere;
+}
+.Wow\\(bw\\) {
   word-wrap: break-word;
 }
 .Wow\\(n\\) {
