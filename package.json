@@ -79,7 +79,7 @@
         "fluxible-addons-react": "^1.2.0",
         "glob": "^10.3.12",
         "grunt": "^1.5.3",
-        "grunt-cli": "^1.4.3",
+        "grunt-cli": "^1.5.0",
         "grunt-contrib-clean": "^2.0.0",
         "grunt-contrib-nodeunit": "^5.0.0",
         "husky": "^9.0.11",
