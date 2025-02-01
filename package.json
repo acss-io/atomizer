@@ -55,7 +55,7 @@
         "@babel/eslint-parser": "^7.24.5",
         "@babel/preset-env": "^7.24.5",
         "@babel/preset-react": "^7.24.1",
-        "@changesets/cli": "^2.27.11",
+        "@changesets/cli": "^2.27.12",
         "@lodder/grunt-postcss": "^3.1.1",
         "@types/core-js": "^2.5.8",
         "@types/jest": "^29.5.12",
