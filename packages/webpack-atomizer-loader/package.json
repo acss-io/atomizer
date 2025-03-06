@@ -23,7 +23,7 @@
     "license": "MIT",
     "dependencies": {
         "atomizer": "^3.22.0",
-        "cssnano": "^6.0.2",
+        "cssnano": "^7.0.6",
         "postcss": "^8.4.32"
     },
     "repository": {
