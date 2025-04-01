@@ -42,7 +42,7 @@
         "glob": "^10.3.12",
         "lodash": "^4.17.21",
         "minimatch": "^9.0.4",
-        "xregexp": "^5.1.0"
+        "xregexp": "^5.1.2"
     },
     "repository": {
         "directory": "packages/atomizer",
