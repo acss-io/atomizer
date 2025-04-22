@@ -1,5 +1,5 @@
 ---
-"postcss-atomizer": patch
+"postcss-atomizer": major
 ---
 
-BREAKING CHANGE: postcss atomizer to avoid duplicate CSS
+fix: postcss atomizer to avoid duplicate CSS
