@@ -12,7 +12,7 @@ module.exports = (options = {}) => {
     return {
         postcssPlugin: 'postcss-atomizer',
         Root(root, { result }) {
-            root.walkAtRules('atomizer', atRule => {
+            root.walkAtRules('atomizer', (atRule) => {
                 const config = getConfig(finalOptions.config);
                 const files = findFiles(config.content);
 
