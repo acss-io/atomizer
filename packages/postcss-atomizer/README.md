@@ -23,6 +23,13 @@ module.exports = {
 };
 ```
 
+Add a css file for where atomic styling will live
+
+```css
+/* atomizer.css */
+@atomizer;
+```
+
 The plugin will automatically execute Atomizer based on your project's [`atomizer.config.js`](https://acss-io.github.io/atomizer/configuration.html) file and pass the rendered CSS to any additional plugins you configure.
 
 ### Options
