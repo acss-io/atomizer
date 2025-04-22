@@ -30,6 +30,13 @@ module.exports = {
 
 <p class="noteBox info">Option information and an example is available in the <a href="https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer">postcss-atomizer</a> repository.</p>
 
+## Add Atomizer to your main.css file
+
+```css
+/* main.css */
+@atomizer;
+```
+
 ## Start your dev setup
 
 Run your build setup as configured in your project's `./package.json`.

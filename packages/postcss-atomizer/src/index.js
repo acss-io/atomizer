@@ -12,21 +12,23 @@ module.exports = (options = {}) => {
     return {
         postcssPlugin: 'postcss-atomizer',
         Root(root, { result }) {
-            const config = getConfig(finalOptions.config);
-            const files = findFiles(config.content);
+            root.walkAtRules('atomizer', (atRule) => {
+                const config = getConfig(finalOptions.config);
+                const files = findFiles(config.content);
 
-            // register dependency so atomizer is re-run when the file changes
-            // @see https://postcss.org/docs/writing-a-postcss-plugin#step-change-nodes
-            for (const file of files) {
-                result.messages.push({
-                    file: resolve(file),
-                    parent: result.opts.from,
-                    plugin: 'atomizer',
-                    type: 'dependency',
-                });
-            }
+                // register dependency so atomizer is re-run when the file changes
+                // @see https://postcss.org/docs/writing-a-postcss-plugin#step-change-nodes
+                for (const file of files) {
+                    result.messages.push({
+                        file: resolve(file),
+                        parent: result.opts.from,
+                        plugin: 'atomizer',
+                        type: 'dependency',
+                    });
+                }
 
-            root.append(buildAtomicCss(files, config, finalOptions));
+                atRule.replaceWith(buildAtomicCss(files, config, finalOptions));
+            });
         },
     };
 };
