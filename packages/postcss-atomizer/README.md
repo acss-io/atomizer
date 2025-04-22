@@ -23,7 +23,7 @@ module.exports = {
 };
 ```
 
-Add a css file for where atomic styling will live
+Create a css file for the generated atomizer CSS:
 
 ```css
 /* atomizer.css */
