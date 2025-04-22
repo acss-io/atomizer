@@ -1,5 +1,11 @@
 # postcss-atomizer
 
+## 2.0.0
+
+### Major Changes
+
+-   286f094: fix: postcss atomizer to avoid duplicate CSS
+
 ## 1.0.2
 
 ### Patch Changes
