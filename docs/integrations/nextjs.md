@@ -55,6 +55,22 @@ module.exports = {
 
 <p class="noteBox info">Plugin options are available in the <a href="https://github.com/acss-io/atomizer/tree/main/packages/postcss-atomizer">postcss-atomizer</a> README.</p>
 
+## Create the atomizer css file
+
+```css
+/* atomizer.css */
+@atomizer;
+```
+
+## Reference the atomizer.css from your Layout
+
+Update the `./src/app/layout.js` to use the Atomizer css
+
+```js
+import './atomizer.css';
+// ...
+```
+
 ## Begin using Atomizer
 
 Update the `./src/app/page.js` file to start adding Atomizer classes to your code base.
