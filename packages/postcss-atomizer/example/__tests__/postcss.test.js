@@ -4,7 +4,7 @@ const { join } = require('path');
 
 describe('postcss', () => {
     it('should create post css', async () => {
-        const input = '/* dummy test */';
+        const input = '/* dummy test */@atomizer';
         const output = '';
         const atomizer = atomizerPlugin({
             config: join(__dirname, '..', 'atomizer.config.js'),
