@@ -74,21 +74,26 @@ JSS.extractProperties = function (extracted /*:Extracted*/, jss /*:JssFlat*/, bl
 };
 
 // combine selectors in an extracted object
+// Optimized from O(n²) to O(n) using inverted hash approach (#234)
 JSS.combineSelectors = function (extracted /*:Extracted*/) /*:Extracted*/ {
     let extracts;
     for (const block in extracted) {
         extracts = extracted[block];
+        // Use an inverted hash where key is "prop:value" and value is the first index with that combination
+        const propValueMap = {};
+
         for (let i = 0, l = extracts.length; i < l; i += 1) {
-            for (let j = i + 1; j < l; j += 1) {
-                // combine if prop and value match
-                if (extracts[i].prop === extracts[j].prop && extracts[i].value === extracts[j].value) {
-                    if (extracts[j].selector) {
-                        extracts[i].selector += `, ${extracts[j].selector}`;
-                    } else {
-                        extracts[i].selector = false;
-                    }
-                    extracts[j].selector = false; // marking for removal
-                }
+            const extract = extracts[i];
+            if (!extract.selector) continue;
+
+            const key = `${extract.prop}:${extract.value}`;
+
+            if (propValueMap[key] !== undefined) {
+                const firstIndex = propValueMap[key];
+                extracts[firstIndex].selector += `, ${extract.selector}`;
+                extract.selector = false; // marking for removal
+            } else {
+                propValueMap[key] = i;
             }
         }
     }
