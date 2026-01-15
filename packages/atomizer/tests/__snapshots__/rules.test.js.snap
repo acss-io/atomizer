@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Rules -webkit-overflow-scrolling 1`] = `
 ".Ovs\\(a\\) {
@@ -691,7 +691,10 @@ exports[`Rules appearance 1`] = `
 `;
 
 exports[`Rules aspect-ratio 1`] = `
-".Ar\\(1\\/1\\) {
+".Ar\\(1px\\) {
+  aspect-ratio: 1px;
+}
+.Ar\\(1\\/1\\) {
   aspect-ratio: 1/1;
 }
 "
