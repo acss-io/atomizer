@@ -4,6 +4,22 @@ import type { Options } from './types';
 import { outputFile } from 'fs-extra';
 import { debounce } from 'lodash-es';
 
+// Binary and non-text file extensions to skip (#609)
+const BINARY_EXTENSIONS = [
+    '.png', '.jpg', '.jpeg', '.gif', '.webp', '.ico', '.bmp', '.tiff', '.tif',
+    '.svg', '.woff', '.woff2', '.ttf', '.otf', '.eot',
+    '.mp3', '.mp4', '.wav', '.ogg', '.webm', '.avi', '.mov',
+    '.pdf', '.zip', '.tar', '.gz', '.rar', '.7z',
+    '.exe', '.dll', '.so', '.dylib',
+    '.map', '.lock'
+];
+
+// Check if file is binary based on extension
+function isBinaryFile(id: string): boolean {
+    const ext = id.substring(id.lastIndexOf('.')).toLowerCase();
+    return BINARY_EXTENSIONS.includes(ext);
+}
+
 export const unplugin = createUnplugin<Options>((options) => {
     const atomizer = new Atomizer({
         verbose: options.verbose,
@@ -40,6 +56,11 @@ export const unplugin = createUnplugin<Options>((options) => {
         transform(code, id) {
             // Skip css files as atomizer classes do not exist there
             if (id.includes('.css') || id.includes('.scss')) {
+                return null;
+            }
+
+            // Skip binary files to prevent corruption (#609)
+            if (isBinaryFile(id)) {
                 return null;
             }
 
