@@ -65,7 +65,7 @@
         "babel-loader": "^9.2.1",
         "browserslist": "^4.22.2",
         "chai": "^4.3.9",
-        "codemirror": "^5.65.7",
+        "codemirror": "^6.0.2",
         "concurrently": "^8.2.2",
         "coveralls": "^3.1.1",
         "cssnano": "^7.0.6",
