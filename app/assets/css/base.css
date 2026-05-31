@@ -130,10 +130,7 @@ img {
     vertical-align: bottom; /* 2 */
 }
 
-.textarea {
-    overflow-x: hidden;
-}
-
+.textarea,
 pre,
 textarea {
     overflow-x: auto;
